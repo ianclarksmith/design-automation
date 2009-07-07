@@ -1056,7 +1056,7 @@ if __name__ == "__main__":
     #x.import_data("C:\\Test\\grid.csv")
     #x.reset()
     #x.save("C:\\Test\\grid.grd")
-    #x.show()
+    x.show()
     #print x.get_average()
     #print x.get_axis()
     #x.set_axis(1)

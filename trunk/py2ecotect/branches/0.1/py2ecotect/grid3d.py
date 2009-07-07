@@ -226,9 +226,186 @@ class Grid3D(object):
         """
         arg_str = StringUtil._convert_args_to_string("get.grid3d.index", x, y, z)
         val = py2ecotect.conversation.Request(arg_str)
-        print val
-        #return StringUtil._convert_str_to_list(val, float, int)
+        return StringUtil._convert_str_to_list(val, float, float, float, bool)
 
+    def get_position(self, i, j, k):
+        """
+        
+        Returns the x, y and z coordinate of the grid node given by the i, i, k 
+        parameters. This function is necessary because the spacing between cells 
+        in each axis can be set to any value by the user. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        i, j, k 
+        The 3D index of a cell within the analysis grid. Each must be an integer 
+        between 0 and the current grid size - 1 in the relevant grid axis. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the grid node 
+        in 3 dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.grid3d.position", i, 
+                                                     j, k)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def get_state(self, i, j, k):
+        """
+        
+        Retrieves the state of the specified grid cell. The state of a 3D cell 
+        stores whether it is hidden or has been interactively selected by the 
+        user. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        i, j, k 
+        The 3D index of a cell within the analysis grid. Each must be an integer 
+        between 0 and the current grid size - 1 in the relevant grid axis. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        state 
+        the state of the specified grid cell. The possible values returned are 
+        shown in the following Grid Cell State Codes table. 
+        
+        Relevant Data Table(s)
+        Grid Cell State Codes 
+        Value Description 
+        1 Visible and selected. 
+        0 Visible but not selected. 
+        -99 Disabled. 
+        -100 Hidden. 
+        -100 Hidden and selected 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("get.grid3d.state", i, 
+                                                     j, k)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def set_state(self, i, j, k, state):
+        """
+        
+        Sets the state of the specified grid cell. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        i, j, k 
+        The 3D index of a cell within the analysis grid. Each must be an integer 
+        between 0 and the current grid size - 1 in the relevant grid axis. 
+        
+        state 
+        Determines if the cell is hidden or not, and if it has been 
+        interactively selected by the user. The range of possible values are 
+        given in the following Grid Cell State Codes table. 
+        
+        Relevant Data Table(s)
+        
+        Grid Cell State Codes 
+        Value Description 
+        1 Visible and selected. 
+        0 Visible but not selected. 
+        -99 Disabled. 
+        -100 Hidden. 
+        -100 Hidden and selected. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("set.grid3d.state", i, j, 
+                                                     k, state)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_value(self, x, y, z, index = 0):
+        """
+        
+        Returns the interpolated value for the point given by the x, y, z 3D 
+        world coordinates. This function is necessary because the spacing 
+        between cells in each axis can be set to any value by the user. In 
+        addition to the value returned is a boolean (0 or 1) value specifying if 
+        the point is actually within the bounded grid volume. Thus, before using 
+        the value, first check it is valid, as shown in the example code. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of a point in 3 
+        dimensional model space. 
+        
+        [index] 
+        Each grid cell has up to 3 slots to store different values. The optional 
+        [index] parameter specifies which particular slot value to retrieve, and 
+        can be 0, 1 or 2. If the [index] parameter is not specified, the 
+        currently displayed index is used by default. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        The interpolated value stored within the grid cell. 
+        
+        valid 
+        A boolean (0 or 1) value specifying if the node is actually within the 
+        bounded grid volume.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.grid3d.value", x, y, 
+                                                     z, index)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, int, bool)
+
+    def get_vector(self, i, j, k):
+        """
+        
+        Retrieves the vector value stored in the specified 3D grid cell. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        i, j, k 
+        The 3D index of a cell within the analysis grid. Each must be an integer 
+        between 0 and the current grid size - 1 in the relevant grid axis. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        dx, dy, dz 
+        A value representing the offset distance in each of the X, Y and Z axis, 
+        given in model coordinates. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.grid3d.vector", i, j, k)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def set_vector(self, i, j, k, dx, dy, dz):
+        """
+        
+        Sets the vector value for the specified 3D grid cell. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        i, j, k 
+        The 3D index of a cell within the analysis grid. Each must be an integer 
+        between 0 and the current grid size - 1 in the relevant grid axis. 
+        
+        dx, dy, dz 
+        A value representing the offset distance in each of the X, Y and Z axis, 
+        given in model coordinates. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("set.grid3d.vector", i, j, 
+                                                     k, dx, dy, dz)
+        py2ecotect.conversation.Exec(arg_str)
 
 
 
@@ -241,9 +418,15 @@ if __name__ == "__main__":
     #x.getframe(4)
     #x.reset()
     #x.get_blockage(5, 3, 4, 64)
-    print x.get_cell(15, 25, 4)
+    #print x.get_cell(15, 25, 4)
     #x.set_cell(15, 25, 4, 0.32)
-    x.get_index(5500.0, 2500.0, 1800.0)
+    #x.get_index(5500.0, 2500.0, 1800.0)
+    #print x.get_position(21, 34, 12)
+    #print x.get_state(12, 15, 7)
+    #x.set_state(12, 15, 7, -99)
+    #print x.get_value(5500.0, 2500.0, 1800.0, 0)
+    #print x.get_vector(24, 42, 12)
+    #x.set_vector(24, 42, 12, 0, -230, -900)
     
     
     
