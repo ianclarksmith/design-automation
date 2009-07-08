@@ -240,15 +240,151 @@ class Node(object):
         val = py2ecotect.conversation.Request(arg_str)
         return StringUtil._convert_str_to_type(val, int)
 
+    def get_flag(self, node, flag):
+        """
+        
+        Gets the state of individual node flags. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be checked. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        state 
+        The boolean state of the selected bitwise flag. If set, the value is 1, 
+        if not it is 0. The table below gives the bitwise values of each 
+        available node flag. 
+        
+        Relevant Data Table(s)
+        table_NodeFlags.txt
 
+        """
+        arg_str = StringUtil._convert_args_to_string("node.flag", node)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, bool)
+        
+    def set_flag(self, node, flag, state = True):
+        """
+        
+        Sets individual flags that control the display of attribute values. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be set. 
+        
+        flag 
+        This parameter specifies the bitwise flag to be set or cleared. 
+        
+        [state] 
+        This parameter determines whether the flag is to be set or cleared. This 
+        is a boolean value where 1 or true represents the affirmative and 0 or 
+        false the negative. If not included, it defaults to true. 
+        
+        Relevant Data Table(s)
+        table_NodeFlags.txt
 
+        """
+        arg_str = StringUtil._convert_args_to_string("set.node.flag", flag, state) 
+        py2ecotect.conversation.Exec(arg_str)
 
+    def get_flags(self, node):
+        """
+        
+        Retrieves a value representing the total of all the node's flags. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be checked. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        flags 
+        The bitwise total of all the flags currently set. The table below gives 
+        the bitwise values of each available node flag. 
+        
+        Relevant Data Table(s)
+        table_NodeFlags.txt
+      
+        """
+        arg_str = StringUtil._convert_args_to_string("node.flags", node)
+        val = py2ecotect.conversation.Request(arg_str)
+        print val
+        return StringUtil._convert_str_to_type(val, bool)
+        
+    def get_link(self, node):
+        """
+        
+        Gets the node or object this node is linked to. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be checked. 
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        link 
+        The zero-based index of the object or node to which the specified node is linked.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("node.link", node)
+        val = py2ecotect.conversation.Request(arg_str)
+        print val
+        return StringUtil._convert_str_to_type(val, int)
 
+    def set_link(self, node, link):
+        """
+        
+        Sets individual flags that control the display of attribute values. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be set. 
+        
+        link 
+        The zero-based index of the object or node to which the specified node 
+        is to be linked.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.node.link", node, link)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_modifier(self, node):
+        """
+        Gets the node modifier value. This is decimal value whose use depends on 
+        the inter-node relationships to which this node is a party. Typically it 
+        stores the relative offset along the extrusion vector when it is part of 
+        an object created from the extrusion of a parent. For non-linked object, 
+        you are free to use it for anything you wish. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be checked. 
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        mod 
+        The decimal value of the node modifier.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("node.modifier", node)
+        val = py2ecotect.conversation.Request(arg_str)
+        print val
+        return StringUtil._convert_str_to_type(val, float)
 
 
 
@@ -292,6 +428,12 @@ if __name__ == "__main__":
     
     x.move(101, 0, 0, 1500)
     #print x.add_node(102, 3, 1000, 2000, 0,)
+    #print x.get_flag(104, "text")
+    #x.set_flag(101, "text", "False")
+    #print x.get_flags(104)
+    #print x.get_link(437)
+    #x.set_link(104, 25)
+    x.get_modifier(99)
     
     
     

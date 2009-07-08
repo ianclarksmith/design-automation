@@ -65,7 +65,7 @@ def set_flag(flag, state = True):
     """
     arg_str = StringUtil._convert_args_to_string("set.attribute.flag", flag, 
                                                  state)
-    py2py2ecotect.conversation.Exec(arg_str)
+    py2ecotect.conversation.Exec(arg_str)
 
 def get_flags():
     """
