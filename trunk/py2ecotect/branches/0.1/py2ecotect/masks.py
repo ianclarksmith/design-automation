@@ -118,7 +118,7 @@ class Masks(object):
         
         """
         arg_str = StringUtil._convert_args_to_string("add.mask", object)
-        val = py2ecotect.conversation.Request("add.mask")
+        val = py2ecotect.conversation.Request(arg_str)
         return StringUtil._convert_str_to_type(val, int)
 
     def get_count(self):
@@ -447,7 +447,7 @@ if __name__ == "__main__":
     #x.load()
     #x.save()
     #x.update(1)
-    #print x.add_mask(99)
+    print x.add_mask(3)
     #print x.get_count()
     #print x.get_data(4, 9, 8)
     #x.set_data(4, 9, 8, 0.225)
