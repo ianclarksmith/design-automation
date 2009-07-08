@@ -1029,7 +1029,7 @@ class Material(object):
         W/m.K. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.conductivity", 
+        arg_str = StringUtil._convert_args_to_string("set.material.layer.conductivity", 
                                                      material, layer, conductivity)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1056,7 +1056,7 @@ class Material(object):
         The density value to use for the specified layer, given in kg/m3. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.density", 
+        arg_str = StringUtil._convert_args_to_string("get.material.layer.density", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
         return StringUtil._convert_str_to_type(val, float)
@@ -1081,7 +1081,7 @@ class Material(object):
         Sets the density value to use for the specified layer, measured in kg/m3.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.density", 
+        arg_str = StringUtil._convert_args_to_string("set.material.layer.density", 
                                                      material, layer, density)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1110,7 +1110,7 @@ class Material(object):
         An integer value that sets the hatch type to use for the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.hatch", 
+        arg_str = StringUtil._convert_args_to_string("get.material.layer.hatch", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
         return StringUtil._convert_str_to_type(val, int)
@@ -1135,7 +1135,7 @@ class Material(object):
         An integer value that sets the hatch type to use for the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.hatch", 
+        arg_str = StringUtil._convert_args_to_string("set.material.layer.hatch", 
                                                      material, layer, hatch)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1162,7 +1162,7 @@ class Material(object):
         A text string value containing the name of the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.name", 
+        arg_str = StringUtil._convert_args_to_string("get.material.layer.name", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
         return StringUtil._convert_str_to_type(val, str)
@@ -1187,85 +1187,797 @@ class Material(object):
         A string value that specifies the name of the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.name", 
+        arg_str = StringUtil._convert_args_to_string("set.material.layer.name", 
                                                      material, layer, name)
         py2ecotect.conversation.Exec(arg_str)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def get_layer_specific_heat(self, material, layer):
+        """
+        
+        Retrieves the Specific Heat value of the specified layer the material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        layer 
+        The zero-based index for the layer row number for the value to retrieve, 
+        as shown under the Layer tab for the specified material. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        specific_heat 
+        The specific heat value used for the specified layer, measured in J/kg.K.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.layer.specific_heat", 
+                                                     material, layer)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_layer_specific_heat(self, material, layer, specific_heat):
+        """
+        
+        Sets the Specific Heat value of the specified layer in the material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        layer 
+        The zero-based index for the layer row number for the value to retrieve, 
+        as shown under the Layer tab for the specified material. 
+        
+        specific_heat 
+        Sets the specific heat value to use for the specified layer, measured in 
+        J/kg.K.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.layer.specific_heat", 
+                                                     material, layer, specific_heat)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_layer_type(self, material, layer):
+        """
+        
+        Retrieves the Type value of the specified layer in the material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        layer 
+        The zero-based index for the layer row number for the value to retrieve, 
+        as shown under the Layer tab for the specified material. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        type 
+        An integer value giving type used for the specified layer.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.layer.type", 
+                                                     material, layer)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def set_layer_type(self, material, layer, type):
+        """
+        
+        Sets the Type value of the specified layer in the material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        layer 
+        The zero-based index for the layer row number for the value to retrieve, 
+        as shown under the Layer tab for the specified material. 
+        
+        type 
+        An integer value that sets the type to use for the specified layer. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.layer.type", 
+                                                     material, layer, type)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_layer_width(self, material, layer):
+        """
+        
+        Retrieves the Width value of the specified layer in the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        layer 
+        The zero-based index for the layer row number for the value to retrieve, 
+        as shown under the Layer tab for the specified material. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        width 
+        The width of the specified layer in the material, given in mm. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.layer.width", 
+                                                     material, layer)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_layer_width(self, material, layer, width):
+        """
+        
+        Sets the Width value of the specified row for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        layer 
+        The zero-based index for the layer row number for the value to retrieve, 
+        as shown under the Layer tab for the specified material. 
+        
+        width 
+        The width value to use for the specified layer in the material, measured 
+        in mm.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.layer.width", 
+                                                     material, layer, width)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_lca(self, material):
+        """
+        
+        Retrieves the LCAid Reference value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.lca", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+        
+    def set_lca(self, material, value):
+        """
+        
+        Sets the LCAid Reference value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The LCAid Reference value to use for the specified material.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.lca", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_lifespan(self, material):
+        """
+        
+        Retrieves the Expected Life value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.lifespan", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_lifespan(self, material, value):
+        """
+        
+        Sets the lifespanid Reference value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The Expected Life value to use for the specified material, measured in 
+        years.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.lifespan", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_maintenancecost(self, material):
+        """
+        
+        Retrieves the Annual Maintenance Costs value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.get_maintenancecost", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_maintenancecost(self, material, value):
+        """
+        
+        Sets the Annual Maintenance Costs value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The Annual Maintenance Costs value to use for the specified material, 
+        measured in selected currency.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.maintenancecost", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_name(self, material):
+        """
+        
+        Retrieves the Material Name value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        An integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        name 
+        A text string value containing the current name of the specified material.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.name", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, str)
+
+    def set_name(self, material, value):
+        """
+        
+        Sets the name of the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        An integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The string value containing the new name of the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.name", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_ref1(self, material):
+        """
+        
+        Retrieves the External Reference 1 value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.ref1", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_ref1(self, material, value):
+        """
+        
+        Sets the External Reference 1 value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The External Reference 1 value to use for the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.ref1", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_ref2(self, material):
+        """
+        
+        Retrieves the External Reference 2 value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.ref2", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_ref2(self, material, value):
+        """
+        
+        Sets the External Reference 2 value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The External Reference 2 value to use for the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.ref2", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_reflectance(self, material):
+        """
+        
+        Retrieves the internal and external reflectance of the specified material. 
+        Reflectances are given as decimal values ranging from 0.0 to 1.0. 
+        Retrieving this value returns two decimal reflectance values corresponding 
+        to the internal and external parameters, in that order. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        internal 
+        The internal reflectance value. Reflectances are given as decimal values 
+        ranging from 0.0 to 1.0. 
+        
+        external 
+        The external reflectance value. Reflectances are given as decimal values 
+        ranging from 0.0 to 1.0. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.reflectance", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float)
+
+    def set_reflectance(self, material, internal, external):
+        """
+        
+        Sets the internal and external reflectance of the specified material. 
+        The reflectance of a material is based on its color value, thus setting 
+        this value will modify the colour by brightening or darkening it. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        internal 
+        The internal reflectance value. Reflectances are given as decimal values 
+        ranging from 0.0 to 1.0. Values outside this range will be ignored and 
+        the corresponding colour not updated. 
+        
+        external 
+        The external reflectance value. Reflectances are given as decimal values 
+        ranging from 0.0 to 1.0. Values outside this range will be ignored and 
+        the corresponding colour not updated.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.reflectance", 
+                                                     material, internal, external)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_thickness(self, material):
+        """
+        
+        Retrieves the Thickness value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.thickness", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_thickness(self, material, value):
+        """
+        
+        Sets the Thickness value for the specified material. Note: The material 
+        thickness is usually calculated as the sum of the individual layer 
+        thicknesses as configured under the Layers tab. Setting the Thickness 
+        using this command overrides this calculated value, but does not change 
+        the thickness values for the individual layers. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The Thickness value to use for the specified material, measured in 
+        millimetres. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.thickness", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_transparency(self, material):
+        """
+        
+        Retrieves the Transparency value for the specified material. The value 
+        returned is a decimal value between 0.0 and 1.0. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.transparency", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_transparency(self, material, value):
+        """
+        
+        Sets the Transparency value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The Transparency value to use for the specified material. This can be a 
+        decimal value between 0.0 and 1.0. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.transparency", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_type(self, material):
+        """
+        
+        Retrieves the element type for the specified material. These correspond 
+        directly to object element types, as outlined in the following table. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        An integer value that specifies the zero-based index of the material to 
+        retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        type 
+        An integer value corresponding to the following Element Types table. 
+        
+        Relevant Data Table(s)
+        Element Types 
+        Token Value 
+        void 0 
+        roof 1 
+        floor 2 
+        ceiling 3 
+        wall 4 
+        partition 5 
+        window 6 
+        panel 7 
+        door 8 
+        point 9 
+        speaker 10 
+        light 11 
+        appliance 12 
+        line 13 
+        solarcollector 14 
+        camera 15 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.type", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def set_type(self, material, type):
+        """
+        
+        Sets the element type for the specified material. These correspond 
+        directly to object element types. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        An integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        type 
+        This parameter can be given either as a token or value, corresponding to 
+        the following Element Types table. 
+        
+        Relevant Data Table(s)
+        Element Types 
+        Token Value 
+        void 0 
+        roof 1 
+        floor 2 
+        ceiling 3 
+        wall 4 
+        partition 5 
+        window 6 
+        panel 7 
+        door 8 
+        point 9 
+        speaker 10 
+        light 11 
+        appliance 12 
+        line 13 
+        solarcollector 14 
+        camera 15 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.type", 
+                                                     material, type)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_used(self, material):
+        """
+        
+        Returns the number of objects in the current model that use the 
+        specified material. This includes objects on hidden and locked zones but 
+        NOT on zones that are currently off. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        use. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        count 
+        An integer count of the objects in the current model that are assigned 
+        this material. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("get.materialused.used", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def get_uvalue(self, material):
+        """
+        
+        Retrieves the U-Value value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the required 
+        material. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified 
+        material. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.uvalue", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_uvalue(self, material, value):
+        """
+        
+        Sets the U-Value value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to 
+        set. 
+        
+        value 
+        The U-Value value to use for the specified material, measured in W/m^2.K.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.uvalue", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_weight(self, material):
+        """
+        
+        Retrieves the Weight value for the specified material. The value 
+        returned is measured in kilograms. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the required 
+        material. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the retrieved date from the specified material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.material.weight", 
+                                                     material)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_weight(self, material, value):
+        """
+        
+        Sets the Weight value for the specified material. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        material 
+        an integer value that specifies the zero-based index of the material to set. 
+        value 
+        The Weight value to use for the specified material, measured in kilograms.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.material.weight", 
+                                                     material, value)
+        py2ecotect.conversation.Exec(arg_str)
 
 
 
@@ -1283,6 +1995,7 @@ if __name__ == "__main__":
     #x.set_costperunit(34, 5.50)
     #print x.get_costtype(34)
     #print x.get_layer_conductivity(34, 2)
+    #print x.get_layer_width(34, 2)
     
     
     
