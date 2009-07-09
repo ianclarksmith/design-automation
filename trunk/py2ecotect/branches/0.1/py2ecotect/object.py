@@ -1400,6 +1400,711 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         return StringUtil._convert_str_to_type(val, int)
 
+    def get_mask(self, object):
+        """
+        
+        Retrieves the index of the object's shading mask. The shading mask 
+        assigned to each object determines when and by how much the object is 
+        overshadowed at any particular time. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        mask 
+        An integer value between -1 and the value given by get.masks.count - 1, 
+        being the zero-based index of the shading mask in the current list.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.mask", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def set_mask(self, object, index):
+        """
+        
+        Sets the index of the object's shading mask. The shading mask assigned 
+        to each object determines when and by how much the object is 
+        overshadowed at any particular time. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        index 
+        An integer value between -1 and the value given by get.masks.count - 1, 
+        being the zero-based index of the shading mask in the current list. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.mask", 
+                                                     object, index)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_material(self, object):
+        """
+        
+        Retrieves the index of the object's primary material. It is also 
+        possible to access all material properties this way. Thus, you could use 
+        something like get("object.material.absorption", 23) to retrieve data 
+        from the primary material assigned to this object. See the material 
+        object for more details. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        matIndex 
+        The zero-based index of the assigned primary material. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.material", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def set_material(self, object, material):
+        """
+        
+        Sets the index of the object's primary material. It is also possible to 
+        set any material properties this way. For example, you could use 
+        something like set("object.material.absorption", 23, 0.57) to set data 
+        for the primary material assigned to this object. See the material 
+        object for more details. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        material 
+        Either a material name or an integer, being the zero-based index of the 
+        material to be assigned from within the material list. You can obtain 
+        this index manually from the material name using the get.material.index 
+        command.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.material", 
+                                                     object, material)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_node_position(self, object, node):
+        """
+        
+        Retrieves the position of the node in absolute world coordinates for 
+        each of the major axes. Three coordinate values are returned. In fact, 
+        it is possible to access all node properties this way - see the node 
+        object for more details. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        node 
+        The relative index of the node in the specified object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the node in 3 
+        dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.node.position", 
+                                                     object, node)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def set_node_position(self, object, node, x, y, z):
+        """
+        
+        Sets the position of the node in absolute world coordinates for each of 
+        the major axes. In fact, it is possible to set all node properties this 
+        way - see the node object for more details. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        node 
+        The relative index of the node in the specified object to set. 
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the node in 3 
+        dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.node.position", 
+                                                     object, node, x, y, z)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_nodes(self, object):
+        """
+        
+        Returns the number of nodes in the specified object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        count 
+        The number of nodes in this object. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.node", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def get_normal(self, object):
+        """
+        
+        Retrieves the values corresponding to the x, y and z axis components for 
+        the normal of the specified object. Note that all surface normals in 
+        ECOTECT are normalised such that they are of unit length 
+        (ie: length = 1.0). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        dx, dy, dz 
+        A vector value representing the offset distance in each of the X, Y and 
+        Z axis, given in model coordinates, of the object's normal.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.normal", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def get_panelarea(self, object):
+        """
+        
+        Retrieves the surface area value overlapping with a WINDOW or DOOR 
+        object in an adjacent zone, measured in square metres. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the requested object data.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.panelarea", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+
+    def get_pt_even(self, object):
+        """
+        
+        Retrieves information about how sample points are evenly distributed 
+        across an object. Note that this command can only be used after a 
+        previous call to get.object.pt.initialise, as this specifies the object 
+        to be used and the density of subsequent points.
+
+        Four values are returned - the first three are floating point values 
+        representing the x, y and z components of a subsequent point within the 
+        object. The fourth value is an integer, corresponding with the Object 
+        Point Results table.
+        
+        This last value must be checked for a value of 0 to denote that the 
+        process is complete. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of a point on 
+        the object surface or length. 
+        
+        valid 
+        A result indicator where 1 represents a valid point, -1 a point that is 
+        outside the object and should be ignored, and 0 means the process if 
+        complete and all parts of the object checked. 
+        
+        Relevant Data Table(s)
+        Object Point Results 
+        Value Description 
+        1 A valid point within the object was found. 
+        -1 An invalid point outside the object was found. 
+        0 Finished - no further points to be found. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.pt.even", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float, int)
+
+    def get_pt_initialise(self, object, fraction):
+        """
+        
+        Many analysis functions require a range of sample points distributed 
+        over an object's surface or along its length. This property allows you 
+        to initiate this process for the specified object. The returned value is 
+        a single integer value either 0 (false) or 1 (true) depending on whether 
+        points were found, which will allow the process to continue. See 
+        get.object.pt.rand and get.object.pt.even for more information. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        fraction 
+        A multiplier to control the density of points over the object's surface. 
+        By default this is configured as a 25x25 grid with a value of 1. Thus, a 
+        factor value of 4 would result in a 100x100 grid, while a factor value 
+        of 0.2 would result in a 5x5 grid. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        valid 
+        A boolean value where 1 represents success and 0 means that the object 
+        is unsuitable for this. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.pt.initialise", 
+                                                     object, fraction)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def get_pt_random(self, object):
+        """
+        
+        Retrieves information about how sample points are randomly distributed 
+        across an object. Note that this command can only be used after a 
+        previous call to get.object.pt.initialise, as this specifies the object 
+        to be used and the density of subsequent points.
+
+        Four values are returned - the first three are floating point values 
+        representing the x, y and z components of a subsequent point within the 
+        object. The fourth value is an integer, corresponding with the following 
+        table.
+        
+        This last value must be checked for a value of 0 to denote that the 
+        process is complete. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of a point on 
+        the object surface or length. 
+        
+        valid 
+        A result indicator where 1 represents a valid point, -1 a point that is 
+        outside the object and should be ignored, and 0 means the process if 
+        complete and all parts of the object checked. 
+        
+        Relevant Data Table(s)
+        
+        Object Point Results 
+        Value Description 
+        1 A valid point within the object was found. 
+        -1 An invalid point outside the object was found. 
+        0 Finished - no further points to be found. 
+ 
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.pt.random", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float, int)
+
+    def get_reflect(self, object, x, y, z):
+        """
+        
+        Reflects the nominated 3D point around the plane of the specified object 
+        and returns three floating point values representing the x, y and z 
+        components of the new point. This command only works for planar objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of a point in 3 
+        dimensional model space. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        The absolute position in the X, Y and Z axis of the reflected point in 3 
+        dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.reflect", 
+                                                     object, x, y, z)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def get_resolution(self, object):
+        """
+        
+        Retrieves the current curve resolution to use for virtual polylines, for the specified object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the requested object data.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.resolution", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def set_resolution(self, object, value):
+        """
+        
+        Sets the curve resolution to use for virtual polylines, for the 
+        specified object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        value 
+        The value to use for the virtual polyline curve resolution.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.node.position", 
+                                                     object, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_sameside(self, object, x1, y1, z1, x2, y2, z2):
+        """
+        
+        Returns a single integer value, either 0 (false) or 1 (true), depending 
+        on whether the two nominated points are on the same side of the 
+        specified object's plane equation. This command only works for planar 
+        objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        x1 y1 z1 
+        The first 3D point to use for the comparison. 
+        
+        x2 y2 z2 
+        The second 3D point to use for the comparison. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        same 
+        A boolean value where 1 means that the points are on the same side and 0 
+        means that they aren't.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.sameside", 
+                                                     object, x1, y1, z1, x2, y2, 
+                                                     z2)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def get_schedule(self, object):
+        """
+        
+        Retrieves the index value for the specified object's activation 
+        schedule. The activation schedule determines when and how much an object 
+        is turned on or off.
+
+        It is also possible to access all schedule properties this way. Thus, 
+        you could use something like get("object.schedule.name", 23) to retrieve 
+        data from the schedule assigned to this object. See the schedule object 
+        for more details. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        schIndex 
+        The zero-based index of the schedule assigned to this object. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.schedule", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+        
+    def set_schedule(self, object, schedule):
+        """
+        
+        Sets the index value to use for the specified object's activation 
+        schedule. The activation schedule determines when and how much an object 
+        is turned on or off.
+
+        It is also possible to access all schedule properties this way. Thus, 
+        you could use something like set("object.schedule.name", 23, "NightWork") 
+        to set data from the schedule assigned to this object. See the schedule 
+        object for more details. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        schedule 
+        Either a schedule name or as the zero-based index of the schedule to be 
+        assigned from within the model's schedule list. This index value can be 
+        obtained manually from the schedule name, using the get.schedule.index 
+        command.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.schedule", 
+                                                     object, schedule)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_selected(self, object):
+        """
+        
+        Retrieves the selection state of the specified object. A value of 1 
+        means the object is part of the current selection set, whilst a value of 
+        0 means that it is not. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        selected 
+        This is a boolean value where 1 represents that the object is selected 
+        and 0 that it is not. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.selected", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def set_selected(self, object, state = True):
+        """
+        
+        Sets the selection state of the specified object.
+
+        Note: Once you finish selecting the individual objects you want, you 
+        should then call the selection.update command. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        [state] 
+        This optional parameter determines whether to set the object as selected 
+        or not. This is a boolean value where 1 or true represents the 
+        affirmative and 0 or false the negative. If not given, this parameter 
+        defaults to true. Setting an object as selected also sets that object 
+        as the current object.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.selected", 
+                                                     object, state)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_sunangles(self, object):
+        """
+        
+        Returns the objects vertical shadow angle (VSA, always assuming it as a 
+        vertical surface) and horizontal shadow angle (HSA), given in decimal 
+        degrees.
+
+        Note: As these values are always given in relation to the azimuth of the 
+        object, the object's tilt angle can be set in relation to this common 
+        base. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        VSA 
+        The Vertical Shadow Angle of the object at the current date and time. 
+        
+        HSA 
+        The Horizontal Shadow Angle of the object at the current date and time. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.sunangles", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float)
+
+    def get_tag(self, object, tag):
+        """
+        
+        Retrieves information about tags that have been assigned to the 
+        specified object. Tags are simply indicators to ECOTECT that the object 
+        performs additional functions or is specifically marked for certain 
+        calculations. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        tag 
+        An integer value representing a binary bit, as shown in the Object Tags 
+        table. The value returned for the nominated tag will be a boolean 
+        integer value - 0 for off, or 1 for on. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        state 
+        A value representing whether the particular tag is set or not. This is a 
+        boolean value where 1 represents the affirmative and 0 the negative. 
+        
+        Relevant Data Table(s)
+        
+        Object Tag Codes Value Description Notes 
+        1 TAGGED_PICKED* User clicked near one of it's lines. 
+        2 TAGGED_PREVIOUS* Part of the previous selection set. 
+        16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
+        32 TAGGED_SHADED Shadows are cast onto this object. 
+        64 TAGGED_ERROR Object has violated an inter-object relationship. 
+        128 TAGGED_UPDATE Object has changed and needs an update. 
+        256 TAGGED_MIRROR Object produces solar reflections. 
+        512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
+        4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
+        16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
+        32768 TAGGED_MARKER* Generic calculation marker. 
+
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.tag", 
+                                                     object, tag)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+        
+    def set_tag(self, object, tag, state = True):
+        """
+        
+        Sets tags for the specified object. Tags are simply indicators to 
+        ECOTECT that the object performs additional functions or is specifically 
+        marked for certain calculations. To test multiple tags at once, simply 
+        add their values together. The optional [true|false] parameter 
+        determines whether set or reset the tag(s), defaulting to true. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        tag 
+        An integer value representing a binary bit, as shown in the Object Tags 
+        table. To test multiple tags at once, simply add their values together. 
+        
+        [state] 
+        An optional parameter determining whether to set or reset the tag(s). 
+        This is a boolean value where 1 or true represents the affirmative and 0 
+        or false the negative. If not given, it defaults to true. 
+        
+        Relevant Data Table(s)
+        
+        Object Tag Codes 
+        Value Description Notes 
+        1 TAGGED_PICKED* User clicked near one of it's lines. 
+        2 TAGGED_PREVIOUS* Part of the previous selection set. 
+        16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
+        32 TAGGED_SHADED Shadows are cast onto this object. 
+        64 TAGGED_ERROR Object has violated an inter-object relationship. 
+        128 TAGGED_UPDATE Object has changed and needs an update. 
+        256 TAGGED_MIRROR Object produces solar reflections. 
+        512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
+        4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
+        16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
+        32768 TAGGED_MARKER* Generic calculation marker. 
+
+
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.tag", 
+                                                     object, tag, state)
+        py2ecotect.conversation.Exec(arg_str)
+
+
+
 
 
 
@@ -1426,6 +2131,7 @@ if __name__ == "__main__":
     #print x.get_firstnode(18)
     #print x.get_flag(18, 8)
     #x.set_flag(18, 8, False)
+    #print x.get_pt_even(18)
     
     
     
