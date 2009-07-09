@@ -852,6 +852,553 @@ class Object(object):
                                                      object, u, v, wu, hv)
         py2ecotect.conversation.Exec(arg_str)
 
+    def get_coplanar(self, object, x, y, z):
+        """
+        
+        Determines if a point is co-planar with the specified object. Onviously 
+        this only works with objects that are closed planar surfaces. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of a point in 3 
+        dimensional model space. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        colanar 
+        A boolean value where 1 means that the point is coplanar and 0 means that it isn't. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.coplanar", 
+                                                     object, x, y, z)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+        
+    def set_current(self, object):
+        """
+        
+        Several actions within ECOTECT act on the current object (sun-path 
+        diagrams, etc). Set this property of an object to ensure that it is the 
+        current object before invoking a command. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.current", 
+                                                     object)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_distanceto(self, object, x, y, z):
+        """
+        
+        Returns a single floating point value, being the distance between the 
+        specified object and the specified 3D point. If this is a POINT object, 
+        the distance is the point-to-point distance. If the object is planar, it 
+        is the distance of the specified point in line with the plane of the 
+        object, even if this point is outside the object's boundaries. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of a point in 3 
+        dimensional model space. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        dist 
+        The distance fro the point to the object.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.distanceto", 
+                                                     object, x, y, z)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def get_equation(self, object):
+        """
+        
+        Getting this property returns the values used to calculate the plane 
+        equation for the specified object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        A, B, C, D 
+        Four decimal values corresponding to A, B, C and D from the plane 
+        equation:
+        Ax + By + Cz = D 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.equation", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float, float)
+        
+    def get_exposure(self, object):
+        """
+        
+        This command retrieves the surface area of an object that is exposed to 
+        outside conditions. This command only works for planar objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the requested object data.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.exposure", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def get_extents(self, object):
+        """
+        
+        Retrieves the overall size for the specified object, measured in 
+        millimetres. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        dx, dy, dz 
+        The overall dimensions of the object in each of the X, Y and Z axis. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.extents", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def get_extents_2dpt(self, object, u, v):
+        """
+        
+        This command retrieves coordinates for the nominated point on the face 
+        of the specified object. Note that this command only works for planar 
+        objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        u, v 
+        Proportional values that nominate the point to measure in relation to 
+        the extents of the specified object. For example, to nominate the centre 
+        of the object, the u and v values should be 0.5, whilst the minimum and 
+        maximum extents would be of 0.0 and 1.0 respectively.
+        
+        This property always assumes you are looking towards the outside face of 
+        the object, where the minimum value is always the bottom-left. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of a point in 3 
+        dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.extents.2dpt", 
+                                                     object, u, v)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def get_extents_max(self, object):
+        """
+        
+        Retrieves the 3D coordinates for the maximum extent of the selected 
+        object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the maximum 
+        point in 3 dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.extents.max", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def get_extents_min(self, object):
+        """
+        
+        Retrieves the coordinates for the minimum extent of the selected object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the minimum 
+        point in 3 dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.extents.min", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def get_firstnode(self, object):
+        """
+        
+        Returns the zero-based absolute index of its first node. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        nodeIndex 
+        The zero-based index of the object's first node.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.firstnode", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+        
+    def get_flag(self, object, flag):
+        """
+        
+        In ECOTECT, objects have a range of boolean flags associated with them 
+        that are used at various times. This command retrieves the nominated 
+        flag settings for the specified object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        flag 
+        An integer value representing a binary bit, as shown in the Object Flags 
+        table below. To test multiple flags at once, simply add their values 
+        together. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        state 
+        A value representing whether the particular flag is set or not. This is 
+        a boolean value where 1 represents the affirmative and 0 the negative. 
+        
+        Relevant Data Table(s)
+        
+        Object Flag Codes 
+        Value Description Notes 
+        1 OBJECT_POINT Object is a single-node point. 
+        2 OBJECT_VECTOR Object is a direction vector. 
+        4 OBJECT_PLANAR  Object is a flat surface with an equation. 
+        8 OBJECT_CLOSED Objects is a closed loop. 
+        16 OBJECT_POLYLINE Object defines a virtual polyline. 
+        32 OBJECT_EXTRUSION Object is formed from the extrusion of its parent. 
+        64 OBJECT_EXTRUDED Object has been extruded. 
+        128 OBJECT_COPLANAR Object is linked to another as coplanar. 
+        256 OBJECT_INSIDE Object is linked to another as inside it's extents. 
+        512 OBJECT_CONCAVE Object is a complex/concave polygon. 
+        1024 OBJECT_PARENT Object is the parent of another. 
+        2048 OBJECT_CHILD Object is the child of another. 
+        4096 OBJECT_ZONE Object defines a model zone. 
+        8192 OBJECT_PLANE_EQN* User has specified particular nodes to generate 
+        equation. 
+        16384 OBJECT_REVERSE Object's surface normal is reversed. 
+        32768 OBJECT_SEE_THRU Object is partially transparent. 
+        
+        *Indicates temporary and volatile markers for internal use only.
+     
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.flag", 
+                                                     object, flag)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def set_flag(self, object, flag, state = True):
+        """
+        
+        In ECOTECT, objects have a range of boolean flags associated with them 
+        that are used at various times. This command sets the nominated flag 
+        settings for the specified object.
+
+        Important Note: Flags are fundamental to how the model works. Be very 
+        careful before setting any of them manually, and always operate on files 
+        for which you have up-to-date backups. Incorrect usage of flags can 
+        corrupt your model beyond repair (ECOTECT probably shouldn't allow these 
+        values to be set via a script, however someone will have a valid reason 
+        at some stage, and if the user cannot be trusted, who can be trusted?). 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        flag 
+        An integer value representing a binary bit, as shown in the Object Flags 
+        table. To set multiple flags at once, add their values together. 
+        
+        [state] 
+        An optional parameter that determines whether to set or reset the 
+        flag(s). This is a boolean value where 1 or true represents the 
+        affirmative and 0 or false the negative. 
+        
+        Relevant Data Table(s)
+        
+        Object Flag Codes 
+        Value Description Notes 
+        1 OBJECT_POINT Object is a single-node point. 
+        2 OBJECT_VECTOR Object is a direction vector. 
+        4 OBJECT_PLANAR  Object is a flat surface with an equation. 
+        8 OBJECT_CLOSED Objects is a closed loop. 
+        16 OBJECT_POLYLINE Object defines a virtual polyline. 
+        32 OBJECT_EXTRUSION Object is formed from the extrusion of its parent. 
+        64 OBJECT_EXTRUDED Object has been extruded. 
+        128 OBJECT_COPLANAR Object is linked to another as coplanar. 
+        256 OBJECT_INSIDE Object is linked to another as inside it's extents. 
+        512 OBJECT_CONCAVE Object is a complex/concave polygon. 
+        1024 OBJECT_PARENT Object is the parent of another. 
+        2048 OBJECT_CHILD Object is the child of another. 
+        4096 OBJECT_ZONE Object defines a model zone. 
+        8192 OBJECT_PLANE_EQN* User has specified particular nodes to generate equation. 
+        16384 OBJECT_REVERSE Object's surface normal is reversed. 
+        32768 OBJECT_SEE_THRU Object is partially transparent. 
+
+        *Indicates temporary and volatile markers for internal use only.
+
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.flag", 
+                                                     object, flag, state)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_incidence(self, object, x, y, z):
+        """
+        
+        Returns the angle in degrees between the surface normal of the specified 
+        object and the nominated 3D point. This is effectively the incidence 
+        angle of a ray fired towards the geometric centre of the object from the 
+        nominated point. If the object is not planar, the angle value returned 
+        will be in relation to the positive x axis. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        x, y, z 
+        The coordinates of the point to check in relation to the object. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        angle 
+        The incidence angle in degrees. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.incidence", 
+                                                     object, x, y, z)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+        
+    def get_inside(self, object, x, y, z, checkChildren = True):
+        """
+        
+        Determines if the specified point is within the boundary of the 
+        specified object, either 0 for false or 1 for true. This command 
+        obviously only works for closed planar objects.
+
+        Note: It is assumed that the specified point is very close to being 
+        co-planar with the object. If it lies any signficiant distance away from 
+        the surface, invalid results are likely. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The ero-based index of the object to retrieve. 
+        
+        x, y, z 
+        The coordinates of the point to check in relation to the object. 
+        
+        [checkChildren] 
+        If the specified object contains child objects (such as WINDOWS, DOORS, 
+        VOIDS and PANELS), by default the nominated point is checked against 
+        these as well. If the point is inside a child object, the result will be 
+        false. However, you can set the optional checkChildren parameter to false 
+        to avoid this check. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        inside 
+        A boolean value where 1 means that the point is inside and 0 means that 
+        it isn't. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.inside", 
+                                                     object, x, y, z, 
+                                                     checkChildren)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+        
+    def get_intersect(self, object, x1, y1, z1, x2, y2, z2):
+        """
+        
+        Returns the coordinates of the intersection point between a line joining 
+        the two nominated points with the plane of the specified object. This 
+        command only works with planar objects.
+
+        The intersection point can occur anywhere along the line, both between 
+        the points and either side. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        x1, y1, z1 
+        The 3D start point of the intersecting line. 
+        
+        x2, y2, z2 
+        The 3D end point of the intersecting line. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the 
+        intersection point in 3 dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.intersect", 
+                                                     object, x1, y1, z1, x2, y2, 
+                                                     z2)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def get_lastnode(self, object):
+        """
+        
+        Returns the zero-based absolute index of its last node. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        nodeIndex 
+        The zero-based index of the object's last node. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.lastnode", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+
+    def get_length(self, object):
+        """
+        
+        Retrieves the length value for the specified object, measured in 
+        millimetres. This command only works on linear objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the requested object data.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.length", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
+
+    def get_link(self, object):
+        """
+        
+        Getting this property returns the absolute index of the object to which 
+        the specified object is linked. If the object is not linked to any other 
+        object, it returns a value of -1. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        link 
+        The zero-based index of the linked object.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.link", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
 
 
 
@@ -872,7 +1419,13 @@ if __name__ == "__main__":
     #x.set_attr1(18, 2.5)
     #print x.get_center(18)
     #print x.get_child_extents(18)
-    
+    #print x.get_coplanar(18, 1000, 2034.5, 763.54)
+    #print x.get_equation(18)
+    #print x.get_extents_max(18)
+    #print x.get_extents_min(18)
+    #print x.get_firstnode(18)
+    #print x.get_flag(18, 8)
+    #x.set_flag(18, 8, False)
     
     
     
