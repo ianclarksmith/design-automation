@@ -222,6 +222,7 @@ class Node(object):
         that the operation failed. 
         
         Relevant Data Table(s)
+        
         Node Types 
         Token Value Description 
         editable 0 An editable unlinked node (default) 
