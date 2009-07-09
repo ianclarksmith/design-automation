@@ -32,6 +32,7 @@ def get_flag(flag):
     """
     arg_str = StringUtil._convert_args_to_string("get.attribute.flag", flag)
     val = py2ecotect.conversation.Request(arg_str)
+    print val
     return StringUtil._convert_str_to_type(val, int)
 
 def set_flag(flag, state = True):

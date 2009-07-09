@@ -263,9 +263,9 @@ class Node(object):
         table_NodeFlags.txt
 
         """
-        arg_str = StringUtil._convert_args_to_string("node.flag", node)
+        arg_str = StringUtil._convert_args_to_string("get.node.flag", node, flag)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, bool)
+        return StringUtil._convert_str_to_type(val, int)
         
     def set_flag(self, node, flag, state = True):
         """
@@ -315,10 +315,9 @@ class Node(object):
         table_NodeFlags.txt
       
         """
-        arg_str = StringUtil._convert_args_to_string("node.flags", node)
+        arg_str = StringUtil._convert_args_to_string("get.node.flags", node)
         val = py2ecotect.conversation.Request(arg_str)
-        print val
-        return StringUtil._convert_str_to_type(val, bool)
+        return StringUtil._convert_str_to_type(val, int)
         
     def get_link(self, node):
         """
@@ -337,9 +336,8 @@ class Node(object):
         The zero-based index of the object or node to which the specified node is linked.
         
         """
-        arg_str = StringUtil._convert_args_to_string("node.link", node)
+        arg_str = StringUtil._convert_args_to_string("get.node.link", node)
         val = py2ecotect.conversation.Request(arg_str)
-        print val
         return StringUtil._convert_str_to_type(val, int)
 
     def set_link(self, node, link):
@@ -381,60 +379,217 @@ class Node(object):
         The decimal value of the node modifier.
         
         """
-        arg_str = StringUtil._convert_args_to_string("node.modifier", node)
+        arg_str = StringUtil._convert_args_to_string("get.node.modifier", node)
         val = py2ecotect.conversation.Request(arg_str)
-        print val
         return StringUtil._convert_str_to_type(val, float)
 
+    def set_modifier(self, node, mod):
+        """
+        
+        Sets the node modifier value. This is decimal value whose use depends on 
+        the inter-node relationships to which this node is a party. Typically it 
+        stores the relative offset along the extrusion vector when it is part of 
+        an object created from the extrusion of a parent. For non-linked object, 
+        you are free to use it for anything you wish. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be set. 
+        
+        mod 
+        The new decimal value of the node modifier.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.node.modifier", node, 
+                                                     mod)
+        py2ecotect.conversation.Exec(arg_str)
 
+    def get_position(self, node):
+        """
+        
+        Retrieves the position of the node in absolute world coordinates in each 
+        of the major axes. Three coordinate values are returned. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be checked. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the node in 3 
+        dimensional model space. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.node.position", node)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
 
+    def set_position(self, node, x, y, z):
+        """
+        
+        Sets the position of the node in absolute world coordinates in each of 
+        the major axes. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be set. 
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the node in 3 
+        dimensional model space.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.node.position", node, 
+                                                     x, y, z)
+        py2ecotect.conversation.Exec(arg_str)
 
+    def get_selected(self, node):
+        """
+        
+        Retrieves the selection state of the specified node. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be checked. 
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        state 
+        If this value is 1, then the node is selected. If 0 the node is not selected. 
 
+        """
+        arg_str = StringUtil._convert_args_to_string("get.node.selected", node)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
 
+    def set_selected(self, node, state = 1):
+        """
+        
+        Sets the selection state of the specified node. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be set. 
+        
+        [state] 
+        Determines whether to select or deselect the specified node. This can be 
+        given as either the words true or false or also as boolean integers 1 or 
+        0. If not given, this parameter defaults to true. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.node.selected", node, 
+                                                     state)
+        py2ecotect.conversation.Exec(arg_str)
 
+    def get_type(self, node):
+        """
+        
+        Retrieves the node type for the specified node in the last created 
+        object, according to the following Node Types table. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be checked. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        type 
+        The type of node, according to the following Node Types table. 
+        
+        Relevant Data Table(s)
+        
+        Node Types 
+        Token Value Description 
+        editable 0 An editable unlinked node (default) 
+        constrained 1 Constrained to parent extrusion vector. 
+        linked 2 Linked to another node by current offset. 
+        locked 3 Locked in place. 
+        bound 4 Bound to the position of linked node. 
+        fillet 5 Control node for a virtual fillet. 
+        arc 6 Control node for a virtual arc. 
+        bezier 7 Control node for a virtual 3pt bezier spline. 
+        spline 8 Control node for a virtual spline curve. 
+  
+        """
+        arg_str = StringUtil._convert_args_to_string("get.node.type", node)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
 
+    def set_type(self, node, type, link = -1):
+        """
+        
+        Sets the node type for the specified node in the last created object. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be set. 
+        
+        type 
+        Sets the type of node, according to the following Node Types table. 
+        
+        [link] 
+        This optional parameter may be given if the set node type is such that 
+        it establishes a link between this node and another object. 
+        
+        Relevant Data Table(s)
+        
+        Node Types 
+        Token Value Description 
+        editable 0 An editable unlinked node (default) 
+        constrained 1 Constrained to parent extrusion vector. 
+        linked 2 Linked to another node by current offset. 
+        locked 3 Locked in place. 
+        bound 4 Bound to the position of linked node. 
+        fillet 5 Control node for a virtual fillet. 
+        arc 6 Control node for a virtual arc. 
+        bezier 7 Control node for a virtual 3pt bezier spline. 
+        spline 8 Control node for a virtual spline curve. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        """
+        if type == 2 and  link != -1:
+            return
+        else:
+            arg_str = StringUtil._convert_args_to_string("set.node.type", node, 
+                                                         type, link)
+            py2ecotect.conversation.Exec(arg_str)
 
 
 
 if __name__ == "__main__":
     x = Node()
     
-    x.move(101, 0, 0, 1500)
+    #x.move(101, 0, 0, 1500)
     #print x.add_node(102, 3, 1000, 2000, 0,)
-    #print x.get_flag(104, "text")
-    #x.set_flag(101, "text", "False")
-    #print x.get_flags(104)
-    #print x.get_link(437)
-    #x.set_link(104, 25)
-    x.get_modifier(99)
-    
+    #print x.get_flag(1636, "text")
+    #x.set_flag(1636, "text", "False")
+    #print x.get_flags(1636)
+    #print x.get_link(1636)
+    #x.set_link(1636, 25)
+    #print x.get_modifier(1636)
+    #x.set_modifier(1636, 2400)
+    #print x.get_position(9055)
+    #x.set_position(1636, 1200, 2321, 600.0)
+    #print x.get_selected(1636)
+    #x.set_selected(1636)
+    #print x.get_type(9055)
+    #x.set_type(9055, 8)
     
     
     print "Tests completed"
