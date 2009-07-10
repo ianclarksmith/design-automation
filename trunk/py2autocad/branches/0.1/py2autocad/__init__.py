@@ -1,4 +1,5 @@
 from comtypes.client import GetActiveObject, CreateObject
+from acad_model_space import AcadModelSpace
 
 #Get running instance of the AutoCAD application
 app = GetActiveObject("AutoCAD.Application")
@@ -7,4 +8,4 @@ app = GetActiveObject("AutoCAD.Application")
 ad = app.ActiveDocument
 
 #model space
-ms = ad.ModelSpace
+ms = AcadModelSpace(app.ActiveDocument.ModelSpace)
