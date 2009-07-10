@@ -1,4 +1,4 @@
-import array
+import py2autocad
 from util import to_array
 from line import Line
 
@@ -9,5 +9,5 @@ class ModelSpace(object):
     
     def AddLine(self, start_point, end_point):
         #Add a LINE in ModelSpace
-        id = ms.AddLine(to_array(start_point), to_array(end_point))
+        id = py2autocad.ms.AddLine(to_array(start_point), to_array(end_point))
         return Line(id)

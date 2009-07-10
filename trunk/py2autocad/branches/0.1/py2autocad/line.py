@@ -16,7 +16,7 @@ class Line(object):
 
     def Copy(self, point1, point2):
         """Copies the entity object."""
-        return id.Copy(to_array(point1), to_array(point2))
+        return Line(id.Copy(to_array(point1), to_array(point2)))
 
     def Delete(self):
         """Deletes a specified object"""
