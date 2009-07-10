@@ -2313,19 +2313,5 @@ if __name__ == "__main__":
     #x.set_type(1176, 2)
     #print x.get_zone(950)
     #x.set_zone(950, 5)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     print "Tests completed"
