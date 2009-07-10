@@ -2103,11 +2103,188 @@ class Object(object):
                                                      object, tag, state)
         py2ecotect.conversation.Exec(arg_str)
 
+    def get_type(self, object):
+        """
+        
+        Returns the element type of the specified object, according to the 
+        values in the Element Types table. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        type 
+        An integer value corresponding to the Element Types table. 
+        
+        Relevant Data Table(s)
+        
+        Element Types 
+        Token Value 
+        void 0 
+        roof 1 
+        floor 2 
+        ceiling 3 
+        wall 4 
+        partition 5 
+        window 6 
+        panel 7 
+        door 8 
+        point 9 
+        speaker 10 
+        light 11 
+        appliance 12 
+        line 13 
+        solarcollector 14 
+        camera 15 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.type", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+        
+    def set_type(self, object, type):
+        """
+        
+        Sets the specified object as the given element type. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        type 
+        Either a token or value corresponding to the Element Types table.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.type", 
+                                                     object, type)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_underground(self, object):
+        """
+        
+        Gets the surface area that is underground. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the requested object data.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.underground", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, float)
 
+    def get_vector(self, object):
+        """
+        
+        Retrieves the extrusion vector of the specified object. 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        dx, dy, dz 
+        A vector value representing the offset distance in each of the X, Y and 
+        Z axis, given in model coordinates, of the object's extrusion vector.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.vector", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_list(val, float, float, float)
+
+    def set_vector(self, object, dx, dy, dz):
+        """
+        
+        Sets the extrusion vector of the specified object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        dx, dy, dz 
+        A vector value representing the offset distance in each of the X, Y and 
+        Z axis, given in model coordinates. 
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.vector", 
+                                                     object, dx, dy, dz)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_zone(self, object):
+        """
+        
+        Retrieves the zone index of the specified object. The value returned 
+        corresponds with the numerical order of the zone in the Zone Management 
+        Panel. For example, if the specified object is part of the second zone 
+        in the Zone Management panel, the value returned will be 2. The Outside 
+        zone is always 0. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        link 
+        The zero-based index of the zone the specified object is assigned to.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("get.object.zone", 
+                                                     object)
+        val = py2ecotect.conversation.Request(arg_str)
+        return StringUtil._convert_str_to_type(val, int)
+        
+    def set_zone(self, object, index):
+        """
+        
+        Sets the specified object as a zone of the given index. The value set 
+        should correspond with the numerical order of the required zone in the 
+        Zone Management Panel. For example, if the specified object is to be 
+        part of the second zone in the Zone Management panel, the set value 
+        should be 2. The Outside zone is always 0. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to set. 
+        
+        index 
+        The zero-based index of the zone the specified object will be assigned 
+        to.
+        
+        """
+        arg_str = StringUtil._convert_args_to_string("set.object.zone", 
+                                                     object, index)
+        py2ecotect.conversation.Exec(arg_str)
+        
 
 
 if __name__ == "__main__":
@@ -2132,6 +2309,10 @@ if __name__ == "__main__":
     #print x.get_flag(18, 8)
     #x.set_flag(18, 8, False)
     #print x.get_pt_even(18)
+    #print x.get_type(1176)
+    #x.set_type(1176, 2)
+    #print x.get_zone(950)
+    #x.set_zone(950, 5)
     
     
     
