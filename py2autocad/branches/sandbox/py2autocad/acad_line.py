@@ -14,7 +14,7 @@ class AcadLine(_AcadEntity):
     #===========================================================================
     def offset(self, distance):
         """Creates a new line by offsetting the current line by a specified distance"""
-        return self.__class__(self._id.Offset(distance))
+        return Line(self._id.Offset(distance))
     #===========================================================================
     #    Properties:  IAcadLine
     #===========================================================================
