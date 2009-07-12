@@ -1,6 +1,6 @@
 from acad_object import _AcadObject
 import exceptions
-from util import to_array
+from util import _to_array
 
 class _AcadEntity(_AcadObject):
     """Abstract base class for an AutoCAD Entity"""
@@ -26,22 +26,22 @@ class _AcadEntity(_AcadObject):
         return self.__class__(self._id.Copy())
     def move(self, from_point, to_point):
         """Moves the entity object from source to destination."""
-        self._id.Move(to_array(from_point), to_array(to_point)) 
+        self._id.Move(_to_array(from_point), _to_array(to_point)) 
     def rotate(self, base_point, rotation_angle):
         """Rotates the entity object about a point."""
-        self._id.Rotate(to_array(base_point), rotation_angle) 
+        self._id.Rotate(_to_array(base_point), rotation_angle) 
     def rotate_3d(self, point_1, point_2, rotation_angle):
         """Rotates the entity object about a 3D line."""
-        self._id.Rotate3D(to_array(point_1), to_array(point_2), rotation_angle) 
+        self._id.Rotate3D(_to_array(point_1), _to_array(point_2), rotation_angle) 
     def mirror(self, point_1, point_2):
         """Mirrors selected objects about a line."""
-        return self.__class__(self._id.Mirror(to_array(point_1), to_array(point_2))) 
+        return self.__class__(self._id.Mirror(_to_array(point_1), _to_array(point_2))) 
     def mirror_3d(self, point_1, point_2, point_3):
         """Mirrors selected objects about a plane defined by three points."""
-        return self.__class__(self._id.Mirror3D(to_array(point_1), to_array(point_2), to_array(point_3)))
+        return self.__class__(self._id.Mirror3D(_to_array(point_1), _to_array(point_2), _to_array(point_3)))
     def scale_entity(self, base_point, scale_factor):
         """Scale the entity object with respect to the base point and the scale factor."""
-        self._id.ScaleEntity(to_array(base_point), scale_factor)  
+        self._id.ScaleEntity(_to_array(base_point), scale_factor)  
     def transform_by(self, transformation_matrix):
         """Performs the specified transformation on the entity object."""
         #TODO:test how this matrix works

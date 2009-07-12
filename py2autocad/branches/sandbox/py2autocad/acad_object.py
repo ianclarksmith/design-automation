@@ -1,5 +1,5 @@
 import exceptions
-from util import to_array
+from util import _to_array
 
 class _AcadObject(object):
     """Abstract base class for an AutoCAD object"""

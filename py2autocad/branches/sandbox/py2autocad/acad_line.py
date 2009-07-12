@@ -1,6 +1,6 @@
 from acad_entity import _AcadEntity
 import exceptions
-from util import to_array
+from util import _to_array
 
 class AcadLine(_AcadEntity):
     """AutoCAD Line"""
@@ -22,7 +22,7 @@ class AcadLine(_AcadEntity):
     def _get_start_point(self):
         return self._id.StartPoint
     def _set_start_point(self, start_point):
-        self._id.StartPoint = to_array(start_point)
+        self._id.StartPoint = _to_array(start_point)
     start_point = property(
                 fget=_get_start_point, 
                 fset=_set_start_point, 
@@ -31,7 +31,7 @@ class AcadLine(_AcadEntity):
     def _get_end_point(self):
         return self._id.EndPoint
     def _set_end_point(self, end_point):
-        self._id.EndPoint = to_array(end_point)  
+        self._id.EndPoint = _to_array(end_point)  
     end_point = property(
                 fget=_get_end_point, 
                 fset=_set_end_point, 
@@ -40,7 +40,7 @@ class AcadLine(_AcadEntity):
     def _get_normal(self):
         return self._id.Normal
     def _set_normal(self, normal):
-        self._id.Normal = to_array(normal)
+        self._id.Normal = _to_array(normal)
     normal = property(
                 fget=_get_normal, 
                 fset=_set_normal, 
