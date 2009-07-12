@@ -1,8 +1,6 @@
 from comtypes.client import GetActiveObject, CreateObject
 from acad_document import AcadDocument
 
-#Get running instance of the AutoCAD application
-
 
 #THIS CLASS IS NOT COMPLETE
 class AcadApplication(object):
