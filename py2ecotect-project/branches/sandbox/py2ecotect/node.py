@@ -1,190 +1,9 @@
 import py2ecotect
-from py2ecotect import StringUtil
+from py2ecotect import string_util
 
 class Node(object):
-    def move(self, node, x, y, z):
-        """
-        
-        Moves the specified node in the last selected object. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
-        x, y, z 
-        These parameters specify the move distance and direction in each of the 
-        major X, Y and Z axis.
-        
-        """
-        arg_str = StringUtil._convert_args_to_string("node.move", node, x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
-
-    def nudge(selfnode, dir):
-        """
-        
-        Nudges the specified node in the last selected object, by the current grid snap distance. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created object. 
-        
-        dir 
-        The nudge direction, according to the table below. 
-        
-        Relevant Data Table(s)
-        
-        Nudge Directions 
-        Value Description 
-        1, -1 In the X axis. 
-        2, -2 In the Y axis. 
-        3, -3 In the Z axis. 
-
-        """
-        arg_str = StringUtil._convert_args_to_string("node.nudge", node, dir)
-        py2ecotect.conversation.Exec(arg_str)
-
-    def rotate(self, node, azi, alt):
-        """
-        
-        Rotates the specified node in the last created object about the 
-        Transformation Origin (see set.model.origin for more information). 
-        Normally, polar rotation is done about the y-axis (altitude) first and 
-        then the z-axis (aziumuth). 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
-        azi 
-        The azimuth angle of rotation, in decimal degrees. 
-        
-        alt 
-        The altitude angle of rotation, in decimal degrees. 
-        
-        """
-        arg_str = StringUtil._convert_args_to_string("node.rotate", node, azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
-
-    def rotateaxis(self, node, x, y, z):
-        """
-        
-        Rotates the specified node in the last created object about the 
-        Transformation Origin (see set.model.origin for more information) along 
-        the specified axes. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
-        x, y, z 
-        These parameters specify the amount of rotation in decimal degrees for 
-        each required axis, in a positive anti-clockwise direction. Use a value 
-        of 0 if no rotation is required for a particular axis.
-        
-        """
-        arg_str = StringUtil._convert_args_to_string("node.rotateaxis", node, x, 
-                                                     y, z)
-        py2ecotect.conversation.Exec(arg_str)
-
-    def rotatereverse(selfnode, azi, alt):
-        """
-        
-        Similar to node.rotate, this command rotates the specified node in the 
-        last created object about the Transformation Origin, except in reserve 
-        order. This allows a normal polar rotation to be un-done correctly. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
-        azi 
-        The azimuth angle of rotation, in decimal degrees. 
-        
-        alt 
-        The altitude angle of rotation, in decimal degrees. 
-        
-        """
-        arg_str = StringUtil._convert_args_to_string("node.rotatereverse", node, 
-                                                     azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
-
-    def scale(self, node, dx, dy, dz):
-        """
-        
-        Scale the specified node in the last selected object. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
-        dx, dy, dz 
-        These parameters specifies the scale factor to apply in each of the 
-        major X, Y and Z axis.
-        
-        """
-        arg_str = StringUtil._convert_args_to_string("node.scale", node, dx, 
-                                                     dy, dz)
-        py2ecotect.conversation.Exec(arg_str)
-        
-    def xform(self, node, trans, x, y, z):
-        """
-        
-        Applies a generic transformation to the specified node in the last 
-        selected object. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
-        trans 
-        The generic tranformation to apply, according to the Transform Types 
-        table below. 
-        
-        x, y, z 
-        The function of these parameters are determined by the specified trans 
-        parameter, as shown in the table below. 
-        
-        Relevant Data Table(s)
-        T
-        ransformation Types 
-        Token Description 
-        axis Axial rotation, where x , y and z are axial angles in degrees. 
-        reverse Reverse polar rotation, where x and y are azi and alt in degrees. 
-        rotate Polar rotation, where x and y are azi and alt in degrees. 
-        move Translate objects by x , y and z values in the major axis. 
-        scale Scale objects by x , y and z in the major axis. 
-        mirror Mirror objects around About Point and vector formed by x , y and z.  
-        normal Extrude objects a distance of x along its surface normal. 
-        extrude Extrude objects by x , y and z in the major axis. 
-        revolve Revolve objects around axis x , y degrees and in z segments. 
-        nudge Nudge objects a distance of x , y and z in the major axis. 
     
-        """
-        arg_str = StringUtil._convert_args_to_string("node.xform", node, trans, 
-                                                     x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
-
-    def add_node(self, object, index, x, y, z, nodeType = 0, link = 0):
+    def __init__(self, object, index, x, y, z, nodeType = 0, link = 0):
         """
         
         Use this command to create new nodes in the model. It returns the 
@@ -236,12 +55,205 @@ class Node(object):
         spline 8 Control node for a virtual spline curve. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("add.node", object, index, 
+        #arg_str = string_util._convert_args_to_string("add.node", object, index, 
                                                      x, y, z, nodeType, link)
-        val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        #val = py2ecotect.conversation.Request(arg_str)
+        #self._id = string_util._convert_str_to_type(val, int)
+        self._id = 1293
+    
+    def move(self, x, y, z):
+        """
+        
+        Moves the specified node in the last selected object. 
 
-    def get_flag(self, node, flag):
+        Parameter(s)
+        This command takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be adjusted, within the last created 
+        object. 
+        
+        x, y, z 
+        These parameters specify the move distance and direction in each of the 
+        major X, Y and Z axis.
+        
+        """
+        arg_str = string_util._convert_args_to_string("node.move", self._id, 
+                                                      x, y, z)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def nudge(self, dir):
+        """
+        
+        Nudges the specified node in the last selected object, by the current grid snap distance. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be adjusted, within the last created object. 
+        
+        dir 
+        The nudge direction, according to the table below. 
+        
+        Relevant Data Table(s)
+        
+        Nudge Directions 
+        Value Description 
+        1, -1 In the X axis. 
+        2, -2 In the Y axis. 
+        3, -3 In the Z axis. 
+
+        """
+        arg_str = string_util._convert_args_to_string("node.nudge", self._id, dir)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def rotate(self, azi, alt):
+        """
+        
+        Rotates the specified node in the last created object about the 
+        Transformation Origin (see set.model.origin for more information). 
+        Normally, polar rotation is done about the y-axis (altitude) first and 
+        then the z-axis (aziumuth). 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be adjusted, within the last created 
+        object. 
+        
+        azi 
+        The azimuth angle of rotation, in decimal degrees. 
+        
+        alt 
+        The altitude angle of rotation, in decimal degrees. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("node.rotate", self._id, 
+                                                      azi, alt)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def rotateaxis(self, x, y, z):
+        """
+        
+        Rotates the specified node in the last created object about the 
+        Transformation Origin (see set.model.origin for more information) along 
+        the specified axes. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be adjusted, within the last created 
+        object. 
+        
+        x, y, z 
+        These parameters specify the amount of rotation in decimal degrees for 
+        each required axis, in a positive anti-clockwise direction. Use a value 
+        of 0 if no rotation is required for a particular axis.
+        
+        """
+        arg_str = string_util._convert_args_to_string("node.rotateaxis", self._id,
+                                                       x, y, z)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def rotatereverse(self, azi, alt):
+        """
+        
+        Similar to node.rotate, this command rotates the specified node in the 
+        last created object about the Transformation Origin, except in reserve 
+        order. This allows a normal polar rotation to be un-done correctly. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be adjusted, within the last created 
+        object. 
+        
+        azi 
+        The azimuth angle of rotation, in decimal degrees. 
+        
+        alt 
+        The altitude angle of rotation, in decimal degrees. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("node.rotatereverse", 
+                                                      self._id, azi, alt)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def scale(self, dx, dy, dz):
+        """
+        
+        Scale the specified node in the last selected object. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be adjusted, within the last created 
+        object. 
+        
+        dx, dy, dz 
+        These parameters specifies the scale factor to apply in each of the 
+        major X, Y and Z axis.
+        
+        """
+        arg_str = string_util._convert_args_to_string("node.scale", self._id, dx, 
+                                                     dy, dz)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def xform(self, trans, x, y, z):
+        """
+        
+        Applies a generic transformation to the specified node in the last 
+        selected object. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        node 
+        The zero-based index of the node to be adjusted, within the last created 
+        object. 
+        
+        trans 
+        The generic tranformation to apply, according to the Transform Types 
+        table below. 
+        
+        x, y, z 
+        The function of these parameters are determined by the specified trans 
+        parameter, as shown in the table below. 
+        
+        Relevant Data Table(s)
+        T
+        ransformation Types 
+        Token Description 
+        axis Axial rotation, where x , y and z are axial angles in degrees. 
+        reverse Reverse polar rotation, where x and y are azi and alt in degrees. 
+        rotate Polar rotation, where x and y are azi and alt in degrees. 
+        move Translate objects by x , y and z values in the major axis. 
+        scale Scale objects by x , y and z in the major axis. 
+        mirror Mirror objects around About Point and vector formed by x , y and z.  
+        normal Extrude objects a distance of x along its surface normal. 
+        extrude Extrude objects by x , y and z in the major axis. 
+        revolve Revolve objects around axis x , y degrees and in z segments. 
+        nudge Nudge objects a distance of x , y and z in the major axis. 
+    
+        """
+        arg_str = string_util._convert_args_to_string("node.xform", 
+                                                      self._id, trans, x, y, z)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_id(self):
+        """
+        
+        Id of the node object
+        
+        """
+        return self._id
+    
+    def get_flag(self, flag):
         """
         
         Gets the state of individual node flags. 
@@ -264,11 +276,12 @@ class Node(object):
         table_NodeFlags.txt
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.node.flag", node, flag)
+        arg_str = string_util._convert_args_to_string("get.node.flag", self._id, 
+                                                      flag)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def set_flag(self, node, flag, state = True):
+    def set_flag(self, flag, state = True):
         """
         
         Sets individual flags that control the display of attribute values. 
@@ -291,10 +304,11 @@ class Node(object):
         table_NodeFlags.txt
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.node.flag", flag, state) 
+        arg_str = string_util._convert_args_to_string("set.node.flag", self._id,
+                                                       flag, state) 
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_flags(self, node):
+    def get_flags(self):
         """
         
         Retrieves a value representing the total of all the node's flags. 
@@ -316,11 +330,11 @@ class Node(object):
         table_NodeFlags.txt
       
         """
-        arg_str = StringUtil._convert_args_to_string("get.node.flags", node)
+        arg_str = string_util._convert_args_to_string("get.node.flags", self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def get_link(self, node):
+    def get_link(self):
         """
         
         Gets the node or object this node is linked to. 
@@ -337,11 +351,11 @@ class Node(object):
         The zero-based index of the object or node to which the specified node is linked.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.node.link", node)
+        arg_str = string_util._convert_args_to_string("get.node.link", self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def set_link(self, node, link):
+    def set_link(self, link):
         """
         
         Sets individual flags that control the display of attribute values. 
@@ -357,10 +371,11 @@ class Node(object):
         is to be linked.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.node.link", node, link)
+        arg_str = string_util._convert_args_to_string("set.node.link", self._id, 
+                                                      link)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_modifier(self, node):
+    def get_modifier(self):
         """
         Gets the node modifier value. This is decimal value whose use depends on 
         the inter-node relationships to which this node is a party. Typically it 
@@ -380,11 +395,12 @@ class Node(object):
         The decimal value of the node modifier.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.node.modifier", node)
+        arg_str = string_util._convert_args_to_string("get.node.modifier", 
+                                                      self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def set_modifier(self, node, mod):
+    def set_modifier(self, mod):
         """
         
         Sets the node modifier value. This is decimal value whose use depends on 
@@ -403,11 +419,11 @@ class Node(object):
         The new decimal value of the node modifier.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.node.modifier", node, 
-                                                     mod)
+        arg_str = string_util._convert_args_to_string("set.node.modifier", 
+                                                      self._id, mod)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_position(self, node):
+    def get_position(self):
         """
         
         Retrieves the position of the node in absolute world coordinates in each 
@@ -427,11 +443,11 @@ class Node(object):
         dimensional model space. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.node.position", node)
+        arg_str = string_util._convert_args_to_string("get.node.position", self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_position(self, node, x, y, z):
+    def set_position(self, x, y, z):
         """
         
         Sets the position of the node in absolute world coordinates in each of 
@@ -448,11 +464,11 @@ class Node(object):
         dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.node.position", node, 
-                                                     x, y, z)
+        arg_str = string_util._convert_args_to_string("set.node.position", 
+                                                      self._id, x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_selected(self, node):
+    def get_selected(self):
         """
         
         Retrieves the selection state of the specified node. 
@@ -469,11 +485,12 @@ class Node(object):
         If this value is 1, then the node is selected. If 0 the node is not selected. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.node.selected", node)
+        arg_str = string_util._convert_args_to_string("get.node.selected", 
+                                                      self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def set_selected(self, node, state = 1):
+    def set_selected(self, state = 1):
         """
         
         Sets the selection state of the specified node. 
@@ -490,11 +507,11 @@ class Node(object):
         0. If not given, this parameter defaults to true. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.node.selected", node, 
-                                                     state)
+        arg_str = string_util._convert_args_to_string("set.node.selected", 
+                                                      self._id, state)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_type(self, node):
+    def get_type(self):
         """
         
         Retrieves the node type for the specified node in the last created 
@@ -527,11 +544,11 @@ class Node(object):
         spline 8 Control node for a virtual spline curve. 
   
         """
-        arg_str = StringUtil._convert_args_to_string("get.node.type", node)
+        arg_str = string_util._convert_args_to_string("get.node.type", self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def set_type(self, node, type, link = -1):
+    def set_type(self, type, link = -1):
         """
         
         Sets the node type for the specified node in the last created object. 
@@ -567,15 +584,18 @@ class Node(object):
         if type == 2 and  link != -1:
             return
         else:
-            arg_str = StringUtil._convert_args_to_string("set.node.type", node, 
-                                                         type, link)
+            arg_str = string_util._convert_args_to_string("set.node.type", 
+                                                          self._id, type, link)
             py2ecotect.conversation.Exec(arg_str)
 
 
+    id = property(fget = get_id, doc = "Id of the Node object")
+
 
 if __name__ == "__main__":
-    x = Node()
+    x = Node(255, 3, 1000, 2000, 0)
     
+    #print x.id
     #x.move(101, 0, 0, 1500)
     #print x.add_node(102, 3, 1000, 2000, 0,)
     #print x.get_flag(1636, "text")

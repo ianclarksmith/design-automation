@@ -1,5 +1,5 @@
 import py2ecotect
-from py2ecotect import StringUtil
+from py2ecotect import string_util
 
 def acousticresponse(type, frequency):
     """
@@ -34,7 +34,7 @@ def acousticresponse(type, frequency):
     8 16000 Hz 
     
     """
-    arg_str = StringUtil._convert_args_to_string("calc.acousticresponse", type, 
+    arg_str = string_util._convert_args_to_string("calc.acousticresponse", type, 
                                                  frequency)
     py2py2ecotect.conversation.Exec(arg_str)
 
@@ -66,7 +66,7 @@ def adjacencies():
     and shading is ignored.
     
     """
-    arg_str = StringUtil._convert_args_to_string("calc.adjacencies" , 100, 
+    arg_str = string_util._convert_args_to_string("calc.adjacencies" , 100, 
                                                  True)
     py2ecotect.conversation.Exec(arg_str)
 
@@ -152,7 +152,7 @@ def insolation_1(target, type, select3D, accumulation, metric = None):
     if type == "reference" and  metric is None:
         return
     else:
-        arg_str = StringUtil._convert_args_to_string("calc.insolation", target, 
+        arg_str = string_util._convert_args_to_string("calc.insolation", target, 
                                                      type, select3D, 
                                                      accumulation, metric)
         py2ecotect.conversation.Exec(arg_str)
@@ -202,7 +202,7 @@ def insolation_2(period, shading, ground, direct):
     3 Low - use single point at object centre. 
 
     """
-    arg_str = StringUtil._convert_args_to_string("calc.insolation", period, 
+    arg_str = string_util._convert_args_to_string("calc.insolation", period, 
                                                  shading, ground, direct)
     py2ecotect.conversation.Exec(arg_str)
 
@@ -255,7 +255,7 @@ def lighting(target, type, select3D, comparison = 0):
     4 Compare: Before - After 
     
     """
-    arg_str = StringUtil._convert_args_to_string("calc.lighting", target, type, 
+    arg_str = string_util._convert_args_to_string("calc.lighting", target, type, 
                                                  select3D, comparison)
     py2ecotect.conversation.Exec(arg_str)
 
@@ -288,7 +288,7 @@ def resources(type):
     coal Hourly Coal Use 
 
     """
-    arg_str = StringUtil._convert_args_to_string("calc.resources", type)
+    arg_str = string_util._convert_args_to_string("calc.resources", type)
     py2ecotect.conversation.Exec(arg_str)
 
 def shading_percentage(cumulative, startDay, stopDay, startTime, stopTime, shadingType = ""):
@@ -340,7 +340,7 @@ def shading_percentage(cumulative, startDay, stopDay, startTime, stopTime, shadi
 
 
     """
-    arg_str = StringUtil._convert_args_to_string("calc.shading." + shadingType, 
+    arg_str = string_util._convert_args_to_string("calc.shading." + shadingType, 
                                                  cumulative, startDay, stopDay, 
                                                  startTime, stopTime)
     py2ecotect.conversation.Exec(arg_str)
@@ -376,7 +376,7 @@ def thermal_temperatures(selector, zone = 0):
     degreedays Monthly degree days. 
 
     """
-    arg_str = StringUtil._convert_args_to_string("calc.thermal." + selector, zone)
+    arg_str = string_util._convert_args_to_string("calc.thermal." + selector, zone)
     py2ecotect.conversation.Exec(arg_str)
 
 def volumes():
@@ -417,7 +417,7 @@ def get_dates():
     
     """
     val = py2ecotect.conversation.Request("get.calc.dates")
-    return StringUtil._convert_str_to_list(val, int, int, bool)
+    return string_util._convert_str_to_list(val, int, int, bool)
 
 def set_dates(startDay, stopDay, incDay = 1):
     """
@@ -440,7 +440,7 @@ def set_dates(startDay, stopDay, incDay = 1):
     dates are inclusive of the date range.
     
     """
-    arg_str = StringUtil._convert_args_to_string("set.calc.dates", startDay, 
+    arg_str = string_util._convert_args_to_string("set.calc.dates", startDay, 
                                                  stopDay, incDay)
     py2ecotect.conversation.Exec(arg_str)
 
@@ -471,7 +471,7 @@ def get_precision():
 
     """
     val = py2ecotect.conversation.Request("get.calc.precision")
-    return StringUtil._convert_str_to_type(val, int)
+    return string_util._convert_str_to_type(val, int)
 
 def set_precision(precision):
     """
@@ -497,7 +497,7 @@ def set_precision(precision):
     low 4 Low Precision 
 
     """
-    arg_str = StringUtil._convert_args_to_string("set.calc.precision", precision)
+    arg_str = string_util._convert_args_to_string("set.calc.precision", precision)
     py2ecotect.conversation.Exec(arg_str)
 
 def get_sky():
@@ -526,7 +526,7 @@ def get_sky():
 
     """
     val = py2ecotect.conversation.Request("get.calc.sky")
-    return StringUtil._convert_str_to_list(val, int)
+    return string_util._convert_str_to_list(val, int)
 
 def set_sky(sky, level):
     """
@@ -550,7 +550,7 @@ def set_sky(sky, level):
     uniform 1 CIE Uniform Sky 
 
     """
-    arg_str = StringUtil._convert_args_to_string("set.calc.sky", sky, level)
+    arg_str = string_util._convert_args_to_string("set.calc.sky", sky, level)
     py2ecotect.conversation.Exec(arg_str)
 
 def get_times():
@@ -581,7 +581,7 @@ def get_times():
     
     """
     val = py2ecotect.conversation.Request("get.calc.times")
-    return StringUtil._convert_str_to_list(val, float, float, bool)
+    return string_util._convert_str_to_list(val, float, float, bool)
 
 def set_times(startDay, stopDay, incDay = 1):
     """
@@ -604,7 +604,7 @@ def set_times(startDay, stopDay, incDay = 1):
     times are inclusive of the date range.
     
     """
-    arg_str = StringUtil._convert_args_to_string("set.calc.times", startDay, 
+    arg_str = string_util._convert_args_to_string("set.calc.times", startDay, 
                                                  stopDay, incDay)
     py2ecotect.conversation.Exec(arg_str)
 
@@ -633,8 +633,7 @@ def get_windows():
 
     """
     val = py2ecotect.conversation.Request("get.calc.windows")
-    print val
-    return StringUtil._convert_str_to_type(val, str)
+    return string_util._convert_str_to_type(val, str)
 
 
 
@@ -661,7 +660,7 @@ if __name__ == "__main__":
     #set_times(2.5, 3.5)
     """ PROBLEM - Return 2 values. should be a int
     """
-    #print get_windows() 
+    print get_windows() 
     
     
     

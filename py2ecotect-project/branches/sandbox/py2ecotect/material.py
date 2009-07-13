@@ -1,5 +1,5 @@
 import py2ecotect
-from py2ecotect import StringUtil
+from py2ecotect import string_util
 
 class Material(object):
     def edit(self, material):
@@ -15,7 +15,7 @@ class Material(object):
         An integer value that specifies the zero-based index of the required material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("material.edit", material)
+        arg_str = string_util._convert_args_to_string("material.edit", material)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_absorption(self, material):
@@ -35,10 +35,10 @@ class Material(object):
         The solar absorption value used for the specified material. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.absorption", 
+        arg_str = string_util._convert_args_to_string("get.material.absorption", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_absorption(self, material, value):
         """
@@ -57,7 +57,7 @@ class Material(object):
         a decimal value between 0 and 1.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.absorption", 
+        arg_str = string_util._convert_args_to_string("set.material.absorption", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -80,10 +80,10 @@ class Material(object):
         The thermal admittance value used for the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.admittance", 
+        arg_str = string_util._convert_args_to_string("get.material.admittance", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_admittance(self, material, value):
         """
@@ -102,7 +102,7 @@ class Material(object):
         W/m^2K. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.admittance", 
+        arg_str = string_util._convert_args_to_string("set.material.admittance", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -130,10 +130,10 @@ class Material(object):
         The colour used for the external face of the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.colour", 
+        arg_str = string_util._convert_args_to_string("get.material.colour", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)        
-        return StringUtil._convert_str_to_list(val, str, str)
+        return string_util._convert_str_to_list(val, str, str)
 
     def set_colour(self, material, internal, external):
         """
@@ -156,7 +156,7 @@ class Material(object):
         The colour to use for the external face of the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.colour", 
+        arg_str = string_util._convert_args_to_string("set.material.colour", 
                                                      material, internal, external)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -179,10 +179,10 @@ class Material(object):
         The cost per unit value used for the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.costperunit", 
+        arg_str = string_util._convert_args_to_string("get.material.costperunit", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_costperunit(self, material, value):
         """
@@ -202,7 +202,7 @@ class Material(object):
         as specified in the User Preferences dialog box.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.costperunit", 
+        arg_str = string_util._convert_args_to_string("set.material.costperunit", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -237,10 +237,10 @@ class Material(object):
         peritem 2 Per individual item. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.costtype", 
+        arg_str = string_util._convert_args_to_string("get.material.costtype", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def set_costtype(self, material, costType):
         """
@@ -268,7 +268,7 @@ class Material(object):
 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.costtypr", 
+        arg_str = string_util._convert_args_to_string("set.material.costtypr", 
                                                      material, costType)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -309,10 +309,10 @@ class Material(object):
         Output Profiles 0-18 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.data", 
+        arg_str = string_util._convert_args_to_string("get.material.data", 
                                                      material, index)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_data(self, material, index, value):
         """
@@ -347,7 +347,7 @@ class Material(object):
         Output Profiles 0-18 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.data", 
+        arg_str = string_util._convert_args_to_string("set.material.data", 
                                                      material, index, value)
         py2ecotect.conversation.Exec(arg_str)
     
@@ -370,10 +370,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.decrement", 
+        arg_str = string_util._convert_args_to_string("get.material.decrement", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_decrement(self, material, value):
         """
@@ -392,7 +392,7 @@ class Material(object):
         a decimal value between 0 and 1. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.decrement", 
+        arg_str = string_util._convert_args_to_string("set.material.decrement", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -409,7 +409,7 @@ class Material(object):
         An integer value that specifies the zero-based index of the material to set as default. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.default", 
+        arg_str = string_util._convert_args_to_string("set.material.default", 
                                                      material)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -432,10 +432,10 @@ class Material(object):
         A text string value containing notes or a description of the material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.description", 
+        arg_str = string_util._convert_args_to_string("get.material.description", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, str)
+        return string_util._convert_str_to_type(val, str)
 
     def set_description(self, material, description):
         """
@@ -454,7 +454,7 @@ class Material(object):
         a description of the material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.description", 
+        arg_str = string_util._convert_args_to_string("set.material.description", 
                                                      material, description)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -499,10 +499,10 @@ class Material(object):
         camera 15 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.element", 
+        arg_str = string_util._convert_args_to_string("get.material.element", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, str)
+        return string_util._convert_str_to_type(val, str)
 
     def get_embodiedenergy(self, material):
         """
@@ -523,10 +523,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.embodiedenergy", 
+        arg_str = string_util._convert_args_to_string("get.material.embodiedenergy", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_embodiedenergy(self, material, value):
         """
@@ -545,7 +545,7 @@ class Material(object):
         is measured in Watt Hours (Wh).
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.embodiedenergy", 
+        arg_str = string_util._convert_args_to_string("set.material.embodiedenergy", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -568,10 +568,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.energymaintenance", 
+        arg_str = string_util._convert_args_to_string("get.material.energymaintenance", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_energymaintenance(self, material, value):
         """
@@ -590,7 +590,7 @@ class Material(object):
         It is measured in Watt Hours (Wh). 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.energymaintenance", 
+        arg_str = string_util._convert_args_to_string("set.material.energymaintenance", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -614,10 +614,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.extemissivity", 
+        arg_str = string_util._convert_args_to_string("get.material.extemissivity", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_extemissivity(self, material, value):
         """
@@ -636,7 +636,7 @@ class Material(object):
         decimal ratio between 0 and 1. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.extemissivity", 
+        arg_str = string_util._convert_args_to_string("set.material.extemissivity", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -659,10 +659,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.extroughness", 
+        arg_str = string_util._convert_args_to_string("get.material.extroughness", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_extroughness(self, material, value):
         """
@@ -681,7 +681,7 @@ class Material(object):
         decimal ratio between 0 and 1.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.extroughness", 
+        arg_str = string_util._convert_args_to_string("set.material.extroughness", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -704,10 +704,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
     
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.extspecularity", 
+        arg_str = string_util._convert_args_to_string("get.material.extspecularity", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_extspecularity(self, material, value):
         """
@@ -726,7 +726,7 @@ class Material(object):
         a decimal ratio between 0 and 1. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.extspecularity", 
+        arg_str = string_util._convert_args_to_string("set.material.extspecularity", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -749,10 +749,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.greenhousegas", 
+        arg_str = string_util._convert_args_to_string("get.material.greenhousegas", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_greenhousegas(self, material, value):
         """
@@ -768,7 +768,7 @@ class Material(object):
         The Greenhouse Gas Emission value to use for the specified material. It can be any numeric value, per unit measure. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.greenhousegas", 
+        arg_str = string_util._convert_args_to_string("set.material.greenhousegas", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -795,9 +795,9 @@ class Material(object):
         The zero-based index of the matching material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.index", name)
+        arg_str = string_util._convert_args_to_string("get.material.index", name)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def get_intemissivity(self, material):
         """
@@ -818,10 +818,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.intemissivity", 
+        arg_str = string_util._convert_args_to_string("get.material.intemissivity", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_intemissivity(self, material, value):
         """
@@ -840,7 +840,7 @@ class Material(object):
         decimal ratio between 0 and 1. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.intemissivity", 
+        arg_str = string_util._convert_args_to_string("set.material.intemissivity", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -863,10 +863,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.introughness", 
+        arg_str = string_util._convert_args_to_string("get.material.introughness", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_introughness(self, material, value):
         """
@@ -885,7 +885,7 @@ class Material(object):
         decimal ratio between 0 and 1. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.introughness", 
+        arg_str = string_util._convert_args_to_string("set.material.introughness", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -908,10 +908,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.intspecularity", 
+        arg_str = string_util._convert_args_to_string("get.material.intspecularity", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_intspecularity(self, material, value):
         """
@@ -930,7 +930,7 @@ class Material(object):
         a decimal ratio between 0 and 1.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.intspecularity", 
+        arg_str = string_util._convert_args_to_string("set.material.intspecularity", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -953,10 +953,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.lag", 
+        arg_str = string_util._convert_args_to_string("get.material.lag", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_lag(self, material, value):
         """
@@ -975,7 +975,7 @@ class Material(object):
         numeric value, measured in hours.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.lag", 
+        arg_str = string_util._convert_args_to_string("set.material.lag", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1003,10 +1003,10 @@ class Material(object):
         The conductivity value used for the specified layer, measured in W/m.K.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.layer.conductivity", 
+        arg_str = string_util._convert_args_to_string("get.material.layer.conductivity", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_layer_conductivity(self, material, layer, conductivity):
         """
@@ -1029,7 +1029,7 @@ class Material(object):
         W/m.K. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.layer.conductivity", 
+        arg_str = string_util._convert_args_to_string("set.material.layer.conductivity", 
                                                      material, layer, conductivity)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1056,10 +1056,10 @@ class Material(object):
         The density value to use for the specified layer, given in kg/m3. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.layer.density", 
+        arg_str = string_util._convert_args_to_string("get.material.layer.density", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_layer_density(self, material, layer, density):
         """
@@ -1081,7 +1081,7 @@ class Material(object):
         Sets the density value to use for the specified layer, measured in kg/m3.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.layer.density", 
+        arg_str = string_util._convert_args_to_string("set.material.layer.density", 
                                                      material, layer, density)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1110,10 +1110,10 @@ class Material(object):
         An integer value that sets the hatch type to use for the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.layer.hatch", 
+        arg_str = string_util._convert_args_to_string("get.material.layer.hatch", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def set_layer_hatch(self, material, layer, hatch):
         """
@@ -1135,7 +1135,7 @@ class Material(object):
         An integer value that sets the hatch type to use for the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.layer.hatch", 
+        arg_str = string_util._convert_args_to_string("set.material.layer.hatch", 
                                                      material, layer, hatch)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1162,10 +1162,10 @@ class Material(object):
         A text string value containing the name of the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.layer.name", 
+        arg_str = string_util._convert_args_to_string("get.material.layer.name", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, str)
+        return string_util._convert_str_to_type(val, str)
 
     def set_layer_name(self, material, layer, name):
         """
@@ -1187,7 +1187,7 @@ class Material(object):
         A string value that specifies the name of the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.layer.name", 
+        arg_str = string_util._convert_args_to_string("set.material.layer.name", 
                                                      material, layer, name)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1214,10 +1214,10 @@ class Material(object):
         The specific heat value used for the specified layer, measured in J/kg.K.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.layer.specific_heat", 
+        arg_str = string_util._convert_args_to_string("get.material.layer.specific_heat", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_layer_specific_heat(self, material, layer, specific_heat):
         """
@@ -1240,7 +1240,7 @@ class Material(object):
         J/kg.K.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.layer.specific_heat", 
+        arg_str = string_util._convert_args_to_string("set.material.layer.specific_heat", 
                                                      material, layer, specific_heat)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1267,10 +1267,10 @@ class Material(object):
         An integer value giving type used for the specified layer.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.layer.type", 
+        arg_str = string_util._convert_args_to_string("get.material.layer.type", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def set_layer_type(self, material, layer, type):
         """
@@ -1292,7 +1292,7 @@ class Material(object):
         An integer value that sets the type to use for the specified layer. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.layer.type", 
+        arg_str = string_util._convert_args_to_string("set.material.layer.type", 
                                                      material, layer, type)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1319,10 +1319,10 @@ class Material(object):
         The width of the specified layer in the material, given in mm. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.layer.width", 
+        arg_str = string_util._convert_args_to_string("get.material.layer.width", 
                                                      material, layer)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_layer_width(self, material, layer, width):
         """
@@ -1345,7 +1345,7 @@ class Material(object):
         in mm.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.layer.width", 
+        arg_str = string_util._convert_args_to_string("set.material.layer.width", 
                                                      material, layer, width)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1368,10 +1368,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.lca", 
+        arg_str = string_util._convert_args_to_string("get.material.lca", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
         
     def set_lca(self, material, value):
         """
@@ -1389,7 +1389,7 @@ class Material(object):
         The LCAid Reference value to use for the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.lca", 
+        arg_str = string_util._convert_args_to_string("set.material.lca", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1412,10 +1412,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.lifespan", 
+        arg_str = string_util._convert_args_to_string("get.material.lifespan", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_lifespan(self, material, value):
         """
@@ -1434,7 +1434,7 @@ class Material(object):
         years.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.lifespan", 
+        arg_str = string_util._convert_args_to_string("set.material.lifespan", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1457,10 +1457,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.get_maintenancecost", 
+        arg_str = string_util._convert_args_to_string("get.material.get_maintenancecost", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_maintenancecost(self, material, value):
         """
@@ -1479,7 +1479,7 @@ class Material(object):
         measured in selected currency.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.maintenancecost", 
+        arg_str = string_util._convert_args_to_string("set.material.maintenancecost", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1502,10 +1502,10 @@ class Material(object):
         A text string value containing the current name of the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.name", 
+        arg_str = string_util._convert_args_to_string("get.material.name", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, str)
+        return string_util._convert_str_to_type(val, str)
 
     def set_name(self, material, value):
         """
@@ -1523,7 +1523,7 @@ class Material(object):
         The string value containing the new name of the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.name", 
+        arg_str = string_util._convert_args_to_string("set.material.name", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1546,10 +1546,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.ref1", 
+        arg_str = string_util._convert_args_to_string("get.material.ref1", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_ref1(self, material, value):
         """
@@ -1567,7 +1567,7 @@ class Material(object):
         The External Reference 1 value to use for the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.ref1", 
+        arg_str = string_util._convert_args_to_string("set.material.ref1", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1590,10 +1590,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.ref2", 
+        arg_str = string_util._convert_args_to_string("get.material.ref2", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_ref2(self, material, value):
         """
@@ -1611,7 +1611,7 @@ class Material(object):
         The External Reference 2 value to use for the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.ref2", 
+        arg_str = string_util._convert_args_to_string("set.material.ref2", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1642,10 +1642,10 @@ class Material(object):
         ranging from 0.0 to 1.0. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.reflectance", 
+        arg_str = string_util._convert_args_to_string("get.material.reflectance", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float)
+        return string_util._convert_str_to_list(val, float, float)
 
     def set_reflectance(self, material, internal, external):
         """
@@ -1672,7 +1672,7 @@ class Material(object):
         the corresponding colour not updated.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.reflectance", 
+        arg_str = string_util._convert_args_to_string("set.material.reflectance", 
                                                      material, internal, external)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1695,10 +1695,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.thickness", 
+        arg_str = string_util._convert_args_to_string("get.material.thickness", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_thickness(self, material, value):
         """
@@ -1727,7 +1727,7 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.thickness", 
+        arg_str = string_util._convert_args_to_string("set.material.thickness", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1751,10 +1751,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.transparency", 
+        arg_str = string_util._convert_args_to_string("get.material.transparency", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_transparency(self, material, value):
         """
@@ -1773,7 +1773,7 @@ class Material(object):
         decimal value between 0.0 and 1.0. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.transparency", 
+        arg_str = string_util._convert_args_to_string("set.material.transparency", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1817,10 +1817,10 @@ class Material(object):
         camera 15 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.type", 
+        arg_str = string_util._convert_args_to_string("get.material.type", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def set_type(self, material, type):
         """
@@ -1860,7 +1860,7 @@ class Material(object):
         camera 15 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.type", 
+        arg_str = string_util._convert_args_to_string("set.material.type", 
                                                      material, type)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1886,10 +1886,10 @@ class Material(object):
         this material. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.materialused.used", 
+        arg_str = string_util._convert_args_to_string("get.materialused.used", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def get_uvalue(self, material):
         """
@@ -1911,10 +1911,10 @@ class Material(object):
         material. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.uvalue", 
+        arg_str = string_util._convert_args_to_string("get.material.uvalue", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_uvalue(self, material, value):
         """
@@ -1932,7 +1932,7 @@ class Material(object):
         The U-Value value to use for the specified material, measured in W/m^2.K.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.uvalue", 
+        arg_str = string_util._convert_args_to_string("set.material.uvalue", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1956,10 +1956,10 @@ class Material(object):
         A decimal value containing the retrieved date from the specified material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.material.weight", 
+        arg_str = string_util._convert_args_to_string("get.material.weight", 
                                                      material)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_weight(self, material, value):
         """
@@ -1975,7 +1975,7 @@ class Material(object):
         The Weight value to use for the specified material, measured in kilograms.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.material.weight", 
+        arg_str = string_util._convert_args_to_string("set.material.weight", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 

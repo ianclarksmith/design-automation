@@ -1,8 +1,83 @@
 import py2ecotect
-from py2ecotect import StringUtil
+from py2ecotect import string_util
 
 class Object(object):
-    def delete(self, object):
+    
+    def __init__(self, elemType, objType, selected = True, link = 0):
+        """
+        
+        Use this command to create new objects in the model. It returns the 
+        zero-based index of the object just added which you can then use to 
+        add nodes. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        elemType 
+        The element type of the new object and may be given as either a token 
+        or value as shown in the Element Types table below. 
+        
+        objType 
+        The type of object to be created and may be given as either a token or 
+        value corresponding with the following Object Types table. 
+        
+        [selected] 
+        This optional parameter determines whether the newly created object is 
+        set as selected. This is a boolean value where 1 or true represents the 
+        affirmative and 0 or false the negative. If not specified, this 
+        parameter defaults to true. 
+        
+        [link] 
+        If the objtype is set to child, this optional parameter specifies what 
+        type of object the child is linked with. The [link] value can be 
+        selected from the same table for the elemType parameter. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        zoneIndex 
+        The zero-based index of the object just added. A value of -1 indicates 
+        that the operation failed. 
+        
+        Relevant Data Table(s)
+        
+        Element Types 
+        Token Value 
+        void 0 
+        roof 1 
+        floor 2 
+        ceiling 3 
+        wall 4 
+        partition 5 
+        window 6 
+        panel 7 
+        door 8 
+        point 9 
+        speaker 10 
+        light 11 
+        appliance 12 
+        line 13 
+        solarcollector 14 
+        camera 15 
+        
+        
+        Object Type Codes 
+        Token  Value  
+        point 1 
+        vector 2 
+        plane 12 
+        wall 32 
+        zone 4140 
+        source 3 
+        child 2444 
+
+        """
+        arg_str = string_util._convert_args_to_string("add.object", elemType, 
+                                                     objType, selected, link)
+        val = py2ecotect.conversation.Request(arg_str)
+        self._id = string_util._convert_str_to_type(val, int)
+    
+    def delete(self):
         """
         
         This command removes the specified object from the model. Note that this 
@@ -18,10 +93,10 @@ class Object(object):
         The zero-based index of the object to be deleted.
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.delete", object)
+        arg_str = string_util._convert_args_to_string("object.delete", self._id)
         py2ecotect.conversation.Exec(arg_str)
         
-    def delnode(self, object, node):
+    def delnode(self, node):
         """
         
         The delnode command removes the specified node from the specified object. 
@@ -36,7 +111,7 @@ class Object(object):
         The zero-based node index belonging to the object. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.delnode", object, 
+        arg_str = string_util._convert_args_to_string("object.delnode", self._id, 
                                                      node)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -54,7 +129,7 @@ class Object(object):
         """
         py2ecotect.conversation.Exec("object.done")
 
-    def duplicate(self, object, x, y, z):
+    def duplicate(self, x, y, z):
         """
         
         Creates a duplicate copy of the specified object a distance of x, y and 
@@ -70,11 +145,11 @@ class Object(object):
         Specifies a distance move the duplicate object in each of the major axes. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.duplicate", object, 
-                                                     x, y, z)
+        arg_str = string_util._convert_args_to_string("object.duplicate", 
+                                                      self._id, x, y, z)
         py2ecotect.conversation.Exec(arg_str)
         
-    def extrude(self, object, x, y, z):
+    def extrude(self, x, y, z):
         """
         
         Extrudes the specified object a distance of x, y and z in the major axis. 
@@ -90,11 +165,11 @@ class Object(object):
         major axes.
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.extrude", object, 
+        arg_str = string_util._convert_args_to_string("object.extrude", self._id, 
                                                      x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
-    def link(self, object, parent):
+    def link(self, parent):
         """
         
         This command link two objects together to create a parent-child 
@@ -111,11 +186,11 @@ class Object(object):
         with.
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.link", object, 
+        arg_str = string_util._convert_args_to_string("object.link", self._id, 
                                                      parent)
         py2ecotect.conversation.Exec(arg_str)
 
-    def move(self, object, x, y, z):
+    def move(self, x, y, z):
         """
         
         This command moves the specified object. 
@@ -129,11 +204,11 @@ class Object(object):
         Specifies a distance to move the specified object in each of the major axes.
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.move", object, 
+        arg_str = string_util._convert_args_to_string("object.move", self._id, 
                                                      x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
-    def normal(self, object, type):
+    def normal(self, type):
         """
         
         This command orients the surface normals of the specified object in the 
@@ -159,11 +234,11 @@ class Object(object):
         3 Towards positive Z axis. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.normal", object, 
+        arg_str = string_util._convert_args_to_string("object.normal", self._id, 
                                                      type)
         py2ecotect.conversation.Exec(arg_str)
 
-    def nudge(self, object, dir):
+    def nudge(self, dir):
         """
         
         Nudges the specified object in the given axis direction, by the current 
@@ -189,10 +264,11 @@ class Object(object):
         3, -3 In the Z axis. 
     
         """
-        arg_str = StringUtil._convert_args_to_string("object.nudge", object, dir)
+        arg_str = string_util._convert_args_to_string("object.nudge", 
+                                                      self._id, dir)
         py2ecotect.conversation.Exec(arg_str)
 
-    def orient(self, object, azi, alt):
+    def orient(self, azi, alt):
         """
         
         Orients the surface normals of the specified object to the given azimuth 
@@ -211,11 +287,11 @@ class Object(object):
         The vertical angle of orientation, given in degrees. 
   
         """
-        arg_str = StringUtil._convert_args_to_string("object.orient", object, 
+        arg_str = string_util._convert_args_to_string("object.orient", self._id, 
                                                      azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def revolve(self, object, axis, angle, segs):
+    def revolve(self, axis, angle, segs):
         """
         
         Revolves the specified object around the Transformation Origin to create 
@@ -248,11 +324,11 @@ class Object(object):
         2 Around the Y axis. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("object.revolve", object, 
+        arg_str = string_util._convert_args_to_string("object.revolve", self._id, 
                                                      axis, angle, segs)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotate(self, object, azi, alt):
+    def rotate(self, azi, alt):
         """
         
         Rotates the specified object about the Transformation Origin (see set.
@@ -272,11 +348,11 @@ class Object(object):
         The altitude angle of rotation in decimal degrees.
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.rotate", object, 
+        arg_str = string_util._convert_args_to_string("object.rotate", self._id, 
                                                      azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotateaxis(self, object, rx, ry, rz):
+    def rotateaxis(self, rx, ry, rz):
         """
         
         Rotates the specified object about the Transformation Origin (see set.
@@ -294,11 +370,11 @@ class Object(object):
         required for a particular axis. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.rotateaxis", object, 
-                                                     rx, ry, rz)
+        arg_str = string_util._convert_args_to_string("object.rotateaxis", 
+                                                      self._id, rx, ry, rz)
         py2ecotect.conversation.Exec(arg_str)
         
-    def rotatereverse(self, object, azi, alt):
+    def rotatereverse(self, azi, alt):
         """
         
         Similar to object.rotate, this command rotates the specified object 
@@ -318,11 +394,11 @@ class Object(object):
         The altitude angle of rotation in decimal degrees.
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.rotatereverse", object, 
-                                                     azi, alt)
+        arg_str = string_util._convert_args_to_string("object.rotatereverse", 
+                                                      self._id, azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def scale(self, object, dx, dy, dz):
+    def scale(self, dx, dy, dz):
         """
         
         This command scales the specified object. 
@@ -337,11 +413,11 @@ class Object(object):
         The scale factor to apply in each of the major axes. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.scale", object, 
+        arg_str = string_util._convert_args_to_string("object.scale", self._id, 
                                                      dx, dy, dz)
         py2ecotect.conversation.Exec(arg_str)
 
-    def select(self, object):
+    def select(self):
         """
         
         Selects the specified object or, if multiple object indexes are given, 
@@ -354,10 +430,10 @@ class Object(object):
         The the zero-based index of the object to select. Repeat as necessary. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.select", object)
+        arg_str = string_util._convert_args_to_string("object.select", self._id)
         py2ecotect.conversation.Exec(arg_str)
         
-    def spin(self, object, spin):
+    def spin(self, spin):
         """
         
         Rotates the specified object about its geometric centre, around the axis 
@@ -373,10 +449,10 @@ class Object(object):
         The spin angle given in decimal degrees.
         
         """
-        rg_str = StringUtil._convert_args_to_string("object.spin", object, spin)
+        rg_str = string_util._convert_args_to_string("object.spin", self._id, spin)
         py2ecotect.conversation.Exec(arg_str)
 
-    def update(self, object):
+    def update(self):
         """
         
         Use this command to check and refresh inter-object relationships for the 
@@ -392,10 +468,10 @@ class Object(object):
         The the zero-based index of the object to select.
         
         """
-        arg_str = StringUtil._convert_args_to_string("object.update", object)
+        arg_str = string_util._convert_args_to_string("object.update", self._id)
         py2ecotect.conversation.Exec(arg_str)
 
-    def xform(self, object, trans, x, y, z):
+    def xform(self, trans, x, y, z):
         """
         
         Applies a generic transformation to the specified object. 
@@ -430,17 +506,19 @@ class Object(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("object.xform", object, 
+        arg_str = string_util._convert_args_to_string("object.xform", self._id, 
                                                      trans, x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
-    def add_object(self, object, elemType, objType, selected = True, link = 0):
-        arg_str = StringUtil._convert_args_to_string("add.object", elemType, 
-                                                     objType, selected, link)
-        val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
-
-    def get_activation(self, object, day, hour):
+    def get_id(self):
+        """
+        
+        Id of the object
+        
+        """
+        return self._id
+    
+    def get_activation(self, day, hour):
         """
         
         Returns the fractional activation value of the specified object for the 
@@ -469,12 +547,12 @@ class Object(object):
         is on.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.activation", 
-                                                     object, day, hour)
+        arg_str = string_util._convert_args_to_string("get.object.activation", 
+                                                     self._id, day, hour)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def get_alternate(self, object):
+    def get_alternate(self):
         """
         
         Retrieves the index of the alternate material to the specified object. 
@@ -495,12 +573,12 @@ class Object(object):
         The zero-based index of the assigned alternate material. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.alternate", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.alternate", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def set_alternate(self, object, material):
+    def set_alternate(sel, material):
         """
         
         Sets the index of the alternate material of the specified object. It is 
@@ -522,11 +600,11 @@ class Object(object):
         name using the get.material.index property.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.alternate", 
-                                                     object, material)
+        arg_str = string_util._convert_args_to_string("set.object.alternate", 
+                                                     self._id, material)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_angle(self, object, type):
+    def get_angle(self, type):
         """
         
         Returns the angle, in degrees, of the surface normal of a planar object. 
@@ -558,12 +636,12 @@ class Object(object):
         eye 4 3D angle between surface normal and current eye position. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.angle", 
-                                                     object, type)
+        arg_str = string_util._convert_args_to_string("get.object.angle", 
+                                                     self._id, type)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def get_area(self, object):
+    def get_area(self):
         """
         
         Retrieves the surface area for the specified object, measured in square 
@@ -582,12 +660,12 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.area", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.area", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
         
-    def get_attr1(self, object):
+    def get_attr1(self):
         """
         
         Retrieves the calculated value stored as Attribute Number 1 for the 
@@ -606,12 +684,12 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.attr1", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.attr1", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def set_attr1(self, object, value):
+    def set_attr1(self, value):
         """
         
         Sets the calculated value stored as Attribute Number 1 for the specified object. 
@@ -625,12 +703,12 @@ class Object(object):
         The value to assign.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.attr1", 
-                                                     object, value)
+        arg_str = string_util._convert_args_to_string("set.object.attr1", 
+                                                     self._id, value)
         py2ecotect.conversation.Exec(arg_str)
  
  
-    def get_attr2(self, object):
+    def get_attr2(self):
         """
         
         Retrieves the calculated value stored as Attribute Number 2 for the 
@@ -649,12 +727,12 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.attr2", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.attr2", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def set_attr2(self, object, value):
+    def set_attr2(self, value):
         """
         
         Sets the calculated value stored as Attribute Number 2 for the specified object. 
@@ -668,11 +746,11 @@ class Object(object):
         The value to assign.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.attr2", 
-                                                     object, value)
+        arg_str = string_util._convert_args_to_string("set.object.attr2", 
+                                                     self._id, value)
         py2ecotect.conversation.Exec(arg_str)       
 
-    def get_attr3(self, object):
+    def get_attr3(self):
         """
         
         Retrieves the calculated value stored as Attribute Number 3 for the 
@@ -691,12 +769,12 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.attr3", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.attr3", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def set_attr3(self, object, value):
+    def set_attr3(self, value):
         """
         
         Sets the calculated value stored as Attribute Number 3 for the specified object. 
@@ -710,11 +788,11 @@ class Object(object):
         The value to assign.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.attr3", 
-                                                     object, value)
+        arg_str = string_util._convert_args_to_string("set.object.attr3", 
+                                                     self._id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_center(self, object):
+    def get_center(self):
         """
         
         Returns three decimal values corresponding to the X, Y and Z components 
@@ -735,12 +813,12 @@ class Object(object):
         point in 3 dimensional model space. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.center", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.center", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_center(self, object, x, y, z):
+    def set_center(self, x, y, z):
         """
         
         Sets the centre point for the specified object - the object is moved so 
@@ -757,11 +835,11 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.center", 
-                                                     object, x, y, z)
+        arg_str = string_util._convert_args_to_string("set.object.center", 
+                                                     self._id, x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_child_extents(self, object, absolute = True):
+    def get_child_extents(self, absolute = True):
         """
         
         Returns the size and location of a child object within a parent object. 
@@ -799,12 +877,12 @@ class Object(object):
         The relative height of the child object. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.child.extents", 
-                                                     object, absolute)
+        arg_str = string_util._convert_args_to_string("get.object.child.extents", 
+                                                     self._id, absolute)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float, float)
 
-    def set_child_extents(self, object, u, v, wu, hv):
+    def set_child_extents(self, u, v, wu, hv):
         """
         
         Sets the size and location of a child object within a parent object. For 
@@ -848,11 +926,11 @@ class Object(object):
         the child object 3/4 the size of the parent object.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.child.extents", 
-                                                     object, u, v, wu, hv)
+        arg_str = string_util._convert_args_to_string("set.object.child.extents", 
+                                                     self._id, u, v, wu, hv)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_coplanar(self, object, x, y, z):
+    def get_coplanar(self, x, y, z):
         """
         
         Determines if a point is co-planar with the specified object. Onviously 
@@ -875,12 +953,12 @@ class Object(object):
         A boolean value where 1 means that the point is coplanar and 0 means that it isn't. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.coplanar", 
-                                                     object, x, y, z)
+        arg_str = string_util._convert_args_to_string("get.object.coplanar", 
+                                                     self._id, x, y, z)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def set_current(self, object):
+    def set_current(self):
         """
         
         Several actions within ECOTECT act on the current object (sun-path 
@@ -894,11 +972,11 @@ class Object(object):
         The zero-based index of the object to set.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.current", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("set.object.current", 
+                                                     self._id)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_distanceto(self, object, x, y, z):
+    def get_distanceto(self, x, y, z):
         """
         
         Returns a single floating point value, being the distance between the 
@@ -924,12 +1002,12 @@ class Object(object):
         The distance fro the point to the object.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.distanceto", 
-                                                     object, x, y, z)
+        arg_str = string_util._convert_args_to_string("get.object.distanceto", 
+                                                     self._id, x, y, z)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def get_equation(self, object):
+    def get_equation(self):
         """
         
         Getting this property returns the values used to calculate the plane 
@@ -950,12 +1028,29 @@ class Object(object):
         Ax + By + Cz = D 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.equation", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.equation", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float, float)
+ 
+    def set_equation(self):
+        """
         
-    def get_exposure(self, object):
+        When this property is set, ECOTECT recalculates the plane equation 
+        Ax + By + Cz = D for the specified object. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        object 
+        The zero-based index of the object to calculate.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.object.equation", 
+                                                     self._id)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_exposure(self):
         """
         
         This command retrieves the surface area of an object that is exposed to 
@@ -974,12 +1069,12 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.exposure", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.exposure", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def get_extents(self, object):
+    def get_extents(self):
         """
         
         Retrieves the overall size for the specified object, measured in 
@@ -998,12 +1093,12 @@ class Object(object):
         The overall dimensions of the object in each of the X, Y and Z axis. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.extents", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.extents", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_extents_2dpt(self, object, u, v):
+    def get_extents_2dpt(self, u, v):
         """
         
         This command retrieves coordinates for the nominated point on the face 
@@ -1033,12 +1128,12 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.extents.2dpt", 
-                                                     object, u, v)
+        arg_str = string_util._convert_args_to_string("get.object.extents.2dpt", 
+                                                     self._id, u, v)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_extents_max(self, object):
+    def get_extents_max(self):
         """
         
         Retrieves the 3D coordinates for the maximum extent of the selected 
@@ -1058,12 +1153,12 @@ class Object(object):
         point in 3 dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.extents.max", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.extents.max", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_extents_min(self, object):
+    def get_extents_min(self):
         """
         
         Retrieves the coordinates for the minimum extent of the selected object. 
@@ -1082,12 +1177,12 @@ class Object(object):
         point in 3 dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.extents.min", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.extents.min", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_firstnode(self, object):
+    def get_firstnode(self):
         """
         
         Returns the zero-based absolute index of its first node. 
@@ -1105,12 +1200,12 @@ class Object(object):
         The zero-based index of the object's first node.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.firstnode", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.firstnode", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def get_flag(self, object, flag):
+    def get_flag(self, flag):
         """
         
         In ECOTECT, objects have a range of boolean flags associated with them 
@@ -1160,12 +1255,12 @@ class Object(object):
         *Indicates temporary and volatile markers for internal use only.
      
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.flag", 
-                                                     object, flag)
+        arg_str = string_util._convert_args_to_string("get.object.flag", 
+                                                     self._id, flag)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def set_flag(self, object, flag, state = True):
+    def set_flag(self, flag, state = True):
         """
         
         In ECOTECT, objects have a range of boolean flags associated with them 
@@ -1218,11 +1313,11 @@ class Object(object):
         *Indicates temporary and volatile markers for internal use only.
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.flag", 
-                                                     object, flag, state)
+        arg_str = string_util._convert_args_to_string("set.object.flag", 
+                                                     self._id, flag, state)
         py2ecotect.conversation.Exec(arg_str)
         
-    def get_incidence(self, object, x, y, z):
+    def get_incidence(self, x, y, z):
         """
         
         Returns the angle in degrees between the surface normal of the specified 
@@ -1247,12 +1342,12 @@ class Object(object):
         The incidence angle in degrees. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.incidence", 
-                                                     object, x, y, z)
+        arg_str = string_util._convert_args_to_string("get.object.incidence", 
+                                                     self._id, x, y, z)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
         
-    def get_inside(self, object, x, y, z, checkChildren = True):
+    def get_inside(self, x, y, z, checkChildren = True):
         """
         
         Determines if the specified point is within the boundary of the 
@@ -1287,13 +1382,13 @@ class Object(object):
         it isn't. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.inside", 
-                                                     object, x, y, z, 
+        arg_str = string_util._convert_args_to_string("get.object.inside", 
+                                                     self._id, x, y, z, 
                                                      checkChildren)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def get_intersect(self, object, x1, y1, z1, x2, y2, z2):
+    def get_intersect(self, x1, y1, z1, x2, y2, z2):
         """
         
         Returns the coordinates of the intersection point between a line joining 
@@ -1323,13 +1418,13 @@ class Object(object):
         intersection point in 3 dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.intersect", 
-                                                     object, x1, y1, z1, x2, y2, 
+        arg_str = string_util._convert_args_to_string("get.object.intersect", 
+                                                     self._id, x1, y1, z1, x2, y2, 
                                                      z2)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_lastnode(self, object):
+    def get_lastnode(self):
         """
         
         Returns the zero-based absolute index of its last node. 
@@ -1346,12 +1441,12 @@ class Object(object):
         The zero-based index of the object's last node. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.lastnode", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.lastnode", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def get_length(self, object):
+    def get_length(self):
         """
         
         Retrieves the length value for the specified object, measured in 
@@ -1370,12 +1465,12 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.length", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.length", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def get_link(self, object):
+    def get_link(self):
         """
         
         Getting this property returns the absolute index of the object to which 
@@ -1395,12 +1490,12 @@ class Object(object):
         The zero-based index of the linked object.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.link", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.link", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def get_mask(self, object):
+    def get_mask(self):
         """
         
         Retrieves the index of the object's shading mask. The shading mask 
@@ -1421,12 +1516,12 @@ class Object(object):
         being the zero-based index of the shading mask in the current list.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.mask", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.mask", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def set_mask(self, object, index):
+    def set_mask(self, index):
         """
         
         Sets the index of the object's shading mask. The shading mask assigned 
@@ -1444,11 +1539,11 @@ class Object(object):
         being the zero-based index of the shading mask in the current list. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.mask", 
-                                                     object, index)
+        arg_str = string_util._convert_args_to_string("set.object.mask", 
+                                                     self._id, index)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_material(self, object):
+    def get_material(self):
         """
         
         Retrieves the index of the object's primary material. It is also 
@@ -1470,12 +1565,12 @@ class Object(object):
         The zero-based index of the assigned primary material. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.material", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.material", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def set_material(self, object, material):
+    def set_material(self, material):
         """
         
         Sets the index of the object's primary material. It is also possible to 
@@ -1497,11 +1592,11 @@ class Object(object):
         command.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.material", 
-                                                     object, material)
+        arg_str = string_util._convert_args_to_string("set.object.material", 
+                                                     self._id, material)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_node_position(self, object, node):
+    def get_node_position(self, node):
         """
         
         Retrieves the position of the node in absolute world coordinates for 
@@ -1526,12 +1621,12 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.node.position", 
-                                                     object, node)
+        arg_str = string_util._convert_args_to_string("get.object.node.position", 
+                                                     self._id, node)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_node_position(self, object, node, x, y, z):
+    def set_node_position(self, node, x, y, z):
         """
         
         Sets the position of the node in absolute world coordinates for each of 
@@ -1552,11 +1647,11 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.node.position", 
-                                                     object, node, x, y, z)
+        arg_str = string_util._convert_args_to_string("set.object.node.position", 
+                                                     self._id, node, x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_nodes(self, object):
+    def get_nodes(self):
         """
         
         Returns the number of nodes in the specified object. 
@@ -1573,12 +1668,12 @@ class Object(object):
         The number of nodes in this object. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.node", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.node", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def get_normal(self, object):
+    def get_normal(self):
         """
         
         Retrieves the values corresponding to the x, y and z axis components for 
@@ -1600,12 +1695,12 @@ class Object(object):
         Z axis, given in model coordinates, of the object's normal.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.normal", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.normal", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_panelarea(self, object):
+    def get_panelarea(self):
         """
         
         Retrieves the surface area value overlapping with a WINDOW or DOOR 
@@ -1624,13 +1719,13 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.panelarea", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.panelarea", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
 
-    def get_pt_even(self, object):
+    def get_pt_even(self):
         """
         
         Retrieves information about how sample points are evenly distributed 
@@ -1672,12 +1767,12 @@ class Object(object):
         0 Finished - no further points to be found. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.pt.even", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.pt.even", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float, int)
+        return string_util._convert_str_to_list(val, float, float, float, int)
 
-    def get_pt_initialise(self, object, fraction):
+    def get_pt_initialise(self, fraction):
         """
         
         Many analysis functions require a range of sample points distributed 
@@ -1707,12 +1802,12 @@ class Object(object):
         is unsuitable for this. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.pt.initialise", 
-                                                     object, fraction)
+        arg_str = string_util._convert_args_to_string("get.object.pt.initialise", 
+                                                     self._id, fraction)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def get_pt_random(self, object):
+    def get_pt_random(self):
         """
         
         Retrieves information about how sample points are randomly distributed 
@@ -1755,12 +1850,12 @@ class Object(object):
         0 Finished - no further points to be found. 
  
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.pt.random", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.pt.random", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float, int)
+        return string_util._convert_str_to_list(val, float, float, float, int)
 
-    def get_reflect(self, object, x, y, z):
+    def get_reflect(self, x, y, z):
         """
         
         Reflects the nominated 3D point around the plane of the specified object 
@@ -1785,12 +1880,12 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.reflect", 
-                                                     object, x, y, z)
+        arg_str = string_util._convert_args_to_string("get.object.reflect", 
+                                                     self._id, x, y, z)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_resolution(self, object):
+    def get_resolution(self):
         """
         
         Retrieves the current curve resolution to use for virtual polylines, for the specified object. 
@@ -1807,12 +1902,12 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.resolution", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.resolution", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def set_resolution(self, object, value):
+    def set_resolution(self, value):
         """
         
         Sets the curve resolution to use for virtual polylines, for the 
@@ -1828,11 +1923,11 @@ class Object(object):
         The value to use for the virtual polyline curve resolution.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.node.position", 
-                                                     object, value)
+        arg_str = string_util._convert_args_to_string("set.object.node.position", 
+                                                     self._id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_sameside(self, object, x1, y1, z1, x2, y2, z2):
+    def get_sameside(self, x1, y1, z1, x2, y2, z2):
         """
         
         Returns a single integer value, either 0 (false) or 1 (true), depending 
@@ -1860,13 +1955,13 @@ class Object(object):
         means that they aren't.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.sameside", 
-                                                     object, x1, y1, z1, x2, y2, 
+        arg_str = string_util._convert_args_to_string("get.object.sameside", 
+                                                     self._id, x1, y1, z1, x2, y2, 
                                                      z2)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def get_schedule(self, object):
+    def get_schedule(self):
         """
         
         Retrieves the index value for the specified object's activation 
@@ -1891,12 +1986,12 @@ class Object(object):
         The zero-based index of the schedule assigned to this object. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.schedule", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.schedule", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def set_schedule(self, object, schedule):
+    def set_schedule(self, schedule):
         """
         
         Sets the index value to use for the specified object's activation 
@@ -1921,11 +2016,11 @@ class Object(object):
         command.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.schedule", 
-                                                     object, schedule)
+        arg_str = string_util._convert_args_to_string("set.object.schedule", 
+                                                     self._id, schedule)
         py2ecotect.conversation.Exec(arg_str)
         
-    def get_selected(self, object):
+    def get_selected(self):
         """
         
         Retrieves the selection state of the specified object. A value of 1 
@@ -1946,12 +2041,12 @@ class Object(object):
         and 0 that it is not. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.selected", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.selected", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
-    def set_selected(self, object, state = True):
+    def set_selected(self, state = True):
         """
         
         Sets the selection state of the specified object.
@@ -1973,11 +2068,11 @@ class Object(object):
         as the current object.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.selected", 
-                                                     object, state)
+        arg_str = string_util._convert_args_to_string("set.object.selected", 
+                                                     self._id, state)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_sunangles(self, object):
+    def get_sunangles(self):
         """
         
         Returns the objects vertical shadow angle (VSA, always assuming it as a 
@@ -2004,12 +2099,12 @@ class Object(object):
         The Horizontal Shadow Angle of the object at the current date and time. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.sunangles", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.sunangles", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float)
+        return string_util._convert_str_to_list(val, float, float)
 
-    def get_tag(self, object, tag):
+    def get_tag(self, tag):
         """
         
         Retrieves information about tags that have been assigned to the 
@@ -2051,12 +2146,12 @@ class Object(object):
         32768 TAGGED_MARKER* Generic calculation marker. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.tag", 
-                                                     object, tag)
+        arg_str = string_util._convert_args_to_string("get.object.tag", 
+                                                     self._id, tag)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def set_tag(self, object, tag, state = True):
+    def set_tag(self, tag, state = True):
         """
         
         Sets tags for the specified object. Tags are simply indicators to 
@@ -2099,11 +2194,11 @@ class Object(object):
 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.tag", 
-                                                     object, tag, state)
+        arg_str = string_util._convert_args_to_string("set.object.tag", 
+                                                     self._id, tag, state)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_type(self, object):
+    def get_type(self):
         """
         
         Returns the element type of the specified object, according to the 
@@ -2143,12 +2238,12 @@ class Object(object):
         camera 15 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.type", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.type", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def set_type(self, object, type):
+    def set_type(self, type):
         """
         
         Sets the specified object as the given element type. 
@@ -2163,11 +2258,11 @@ class Object(object):
         Either a token or value corresponding to the Element Types table.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.type", 
-                                                     object, type)
+        arg_str = string_util._convert_args_to_string("set.object.type", 
+                                                     self._id, type)
         py2ecotect.conversation.Exec(arg_str)
         
-    def get_underground(self, object):
+    def get_underground(self):
         """
         
         Gets the surface area that is underground. 
@@ -2185,12 +2280,12 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.underground", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.underground", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
-    def get_vector(self, object):
+    def get_vector(self):
         """
         
         Retrieves the extrusion vector of the specified object. 
@@ -2209,12 +2304,12 @@ class Object(object):
         Z axis, given in model coordinates, of the object's extrusion vector.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.vector", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.vector", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_vector(self, object, dx, dy, dz):
+    def set_vector(self, dx, dy, dz):
         """
         
         Sets the extrusion vector of the specified object. 
@@ -2230,11 +2325,11 @@ class Object(object):
         Z axis, given in model coordinates. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.vector", 
-                                                     object, dx, dy, dz)
+        arg_str = string_util._convert_args_to_string("set.object.vector", 
+                                                     self._id, dx, dy, dz)
         py2ecotect.conversation.Exec(arg_str)
         
-    def get_zone(self, object):
+    def get_zone(self):
         """
         
         Retrieves the zone index of the specified object. The value returned 
@@ -2256,12 +2351,12 @@ class Object(object):
         The zero-based index of the zone the specified object is assigned to.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.object.zone", 
-                                                     object)
+        arg_str = string_util._convert_args_to_string("get.object.zone", 
+                                                     self._id)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
         
-    def set_zone(self, object, index):
+    def set_zone(self, index):
         """
         
         Sets the specified object as a zone of the given index. The value set 
@@ -2281,14 +2376,209 @@ class Object(object):
         to.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.object.zone", 
-                                                     object, index)
+        arg_str = string_util._convert_args_to_string("set.object.zone", 
+                                                     self._id, index)
         py2ecotect.conversation.Exec(arg_str)
         
+    id = property(fget = get_id, doc = "Id of the object")
+    
+    activation = property(fget = get_activation, doc = "The fractional"
+                          " activation value of the specified object for the"
+                          " given day and hour. This will be a value between"
+                          " 0 - 1, where 0 is off and 1 is on")
+    
+    alternate = property(fget = get_alternate, fset = set_alternate, 
+                        doc = "The index of the alternate material to the"
+                        " specified object")
+    
+    angle = property(fget = get_angle, doc = "The angle, in degrees, of the"
+                     " surface normal of a planar object")
+    
+    area = property(fget = get_area, doc = "The surface area for the specified"
+                    " object, measured in square metres")
+    
+    attr1 = property(fget = get_attr1, fset = set_attr1, 
+                        doc = "The calculated value stored as Attribute Number"
+                        " 1 for the specified object")
+    
+    attr2 = property(fget = get_attr2, fset = set_attr2, 
+                        doc = "The calculated value stored as Attribute Number"
+                        " 2 for the specified object")
+    
+    attr3 = property(fget = get_attr3, fset = set_attr3, 
+                        doc = "The calculated value stored as Attribute Number"
+                        " 3 for the specified object")
+    
+    center = property(fget = get_center, fset = set_center, 
+                        doc = "The values of the object centre are given in"
+                        " absolute world coordinates")
+    
+    child_extents= property(fget = get_child_extents, fset = set_child_extents, 
+                        doc = "The size and location of a child object within"
+                        " a parent object")
+    
+    coplanar = property(fget = get_coplanar, doc = "Determines if a point is"
+                        " co-planar with the specified object. Onviously this"
+                        " only works with objects that are closed planar"
+                        " surfaces")
+    
+    current = property(fset = set_current, doc = "Several actions within"
+                       " ECOTECT act on the current object (sun-path diagrams,"
+                       " etc). Set this property of an object to ensure that it"
+                       " is the current object before invoking a command")
+    
+    distanceto = property(fget = get_distanceto, doc = "Returns a single"
+                          " floating point value, being the distance between"
+                          " the specified object and the specified 3D point. If"
+                          " this is a POINT object, the distance is the"
+                          " point-to-point distance. If the object is planar,"
+                          " it is the distance of the specified point in line"
+                          " with the plane of the object, even if this point is"
+                          " outside the object's boundaries")
+    
+    equation = property(fget = get_equation, fset = set_equation, 
+                        doc = "Values used to calculate the plane equation for"
+                        " the specified object")
+
+    exposure = property(fget = get_exposure, doc = "The surface area"
+                        " of an object that is exposed to outside conditions."
+                        " Only works for planar objects.")
+    
+    extents = property(fget = get_extents, doc = "The overall size for the"
+                       " specified object, measured in millimetres")
+    
+    extents_2dpt= property(fget = get_extents_2dpt, doc = "Coordinates for the"
+                           " nominated point on the face of the specified"
+                           " object. Note that this command only works for"
+                           " planar objects")
+    
+    extents_max= property(fget = get_extents_max, doc = "The 3D coordinates for"
+                          " the maximum extent of the selected object")
+    
+    extents_min= property(fget = get_extents_min, doc = "The coordinates for"
+                          " the minimum extent of the selected object")
+    
+    firstnode = property(fget = get_firstnode, doc = "The zero-based absolute"
+                         " index of its first node")
+    
+    flag = property(fget = get_flag, fset = set_flag, 
+                        doc = "In ECOTECT, objects have a range of boolean"
+                        " flags associated with them that are used at various"
+                        " times")
+    
+    incidence = property(fget = get_incidence, doc = "The angle in degrees"
+                         " between the surface normal of the specified object"
+                         " and the nominated 3D point. This is effectively the"
+                         " incidence angle of a ray fired towards the geometric"
+                         " centre of the object from the nominated point. If"
+                         " the object is not planar, the angle value returned"
+                         " will be in relation to the positive x axis")
+    
+    inside = property(fget = get_inside, doc = "Determines if the specified"
+                      " point is within the boundary of the specified object,"
+                      " either 0 for false or 1 for true")
+    
+    intersect = property(fget = get_intersect, doc = "The coordinates of the"
+                         " intersection point between a line joining the two"
+                         " nominated points with the plane of the specified"
+                         " object. This command only works with planar objects")
+    
+    lastnode = property(fget = get_lastnode, doc = "The zero-based absolute"
+                        " index of its last node")
+    
+    length = property(fget = get_length, doc = "The length value for the"
+                      " specified object, measured in millimetres. This command"
+                      " only works on linear objects")
+    
+    link = property(fget = get_link, doc = "The absolute index of the object to"
+                    " which the specified object is linked.")
+    
+    mask = property(fget = get_mask, fset = set_mask, 
+                        doc = "The index of the object's shading mask. The"
+                        " shading mask assigned to each object determines when"
+                        " and by how much the object is overshadowed at any"
+                        " particular time")
+    
+    material = property(fget = get_material, fset = set_material, 
+                        doc = "The index of the object's primary material")
+    
+    node_position = property(fget = get_node_position, fset = set_node_position, 
+                        doc = "The position of the node in absolute world"
+                        " coordinates for each of the major axes")
+    
+    nodes = property(fget = get_nodes, doc = "The number of nodes in the"
+                     " specified object")
+    
+    normal = property(fget = get_normal, doc = "The values corresponding to the"
+                      " x, y and z axis components for the normal of the"
+                      " specified object")
+    
+    panelarea = property(fget = get_panelarea, doc = "The surface area value"
+                         " overlapping with a WINDOW or DOOR object in an"
+                         " adjacent zone, measured in square metres")
+    
+    pt_even = property(fget = get_pt_even, doc = "Information about how sample"
+                       " points are evenly distributed across an object")
+    
+    pt_initialise= property(fget = get_pt_initialise, doc = "This property"
+                            " allows you to initiate this process for the"
+                            " specified object")
+    
+    pt_random= property(fget = get_pt_random, doc = "Information about how"
+                        " sample points are randomly distributed across an"
+                        " object")
+    
+    reflect = property(fget = get_reflect, doc = "Reflects the nominated 3D"
+                       " point around the plane of the specified object")
+    
+    resolution = property(fget = get_resolution, fset = set_resolution, 
+                        doc = "The current curve resolution to use for virtual"
+                        " polylines, for the specified object")
+    
+    sameside = property(fget = get_sameside, doc = "A single integer value,"
+                        " either 0 (false) or 1 (true), depending on whether"
+                        " the two nominated points are on the same side of the"
+                        " specified object's plane equation")
+    
+    schedule = property(fget = get_schedule, fset = set_schedule, 
+                        doc = "The index value for the specified object's"
+                        " activation schedule. The activation schedule"
+                        " determines when and how much an object is turned on"
+                        " or off")
+    
+    selected = property(fget = get_selected, fset = set_selected, 
+                        doc = "The selection state of the specified object. A"
+                        " value of 1 means the object is part of the current"
+                        " selection set, whilst a value of 0 means that it is"
+                        " not")
+    
+    sunangles = property(fget = get_sunangles, doc = "The objects vertical"
+                         " shadow angle (VSA, always assuming it as a vertical"
+                         " surface) and horizontal shadow angle (HSA), given in"
+                         " decimal degrees")
+    
+    tag = property(fget = get_tag, fset = set_tag, 
+                        doc = "Tags are simply indicators to ECOTECT that the"
+                        " object performs additional functions or is"
+                        " specifically marked for certain calculations")
+    
+    type = property(fget = get_type, fset = set_type, 
+                        doc = "The element type of the specified object")
+    
+    underground = property(fget = get_underground, doc = "The surface area that"
+                           " is underground")
+    
+    vector = property(fget = get_vector, fset = set_vector, 
+                        doc = "The extrusion vector of the specified object")
+    
+    zone = property(fget = get_zone, fset = set_zone, 
+                        doc = "The zone index of the specified object")
 
 
 if __name__ == "__main__":
-    x = Object()
+    x = Object(15, 2444, True, 4)
+    
+    #print x.id
     
     #x.delete(294)
     #x.delnode(367, 1808)

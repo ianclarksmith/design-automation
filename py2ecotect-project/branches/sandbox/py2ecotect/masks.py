@@ -1,5 +1,5 @@
 import py2ecotect
-from py2ecotect import StringUtil
+from py2ecotect import string_util
 
 class Masks(object):
     
@@ -31,7 +31,7 @@ class Masks(object):
         The zero-based index of the shading mask to copy to.
         
         """
-        arg_str = StringUtil._convert_args_to_string("masks.copy", _from, to )
+        arg_str = string_util._convert_args_to_string("masks.copy", _from, to )
         py2ecotect.conversation.Exec(arg_str)
 
     def interpolate(self, index, t1, t2, fraction):
@@ -56,7 +56,7 @@ class Masks(object):
         and 1 (t2).
         
         """
-        arg_str = StringUtil._convert_args_to_string("masks.interpolate", index, t1, 
+        arg_str = string_util._convert_args_to_string("masks.interpolate", index, t1, 
                                                      t2, fraction )
         py2ecotect.conversation.Exec(arg_str)
 
@@ -94,7 +94,7 @@ class Masks(object):
         The zero-based index of the shading mask. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("masks.update", index)
+        arg_str = string_util._convert_args_to_string("masks.update", index)
         py2ecotect.conversation.Exec(arg_str)
 
     def add_mask(self, object = 0):
@@ -117,9 +117,9 @@ class Masks(object):
         The zero-based index of the new shading mask.
         
         """
-        arg_str = StringUtil._convert_args_to_string("add.mask", object)
+        arg_str = string_util._convert_args_to_string("add.mask", object)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def get_count(self):
         """
@@ -138,7 +138,7 @@ class Masks(object):
         
         """
         val = py2ecotect.conversation.Request("get.masks.count")
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def get_data(self, index, i, j):
         """
@@ -168,10 +168,10 @@ class Masks(object):
         the effective shading of the object whose shadng mask is specified. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.masks.data", index, i, 
+        arg_str = string_util._convert_args_to_string("get.masks.data", index, i, 
                                                      j)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_data(self, index, i, j, value):
         """
@@ -198,7 +198,7 @@ class Masks(object):
         the effective shading of the object whose shading mask is specified.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.masks.data", index, i, 
+        arg_str = string_util._convert_args_to_string("set.masks.data", index, i, 
                                                      j, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -221,9 +221,9 @@ class Masks(object):
         The zero-based index of the object.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.masks.object", index)
+        arg_str = string_util._convert_args_to_string("get.masks.object", index)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def get_percentage(self, index):
         """
@@ -252,9 +252,9 @@ class Masks(object):
         the mask.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.masks.percentage", index)
+        arg_str = string_util._convert_args_to_string("get.masks.percentage", index)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float)
+        return string_util._convert_str_to_list(val, float, float)
 
     def get_percentage_angle(self, index, azi, alt):
         """
@@ -293,10 +293,10 @@ class Masks(object):
         the mask.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.masks.percentage.angle", 
+        arg_str = string_util._convert_args_to_string("get.masks.percentage.angle", 
                                                      index, azi, alt)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float)
+        return string_util._convert_str_to_list(val, float, float)
 
     def get_percentage_datetime(self, index, day, time):
         """
@@ -330,10 +330,10 @@ class Masks(object):
         the mask.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.masks.percentage.datetime", 
+        arg_str = string_util._convert_args_to_string("get.masks.percentage.datetime", 
                                                      index, day, time)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float)
+        return string_util._convert_str_to_list(val, float, float)
 
     def get_percentage_index(self, index, x, y):
         """
@@ -370,10 +370,10 @@ class Masks(object):
         the mask.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.masks.percentage.index", 
+        arg_str = string_util._convert_args_to_string("get.masks.percentage.index", 
                                                      index, x, y)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float)
+        return string_util._convert_str_to_list(val, float, float)
 
     def get_shading(self, index, azi, alt):
         """
@@ -403,10 +403,10 @@ class Masks(object):
         A decimal value, between 0 (unshaded) and 1 (fully shaded).
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.masks.shading", index, 
+        arg_str = string_util._convert_args_to_string("get.masks.shading", index, 
                                                      azi, alt)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_shading(self, index, azi, alt, value):
         """
@@ -432,7 +432,7 @@ class Masks(object):
         A decimal value, between 0 (unshaded) and 1 (fully shaded). 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.masks.shading", index, 
+        arg_str = string_util._convert_args_to_string("set.masks.shading", index, 
                                                      azi, alt, value)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -447,7 +447,7 @@ if __name__ == "__main__":
     #x.load()
     #x.save()
     #x.update(1)
-    print x.add_mask(3)
+    #print x.add_mask(3)
     #print x.get_count()
     #print x.get_data(4, 9, 8)
     #x.set_data(4, 9, 8, 0.225)

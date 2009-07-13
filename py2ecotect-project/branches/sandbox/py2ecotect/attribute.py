@@ -1,5 +1,5 @@
 import py2ecotect
-from py2ecotect import StringUtil
+from py2ecotect import string_util
 
 def get_flag(flag):
     """
@@ -30,10 +30,10 @@ def get_flag(flag):
     colours 4 Display object attribute as a fill colous. 
 
     """
-    arg_str = StringUtil._convert_args_to_string("get.attribute.flag", flag)
+    arg_str = string_util._convert_args_to_string("get.attribute.flag", flag)
     val = py2ecotect.conversation.Request(arg_str)
     print val
-    return StringUtil._convert_str_to_type(val, int)
+    return string_util._convert_str_to_type(val, int)
 
 def set_flag(flag, state = True):
     """
@@ -64,7 +64,7 @@ def set_flag(flag, state = True):
     >>> set_flag("text", False)
     
     """
-    arg_str = StringUtil._convert_args_to_string("set.attribute.flag", flag, 
+    arg_str = string_util._convert_args_to_string("set.attribute.flag", flag, 
                                                  state)
     py2ecotect.conversation.Exec(arg_str)
 
@@ -94,7 +94,7 @@ def get_flags():
 
     """
     val = py2ecotect.conversation.Request("get.attribute.flags")
-    return StringUtil._convert_str_to_type(val, int)
+    return string_util._convert_str_to_type(val, int)
 
 def get_name(index):
     """
@@ -115,9 +115,9 @@ def get_name(index):
     A text string containing the name name of the attribute.
     
     """
-    arg_str = StringUtil._convert_args_to_string("get.attribute.name", index)
+    arg_str = string_util._convert_args_to_string("get.attribute.name", index)
     val = py2ecotect.conversation.Request(arg_str)
-    return StringUtil._convert_str_to_type(val, str)
+    return string_util._convert_str_to_type(val, str)
 
 def set_name(index, name):
     """
@@ -133,7 +133,7 @@ def set_name(index, name):
     attributes.
     
     """
-    arg_str = StringUtil._convert_args_to_string("set.attribute.name", index, 
+    arg_str = string_util._convert_args_to_string("set.attribute.name", index, 
                                                  name)
     py2ecotect.conversation.Exec(arg_str)
 
@@ -157,7 +157,7 @@ def get_scale():
     
     """
     val = py2ecotect.conversation.Request("get.attribute.scale")
-    return StringUtil._convert_str_to_list(val, float)
+    return string_util._convert_str_to_list(val, float)
 
 def set_scale(min, max):
     """
@@ -175,7 +175,7 @@ def set_scale(min, max):
     Sets the maximum scale value to be used.
     
     """
-    arg_str = StringUtil._convert_args_to_string("set.attribute.scale", min, max)
+    arg_str = string_util._convert_args_to_string("set.attribute.scale", min, max)
     py2ecotect.conversation.Exec(arg_str)
 
 def set_type(index, type):
@@ -215,7 +215,7 @@ def set_type(index, type):
     42 Flow Rate 
 
     """
-    arg_str = StringUtil._convert_args_to_string("set.attribute.type", index, 
+    arg_str = string_util._convert_args_to_string("set.attribute.type", index, 
                                                  type)
     py2ecotect.conversation.Exec(arg_str)
 
@@ -238,9 +238,9 @@ def get_units(type):
     The units of measurement used, for example Lux.
     
     """
-    arg_str = StringUtil._convert_args_to_string("get.attribute.units", type)
+    arg_str = string_util._convert_args_to_string("get.attribute.units", type)
     val = py2ecotect.conversation.Request(arg_str)
-    return StringUtil._convert_str_to_type(val, str)
+    return string_util._convert_str_to_type(val, str)
 
 def set_units(type, units):
     """
@@ -259,7 +259,7 @@ def set_units(type, units):
     Specifies the units of measurement to be used. For example Lux.
     
     """
-    arg_str = StringUtil._convert_args_to_string("set.attribute.units", type, 
+    arg_str = string_util._convert_args_to_string("set.attribute.units", type, 
                                                  units)
     py2ecotect.conversation.Exec(arg_str)
 

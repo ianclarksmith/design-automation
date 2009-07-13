@@ -1,5 +1,5 @@
 import py2ecotect
-from py2ecotect import StringUtil
+from py2ecotect import string_util
 
 class Grid(object):
     def export(self, filename):
@@ -18,7 +18,7 @@ class Grid(object):
         filename parameters described here.
         
         """
-        arg_str = StringUtil._convert_args_to_string("grid.export", filename)
+        arg_str = string_util._convert_args_to_string("grid.export", filename)
         py2py2ecotect.conversation.Exec(arg_str)
     
     def fit_selection(self, fit_form = True):
@@ -38,7 +38,7 @@ class Grid(object):
         where 1 or true represents the affirmative and 0 or false the negative. 
       
         """
-        arg_str = StringUtil._convert_args_to_string("grid.fit.selection", fit_form)
+        arg_str = string_util._convert_args_to_string("grid.fit.selection", fit_form)
         py2ecotect.conversation.Exec(arg_str)
 
     def fit_values(self):
@@ -81,7 +81,7 @@ class Grid(object):
         percentage Show existing data as a percentage of imported data. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("grid.import." + operation, 
+        arg_str = string_util._convert_args_to_string("grid.import." + operation, 
                                                      filename)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -101,7 +101,7 @@ class Grid(object):
         backslashes in filename parameters described here.
         
         """
-        arg_str = StringUtil._convert_args_to_string("grid.import", filename)
+        arg_str = string_util._convert_args_to_string("grid.import", filename)
         py2ecotect.conversation.Exec(arg_str)
 
     def reset(self):
@@ -131,7 +131,7 @@ class Grid(object):
         backslashes in filename parameters described here. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("grid.save", filename)
+        arg_str = string_util._convert_args_to_string("grid.save", filename)
         py2ecotect.conversation.Exec(arg_str)
 
     def show(self, show = True):
@@ -149,7 +149,7 @@ class Grid(object):
         specified, this defaults to true. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("grid.show", show)
+        arg_str = string_util._convert_args_to_string("grid.show", show)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_average(self):
@@ -188,7 +188,7 @@ class Grid(object):
         
         """
         val = py2ecotect.conversation.Request("get.grid.average")
-        return StringUtil._convert_str_to_list(val, float, int, float)
+        return string_util._convert_str_to_list(val, float, int, float)
 
     def get_axis(self):
         """
@@ -216,7 +216,7 @@ class Grid(object):
 
         """
         val = py2ecotect.conversation.Request("get.grid.axis")
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def set_axis(self, axis):
         """
@@ -238,7 +238,7 @@ class Grid(object):
         2 XZ Axis 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.axis", axis)
+        arg_str = string_util._convert_args_to_string("set.grid.axis", axis)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_cell(self, i, j, index = 0):
@@ -270,9 +270,9 @@ class Grid(object):
         The current data value at the specified grid cell.
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid.cell", i, j, index)
+        arg_str = string_util._convert_args_to_string("get.grid.cell", i, j, index)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, int)
+        return string_util._convert_str_to_list(val, float, int)
 
     def set_cell(self, i, j, value, index = 0):
         """
@@ -297,7 +297,7 @@ class Grid(object):
         not specified, the currently displayed index is used by default.
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.cell", i, j, 
+        arg_str = string_util._convert_args_to_string("set.grid.cell", i, j, 
                                                      value, index)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -321,7 +321,7 @@ class Grid(object):
 
         """
         val = py2ecotect.conversation.Request("get.grid.data")
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def set_data(self, index):
         """
@@ -337,7 +337,7 @@ class Grid(object):
         value in the range 0 to 4.
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.data", index)
+        arg_str = string_util._convert_args_to_string("set.grid.data", index)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_description(self, index):
@@ -362,10 +362,10 @@ class Grid(object):
         A text string containing the description of the nominated slot.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid.description", 
+        arg_str = string_util._convert_args_to_string("get.grid.description", 
                                                      index)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, str)
+        return string_util._convert_str_to_type(val, str)
 
     def set_description(self, index, description):
         """
@@ -386,7 +386,7 @@ class Grid(object):
         The description to be used for the nominated slot.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.description", 
+        arg_str = string_util._convert_args_to_string("set.grid.description", 
                                                      index, description)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -437,10 +437,10 @@ class Grid(object):
         daylight 32768 Indicates that grid displays valid daylight analysis results. 
  
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid.flag", 
+        arg_str = string_util._convert_args_to_string("get.grid.flag", 
                                                      flag)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, bool)
+        return string_util._convert_str_to_type(val, bool)
 
     def set_flag(self, flag, state = True):
         """
@@ -487,7 +487,7 @@ class Grid(object):
         daylight 32768 Indicates that grid displays valid daylight analysis results. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.flag", 
+        arg_str = string_util._convert_args_to_string("set.grid.flag", 
                                                      flag, state)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -509,7 +509,7 @@ class Grid(object):
         command. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.fraction", 
+        arg_str = string_util._convert_args_to_string("set.grid.fraction", 
                                                      fraction)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -531,7 +531,7 @@ class Grid(object):
 
         """
         val = py2ecotect.conversation.Request("get.grid.max")
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
     def set_max(self, x, y, z):
         """
@@ -547,7 +547,7 @@ class Grid(object):
         extents of the analysis grid in 3 dimensional model space. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.max", x, y, z)
+        arg_str = string_util._convert_args_to_string("set.grid.max", x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_min(self):
@@ -568,7 +568,7 @@ class Grid(object):
         
         """
         val = py2ecotect.conversation.Request("get.grid.min")
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
     def set_min(self, x, y, z):
         """
@@ -583,7 +583,7 @@ class Grid(object):
         extents of the analysis grid in 3 dimensional model space.
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.min", x, y, z)
+        arg_str = string_util._convert_args_to_string("set.grid.min", x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_offset(self):
@@ -605,7 +605,7 @@ class Grid(object):
         
         """
         val = py2ecotect.conversation.Request("get.grid.offset")
-        return StringUtil._convert_str_to_type(val, float)
+        return string_util._convert_str_to_type(val, float)
 
     def set_offset(self, offset):
         """
@@ -622,7 +622,7 @@ class Grid(object):
         for the currently selected axis. See the grid.axis 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.offset", offset)
+        arg_str = string_util._convert_args_to_string("set.grid.offset", offset)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_position(self, i, j):
@@ -647,9 +647,9 @@ class Grid(object):
         node in 3 dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid.position", i, j)
+        arg_str = string_util._convert_args_to_string("get.grid.position", i, j)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
     def set_position(self, i, j, pos):
         """
@@ -673,7 +673,7 @@ class Grid(object):
         value of 1500 would equate to a height of 1.5m in the z axis. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.position", i, j,
+        arg_str = string_util._convert_args_to_string("set.grid.position", i, j,
                                                      pos)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -700,7 +700,7 @@ class Grid(object):
                 
         """
         val = py2ecotect.conversation.Request("get.grid.range")
-        return StringUtil._convert_str_to_list(val, float, float)
+        return string_util._convert_str_to_list(val, float, float)
 
     def get_scale(self):
         """
@@ -726,7 +726,7 @@ class Grid(object):
         
         """
         val = py2ecotect.conversation.Request("get.grid.scale")
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
     def set_scale(self,min, max, inc):
         """
@@ -747,7 +747,7 @@ class Grid(object):
         The increment size used to draw contours.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.scale", min, max,
+        arg_str = string_util._convert_args_to_string("set.grid.scale", min, max,
                                                      inc)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -770,7 +770,7 @@ class Grid(object):
 
         """
         val = py2ecotect.conversation.Request("get.grid.size")
-        return StringUtil._convert_str_to_list(val, int, int, int)
+        return string_util._convert_str_to_list(val, int, int, int)
 
     def set_size(self, ix, jy, kz):
         """
@@ -787,7 +787,7 @@ class Grid(object):
         specified, the analysis grid becomes a 2D analysis grid.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.size", ix, jy, kz)
+        arg_str = string_util._convert_args_to_string("set.grid.size", ix, jy, kz)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_state(self, i, j):
@@ -821,9 +821,9 @@ class Grid(object):
         -100 Hidden and selected. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid.state", i, j)
+        arg_str = string_util._convert_args_to_string("get.grid.state", i, j)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def set_state(self, i, j, state):
         """
@@ -854,7 +854,7 @@ class Grid(object):
         -100 Hidden and selected. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.state", i, j, 
+        arg_str = string_util._convert_args_to_string("set.grid.state", i, j, 
                                                      state)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -874,7 +874,7 @@ class Grid(object):
         
         """
         val = py2ecotect.conversation.Request("get.grid.title")
-        return StringUtil._convert_str_to_type(val, str)
+        return string_util._convert_str_to_type(val, str)
 
     def set_title(self, title):
         """
@@ -888,7 +888,7 @@ class Grid(object):
         A text string up to 64 characters in length containing the new title.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.title", title)
+        arg_str = string_util._convert_args_to_string("set.grid.title", title)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_units(self, index = 0):
@@ -913,9 +913,9 @@ class Grid(object):
         A text string containing the units name of the nominated slot.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid.units", index)
+        arg_str = string_util._convert_args_to_string("get.grid.units", index)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, str)
+        return string_util._convert_str_to_type(val, str)
 
     def set_units(self, units, index = 0):
         """
@@ -937,7 +937,7 @@ class Grid(object):
         such as Lux or W/m^2. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.units", index, 
+        arg_str = string_util._convert_args_to_string("set.grid.units", index, 
                                                      units)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -963,9 +963,9 @@ class Grid(object):
         Z axis, given in model coordinates. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid.vector", i, j)
+        arg_str = string_util._convert_args_to_string("get.grid.vector", i, j)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
     def set_vector(self, i, j, dx, dy, dz):
         """
@@ -984,7 +984,7 @@ class Grid(object):
         Z axis, given in model coordinates.
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid.vector", i, j, 
+        arg_str = string_util._convert_args_to_string("set.grid.vector", i, j, 
                                                      dx, dy, dz)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1032,10 +1032,10 @@ class Grid(object):
         2 XZ Axis 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid.zone", i, j, 
+        arg_str = string_util._convert_args_to_string("get.grid.zone", i, j, 
                                                      axis, draw)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
 
 
@@ -1056,7 +1056,7 @@ if __name__ == "__main__":
     #x.import_data("C:\\Test\\grid.csv")
     #x.reset()
     #x.save("C:\\Test\\grid.grd")
-    x.show()
+    #x.show()
     #print x.get_average()
     #print x.get_axis()
     #x.set_axis(1)

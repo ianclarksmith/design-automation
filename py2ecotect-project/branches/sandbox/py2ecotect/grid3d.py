@@ -1,5 +1,5 @@
 import py2ecotect
-from py2ecotect import StringUtil
+from py2ecotect import string_util
 
 class Grid3D(object):
     def delete(self):
@@ -34,7 +34,7 @@ class Grid3D(object):
         axis of the 2D grid, you will get invalid 2D results.
         
         """
-        arg_str = StringUtil._convert_args_to_string("grid3d.getframe", index)
+        arg_str = string_util._convert_args_to_string("grid3d.getframe", index)
         py2ecotect.conversation.Exec(arg_str)
 
     def initialise(self):
@@ -81,7 +81,7 @@ class Grid3D(object):
         axis of the 2D grid, you will end up with invalid 2D results.
         
         """
-        arg_str = StringUtil._convert_args_to_string("grid3d.setframe", index)
+        arg_str = string_util._convert_args_to_string("grid3d.setframe", index)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_blockage(self, i, j, k, state):
@@ -121,7 +121,7 @@ class Grid3D(object):
         1024 Cell should be blocked no matter what is in it. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid3d.blockage", i, j, 
+        arg_str = string_util._convert_args_to_string("set.grid3d.blockage", i, j, 
                                                      k, state)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -166,10 +166,10 @@ class Grid3D(object):
         -100 Hidden and selected. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid3d.cell", i, j, 
+        arg_str = string_util._convert_args_to_string("get.grid3d.cell", i, j, 
                                                      k, index)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, int)
+        return string_util._convert_str_to_list(val, float, int)
 
     def set_cell(self, i, j, k, value, index = 0):
         """
@@ -191,7 +191,7 @@ class Grid3D(object):
         currently displayed index is used. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid3d.cell", i, j, 
+        arg_str = string_util._convert_args_to_string("set.grid3d.cell", i, j, 
                                                      k, value, index)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -224,9 +224,9 @@ class Grid3D(object):
         A boolean (0 or 1) value specifying if the node is actually within the bounded grid volume. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid3d.index", x, y, z)
+        arg_str = string_util._convert_args_to_string("get.grid3d.index", x, y, z)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float, bool)
+        return string_util._convert_str_to_list(val, float, float, float, bool)
 
     def get_position(self, i, j, k):
         """
@@ -250,10 +250,10 @@ class Grid3D(object):
         in 3 dimensional model space.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid3d.position", i, 
+        arg_str = string_util._convert_args_to_string("get.grid3d.position", i, 
                                                      j, k)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
     def get_state(self, i, j, k):
         """
@@ -286,10 +286,10 @@ class Grid3D(object):
         -100 Hidden and selected 
 
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid3d.state", i, 
+        arg_str = string_util._convert_args_to_string("get.grid3d.state", i, 
                                                      j, k)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_type(val, int)
+        return string_util._convert_str_to_type(val, int)
 
     def set_state(self, i, j, k, state):
         """
@@ -319,7 +319,7 @@ class Grid3D(object):
         -100 Hidden and selected. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid3d.state", i, j, 
+        arg_str = string_util._convert_args_to_string("set.grid3d.state", i, j, 
                                                      k, state)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -357,10 +357,10 @@ class Grid3D(object):
         bounded grid volume.
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid3d.value", x, y, 
+        arg_str = string_util._convert_args_to_string("get.grid3d.value", x, y, 
                                                      z, index)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, int, bool)
+        return string_util._convert_str_to_list(val, int, bool)
 
     def get_vector(self, i, j, k):
         """
@@ -382,9 +382,9 @@ class Grid3D(object):
         given in model coordinates. 
         
         """
-        arg_str = StringUtil._convert_args_to_string("get.grid3d.vector", i, j, k)
+        arg_str = string_util._convert_args_to_string("get.grid3d.vector", i, j, k)
         val = py2ecotect.conversation.Request(arg_str)
-        return StringUtil._convert_str_to_list(val, float, float, float)
+        return string_util._convert_str_to_list(val, float, float, float)
 
     def set_vector(self, i, j, k, dx, dy, dz):
         """
@@ -403,7 +403,7 @@ class Grid3D(object):
         given in model coordinates. 
 
         """
-        arg_str = StringUtil._convert_args_to_string("set.grid3d.vector", i, j, 
+        arg_str = string_util._convert_args_to_string("set.grid3d.vector", i, j, 
                                                      k, dx, dy, dz)
         py2ecotect.conversation.Exec(arg_str)
 
