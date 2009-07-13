@@ -202,9 +202,14 @@ def insolation_2(period, shading, ground, direct):
     3 Low - use single point at object centre. 
 
     """
-    arg_str = string_util._convert_args_to_string("calc.insolation", period, 
+    try:
+        arg_str = string_util._convert_args_to_string("calc.insolation", period, 
                                                  shading, ground, direct)
-    py2ecotect.conversation.Exec(arg_str)
+        py2ecotect.conversation.Exec(arg_str)
+    except:
+        print "exception occured"
+        pass
+        
 
 def lighting(target, type, select3D, comparison = 0):
     """
@@ -644,7 +649,7 @@ if __name__ == "__main__":
     """
     #comfort()
     #insolation_1("grid", "reference", True, 0, "photosynthetic")
-    #insolation_2("day", 2,True,False)
+    insolation_2("day", 2,True,False)
     #lighting("grid", "daylight", True)
     #resources("load")
     #shading_percentage("degreedays",  False, 0, 365, 0, 24)

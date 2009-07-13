@@ -2,6 +2,11 @@ import py2ecotect
 from py2ecotect import string_util
 
 class Grid3D(object):
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
     def delete(self):
         """
         
@@ -83,7 +88,11 @@ class Grid3D(object):
         """
         arg_str = string_util._convert_args_to_string("grid3d.setframe", index)
         py2ecotect.conversation.Exec(arg_str)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     def get_blockage(self, i, j, k, state):
         """
         

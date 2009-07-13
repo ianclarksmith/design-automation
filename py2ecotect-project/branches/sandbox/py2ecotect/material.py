@@ -2,6 +2,11 @@ import py2ecotect
 from py2ecotect import string_util
 
 class Material(object):
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
     def edit(self, material):
         """
         
@@ -17,6 +22,10 @@ class Material(object):
         """
         arg_str = string_util._convert_args_to_string("material.edit", material)
         py2ecotect.conversation.Exec(arg_str)
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
     
     def get_absorption(self, material):
         """

@@ -3,6 +3,10 @@ from py2ecotect import string_util
 
 class Graph(object):
     
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
     def copy(self, format = "bmp"):
         """
     
@@ -538,6 +542,10 @@ class Graph(object):
         """
         arg_str = string_util._convert_args_to_string("graph.zoomout", shift)
         py2ecotect.conversation.Exec(arg_str)
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
     
     def get_font(self):
         """

@@ -60,7 +60,11 @@ class Node(object):
         #val = py2ecotect.conversation.Request(arg_str)
         #self._id = string_util._convert_str_to_type(val, int)
         self._id = 1293
-    
+ 
+    #===========================================================================
+    # Commands
+    #===========================================================================
+   
     def move(self, x, y, z):
         """
         
@@ -244,6 +248,10 @@ class Node(object):
         arg_str = string_util._convert_args_to_string("node.xform", 
                                                       self._id, trans, x, y, z)
         py2ecotect.conversation.Exec(arg_str)
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
 
     def get_id(self):
         """
@@ -590,10 +598,32 @@ class Node(object):
 
 
     id = property(fget = get_id, doc = "Id of the Node object")
+    
+    flag = property(fget = get_flag, fset = set_flag, 
+                        doc = "The state of individual node flags")
+    
+    flags = property(fget = get_flags, doc = "A value representing the total of"
+                     " all the node's flags")
+    
+    link = property(fget = get_link, fset = set_link, 
+                        doc = "The node or object this node is linked to")
+    
+    modifier = property(fget = get_modifier, fset = set_modifier, 
+                        doc = "The node modifier value")
+    
+    position = property(fget = get_position, fset = set_position, 
+                        doc = "The position of the node in absolute world"
+                        " coordinates in each of the major axes")
+    
+    selected = property(fget = get_selected, fset = set_selected, 
+                        doc = "The selection state of the specified node")
+    
+    type = property(fget = get_type, fset = set_type, doc = "The node type for"
+                    " the specified node in the last created object")
 
 
 if __name__ == "__main__":
-    x = Node(255, 3, 1000, 2000, 0)
+    #x = Node(255, 3, 1000, 2000, 0)
     
     #print x.id
     #x.move(101, 0, 0, 1500)

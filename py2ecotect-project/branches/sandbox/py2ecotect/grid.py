@@ -2,6 +2,11 @@ import py2ecotect
 from py2ecotect import string_util
 
 class Grid(object):
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
     def export(self, filename):
         """
         
@@ -151,7 +156,11 @@ class Grid(object):
         """
         arg_str = string_util._convert_args_to_string("grid.show", show)
         py2ecotect.conversation.Exec(arg_str)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     def get_average(self):
         """
         

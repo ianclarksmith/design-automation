@@ -77,6 +77,10 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         self._id = string_util._convert_str_to_type(val, int)
     
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
     def delete(self):
         """
         

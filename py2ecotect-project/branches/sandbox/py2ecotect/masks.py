@@ -3,6 +3,10 @@ from py2ecotect import string_util
 
 class Masks(object):
     
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
     def clear(self):
         """
         
@@ -120,7 +124,11 @@ class Masks(object):
         arg_str = string_util._convert_args_to_string("add.mask", object)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     def get_count(self):
         """
         
