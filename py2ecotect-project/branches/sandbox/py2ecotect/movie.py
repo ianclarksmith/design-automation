@@ -510,11 +510,6 @@ class Movie(object):
                         " recording")
 
 
-
-
-
-
-
 if __name__ == "__main__":
     x = Movie()
     
