@@ -8,94 +8,6 @@ class Layer(DispatchBaseClass):
 
 
 
-	def IsLayerChangeable(self, strLayer):
-		"""
-
-		Verifies that the objects on a layer can be changed (normal).
-
-		Parameters
-
-		strLayer : Required,   String,   The name of an existing layer
-
-		Returns
-
-		Null : On error.
-
-		"""
-
-		pass
-
-	def LayerColor(self, strLayer, lngColor):
-		"""
-
-		Returns or changes the color of a layer.  Layer colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
-
-		Parameters
-
-		strLayer : Required,   String,   The name of an existing layer
-		lngColor : Optional,   Number,   The new color value
-
-		Returns
-
-		Number : If a color value  is not specified,  the current color value if successful.
-		Number : If a color value is specified, the previous color value if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def IsLayerReference(self, strLayer):
-		"""
-
-		Verifies that an existing layer is from a reference file.
-
-		Parameters
-
-		strLayer : Required,   String,   The name of an existing layer
-
-		Returns
-
-		Null : On error.
-
-		"""
-
-		pass
-
-	def IsLayerCurrent(self, strLayer):
-		"""
-
-		Verifies that a layer is the current layer.
-
-		Parameters
-
-		strLayer : Required,   String,   The name of an existing layer
-
-		Returns
-
-		Null : On error.
-
-		"""
-
-		pass
-
-	def IsLayerLocked(self, strLayer):
-		"""
-
-		Verifies that an existing layer is locked.
-
-		Parameters
-
-		strLayer : Required,   String,   The name of an existing layer
-
-		Returns
-
-		Null : On error.
-
-		"""
-
-		pass
-
 	def AddLayer(self, strLayer, lngColor, blnVisible, blnLocked, strParent):
 		"""
 
@@ -118,130 +30,38 @@ class Layer(DispatchBaseClass):
 
 		pass
 
-	def LayerOrder(self, strLayer):
+	def CurrentLayer(self, strLayer):
 		"""
 
-		Returns the current display order index of a layer as displayed in Rhino's Layer dialog box.  A display order index of -1 indicates that the current Layer dialog filter does not allow the layer to appear in the layer list.
+		Returns or changes the current layer.
 
 		Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+		strLayer : Optional,   String,   The name of an existing layer to make current
 
 		Returns
 
-		Number : A zero-based display order index if successful.
+		String : If a layer name is not specified, the name of the current layer if successful.
+		String : If a layer name is specified, the name of the previous current layer if successful.
 		Null : If not successful, or on error.
 
 		"""
 
 		pass
 
-	def LayerLocked(self, strLayer, blnVisible):
+	def DeleteLayer(self, strLayer):
 		"""
 
-		Returns or changes the locked mode of a layer. This method should be use instead of LayerMode.
+		Removes an existing layer from the document.  The layer to be removed cannot be the current layer.  Unlike the PurgeLayer method,  the layer must be empty, or contain no objects, before it can be removed. Any layers that are children of the specified layer will also be removed if they are also empty.
 
 		Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
-		blnVisible : Optional,   Boolean,   The new layer locked mode
+		strLayer : Required,   String,   The name of an empty layer
 
 		Returns
 
-		Boolean : If a layer mode is not specified,  the current layer locked mode if successful.
-		Boolean : If a layer mode is specified, the previous layer locked mode if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def RenameLayer(self, strOldName, strNewName):
-		"""
-
-		Renames an existing layer.
-
-		Parameters
-
-		strOldName : Required,   String,   The name of an existing layer
-		strNewName : Required,   String,   The new layer name
-
-		Returns
-
-		String : The new layer name if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def LayerCount(self):
-		"""
-
-		Returns the number of layers in the document.
-
-		No parameters
-
-		Returns
-
-		Number : The number of layers in the document.
-
-		"""
-
-		pass
-
-	def IsLayerParentOf(self, strLayer, strTest):
-		"""
-
-		Verifies that a layer is a parent of another layer.
-
-		Parameters
-
-		strLayer : Required,   String,   The name of the layer to test against
-		strTest : Required,   String,   The name of the layer to test
-
-		Returns
-
-		Boolean : True if strTest is a parent of strLayer. False otherwise.
+		Boolean : True or false indicating success or failure.
 		Null : On error.
-
-		"""
-
-		pass
-
-	def PurgeLayer(self, strLayer):
-		"""
-
-		Removes an existing layer from the document.  Unlike the DeleteLayer method, PurgeLayer will remove the layer even if contains geometry objects.  The layer to be removed cannot be the current layer.
-
-		Parameters
-
-		strLayer : Required,   String,   The name of the layer to purge
-
-		Returns
-
-		String : The name of the purged layer if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def LayerPrintWidth(self, strLayer, dblWidth):
-		"""
-
-		Returns or changes the print width of a layer. Print width is specified in millimeters. A print width of 0.0 denotes the "default" print width.
-
-		Parameters
-
-		strLayer : Required,  String,  The name of an existing layer
-		dblWidth : Optional,  Number,  The new layer print width in millimeters
-
-		Returns
-
-		Number : If a layer print width is not specified,  the current layer print width if successful.
-		Number : If a layer print width is specified, the previous layer print width if successful.
-		Null : If not successful, or on error.
 
 		"""
 
@@ -260,6 +80,40 @@ class Layer(DispatchBaseClass):
 		Returns
 
 		Boolean : True or False indicating success or failure.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsLayer(self, strLayer):
+		"""
+
+		Verifies the existence of a layer in the document.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of an existing layer
+
+		Returns
+
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsLayerChangeable(self, strLayer):
+		"""
+
+		Verifies that the objects on a layer can be changed (normal).
+
+		Parameters
+
+		strLayer : Required,   String,   The name of an existing layer
+
+		Returns
+
 		Null : On error.
 
 		"""
@@ -285,50 +139,10 @@ class Layer(DispatchBaseClass):
 
 		pass
 
-	def LayerVisible(self, strLayer, blnVisible):
+	def IsLayerCurrent(self, strLayer):
 		"""
 
-		Returns or changes the visibility property of a layer. This method should be use instead of LayerMode.
-
-		Parameters
-
-		strLayer : Required,   String,   The name of an existing layer
-		blnVisible : Optional,   Boolean,   The new layer visibility
-
-		Returns
-
-		Boolean : If a layer mode is not specified,  the current layer visibility if successful.
-		Boolean : If a layer mode is specified, the previous layer visibility if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def ParentLayer(self, strLayer, strParent):
-		"""
-
-		Returns or modifies the parent layer of a layer.
-
-		Parameters
-
-		strLayer : Required,   String,   The name of the layer
-		strParent : Optional,   String,   The name of the new parent layer
-
-		Returns
-
-		String : If strParent is not specified, the name of the current parent layer if successful.
-		String : If strParent is specified, the name of the previous parent layer if successful.
-		Null : If the layer does not have a parent, or on error.
-
-		"""
-
-		pass
-
-	def IsLayerVisible(self, strLayer):
-		"""
-
-		Verifies that an existing layer is visible (normal, locked,  and reference).
+		Verifies that a layer is the current layer.
 
 		Parameters
 
@@ -377,6 +191,23 @@ class Layer(DispatchBaseClass):
 
 		pass
 
+	def IsLayerLocked(self, strLayer):
+		"""
+
+		Verifies that an existing layer is locked.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of an existing layer
+
+		Returns
+
+		Null : On error.
+
+		"""
+
+		pass
+
 	def IsLayerOn(self, strLayer):
 		"""
 
@@ -394,28 +225,29 @@ class Layer(DispatchBaseClass):
 
 		pass
 
-	def LayerMaterialIndex(self, strLayer):
+	def IsLayerParentOf(self, strLayer, strTest):
 		"""
 
-		Returns the material index of a layer.  A material index of -1 indicates that no material has been assigned to the layer.  Thus, the layer will use Rhino's default layer material.
+		Verifies that a layer is a parent of another layer.
 
 		Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+		strLayer : Required,   String,   The name of the layer to test against
+		strTest : Required,   String,   The name of the layer to test
 
 		Returns
 
-		Number : A zero-based material index if successful.
-		Null : If not successful, or on error.
+		Boolean : True if strTest is a parent of strLayer. False otherwise.
+		Null : On error.
 
 		"""
 
 		pass
 
-	def IsLayer(self, strLayer):
+	def IsLayerReference(self, strLayer):
 		"""
 
-		Verifies the existence of a layer in the document.
+		Verifies that an existing layer is from a reference file.
 
 		Parameters
 
@@ -429,38 +261,106 @@ class Layer(DispatchBaseClass):
 
 		pass
 
-	def CurrentLayer(self, strLayer):
+	def IsLayerSelectable(self, strLayer):
 		"""
 
-		Returns or changes the current layer.
+		Verifies that an existing layer is selectable (normal and reference).
 
 		Parameters
 
-		strLayer : Optional,   String,   The name of an existing layer to make current
+		strLayer : Required,   String,   The name of an existing layer
 
 		Returns
 
-		String : If a layer name is not specified, the name of the current layer if successful.
-		String : If a layer name is specified, the name of the previous current layer if successful.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsLayerVisible(self, strLayer):
+		"""
+
+		Verifies that an existing layer is visible (normal, locked,  and reference).
+
+		Parameters
+
+		strLayer : Required,   String,   The name of an existing layer
+
+		Returns
+
+		Null : On error.
+
+		"""
+
+		pass
+
+	def LayerChildCount(self, strLayer):
+		"""
+
+		Returns the number of immediate child layers of a layer.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of the layer
+
+		Returns
+
+		Number : The number of immediate child layers if successful
+		Null : On error.
+
+		"""
+
+		pass
+
+	def LayerChildren(self, strLayer):
+		"""
+
+		Returns the immediate child layers of a layer.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of the layer
+
+		Returns
+
+		Array : An array of strings identifying the layer's children if successful
+		Null : If the layer has no children, or on error.
+
+		"""
+
+		pass
+
+	def LayerColor(self, strLayer, lngColor):
+		"""
+
+		Returns or changes the color of a layer.  Layer colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of an existing layer
+		lngColor : Optional,   Number,   The new color value
+
+		Returns
+
+		Number : If a color value  is not specified,  the current color value if successful.
+		Number : If a color value is specified, the previous color value if successful.
 		Null : If not successful, or on error.
 
 		"""
 
 		pass
 
-	def DeleteLayer(self, strLayer):
+	def LayerCount(self):
 		"""
 
-		Removes an existing layer from the document.  The layer to be removed cannot be the current layer.  Unlike the PurgeLayer method,  the layer must be empty, or contain no objects, before it can be removed. Any layers that are children of the specified layer will also be removed if they are also empty.
+		Returns the number of layers in the document.
 
-		Parameters
-
-		strLayer : Required,   String,   The name of an empty layer
+		No parameters
 
 		Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+		Number : The number of layers in the document.
 
 		"""
 
@@ -486,19 +386,59 @@ class Layer(DispatchBaseClass):
 
 		pass
 
-	def LayerChildCount(self, strLayer):
+	def LayerLocked(self, strLayer, blnVisible):
 		"""
 
-		Returns the number of immediate child layers of a layer.
+		Returns or changes the locked mode of a layer. This method should be use instead of LayerMode.
 
 		Parameters
 
-		strLayer : Required,   String,   The name of the layer
+		strLayer : Required,   String,   The name of an existing layer
+		blnVisible : Optional,   Boolean,   The new layer locked mode
 
 		Returns
 
-		Number : The number of immediate child layers if successful
-		Null : On error.
+		Boolean : If a layer mode is not specified,  the current layer locked mode if successful.
+		Boolean : If a layer mode is specified, the previous layer locked mode if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def LayerMaterialIndex(self, strLayer):
+		"""
+
+		Returns the material index of a layer.  A material index of -1 indicates that no material has been assigned to the layer.  Thus, the layer will use Rhino's default layer material.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of an existing layer
+
+		Returns
+
+		Number : A zero-based material index if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def LayerMode(self, strLayer, intMode):
+		"""
+
+		Returns or changes the mode of a layer.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of an existing layer
+		intMode : Optional,   Number,   The new layer mode
+
+		Returns
+
+		Number : If a layer mode is not specified,  the current layer mode  if successful.
+		Number : If a layer mode is specified, the previous layer mode if successful.
+		Null : If not successful, or on error.
 
 		"""
 
@@ -522,10 +462,10 @@ class Layer(DispatchBaseClass):
 
 		pass
 
-	def IsLayerSelectable(self, strLayer):
+	def LayerOrder(self, strLayer):
 		"""
 
-		Verifies that an existing layer is selectable (normal and reference).
+		Returns the current display order index of a layer as displayed in Rhino's Layer dialog box.  A display order index of -1 indicates that the current Layer dialog filter does not allow the layer to appear in the layer list.
 
 		Parameters
 
@@ -533,7 +473,8 @@ class Layer(DispatchBaseClass):
 
 		Returns
 
-		Null : On error.
+		Number : A zero-based display order index if successful.
+		Null : If not successful, or on error.
 
 		"""
 
@@ -559,38 +500,97 @@ class Layer(DispatchBaseClass):
 
 		pass
 
-	def LayerChildren(self, strLayer):
+	def LayerPrintWidth(self, strLayer, dblWidth):
 		"""
 
-		Returns the immediate child layers of a layer.
+		Returns or changes the print width of a layer. Print width is specified in millimeters. A print width of 0.0 denotes the "default" print width.
 
 		Parameters
 
-		strLayer : Required,   String,   The name of the layer
+		strLayer : Required,  String,  The name of an existing layer
+		dblWidth : Optional,  Number,  The new layer print width in millimeters
 
 		Returns
 
-		Array : An array of strings identifying the layer's children if successful
-		Null : If the layer has no children, or on error.
+		Number : If a layer print width is not specified,  the current layer print width if successful.
+		Number : If a layer print width is specified, the previous layer print width if successful.
+		Null : If not successful, or on error.
 
 		"""
 
 		pass
 
-	def LayerMode(self, strLayer, intMode):
+	def LayerVisible(self, strLayer, blnVisible):
 		"""
 
-		Returns or changes the mode of a layer.
+		Returns or changes the visibility property of a layer. This method should be use instead of LayerMode.
 
 		Parameters
 
 		strLayer : Required,   String,   The name of an existing layer
-		intMode : Optional,   Number,   The new layer mode
+		blnVisible : Optional,   Boolean,   The new layer visibility
 
 		Returns
 
-		Number : If a layer mode is not specified,  the current layer mode  if successful.
-		Number : If a layer mode is specified, the previous layer mode if successful.
+		Boolean : If a layer mode is not specified,  the current layer visibility if successful.
+		Boolean : If a layer mode is specified, the previous layer visibility if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def ParentLayer(self, strLayer, strParent):
+		"""
+
+		Returns or modifies the parent layer of a layer.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of the layer
+		strParent : Optional,   String,   The name of the new parent layer
+
+		Returns
+
+		String : If strParent is not specified, the name of the current parent layer if successful.
+		String : If strParent is specified, the name of the previous parent layer if successful.
+		Null : If the layer does not have a parent, or on error.
+
+		"""
+
+		pass
+
+	def PurgeLayer(self, strLayer):
+		"""
+
+		Removes an existing layer from the document.  Unlike the DeleteLayer method, PurgeLayer will remove the layer even if contains geometry objects.  The layer to be removed cannot be the current layer.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of the layer to purge
+
+		Returns
+
+		String : The name of the purged layer if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def RenameLayer(self, strOldName, strNewName):
+		"""
+
+		Renames an existing layer.
+
+		Parameters
+
+		strOldName : Required,   String,   The name of an existing layer
+		strNewName : Required,   String,   The new layer name
+
+		Returns
+
+		String : The new layer name if successful.
 		Null : If not successful, or on error.
 
 		"""

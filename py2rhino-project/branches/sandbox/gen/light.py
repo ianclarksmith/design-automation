@@ -8,24 +8,6 @@ class Light(DispatchBaseClass):
 
 
 
-	def IsLightEnabled(self, strObject):
-		"""
-
-		Verifies a light object is enabled.
-
-		Parameters
-
-		strObject : Required,   String,   The light object's identifier
-
-		Returns
-
-		Boolean : True if successful, otherwise False.
-		Null : On error.
-
-		"""
-
-		pass
-
 	def AddDirectionalLight(self, arrStartPoint, arrEndPoint):
 		"""
 
@@ -39,6 +21,104 @@ class Light(DispatchBaseClass):
 		Returns
 
 		String : The identifier of the new object if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def AddLinearLight(self, arrStartPoint, arrEndPoint, dblWidth):
+		"""
+
+		Adds a new linear light object  to the document.
+
+		Parameters
+
+		arrStartPoint : Required,   Array,   The 3-D starting point of the light
+		arrEndPoint : Required,   Array,   The 3-D ending point and direction of the light
+		dblWidth : Optional,   Number,   The width of the light
+
+		Returns
+
+		String : The identifier of the new object if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def AddPointLight(self, arrPoint):
+		"""
+
+		Adds a new point light object  to the document.
+
+		Parameters
+
+		arrPoint : Required,   Array,   The 3-D location point of the light
+
+		Returns
+
+		String : The identifier of the new object if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def AddRectangularLight(self, arrOrigin, arrWidth, arrHeight):
+		"""
+
+		Adds a new rectangular light object  to the document.
+
+		Parameters
+
+		arrOrigin : Required,   Array,   The 3-D origin point of the light
+		arrWidth : Required,   Array,   The 3-D width and direction point of the light
+		arrHeight : Required,   Array,   The 3-D height and direction point of the light
+
+		Returns
+
+		String : The identifier of the new object if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def AddSpotLight(self, arrOrigin, dblRadius, arrApex):
+		"""
+
+		Adds a new spot light object  to the document.
+
+		Parameters
+
+		arrOrigin : Required,   Array,   The 3-D origin point of the light
+		dblRadius : Required,   Number,   The radius of the cone
+		arrApex : Required,   Array,   The 3-D apex point of the light
+
+		Returns
+
+		String : The identifier of the new object if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def EnableLight(self, strObject, blnEnable):
+		"""
+
+		Enables or disables a light object.
+
+		Parameters
+
+		strObject : Required,   String,   The identifier of the light object
+		blnEnable : Optional,   Boolean,   The light's enabled status
+
+		Returns
+
+		Boolean : If blnEnable is not specified, then the current enabled status if successful.
+		Boolean : If blnEnable is specified, then the previous enabled status if successful.
 		Null : If not successful, or on error.
 
 		"""
@@ -63,19 +143,37 @@ class Light(DispatchBaseClass):
 
 		pass
 
-	def AddPointLight(self, arrPoint):
+	def IsLight(self, strObject):
 		"""
 
-		Adds a new point light object  to the document.
+		Verifies an object is a light object.
 
 		Parameters
 
-		arrPoint : Required,   Array,   The 3-D location point of the light
+		strObject : Required,   String,   The light object's identifier
 
 		Returns
 
-		String : The identifier of the new object if successful.
-		Null : If not successful, or on error.
+		Boolean : True if successful, otherwise False.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsLightEnabled(self, strObject):
+		"""
+
+		Verifies a light object is enabled.
+
+		Parameters
+
+		strObject : Required,   String,   The light object's identifier
+
+		Returns
+
+		Boolean : True if successful, otherwise False.
+		Null : On error.
 
 		"""
 
@@ -94,21 +192,6 @@ class Light(DispatchBaseClass):
 
 		Boolean : True if successful, otherwise False.
 		Null : On error.
-
-		"""
-
-		pass
-
-	def LightCount(self):
-		"""
-
-		Returns the number of light objects in the document.
-
-		No parameters
-
-		Returns
-
-		Number : The number of lights in the document.
 
 		"""
 
@@ -150,6 +233,97 @@ class Light(DispatchBaseClass):
 
 		pass
 
+	def IsRectangularLight(self, strObject):
+		"""
+
+		Verifies a light object is a rectangular light.
+
+		Parameters
+
+		strObject : Required,   String,   The light object's identifier
+
+		Returns
+
+		Boolean : True if successful, otherwise False.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsSpotLight(self, strObject):
+		"""
+
+		Verifies a light object is a spot light.
+
+		Parameters
+
+		strObject : Required,   String,   The light object's identifier
+
+		Returns
+
+		Boolean : True if successful, otherwise False.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def LightColor(self, strObject, lngColor):
+		"""
+
+		Returns or changes the color of a light.  Light colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+
+		Parameters
+
+		strObject : Required,   String,   The light object's identifier
+		lngColor : Optional,   Number,   The new color value
+
+		Returns
+
+		Number : If a color value  is not specified,  the current light value if successful.
+		Number : If a color value is specified, the previous light value if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def LightCount(self):
+		"""
+
+		Returns the number of light objects in the document.
+
+		No parameters
+
+		Returns
+
+		Number : The number of lights in the document.
+
+		"""
+
+		pass
+
+	def LightDirection(self, strObject, arrDirection):
+		"""
+
+		Returns or changes the direction of a light object. This function can be used to return or modify the target of spotlights.
+
+		Parameters
+
+		strObject : Required,   String,   The light object's identifier
+		arrDirection : Optional,   Array,   The new end point, or direction
+
+		Returns
+
+		Array : If a direction point is not specified,  the current direction if successful.
+		Array : If a direction point is specified, the previous direction point if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
 	def LightLocation(self, strObject, arrlocation):
 		"""
 
@@ -170,19 +344,37 @@ class Light(DispatchBaseClass):
 
 		pass
 
-	def IsLight(self, strObject):
+	def LightName(self, strObject, strName):
 		"""
 
-		Verifies an object is a light object.
+		Returns or modifies the user-definable name of a light object.
 
 		Parameters
 
-		strObject : Required,   String,   The light object's identifier
+		strObject : Required,   String,   The identifier of the light object
+		strName : Optional,   String,   The new light name
 
 		Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+		String : If strName is not specified,  the current light name if successful.
+		String : If strName is specified,  the previous light name if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def LightObjects(self):
+		"""
+
+		Returns the identifier of light objects in the document.
+
+		No parameters
+
+		Returns
+
+		Array : The identifiers of all lights in the document if successful
+		Null : If not successful, or on error.
 
 		"""
 
@@ -210,82 +402,6 @@ class Light(DispatchBaseClass):
 
 		pass
 
-	def LightName(self, strObject, strName):
-		"""
-
-		Returns or modifies the user-definable name of a light object.
-
-		Parameters
-
-		strObject : Required,   String,   The identifier of the light object
-		strName : Optional,   String,   The new light name
-
-		Returns
-
-		String : If strName is not specified,  the current light name if successful.
-		String : If strName is specified,  the previous light name if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def IsRectangularLight(self, strObject):
-		"""
-
-		Verifies a light object is a rectangular light.
-
-		Parameters
-
-		strObject : Required,   String,   The light object's identifier
-
-		Returns
-
-		Boolean : True if successful, otherwise False.
-		Null : On error.
-
-		"""
-
-		pass
-
-	def AddRectangularLight(self, arrOrigin, arrWidth, arrHeight):
-		"""
-
-		Adds a new rectangular light object  to the document.
-
-		Parameters
-
-		arrOrigin : Required,   Array,   The 3-D origin point of the light
-		arrWidth : Required,   Array,   The 3-D width and direction point of the light
-		arrHeight : Required,   Array,   The 3-D height and direction point of the light
-
-		Returns
-
-		String : The identifier of the new object if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def IsSpotLight(self, strObject):
-		"""
-
-		Verifies a light object is a spot light.
-
-		Parameters
-
-		strObject : Required,   String,   The light object's identifier
-
-		Returns
-
-		Boolean : True if successful, otherwise False.
-		Null : On error.
-
-		"""
-
-		pass
-
 	def SpotLightHardness(self, strObject, dblHardness):
 		"""
 
@@ -300,86 +416,6 @@ class Light(DispatchBaseClass):
 
 		Number : If dblHardness is not specified, then  the current hardness value if successful.
 		Number : If dblHardness is specified, then the previous hardness value if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def AddLinearLight(self, arrStartPoint, arrEndPoint, dblWidth):
-		"""
-
-		Adds a new linear light object  to the document.
-
-		Parameters
-
-		arrStartPoint : Required,   Array,   The 3-D starting point of the light
-		arrEndPoint : Required,   Array,   The 3-D ending point and direction of the light
-		dblWidth : Optional,   Number,   The width of the light
-
-		Returns
-
-		String : The identifier of the new object if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def AddSpotLight(self, arrOrigin, dblRadius, arrApex):
-		"""
-
-		Adds a new spot light object  to the document.
-
-		Parameters
-
-		arrOrigin : Required,   Array,   The 3-D origin point of the light
-		dblRadius : Required,   Number,   The radius of the cone
-		arrApex : Required,   Array,   The 3-D apex point of the light
-
-		Returns
-
-		String : The identifier of the new object if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def LightColor(self, strObject, lngColor):
-		"""
-
-		Returns or changes the color of a light.  Light colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
-
-		Parameters
-
-		strObject : Required,   String,   The light object's identifier
-		lngColor : Optional,   Number,   The new color value
-
-		Returns
-
-		Number : If a color value  is not specified,  the current light value if successful.
-		Number : If a color value is specified, the previous light value if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def EnableLight(self, strObject, blnEnable):
-		"""
-
-		Enables or disables a light object.
-
-		Parameters
-
-		strObject : Required,   String,   The identifier of the light object
-		blnEnable : Optional,   Boolean,   The light's enabled status
-
-		Returns
-
-		Boolean : If blnEnable is not specified, then the current enabled status if successful.
-		Boolean : If blnEnable is specified, then the previous enabled status if successful.
 		Null : If not successful, or on error.
 
 		"""
@@ -420,42 +456,6 @@ class Light(DispatchBaseClass):
 
 		Number : If dblIntensity is not specified, then the current shadow intensity if successful.
 		Number : If dblIntensity is specified, then the previous shadow intensity if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def LightDirection(self, strObject, arrDirection):
-		"""
-
-		Returns or changes the direction of a light object. This function can be used to return or modify the target of spotlights.
-
-		Parameters
-
-		strObject : Required,   String,   The light object's identifier
-		arrDirection : Optional,   Array,   The new end point, or direction
-
-		Returns
-
-		Array : If a direction point is not specified,  the current direction if successful.
-		Array : If a direction point is specified, the previous direction point if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def LightObjects(self):
-		"""
-
-		Returns the identifier of light objects in the document.
-
-		No parameters
-
-		Returns
-
-		Array : The identifiers of all lights in the document if successful
 		Null : If not successful, or on error.
 
 		"""

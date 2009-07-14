@@ -26,21 +26,6 @@ class Linetype(DispatchBaseClass):
 
 		pass
 
-	def LinetypeCount(self):
-		"""
-
-		Returns the number of linetypes in the document.
-
-		No parameters
-
-		Returns
-
-		Number : The number of linetypes in the document.
-
-		"""
-
-		pass
-
 	def IsLinetypeReference(self, strLinetype):
 		"""
 
@@ -54,6 +39,21 @@ class Linetype(DispatchBaseClass):
 
 		Boolean : True or False indicating success or failure.
 		Null : On error.
+
+		"""
+
+		pass
+
+	def LinetypeCount(self):
+		"""
+
+		Returns the number of linetypes in the document.
+
+		No parameters
+
+		Returns
+
+		Number : The number of linetypes in the document.
 
 		"""
 

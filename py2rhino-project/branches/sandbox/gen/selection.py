@@ -8,34 +8,104 @@ class Selection(DispatchBaseClass):
 
 
 
-	def UnselectAllObjects(self):
+	def AllObjects(self, blnSelect, blnIncludeLights, blnIncludeGrips):
 		"""
 
-		Unselects all objects in the document.
-
-		No parameters
-
-		Returns
-
-		Number : The number of objects that were unselected.
-
-		"""
-
-		pass
-
-	def ReferenceObjects(self, blnIncludeLights, blnIncludeGrips):
-		"""
-
-		Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
+		Returns the identifiers of all objects in the document.
 
 		Parameters
 
+		blnSelect : Optional,   Boolean,   Select the objects
 		blnIncludeLights : Optional,   Boolean,   Include light objects
 		blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
 		Returns
 
 		Array : An array of strings identifying the objects if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def FirstObject(self, blnSelect, blnIncludeLights, blnIncludeGrips):
+		"""
+
+		Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.
+
+		Parameters
+
+		blnSelect : Optional,   Boolean,   Select the object
+		blnIncludeLights : Optional,   Boolean,   Include light objects
+		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+
+		Returns
+
+		String : The identifier of the object if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def GetCurveObject(self, strMessage, blnPreSelect, blnSelect):
+		"""
+
+		Prompts the user to pick, or select, a single curve object.
+
+		Parameters
+
+		strMessage : Optional,   String,   A prompt or message
+		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+		blnSelect : Optional,   Boolean,   Select the picked objects
+
+		Returns
+
+		Array : An array of selection information if successful. The array will contain the following information:
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def GetObject(self, strMessage, intType, blnPreSelect, blnSelect, arrObjects):
+		"""
+
+		Prompts the user to pick, or select, a single object.
+
+		Parameters
+
+		strMessage : Optional,   String,   A prompt or message
+		intType : Optional,   Number,   The type or types of geometry objects (points, curves, surfaces, meshes, etc
+		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+		blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
+		arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
+
+		Returns
+
+		String : The identifier of the picked object if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def GetObjectEx(self, strMessage, intType, blnPreSelect, blnSelect, arrObjects):
+		"""
+
+		Prompts the user to pick, or select, a single object.
+
+		Parameters
+
+		strMessage : Optional,   String,   A prompt or message
+		intType : Optional,   Number,   The type or types of geometry objects (points, curves, surfaces, meshes, etc
+		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+		blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
+		arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
+
+		Returns
+
+		Array : An array of selection information if successful. The array will contain the following information:
 		Null : If not successful, or on error.
 
 		"""
@@ -107,79 +177,58 @@ class Selection(DispatchBaseClass):
 
 		pass
 
-	def ObjectsByName(self, strName, blnSelect, blnIncludeLights):
+	def GetSurfaceObject(self, strMessage, blnPreSelect, blnSelect):
 		"""
 
-		Returns the identifiers of all objects based on the objects' user-assigned name.
-
-		Parameters
-
-		strName : Required,   String,   The name of an object or objects
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-
-		Returns
-
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def ObjectsByGroup(self, strGroup, blnSelect):
-		"""
-
-		Returns the identifiers of all objects based on the objects' group name.
-
-		Parameters
-
-		strGroup : Required,   String,   The name of a group of objects
-		blnSelect : Optional,   Boolean,   Select the objects
-
-		Returns
-
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def GetObject(self, strMessage, intType, blnPreSelect, blnSelect, arrObjects):
-		"""
-
-		Prompts the user to pick, or select, a single object.
+		Prompts the user to pick, or select, a single surface object.
 
 		Parameters
 
 		strMessage : Optional,   String,   A prompt or message
-		intType : Optional,   Number,   The type or types of geometry objects (points, curves, surfaces, meshes, etc
 		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
-		arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
+		blnSelect : Optional,   Boolean,   Select the picked objects
 
 		Returns
 
-		String : The identifier of the picked object if successful.
+		Array : An array of selection information if successful. The array will contain the following information:
 		Null : If not successful, or on error.
 
 		"""
 
 		pass
 
-	def PrevSelectedObjects(self, blnSelect):
+	def HiddenObjects(self, blnIncludeLights, blnIncludeGrips):
 		"""
 
-		Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
+		Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
 		Parameters
 
-		blnSelect : Optional,   Boolean,   Select the object
+		blnIncludeLights : Optional,   Boolean,   Include light objects
+		blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
 		Returns
 
-		Array : An array of strings identifying the previously selected objects if successful.
+		Array : An array of strings identifying the objects if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def InvertSelectedObjects(self, blnIncludeLights, blnIncludeGrips):
+		"""
+
+		Inverts the current object selection.  The identifiers of the newly selected objects are returned.
+
+		Parameters
+
+		blnIncludeLights : Optional,   Boolean,   Include light objects
+		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+
+		Returns
+
+		Array : An array of strings identifying the newly selected objects if successful.
 		Null : If not successful, or on error.
 
 		"""
@@ -204,39 +253,20 @@ class Selection(DispatchBaseClass):
 
 		pass
 
-	def ObjectsByLayer(self, strLayer, blnSelect):
+	def LastObject(self, blnSelect, blnIncludeLights, blnIncludeGrips):
 		"""
 
-		Returns the identifiers of all objects based on the objects' layer.
+		Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
 
 		Parameters
 
-		strLayer : Required,   String,   The name of a layer
-		blnSelect : Optional,   Boolean,   Select the objects
-
-		Returns
-
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def ObjectsByColor(self, lngColor, blnSelect, blnIncludeLights):
-		"""
-
-		Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
-
-		Parameters
-
-		lngColor : Required,   Number,   An RGB color value
-		blnSelect : Optional,   Boolean,   Select the objects
+		blnSelect : Optional,   Boolean,   Select the object
 		blnIncludeLights : Optional,   Boolean,   Include light objects
+		blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
 		Returns
 
-		Array : An array of strings identifying the objects if successful.
+		String : The identifier of the object if successful.
 		Null : If not successful, or on error.
 
 		"""
@@ -262,26 +292,6 @@ class Selection(DispatchBaseClass):
 
 		pass
 
-	def GetSurfaceObject(self, strMessage, blnPreSelect, blnSelect):
-		"""
-
-		Prompts the user to pick, or select, a single surface object.
-
-		Parameters
-
-		strMessage : Optional,   String,   A prompt or message
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Select the picked objects
-
-		Returns
-
-		Array : An array of selection information if successful. The array will contain the following information:
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
 	def NextObject(self, strObject, blnSelect, blnIncludeLights, blnIncludeGrips):
 		"""
 
@@ -290,26 +300,6 @@ class Selection(DispatchBaseClass):
 		Parameters
 
 		strObject : Required,   String,   The identifier of the object from which to get the next object
-		blnSelect : Optional,   Boolean,   Select the object
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
-
-		Returns
-
-		String : The identifier of the object if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def FirstObject(self, blnSelect, blnIncludeLights, blnIncludeGrips):
-		"""
-
-		Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.
-
-		Parameters
-
 		blnSelect : Optional,   Boolean,   Select the object
 		blnIncludeLights : Optional,   Boolean,   Include light objects
 		blnIncludeGrips : Optional,   Boolean,   Include grips objects
@@ -342,37 +332,74 @@ class Selection(DispatchBaseClass):
 
 		pass
 
-	def GetCurveObject(self, strMessage, blnPreSelect, blnSelect):
+	def ObjectsByColor(self, lngColor, blnSelect, blnIncludeLights):
 		"""
 
-		Prompts the user to pick, or select, a single curve object.
+		Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
 		Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Select the picked objects
+		lngColor : Required,   Number,   An RGB color value
+		blnSelect : Optional,   Boolean,   Select the objects
+		blnIncludeLights : Optional,   Boolean,   Include light objects
 
 		Returns
 
-		Array : An array of selection information if successful. The array will contain the following information:
+		Array : An array of strings identifying the objects if successful.
 		Null : If not successful, or on error.
 
 		"""
 
 		pass
 
-	def VisibleObjects(self, strView, blnSelect, blnIncludeLights, blnIncludeGrips):
+	def ObjectsByGroup(self, strGroup, blnSelect):
 		"""
 
-		Returns the identifiers of all objects that are visible in a specified view.
+		Returns the identifiers of all objects based on the objects' group name.
 
 		Parameters
 
-		strView : Optional,   String,   The title of the view
+		strGroup : Required,   String,   The name of a group of objects
+		blnSelect : Optional,   Boolean,   Select the objects
+
+		Returns
+
+		Array : An array of strings identifying the objects if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def ObjectsByLayer(self, strLayer, blnSelect):
+		"""
+
+		Returns the identifiers of all objects based on the objects' layer.
+
+		Parameters
+
+		strLayer : Required,   String,   The name of a layer
+		blnSelect : Optional,   Boolean,   Select the objects
+
+		Returns
+
+		Array : An array of strings identifying the objects if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def ObjectsByName(self, strName, blnSelect, blnIncludeLights):
+		"""
+
+		Returns the identifiers of all objects based on the objects' user-assigned name.
+
+		Parameters
+
+		strName : Required,   String,   The name of an object or objects
 		blnSelect : Optional,   Boolean,   Select the objects
 		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
 		Returns
 
@@ -392,104 +419,6 @@ class Selection(DispatchBaseClass):
 
 		intType : Required,   Number,   The type(s) of geometry objects (points, curves, surfaces, meshes, etc
 		blnSelect : Optional,   Boolean,   Select the objects
-
-		Returns
-
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def LastObject(self, blnSelect, blnIncludeLights, blnIncludeGrips):
-		"""
-
-		Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
-
-		Parameters
-
-		blnSelect : Optional,   Boolean,   Select the object
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
-
-		Returns
-
-		String : The identifier of the object if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def SelectedObjects(self, blnIncludeLights, blnIncludeGrips):
-		"""
-
-		Returns the identifiers of all objects that are currently selected.
-
-		Parameters
-
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
-
-		Returns
-
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def UnselectedObjects(self, blnSelect, blnIncludeLights, blnIncludeGrips):
-		"""
-
-		Returns the identifiers of all objects that are currently unselected.
-
-		Parameters
-
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
-
-		Returns
-
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def HiddenObjects(self, blnIncludeLights, blnIncludeGrips):
-		"""
-
-		Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
-
-		Parameters
-
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
-
-		Returns
-
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def AllObjects(self, blnSelect, blnIncludeLights, blnIncludeGrips):
-		"""
-
-		Returns the identifiers of all objects in the document.
-
-		Parameters
-
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
 		Returns
 
@@ -520,10 +449,28 @@ class Selection(DispatchBaseClass):
 
 		pass
 
-	def InvertSelectedObjects(self, blnIncludeLights, blnIncludeGrips):
+	def PrevSelectedObjects(self, blnSelect):
 		"""
 
-		Inverts the current object selection.  The identifiers of the newly selected objects are returned.
+		Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
+
+		Parameters
+
+		blnSelect : Optional,   Boolean,   Select the object
+
+		Returns
+
+		Array : An array of strings identifying the previously selected objects if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def ReferenceObjects(self, blnIncludeLights, blnIncludeGrips):
+		"""
+
+		Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
 
 		Parameters
 
@@ -532,29 +479,82 @@ class Selection(DispatchBaseClass):
 
 		Returns
 
-		Array : An array of strings identifying the newly selected objects if successful.
+		Array : An array of strings identifying the objects if successful.
 		Null : If not successful, or on error.
 
 		"""
 
 		pass
 
-	def GetObjectEx(self, strMessage, intType, blnPreSelect, blnSelect, arrObjects):
+	def SelectedObjects(self, blnIncludeLights, blnIncludeGrips):
 		"""
 
-		Prompts the user to pick, or select, a single object.
+		Returns the identifiers of all objects that are currently selected.
 
 		Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		intType : Optional,   Number,   The type or types of geometry objects (points, curves, surfaces, meshes, etc
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
-		arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
+		blnIncludeLights : Optional,   Boolean,   Include light objects
+		blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
 		Returns
 
-		Array : An array of selection information if successful. The array will contain the following information:
+		Array : An array of strings identifying the objects if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def UnselectAllObjects(self):
+		"""
+
+		Unselects all objects in the document.
+
+		No parameters
+
+		Returns
+
+		Number : The number of objects that were unselected.
+
+		"""
+
+		pass
+
+	def UnselectedObjects(self, blnSelect, blnIncludeLights, blnIncludeGrips):
+		"""
+
+		Returns the identifiers of all objects that are currently unselected.
+
+		Parameters
+
+		blnSelect : Optional,   Boolean,   Select the objects
+		blnIncludeLights : Optional,   Boolean,   Include light objects
+		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+
+		Returns
+
+		Array : An array of strings identifying the objects if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def VisibleObjects(self, strView, blnSelect, blnIncludeLights, blnIncludeGrips):
+		"""
+
+		Returns the identifiers of all objects that are visible in a specified view.
+
+		Parameters
+
+		strView : Optional,   String,   The title of the view
+		blnSelect : Optional,   Boolean,   Select the objects
+		blnIncludeLights : Optional,   Boolean,   Include light objects
+		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+
+		Returns
+
+		Array : An array of strings identifying the objects if successful.
 		Null : If not successful, or on error.
 
 		"""

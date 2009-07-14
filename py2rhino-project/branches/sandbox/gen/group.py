@@ -8,74 +8,19 @@ class Group(DispatchBaseClass):
 
 
 
-	def AddObjectsToGroup(self, arrObjects, strGroup):
+	def AddGroup(self, strGroup):
 		"""
 
-		Adds one or more objects to an existing group. Neither the objects nor the group can be reference objects.
+		Adds a new empty group to the document.
 
 		Parameters
 
-		arrObjects : Required,   Array,   An array of object identifiers
-		strGroup : Required,   String,   The name of an existing group
+		strGroup : Optional,   String,   The name of the new group
 
 		Returns
 
-		Number : The number of objects added to the group if successful.
+		String : The name of the new group if successful.
 		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def LockGroup(self, strGroup):
-		"""
-
-		Locks a group of objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
-
-		Parameters
-
-		strGroup : Required,   String,   The name of an existing group
-
-		Returns
-
-		Number : The number of object that were locked if successful.
-		Null : On error.
-
-		"""
-
-		pass
-
-	def UnlockGroup(self, strGroup):
-		"""
-
-		Unlocks a group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
-
-		Parameters
-
-		strGroup : Required,   String,   The name of an existing group
-
-		Returns
-
-		Number : The number of object that were unlocked if successful.
-		Null : On error.
-
-		"""
-
-		pass
-
-	def RemoveObjectFromTopGroup(self, strObject):
-		"""
-
-		Removes a single object from it's top-most group.
-
-		Parameters
-
-		strObject : Required,   String,   The identifier of the object
-
-		Returns
-
-		Boolean : True or False indicating success or failure.
-		Null : On error.
 
 		"""
 
@@ -100,16 +45,19 @@ class Group(DispatchBaseClass):
 
 		pass
 
-	def GroupCount(self):
+	def AddObjectsToGroup(self, arrObjects, strGroup):
 		"""
 
-		Returns the number of groups in the document.
+		Adds one or more objects to an existing group. Neither the objects nor the group can be reference objects.
 
-		No parameters
+		Parameters
+
+		arrObjects : Required,   Array,   An array of object identifiers
+		strGroup : Required,   String,   The name of an existing group
 
 		Returns
 
-		Number : The number of groups if successful.
+		Number : The number of objects added to the group if successful.
 		Null : If not successful, or on error.
 
 		"""
@@ -134,19 +82,17 @@ class Group(DispatchBaseClass):
 
 		pass
 
-	def IsGroup(self, strGroup):
+	def GroupCount(self):
 		"""
 
-		Verifies the existence of a group.
+		Returns the number of groups in the document.
 
-		Parameters
-
-		strGroup : Required,   String,   The name of an existing group
+		No parameters
 
 		Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+		Number : The number of groups if successful.
+		Null : If not successful, or on error.
 
 		"""
 
@@ -168,18 +114,36 @@ class Group(DispatchBaseClass):
 
 		pass
 
-	def RemoveObjectFromAllGroups(self, strObject):
+	def HideGroup(self, strGroup):
 		"""
 
-		Removes a single object from any and all groups that it is a member. Neither the object nor the group can be a reference object.
+		Hides a group of object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
 		Parameters
 
-		strObject : Required,   String,   The identifier of the object
+		strGroup : Required,   String,   The name of an existing group
 
 		Returns
 
-		Boolean : True or False indicating success or failure.
+		Number : The number of object that were hidden if successful.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsGroup(self, strGroup):
+		"""
+
+		Verifies the existence of a group.
+
+		Parameters
+
+		strGroup : Required,   String,   The name of an existing group
+
+		Returns
+
+		Boolean : True if successful, otherwise False.
 		Null : On error.
 
 		"""
@@ -204,47 +168,10 @@ class Group(DispatchBaseClass):
 
 		pass
 
-	def RemoveObjectsFromGroup(self, arrObjects, strGroup):
+	def LockGroup(self, strGroup):
 		"""
 
-		Removes one or more objects from an existing group.
-
-		Parameters
-
-		arrObjects : Required,   Array,   An array of object identifiers
-		strGroup : Required,   String,   The name of an existing group
-
-		Returns
-
-		Number : The number of objects removed from the group if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def AddGroup(self, strGroup):
-		"""
-
-		Adds a new empty group to the document.
-
-		Parameters
-
-		strGroup : Optional,   String,   The name of the new group
-
-		Returns
-
-		String : The name of the new group if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def ShowGroup(self, strGroup):
-		"""
-
-		Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+		Locks a group of objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
 		Parameters
 
@@ -252,25 +179,25 @@ class Group(DispatchBaseClass):
 
 		Returns
 
-		Number : The number of object that were shown if successful.
+		Number : The number of object that were locked if successful.
 		Null : On error.
 
 		"""
 
 		pass
 
-	def HideGroup(self, strGroup):
+	def RemoveObjectFromAllGroups(self, strObject):
 		"""
 
-		Hides a group of object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+		Removes a single object from any and all groups that it is a member. Neither the object nor the group can be a reference object.
 
 		Parameters
 
-		strGroup : Required,   String,   The name of an existing group
+		strObject : Required,   String,   The identifier of the object
 
 		Returns
 
-		Number : The number of object that were hidden if successful.
+		Boolean : True or False indicating success or failure.
 		Null : On error.
 
 		"""
@@ -296,6 +223,43 @@ class Group(DispatchBaseClass):
 
 		pass
 
+	def RemoveObjectFromTopGroup(self, strObject):
+		"""
+
+		Removes a single object from it's top-most group.
+
+		Parameters
+
+		strObject : Required,   String,   The identifier of the object
+
+		Returns
+
+		Boolean : True or False indicating success or failure.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def RemoveObjectsFromGroup(self, arrObjects, strGroup):
+		"""
+
+		Removes one or more objects from an existing group.
+
+		Parameters
+
+		arrObjects : Required,   Array,   An array of object identifiers
+		strGroup : Required,   String,   The name of an existing group
+
+		Returns
+
+		Number : The number of objects removed from the group if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
 	def RenameGroup(self, strOldGroup, strNewGroup):
 		"""
 
@@ -310,6 +274,42 @@ class Group(DispatchBaseClass):
 
 		String : The new group name if successful.
 		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def ShowGroup(self, strGroup):
+		"""
+
+		Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+
+		Parameters
+
+		strGroup : Required,   String,   The name of an existing group
+
+		Returns
+
+		Number : The number of object that were shown if successful.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def UnlockGroup(self, strGroup):
+		"""
+
+		Unlocks a group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
+
+		Parameters
+
+		strGroup : Required,   String,   The name of an existing group
+
+		Returns
+
+		Number : The number of object that were unlocked if successful.
+		Null : On error.
 
 		"""
 

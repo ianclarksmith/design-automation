@@ -8,10 +8,10 @@ class Block(DispatchBaseClass):
 
 
 
-	def BlockObjects(self, strBlock):
+	def BlockContainerCount(self, strBlock):
 		"""
 
-		Returns the identifiers of the objects that make up a block definition.
+		Returns the number of block definitions that contain a specified block definition.
 
 		Parameters
 
@@ -19,99 +19,8 @@ class Block(DispatchBaseClass):
 
 		Returns
 
-		Array : An array of strings identifying the objects that make up a block definition if successful.
+		Number : The number of block definitions that contain the specified block definition if successful.
 		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def BlockCount(self):
-		"""
-
-		Returns the number of block definitions in the document.
-
-		No parameters
-
-		Returns
-
-		Number : The number of block definitions in the document.
-		Null : On error.
-
-		"""
-
-		pass
-
-	def BlockURLTag(self, strBlock, strURL):
-		"""
-
-		Returns or sets the URL tag, or description, of a block definition.
-
-		Parameters
-
-		strBlock : Required,   String,   The name of an existing block definition
-		strURL : Optional,   String,   The new URL tag
-
-		Returns
-
-		String : If a URL tag is not specified,  the current URL tag if successful.
-		String : If a URL tag is specified, the previous URL tag if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def BlockPath(self, strBlock):
-		"""
-
-		Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.
-
-		Parameters
-
-		strBlock : Required,   String,   The name of an existing block definition
-
-		Returns
-
-		String : The path to the linked block file is successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def IsBlockInstance(self, strObject):
-		"""
-
-		Verifies an object is a block instance.
-
-		Parameters
-
-		strObject : Required,   String,   The identifier of an existing block definition
-
-		Returns
-
-		Boolean : True or false indicating success or failure.
-		Null : On error.
-
-		"""
-
-		pass
-
-	def IsBlockInUse(self, strBlock, intWhere):
-		"""
-
-		Verifies that a block definition is being used by an inserted instance.
-
-		Parameters
-
-		strBlock : Required,   String,   The name of an existing block definition
-		intWhere : Optional,   Number,   Where to look, where:
-
-		Returns
-
-		Boolean : True or false indicating success or failure.
-		Null : On error.
 
 		"""
 
@@ -135,55 +44,17 @@ class Block(DispatchBaseClass):
 
 		pass
 
-	def BlockInstanceXform(self, strObject):
+	def BlockCount(self):
 		"""
 
-		Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
+		Returns the number of block definitions in the document.
 
-		Parameters
-
-		strObject : Required,   String,   The identifier of an existing block insertion object
+		No parameters
 
 		Returns
 
-		Array : A transformation matrix (4x4 array of numbers) if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def IsBlock(self, strBlock):
-		"""
-
-		Verifies the existence of a block definition in the document.
-
-		Parameters
-
-		strBlock : Required,   String,   The name of an existing block definition
-
-		Returns
-
-		Boolean : True or false indicating success or failure.
+		Number : The number of block definitions in the document.
 		Null : On error.
-
-		"""
-
-		pass
-
-	def BlockInstanceInsertPoint(self, strObject):
-		"""
-
-		Returns the insertion point of a block instance.
-
-		Parameters
-
-		strObject : Required,   String,   The identifier of an existing block insertion object
-
-		Returns
-
-		Array : A 3-D point if successful.
-		Null : If not successful, or on error.
 
 		"""
 
@@ -227,54 +98,18 @@ class Block(DispatchBaseClass):
 
 		pass
 
-	def BlockNames(self, blnSort):
+	def BlockInstanceInsertPoint(self, strObject):
 		"""
 
-		Returns the names of all block definitions in the document.
+		Returns the insertion point of a block instance.
 
 		Parameters
 
-		blnSort : Optional,   Boolean,   Return a sorted array of block definition names
+		strObject : Required,   String,   The identifier of an existing block insertion object
 
 		Returns
 
-		Array : An array of block definition names if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def BlockContainerCount(self, strBlock):
-		"""
-
-		Returns the number of block definitions that contain a specified block definition.
-
-		Parameters
-
-		strBlock : Required,   String,   The name of an existing block definition
-
-		Returns
-
-		Number : The number of block definitions that contain the specified block definition if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def BlockInstances(self, strBlock):
-		"""
-
-		Returns the identifiers of the inserted instances of a block.
-
-		Parameters
-
-		strBlock : Required,   String,   The name of an existing block definition
-
-		Returns
-
-		Array : An array of strings identifying the instances of a block if successful.
+		Array : A 3-D point if successful.
 		Null : If not successful, or on error.
 
 		"""
@@ -299,10 +134,28 @@ class Block(DispatchBaseClass):
 
 		pass
 
-	def DeleteBlock(self, strBlock):
+	def BlockInstanceXform(self, strObject):
 		"""
 
-		Deletes a block definition and all of it's inserted instances.
+		Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
+
+		Parameters
+
+		strObject : Required,   String,   The identifier of an existing block insertion object
+
+		Returns
+
+		Array : A transformation matrix (4x4 array of numbers) if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def BlockInstances(self, strBlock):
+		"""
+
+		Returns the identifiers of the inserted instances of a block.
 
 		Parameters
 
@@ -310,8 +163,80 @@ class Block(DispatchBaseClass):
 
 		Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+		Array : An array of strings identifying the instances of a block if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def BlockNames(self, blnSort):
+		"""
+
+		Returns the names of all block definitions in the document.
+
+		Parameters
+
+		blnSort : Optional,   Boolean,   Return a sorted array of block definition names
+
+		Returns
+
+		Array : An array of block definition names if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def BlockObjectCount(self, strBlock):
+		"""
+
+		Returns the number of objects that make up a block definition.
+
+		Parameters
+
+		strBlock : Required,   String,   The name of an existing block definition
+
+		Returns
+
+		Number : The number of objects that make up the block definition if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def BlockObjects(self, strBlock):
+		"""
+
+		Returns the identifiers of the objects that make up a block definition.
+
+		Parameters
+
+		strBlock : Required,   String,   The name of an existing block definition
+
+		Returns
+
+		Array : An array of strings identifying the objects that make up a block definition if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def BlockPath(self, strBlock):
+		"""
+
+		Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.
+
+		Parameters
+
+		strBlock : Required,   String,   The name of an existing block definition
+
+		Returns
+
+		String : The path to the linked block file is successful.
+		Null : If not successful, or on error.
 
 		"""
 
@@ -337,10 +262,30 @@ class Block(DispatchBaseClass):
 
 		pass
 
-	def IsBlockEmbedded(self, strBlock):
+	def BlockURLTag(self, strBlock, strURL):
 		"""
 
-		Verifies that a block definition is embedded, or linked, from an external file.
+		Returns or sets the URL tag, or description, of a block definition.
+
+		Parameters
+
+		strBlock : Required,   String,   The name of an existing block definition
+		strURL : Optional,   String,   The new URL tag
+
+		Returns
+
+		String : If a URL tag is not specified,  the current URL tag if successful.
+		String : If a URL tag is specified, the previous URL tag if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def DeleteBlock(self, strBlock):
+		"""
+
+		Deletes a block definition and all of it's inserted instances.
 
 		Parameters
 
@@ -373,10 +318,33 @@ class Block(DispatchBaseClass):
 
 		pass
 
-	def BlockObjectCount(self, strBlock):
+	def InsertBlock(self, strName, arrPoint, arrScale, dblAngle, arrNormal, arrXform):
 		"""
 
-		Returns the number of objects that make up a block definition.
+		Inserts a block whose definition already exists in the document.
+
+		Parameters
+
+		strName : Required,  String,  The name of the block definition to insert
+		arrPoint : Required,  Array,  The 3-D insertion point of the block
+		arrScale : Optional,  Array,  An array of three numbers that identify the x,y,z scale factors
+		dblAngle : Optional,  Number,  The rotation angle in degrees
+		arrNormal : Optional,  Array,  A 3-D vector identifying the axis of rotation
+		arrXform : Required,  Array,  4x4 transformation matrix to apply
+
+		Returns
+
+		String : The identifier of the newly inserted block instance, if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def IsBlock(self, strBlock):
+		"""
+
+		Verifies the existence of a block definition in the document.
 
 		Parameters
 
@@ -384,8 +352,63 @@ class Block(DispatchBaseClass):
 
 		Returns
 
-		Number : The number of objects that make up the block definition if successful.
-		Null : If not successful, or on error.
+		Boolean : True or false indicating success or failure.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsBlockEmbedded(self, strBlock):
+		"""
+
+		Verifies that a block definition is embedded, or linked, from an external file.
+
+		Parameters
+
+		strBlock : Required,   String,   The name of an existing block definition
+
+		Returns
+
+		Boolean : True or false indicating success or failure.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsBlockInUse(self, strBlock, intWhere):
+		"""
+
+		Verifies that a block definition is being used by an inserted instance.
+
+		Parameters
+
+		strBlock : Required,   String,   The name of an existing block definition
+		intWhere : Optional,   Number,   Where to look, where:
+
+		Returns
+
+		Boolean : True or false indicating success or failure.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def IsBlockInstance(self, strObject):
+		"""
+
+		Verifies an object is a block instance.
+
+		Parameters
+
+		strObject : Required,   String,   The identifier of an existing block definition
+
+		Returns
+
+		Boolean : True or false indicating success or failure.
+		Null : On error.
 
 		"""
 
@@ -422,29 +445,6 @@ class Block(DispatchBaseClass):
 		Returns
 
 		String : The new block definition name if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def InsertBlock(self, strName, arrPoint, arrScale, dblAngle, arrNormal, arrXform):
-		"""
-
-		Inserts a block whose definition already exists in the document.
-
-		Parameters
-
-		strName : Required,  String,  The name of the block definition to insert
-		arrPoint : Required,  Array,  The 3-D insertion point of the block
-		arrScale : Optional,  Array,  An array of three numbers that identify the x,y,z scale factors
-		dblAngle : Optional,  Number,  The rotation angle in degrees
-		arrNormal : Optional,  Array,  A 3-D vector identifying the axis of rotation
-		arrXform : Required,  Array,  4x4 transformation matrix to apply
-
-		Returns
-
-		String : The identifier of the newly inserted block instance, if successful.
 		Null : If not successful, or on error.
 
 		"""

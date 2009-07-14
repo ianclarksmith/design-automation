@@ -8,6 +8,60 @@ class LayerState(DispatchBaseClass):
 
 
 
+	def DeleteLayerState(self, strState):
+		"""
+
+		Removes an existing layer state from the document.
+
+		Parameters
+
+		strState : Required,   String,   The name of an existing layer state
+
+		Returns
+
+		Boolean : True or False indicating success or failure.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def ExportLayerStates(self, strFilename):
+		"""
+
+		Exports all layer states to an external file.
+
+		Parameters
+
+		strFilename : Required,   String,   The name of an file to create
+
+		Returns
+
+		Boolean : True or False indicating success or failure.
+		Null : On error.
+
+		"""
+
+		pass
+
+	def ImportLayerStates(self, strFilename):
+		"""
+
+		Imports layer states from a previously exported layer state file.
+
+		Parameters
+
+		strFilename : Required,   String,   The name of an existing layer state file to import
+
+		Returns
+
+		Number : The number of layer states imported if successful.
+		Null : On error.
+
+		"""
+
+		pass
+
 	def IsLayerState(self, strState):
 		"""
 
@@ -20,25 +74,6 @@ class LayerState(DispatchBaseClass):
 		Returns
 
 		Null : On error.
-
-		"""
-
-		pass
-
-	def RestoreLayerState(self, strState, intMode):
-		"""
-
-		Restores a previously saved layer state.
-
-		Parameters
-
-		strState : Required,   String,   The name of an existing layer state
-		intMode : Required,   Number,   The layer properties you want restored
-
-		Returns
-
-		Boolean : True or False indicating success of failure.
-		Null : If not successful, or on error.
 
 		"""
 
@@ -59,19 +94,19 @@ class LayerState(DispatchBaseClass):
 
 		pass
 
-	def ExportLayerStates(self, strFilename):
+	def LayerStateNames(self, blnSort):
 		"""
 
-		Exports all layer states to an external file.
+		Returns the names of all layer states in the document.
 
 		Parameters
 
-		strFilename : Required,   String,   The name of an file to create
+		blnSort : Optional,   Boolean,   If not specified or True, then the layer state names are sorted in ascending order
 
 		Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+		Array : An array of layer state names if successful.
+		Null : If not successful, or on error.
 
 		"""
 
@@ -96,54 +131,19 @@ class LayerState(DispatchBaseClass):
 
 		pass
 
-	def ImportLayerStates(self, strFilename):
+	def RestoreLayerState(self, strState, intMode):
 		"""
 
-		Imports layer states from a previously exported layer state file.
-
-		Parameters
-
-		strFilename : Required,   String,   The name of an existing layer state file to import
-
-		Returns
-
-		Number : The number of layer states imported if successful.
-		Null : On error.
-
-		"""
-
-		pass
-
-	def DeleteLayerState(self, strState):
-		"""
-
-		Removes an existing layer state from the document.
+		Restores a previously saved layer state.
 
 		Parameters
 
 		strState : Required,   String,   The name of an existing layer state
+		intMode : Required,   Number,   The layer properties you want restored
 
 		Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
-
-		"""
-
-		pass
-
-	def LayerStateNames(self, blnSort):
-		"""
-
-		Returns the names of all layer states in the document.
-
-		Parameters
-
-		blnSort : Optional,   Boolean,   If not specified or True, then the layer state names are sorted in ascending order
-
-		Returns
-
-		Array : An array of layer state names if successful.
+		Boolean : True or False indicating success of failure.
 		Null : If not successful, or on error.
 
 		"""

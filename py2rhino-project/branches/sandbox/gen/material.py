@@ -8,6 +8,42 @@ class Material(DispatchBaseClass):
 
 
 
+	def AddMaterialToLayer(self, strObject):
+		"""
+
+		Adds a material to a layer and returns the new material's index.  If the layer already has a material, then the layer's current material index is returned.
+
+		Parameters
+
+		strObject : Required,   String,   The name of an existing layer
+
+		Returns
+
+		Number : The zero-based material index of the layer if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
+	def AddMaterialToObject(self, strObject):
+		"""
+
+		Adds a material to an object and returns the new material's index.  Note, adding a material to an object modifies the object's material source from "By Layer" to "By Object."  See ObjectMaterialSource for details.  If the object already has a material, then the object's current material index is returned.
+
+		Parameters
+
+		strObject : Required,   String,   The identifier of the object
+
+		Returns
+
+		Number : The zero-based material index of the object if successful.
+		Null : If not successful, or on error.
+
+		"""
+
+		pass
+
 	def CopyMaterial(self, intSrcIndex, intDstIndex):
 		"""
 
@@ -22,26 +58,6 @@ class Material(DispatchBaseClass):
 
 		Boolean : True or false indicating success or failure.
 		Null : On error.
-
-		"""
-
-		pass
-
-	def MaterialTransparencyMap(self, intMaterialIndex, strFileName):
-		"""
-
-		Returns or modifies a material's transparency bitmap filename.
-
-		Parameters
-
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strFileName : Optional,   String,   The transparency bitmap filename
-
-		Returns
-
-		String : If strFileName is not specified, the current transparency bitmap filename if successful.
-		String : If strFileName is specified, the previous transparency bitmap filename if successful.
-		Null : It not successful, or on error.
 
 		"""
 
@@ -82,142 +98,6 @@ class Material(DispatchBaseClass):
 
 		pass
 
-	def MaterialTexture(self, intMaterialIndex, strFileName):
-		"""
-
-		Returns or modifies a material's texture bitmap filename.
-
-		Parameters
-
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strFileName : Optional,   String,   The texture bitmap filename
-
-		Returns
-
-		String : If strFileName is not specified, the current texture bitmap filename if successful.
-		String : If strFileName is specified, the previous texture bitmap filename if successful.
-		Null : It not successful, or on error.
-
-		"""
-
-		pass
-
-	def AddMaterialToObject(self, strObject):
-		"""
-
-		Adds a material to an object and returns the new material's index.  Note, adding a material to an object modifies the object's material source from "By Layer" to "By Object."  See ObjectMaterialSource for details.  If the object already has a material, then the object's current material index is returned.
-
-		Parameters
-
-		strObject : Required,   String,   The identifier of the object
-
-		Returns
-
-		Number : The zero-based material index of the object if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def MaterialTransparency(self, intMaterialIndex, dblTransparency):
-		"""
-
-		Returns or modifies a material's transparency value.
-
-		Parameters
-
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		dblTransparency : Optional,   Number,   The new transparency value
-
-		Returns
-
-		Number : If dblTransparency is not specified, the current transparency value if successful.
-		Number : If dblTransparency is specified, the previous transparency value if successful.
-		Null : It not successful, or on error.
-
-		"""
-
-		pass
-
-	def MaterialReflectiveColor(self, intMaterialIndex, lngColor):
-		"""
-
-		Returns or modifies a material's reflective color.  Reflective colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
-
-		Parameters
-
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		lngColor : Optional,   Number,   The new color value
-
-		Returns
-
-		Number : If lngColor is not specified, the current reflective color if successful.
-		Number : If lngColor is specified, the previous reflective color if successful.
-		Null : It not successful, or on error.
-
-		"""
-
-		pass
-
-	def MaterialBump(self, intMaterialIndex, strFileName):
-		"""
-
-		Returns or modifies a material's bump bitmap filename.
-
-		Parameters
-
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strFileName : Optional,   String,   The bump bitmap filename
-
-		Returns
-
-		String : If strFileName is not specified, the current bump bitmap filename if successful.
-		String : If strFileName is specified, the previous bump bitmap filename if successful.
-		Null : It not successful, or on error.
-
-		"""
-
-		pass
-
-	def AddMaterialToLayer(self, strObject):
-		"""
-
-		Adds a material to a layer and returns the new material's index.  If the layer already has a material, then the layer's current material index is returned.
-
-		Parameters
-
-		strObject : Required,   String,   The name of an existing layer
-
-		Returns
-
-		Number : The zero-based material index of the layer if successful.
-		Null : If not successful, or on error.
-
-		"""
-
-		pass
-
-	def MaterialShine(self, intMaterialIndex, dblShine):
-		"""
-
-		Returns or modifies a material's shine value.
-
-		Parameters
-
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		dblShine : Optional,   Number,   The new shine value
-
-		Returns
-
-		Number : If dblShine is not specified, the current shine value if successful.
-		Number : If dblShine is specified, the previous shine value if successful.
-		Null : It not successful, or on error.
-
-		"""
-
-		pass
-
 	def MatchMaterial(self, intSrcMaterialIndex, strSrcObject, strDestObject, arrDestObjects):
 		"""
 
@@ -239,20 +119,20 @@ class Material(DispatchBaseClass):
 
 		pass
 
-	def MaterialName(self, intMaterialIndex, strName):
+	def MaterialBump(self, intMaterialIndex, strFileName):
 		"""
 
-		Returns or modifies a material's user-definable name.
+		Returns or modifies a material's bump bitmap filename.
 
 		Parameters
 
 		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strName : Optional,   String,   The new name
+		strFileName : Optional,   String,   The bump bitmap filename
 
 		Returns
 
-		String : If strName is not specified, the current material name if successful.
-		String : If strName is specified, the previous material name if successful.
+		String : If strFileName is not specified, the current bump bitmap filename if successful.
+		String : If strFileName is specified, the previous bump bitmap filename if successful.
 		Null : It not successful, or on error.
 
 		"""
@@ -293,6 +173,126 @@ class Material(DispatchBaseClass):
 
 		String : If strFileName is not specified, the current environment bitmap filename if successful.
 		String : If strFileName is specified, the previous environment bitmap filename if successful.
+		Null : It not successful, or on error.
+
+		"""
+
+		pass
+
+	def MaterialName(self, intMaterialIndex, strName):
+		"""
+
+		Returns or modifies a material's user-definable name.
+
+		Parameters
+
+		intMaterialIndex : Required,   Number,   The zero-based source material index
+		strName : Optional,   String,   The new name
+
+		Returns
+
+		String : If strName is not specified, the current material name if successful.
+		String : If strName is specified, the previous material name if successful.
+		Null : It not successful, or on error.
+
+		"""
+
+		pass
+
+	def MaterialReflectiveColor(self, intMaterialIndex, lngColor):
+		"""
+
+		Returns or modifies a material's reflective color.  Reflective colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+
+		Parameters
+
+		intMaterialIndex : Required,   Number,   The zero-based source material index
+		lngColor : Optional,   Number,   The new color value
+
+		Returns
+
+		Number : If lngColor is not specified, the current reflective color if successful.
+		Number : If lngColor is specified, the previous reflective color if successful.
+		Null : It not successful, or on error.
+
+		"""
+
+		pass
+
+	def MaterialShine(self, intMaterialIndex, dblShine):
+		"""
+
+		Returns or modifies a material's shine value.
+
+		Parameters
+
+		intMaterialIndex : Required,   Number,   The zero-based source material index
+		dblShine : Optional,   Number,   The new shine value
+
+		Returns
+
+		Number : If dblShine is not specified, the current shine value if successful.
+		Number : If dblShine is specified, the previous shine value if successful.
+		Null : It not successful, or on error.
+
+		"""
+
+		pass
+
+	def MaterialTexture(self, intMaterialIndex, strFileName):
+		"""
+
+		Returns or modifies a material's texture bitmap filename.
+
+		Parameters
+
+		intMaterialIndex : Required,   Number,   The zero-based source material index
+		strFileName : Optional,   String,   The texture bitmap filename
+
+		Returns
+
+		String : If strFileName is not specified, the current texture bitmap filename if successful.
+		String : If strFileName is specified, the previous texture bitmap filename if successful.
+		Null : It not successful, or on error.
+
+		"""
+
+		pass
+
+	def MaterialTransparency(self, intMaterialIndex, dblTransparency):
+		"""
+
+		Returns or modifies a material's transparency value.
+
+		Parameters
+
+		intMaterialIndex : Required,   Number,   The zero-based source material index
+		dblTransparency : Optional,   Number,   The new transparency value
+
+		Returns
+
+		Number : If dblTransparency is not specified, the current transparency value if successful.
+		Number : If dblTransparency is specified, the previous transparency value if successful.
+		Null : It not successful, or on error.
+
+		"""
+
+		pass
+
+	def MaterialTransparencyMap(self, intMaterialIndex, strFileName):
+		"""
+
+		Returns or modifies a material's transparency bitmap filename.
+
+		Parameters
+
+		intMaterialIndex : Required,   Number,   The zero-based source material index
+		strFileName : Optional,   String,   The transparency bitmap filename
+
+		Returns
+
+		String : If strFileName is not specified, the current transparency bitmap filename if successful.
+		String : If strFileName is specified, the previous transparency bitmap filename if successful.
 		Null : It not successful, or on error.
 
 		"""
