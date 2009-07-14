@@ -995,14 +995,64 @@ class Model(object):
     
     def get_snap():
         """
-        No docs
+        
+        Retrieves the current information display
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        display 
+        What information is displayed in the model. This is given as an integer 
+        value from the Model Display table below. 
+        
+        Relevant Data Table(s)
+        
+        Model Display Options 
+        Token Value Description 
+        model 0 Default model only. 
+        shadows 1 Shadows and reflections 
+        normals 2 Surface normals. 
+        sketch 3 Sketched view. 
+        winddata 5 Wind distribution data. 
+        sprayedrays 7 Sprayed acoustic rays. 
+        values 8 Object attribute values. 
+        zonetemps 9 Zone temperatures 
+        rays 10 Acoustic rays and particles 
+
         """
-        va = py2ecotect.conversation.Request("get.model.snap")
+        val = py2ecotect.conversation.Request("get.model.snap")
         return string_util._convert_str_to_type(val, bool)         
     
     def set_snap(snap):
         """
-        No docs
+        
+        This property sets the current information display. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        display 
+        Sets what information to display in the model. This can be specified as
+         either a token or value parameter, as outlined in the Model Display
+          table below. 
+        
+        Relevant Data Table(s)
+        
+        Model Display Options
+         Token Value Description 
+        model 0 Default model only. 
+        shadows 1 Shadows and reflections 
+        normals 2 Surface normals. 
+        sketch 3 Sketched view. 
+        winddata 5 Wind distribution data. 
+        sprayedrays 7 Sprayed acoustic rays. 
+        values 8 Object attribute values. 
+        zonetemps 9 Zone temperatures 
+        rays 10 Acoustic rays and particles. 
+
         """
         args = string_util._convert_args_to_string("set.model.snap", snap)
         py2ecotect.conversation.Exec(args)
@@ -1234,15 +1284,15 @@ class Model(object):
                        " angular distance of a line starting at (x1, y1, z1)"
                        " and travelling towards var>(x2, y2, z2)")
     
-    currentnode = property(fget = get_currentnode, doc = "The zero-based index"
+    current_node = property(fget = get_current_node, doc = "The zero-based index"
                            " of the last selected node within the currently"
                            " loaded ECOTECT model")
     
-    currentobject = property(fget = get_currentobject, doc = "The zero-based"
+    current_object = property(fget = get_current_object, doc = "The zero-based"
                              " index of the last selected object within the"
                              " currently loaded ECOTECT model")
     
-    currentzone = property(fget = get_currentzone, doc = "The zero-based index"
+    current_zone = property(fget = get_current_zone, doc = "The zero-based index"
                            " of the current zone in the currently loaded"
                            " ECOTECT model")
     
@@ -1250,92 +1300,115 @@ class Model(object):
                         doc = "The current date as a formatted string ready for"
                         " printing or output to a file")
     
-    datestring = property(fget = get_datestring, fset = set_, 
-                        doc = "")
+    date_string = property(fget = get_date_string, doc = "A formated string"
+                           " containing the current model date")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    daylight_savings = property(fget = get_daylight_savings, doc = "The status"
+                                " of the daylight savings flag")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    day_of_the_year = property(fget = get_day_of_the_year, fset = set_day_of_the_year, 
+                        doc = "The current date and displays it in the julian"
+                        " date format, where a single integer value between 1"
+                        " and 365 represents a day of the year")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    directory = property(fget = get_directory, fset = set_directory, 
+                        doc = "The drive and directory in which the currently"
+                        " loaded ECOTECT model is located. This is essentially"
+                        " the full pathname, but without the filename component")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    display = property(fget = get_display, fset = set_display, 
+                        doc = "The current information display")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    distance = property(fget = get_distance, doc = "Geometric information from"
+                        " the current ECOTECT model, specifically the distance"
+                        " between two points, starting at (x1, y1, z1) and"
+                        " ending at (x2, y2, z2)")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    filename = property(fget = get_filename, doc = "The filename of the"
+                       " currently loaded ECOTECT model. This is the filename"
+                       " only, with no drive or directory components")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    last_node = property(fget = get_last_node, doc = "The zero-based index of the"
+                        " last added/inserted node within the currently loaded"
+                        " ECOTECT model")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    materials = property(fget = get_materials, doc = "The number of materials"
+                         " stored in the currently loaded ECOTECT model")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    month = property(fget = get_month, doc = "The current month")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    next_node = property(fget = get_next_node, doc = "The zero-based absolute"
+                         " index of the next node in the specified object, in"
+                         " relation to the current node")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    next_object = property(fget = get_next_object, doc = "This property to obtain"
+                          " the zero-based index of the next object matching"
+                          " the type, flag and tag values specified")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    nodes = property(fget = get_nodes, doc = "The number of individual object"
+                     " nodes within the currently loaded ECOTECT model")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    objects = property(fget = get_objects, doc = "The number of objects in the"
+                       " currently loaded ECOTECT model")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    orientation = property(fget = get_orientation, doc = "Geometric information"
+                           " from the current ECOTECT model, specifically the"
+                           " relative horizontal angle from North of a line"
+                           " starting at (x1, y1, z1) and travelling towards"
+                           " var>(x2, y2, z2)")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    origin = property(fget = get_origin, fset = set_origin, 
+                        doc = "The location of the Transformation Origin."
+                        " This is a dynamic point about which objects are"
+                        " rotated, scaled or mirrored")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    path_name = property(fget = get_path_name, doc = "The full pathname of the"
+                         " currently loaded ECOTECT model. This includes the"
+                         " full drive, directory and filename specification")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    prev_node= property(fget = get_prev_node, doc = "The zero-based absolute"
+                        " index of the previous node in the specified object,"
+                        " in relation to the current node")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    prev_object= property(fget = get_prev_object, doc = "Use this property to"
+                          " obtain the zero-based index of the preceding object"
+                          " matching the type, flag and tag values specified")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    snap = property(fget = get_snap, fset = set_snap, 
+                        doc = "The current information display")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    sun_angles= property(fget = get_sun_angles, doc = "The azimuth and altitude"
+                         " of the Sun for the current date and time, given in"
+                         " decimal degrees")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    sun_position = property(fget = get_sun_position, doc = "A position value"
+                            " that can be used to represent the Sun location"
+                            " relative to the model. This is useful is you wish"
+                            " to locate a Sun position relative to the centre"
+                            " of a WINDOW in order to spray a ray or do a"
+                            " visibility test, for example")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    sunrise = property(fget = get_sunrise, doc = "Tthe sunrise time as a 24"
+                       " hour decimal value. Thus, 6:30am would be returned"
+                       " as 6.5")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    sun_set = property(fget = get_sun_set, doc = "The sunset time as a 24 hour"
+                       " decimal value. Thus, 6:30pm would be returned as 18.5")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    time = property(fget = get_time, fset = set_time, 
+                        doc = "The current time of day")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    time_string = property(fget = get_time_string, doc = "A formated string"
+                           " containing the current model time")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    cap_extrusions = property(fget = get_cap_extrusions, fset = set_cap_extrusions, 
+                        doc = "The capextrusions flag")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    vectors = property(fget = get_vectors, fset = set_vectors, 
+                        doc = "The xform.vectors flag")
     
-    = property(fget = get_, fset = set_, 
-                        doc = "")
+    zones = property(fget = get_zones, doc = "The number of zones in the"
+                     " currently loaded ECOTECT model as a single integer")
     
 #===============================================================================
 # Main function used for testing
@@ -1353,7 +1426,7 @@ if __name__ == "__main__":
     #doctest.testmod()
     #dump("C:\Test\mytest1.eco")
     #print get_altitude(11, 10, 15, 9, 16, 13)
-    print x.get_zones()
+    #print x.get_zones()
     
     print "Tests completed"     
     
