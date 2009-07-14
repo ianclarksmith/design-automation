@@ -5,11 +5,22 @@ import string
 def parse_docs():
     data = {}
     #get all the folders
-    folders = os.listdir("..\\docs\\RhinoScript")
+    all_folders = os.listdir("..\\docs\\RhinoScript")
+    #remove svn folders
+    folders = []
+    for folder in all_folders:
+        if folder != ".svn":
+            folders.append(folder)
+    #now process all non svn folders
     for folder in folders:
         data[folder]  = {}
         #get all the files
-        files = os.listdir("..\\docs\\RhinoScript\\" + folder)
+        all_files = os.listdir("..\\docs\\RhinoScript\\" + folder)
+        #remove svn files
+        files = []
+        for file in all_files:
+            if file != ".svn":
+                files.append(file)
         for file in files:
             #print file, " in ", folder
             file_name = file[:-4]
@@ -17,7 +28,7 @@ def parse_docs():
                 contents = linecache.getlines('..\\docs\\RhinoScript\\%s\\%s' % (folder, file))
                 contents = filter(lambda i: len(i)>1, contents)
                 contents = map(lambda i: i.strip(string.whitespace), contents)
-                #set some thinsg to None so we can do some checks later
+                #set some things to None so we can do some checks later
                 line_num_syntax = None
                 line_num_params = None
                 line_num_returns = None
@@ -37,84 +48,35 @@ def parse_docs():
                 assert line_num_params != None
                 assert line_num_returns != None
                 assert line_num_example != None
+                assert contents[line_num_syntax] == "Syntax"
+                assert contents[line_num_params] == "Parameters"
+                assert contents[line_num_returns] == "Returns"
+                assert contents[line_num_example] == "Example"
                 
                 #get the simple stuff
                 content_help = contents[line_num_syntax - 1]
                 content_syntax = contents[line_num_syntax + 1]
                 
                 #now get the parameters
+                content_params = []                
                 if (line_num_returns - line_num_params) > 2:
-                    content_params = {}
-                    #set some flags
-                    found_array_with_table = False
-                    more_params_after_array = False
-                    for line_num in range(line_num_params+1, line_num_returns, 2):
-                        param_name = contents[line_num]
-                        param_text = contents[line_num + 1]                    
-                        #check if we have an array
-                        if (param_name[:3] == "arr"):
-                            start_line_num = line_num + 2
-                            #with a table of contents
-                            if ((contents[start_line_num] == "Element") and 
-                                (contents[start_line_num + 1] == "Type") and
-                                (contents[start_line_num + 2] == "Description")):    
-                                found_array_with_table = True     
-                                #need to figure out where the end of the table is
-                                test = 0
-                                end_found = False
-                                while True:
-                                    next_row = contents[start_line_num + 3 + (test * 3)]
-                                    if (not next_row.isdigit()) or (int(next_row) != test):
-                                        end_found = True
-                                    if end_found: break
-                                    test += 1
-                                    assert test != 15
-                                end_line_num = start_line_num + 2 + (test * 3)
-                                #now get all that text into one line
-                                for i in range(start_line_num, end_line_num):
-                                    param_text = param_text + " " + contents[i] 
-                                #check if there are any more parameters
-                                if (contents[end_line_num + 1] != "Returns"):
-                                    line_num_params = end_line_num + 1
-                                    more_params_after_array = True
-                        #get the parameters
-                        content_params[param_name] = param_text
-                        if found_array_with_table: 
-                            break
-                    #if there are more params after this array, we will need to keep going
-                    if more_params_after_array:
-                        for line_num in range(line_num_params+1, line_num_returns, 2):
-                            param_name = contents[line_num]
-                            param_text = contents[line_num + 1]
-                            assert param_name[:3] != "arr"
-                            content_params[param_name] = param_text
+                    for line_num in range(line_num_params+1, line_num_returns):
+                        param_parts = contents[line_num].split(".")
+                        if param_parts[0] in ("Required", "Optional"):
+                            param_name = contents[line_num - 1]
+                            param_req = param_parts[0]
+                            param_type = param_parts[1]
+                            param_text = param_parts[2]
+                            content_params.append([param_name, param_req, param_type, param_text])
                 
-                
-                #now get the return value
-                #there are three possibilities - an array, a simple type, or null
+                #now get the returns
+                content_returns = []
                 if (line_num_example - line_num_returns) > 2:
-                    content_returns = {}
-                    #is an array returned?
-                    if contents[line_num_returns + 1] == "Array":
-                        returns_array = line_num_returns + 1
-                        ret_name = "Array"
-                        count = 0
-                        ret_text = ""
-                        for line_num in range(line_num_returns+2, line_num_example):
-                            if contents[line_num] == "Null":
-                                break
-                            ret_text = ret_text + " " + line
-                            count += 1
-                        content_returns[ret_name] = ret_text
-                    #now see what else is returned
-                    count = 0
                     for line_num in range(line_num_returns+1, line_num_example):
-                        if contents[line_num] in ("Null", "Number", "Boolean", "String") :
-                            ret_name = contents[line_num]
-                            ret_text = contents[line_num + 1]
-                        content_returns[ret_name] = ret_text
-                        count = count + 1 
-                    
+                        if contents[line_num] in ("Array", "Null", "Number", "Boolean", "String"):
+                            returns_type = contents[line_num]
+                            returns_text = contents[line_num+1]
+                            content_returns.append([returns_type, returns_text]) 
                     
                 #save the data
                 data[folder][file_name] = {
@@ -125,28 +87,88 @@ def parse_docs():
                 }
     return data
 
-def write_classes():
-    pass
+def write_classes(folders):
+    for folder_name in folders.keys():
+        write_class(folder_name, folders[folder_name])
 
-def write_class():
-    fout = open ("application.py", mode='w')
+def write_class(folder_name, folder_data):
+    #get the names formatted in the right way
+    class_file_name = folder_name[:-8].lower()
+    class_name = ''.join(map(lambda i: i.capitalize(), class_file_name.split("_")))
+    
+    #open, write, and close
+    f = open("..\\gen\\" + class_file_name + ".py", mode='w')
+    write_class_header(class_name, f)
+    for file_name in folder_data.keys():
+        write_class_method(file_name, folder_data[file_name], f)
+    f.close()
+    
+def write_class_header(class_name, f):
+    w(f,"# Auto-generated wrapper for Rhino4 RhinoScript functions")
+    w(f,"import win32com.client.CLSIDToClass, pythoncom")
+    w(f,"import win32com.client.util")
+    w(f,"from pywintypes import IID")
+    w(f,"from win32com.client import Dispatch")
+    w(f,"from win32com.client import DispatchBaseClass")
+    w(f,"class %s(DispatchBaseClass):" % class_name, nle=4)
+
+def write_class_method(file_name, file_data, f):
+    method_sig = "def " + file_name + "(self, " 
+    for param in file_data["params"]:
+        method_sig += param[0]+ ", "
+    if method_sig.endswith(", "): method_sig = method_sig[:-2]
+    method_sig = method_sig + "):"
+    w(f, method_sig, tabs=1, nle=1)
+    w(f, '"""', tabs=2, nle=2)
+    w(f, file_data["help"], tabs=2, nle=2)
+    if file_data["params"]:
+        w(f, "Parameters", tabs=2, nle=2)
+        for param in file_data["params"]:
+            w(f, [param[0], " : ", param[1],", ", param[2], ", ", param[3]], tabs=2, nle=1)
+    else:
+        w(f, "No parameters", tabs=2, nle=1)
+    if file_data["returns"]:
+        w(f, "Returns", tabs=2, nls=1, nle=2)
+        for returns in file_data["returns"]:
+            w(f, [returns[0], " : ", returns[1]], tabs=2, nle=1)
+    else:
+        w(f, "No returns", tabs=2, nls=1, nle=2)        
+    w(f, '"""', tabs=2, nls=1, nle=2)
+    w(f, "pass", tabs=2, nle=2)
 
 def pretty_print_data(data):
     space = "    "
-    for folder in data:
+    for folder in sorted(data.keys()):
         print folder
-        for file_name in data[folder]:
+        for file_name in sorted(data[folder].keys()):
             print space, file_name
             print space, space, "Help = ", data[folder][file_name]["help"]
             print space, space, "Syntax = ", data[folder][file_name]["syntax"]
             print space, space, "Parameters : "
+            counter = 1
             for param in data[folder][file_name]["params"]:
-                print space, space, space, param, " = ", data[folder][file_name]["params"][param]
+                print space, space, "  ", counter, ") ", param[0], " = ", param[1], param[2], param[3]
+                counter += 1
             print space, space, "Returns : "
+            counter = 1            
             for return_val in data[folder][file_name]["returns"]: 
-                print space, space, space, return_val, " = ", data[folder][file_name]["returns"][return_val]
+                print space, space, "  ", counter, ") ", return_val[0], " = ", return_val[1]
+                counter += 1
             
-            
+def w(f, text, tabs = 0, nls=0, nle=1):
+    if not isinstance(text, list):
+        text = [text]
+    if tabs != 0:
+        tab_str = ["\t" * tabs]
+        text = tab_str + text
+    if nls != 0:
+        nls_str = ["\n" * nls]
+        text =  nls_str + text          
+    if nle != 0:
+        nle_str = ["\n" * nle]
+        text = text + nle_str
+    f.writelines(text)
             
 data = parse_docs()
 pretty_print_data(data) 
+write_classes(data)
