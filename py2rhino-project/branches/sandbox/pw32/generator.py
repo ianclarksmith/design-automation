@@ -99,7 +99,7 @@ def write_class(folder_name, folder_data):
     #open, write, and close
     f = open("..\\gen\\" + class_file_name + ".py", mode='w')
     write_class_header(class_name, f)
-    for file_name in folder_data.keys():
+    for file_name in sorted(folder_data.keys()):
         write_class_method(file_name, folder_data[file_name], f)
     f.close()
     
