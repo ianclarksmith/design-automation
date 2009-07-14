@@ -1,0 +1,61 @@
+CurrentLayer
+
+
+
+CurrentLayer
+
+
+Returns or changes the current layer.
+
+
+Syntax
+
+
+Rhino.CurrentLayer ([strLayer])
+
+
+Parameters
+
+
+
+strLayer 
+
+Optional.  String.  The name of an existing layer to make current.
+
+
+Returns
+
+
+
+String 
+
+If a layer name is not specified, the name of the current layer if successful.
+
+String 
+
+If a layer name is specified, the name of the previous current layer if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Rhino.AddLayer("MyLayer")
+
+Rhino.CurrentLayer("MyLayer")
+
+
+Also See
+
+
+AddLayer
+
+DeleteLayer
+
+RenameLayer
+
+
+

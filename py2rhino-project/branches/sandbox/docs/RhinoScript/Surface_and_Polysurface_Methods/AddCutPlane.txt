@@ -1,0 +1,81 @@
+AddCutPlane
+
+
+
+AddCutPlane
+
+
+Adds a planar surface through objects at a designated location.  For more information, see the Rhino help file for the CutPlane command.
+
+
+Syntax
+
+
+Rhino.AddCutPlane (arrObjects, arrStartPoint, arrEndPoint [, arrNormal])
+
+
+Parameters
+
+
+
+arrObjects 
+
+Required.  Array.  The identifiers of objects that the cutting planes will pass through.
+
+arrStartPoint 
+
+Required.  Array.  The start of the line that defines the cutting plane.
+
+arrEndPoint 
+
+Required.  Number.  The end of the line that defines the cutting plane.
+
+arrNormal 
+
+Optional.  A vector that will be contained in the returned planar surface.  In the case of Rhino's CutPlane command, this is the normal to, or Z axis of, the active view's construction plane.  If omitted, the world Z axis is used.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, arrPt0, arrPt1
+
+arrObjects = Rhino.getobjects("Select objects for cut plane")
+
+If IsArray(arrObjects) Then
+
+  arrPt0 = Rhino.GetPoint("Start of cut plane")
+
+  If IsArray(arrPt0) Then
+
+    arrPt1 = Rhino.GetPoint("End of cut plane", arrPt0)
+
+    If IsArray(arrPt1) Then
+
+      Rhino.AddCutPlane arrObjects, arrPt0, arrPt1
+
+    End If
+
+  End If
+
+End If
+
+
+Also See
+
+
+AddPlaneSurface
+

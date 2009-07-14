@@ -1,0 +1,73 @@
+IsArc
+
+
+
+IsArc
+
+
+Verifies an object is an arc curve object.
+
+
+Syntax
+
+
+Rhino.IsArc (strObject [, intIndex)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select an arc")
+
+If Rhino.IsArc(strObject) Then
+
+Rhino.Print "The object is an arc."
+
+Else
+
+Rhino.Print "The object is not an arc."
+
+End If
+
+
+Also See
+
+
+AddArc3Pt
+
+ArcAngle
+
+ArcCenterPoint
+
+ArcMidPoint
+
+ArcRadius
+

@@ -1,0 +1,95 @@
+PointsAreCoplanar
+
+
+
+PointsAreCoplanar
+
+
+Verifies that an array of 3-D points are co-planar.
+
+
+Syntax
+
+
+Rhino.PointsAreCoplanar (arrPoints [, dblTolerance])
+
+
+Parameters
+
+
+
+arrPoints 
+
+Required.  Array.  An array of 3-D points.
+
+dblTolerance 
+
+Optional. Number. A tolerance to use when verifying. The default is to use Rhino's internal zero tolerance (1.0e-12).
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating either coplanar or not coplanar, respectively, if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Function SurfacesAreCoplanar(srf1, srf2)
+
+  SurfacesAreCoplanar = False
+
+  If Not Rhino.IsSurface(srf1) Then Exit Function
+
+  If Not Rhino.IsSurface(srf2) Then Exit Function
+
+  If Not Rhino.IsSurfacePlanar(srf1) Then Exit Function
+
+  If Not Rhino.IsSurfacePlanar(srf2) Then Exit Function
+
+  Dim pts1, pts2
+
+  pts1 = Rhino.SurfacePoints(srf1)
+
+  pts2 = Rhino.SurfacePoints(srf2)
+
+  If Not IsArray(pts1) Then Exit Function
+
+  If Not IsArray(pts2) Then Exit Function
+
+  Dim all
+
+  all = Rhino.JoinArrays(pts1, pts2)
+
+  If Not IsArray(all) Then Exit Function
+
+  SurfacesAreCoplanar = Rhino.PointsAreCoplanar(all)
+
+End Function
+
+
+
+x = Rhino.GetObject( "First surface to test", 8)
+
+y = Rhino.GetObject( "Second surface to test", 8)
+
+MsgBox SurfacesAreCoplanar(x, y)
+
+
+Also See
+
+
+IsPoint
+
+IsPointCloud
+
+PointCoordinates
+

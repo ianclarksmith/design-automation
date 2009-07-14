@@ -1,0 +1,57 @@
+IsXformSimilarity
+
+
+
+IsXformSimilarity
+
+
+Verifies that a matrix is a similarity transformation. A similarity transformation can be broken into a sequence of dialations, translations, rotations, and reflections.
+
+
+Syntax
+
+
+Rhino.IsXformSimilarity (arrXform)
+
+
+Parameters
+
+
+
+arrXform 
+
+Required.  Array.  A 4x4 transformation matrix.
+
+
+Returns
+
+
+
+Boolean 
+
+True if this transformation is an orientation preserving similarity, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim arrXform
+
+arrXform = Rhino.BlockInstanceXform(strObject)
+
+MsgBox Rhino.IsXformSimilarity(arrXform)
+
+
+Also See
+
+
+IsXformIdentity
+
+IsXformZero
+
+
+

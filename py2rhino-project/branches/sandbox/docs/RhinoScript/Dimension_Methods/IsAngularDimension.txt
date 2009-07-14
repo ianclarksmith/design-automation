@@ -1,0 +1,71 @@
+IsAngularDimension
+
+
+
+IsAngularDimension
+
+
+Verifies an object is an angular dimension object.
+
+
+Syntax
+
+
+Rhino.IsAngularDimension (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a dimension")
+
+If Rhino.IsAngularDimension(strObject) Then
+
+Rhino.Print "The object is an angular dimension."
+
+Else
+
+Rhino.Print "The object is not an angular dimension."
+
+End If
+
+
+Also See
+
+
+IsAlignedDimension
+
+IsDiameterDimension
+
+IsDimension
+
+IsLinearDimension
+
+IsOrdinateDimension
+
+IsRadialDimension
+

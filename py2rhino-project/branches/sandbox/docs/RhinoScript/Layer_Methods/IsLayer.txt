@@ -1,0 +1,77 @@
+IsLayer
+
+
+
+IsLayer
+
+
+Verifies the existence of a layer in the document.
+
+
+Syntax
+
+
+Rhino.IsLayer (strLayer)
+
+
+Parameters
+
+
+
+strLayer 
+
+Required.  String.  The name of an existing layer.
+
+
+Returns
+
+
+
+True 
+
+If successful.
+
+False 
+
+If not successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strLayer
+
+strLayer = Rhino.GetString("Layer name")
+
+If Rhino.IsLayer(strLayer) Then
+
+Rhino.Print "The layer exists."
+
+Else
+
+Rhino.Print "The layer does not exist."
+
+End If
+
+
+Also See
+
+
+IsLayerChangeable
+
+IsLayerEmpty
+
+IsLayerLocked
+
+IsLayerOn
+
+IsLayerReference
+
+IsLayerSelectable
+
+IsLayerVisible
+

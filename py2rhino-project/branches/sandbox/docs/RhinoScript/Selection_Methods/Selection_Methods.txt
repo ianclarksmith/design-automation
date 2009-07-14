@@ -1,0 +1,132 @@
+Selection Methods
+
+
+
+Selection Methods
+
+
+The following methods are available for selecting and obtaining the identifiers of objects.
+
+
+
+
+Method 
+
+Description
+
+AllObjects 
+
+Returns the identifiers of all objects.
+
+FirstObject 
+
+Returns the first object's identifier in the document.
+
+GetCurveObject 
+
+Prompts the user to pick a single curve object.
+
+GetObject 
+
+Prompts the user to pick a single object.
+
+GetObjectEx 
+
+Extended version of GetObject.
+
+GetObjects 
+
+Prompts the user to pick multiple objects.
+
+GetObjectsEx 
+
+Extended version of GetObjects.
+
+GetPointCoordinates 
+
+Prompts the user to pick point objects, and returns their coordinates.
+
+GetSurfaceObject 
+
+Prompts the user to pick a single surface object.
+
+HiddenObjects 
+
+Returns the identifiers of all hidden objects.
+
+InvertSelectedObjects 
+
+Inverts the current object selection.
+
+LastCreatedObjects 
+
+Returns the identifiers of the most recently created objects.
+
+LastObject 
+
+Returns the last object's identifier in the document.
+
+LockedObjects 
+
+Returns the identifiers of all locked objects.
+
+NextObject 
+
+Returns the identifier of the next object from an object.
+
+NormalObjects 
+
+Returns the identifiers of all normal objects.
+
+ObjectsByColor 
+
+Returns all object identifiers based on color.
+
+ObjectsByGroup 
+
+Returns all object identifiers based on group membership.
+
+ObjectsByLayer 
+
+Returns all object identifiers based on layer.
+
+ObjectsByName 
+
+Returns all object identifiers based on user-defined name.
+
+ObjectsByType 
+
+Returns all object identifiers based on object type.
+
+ObjectsByURL 
+
+Returns all object identifiers based on user-defined URL.
+
+PrevSelectedObjects 
+
+Returns the identifiers of the previously selected objects.
+
+ReferenceObjects 
+
+Returns the identifiers of all reference objects.
+
+SelectedObjects 
+
+Returns the identifiers of currently selected objects.
+
+UnselectAllObjects 
+
+Unselects all objects.
+
+UnselectedObjects 
+
+Returns the identifiers of currently unselected objects.
+
+VisibleObjects 
+
+Returns the identifiers of all objects that are visible in a view.
+
+
+
+
+

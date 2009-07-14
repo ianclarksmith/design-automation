@@ -1,0 +1,69 @@
+CapPlanarHoles
+
+
+
+CapPlanarHoles
+
+
+Caps planar holes in a surface or polysurface. For more details, see the Cap command in the Rhino help file.
+
+
+Syntax
+
+
+Rhino.CapPlanarHoles (strSurface)
+
+
+Parameters
+
+
+
+strSurface 
+
+Required.  String.  The identifier of the surface or polysurface to cap.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhObjectSurface = 8
+
+Const rhObjectPolysurface = 16
+
+Dim strSurface
+
+strSurface = Rhino.GetObject("Select surface or polysurface to cap", rhObjectSurface + rhObjectPolysurface)
+
+If Not IsNull(strSurface) Then
+
+Rhino.CapPlanarHoles strSurface
+
+End If
+
+
+Also See
+
+
+ExtrudeCurve
+
+ExtrudeCurvePoint
+
+ExtrudeCurveStraight
+
+ExtrudeSurface
+
+
+

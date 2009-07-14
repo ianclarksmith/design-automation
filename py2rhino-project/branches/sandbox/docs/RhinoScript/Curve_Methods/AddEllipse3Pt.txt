@@ -1,0 +1,71 @@
+AddEllipse3Pt
+
+
+
+AddEllipse3Pt
+
+
+Adds a 3 point elliptical curve to the document.
+
+
+Syntax
+
+
+Rhino.AddEllipse3Pt (arrCenter, arrSecond, arrThird)
+
+
+Parameters
+
+
+
+arrCenter 
+
+Required.  Array.  The center point of the ellipse.
+
+arrSecond 
+
+Required.  Array.  The end point of the X-axis.
+
+arrThird 
+
+Required.  Array.  The end point of the Y-axis.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrCenter, arrSecond, arrThird
+
+arrCenter = Array(0,0,0)
+
+arrSecond = Array(5,0,0)
+
+arrThird = Array(0,10,0)
+
+Rhino.AddEllipse3Pt arrCenter, arrSecond, arrThird
+
+
+Also See
+
+
+AddEllipse
+
+IsEllipse
+
+EllipseCenterPoint
+
+EllipseQuadPoints
+

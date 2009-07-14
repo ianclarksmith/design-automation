@@ -1,0 +1,69 @@
+IsLayout
+
+
+
+IsLayout
+
+
+Verifies that a view is a page layout view.
+
+
+Syntax
+
+
+Rhino.IsLayout (strLayout)
+
+
+Parameters
+
+
+
+strLayout 
+
+Required.  String.  The title or identifier of an existing page layout view.
+
+
+Returns
+
+
+
+True 
+
+If strLayout is a page layout view.
+
+False 
+
+If strLayout is a standard, model view.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strView, blnDetail
+
+strView = Rhino.CurrentView()
+
+if Rhino.IsLayout(strView) Then
+
+If blnLayout  = True Then
+
+  Rhino.Print "The current view is a page layout view."
+
+ElseIf blnLayout = False Then
+
+  Rhino.Print "The current view is standard, model view."
+
+End If
+
+
+Also See
+
+
+IsLayout
+
+CurrentDetail
+

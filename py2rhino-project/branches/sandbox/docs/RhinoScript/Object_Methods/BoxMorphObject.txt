@@ -1,0 +1,85 @@
+BoxMorphObject
+
+
+
+BoxMorphObject
+
+
+Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
+
+
+
+
+Syntax
+
+
+Rhino.BoxMorphObject (strObject, arrBoxPoints [, blnCopy])
+
+Rhino.BoxMorphObject (arrObjects, arrBoxPoints [, blnCopy])
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The identifier of the object to morph.
+
+arrObjects 
+
+Required.  Array.  An array of strings identifying the objects to morph.
+
+arrBoxPoints 
+
+Required. Array.  An array of eight 3-D points that contain the modified bounding box points.
+
+blnCopy 
+
+Optional. Boolean. Copy the object. If omitted, the object will not be copied (False).
+
+
+Returns
+
+
+
+String 
+
+The identifier of the morphed object if successful.
+
+Array 
+
+An array of strings identifying the morphed objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrBox, arrPoint
+
+strObject = Rhino.GetObject("Select object to box morph")
+
+If Not IsNull(strObject) Then
+
+  arrBox = Rhino.BoundingBox(strObject)
+
+  arrPoint = arrBox(6)
+
+  arrPoint(2) = arrPoint(2) * 2
+
+  arrBox(6) = arrPoint
+
+  Rhino.BoxMorphObject strObject, arrBox
+
+End If
+
+
+Also See
+
+
+BoundingBox
+

@@ -1,0 +1,89 @@
+RenderAntialias
+
+
+
+RenderAntialias
+
+
+Returns or sets render antialiasing style.  Antialiasing is a process where more than one ray is shot per pixel in an attempt to better resolve the value of the
+
+pixel.  Increasing the antialiasing level can add considerable time to the overall rendering.  See Rhino's DocumentProperties command (Rhino Render window) for details.
+
+
+Syntax
+
+
+Rhino.RenderAntialias ([intStyle])
+
+
+Parameters
+
+
+
+intStyle 
+
+Optional.  Number.  The render antialiasing style.
+
+
+Value 
+
+Description
+
+0 
+
+None
+
+1 
+
+Normal and slower
+
+2 
+
+Best and slowest
+
+
+
+Returns
+
+
+
+Number 
+
+If intStyle is not specified, the current render antialiasing style if successful.
+
+Number 
+
+If intStyle  is not specified, the previous render antialiasing style if successful.
+
+Number 
+
+Is not successful, or on error.
+
+
+Example
+
+
+Const rhRenderAnnotations = 8
+
+Dim intSettings
+
+intSettings = Rhino.RenderSettings
+
+If intSettings & rhRenderAnnotations Then
+
+intSettings = intSettings - rhRenderAnnotations
+
+Rhino.RenderSettings intSettings
+
+End If
+
+
+Also See
+
+
+RenderColor
+
+RenderResolution
+
+RenderSettings
+

@@ -1,0 +1,155 @@
+PlanarClosedCurveContainment
+
+
+
+PlanarClosedCurveContainment
+
+
+Determines the relationship between the regions bounded by two coplanar simple closed curves.
+
+
+Syntax
+
+
+Rhino.PlanarClosedCurveContainment (strCurve1, strCurve2 [, arrPlane [, dblTolerance]])
+
+
+Parameters
+
+
+
+strCurve1 
+
+Required.  String.  The object identifier of the first planar, closed curve.
+
+strCurve2 
+
+Required.  String.  The object identifier of the second planar, closed curve.
+
+arrPlane 
+
+Optional.  Array. The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
+
+
+Element 
+
+Type 
+
+Description
+
+0 
+
+Array 
+
+Required.  The construction plane's origin (3-D point).
+
+1 
+
+Array 
+
+Required.  The construction plane's X axis direction (3-D vector).
+
+2 
+
+Array 
+
+Required.  The construction plane's Y axis direction (3-D vector).
+
+3 
+
+Array 
+
+Optional.  The construction plane's Z axis direction (3-D vector).
+
+
+dblTolerance 
+
+Optional.  Number.  The tolerance.  If omitted, the current document absolute tolerance is used.
+
+
+Returns
+
+
+
+Number 
+
+A number identifying the relationship if successful.  The possible values are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+The regions bounded by the curves are disjoint.
+
+1 
+
+The two curves intersect.
+
+2 
+
+The region bounded by strCurve1 is inside of strCurve2.
+
+3 
+
+The region bounded by strCurve2 is inside of strCurve1.  
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectCurve = 4
+
+Dim strCurve1, strCurve2, intResult
+
+strCurve1 = Rhino.GetObject("Select first curve", rhObjectCurve )
+
+strCurve2 = Rhino.GetObject("Select second curve", rhObjectCurve )
+
+If Rhino.IsCurvePlanar(strCurve1) And Rhino.IsCurvePlanar(strCurve2) Then
+
+If Rhino.IsCurveClosed(strCurve1) And Rhino.IsCurveClosed(strCurve2) Then
+
+If Rhino.IsCurveInPlane(strCurve1) And Rhino.IsCurveInPlane(strCurve2) Then
+
+intResult = Rhino.PlanarClosedCurveContainment(strCurve1, strCurve2)
+
+If (intResult = 0) Then
+
+Rhino.Print "The regions bounded by the curves are disjoint."
+
+ElseIf (intResult = 1) Then
+
+Rhino.Print "The two curves intersect.."
+
+ElseIf (intResult = 2) Then
+
+Rhino.Print "The region bounded by Curve1 is inside of Curve2."
+
+Else
+
+Rhino.Print "The region bounded by Curve2 is inside of Curve1."
+
+End If
+
+End If
+
+End If
+
+End If
+
+
+Also See
+
+
+PlanarCurveCollision
+
+PointInPlanarClosedCurve
+

@@ -1,0 +1,72 @@
+MessageBeep
+
+
+
+MessageBeep
+
+
+Plays a system waveform sound.
+
+
+Syntax
+
+
+Rhino.MessageBeep ([intBeep])
+
+
+Parameters
+
+
+
+intBeep 
+
+Optional. Number.   A sound type.  If omitted, a simple beep (0) is played:
+
+
+Value 
+
+Description
+
+0 
+
+Simple beep.
+
+1 
+
+System asterisk.
+
+2 
+
+System exclamation.
+
+3 
+
+System hand.
+
+4 
+
+System question.
+
+5 
+
+System default.
+
+
+
+Returns
+
+
+Null.
+
+
+Example
+
+
+Rhino.MessageBeep 0
+
+
+Also See
+
+
+MessageBox
+

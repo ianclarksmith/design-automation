@@ -1,0 +1,87 @@
+SurfaceSeam
+
+
+
+SurfaceSeam
+
+
+Changes the seam of a closed surface. For more information, see the Rhino help file for the SrfSeam command.
+
+
+Syntax
+
+
+Rhino.SurfaceSeam (strObject, intDirection, dblParameter)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intDirection 
+
+Required.  Number.  The parameter direction, where 0 = U and 1 = V.
+
+dblParameter 
+
+Required.  Number.  The parameter at which to place the seam.
+
+
+Returns
+
+
+
+Boolean 
+
+True of False indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strSurface, arrPoint, arrUV
+
+strSurface = Rhino.GetObject("Select surface for seam adjustment", 8)
+
+If Not IsNull(strSurface) Then
+
+  If Rhino.IsSurfaceClosed(strSurface, 0) Or Rhino.IsSurfaceClosed(strSurface, 1) Then
+
+    arrPoint = Rhino.GetPointOnSurface(strSurface, "Select new seam location")
+
+    If IsArray(arrPoint) Then
+
+      arrUV = Rhino.SurfaceClosestPoint(strSurface, arrPoint)
+
+      If Rhino.IsSurfaceClosed(strSurface, 0) Then
+
+        Rhino.SurfaceSeam strSurface, 0, arrUV(0)
+
+      Else
+
+        Rhino.SurfaceSeam strSurface, 1, arrUV(1)
+
+      End If
+
+    End If
+
+  End If
+
+End If
+
+
+Also See
+
+
+IsSurface
+
+IsSurfaceClosed
+

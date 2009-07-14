@@ -1,0 +1,71 @@
+HatchPatternDescription
+
+
+
+HatchPatternDescription
+
+
+
+Returns the description of a hatch pattern. Note, not all hatch patterns have descriptions for descriptions are optional.
+
+
+
+Syntax
+
+
+Rhino.HatchPatternDescription (strHatch)
+
+
+Parameters
+
+
+
+strHatch 
+
+Required.  String.  The name of an existing hatch pattern.
+
+
+Returns
+
+
+
+String 
+
+If hatch pattern's description if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPatterns, strPattern, strDesc
+
+arrPatterns = Rhino.HatchPatternNames
+
+For Each strPattern In arrPatterns
+
+  strDesc = Rhino.HatchPatternDescription(strPattern)
+
+  If IsNull(strDesc) Then
+
+    Rhino.Print strPattern
+
+  Else
+
+    Rhino.Print strPattern & " - " & strDesc
+
+  End If
+
+Next
+
+
+Also See
+
+
+HatchPatternCount
+
+HatchPatternNames
+

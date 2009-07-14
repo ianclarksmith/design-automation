@@ -1,0 +1,59 @@
+OsnapDialog
+
+
+
+OsnapDialog
+
+
+Shows or hides Rhino's dockable object snap bar.
+
+
+Syntax
+
+
+Rhino.OsnapDialog ([blnVisible])
+
+
+Parameters
+
+
+
+blnVisible 
+
+Optional.  Boolean.  The new visibility state, either True or False.
+
+
+Returns
+
+
+
+Boolean 
+
+If blnVisible is not specified, then the current visibility state if successful.
+
+Boolean 
+
+If blnVisible is specified, then the previous visibility state if successful.
+
+
+Example
+
+
+If Not Rhino.OsnapDialog Then
+
+  Rhino.OsnapDialog True
+
+End If
+
+
+Also See
+
+
+Osnap
+
+OsnapMode
+
+ProjectOsnaps
+
+
+

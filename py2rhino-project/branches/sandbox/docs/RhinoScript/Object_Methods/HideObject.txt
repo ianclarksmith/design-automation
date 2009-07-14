@@ -1,0 +1,67 @@
+HideObject
+
+
+
+HideObject
+
+
+Hides a single object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+
+
+Syntax
+
+
+Rhino.HideObject (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object to hide.
+
+
+Returns
+
+
+
+Boolean 
+
+True or false indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object to hide")
+
+If Not IsNull(strObject) Then
+
+Rhino.HideObject strObject
+
+End If
+
+'Do something here...
+
+Rhino.ShowObject strObject
+
+
+Also See
+
+
+HideObjects
+
+IsObjectHidden
+
+ShowObject
+
+ShowObjects
+

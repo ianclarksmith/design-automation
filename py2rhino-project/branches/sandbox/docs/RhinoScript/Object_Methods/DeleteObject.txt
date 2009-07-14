@@ -1,0 +1,57 @@
+DeleteObject
+
+
+
+DeleteObject
+
+
+Deletes a single object from the document.
+
+
+Syntax
+
+
+Rhino.DeleteObject (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object to delete.
+
+
+Returns
+
+
+
+Boolean 
+
+True or false indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object to delete")
+
+If Not IsNull(strObject) Then
+
+Rhino.DeleteObject strObject
+
+End If
+
+
+Also See
+
+
+DeleteObjects
+

@@ -1,0 +1,75 @@
+IsPointOnSurface
+
+
+
+IsPointOnSurface
+
+
+Verifies that a point lies on a surface.
+
+
+Syntax
+
+
+Rhino.IsPointOnSurface (strObject, arrPoint)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+arrPoint 
+
+Required.  Array.  The test, or sampling, point.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject, arrPoint
+
+strObject = Rhino.GetObject("Select a surface")
+
+If Rhino.IsSurface(strObject) Then
+
+arrPoint = Rhino.GetPoint("Pick a test point")
+
+If IsArray(arrPoint) Then
+
+If Rhino.IsPointOnSurface(strObject, arrPoint) Then
+
+Rhino.Print "The point is on the surface."
+
+Else
+
+Rhino.Print "The point is not on the surface."
+
+End If
+
+End If
+
+End If
+
+
+Also See
+
+
+IsPointInSurface
+

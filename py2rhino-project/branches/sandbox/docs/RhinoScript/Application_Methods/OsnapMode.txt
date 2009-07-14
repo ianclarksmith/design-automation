@@ -1,0 +1,125 @@
+OsnapMode
+
+
+
+OsnapMode
+
+
+Returns or sets the object snap mode. Object snaps are tools for specifying points on existing objects.
+
+
+Syntax
+
+
+Rhino.OsnapMode ([intMode])
+
+
+Parameters
+
+
+
+intMode 
+
+Optional.  Number. The object snap mode or modes to set.  Object snap modes can be added together to set multiple modes.
+
+
+Value 
+
+Description
+
+0 
+
+None
+
+1 
+
+Near
+
+2 
+
+Focus
+
+4 
+
+Center
+
+8 
+
+Knot
+
+16 
+
+Quadrant
+
+32 
+
+Midpoint
+
+64 
+
+Intersection
+
+128 
+
+End
+
+256 
+
+Perpendicular
+
+512 
+
+Tangent
+
+1024 
+
+Point
+
+
+
+Returns
+
+
+
+Number 
+
+If intMode is not specified, then the current object snap mode or modes if successful.
+
+Number 
+
+If intMode is specified, then the previous object snap mode or modes if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhOsnapModeEnd = 128
+
+Dim intMode
+
+intMode = Rhino.OsnapMode
+
+If Not (intMode & rhOsnapModeEnd) Then
+
+intMode = intMode + rhOsnapModeEnd
+
+Rhino.OsnapMode intMode
+
+End If
+
+
+Also See
+
+
+Osnap
+
+OsnapDialog
+
+ProjectOsnaps
+
+
+

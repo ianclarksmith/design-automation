@@ -1,0 +1,61 @@
+AddPoints
+
+
+
+AddPoints
+
+
+Adds one or more point objects to the document.
+
+
+Syntax
+
+
+Rhino.AddPoints (arrPoints)
+
+
+Parameters
+
+
+
+arrPoints 
+
+Required.  Array.  An array of 3-D points.
+
+
+Returns
+
+
+
+Array 
+
+The identifiers of the new objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPoints
+
+arrPoints = Rhino.GetPoints(True, True, "Select points")
+
+If IsArray(arrPoints) Then
+
+Rhino.AddPoints arrPoints
+
+End If
+
+
+Also See
+
+
+AddPoint
+
+AddPointCloud
+
+
+

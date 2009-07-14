@@ -1,0 +1,270 @@
+Application Methods
+
+
+
+Application Methods
+
+
+The following methods are available for querying or manipulating the Rhino application.
+
+
+
+
+Method 
+
+Description
+
+AddAlias 
+
+Adds a command alias to Rhino.
+
+AddSearchPath 
+
+Adds a path to Rhino's search path.
+
+AddStartupScript 
+
+Adds a startup script to RhinoScript.
+
+AliasCount 
+
+Returns the number of command aliases.
+
+AliasMacro 
+
+Returns or modifies the macro of a command alias.
+
+AliasNames 
+
+Returns a list of all alias names.
+
+AppearanceColor 
+
+Returns or modifies an application interface item's color.
+
+AppearanceDisplay 
+
+Returns or modifies an application interface item's visibility.
+
+AutosaveFile 
+
+Returns or sets the autosave filename.
+
+AutosaveInterval 
+
+Returns or sets the autosave interval.
+
+BuildDate 
+
+Returns the build date of Rhino.
+
+ClearCommandHistory 
+
+Clears the contents of the command history window.
+
+Command 
+
+Runs a Rhino command.
+
+CommandHistory 
+
+Returns the contents of the command history window.
+
+DefaultRenderer 
+
+Returns or changed Rhino's current, or default, render plug-in.
+
+DeleteAlias 
+
+Deletes a command alias from Rhino.
+
+DeleteSearchPath 
+
+Removes a path from Rhino's search path.
+
+DeleteStartupScript 
+
+Removes a startup script to RhinoScript.
+
+DisplayOleAlerts 
+
+Enables or disables the display of OLE "busy" and "not responding" dialog boxes.
+
+EdgeAnalysisColor 
+
+Return or set's Rhino's default edge analysis color.
+
+EdgeAnalysisMode 
+
+Return or set's Rhino's default edge analysis mode.
+
+EnableAutosave 
+
+Enables or disables Rhino's autosave mechanism.
+
+EnableHistoryRecording 
+
+Enables or disables Rhino's command history recording.
+
+ExeFolder 
+
+Returns Rhino's executable folder.
+
+Exit 
+
+Exits Rhino.
+
+FindFile 
+
+Searches for file using Rhino's search path.
+
+GetPlugInObject 
+
+Returns a scriptable object from a plug-in.
+
+Help 
+
+Displays a topic in Rhino's help file.
+
+InCommand 
+
+Determines if Rhino is currently running a command.
+
+InstallFolder 
+
+Returns Rhino's installation folder.
+
+IsAlias 
+
+Verifies that a command alias exists.
+
+IsCommand 
+
+Verifies a command exists in Rhino.
+
+LastCommandName 
+
+Returns the name of the last executed command.
+
+LastCommandResult 
+
+Returns the result code for the last executed command.
+
+LastLoadedScriptFile 
+
+Returns a path to the last file loaded by the LoadScript command.
+
+LocaleID 
+
+Returns Rhino's current language setting.
+
+Ortho 
+
+Enables or disables ortho mode.
+
+Osnap 
+
+Enables or disables object snaps.
+
+OsnapDialog 
+
+Shows or hides Rhino's dockable object snap bar.
+
+OsnapMode 
+
+Returns or sets the object snap mode.
+
+Planar 
+
+Enables or disables planar mode.
+
+PlugIns 
+
+Returns a list of registered plug-ins.
+
+Print 
+
+Prints a string to Rhino's command window.
+
+PrintEx 
+
+Prints a string to Rhino's command window. (VB)
+
+ProjectOsnaps 
+
+Enables or disables object snap projection.
+
+Prompt 
+
+Changes Rhino's command window prompt.
+
+RegistryKey 
+
+Returns Rhino's Windows Registry key.
+
+ScreenSize 
+
+Returns the current width and height, in pixels, of the screen of the primary display monitor.
+
+SdkVersion 
+
+Return the supported Rhino SDK version.
+
+SearchPathCount 
+
+Return the number of paths in Rhino's search path.
+
+SearchPathList 
+
+Returns all Rhino search paths.
+
+SendKeystrokes 
+
+Sends a string of characters to the Rhino command line.
+
+Snap 
+
+Enables or disables grid snap.
+
+StartupScriptCount 
+
+Returns the number of startup scripts.
+
+StartupScriptList 
+
+Return the list of startup script files.
+
+StatusBarDistance 
+
+Sets Rhino's status bar distance pane.
+
+StatusBarMessage 
+
+Sets Rhino's status bar message pane.
+
+StatusBarNumber 
+
+Sets Rhino's status bar number pane.
+
+StatusBarPoint 
+
+Sets Rhino's status bar point pane.
+
+TemplateFile 
+
+Returns or sets Rhino's default template file.
+
+TemplateFolder 
+
+Returns or sets Rhino's template folder location.
+
+WindowHandle 
+
+Returns a handle to Rhino's main window.
+
+WorkingFolder 
+
+Returns or sets Rhino's working folder.
+
+
+

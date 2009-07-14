@@ -1,0 +1,103 @@
+ObjectMeshMaxDistEdgeToSrf
+
+
+
+ObjectMeshMaxDistEdgeToSrf
+
+
+Returns or modifies an object's custom render mesh parameter's maximum distance, edge to surface property.
+
+For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+
+
+Syntax
+
+
+Rhino.ObjectMeshMaxDistEdgeToSrf (strObject [, dblDistance])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  Object.  The identifier of an object that has custom render mesh parameters.
+
+dblDistance 
+
+Optional.  Number.  The render mesh maximum distance, edge to surface.
+
+
+Returns
+
+
+
+Boolean 
+
+If dblDistance is not specified, the current render mesh maximum distance, edge to surface if successful.
+
+Boolean 
+
+If dblDistance is specified, the previous render mesh maximum distance, edge to surface if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Rhino.ObjectHasMesh(strObject) = True Then
+
+  Rhino.Print "Quality: " & Rhino.ObjectMeshQuality
+
+  Rhino.Print "Mesh density: " & Rhino.ObjectMeshDensity
+
+  Rhino.Print "Maximum angle: " & Rhino.ObjectMeshMaxAngle
+
+  Rhino.Print "Maximum aspect ratio: " & Rhino.ObjectMeshMaxAspectRatio
+
+  Rhino.Print "Minimun edge length: " & Rhino.ObjectMeshMinEdgeLength
+
+  Rhino.Print "Maximum edge length: " & Rhino.ObjectMeshMaxEdgeLength
+
+  Rhino.Print "Maximum distance, edge to surface: " & Rhino.ObjectMeshMaxDistEdgeToSrf
+
+  Rhino.Print "Minumum initial grid quads: " & Rhino.ObjectMeshMinInitialGridQuads
+
+  Rhino.Print "Other settings: " & Rhino.ObjectMeshSettings
+
+End If
+
+
+Also See
+
+
+AddObjectMesh
+
+EnableObjectMesh
+
+ObjectHasMesh
+
+ObjectMeshDensity
+
+ObjectMeshMaxAngle
+
+ObjectMeshMaxAspectRatio
+
+ObjectMeshMaxEdgeLength
+
+ObjectMeshMinEdgeLength
+
+ObjectMeshMinInitialGridQuads
+
+ObjectMeshQuality
+
+ObjectMeshSettings
+

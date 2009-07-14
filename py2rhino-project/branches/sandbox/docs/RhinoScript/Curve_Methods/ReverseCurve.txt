@@ -1,0 +1,57 @@
+ReverseCurve
+
+
+
+ReverseCurve
+
+
+Reverses the direction of a curve object. This feature can also be found in Rhino's Dir command.
+
+
+Syntax
+
+
+Rhino.ReverseCurve (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a curve to reverse")
+
+If Rhino.IsCurve(strObject) Then
+
+Rhino.ReverseCurve strObject
+
+End If
+
+
+Also See
+
+
+CurveDirectionsMatch
+

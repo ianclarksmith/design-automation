@@ -1,0 +1,79 @@
+RotateObject
+
+
+
+RotateObject
+
+
+Rotates a single object. Rotation is based on the active construction plane.
+
+
+Syntax
+
+
+Rhino.RotateObject (strObject, arrPoint, dblAngle [, arrAxis [, blnCopy]])
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The identifier of the object to rotate.
+
+arrPoint 
+
+Required. Array. The 3-D center point of the rotation.
+
+dblAngle 
+
+Required. Number. The rotation angle in degrees.
+
+arrAxis 
+
+Optional. Array. A 3-D vector that identifies the axis of rotation. If omitted, the Z axis of the active construction plane is used as the rotation axis.
+
+blnCopy 
+
+Optional. Boolean. Copy the object. If omitted, the object will not be copied (False).
+
+
+Returns
+
+
+
+String 
+
+The identifier of the rotated object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrPoint
+
+strObject = Rhino.GetObject("Select object to rotate")
+
+If Not IsNull(strObject) Then
+
+arrPoint = Rhino.GetPoint("Center point of rotation")
+
+If IsArray(arrPoint) Then
+
+Rhino.RotateObject strObject, arrPoint, 45.0, ,True
+
+End If
+
+End If
+
+
+Also See
+
+
+RotateObjects
+

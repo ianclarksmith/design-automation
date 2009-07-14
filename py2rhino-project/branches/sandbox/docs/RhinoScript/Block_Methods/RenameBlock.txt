@@ -1,0 +1,71 @@
+RenameBlock
+
+
+
+RenameBlock
+
+
+Renames an existing block definition.
+
+
+Syntax
+
+
+Rhino.RenameBlock (strOldBlock, strNewBlock)
+
+
+Parameters
+
+
+
+strOldBlock 
+
+Required.  String.  The name of an existing block definition.
+
+strNewBlock 
+
+Required.  String.  The new block definition name.
+
+
+Returns
+
+
+
+String 
+
+The new block definition name if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strOldBlock, strNewBlock
+
+strOldBlock = Rhino.GetString("Old block name")
+
+If Not IsNull(strOldBlock) Then
+
+strNewBlock = Rhino.GetString("New block name")
+
+If Not IsNull(strNewBlock) Then
+
+Rhino.RenameBlock strOldBlock, strNewBlock
+
+End If
+
+End If
+
+
+Also See
+
+
+BlockNames
+
+IsBlock
+
+
+

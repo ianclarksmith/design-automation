@@ -1,0 +1,70 @@
+ATan2
+
+
+
+ATan2
+
+
+Returns the angle whose tangent is the quotient of two specified numbers.
+
+
+Syntax
+
+
+Rhino.ATan2 (y, x)
+
+
+Parameters
+
+
+
+y 
+
+Required.  Number.  The y coordinate of a point.
+
+x 
+
+Required.  Number.  The x coordinate of a point.
+
+
+Returns
+
+
+
+Number 
+
+An angle, ?, measured in radians, such that -PI = ? = PI, and Tan(?) = y / x, where (x, y) is a point in the Cartesian plane.
+
+Observe the following:
+
+
+For (x, y) in quadrant 1, 0 < ? < PI/2.
+
+For (x, y) in quadrant 2, PI/2 < ? = PI.
+
+For (x, y) in quadrant 3, -PI < ? < -PI/2.
+
+For (x, y) in quadrant 4, -PI/2 < ? < 0.
+
+The return value is the angle in the Cartesian plane formed by the x-axis, and a vector starting from the origin, (0, 0), and terminating at the point, (x, y).
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+MsgBox Rhino.ATan2(2.0, 1.0)
+
+
+Also See
+
+
+ACos
+
+ASin
+
+
+

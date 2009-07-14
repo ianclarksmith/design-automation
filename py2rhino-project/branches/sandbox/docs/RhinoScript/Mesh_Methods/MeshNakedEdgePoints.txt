@@ -1,0 +1,71 @@
+MeshNakedEdgePoints
+
+
+
+MeshNakedEdgePoints
+
+
+Identifies the naked edge points of a polygon mesh object. This function shows where polygon mesh vertices are not completely surrounded by faces. Joined meshes, such as are made by Mesh Box, have naked mesh edge points where the sub-meshes are joined.
+
+
+Syntax
+
+
+Rhino.MeshNakedEdgePoints (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of a mesh object.
+
+
+Returns
+
+
+
+Array 
+
+An array of boolean values that represent whether or not a mesh vertex is naked or not if successful.  The number of elements in the array will be equal to the value returned by MeshVertexCount. In which case, the array will identify the naked status for each vertex return by MeshVertices.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strObject, arrVertices, arrNaked, i
+
+strObject = Rhino.GetObject("Select mesh", rhObjectMesh)
+
+arrVertices = Rhino.MeshVertices( strObject )
+
+arrNaked = Rhino.MeshNakedEdgePoints( strObject )
+
+For i = 0 To UBound(arrVertices)-1
+
+  If arrNaked(i) = True Then
+
+    Rhino.AddPoint arrVertices(i)
+
+  End If
+
+Next
+
+
+Also See
+
+
+IsMesh
+
+MeshVertexCount
+
+MeshVertices
+

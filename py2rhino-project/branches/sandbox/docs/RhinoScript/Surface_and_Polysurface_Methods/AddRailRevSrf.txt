@@ -1,0 +1,63 @@
+AddRailRevSrf
+
+
+
+AddRailRevSrf
+
+
+Create a surface by revolving a profile curve along a rail curve.
+
+
+Syntax
+
+
+Rhino.AddRailRevSrf (strProfile, strRail, arrAxis)
+
+
+Parameters
+
+
+
+strProfile 
+
+Required. String. The identifier of the profile curve.
+
+strRail 
+
+Required. String. The identifier of the rail curve.
+
+arrAxis 
+
+Required.  Array.  An array of two 3-D points identifying the start point and end point of the rail revolve axis.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strProfile, strRail
+
+strProfile = Rhino.AddLine(Array(5,0,0), Array(10,0,10))
+
+strRail = Rhino.AddCircle(Array(0,0,0), 5)
+
+Rhino.AddRailRevSrf strProfile, strRail, Array(Array(0,0,0), Array(0,0,1))
+
+
+Also See
+
+
+AddRevSrf
+

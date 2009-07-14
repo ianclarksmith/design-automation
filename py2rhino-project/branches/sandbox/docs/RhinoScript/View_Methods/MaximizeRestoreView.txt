@@ -1,0 +1,52 @@
+MaximizeRestoreView
+
+
+
+MaximizeRestoreView
+
+
+Toggles a view's maximized/restore window state of the specified view.
+
+
+Syntax
+
+
+Rhino.MaximizeRestoreView (strView)
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+
+Returns
+
+
+Null.
+
+
+Example
+
+
+Dim blnResult, strTitle
+
+strTitle = Rhino.CurrentView
+
+blnResult = Rhino.IsViewMaximized(strTitle)
+
+If blnResult = True Then
+
+Rhino.MaximizeRestoreView strTitle
+
+End If
+
+
+Also See
+
+
+IsViewMaximized
+

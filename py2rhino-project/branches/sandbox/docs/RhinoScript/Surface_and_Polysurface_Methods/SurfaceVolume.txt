@@ -1,0 +1,79 @@
+SurfaceVolume
+
+
+
+SurfaceVolume
+
+
+Calculates the volume of closed surface or polysurface objects.
+
+
+Syntax
+
+
+Rhino.SurfaceVolume (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+
+Returns
+
+
+
+Array 
+
+An array of volume information if successful.  The array will contain the following information:
+
+
+Number 
+
+The volume.
+
+Number 
+
+The absolute (+/-) error bound for the volume.
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectPolySurface = 16
+
+Dim strObject, arrMP
+
+strObject = Rhino.GetObject("Select a surface", rhObjectPolySurface)
+
+If Rhino.IsPolySurfaceClosed(strObject) Then
+
+arrMP = Rhino.SurfaceVolume(strObject)
+
+If IsArray(arrMP) Then
+
+Rhino.Print "The polysurface volume is: " & CStr(arrMP(0))
+
+End If
+
+End If
+
+
+Also See
+
+
+SurfaceVolume
+
+SurfaceVolumeCentroid
+
+SurfaceVolumeMoments
+

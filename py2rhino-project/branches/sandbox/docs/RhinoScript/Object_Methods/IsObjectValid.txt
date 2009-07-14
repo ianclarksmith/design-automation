@@ -1,0 +1,65 @@
+IsObjectValid
+
+
+
+IsObjectValid
+
+
+Verifies that an object's geometry is valid and without error.
+
+
+Syntax
+
+
+Rhino.IsObjectValid (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of an object.
+
+
+Returns
+
+
+
+True 
+
+The object is valid.
+
+False 
+
+The object is not valid.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Rhino.IsObjectValid(strObject) Then
+
+Rhino.Print "The object is valid."
+
+Else
+
+Rhino.Print "The object is not valid."
+
+End If
+
+
+Also See
+
+
+IsObject
+

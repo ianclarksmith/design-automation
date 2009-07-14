@@ -1,0 +1,77 @@
+IsPointInSurface
+
+
+
+IsPointInSurface
+
+
+Verifies that a point is inside a closed surface or polysurface.
+
+
+Syntax
+
+
+Rhino.IsPointInSurface (strObject, arrPoint)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+arrPoint 
+
+Required.  Array.  The test, or sampling, point.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhObjectPolySurface = 16
+
+Dim strObject, arrPoint
+
+strObject = Rhino.GetObject("Select a polysurface", rhObjectPolySurface)
+
+If Rhino.IsPolysurfaceClosed(strObject) Then
+
+arrPoint = Rhino.GetPoint("Pick a test point")
+
+If IsArray(arrPoint) Then
+
+If Rhino.IsPointInSurface(strObject, arrPoint) Then
+
+Rhino.Print "The point is inside the polysurface."
+
+Else
+
+Rhino.Print "The point is not inside the polysurface."
+
+End If
+
+End If
+
+End If
+
+
+Also See
+
+
+IsPointOnSurface
+

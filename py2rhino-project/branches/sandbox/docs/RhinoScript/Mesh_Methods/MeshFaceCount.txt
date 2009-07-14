@@ -1,0 +1,69 @@
+MeshFaceCount
+
+
+
+MeshFaceCount
+
+
+Returns the total face count of a mesh object.
+
+
+Syntax
+
+
+Rhino.MeshFaceCount (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of a mesh object.
+
+
+Returns
+
+
+
+Number 
+
+The number of mesh faces if successful
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select mesh", rhObjectMesh )
+
+Rhino.Print "Quad faces: " & CStr(Rhino.MeshQuadCount(strObject))
+
+Rhino.Print "Triangle faces: " & CStr(Rhino.MeshTriangleCount(strObject))
+
+Rhino.Print "Total faces: " & CStr(Rhino.MeshFaceCount(strObject))
+
+
+Also See
+
+
+IsMesh
+
+MeshContourPoints
+
+MeshFaces
+
+MeshVertexCount
+
+MeshVertices
+
+
+

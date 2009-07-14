@@ -1,0 +1,49 @@
+EnableHistoryRecording
+
+
+
+EnableHistoryRecording
+
+
+Enables or disables Rhino's command history recording. For more information, see the Rhino help file for the History command.
+
+
+Syntax
+
+
+Rhino.EnableHistoryRecording ([blnEnable])
+
+
+Parameters
+
+
+
+blnEnable 
+
+Optional. Boolean. The history recording state to set.
+
+
+Returns
+
+
+
+Boolean 
+
+If bEnable is not specified, then the current history recording state.
+
+Boolean 
+
+If bEnable is specified, then the previous history recording state.
+
+
+Example
+
+
+If Rhino.EnableHistoryRecording = False Then
+
+  Rhino.EnableHistoryRecording True
+
+End If
+
+
+

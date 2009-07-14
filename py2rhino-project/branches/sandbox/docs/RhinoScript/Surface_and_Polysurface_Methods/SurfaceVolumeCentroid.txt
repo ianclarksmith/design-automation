@@ -1,0 +1,89 @@
+SurfaceVolumeCentroid
+
+
+
+SurfaceVolumeCentroid
+
+
+Calculates the volume centroid of closed surface or polysurface objects.
+
+
+Syntax
+
+
+Rhino.SurfaceVolumeCentroid (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+
+Returns
+
+
+
+Array 
+
+An array of volume centroid information if successful.  The array will contain the following information:
+
+
+Element 
+
+Type 
+
+Description
+
+0 
+
+Array (3-D Point) 
+
+The centroid point.
+
+1 
+
+Array (X,Y,X) 
+
+The absolute (+/-) error bound for the volume centroid.
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectPolySurface = 16
+
+Dim strObject, arrMP
+
+strObject = Rhino.GetObject("Select a surface", rhObjectPolySurface)
+
+If Rhino.IsPolySurfaceClosed(strObject) Then
+
+arrMP = Rhino.SurfaceVolumeCentroid(strObject)
+
+If IsArray(arrMP) Then
+
+Rhino.AddPoint arrMP(0)
+
+End If
+
+End If
+
+
+Also See
+
+
+SurfaceVolume
+
+SurfaceVolumeMoments
+
+
+

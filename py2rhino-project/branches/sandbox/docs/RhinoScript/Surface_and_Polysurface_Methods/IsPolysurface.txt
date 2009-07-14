@@ -1,0 +1,69 @@
+IsPolysurface
+
+
+
+IsPolysurface
+
+
+Verifies an object is a polysurface.  Polysurfaces consists of two or more surfaces joined together. If the polysurface fully encloses a volume, it is considered a solid. In some other 3-D programs, this is called a "quilt."
+
+
+Syntax
+
+
+Rhino.IsPolysurface (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a polysurface")
+
+If Rhino.IsPolysurface(strObject) Then
+
+Rhino.Print "The object is a polysurface."
+
+Else
+
+Rhino.Print "The object is not a polysurface."
+
+End If
+
+
+Also See
+
+
+IsBrep
+
+IsPolysurfaceClosed
+
+IsPolysurfacePlanar
+
+
+
+
+

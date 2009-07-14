@@ -1,0 +1,87 @@
+ObjectColor
+
+
+
+ObjectColor
+
+
+Returns or modifies the color of an object.  Object colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+
+
+Syntax
+
+
+Rhino.ObjectColor (strObject [, lngColor])
+
+Rhino.ObjectColor (arrObjects, lngColor)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+arrObjects 
+
+Required.  Array.  An array of strings identifying the objects to modify.
+
+lngColor 
+
+Optional.  Number.  The new color value.  If omitted, the current object color is returned.  Note, if arrObjects is specified, lngColor is required.
+
+
+Returns
+
+
+
+Number 
+
+If a color value is not specified,  the current color value if successful.
+
+Number 
+
+If a color value is specified, the previous color value if successful.
+
+Number 
+
+If arrObjects is specified, then the number of objects modified if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, strObject, lngColor
+
+arrObjects = Rhino.GetObjects("Select objects to change color")
+
+If IsArray(arrObjects) Then
+
+lngColor = Rhino.GetColor(0)
+
+If IsNumeric(lngColor) Then
+
+For Each strObject In arrObjects
+
+Rhino.ObjectColor strObject, lngColor
+
+Next
+
+End If
+
+End If
+
+
+Also See
+
+
+ObjectColorSource
+
+ObjectsByColor
+

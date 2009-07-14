@@ -1,0 +1,67 @@
+AddRectangularLight
+
+
+
+AddRectangularLight
+
+
+Adds a new rectangular light object  to the document.
+
+
+Syntax
+
+
+Rhino.AddRectangularLight (arrOrigin, arrWidth, arrHeight)
+
+
+Parameters
+
+
+
+arrOrigin 
+
+Required.  Array.  The 3-D origin point of the light.
+
+arrWidth 
+
+Required.  Array.  The 3-D width and direction point of the light.
+
+arrHeight 
+
+Required.  Array.  The 3-D height and direction point of the light.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhRectangleMode3Point = 2
+
+Dim arrRect
+
+arrRect = Rhino.GetRectangle(rhRectangleMode3Point)
+
+If IsArray(arrRect) Then
+
+Rhino.AddRectangularLight arrRect(0), arrRect(1), arrRect(3)
+
+End If
+
+
+Also See
+
+
+IsRectangularLight
+

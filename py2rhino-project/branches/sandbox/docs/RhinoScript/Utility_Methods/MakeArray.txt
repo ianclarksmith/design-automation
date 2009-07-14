@@ -1,0 +1,57 @@
+MakeArray
+
+
+
+MakeArray
+
+
+Creates a new, initialized one-dimensional array of a user-specified bounds.
+
+
+Syntax
+
+
+Rhino.MakeArray (nUpperBound [, vVariant)
+
+
+Parameters
+
+
+
+nUpperBound 
+
+Required.  Number.  The upper bounds of the new array.
+
+vVariant 
+
+Optional.  Variant.  The value to initialize every array element.  If omitted, every array element will be initialized as Empty.  Note, the Empty VBScript keyword is used to indicate an uninitialized variable value.  This is not the same thing as Null.
+
+
+Returns
+
+
+
+Array 
+
+The one-dimensional array if successful.
+
+Null 
+
+If not successful or on error.
+
+
+Example
+
+
+Dim arr1, arr2, arr3, arr4
+
+arr1 = Rhino.MakeArray(6)
+
+arr2 = Rhino.MakeArray(6, 0)
+
+arr3 = Rhino.MakeArray(6, "Hello Rhino!")
+
+arr4 = Rhino.MakeArray(6, Array(1.0, 2.0, 3.0))
+
+
+

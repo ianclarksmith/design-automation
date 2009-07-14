@@ -1,0 +1,67 @@
+GetPlugInObject
+
+
+
+GetPlugInObject
+
+
+Returns a scriptable object from a specified plug-in. Note, not all plug-ins contain scriptable objects. Check with the manufacturer of your plug-in to see if they support this capability.
+
+
+Syntax
+
+
+Rhino.GetPlugInObject (strPlugIn)
+
+
+Parameters
+
+
+
+strPlugIn 
+
+Required.  String.  The name of a registered plug-in that supports scripting.  If the plug-in is registered but not loaded, it will be loaded.
+
+
+Returns
+
+
+
+Object 
+
+A scriptable object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Sub Test
+
+  Dim objPlugIn
+
+  On Error Resume Next
+
+  Set objPlugIn = Rhino.GetPluginObject("SomePlugIn")
+
+  If Err Then
+
+    MsgBox Err.Description
+
+    Exit Sub
+
+  End If
+
+  MsgBox objPlugIn.About
+
+  Set objPlugIn = Nothing
+
+End Sub
+
+
+
+
+

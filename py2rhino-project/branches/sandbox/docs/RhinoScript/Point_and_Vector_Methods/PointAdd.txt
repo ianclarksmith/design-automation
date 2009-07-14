@@ -1,0 +1,71 @@
+PointAdd
+
+
+
+PointAdd
+
+
+Adds a 3-D point or a 3-D vector to a 3-D point.
+
+
+Syntax
+
+
+Rhino.PointAdd (arrPoint1, arrPoint2)
+
+
+Parameters
+
+
+
+arrPoint1 
+
+Required.  Array.  The 3-D point to add to.
+
+arrPoint2 
+
+Required.  Array.  The 3-D point or a 3-D vector to add.
+
+
+Returns
+
+
+
+Array 
+
+The resulting 3-D point if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim arrPoint1, arrPoint2, arrPoint
+
+arrPoint1 = Array(1,1,1)
+
+arrPoint2 = Array(2,2,2)
+
+arrPoint = Rhino.PointAdd(arrPoint1, arrPoint2)
+
+Rhino.Print Rhino.Pt2Str(arrPoint)
+
+
+Also See
+
+
+PointCompare
+
+PointDivide
+
+PointScale
+
+PointSubtract
+
+PointTransform
+
+
+

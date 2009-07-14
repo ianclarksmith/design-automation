@@ -1,0 +1,51 @@
+TanH
+
+
+
+TanH
+
+
+Returns the hyperbolic tangent of the specified angle.
+
+
+Syntax
+
+
+Rhino.TanH (dblAngle)
+
+
+Parameters
+
+
+
+dblAngle 
+
+Required.  Number.  An angle, measured in radians.
+
+
+Returns
+
+
+
+Number 
+
+The hyperbolic tangent of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+MsgBox Rhino.TanH(1.0)
+
+
+Also See
+
+
+CosH
+
+SinH
+

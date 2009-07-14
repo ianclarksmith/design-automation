@@ -1,0 +1,59 @@
+ColorRGBToHLS
+
+
+
+ColorRGBToHLS
+
+
+Converts colors from red-green-blue (RGB) to hue-luminance-saturation (HLS) format.
+
+
+Syntax
+
+
+Rhino.ColorRGBToHLS (lngRGB)
+
+
+Parameters
+
+
+
+lngRGB 
+
+Required.  Number.  The RGB color value.
+
+
+Returns
+
+
+
+Array 
+
+An array containing the hue, luminance, and saturation values if successful.
+
+Null 
+
+If not successful or on error.
+
+
+Example
+
+
+Dim arrHLS
+
+arrHLS = Rhino.ColorRGBToHLS(RGB(128, 128, 128))
+
+Rhino.Print "Hue = " & CStr(arrHLS(0))
+
+Rhino.Print "Luminance = " & CStr(arrHLS(1))
+
+Rhino.Print "Saturation = " & CStr(arrHLS(2))
+
+
+Also See
+
+
+ColorAdjustLuma
+
+ColorHLSToRGB
+

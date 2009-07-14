@@ -1,0 +1,65 @@
+VectorLength
+
+
+
+VectorLength
+
+
+Returns the length of a 3-D vector.
+
+
+Syntax
+
+
+Rhino.VectorLength (arrVector)
+
+
+Parameters
+
+
+
+arrVector 
+
+Required.  Array.  The 3-D vector.
+
+
+Returns
+
+
+
+Double 
+
+The length of the vector, if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim arrPt1, arrPt2, arrVector
+
+arrPt1 = Rhino.GetPoint("First point")
+
+arrPt2 = Rhino.GetPoint("Next point")
+
+arrVector = Rhino.VectorCreate(arrPt2, arrPt1)
+
+MsgBox Rhino.VectorLength(arrVector)
+
+
+Also See
+
+
+VectorAdd
+
+VectorCreate
+
+VectorSubtract
+
+VectorUnitize
+
+
+

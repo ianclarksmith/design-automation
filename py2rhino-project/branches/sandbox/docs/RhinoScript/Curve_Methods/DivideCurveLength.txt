@@ -1,0 +1,85 @@
+DivideCurveLength
+
+
+
+DivideCurveLength
+
+
+Divides a curve object into segments of a specified length.
+
+
+Syntax
+
+
+Rhino.DivideCurveLength (strObject, dblLength [, blnCreate [, blnPoints]])
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+dblLength 
+
+Required. Number. The length of each segment.
+
+blnCreate 
+
+Optional. Boolean. Create the division points. If omitted or False, points are not created.
+
+blnPoints 
+
+Optional. Boolean. Return an array of 3-D points. If omitted or True, points are returned. If False, then an array of curve parameters are returned.
+
+
+Returns
+
+
+
+Array 
+
+If blnPoints is not specified or True, then an array containing 3-D division points if successful.
+
+Array 
+
+If blnPoints is False, then an array containing division curve parameters if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, dblLength, arrPoints, arrPoint
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+dblLength = Rhino.CurveLength(strObject) / 4
+
+arrPoints = Rhino.DivideCurveLength(strObject, dblLength)
+
+For Each arrPoint In arrPoints
+
+Rhino.AddPoint arrPoint
+
+Next
+
+End If
+
+
+Also See
+
+
+DivideCurve
+
+DivideCurveEquidistant
+
+
+

@@ -1,0 +1,89 @@
+AddArc3Pt
+
+
+
+AddArc3Pt
+
+
+Adds a 3-point arc curve to the document.
+
+
+Syntax
+
+
+Rhino.AddArc3Pt (arrStart, arrEnd, arrPoint)
+
+
+Parameters
+
+
+
+arrStart 
+
+Required.  Array.  The starting point of the arc.
+
+arrEnd 
+
+Required.  Array.  The ending point of the arc.
+
+arrPoint 
+
+Required.  Array.  A point on the arc.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrStart, arrEnd, arrPoint
+
+arrStart = Rhino.GetPoint("Start of arc")
+
+If IsArray(arrStart) Then
+
+arrEnd = Rhino.GetPoint("End of arc")
+
+If IsArray(arrEnd) Then
+
+arrPoint = Rhino.GetPoint("Point on arc")
+
+If IsArray(arrPoint) Then
+
+Rhino.AddArc3Pt arrStart, arrEnd, arrPoint
+
+End If
+
+End If
+
+End If
+
+
+Also See
+
+
+AddArc
+
+ArcAngle
+
+ArcCenterPoint
+
+ArcMidPoint
+
+ArcRadius
+
+IsArc
+
+
+

@@ -1,0 +1,99 @@
+MeshVolume
+
+
+
+MeshVolume
+
+
+Returns the approximate volume of one or more closed mesh objects.
+
+
+Syntax
+
+
+Rhino.MeshVolume (strObject)
+
+Rhino.MeshVolume (arrObjects)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+arrObjects 
+
+Required.  Array.  An array of object identifier.
+
+
+Returns
+
+
+
+Array 
+
+An array containing three numbers if successful.  The three elements of the array are as follows:
+
+
+Element 
+
+Type 
+
+Description
+
+0 
+
+Number 
+
+The number of meshes used in the volume calculation.
+
+1 
+
+Number 
+
+The total volume of all meshes.
+
+2 
+
+Number 
+
+The error estimate.
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strObject, arrVolume
+
+strObject = Rhino.GetObject("Select mesh", rhObjectMesh )
+
+If Not IsNull(strObject) and Rhino.IsMeshClosed(strObject) Then
+
+arrVolume = Rhino.MeshVolume(strObject)
+
+If IsArray(arrVolume) Then
+
+Rhino.Print "Mesh volume: " & CStr(arrVolume(1))
+
+End If
+
+End If
+
+
+Also See
+
+
+IsMeshClosed
+
+MeshArea
+

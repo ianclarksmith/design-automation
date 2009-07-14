@@ -1,0 +1,79 @@
+IsCurvePeriodic
+
+
+
+IsCurvePeriodic
+
+
+Verifies an object is a periodic curve object.
+
+
+Syntax
+
+
+Rhino.IsCurvePeriodic (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+If Rhino.IsCurvePeriodic(strObject) Then
+
+Rhino.Print "The object is a periodic curve."
+
+Else
+
+Rhino.Print "The object is not a periodic curve."
+
+End If
+
+Else
+
+Rhino.Print "The object is not a curve."
+
+End If
+
+
+Also See
+
+
+IsCurve
+
+IsCurveClosed
+
+IsCurveLinear
+
+IsCurvePlanar
+

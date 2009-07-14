@@ -1,0 +1,73 @@
+RemoveCurveKnot
+
+
+
+RemoveCurveKnot
+
+
+Deletes a knot from a curve object.
+
+
+Syntax
+
+
+Rhino.RemoveCurveKnot (strObject, dblParameter)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the curve object.
+
+dblParameter 
+
+Required.  Number.  The parameter on the curve.  Note, if the parameter is not equal to one of the existing knots, then the knot closest to the specified parameter will be removed.
+
+
+Returns
+
+
+
+Boolean 
+
+True of False indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhObjectCurve = 4
+
+Dim strObject, arrPoint, dblParameter
+
+strObject = Rhino.GetObject("Select curve for knot removal", rhObjectCurve)
+
+If Not IsNull(strObject) Then
+
+  arrPoint = Rhino.GetPointOnCurve(strObject, "Point on curve to remove knot")
+
+  If IsArray(arrPoint) Then
+
+    dblParameter = Rhino.CurveClosestPoint(strObject, arrPoint)
+
+    Rhino.RemoveCurveKnot strObject, dblParameter
+
+  End If
+
+End If
+
+
+Also See
+
+
+CurveKnotCount
+
+CurveKnots
+

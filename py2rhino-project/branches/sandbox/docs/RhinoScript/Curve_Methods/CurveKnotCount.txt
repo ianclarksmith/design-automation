@@ -1,0 +1,65 @@
+CurveKnotCount
+
+
+
+CurveKnotCount
+
+
+Returns the knot count of a curve object.
+
+
+Syntax
+
+
+Rhino.CurveKnotCount (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Number 
+
+The number of knots if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, intCount
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+intCount = Rhino.CurveKnotCount(strObject)
+
+Rhino.Print "Curve knot count: " & CStr(intCount)
+
+End If
+
+
+Also See
+
+
+DivideCurve
+
+IsCurve
+

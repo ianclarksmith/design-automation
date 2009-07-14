@@ -1,0 +1,73 @@
+AddTextDot
+
+
+
+AddTextDot
+
+
+Adds an annotation text dot to the document.
+
+
+Syntax
+
+
+Rhino.AddTextDot (strText, arrPoint)
+
+
+Parameters
+
+
+
+strTest 
+
+Required.  String.  A character or text string.
+
+arrPoint 
+
+Required.  Array.  A 3-D point identifying the origin point.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrPoint
+
+strObject = Rhino.GetObject("Select curve")
+
+If Rhino.IsCurve(strObject) Then
+
+  arrPoint = Rhino.CurveStartPoint(strObject)
+
+  Rhino.AddTextDot Rhino.Pt2Str(arrPoint, 3), arrPoint
+
+  If Rhino.IsCurveClosed(strObject) = False Then
+
+    arrPoint = Rhino.CurveEndPoint(strObject)
+
+    Rhino.AddTextDot Rhino.Pt2Str(arrPoint, 3), arrPoint
+
+  End If
+
+End If
+
+
+Also See
+
+
+IsTextDot
+
+
+

@@ -1,0 +1,101 @@
+TextObjectPlane
+
+
+
+TextObjectPlane
+
+
+Returns or modifies the plane used by a text object.
+
+
+Syntax
+
+
+Rhino.TextObjectPlane(strObject [, arrPlane])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+arrPlane 
+
+Optional.  Array. The new construction plane.  The elements of a plane array are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+Required.  The construction plane's origin (3-D point).
+
+1 
+
+Required.  The construction plane's X axis direction (3-D vector).
+
+2 
+
+Required.  The construction plane's Y axis direction (3-D vector).
+
+3 
+
+Optional.  The construction plane's Z axis direction (3-D vector).
+
+
+
+Returns
+
+
+
+Array 
+
+If a plane is not specified, the current plane if successful.
+
+Array 
+
+If a plane is specified, the previous plane if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrPlane
+
+strObject = Rhino.GetObject("Select text")
+
+If Rhino.IsText(strObject) Then
+
+arrPlane = Rhino.ViewCPlane("Top")
+
+Rhino.TextObjectPlane strObject, arrPlane
+
+End If
+
+
+Also See
+
+
+AddText
+
+IsText
+
+TextObjectFont
+
+TextObjectHeight
+
+TextObjectPoint
+
+TextObjectStyle
+
+TextObjectText
+

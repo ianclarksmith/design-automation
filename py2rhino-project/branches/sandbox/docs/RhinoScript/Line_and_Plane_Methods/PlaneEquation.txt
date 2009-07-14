@@ -1,0 +1,91 @@
+PlaneEquation
+
+
+
+PlaneEquation
+
+
+Returns the equation of  a plane. The standard equation of a plane with a non-zero normal vector is as follows:
+
+Ax + By + Cz + D = 0
+
+
+Syntax
+
+
+Rhino.PlaneEquation (arrPlane)
+
+
+Parameters
+
+
+
+arrPlane 
+
+Required.  Array.  The plane. The elements of a plane array are as follows:
+
+
+Element 
+
+Description
+
+0 
+
+Required.  The plane's origin (3-D point).
+
+1 
+
+Required.  The plane's X axis direction (3-D vector).
+
+2 
+
+Required.  The plane's Y axis direction (3-D vector).
+
+3 
+
+Optional.  The plane's Z axis direction (3-D vector).
+
+
+
+Returns
+
+
+
+Array 
+
+An array containing four numbers that represent the coefficients of the equation, if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPlane, arrEquation
+
+arrPlane = Rhino.ViewCPlane
+
+arrEquation = Rhino.PlaneEquation
+
+Rhino.Print "A = " & CStr(arrEquation(0))
+
+Rhino.Print "B = " & CStr(arrEquation(1))
+
+Rhino.Print "C = " & CStr(arrEquation(2))
+
+Rhino.Print "D = " & CStr(arrEquation(3))
+
+
+Also See
+
+
+PlaneFromFrame
+
+PlaneFromNormal
+
+PlaneFromPoints
+
+
+

@@ -1,0 +1,144 @@
+Layer Methods
+
+
+
+Layer Methods
+
+
+Layers are the primary organizational tool in Rhino.  Layers are like transparent overlays on which you can organize and group objects.  The following methods are available for adding, querying or manipulating layers.
+
+
+
+
+Method 
+
+Description
+
+AddLayer 
+
+Adds a new layer.
+
+CurrentLayer 
+
+Returns or changes the current layer.
+
+DeleteLayer 
+
+Removes an empty layer.
+
+ExpandLayer 
+
+Expands or contracts a layer.
+
+IsLayer 
+
+Verifies a layer exists.
+
+IsLayerChangeable 
+
+Verifies objects on a layer can be changed.
+
+IsLayerChildOf 
+
+Verifies a layer is a child of another layer.
+
+IsLayerCurrent 
+
+Verifies a layer is the current layer.
+
+IsLayerEmpty 
+
+Verifies a layer contains no objects.
+
+IsLayerExpanded 
+
+Verifies a layer is expanded.
+
+IsLayerLocked 
+
+Verifies a layer is locked.
+
+IsLayerOn 
+
+Verifies a layer is on.
+
+IsLayerParentOf 
+
+Verifies a layer is a parent of another layer.
+
+IsLayerReference 
+
+Verifies a layer is reference.
+
+IsLayerSelectable 
+
+Verifies objects on a layer are selectable.
+
+IsLayerVisible 
+
+Verifies objects on a layer are visible.
+
+LayerChildCount 
+
+Returns the number of child layers of a layer.
+
+LayerChildren 
+
+Returns the names of a layer's child layers.
+
+LayerColor 
+
+Returns or changes a layer's color.
+
+LayerCount 
+
+Returns the number of layers.
+
+LayerLinetype 
+
+Returns or changes a layer's linetype.
+
+LayerLocked 
+
+Returns or changes a layer's locked property.
+
+LayerMaterialIndex 
+
+Returns or changes a layer's material index.
+
+LayerMode 
+
+Returns or changes a layer's mode.
+
+LayerNames 
+
+Returns layer names.
+
+LayerOrder 
+
+Returns a layer's display order index.
+
+LayerPrintColor 
+
+Returns or changes a layer's print color.
+
+LayerPrintWidth 
+
+Returns or changes a layer's print width.
+
+LayerVisible 
+
+Returns or changes a layer's visibility property.
+
+ParentLayer 
+
+Returns a layer's parent layer.
+
+PurgeLayer 
+
+Removes an existing layer.
+
+RenameLayer 
+
+Renames a layer.
+

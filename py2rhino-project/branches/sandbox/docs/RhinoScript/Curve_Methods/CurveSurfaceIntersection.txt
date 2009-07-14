@@ -1,0 +1,237 @@
+CurveSurfaceIntersection
+
+
+
+CurveSurfaceIntersection
+
+
+Calculates the intersection of a curve object with a surface object. Note, this function works on the untrimmed portion of the surface.
+
+
+Syntax
+
+
+Rhino.CurveSurfaceIntersection (strCurve, strSurface [, dblTolerance [, dblAngleTolerance]])
+
+
+Parameters
+
+
+
+strCurve 
+
+Required.  String.  The identifier of a curve object.
+
+strSurface 
+
+Required.  String.  The identifier of a surface object.
+
+dblTolerance 
+
+Optional.  Number.  The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+
+dblAngleTolerance 
+
+Optional.  Number.  The angle tolerance in degrees.  The angle tolerance is used to determine when the curve is tangent to the surface.  If omitted, the document's current angle tolerance is used.
+
+
+Returns
+
+
+
+Array 
+
+A two-dimensional array of intersection information if successful.  The array will contain one or more of the following elements:
+
+
+Element 
+
+Type 
+
+Description
+
+(n, 0) 
+
+Number 
+
+The intersection event type, either Point (1) or Overlap (2).
+
+(n, 1)
+
+  
+
+Array (3-D Point) 
+
+If the event type is Point (1), then the intersection point on the curve.
+
+If the event type is Overlap (2), then intersection start point on the curve.
+
+(n, 2)
+
+  
+
+Array (3-D Point) 
+
+If the event type is Point (1), then the intersection point on the curve.
+
+If the event type is Overlap (2), then intersection end point on the curve.
+
+(n, 3)
+
+  
+
+Array (3-D Point) 
+
+If the event type is Point (1), then the intersection point on the surface.
+
+If the event type is Overlap (2), then intersection start point on the surface.
+
+(n, 4)
+
+  
+
+Array (3-D Point) 
+
+If the event type is Point (1), then the intersection point on the surface.
+
+If the event type is Overlap (2), then intersection end point on the surface.
+
+(n, 5)
+
+  
+
+Number 
+
+If the event type is Point (1), then the curve parameter.
+
+If the event type is Overlap (2), then the start value of the curve parameter range.
+
+(n, 6)
+
+  
+
+Number 
+
+If the event type is Point (1), then the curve parameter.
+
+If the event type is Overlap (2),  then the end value of the curve parameter range.
+
+(n, 7)
+
+  
+
+Number 
+
+If the event type is Point (1), then the U surface parameter.
+
+If the event type is Overlap (2), then the U surface parameter for curve at (n, 5).
+
+(n, 8)
+
+  
+
+Number 
+
+If the event type is Point (1), then the V surface parameter.
+
+If the event type is Overlap (2), then the V surface parameter for curve at (n, 5).
+
+(n, 9)
+
+  
+
+Number 
+
+If the event type is Point (1), then the U surface parameter.
+
+If the event type is Overlap (2), then the U surface parameter for curve at (n, 6).
+
+(n, 10)
+
+  
+
+Number 
+
+If the event type is Point (1), then the V surface parameter.
+
+If the event type is Overlap (2), then the V surface parameter for curve at (n, 6).
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Sub CSX()
+
+Const rhObjectCurve = 4
+
+Const rhObjectSurface = 8
+
+Dim strCurve, strSurface, arrCSX
+
+strCurve = Rhino.GetObject("Select curve", rhObjectCurve)
+
+If IsNull(strCurve) Or Rhino.IsCurve(strCurve) = False Then Exit Sub
+
+strSurface = Rhino.GetObject("Select surface", rhObjectSurface)
+
+If IsNull(strSurface) Or Rhino.IsSurface(strSurface) = False Then Exit Sub
+
+arrCSX = Rhino.CurveSurfaceIntersection(strCurve, strSurface)
+
+If Not IsArray(arrCSX) Then
+
+Rhino.Print "Curve and surface do not intersect."
+
+Exit Sub
+
+End If
+
+For i = 0 To UBound(arrCSX)
+
+If arrCSX(i,0) = 1 Then
+
+Rhino.Print "Point"
+
+Rhino.Print "Intersection point on curve: " & Rhino.Pt2Str(arrCSX(i,1))
+
+Rhino.Print "Intersection point on surface: " & Rhino.Pt2Str(arrCSX(i,3))
+
+Rhino.Print "Curve parameter: " & CStr(arrCSX(i,5))
+
+Rhino.Print "Surface parameter: " & CStr(arrCSX(i,7)) & "," & CStr(arrCSX(i,8))
+
+Else
+
+Rhino.Print "Overlap"
+
+Rhino.Print "Intersection start point on curve: " & Rhino.Pt2Str(arrCSX(i,1))
+
+Rhino.Print "Intersection end point on curve: " & Rhino.Pt2Str(arrCSX(i,2))
+
+Rhino.Print "Intersection start point on surface: " & Rhino.Pt2Str(arrCSX(i,3))
+
+Rhino.Print "Intersection end point on surface: " & Rhino.Pt2Str(arrCSX(i,4))
+
+Rhino.Print "Curve parameter range: " & CStr(arrCSX(i,5)) & " to " & CStr(arrCSX(i,6))
+
+Rhino.Print "Surface parameter range: " & CStr(arrCSX(i,7)) & "," & CStr(arrCSX(i,8)) & " to " &  CStr(arrCSX(i,9)) & "," & CStr(arrCSX(i,10))
+
+End If
+
+Next
+
+End Sub
+
+
+Also See
+
+
+CurveCurveIntersection
+
+CurveBrepIntersect
+
