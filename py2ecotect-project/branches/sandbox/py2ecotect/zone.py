@@ -273,7 +273,11 @@ class Zone(object):
         arg_str = string_util._convert_args_to_string("zone.xform", self._id, 
                                                       trans, x, y, z)
         py2ecotect.conversation.Exec(arg_str)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     def get_id(self):
         """
         

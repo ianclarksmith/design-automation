@@ -1,6 +1,10 @@
 import py2ecotect
 from py2ecotect import string_util
 
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
 def activate():
     """
     
@@ -747,6 +751,10 @@ def status(msg):
     arg_str = string_util._convert_args_to_string("app.status", msg)
     py2ecotect.conversation.Exec(arg_str)
 
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
 def get_computer():
     """
     
