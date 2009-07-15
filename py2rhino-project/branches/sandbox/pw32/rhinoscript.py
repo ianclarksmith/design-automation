@@ -1,11 +1,11 @@
 # -*- coding: mbcs -*-
-# Created by makepy.py version 0.4.97
-# By python version 2.5.4 (r254:67916, Apr 27 2009, 15:41:14) [MSC v.1310 32 bit (Intel)]
+# Created by makepy.py version 0.4.98
+# By python version 2.5.1 (r251:54863, Apr 18 2007, 08:51:08) [MSC v.1310 32 bit (Intel)]
 # From type library 'RhinoScript.tlb'
-# On Tue Jul 14 11:40:21 2009
+# On Thu Jul 16 01:34:42 2009
 """RhinoScript 4.0 Type Library"""
-makepy_version = '0.4.97'
-python_version = 0x20504f0
+makepy_version = '0.4.98'
+python_version = 0x20501f0
 
 import win32com.client.CLSIDToClass, pythoncom
 import win32com.client.util

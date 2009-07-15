@@ -1,8 +1,8 @@
 import linecache
 import os
 import string
-import mappings
-from ct import methods 
+from ct  import rhinoscript as ct_rs
+from pw32 import  rhinoscript as pw32_rs
 
 def parse_docs():
     data = {}
@@ -60,16 +60,26 @@ def parse_docs():
                 content_syntax = contents[line_num_syntax + 1]
                 
                 #now get the parameters
-                content_params = {}                
+                content_params = []                
                 if (line_num_returns - line_num_params) > 2:
                     for line_num in range(line_num_params+1, line_num_returns):
-                        param_parts = contents[line_num].split(".")
-                        if param_parts[0] in ("Required", "Optional"):
-                            param_name = contents[line_num - 1]
-                            param_req = param_parts[0]
-                            param_type = param_parts[1]
-                            param_text = param_parts[2]
-                            content_params[param_name] = (param_req, param_type, param_text)
+                        #check is this line is a single word (i.e. the name of the param)
+                        this_line_words = contents[line_num].split()
+                        is_word = False
+                        if (len(this_line_words) == 1) and (not this_line_words[0].isdigit()):
+                            is_word = True
+                        #check is this line starts with either 'Required' or 'Optional'
+                        next_line = contents[line_num + 1]
+                        has_flag = False
+                        if (next_line.startswith("Required") or next_line.startswith("Optional")):
+                            has_flag = True
+                        if is_word and has_flag:
+                            next_line_phrases = next_line.split(".")
+                            param_name = this_line_words[0].strip()
+                            param_req = next_line_phrases[0].strip()
+                            param_type = next_line_phrases[1].strip()
+                            param_text = next_line_phrases[2].strip()
+                            content_params.append((param_name, param_req, param_type, param_text))
                 
                 #now get the returns
                 content_returns = []
@@ -187,38 +197,90 @@ def w(f, text, tabs = 0, nls=0, nle=1):
         text = text + nle_str
     f.writelines(text)
     
+
     
-def compare_with_mappings(folder_data):
+def compare_with_ct(folder_data):
+    count_mis = 0
+    count_ok = 0
     for folder_name in folder_data.keys():
         for file_name in folder_data[folder_name]:
-            method_data = methods.get_method_by_name(file_name)
-            if not method_data:
-                print "--------------------------------------------"
-                print file_name + "not found in com_methods"
-                print "--------------------------------------------"
-            else:
-                num_com_params = len(method_data['params'].keys())
+            if is_in_ct(file_name):
+                num_ct_params = get_ct_num_params(file_name)
                 num_doc_params = len(folder_data[folder_name][file_name]['params'])            
-                if ( num_doc_params != num_com_params ):
+                if ( num_doc_params != num_ct_params ):
+                    count_mis += 1
                     print "============================================"
                     print "MISMATCH IN PARAMETERS"
                     print file_name + " in " + folder_name
-                    print "params from docs :" 
-                    for i in folder_data[folder_name][file_name]['params'].keys():
-                        print "\t", i, "\t", folder_data[folder_name][file_name]['params'][i]
-                    print "params from com : "
-                    for i in method_data['params'].keys():
-                        print "\t", i, "\t", method_data['params'][i]
+                    print "params from docs files:" 
+                    for i in folder_data[folder_name][file_name]['params']:
+                        print "\t", i
+                    print "params from comtypes file : "
+                    for i in get_ct_params(file_name):
+                        print "\t", i
                     print "============================================"
-            
+                else:
+                    count_ok += 1
+            else:
+                print "MISSING: ", file_name, " in ", folder_name
+    
+    print "number of mismatches = ", count_mis, " out of ", count_ok
+                    
+def get_ct_name_by_id(id):
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+        if id == i[2][0]:
+            return i[1]
+    return None
 
+def get_ct_id_by_name(name):
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+        if name == i[1]:
+            return i[2][0]
+    return None
+
+def get_ct_num_params(name):
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+        if name == i[1]:
+            return len(i[-1])
+    return None
+
+def get_ct_params(name):
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+        if name == i[1]:
+            params = []
+            for j in i[-1]:
+                if j[0] == []:
+                    flag = "Required"
+                else:
+                    flag = "Optional"
+                params.append((j[2], flag, j[1].__name__))
+            return params
+    return None
+    
+def find_methods_mismatch(folder_data):
+    print "MISSING METHODS"
+    for folder_name in folder_data.keys():
+        for file_name in folder_data[folder_name]:
+            #if not is_in_ct(file_name):
+            #    print "ct \t", file_name, " in ", folder_name
+            if not is_in_pw32(file_name):
+                print "pw32 \t", file_name, " in ", folder_name
+
+def is_in_pw32(name):
+    return name in pw32_rs.IRhinoScript.__dict__.keys()
+
+def is_in_ct(name):
+    if get_ct_id_by_name(name) == None: 
+        return False
+    return True
 
 data = parse_docs()
-compare_with_mappings(data)
+find_methods_mismatch(data)
+compare_with_ct(data)
+
 
 #pretty_print_data(data) 
 #write_classes(data)
 
-#
-#print methods.get_method_by_id(20)
+#print methods.get_method_by_id(905)
 #print methods.get_method_by_name("GetRectangle")
