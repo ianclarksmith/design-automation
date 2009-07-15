@@ -8,498 +8,498 @@ class Math(DispatchBaseClass):
 
 
 
-	def acos(self, dblnumber):
-		"""
+    def acos(self, dblnumber):
+        """
 
-		Returns the arccosine, or inverse cosine, of a number. The arccosine is the angle whose cosine is number. The returned angle is given in radians in the range 0 (zero) to PI.
+        Returns the arccosine, or inverse cosine, of a number. The arccosine is the angle whose cosine is number. The returned angle is given in radians in the range 0 (zero) to PI.
 
-		Parameters
+        Parameters
 
-		dblNumber : Required,   Number,   A number representing the cosine of the angle you want and must be from -1 to 1
+        dblNumber : Required,   Number,   A number representing the cosine of the angle you want and must be from -1 to 1
 
-		Returns
+        Returns
 
-		Number : An angle, ?, measured in radians, such that 0 = ? = PI. Use ToDegrees to convert from radians to degrees.
-		Null : If not successful, or on error.
+        Number : An angle, ?, measured in radians, such that 0 = ? = PI. Use ToDegrees to convert from radians to degrees.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ACos', None, dblNumber)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ACos', None, dblNumber)
 
-	def acosh(self, dblnumber):
-		"""
+    def acosh(self, dblnumber):
+        """
 
-		Returns the inverse hyperbolic cosine of a number. Number must be greater than or equal to 1. The inverse hyperbolic cosine is the value whose hyperbolic cosine is number, so ACosH(CosH(number)) equals the number.
+        Returns the inverse hyperbolic cosine of a number. Number must be greater than or equal to 1. The inverse hyperbolic cosine is the value whose hyperbolic cosine is number, so ACosH(CosH(number)) equals the number.
 
-		Parameters
+        Parameters
 
-		dblNumber : Required,   Number,   A number equal to or greater than 1
+        dblNumber : Required,   Number,   A number equal to or greater than 1
 
-		Returns
+        Returns
 
-		Number : The inverse hyperbolic cosine of a number if successful.
-		Null : If not successful, or on error.
+        Number : The inverse hyperbolic cosine of a number if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ACosH', None, dblNumber)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ACosH', None, dblNumber)
 
-	def asin(self, dblnumber):
-		"""
+    def asin(self, dblnumber):
+        """
 
-		Returns the arcsine, or inverse sine, of a number. The arcsine is the angle whose sine is number. The returned angle is given in radians in the range -PI/2 to PI/2.
+        Returns the arcsine, or inverse sine, of a number. The arcsine is the angle whose sine is number. The returned angle is given in radians in the range -PI/2 to PI/2.
 
-		Parameters
+        Parameters
 
-		dblNumber : Required,   Number,   A number representing the sine of the angle you want and must be from -1 to 1
+        dblNumber : Required,   Number,   A number representing the sine of the angle you want and must be from -1 to 1
 
-		Returns
+        Returns
 
-		Number : An angle, ?, measured in radians, if successful. Note, A positive return value represents a counterclockwise angle from the x-axis; a negative return value represents a clockwise angle. Use ToDegrees to convert from radians to degrees.
-		Null : If not successful, or on error.
+        Number : An angle, ?, measured in radians, if successful. Note, A positive return value represents a counterclockwise angle from the x-axis; a negative return value represents a clockwise angle. Use ToDegrees to convert from radians to degrees.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ASin', None, dblNumber)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ASin', None, dblNumber)
 
-	def asinh(self, dblnumber):
-		"""
+    def asinh(self, dblnumber):
+        """
 
-		Returns the inverse hyperbolic sine of a number. The inverse hyperbolic sine is the value whose hyperbolic sine is number, so ASinH(SinH(number)) equals number.
+        Returns the inverse hyperbolic sine of a number. The inverse hyperbolic sine is the value whose hyperbolic sine is number, so ASinH(SinH(number)) equals number.
 
-		Parameters
+        Parameters
 
-		dblNumber : Required,   Number,   Any real number
+        dblNumber : Required,   Number,   Any real number
 
-		Returns
+        Returns
 
-		Number : The inverse hyperbolic sine of a number if successful.
-		Null : If not successful, or on error.
+        Number : The inverse hyperbolic sine of a number if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ASinH', None, dblNumber)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ASinH', None, dblNumber)
 
-	def atan2(self, y, x):
-		"""
+    def atan2(self, y, x):
+        """
 
-		Returns the angle whose tangent is the quotient of two specified numbers.
+        Returns the angle whose tangent is the quotient of two specified numbers.
 
-		Parameters
+        Parameters
 
-		y : Required,   Number,   The y coordinate of a point
-		x : Required,   Number,   The x coordinate of a point
+        y : Required,   Number,   The y coordinate of a point
+        x : Required,   Number,   The x coordinate of a point
 
-		Returns
+        Returns
 
-		Number : An angle, ?, measured in radians, such that -PI = ? = PI, and Tan(?) = y / x, where (x, y) is a point in the Cartesian plane.
-		Null : If not successful, or on error.
+        Number : An angle, ?, measured in radians, such that -PI = ? = PI, and Tan(?) = y / x, where (x, y) is a point in the Cartesian plane.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ATan2', None, y, x)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ATan2', None, y, x)
 
-	def atanh(self, dblnumber):
-		"""
+    def atanh(self, dblnumber):
+        """
 
-		Returns the inverse hyperbolic tangent of a number. Number must be between -1 and 1 (excluding -1 and 1). The inverse hyperbolic tangent is the value whose hyperbolic tangent is number; ATanH(TanH(number)) equals number.
+        Returns the inverse hyperbolic tangent of a number. Number must be between -1 and 1 (excluding -1 and 1). The inverse hyperbolic tangent is the value whose hyperbolic tangent is number; ATanH(TanH(number)) equals number.
 
-		Parameters
+        Parameters
 
-		dblNumber : Required,   Number,   A number between -1 and 1
+        dblNumber : Required,   Number,   A number between -1 and 1
 
-		Returns
+        Returns
 
-		Number : The inverse hyperbolic tangent of a number if successful.
-		Null : If not successful, or on error.
+        Number : The inverse hyperbolic tangent of a number if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ATanH', None, dblNumber)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ATanH', None, dblNumber)
 
-	def angle(self, arrpoint1, arrpoint2, blnworld):
-		"""
+    def angle(self, arrpoint1, arrpoint2, blnworld):
+        """
 
-		Measures the angle between two points.
+        Measures the angle between two points.
 
-		Parameters
+        Parameters
 
-		arrPoint1 : Required,   Array,   The first 3-D point
-		arrPoint2 : Required,   Array,   The second 3-D point
-		blnWorld : Optional,   Boolean,   If True, the angle calculation is based on the world coordinate system
+        arrPoint1 : Required,   Array,   The first 3-D point
+        arrPoint2 : Required,   Array,   The second 3-D point
+        blnWorld : Optional,   Boolean,   If True, the angle calculation is based on the world coordinate system
 
-		Returns
+        Returns
 
-		Array : An array containing the following elements if successful.
-		Null : If not successful, or on error.
+        Array : An array containing the following elements if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Angle', None, arrPoint1, arrPoint2, blnWorld)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Angle', None, arrPoint1, arrPoint2, blnWorld)
 
-	def angle2(self, arrpoint1, arrpoint2):
-		"""
+    def angle2(self, arrpoint1, arrpoint2):
+        """
 
-		Measures the angle between two lines.
+        Measures the angle between two lines.
 
-		Parameters
+        Parameters
 
-		arrPoint1 : Required,   Array,   An array containing the starting and ending 3-D points of the first line
-		arrPoint2 : Required,   Array,   An array containing the starting and ending 3-D points of the second line
+        arrPoint1 : Required,   Array,   An array containing the starting and ending 3-D points of the first line
+        arrPoint2 : Required,   Array,   An array containing the starting and ending 3-D points of the second line
 
-		Returns
+        Returns
 
-		Array : An array containing the following elements if successful.
-		Null : If not successful, or on error.
+        Array : An array containing the following elements if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Angle2', None, arrPoint1, arrPoint2)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Angle2', None, arrPoint1, arrPoint2)
 
-	def ceil(self, dblnumber):
-		"""
+    def ceil(self, dblnumber):
+        """
 
-		Returns the smallest integer greater than or equal to the specified number.
+        Returns the smallest integer greater than or equal to the specified number.
 
-		Parameters
+        Parameters
 
-		dblNumber : Required,   Number,   A number
+        dblNumber : Required,   Number,   A number
 
-		Returns
+        Returns
 
-		Number : The ceiling if successful.
-		Null : If not successful, or on error.
+        Number : The ceiling if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Ceil', None, dblNumber)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Ceil', None, dblNumber)
 
-	def cosh(self, dblangle):
-		"""
+    def cosh(self, dblangle):
+        """
 
-		Returns the hyperbolic cosine of the specified angle.
+        Returns the hyperbolic cosine of the specified angle.
 
-		Parameters
+        Parameters
 
-		dblAngle : Required,   Number,   An angle, measured in radians
+        dblAngle : Required,   Number,   An angle, measured in radians
 
-		Returns
+        Returns
 
-		Number : The hyperbolic cosine of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
-		Null : If not successful, or on error.
+        Number : The hyperbolic cosine of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'CosH', None, dblAngle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CosH', None, dblAngle)
 
-	def deviation(self, arrnumbers):
-		"""
+    def deviation(self, arrnumbers):
+        """
 
-		Returns the standard deviation from an array of numbers.
+        Returns the standard deviation from an array of numbers.
 
-		Parameters
+        Parameters
 
-		arrNumbers : Required,   Array,   An array of numbers to analyze
+        arrNumbers : Required,   Array,   An array of numbers to analyze
 
-		Returns
+        Returns
 
-		Number : The standard deviation if successful.
-		Null : If not successful, or on error.
+        Number : The standard deviation if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Deviation', None, arrNumbers)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Deviation', None, arrNumbers)
 
-	def distance(self, arrpoint1, arrpoint2, arrpointarray):
-		"""
+    def distance(self, arrpoint1, arrpoint2, arrpointarray):
+        """
 
-		Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.
+        Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.
 
-		Parameters
+        Parameters
 
-		arrPoint1 : Required,   Array,   The first 3-D point
-		arrPoint2 : Required,   Array,   The second 3-D point
-		arrPointArray : Required,   Array,   An array of 3-D points
+        arrPoint1 : Required,   Array,   The first 3-D point
+        arrPoint2 : Required,   Array,   The second 3-D point
+        arrPointArray : Required,   Array,   An array of 3-D points
 
-		Returns
+        Returns
 
-		Number : If arrPoint1 and arrPoint2 are specified, then the distance is successful.
-		Array : If arrPoint1 and arrPointArray are specified, then an array of distances if successful.
-		Null : If not successful, or on error.
+        Number : If arrPoint1 and arrPoint2 are specified, then the distance is successful.
+        Array : If arrPoint1 and arrPointArray are specified, then an array of distances if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Distance', None, arrPoint1, arrPoint2, arrPointArray)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Distance', None, arrPoint1, arrPoint2, arrPointArray)
 
-	def e(self, ):
-		"""
+    def e(self, ):
+        """
 
-		Returns the value of the base of the natural system of logarithms (e).
+        Returns the value of the base of the natural system of logarithms (e).
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : 2.71828182845904523536028747135
+        Number : 2.71828182845904523536028747135
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'E', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'E', None, )
 
-	def floor(self, dblnumber):
-		"""
+    def floor(self, dblnumber):
+        """
 
-		Returns the largest integer less than or equal to the specified number.
+        Returns the largest integer less than or equal to the specified number.
 
-		Parameters
+        Parameters
 
-		dblNumber : Required,   Number,   A number
+        dblNumber : Required,   Number,   A number
 
-		Returns
+        Returns
 
-		Number : The floor if successful.
-		Null : If not successful, or on error.
+        Number : The floor if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Floor', None, dblNumber)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Floor', None, dblNumber)
 
-	def hypot(self, x, y):
-		"""
+    def hypot(self, x, y):
+        """
 
-		Calculates the length of the hypotenuse of a right triangle, given the length of the two sides x and y (in other words, the square root of x2 + y2).
+        Calculates the length of the hypotenuse of a right triangle, given the length of the two sides x and y (in other words, the square root of x2 + y2).
 
-		Parameters
+        Parameters
 
-		x : Required,   Number,   The x value
-		y : Required,   Number,   The y value
+        x : Required,   Number,   The x value
+        y : Required,   Number,   The y value
 
-		Returns
+        Returns
 
-		Number : The length of the hypotenuse if successful.
-		Null : If not successful, or on error.
+        Number : The length of the hypotenuse if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Hypot', None, x, y)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Hypot', None, x, y)
 
-	def log10(self, dblnumber):
-		"""
+    def log10(self, dblnumber):
+        """
 
-		Returns the base-10 logarithm of a number.
+        Returns the base-10 logarithm of a number.
 
-		Parameters
+        Parameters
 
-		dblNumber : Required,   Number,   The positive real number for which you want the base-10 logarithm
+        dblNumber : Required,   Number,   The positive real number for which you want the base-10 logarithm
 
-		Returns
+        Returns
 
-		Number : The base-10 logarithm of the number if successful.
-		Null : If not successful, or on error.
+        Number : The base-10 logarithm of the number if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Log10', None, dblNumber)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Log10', None, dblNumber)
 
-	def max(self, arrnumbers):
-		"""
+    def max(self, arrnumbers):
+        """
 
-		Returns the maximum number from an array of numbers.
+        Returns the maximum number from an array of numbers.
 
-		Parameters
+        Parameters
 
-		arrNumbers : Required,   Array,   An array of numbers to analyze
+        arrNumbers : Required,   Array,   An array of numbers to analyze
 
-		Returns
+        Returns
 
-		Number : The maximum number if successful.
-		Null : If not successful, or on error.
+        Number : The maximum number if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Max', None, arrNumbers)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Max', None, arrNumbers)
 
-	def mean(self, arrnumbers):
-		"""
+    def mean(self, arrnumbers):
+        """
 
-		Returns the mean number, or average, from an array of numbers.
+        Returns the mean number, or average, from an array of numbers.
 
-		Parameters
+        Parameters
 
-		arrNumbers : Required,   Array,   An array of numbers to analyze
+        arrNumbers : Required,   Array,   An array of numbers to analyze
 
-		Returns
+        Returns
 
-		Number : The mean number if successful.
-		Null : If not successful, or on error.
+        Number : The mean number if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Mean', None, arrNumbers)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Mean', None, arrNumbers)
 
-	def median(self, arrnumbers):
-		"""
+    def median(self, arrnumbers):
+        """
 
-		Returns the median value from an array of numbers.
+        Returns the median value from an array of numbers.
 
-		Parameters
+        Parameters
 
-		arrNumbers : Required,   Array,   An array of numbers to analyze
+        arrNumbers : Required,   Array,   An array of numbers to analyze
 
-		Returns
+        Returns
 
-		Number : The median value if successful.
-		Null : If not successful, or on error.
+        Number : The median value if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Median', None, arrNumbers)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Median', None, arrNumbers)
 
-	def min(self, arrnumbers):
-		"""
+    def min(self, arrnumbers):
+        """
 
-		Returns the minimum number from an array of numbers.
+        Returns the minimum number from an array of numbers.
 
-		Parameters
+        Parameters
 
-		arrNumbers : Required,   Array,   An array of numbers to analyze
+        arrNumbers : Required,   Array,   An array of numbers to analyze
 
-		Returns
+        Returns
 
-		Number : The minimum number if successful.
-		Null : If not successful, or on error.
+        Number : The minimum number if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Min', None, arrNumbers)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Min', None, arrNumbers)
 
-	def pi(self, ):
-		"""
+    def pi(self, ):
+        """
 
-		Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793238462643.
+        Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793238462643.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : 3.141592653589793238462643
+        Number : 3.141592653589793238462643
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'PI', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'PI', None, )
 
-	def polar(self, arrpoint, dblangle, dbldistance, arrplane, 0, 1, 2, 3):
-		"""
+    def polar(self, arrpoint, dblangle, dbldistance, arrplane, 0, 1, 2, 3):
+        """
 
-		Returns the 3-D point that is a specified angle and distance from a 3-D point.
+        Returns the 3-D point that is a specified angle and distance from a 3-D point.
 
-		Parameters
+        Parameters
 
-		arrPoint : Required,   Array,   The 3-D point to transform
-		dblAngle : Required,   Number,   The angle in degrees
-		dblDistance : Required,   Number,   The distance
-		arrPlane : Optional,   Array,   The plane to base the transformation
-		0 : Required,   The plane's origin (3-D point), 
-		1 : Required,   The plane's X axis direction (3-D vector), 
-		2 : Required,   The plane's Y axis direction (3-D vector), 
-		3 : Optional,   The plane's Z axis direction (3-D vector), 
+        arrPoint : Required,   Array,   The 3-D point to transform
+        dblAngle : Required,   Number,   The angle in degrees
+        dblDistance : Required,   Number,   The distance
+        arrPlane : Optional,   Array,   The plane to base the transformation
+        0 : Required,   The plane's origin (3-D point), 
+        1 : Required,   The plane's X axis direction (3-D vector), 
+        2 : Required,   The plane's Y axis direction (3-D vector), 
+        3 : Optional,   The plane's Z axis direction (3-D vector), 
 
-		Returns
+        Returns
 
-		Array : The resulting 3-D point if successful.
-		Null : On error.
+        Array : The resulting 3-D point if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Polar', None, arrPoint, dblAngle, dblDistance, arrPlane, 0, 1, 2, 3)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Polar', None, arrPoint, dblAngle, dblDistance, arrPlane, 0, 1, 2, 3)
 
-	def sinh(self, dblangle):
-		"""
+    def sinh(self, dblangle):
+        """
 
-		Returns the hyperbolic sine of the specified angle.
+        Returns the hyperbolic sine of the specified angle.
 
-		Parameters
+        Parameters
 
-		dblAngle : Required,   Number,   An angle, measured in radians
+        dblAngle : Required,   Number,   An angle, measured in radians
 
-		Returns
+        Returns
 
-		Number : The hyperbolic sine of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
-		Null : If not successful, or on error.
+        Number : The hyperbolic sine of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SinH', None, dblAngle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SinH', None, dblAngle)
 
-	def sum(self, arrnumbers):
-		"""
+    def sum(self, arrnumbers):
+        """
 
-		Returns the sum of an array of numbers.
+        Returns the sum of an array of numbers.
 
-		Parameters
+        Parameters
 
-		arrNumbers : Required,   Array,   An array of numbers to sum
+        arrNumbers : Required,   Array,   An array of numbers to sum
 
-		Returns
+        Returns
 
-		Number : The sum of the array if successful.
-		Null : If not successful, or on error.
+        Number : The sum of the array if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Sum', None, arrNumbers)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Sum', None, arrNumbers)
 
-	def tanh(self, dblangle):
-		"""
+    def tanh(self, dblangle):
+        """
 
-		Returns the hyperbolic tangent of the specified angle.
+        Returns the hyperbolic tangent of the specified angle.
 
-		Parameters
+        Parameters
 
-		dblAngle : Required,   Number,   An angle, measured in radians
+        dblAngle : Required,   Number,   An angle, measured in radians
 
-		Returns
+        Returns
 
-		Number : The hyperbolic tangent of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
-		Null : If not successful, or on error.
+        Number : The hyperbolic tangent of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'TanH', None, dblAngle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'TanH', None, dblAngle)
 
-	def todegrees(self, dblradians):
-		"""
+    def todegrees(self, dblradians):
+        """
 
-		Converts an angle specified in radians to degrees.
+        Converts an angle specified in radians to degrees.
 
-		Parameters
+        Parameters
 
-		dblRadians : Required,   Number,   The angle in radians
+        dblRadians : Required,   Number,   The angle in radians
 
-		Returns
+        Returns
 
-		Number : The angle in degrees if successful.
-		Null : On error.
+        Number : The angle in degrees if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ToDegrees', None, dblRadians)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ToDegrees', None, dblRadians)
 
-	def toradians(self, dbldegrees):
-		"""
+    def toradians(self, dbldegrees):
+        """
 
-		Converts an angle specified in degrees to radians.
+        Converts an angle specified in degrees to radians.
 
-		Parameters
+        Parameters
 
-		dblDegrees : Required,   Number,   The angle in degrees
+        dblDegrees : Required,   Number,   The angle in degrees
 
-		Returns
+        Returns
 
-		Number : The angle in radians if successful.
-		Null : On error.
+        Number : The angle in radians if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ToRadians', None, dblDegrees)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ToRadians', None, dblDegrees)
 

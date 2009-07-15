@@ -8,556 +8,556 @@ class Selection(DispatchBaseClass):
 
 
 
-	def allobjects(self, blnselect, blnincludelights, blnincludegrips):
-		"""
+    def allobjects(self, blnselect, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifiers of all objects in the document.
+        Returns the identifiers of all objects in the document.
 
-		Parameters
+        Parameters
 
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnSelect : Optional,   Boolean,   Select the objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AllObjects', None, blnSelect, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AllObjects', None, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def firstobject(self, blnselect, blnincludelights, blnincludegrips):
-		"""
+    def firstobject(self, blnselect, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.
+        Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.
 
-		Parameters
+        Parameters
 
-		blnSelect : Optional,   Boolean,   Select the object
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnSelect : Optional,   Boolean,   Select the object
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		String : The identifier of the object if successful.
-		Null : If not successful, or on error.
+        String : The identifier of the object if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'FirstObject', None, blnSelect, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'FirstObject', None, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def getcurveobject(self, strmessage, blnpreselect, blnselect):
-		"""
+    def getcurveobject(self, strmessage, blnpreselect, blnselect):
+        """
 
-		Prompts the user to pick, or select, a single curve object.
+        Prompts the user to pick, or select, a single curve object.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Select the picked objects
+        strMessage : Optional,   String,   A prompt or message
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+        blnSelect : Optional,   Boolean,   Select the picked objects
 
-		Returns
+        Returns
 
-		Array : An array of selection information if successful. The array will contain the following information:
-		Null : If not successful, or on error.
+        Array : An array of selection information if successful. The array will contain the following information:
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetCurveObject', None, strMessage, blnPreSelect, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetCurveObject', None, strMessage, blnPreSelect, blnSelect)
 
-	def getobject(self, strmessage, inttype, blnpreselect, blnselect, arrobjects):
-		"""
+    def getobject(self, strmessage, inttype, blnpreselect, blnselect, arrobjects):
+        """
 
-		Prompts the user to pick, or select, a single object.
+        Prompts the user to pick, or select, a single object.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		intType : Optional,   Number,   The type or types of geometry objects (points, curves, surfaces, meshes, etc
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
-		arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
+        strMessage : Optional,   String,   A prompt or message
+        intType : Optional,   Number,   The type or types of geometry objects (points, curves, surfaces, meshes, etc
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+        blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
+        arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
 
-		Returns
+        Returns
 
-		String : The identifier of the picked object if successful.
-		Null : If not successful, or on error.
+        String : The identifier of the picked object if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObject', None, strMessage, intType, blnPreSelect, blnSelect, arrObjects)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetObject', None, strMessage, intType, blnPreSelect, blnSelect, arrObjects)
 
-	def getobjectex(self, strmessage, inttype, blnpreselect, blnselect, arrobjects):
-		"""
+    def getobjectex(self, strmessage, inttype, blnpreselect, blnselect, arrobjects):
+        """
 
-		Prompts the user to pick, or select, a single object.
+        Prompts the user to pick, or select, a single object.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		intType : Optional,   Number,   The type or types of geometry objects (points, curves, surfaces, meshes, etc
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
-		arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
+        strMessage : Optional,   String,   A prompt or message
+        intType : Optional,   Number,   The type or types of geometry objects (points, curves, surfaces, meshes, etc
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+        blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
+        arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
 
-		Returns
+        Returns
 
-		Array : An array of selection information if successful. The array will contain the following information:
-		Null : If not successful, or on error.
+        Array : An array of selection information if successful. The array will contain the following information:
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectEx', None, strMessage, intType, blnPreSelect, blnSelect, arrObjects)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectEx', None, strMessage, intType, blnPreSelect, blnSelect, arrObjects)
 
-	def getobjects(self, strmessage, inttype, blngroup, blnpreselect, blnselect, arrobjects):
-		"""
+    def getobjects(self, strmessage, inttype, blngroup, blnpreselect, blnselect, arrobjects):
+        """
 
-		Prompts the user to pick or select one or more objects.
+        Prompts the user to pick or select one or more objects.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		intType : Optional,   Number,   The type(s) of geometry objects (points, curves, surfaces, meshes, etc
-		blnGroup : Optional,   Boolean,   Honor object grouping
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
-		arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
+        strMessage : Optional,   String,   A prompt or message
+        intType : Optional,   Number,   The type(s) of geometry objects (points, curves, surfaces, meshes, etc
+        blnGroup : Optional,   Boolean,   Honor object grouping
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+        blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
+        arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the picked objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the picked objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjects', None, strMessage, intType, blnGroup, blnPreSelect, blnSelect, arrObjects)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjects', None, strMessage, intType, blnGroup, blnPreSelect, blnSelect, arrObjects)
 
-	def getobjectsex(self, strmessage, inttype, blngroup, blnpreselect, blnselect, arrobjects):
-		"""
+    def getobjectsex(self, strmessage, inttype, blngroup, blnpreselect, blnselect, arrobjects):
+        """
 
-		Prompts the user to pick or select one or more objects.
+        Prompts the user to pick or select one or more objects.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		intType : Optional,   Number,   The type(s) of geometry objects (points, curves, surfaces, meshes, etc
-		blnGroup : Optional,   Boolean,   Honor object grouping
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
-		arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
+        strMessage : Optional,   String,   A prompt or message
+        intType : Optional,   Number,   The type(s) of geometry objects (points, curves, surfaces, meshes, etc
+        blnGroup : Optional,   Boolean,   Honor object grouping
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+        blnSelect : Optional,   Boolean,   Specifies whether or not the picked objects will remain selected when the function ends
+        arrObjects : Optional,   Array,   An array of strings identifying the objects that are allowed to be selected
 
-		Returns
+        Returns
 
-		Array : An array that contains arrays of selection information if successful. The array of selection information will contain the following:
-		Null : If not successful, or on error.
+        Array : An array that contains arrays of selection information if successful. The array of selection information will contain the following:
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectsEx', None, strMessage, intType, blnGroup, blnPreSelect, blnSelect, arrObjects)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectsEx', None, strMessage, intType, blnGroup, blnPreSelect, blnSelect, arrObjects)
 
-	def getpointcoordinates(self, strmessage, blnpreselect):
-		"""
+    def getpointcoordinates(self, strmessage, blnpreselect):
+        """
 
-		Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.
+        Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+        strMessage : Optional,   String,   A prompt or message
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
 
-		Returns
+        Returns
 
-		Array : An array of 3-D points, one for each selected point object, if successful.
-		Null : If not successful, or on error.
+        Array : An array of 3-D points, one for each selected point object, if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointCoordinates', None, strMessage, blnPreSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointCoordinates', None, strMessage, blnPreSelect)
 
-	def getsurfaceobject(self, strmessage, blnpreselect, blnselect):
-		"""
+    def getsurfaceobject(self, strmessage, blnpreselect, blnselect):
+        """
 
-		Prompts the user to pick, or select, a single surface object.
+        Prompts the user to pick, or select, a single surface object.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
-		blnSelect : Optional,   Boolean,   Select the picked objects
+        strMessage : Optional,   String,   A prompt or message
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of pre-selected objects
+        blnSelect : Optional,   Boolean,   Select the picked objects
 
-		Returns
+        Returns
 
-		Array : An array of selection information if successful. The array will contain the following information:
-		Null : If not successful, or on error.
+        Array : An array of selection information if successful. The array will contain the following information:
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetSurfaceObject', None, strMessage, blnPreSelect, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetSurfaceObject', None, strMessage, blnPreSelect, blnSelect)
 
-	def hiddenobjects(self, blnincludelights, blnincludegrips):
-		"""
+    def hiddenobjects(self, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+        Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
-		Parameters
+        Parameters
 
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'HiddenObjects', None, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'HiddenObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def invertselectedobjects(self, blnincludelights, blnincludegrips):
-		"""
+    def invertselectedobjects(self, blnincludelights, blnincludegrips):
+        """
 
-		Inverts the current object selection.  The identifiers of the newly selected objects are returned.
+        Inverts the current object selection.  The identifiers of the newly selected objects are returned.
 
-		Parameters
+        Parameters
 
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the newly selected objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the newly selected objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'InvertSelectedObjects', None, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'InvertSelectedObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def lastcreatedobjects(self, blnselect):
-		"""
+    def lastcreatedobjects(self, blnselect):
+        """
 
-		Returns the identifiers of the objects that were most recently created or changed by scripting a Rhino command using the Command function.  It is important to call this function immediately after calling the Command function as only the most recently created or changed object identifiers will be returned.
+        Returns the identifiers of the objects that were most recently created or changed by scripting a Rhino command using the Command function.  It is important to call this function immediately after calling the Command function as only the most recently created or changed object identifiers will be returned.
 
-		Parameters
+        Parameters
 
-		blnSelect : Optional,   Boolean,   Select the object
+        blnSelect : Optional,   Boolean,   Select the object
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the most recently created or changed objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the most recently created or changed objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LastCreatedObjects', None, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LastCreatedObjects', None, blnSelect)
 
-	def lastobject(self, blnselect, blnincludelights, blnincludegrips):
-		"""
+    def lastobject(self, blnselect, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
+        Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
 
-		Parameters
+        Parameters
 
-		blnSelect : Optional,   Boolean,   Select the object
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnSelect : Optional,   Boolean,   Select the object
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		String : The identifier of the object if successful.
-		Null : If not successful, or on error.
+        String : The identifier of the object if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LastObject', None, blnSelect, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LastObject', None, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def lockedobjects(self, blnincludelights, blnincludegrips):
-		"""
+    def lockedobjects(self, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifiers of all locked objects in the document.  Visible objects are visible and can be snapped to, but they cannot be selected.
+        Returns the identifiers of all locked objects in the document.  Visible objects are visible and can be snapped to, but they cannot be selected.
 
-		Parameters
+        Parameters
 
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LockedObjects', None, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LockedObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def nextobject(self, strobject, blnselect, blnincludelights, blnincludegrips):
-		"""
+    def nextobject(self, strobject, blnselect, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifier of the next object in the document.
+        Returns the identifier of the next object in the document.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object from which to get the next object
-		blnSelect : Optional,   Boolean,   Select the object
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        strObject : Required,   String,   The identifier of the object from which to get the next object
+        blnSelect : Optional,   Boolean,   Select the object
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		String : The identifier of the object if successful.
-		Null : If not successful, or on error.
+        String : The identifier of the object if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'NextObject', None, strObject, blnSelect, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'NextObject', None, strObject, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def normalobjects(self, blnincludelights, blnincludegrips):
-		"""
+    def normalobjects(self, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifiers of all normal objects in the document.  Normal objects are visible, can be snapped to, and are independent of selection state.
+        Returns the identifiers of all normal objects in the document.  Normal objects are visible, can be snapped to, and are independent of selection state.
 
-		Parameters
+        Parameters
 
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'NormalObjects', None, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'NormalObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def objectsbycolor(self, lngcolor, blnselect, blnincludelights):
-		"""
+    def objectsbycolor(self, lngcolor, blnselect, blnincludelights):
+        """
 
-		Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+        Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
-		Parameters
+        Parameters
 
-		lngColor : Required,   Number,   An RGB color value
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
+        lngColor : Required,   Number,   An RGB color value
+        blnSelect : Optional,   Boolean,   Select the objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByColor', None, lngColor, blnSelect, blnIncludeLights)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByColor', None, lngColor, blnSelect, blnIncludeLights)
 
-	def objectsbygroup(self, strgroup, blnselect):
-		"""
+    def objectsbygroup(self, strgroup, blnselect):
+        """
 
-		Returns the identifiers of all objects based on the objects' group name.
+        Returns the identifiers of all objects based on the objects' group name.
 
-		Parameters
+        Parameters
 
-		strGroup : Required,   String,   The name of a group of objects
-		blnSelect : Optional,   Boolean,   Select the objects
+        strGroup : Required,   String,   The name of a group of objects
+        blnSelect : Optional,   Boolean,   Select the objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByGroup', None, strGroup, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByGroup', None, strGroup, blnSelect)
 
-	def objectsbylayer(self, strlayer, blnselect):
-		"""
+    def objectsbylayer(self, strlayer, blnselect):
+        """
 
-		Returns the identifiers of all objects based on the objects' layer.
+        Returns the identifiers of all objects based on the objects' layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of a layer
-		blnSelect : Optional,   Boolean,   Select the objects
+        strLayer : Required,   String,   The name of a layer
+        blnSelect : Optional,   Boolean,   Select the objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByLayer', None, strLayer, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByLayer', None, strLayer, blnSelect)
 
-	def objectsbyname(self, strname, blnselect, blnincludelights):
-		"""
+    def objectsbyname(self, strname, blnselect, blnincludelights):
+        """
 
-		Returns the identifiers of all objects based on the objects' user-assigned name.
+        Returns the identifiers of all objects based on the objects' user-assigned name.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of an object or objects
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
+        strName : Required,   String,   The name of an object or objects
+        blnSelect : Optional,   Boolean,   Select the objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByName', None, strName, blnSelect, blnIncludeLights)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByName', None, strName, blnSelect, blnIncludeLights)
 
-	def objectsbytype(self, inttype, blnselect):
-		"""
+    def objectsbytype(self, inttype, blnselect):
+        """
 
-		Returns the identifiers of all objects based on the objects' geometry type.
+        Returns the identifiers of all objects based on the objects' geometry type.
 
-		Parameters
+        Parameters
 
-		intType : Required,   Number,   The type(s) of geometry objects (points, curves, surfaces, meshes, etc
-		blnSelect : Optional,   Boolean,   Select the objects
+        intType : Required,   Number,   The type(s) of geometry objects (points, curves, surfaces, meshes, etc
+        blnSelect : Optional,   Boolean,   Select the objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByType', None, intType, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByType', None, intType, blnSelect)
 
-	def objectsbyurl(self, strurl, blnselect, blnincludelights):
-		"""
+    def objectsbyurl(self, strurl, blnselect, blnincludelights):
+        """
 
-		Returns the identifiers of all objects based on the objects' user-assigned URL.
+        Returns the identifiers of all objects based on the objects' user-assigned URL.
 
-		Parameters
+        Parameters
 
-		strURL : Required,   String,   The URL of an object or objects
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
+        strURL : Required,   String,   The URL of an object or objects
+        blnSelect : Optional,   Boolean,   Select the objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByURL', None, strURL, blnSelect, blnIncludeLights)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByURL', None, strURL, blnSelect, blnIncludeLights)
 
-	def prevselectedobjects(self, blnselect):
-		"""
+    def prevselectedobjects(self, blnselect):
+        """
 
-		Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
+        Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
 
-		Parameters
+        Parameters
 
-		blnSelect : Optional,   Boolean,   Select the object
+        blnSelect : Optional,   Boolean,   Select the object
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the previously selected objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the previously selected objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'PrevSelectedObjects', None, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'PrevSelectedObjects', None, blnSelect)
 
-	def referenceobjects(self, blnincludelights, blnincludegrips):
-		"""
+    def referenceobjects(self, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
+        Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
 
-		Parameters
+        Parameters
 
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ReferenceObjects', None, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ReferenceObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def selectedobjects(self, blnincludelights, blnincludegrips):
-		"""
+    def selectedobjects(self, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifiers of all objects that are currently selected.
+        Returns the identifiers of all objects that are currently selected.
 
-		Parameters
+        Parameters
 
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectedObjects', None, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SelectedObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def unselectallobjects(self, ):
-		"""
+    def unselectallobjects(self, ):
+        """
 
-		Unselects all objects in the document.
+        Unselects all objects in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The number of objects that were unselected.
+        Number : The number of objects that were unselected.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectAllObjects', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectAllObjects', None, )
 
-	def unselectedobjects(self, blnselect, blnincludelights, blnincludegrips):
-		"""
+    def unselectedobjects(self, blnselect, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifiers of all objects that are currently unselected.
+        Returns the identifiers of all objects that are currently unselected.
 
-		Parameters
+        Parameters
 
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        blnSelect : Optional,   Boolean,   Select the objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectedObjects', None, blnSelect, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectedObjects', None, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def visibleobjects(self, strview, blnselect, blnincludelights, blnincludegrips):
-		"""
+    def visibleobjects(self, strview, blnselect, blnincludelights, blnincludegrips):
+        """
 
-		Returns the identifiers of all objects that are visible in a specified view.
+        Returns the identifiers of all objects that are visible in a specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title of the view
-		blnSelect : Optional,   Boolean,   Select the objects
-		blnIncludeLights : Optional,   Boolean,   Include light objects
-		blnIncludeGrips : Optional,   Boolean,   Include grips objects
+        strView : Optional,   String,   The title of the view
+        blnSelect : Optional,   Boolean,   Select the objects
+        blnIncludeLights : Optional,   Boolean,   Include light objects
+        blnIncludeGrips : Optional,   Boolean,   Include grips objects
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the objects if successful.
-		Null : If not successful, or on error.
+        Array : An array of strings identifying the objects if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'VisibleObjects', None, strView, blnSelect, blnIncludeLights, blnIncludeGrips)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'VisibleObjects', None, strView, blnSelect, blnIncludeLights, blnIncludeGrips)
 

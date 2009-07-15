@@ -8,310 +8,310 @@ class Group(DispatchBaseClass):
 
 
 
-	def addgroup(self, strgroup):
-		"""
+    def addgroup(self, strgroup):
+        """
 
-		Adds a new empty group to the document.
+        Adds a new empty group to the document.
 
-		Parameters
+        Parameters
 
-		strGroup : Optional,   String,   The name of the new group
+        strGroup : Optional,   String,   The name of the new group
 
-		Returns
+        Returns
 
-		String : The name of the new group if successful.
-		Null : If not successful, or on error.
+        String : The name of the new group if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddGroup', None, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddGroup', None, strGroup)
 
-	def addobjecttogroup(self, strobject, strgroup):
-		"""
+    def addobjecttogroup(self, strobject, strgroup):
+        """
 
-		Adds a single object to an existing group. Neither the object nor the group can be reference objects.
+        Adds a single object to an existing group. Neither the object nor the group can be reference objects.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object to add to the group
-		strGroup : Required,   String,   The name of an existing group
+        strObject : Required,   String,   The identifier of the object to add to the group
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure
-		Null : On error.
+        Boolean : True or False indicating success or failure
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectToGroup', None, strObject, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectToGroup', None, strObject, strGroup)
 
-	def addobjectstogroup(self, arrobjects, strgroup):
-		"""
+    def addobjectstogroup(self, arrobjects, strgroup):
+        """
 
-		Adds one or more objects to an existing group. Neither the objects nor the group can be reference objects.
+        Adds one or more objects to an existing group. Neither the objects nor the group can be reference objects.
 
-		Parameters
+        Parameters
 
-		arrObjects : Required,   Array,   An array of object identifiers
-		strGroup : Required,   String,   The name of an existing group
+        arrObjects : Required,   Array,   An array of object identifiers
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Number : The number of objects added to the group if successful.
-		Null : If not successful, or on error.
+        Number : The number of objects added to the group if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectsToGroup', None, arrObjects, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectsToGroup', None, arrObjects, strGroup)
 
-	def deletegroup(self, strgroup):
-		"""
+    def deletegroup(self, strgroup):
+        """
 
-		Removes an existing group from the document. Reference groups cannot be removed. Deleting a group does not delete the member objects.
+        Removes an existing group from the document. Reference groups cannot be removed. Deleting a group does not delete the member objects.
 
-		Parameters
+        Parameters
 
-		strGroup : Required,   String,   The name of an existing group
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteGroup', None, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteGroup', None, strGroup)
 
-	def groupcount(self, ):
-		"""
+    def groupcount(self, ):
+        """
 
-		Returns the number of groups in the document.
+        Returns the number of groups in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The number of groups if successful.
-		Null : If not successful, or on error.
+        Number : The number of groups if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GroupCount', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GroupCount', None, )
 
-	def groupnames(self, ):
-		"""
+    def groupnames(self, ):
+        """
 
-		Returns the name of all the groups in the document.
+        Returns the name of all the groups in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Array : An array of group names if successful.
-		Null : If not successful, or on error.
+        Array : An array of group names if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GroupNames', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GroupNames', None, )
 
-	def hidegroup(self, strgroup):
-		"""
+    def hidegroup(self, strgroup):
+        """
 
-		Hides a group of object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+        Hides a group of object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
-		Parameters
+        Parameters
 
-		strGroup : Required,   String,   The name of an existing group
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Number : The number of object that were hidden if successful.
-		Null : On error.
+        Number : The number of object that were hidden if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'HideGroup', None, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'HideGroup', None, strGroup)
 
-	def isgroup(self, strgroup):
-		"""
+    def isgroup(self, strgroup):
+        """
 
-		Verifies the existence of a group.
+        Verifies the existence of a group.
 
-		Parameters
+        Parameters
 
-		strGroup : Required,   String,   The name of an existing group
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsGroup', None, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsGroup', None, strGroup)
 
-	def isgroupempty(self, strgroup):
-		"""
+    def isgroupempty(self, strgroup):
+        """
 
-		Verifies that an existing group is empty, or contains no object members.
+        Verifies that an existing group is empty, or contains no object members.
 
-		Parameters
+        Parameters
 
-		strGroup : Required,   String,   The name of an existing group
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsGroupEmpty', None, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsGroupEmpty', None, strGroup)
 
-	def lockgroup(self, strgroup):
-		"""
+    def lockgroup(self, strgroup):
+        """
 
-		Locks a group of objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
+        Locks a group of objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
-		Parameters
+        Parameters
 
-		strGroup : Required,   String,   The name of an existing group
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Number : The number of object that were locked if successful.
-		Null : On error.
+        Number : The number of object that were locked if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LockGroup', None, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LockGroup', None, strGroup)
 
-	def removeobjectfromallgroups(self, strobject):
-		"""
+    def removeobjectfromallgroups(self, strobject):
+        """
 
-		Removes a single object from any and all groups that it is a member. Neither the object nor the group can be a reference object.
+        Removes a single object from any and all groups that it is a member. Neither the object nor the group can be a reference object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromAllGroups', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromAllGroups', None, strObject)
 
-	def removeobjectfromgroup(self, strobject, strgroup):
-		"""
+    def removeobjectfromgroup(self, strobject, strgroup):
+        """
 
-		Removes a single object from an existing group.
+        Removes a single object from an existing group.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
-		strGroup : Required,   String,   The name of an existing group
+        strObject : Required,   String,   The identifier of the object
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromGroup', None, strObject, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromGroup', None, strObject, strGroup)
 
-	def removeobjectfromtopgroup(self, strobject):
-		"""
+    def removeobjectfromtopgroup(self, strobject):
+        """
 
-		Removes a single object from it's top-most group.
+        Removes a single object from it's top-most group.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromTopGroup', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromTopGroup', None, strObject)
 
-	def removeobjectsfromgroup(self, arrobjects, strgroup):
-		"""
+    def removeobjectsfromgroup(self, arrobjects, strgroup):
+        """
 
-		Removes one or more objects from an existing group.
+        Removes one or more objects from an existing group.
 
-		Parameters
+        Parameters
 
-		arrObjects : Required,   Array,   An array of object identifiers
-		strGroup : Required,   String,   The name of an existing group
+        arrObjects : Required,   Array,   An array of object identifiers
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Number : The number of objects removed from the group if successful.
-		Null : If not successful, or on error.
+        Number : The number of objects removed from the group if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectsFromGroup', None, arrObjects, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectsFromGroup', None, arrObjects, strGroup)
 
-	def renamegroup(self, stroldgroup, strnewgroup):
-		"""
+    def renamegroup(self, stroldgroup, strnewgroup):
+        """
 
-		Renames an existing group.
+        Renames an existing group.
 
-		Parameters
+        Parameters
 
-		strOldGroup : Required,   String,   The name of an existing group
-		strNewGroup : Required,   String,   The new group name
+        strOldGroup : Required,   String,   The name of an existing group
+        strNewGroup : Required,   String,   The new group name
 
-		Returns
+        Returns
 
-		String : The new group name if successful.
-		Null : If not successful, or on error.
+        String : The new group name if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameGroup', None, strOldGroup, strNewGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenameGroup', None, strOldGroup, strNewGroup)
 
-	def showgroup(self, strgroup):
-		"""
+    def showgroup(self, strgroup):
+        """
 
-		Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+        Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
-		Parameters
+        Parameters
 
-		strGroup : Required,   String,   The name of an existing group
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Number : The number of object that were shown if successful.
-		Null : On error.
+        Number : The number of object that were shown if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGroup', None, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGroup', None, strGroup)
 
-	def unlockgroup(self, strgroup):
-		"""
+    def unlockgroup(self, strgroup):
+        """
 
-		Unlocks a group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
+        Unlocks a group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
-		Parameters
+        Parameters
 
-		strGroup : Required,   String,   The name of an existing group
+        strGroup : Required,   String,   The name of an existing group
 
-		Returns
+        Returns
 
-		Number : The number of object that were unlocked if successful.
-		Null : On error.
+        Number : The number of object that were unlocked if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnlockGroup', None, strGroup)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnlockGroup', None, strGroup)
 

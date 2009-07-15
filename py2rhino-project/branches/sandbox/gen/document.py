@@ -8,612 +8,612 @@ class Document(DispatchBaseClass):
 
 
 
-	def createpreviewimage(self, strfile, strview, arrsize, intflags, blnwireframe):
-		"""
+    def createpreviewimage(self, strfile, strview, arrsize, intflags, blnwireframe):
+        """
 
-		Creates a bitmap preview image of the current model.
+        Creates a bitmap preview image of the current model.
 
-		Parameters
+        Parameters
 
-		strFile : Required,  String,  The name of the bitmap file to create
-		strView : Optional,   String,   The title of the view
-		arrSize : Optional,   Array,   An array of two integers that specify the width and height of the bitmap in pixels
-		intFlags : Optional,   Integer,   The bitmap creation flags
-		blnWireframe : Optional,   Boolean,   If specified and True, then a wireframe preview image, instead of a rendered image, will be created
+        strFile : Required,  String,  The name of the bitmap file to create
+        strView : Optional,   String,   The title of the view
+        arrSize : Optional,   Array,   An array of two integers that specify the width and height of the bitmap in pixels
+        intFlags : Optional,   Integer,   The bitmap creation flags
+        blnWireframe : Optional,   Boolean,   If specified and True, then a wireframe preview image, instead of a rendered image, will be created
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
+        Boolean : True or False indicating success or failure.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'CreatePreviewImage', None, strFile, strView, arrSize, intFlags, blnWireframe)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CreatePreviewImage', None, strFile, strView, arrSize, intFlags, blnWireframe)
 
-	def documentmodified(self, blnmodified):
-		"""
+    def documentmodified(self, blnmodified):
+        """
 
-		Note, setting the document modified flag to false will prevent the "Do you want to save this file..." from displaying when you close Rhino.
+        Note, setting the document modified flag to false will prevent the "Do you want to save this file..." from displaying when you close Rhino.
 
-		Parameters
+        Parameters
 
-		blnModified : Optional,  Boolean,  The modified state, either True or False
+        blnModified : Optional,  Boolean,  The modified state, either True or False
 
-		Returns
+        Returns
 
-		Boolean : If no modified state is specified, the current modified state if successful.
-		Boolean : If a modified state is specified, the previous modified state if successful.
+        Boolean : If no modified state is specified, the current modified state if successful.
+        Boolean : If a modified state is specified, the previous modified state if successful.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentModified', None, blnModified)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentModified', None, blnModified)
 
-	def documentname(self, ):
-		"""
+    def documentname(self, ):
+        """
 
-		Returns the name of the currently loaded Rhino document (3DM file).
+        Returns the name of the currently loaded Rhino document (3DM file).
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		String : The current document name if successful.
-		Null : If not successful, or on error.
+        String : The current document name if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentName', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentName', None, )
 
-	def documentpath(self, ):
-		"""
+    def documentpath(self, ):
+        """
 
-		Returns the path of the currently loaded Rhino document (3DM file).
+        Returns the path of the currently loaded Rhino document (3DM file).
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		String : The current document path if successful.
-		Null : If not successful, or on error.
+        String : The current document path if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentPath', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentPath', None, )
 
-	def documenturl(self, strurl):
-		"""
+    def documenturl(self, strurl):
+        """
 
-		Returns or sets the uniform resource locator (URL) of the currently loaded Rhino document (3DM file).
+        Returns or sets the uniform resource locator (URL) of the currently loaded Rhino document (3DM file).
 
-		Parameters
+        Parameters
 
-		strURL : Optional,   String,   The URL
+        strURL : Optional,   String,   The URL
 
-		Returns
+        Returns
 
-		String : If no URL is specified, the current URL if successful.
-		String : If a URL is specified, the previous URL if successful.
-		Null : If not successful, or on error.
+        String : If no URL is specified, the current URL if successful.
+        String : If a URL is specified, the previous URL if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentURL', None, strURL)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentURL', None, strURL)
 
-	def enableredraw(self, blnselect):
-		"""
+    def enableredraw(self, blnselect):
+        """
 
-		Enables or disables screen redrawing.
+        Enables or disables screen redrawing.
 
-		Parameters
+        Parameters
 
-		blnSelect : Optional,  Boolean,  The screen redrawing state
+        blnSelect : Optional,  Boolean,  The screen redrawing state
 
-		Returns
+        Returns
 
-		Boolean : The previous screen redrawing state.
+        Boolean : The previous screen redrawing state.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'EnableRedraw', None, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'EnableRedraw', None, blnSelect)
 
-	def extractpreviewimage(self, strfilename, strmodelname):
-		"""
+    def extractpreviewimage(self, strfilename, strmodelname):
+        """
 
-		Extracts the bitmap preview image from the specified model (.3dm).
+        Extracts the bitmap preview image from the specified model (.3dm).
 
-		Parameters
+        Parameters
 
-		strFileName : Required,   String,   The name of the bitmap file to create
-		strModelName : Optional,   String,   The model (
+        strFileName : Required,   String,   The name of the bitmap file to create
+        strModelName : Optional,   String,   The model (
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
+        Boolean : True or False indicating success or failure.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ExtractPreviewImage', None, strFileName, strModelName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ExtractPreviewImage', None, strFileName, strModelName)
 
-	def isdocumentmodified(self, ):
-		"""
+    def isdocumentmodified(self, ):
+        """
 
-		Verifies that the current document has been modified in some way.
+        Verifies that the current document has been modified in some way.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating either modified or not modified.
+        Boolean : True or False indicating either modified or not modified.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDocumentModified', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsDocumentModified', None, )
 
-	def notes(self, strnotes):
-		"""
+    def notes(self, strnotes):
+        """
 
-		Returns or sets the document's notes.  Notes are generally created by using Rhino's Notes command.
+        Returns or sets the document's notes.  Notes are generally created by using Rhino's Notes command.
 
-		Parameters
+        Parameters
 
-		strNotes : Optional,   String,   The notes
+        strNotes : Optional,   String,   The notes
 
-		Returns
+        Returns
 
-		String : If strNotes is not specified, the current notes if successful.
-		String : If strNotes is specified, the previous notes if successful.
-		Null : If not successful, or on error.
+        String : If strNotes is not specified, the current notes if successful.
+        String : If strNotes is specified, the previous notes if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Notes', None, strNotes)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Notes', None, strNotes)
 
-	def readfileversion(self, ):
-		"""
+    def readfileversion(self, ):
+        """
 
-		Returns the file version of the current document.  Use this function to determine which version of Rhino last saved the document. Note, this function will not return values from referenced or merged files.
+        Returns the file version of the current document.  Use this function to determine which version of Rhino last saved the document. Note, this function will not return values from referenced or merged files.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The file version of the document if successful.  Note, values less than zero indicate that the current document has not been read (from disk).
-		Null : If not successful, or on error.
+        Number : The file version of the document if successful.  Note, values less than zero indicate that the current document has not been read (from disk).
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ReadFileVersion', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ReadFileVersion', None, )
 
-	def redraw(self, ):
-		"""
+    def redraw(self, ):
+        """
 
-		Redraws all views.
+        Redraws all views.
 
-		No parameters
+        No parameters
 
-		No returns
+        No returns
 
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Redraw', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Redraw', None, )
 
-	def renderantialias(self, intstyle):
-		"""
+    def renderantialias(self, intstyle):
+        """
 
-		pixel.  Increasing the antialiasing level can add considerable time to the overall rendering.  See Rhino's DocumentProperties command (Rhino Render window) for details.
+        pixel.  Increasing the antialiasing level can add considerable time to the overall rendering.  See Rhino's DocumentProperties command (Rhino Render window) for details.
 
-		Parameters
+        Parameters
 
-		intStyle : Optional,   Number,   The render antialiasing style
+        intStyle : Optional,   Number,   The render antialiasing style
 
-		Returns
+        Returns
 
-		Number : If intStyle is not specified, the current render antialiasing style if successful.
-		Number : If intStyle  is not specified, the previous render antialiasing style if successful.
-		Number : Is not successful, or on error.
+        Number : If intStyle is not specified, the current render antialiasing style if successful.
+        Number : If intStyle  is not specified, the previous render antialiasing style if successful.
+        Number : Is not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderAntialias', None, intStyle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderAntialias', None, intStyle)
 
-	def rendercolor(self, intitem, lngcolor):
-		"""
+    def rendercolor(self, intitem, lngcolor):
+        """
 
-		Returns or sets the render ambient light or background color. Render colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed. See Rhino's DocumentProperties command (Rhino Render window) for details.
+        Returns or sets the render ambient light or background color. Render colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed. See Rhino's DocumentProperties command (Rhino Render window) for details.
 
-		Parameters
+        Parameters
 
-		intItem : Required,  Number,  The item you wish to either query or change
-		lngColor : Optional,  Number,  The new color value
+        intItem : Required,  Number,  The item you wish to either query or change
+        lngColor : Optional,  Number,  The new color value
 
-		Returns
+        Returns
 
-		Number : If lngColor is not specified, the current intItem color if successful.
-		Number : If lngColor is specified, the previous intItem color if successful.
-		Null : If not successful, or on error.
+        Number : If lngColor is not specified, the current intItem color if successful.
+        Number : If lngColor is specified, the previous intItem color if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderColor', None, intItem, lngColor)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderColor', None, intItem, lngColor)
 
-	def rendermeshdensity(self, dbldensity):
-		"""
+    def rendermeshdensity(self, dbldensity):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		dblDensity : Optional,   Number,   The render mesh density, which is a number between 0
+        dblDensity : Optional,   Number,   The render mesh density, which is a number between 0
 
-		Returns
+        Returns
 
-		Number : If dblDensity is not specified, the current render mesh density if successful.
-		Number : If dblDensity is specified, the previous render mesh density if successful.
-		Null : If not successful, or on error.
+        Number : If dblDensity is not specified, the current render mesh density if successful.
+        Number : If dblDensity is specified, the previous render mesh density if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshDensity', None, dblDensity)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshDensity', None, dblDensity)
 
-	def rendermeshmaxangle(self, dblangle):
-		"""
+    def rendermeshmaxangle(self, dblangle):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		dblAngle : Optional,   Number,   The render mesh maximum angle in degrees
+        dblAngle : Optional,   Number,   The render mesh maximum angle in degrees
 
-		Returns
+        Returns
 
-		Number : If dblAngle is not specified, the current render maximum angle if successful.
-		Number : If dblAngle is specified, the previous render mesh maximum angle if successful.
-		Null : If not successful, or on error.
+        Number : If dblAngle is not specified, the current render maximum angle if successful.
+        Number : If dblAngle is specified, the previous render mesh maximum angle if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxAngle', None, dblAngle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxAngle', None, dblAngle)
 
-	def rendermeshmaxaspectratio(self, dblratio):
-		"""
+    def rendermeshmaxaspectratio(self, dblratio):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		dblRatio : Optional,   Number,   The render mesh maximum aspect ratio
+        dblRatio : Optional,   Number,   The render mesh maximum aspect ratio
 
-		Returns
+        Returns
 
-		Number : If dblRatio is not specified, the current render mesh maximum aspect ratio if successful.
-		Number : If dblRatio is specified, the previous render mesh maximum aspect ratio if successful.
-		Null : If not successful, or on error.
+        Number : If dblRatio is not specified, the current render mesh maximum aspect ratio if successful.
+        Number : If dblRatio is specified, the previous render mesh maximum aspect ratio if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxAspectRatio', None, dblRatio)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxAspectRatio', None, dblRatio)
 
-	def rendermeshmaxdistedgetosrf(self, dbldistance):
-		"""
+    def rendermeshmaxdistedgetosrf(self, dbldistance):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		dblDistance : Optional,   Number,   The render mesh maximum distance, edge to surface
+        dblDistance : Optional,   Number,   The render mesh maximum distance, edge to surface
 
-		Returns
+        Returns
 
-		Number : If dblDistance is not specified, the current render mesh maximum distance, edge to surface if successful.
-		Number : If dblDistance is specified, the previous render mesh maximum distance, edge to surface if successful.
-		Null : If not successful, or on error.
+        Number : If dblDistance is not specified, the current render mesh maximum distance, edge to surface if successful.
+        Number : If dblDistance is specified, the previous render mesh maximum distance, edge to surface if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxDistEdgeToSrf', None, dblDistance)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxDistEdgeToSrf', None, dblDistance)
 
-	def rendermeshmaxedgelength(self, dbllength):
-		"""
+    def rendermeshmaxedgelength(self, dbllength):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		dblLength : Optional,   Number,   The render mesh maximum edge length
+        dblLength : Optional,   Number,   The render mesh maximum edge length
 
-		Returns
+        Returns
 
-		Number : If dblLength is not specified, the current render mesh maximum edge length if successful.
-		Number : If dblLength is specified, the previous render mesh maximum edge length if successful.
-		Null : If not successful, or on error.
+        Number : If dblLength is not specified, the current render mesh maximum edge length if successful.
+        Number : If dblLength is specified, the previous render mesh maximum edge length if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxEdgeLength', None, dblLength)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxEdgeLength', None, dblLength)
 
-	def rendermeshminedgelength(self, dbllength):
-		"""
+    def rendermeshminedgelength(self, dbllength):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		dblLength : Optional,   Number,   The render mesh minimum edge length
+        dblLength : Optional,   Number,   The render mesh minimum edge length
 
-		Returns
+        Returns
 
-		Number : If dblLength is not specified, the current render mesh minimum edge length if successful.
-		Number : If dblLength is specified, the previous render mesh minimum edge length if successful.
-		Null : If not successful, or on error.
+        Number : If dblLength is not specified, the current render mesh minimum edge length if successful.
+        Number : If dblLength is specified, the previous render mesh minimum edge length if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMinEdgeLength', None, dblLength)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMinEdgeLength', None, dblLength)
 
-	def rendermeshmininitialgridquads(self, intquads):
-		"""
+    def rendermeshmininitialgridquads(self, intquads):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		intQuads : Optional,   Number,   The render mesh minimum initial grid quads
+        intQuads : Optional,   Number,   The render mesh minimum initial grid quads
 
-		Returns
+        Returns
 
-		Number : If intQuads is not specified, the current render mesh minimum initial grid quads if successful.
-		Number : If intQuads is specified, the previous render mesh minimum initial grid quads if successful.
-		Null : If not successful, or on error.
+        Number : If intQuads is not specified, the current render mesh minimum initial grid quads if successful.
+        Number : If intQuads is specified, the previous render mesh minimum initial grid quads if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMinInitialGridQuads', None, intQuads)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMinInitialGridQuads', None, intQuads)
 
-	def rendermeshquality(self, intquality):
-		"""
+    def rendermeshquality(self, intquality):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		intQuality : Optional,   Number,   The render mesh quality, either:
+        intQuality : Optional,   Number,   The render mesh quality, either:
 
-		Returns
+        Returns
 
-		Number : If intQuality is not specified, the current render mesh quality if successful.
-		Number : If intQuality is specified, the previous render mesh quality if successful.
-		Null : If not successful, or on error.
+        Number : If intQuality is not specified, the current render mesh quality if successful.
+        Number : If intQuality is specified, the previous render mesh quality if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshQuality', None, intQuality)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshQuality', None, intQuality)
 
-	def rendermeshsettings(self, intsettings):
-		"""
+    def rendermeshsettings(self, intsettings):
+        """
 
-		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+        For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
-		Parameters
+        Parameters
 
-		intSettings : Optional,   Number,   The render mesh settings, which is a bit-coded number that allows or disallows certain features
+        intSettings : Optional,   Number,   The render mesh settings, which is a bit-coded number that allows or disallows certain features
 
-		Returns
+        Returns
 
-		Number : If intSettings is not specified, the current render mesh settings if successful.
-		Number : If intSettings is specified, the previous render mesh settings if successful.
-		Null : If not successful, or on error.
+        Number : If intSettings is not specified, the current render mesh settings if successful.
+        Number : If intSettings is specified, the previous render mesh settings if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshSettings', None, intSettings)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshSettings', None, intSettings)
 
-	def renderresolution(self, arrresolution):
-		"""
+    def renderresolution(self, arrresolution):
+        """
 
-		Returns or sets the render resolution. Resolution is measured in pixels. See Rhino's DocumentProperties command (Rhino Render window) for details. Note, if the render resolution is set to "viewport", then the size of the active viewt is returned.
+        Returns or sets the render resolution. Resolution is measured in pixels. See Rhino's DocumentProperties command (Rhino Render window) for details. Note, if the render resolution is set to "viewport", then the size of the active viewt is returned.
 
-		Parameters
+        Parameters
 
-		arrResolution : Required,  Array,   An array containing two numbers identifying the resolution width and height in pixels
+        arrResolution : Required,  Array,   An array containing two numbers identifying the resolution width and height in pixels
 
-		Returns
+        Returns
 
-		Array : If arrResolution is not specified, an array containing two numbers identifying the current resolution width and height in pixels if successful.
-		Array : If arrResolution is specified, an array containing two numbers identifying the previous resolution width and height in pixels if successful.
-		Null : If not successful, or on error.
+        Array : If arrResolution is not specified, an array containing two numbers identifying the current resolution width and height in pixels if successful.
+        Array : If arrResolution is specified, an array containing two numbers identifying the previous resolution width and height in pixels if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderResolution', None, arrResolution)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderResolution', None, arrResolution)
 
-	def rendersettings(self, intsettings):
-		"""
+    def rendersettings(self, intsettings):
+        """
 
-		Returns or sets render settings.  See Rhino's DocumentProperties command (Rhino Render window) for details.
+        Returns or sets render settings.  See Rhino's DocumentProperties command (Rhino Render window) for details.
 
-		Parameters
+        Parameters
 
-		intSettings : Optional,   Number,   The render setting or settings to modify
+        intSettings : Optional,   Number,   The render setting or settings to modify
 
-		Returns
+        Returns
 
-		Number : If intSettings is not specified, the current render settings if successful.
-		Number : If intSettings is not specified, the previous render settings if successful.
-		Number : Is not successful, or on error.
+        Number : If intSettings is not specified, the current render settings if successful.
+        Number : If intSettings is not specified, the previous render settings if successful.
+        Number : Is not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderSettings', None, intSettings)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenderSettings', None, intSettings)
 
-	def unitabsolutetolerance(self, dblabstol):
-		"""
+    def unitabsolutetolerance(self, dblabstol):
+        """
 
-		Returns or sets the document's absolute tolerance parameter.  Absolute tolerance is measured in drawing units. See Rhino's DocumentProperties command (Units window) for details.
+        Returns or sets the document's absolute tolerance parameter.  Absolute tolerance is measured in drawing units. See Rhino's DocumentProperties command (Units window) for details.
 
-		Parameters
+        Parameters
 
-		dblAbsTol : Optional,   Number,   The absolute tolerance in drawing units
+        dblAbsTol : Optional,   Number,   The absolute tolerance in drawing units
 
-		Returns
+        Returns
 
-		Number : If dblAbsTol is not specified, the current absolute tolerance if successful.
-		Number : If dblAbsTol is specified, the previous absolute tolerance if successful.
-		Null : If not successful, or on error.
+        Number : If dblAbsTol is not specified, the current absolute tolerance if successful.
+        Number : If dblAbsTol is specified, the previous absolute tolerance if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitAbsoluteTolerance', None, dblAbsTol)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitAbsoluteTolerance', None, dblAbsTol)
 
-	def unitangletolerance(self, dblangletol):
-		"""
+    def unitangletolerance(self, dblangletol):
+        """
 
-		Returns or sets the document's angle tolerance parameter.  Angle tolerance is measured degrees.  See Rhino's DocumentProperties command (Units window) for details.
+        Returns or sets the document's angle tolerance parameter.  Angle tolerance is measured degrees.  See Rhino's DocumentProperties command (Units window) for details.
 
-		Parameters
+        Parameters
 
-		dblAngleTol : Optional,   Number,   The angle tolerance in degrees
+        dblAngleTol : Optional,   Number,   The angle tolerance in degrees
 
-		Returns
+        Returns
 
-		Number : If dblAngleTol is not specified, the current angle tolerance if successful.
-		Number : If dblAngleTol is specified, the previous angle tolerance if successful.
-		Null : If not successful, or on error.
+        Number : If dblAngleTol is not specified, the current angle tolerance if successful.
+        Number : If dblAngleTol is specified, the previous angle tolerance if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitAngleTolerance', None, dblAngleTol)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitAngleTolerance', None, dblAngleTol)
 
-	def unitcustomunitsystem(self, dblunits, blnscale, strname):
-		"""
+    def unitcustomunitsystem(self, dblunits, blnscale, strname):
+        """
 
-		Sets the document's units system to a user-defined system.  This overrides the units system set using the UnitSystem method.  See Rhino's DocumentProperties command (Units window) for details.
+        Sets the document's units system to a user-defined system.  This overrides the units system set using the UnitSystem method.  See Rhino's DocumentProperties command (Units window) for details.
 
-		Parameters
+        Parameters
 
-		dblUnits : Required,   Number,   The number of units per meter
-		blnScale : Optional,   Boolean,   Scale existing geometry based on the new unit system
-		strName : Optional,   String,   The name of the new unit system
+        dblUnits : Required,   Number,   The number of units per meter
+        blnScale : Optional,   Boolean,   Scale existing geometry based on the new unit system
+        strName : Optional,   String,   The name of the new unit system
 
-		Returns
+        Returns
 
-		Number : The previous units system if successful.  See UnitSystem for details.
-		Null : If not successful, or on error.
+        Number : The previous units system if successful.  See UnitSystem for details.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitCustomUnitSystem', None, dblUnits, blnScale, strName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitCustomUnitSystem', None, dblUnits, blnScale, strName)
 
-	def unitdistancedisplaymode(self, intmode):
-		"""
+    def unitdistancedisplaymode(self, intmode):
+        """
 
-		Returns or sets the document's distance display mode parameter.  See Rhino's DocumentProperties command (Units window) for details.
+        Returns or sets the document's distance display mode parameter.  See Rhino's DocumentProperties command (Units window) for details.
 
-		Parameters
+        Parameters
 
-		intMode : Optional,   Number,   The distance display mode
+        intMode : Optional,   Number,   The distance display mode
 
-		Returns
+        Returns
 
-		Number : If intMode is not specified, the current distance display mode if successful.
-		Number : If intMode is specified, the previous distance display mode if successful.
-		Null : If not successful, or on error.
+        Number : If intMode is not specified, the current distance display mode if successful.
+        Number : If intMode is specified, the previous distance display mode if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitDistanceDisplayMode', None, intMode)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitDistanceDisplayMode', None, intMode)
 
-	def unitdistancedisplayprecision(self, intprecision):
-		"""
+    def unitdistancedisplayprecision(self, intprecision):
+        """
 
-		Returns or sets the document's distance display precision parameter.  See Rhino's DocumentProperties command (Units window) for details.
+        Returns or sets the document's distance display precision parameter.  See Rhino's DocumentProperties command (Units window) for details.
 
-		Parameters
+        Parameters
 
-		intPrecision : Optional,   Number,   The distance display precision
+        intPrecision : Optional,   Number,   The distance display precision
 
-		Returns
+        Returns
 
-		Number : If intPrecision is not specified, the current distance display precision if successful.
-		Number : If intPrecision is specified, the previous distance display precision if successful.
-		Null : If not successful, or on error.
+        Number : If intPrecision is not specified, the current distance display precision if successful.
+        Number : If intPrecision is specified, the previous distance display precision if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitDistanceDisplayPrecision', None, intPrecision)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitDistanceDisplayPrecision', None, intPrecision)
 
-	def unitrelativetolerance(self, dblreltol):
-		"""
+    def unitrelativetolerance(self, dblreltol):
+        """
 
-		Returns or sets the document's relative tolerance parameter.  Relative tolerance is measured in percent. See Rhino's DocumentProperties command (Units window) for details.
+        Returns or sets the document's relative tolerance parameter.  Relative tolerance is measured in percent. See Rhino's DocumentProperties command (Units window) for details.
 
-		Parameters
+        Parameters
 
-		dblRelTol : Optional,   Number,   The relative tolerance in percent
+        dblRelTol : Optional,   Number,   The relative tolerance in percent
 
-		Returns
+        Returns
 
-		Number : If dblRelTol is not specified, the current relative tolerance if successful.
-		Number : If dblRelTol is specified, the previous relative tolerance if successful.
-		Null : If not successful, or on error.
+        Number : If dblRelTol is not specified, the current relative tolerance if successful.
+        Number : If dblRelTol is specified, the previous relative tolerance if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitRelativeTolerance', None, dblRelTol)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitRelativeTolerance', None, dblRelTol)
 
-	def unitscale(self, inttosystem, intfromsystem):
-		"""
+    def unitscale(self, inttosystem, intfromsystem):
+        """
 
-		Returns the scale factor for changing between unit systems.
+        Returns the scale factor for changing between unit systems.
 
-		Parameters
+        Parameters
 
-		intToSystem : Required,   Number,   The units system to convert to
-		intFromSystem : Optional,   Number,   The units system to convert from (see above)
+        intToSystem : Required,   Number,   The units system to convert to
+        intFromSystem : Optional,   Number,   The units system to convert from (see above)
 
-		Returns
+        Returns
 
-		Number : The scale factor for changing between unit systems if successful.
-		Null : If not successful, or on error.
+        Number : The scale factor for changing between unit systems if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitScale', None, intToSystem, intFromSystem)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitScale', None, intToSystem, intFromSystem)
 
-	def unitsystem(self, intsystem, blnscale):
-		"""
+    def unitsystem(self, intsystem, blnscale):
+        """
 
-		Returns or sets the document's units system.  See Rhino's DocumentProperties command (Units window) for details.
+        Returns or sets the document's units system.  See Rhino's DocumentProperties command (Units window) for details.
 
-		Parameters
+        Parameters
 
-		intSystem : Optional,   Number,   The units system
-		blnScale : Optional,   Boolean,   Scale existing geometry based on the new unit system
+        intSystem : Optional,   Number,   The units system
+        blnScale : Optional,   Boolean,   Scale existing geometry based on the new unit system
 
-		Returns
+        Returns
 
-		Number : The previous units system if successful.
-		Null : If not successful, or on error.
+        Number : The previous units system if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitSystem', None, intSystem, blnScale)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitSystem', None, intSystem, blnScale)
 
-	def unitsystemname(self, blncapitalize, blnsingular, blnabbreviate):
-		"""
+    def unitsystemname(self, blncapitalize, blnsingular, blnabbreviate):
+        """
 
-		Returns the name of the current unit system.
+        Returns the name of the current unit system.
 
-		Parameters
+        Parameters
 
-		blnCapitalize : Optional,   Boolean,   Capitalize the first character of the units system name (e
-		blnSingular : Optional,   Boolean,  Return the singular form of the units system name (e
-		blnAbbreviate : Optional,   Boolean,   Abbreviate the name of the units system (e
+        blnCapitalize : Optional,   Boolean,   Capitalize the first character of the units system name (e
+        blnSingular : Optional,   Boolean,  Return the singular form of the units system name (e
+        blnAbbreviate : Optional,   Boolean,   Abbreviate the name of the units system (e
 
-		Returns
+        Returns
 
-		String : The name of the current units system if successful.
+        String : The name of the current units system if successful.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitSystemName', None, blnCapitalize, blnSingular, blnAbbreviate)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnitSystemName', None, blnCapitalize, blnSingular, blnAbbreviate)
 

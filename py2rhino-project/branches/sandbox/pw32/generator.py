@@ -1,6 +1,8 @@
 import linecache
 import os
 import string
+import mappings
+from ct import methods 
 
 def parse_docs():
     data = {}
@@ -58,7 +60,7 @@ def parse_docs():
                 content_syntax = contents[line_num_syntax + 1]
                 
                 #now get the parameters
-                content_params = []                
+                content_params = {}                
                 if (line_num_returns - line_num_params) > 2:
                     for line_num in range(line_num_params+1, line_num_returns):
                         param_parts = contents[line_num].split(".")
@@ -67,7 +69,7 @@ def parse_docs():
                             param_req = param_parts[0]
                             param_type = param_parts[1]
                             param_text = param_parts[2]
-                            content_params.append([param_name, param_req, param_type, param_text])
+                            content_params[param_name] = (param_req, param_type, param_text)
                 
                 #now get the returns
                 content_returns = []
@@ -175,7 +177,7 @@ def w(f, text, tabs = 0, nls=0, nle=1):
     if not isinstance(text, list):
         text = [text]
     if tabs != 0:
-        tab_str = ["\t" * tabs]
+        tab_str = ["    " * tabs]
         text = tab_str + text
     if nls != 0:
         nls_str = ["\n" * nls]
@@ -184,7 +186,39 @@ def w(f, text, tabs = 0, nls=0, nle=1):
         nle_str = ["\n" * nle]
         text = text + nle_str
     f.writelines(text)
+    
+    
+def compare_with_mappings(folder_data):
+    for folder_name in folder_data.keys():
+        for file_name in folder_data[folder_name]:
+            method_data = methods.get_method_by_name(file_name)
+            if not method_data:
+                print "--------------------------------------------"
+                print file_name + "not found in com_methods"
+                print "--------------------------------------------"
+            else:
+                num_com_params = len(method_data['params'].keys())
+                num_doc_params = len(folder_data[folder_name][file_name]['params'])            
+                if ( num_doc_params != num_com_params ):
+                    print "============================================"
+                    print "MISMATCH IN PARAMETERS"
+                    print file_name + " in " + folder_name
+                    print "params from docs :" 
+                    for i in folder_data[folder_name][file_name]['params'].keys():
+                        print "\t", i, "\t", folder_data[folder_name][file_name]['params'][i]
+                    print "params from com : "
+                    for i in method_data['params'].keys():
+                        print "\t", i, "\t", method_data['params'][i]
+                    print "============================================"
             
+
+
 data = parse_docs()
-pretty_print_data(data) 
-write_classes(data)
+compare_with_mappings(data)
+
+#pretty_print_data(data) 
+#write_classes(data)
+
+#
+#print methods.get_method_by_id(20)
+#print methods.get_method_by_name("GetRectangle")

@@ -8,294 +8,294 @@ class Material(DispatchBaseClass):
 
 
 
-	def addmaterialtolayer(self, strobject):
-		"""
+    def addmaterialtolayer(self, strobject):
+        """
 
-		Adds a material to a layer and returns the new material's index.  If the layer already has a material, then the layer's current material index is returned.
+        Adds a material to a layer and returns the new material's index.  If the layer already has a material, then the layer's current material index is returned.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The name of an existing layer
+        strObject : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Number : The zero-based material index of the layer if successful.
-		Null : If not successful, or on error.
+        Number : The zero-based material index of the layer if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddMaterialToLayer', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddMaterialToLayer', None, strObject)
 
-	def addmaterialtoobject(self, strobject):
-		"""
+    def addmaterialtoobject(self, strobject):
+        """
 
-		Adds a material to an object and returns the new material's index.  Note, adding a material to an object modifies the object's material source from "By Layer" to "By Object."  See ObjectMaterialSource for details.  If the object already has a material, then the object's current material index is returned.
+        Adds a material to an object and returns the new material's index.  Note, adding a material to an object modifies the object's material source from "By Layer" to "By Object."  See ObjectMaterialSource for details.  If the object already has a material, then the object's current material index is returned.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Number : The zero-based material index of the object if successful.
-		Null : If not successful, or on error.
+        Number : The zero-based material index of the object if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddMaterialToObject', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddMaterialToObject', None, strObject)
 
-	def copymaterial(self, intsrcindex, intdstindex):
-		"""
+    def copymaterial(self, intsrcindex, intdstindex):
+        """
 
-		Copies the definition of a source material to a destination material.
+        Copies the definition of a source material to a destination material.
 
-		Parameters
+        Parameters
 
-		intSrcIndex : Required,   Number,   The index of the source material
-		intDstIndex : Required,   Number,   The index of the destination material
+        intSrcIndex : Required,   Number,   The index of the source material
+        intDstIndex : Required,   Number,   The index of the destination material
 
-		Returns
+        Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+        Boolean : True or false indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'CopyMaterial', None, intSrcIndex, intDstIndex)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CopyMaterial', None, intSrcIndex, intDstIndex)
 
-	def ismaterialdefault(self, intmaterialindex):
-		"""
+    def ismaterialdefault(self, intmaterialindex):
+        """
 
-		Verifies that a material is a copy of Rhino's built-in "default" material.  The default material is used by objects and layers that have not been assigned a material.
+        Verifies that a material is a copy of Rhino's built-in "default" material.  The default material is used by objects and layers that have not been assigned a material.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based material index
+        intMaterialIndex : Required,   Number,   The zero-based material index
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsMaterialDefault', None, intMaterialIndex)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsMaterialDefault', None, intMaterialIndex)
 
-	def ismaterialreference(self, intmaterialindex):
-		"""
+    def ismaterialreference(self, intmaterialindex):
+        """
 
-		Verifies a material is referenced from another file.
+        Verifies a material is referenced from another file.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based material index
+        intMaterialIndex : Required,   Number,   The zero-based material index
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsMaterialReference', None, intMaterialIndex)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsMaterialReference', None, intMaterialIndex)
 
-	def matchmaterial(self, intsrcmaterialindex, strsrcobject, strdestobject, arrdestobjects):
-		"""
+    def matchmaterial(self, intsrcmaterialindex, strsrcobject, strdestobject, arrdestobjects):
+        """
 
-		Copies the material definition from one material to one or more objects.
+        Copies the material definition from one material to one or more objects.
 
-		Parameters
+        Parameters
 
-		intSrcMaterialIndex : Required,   Number,   The zero-based source material index
-		strSrcObject : Required,   String,   The identifier of the source object
-		strDestObject : Required,   String,   The identifier of the destination object
-		arrDestObjects : Required,   Array,   An array of destination object identifiers
+        intSrcMaterialIndex : Required,   Number,   The zero-based source material index
+        strSrcObject : Required,   String,   The identifier of the source object
+        strDestObject : Required,   String,   The identifier of the destination object
+        arrDestObjects : Required,   Array,   An array of destination object identifiers
 
-		Returns
+        Returns
 
-		Number : The number of object that were modified if successful.
-		Null : It not successful, or on error.
+        Number : The number of object that were modified if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MatchMaterial', None, intSrcMaterialIndex, strSrcObject, strDestObject, arrDestObjects)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MatchMaterial', None, intSrcMaterialIndex, strSrcObject, strDestObject, arrDestObjects)
 
-	def materialbump(self, intmaterialindex, strfilename):
-		"""
+    def materialbump(self, intmaterialindex, strfilename):
+        """
 
-		Returns or modifies a material's bump bitmap filename.
+        Returns or modifies a material's bump bitmap filename.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strFileName : Optional,   String,   The bump bitmap filename
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        strFileName : Optional,   String,   The bump bitmap filename
 
-		Returns
+        Returns
 
-		String : If strFileName is not specified, the current bump bitmap filename if successful.
-		String : If strFileName is specified, the previous bump bitmap filename if successful.
-		Null : It not successful, or on error.
+        String : If strFileName is not specified, the current bump bitmap filename if successful.
+        String : If strFileName is specified, the previous bump bitmap filename if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialBump', None, intMaterialIndex, strFileName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialBump', None, intMaterialIndex, strFileName)
 
-	def materialcolor(self, intmaterialindex, lngcolor):
-		"""
+    def materialcolor(self, intmaterialindex, lngcolor):
+        """
 
-		Returns or modifies a material's diffuse color.  Material colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+        Returns or modifies a material's diffuse color.  Material colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		lngColor : Optional,   Number,   The new color value
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        lngColor : Optional,   Number,   The new color value
 
-		Returns
+        Returns
 
-		Number : If lngColor is not specified, the current material color if successful.
-		Number : If lngColor is specified, the previous material color if successful.
-		Null : It not successful, or on error.
+        Number : If lngColor is not specified, the current material color if successful.
+        Number : If lngColor is specified, the previous material color if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialColor', None, intMaterialIndex, lngColor)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialColor', None, intMaterialIndex, lngColor)
 
-	def materialenvironmentmap(self, intmaterialindex, strfilename):
-		"""
+    def materialenvironmentmap(self, intmaterialindex, strfilename):
+        """
 
-		Returns or modifies a material's environment bitmap filename.
+        Returns or modifies a material's environment bitmap filename.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strFileName : Optional,   String,   The environment bitmap filename
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        strFileName : Optional,   String,   The environment bitmap filename
 
-		Returns
+        Returns
 
-		String : If strFileName is not specified, the current environment bitmap filename if successful.
-		String : If strFileName is specified, the previous environment bitmap filename if successful.
-		Null : It not successful, or on error.
+        String : If strFileName is not specified, the current environment bitmap filename if successful.
+        String : If strFileName is specified, the previous environment bitmap filename if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialEnvironmentMap', None, intMaterialIndex, strFileName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialEnvironmentMap', None, intMaterialIndex, strFileName)
 
-	def materialname(self, intmaterialindex, strname):
-		"""
+    def materialname(self, intmaterialindex, strname):
+        """
 
-		Returns or modifies a material's user-definable name.
+        Returns or modifies a material's user-definable name.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strName : Optional,   String,   The new name
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        strName : Optional,   String,   The new name
 
-		Returns
+        Returns
 
-		String : If strName is not specified, the current material name if successful.
-		String : If strName is specified, the previous material name if successful.
-		Null : It not successful, or on error.
+        String : If strName is not specified, the current material name if successful.
+        String : If strName is specified, the previous material name if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialName', None, intMaterialIndex, strName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialName', None, intMaterialIndex, strName)
 
-	def materialreflectivecolor(self, intmaterialindex, lngcolor):
-		"""
+    def materialreflectivecolor(self, intmaterialindex, lngcolor):
+        """
 
-		Returns or modifies a material's reflective color.  Reflective colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+        Returns or modifies a material's reflective color.  Reflective colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		lngColor : Optional,   Number,   The new color value
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        lngColor : Optional,   Number,   The new color value
 
-		Returns
+        Returns
 
-		Number : If lngColor is not specified, the current reflective color if successful.
-		Number : If lngColor is specified, the previous reflective color if successful.
-		Null : It not successful, or on error.
+        Number : If lngColor is not specified, the current reflective color if successful.
+        Number : If lngColor is specified, the previous reflective color if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialReflectiveColor', None, intMaterialIndex, lngColor)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialReflectiveColor', None, intMaterialIndex, lngColor)
 
-	def materialshine(self, intmaterialindex, dblshine):
-		"""
+    def materialshine(self, intmaterialindex, dblshine):
+        """
 
-		Returns or modifies a material's shine value.
+        Returns or modifies a material's shine value.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		dblShine : Optional,   Number,   The new shine value
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        dblShine : Optional,   Number,   The new shine value
 
-		Returns
+        Returns
 
-		Number : If dblShine is not specified, the current shine value if successful.
-		Number : If dblShine is specified, the previous shine value if successful.
-		Null : It not successful, or on error.
+        Number : If dblShine is not specified, the current shine value if successful.
+        Number : If dblShine is specified, the previous shine value if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialShine', None, intMaterialIndex, dblShine)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialShine', None, intMaterialIndex, dblShine)
 
-	def materialtexture(self, intmaterialindex, strfilename):
-		"""
+    def materialtexture(self, intmaterialindex, strfilename):
+        """
 
-		Returns or modifies a material's texture bitmap filename.
+        Returns or modifies a material's texture bitmap filename.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strFileName : Optional,   String,   The texture bitmap filename
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        strFileName : Optional,   String,   The texture bitmap filename
 
-		Returns
+        Returns
 
-		String : If strFileName is not specified, the current texture bitmap filename if successful.
-		String : If strFileName is specified, the previous texture bitmap filename if successful.
-		Null : It not successful, or on error.
+        String : If strFileName is not specified, the current texture bitmap filename if successful.
+        String : If strFileName is specified, the previous texture bitmap filename if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTexture', None, intMaterialIndex, strFileName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTexture', None, intMaterialIndex, strFileName)
 
-	def materialtransparency(self, intmaterialindex, dbltransparency):
-		"""
+    def materialtransparency(self, intmaterialindex, dbltransparency):
+        """
 
-		Returns or modifies a material's transparency value.
+        Returns or modifies a material's transparency value.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		dblTransparency : Optional,   Number,   The new transparency value
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        dblTransparency : Optional,   Number,   The new transparency value
 
-		Returns
+        Returns
 
-		Number : If dblTransparency is not specified, the current transparency value if successful.
-		Number : If dblTransparency is specified, the previous transparency value if successful.
-		Null : It not successful, or on error.
+        Number : If dblTransparency is not specified, the current transparency value if successful.
+        Number : If dblTransparency is specified, the previous transparency value if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTransparency', None, intMaterialIndex, dblTransparency)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTransparency', None, intMaterialIndex, dblTransparency)
 
-	def materialtransparencymap(self, intmaterialindex, strfilename):
-		"""
+    def materialtransparencymap(self, intmaterialindex, strfilename):
+        """
 
-		Returns or modifies a material's transparency bitmap filename.
+        Returns or modifies a material's transparency bitmap filename.
 
-		Parameters
+        Parameters
 
-		intMaterialIndex : Required,   Number,   The zero-based source material index
-		strFileName : Optional,   String,   The transparency bitmap filename
+        intMaterialIndex : Required,   Number,   The zero-based source material index
+        strFileName : Optional,   String,   The transparency bitmap filename
 
-		Returns
+        Returns
 
-		String : If strFileName is not specified, the current transparency bitmap filename if successful.
-		String : If strFileName is specified, the previous transparency bitmap filename if successful.
-		Null : It not successful, or on error.
+        String : If strFileName is not specified, the current transparency bitmap filename if successful.
+        String : If strFileName is specified, the previous transparency bitmap filename if successful.
+        Null : It not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTransparencyMap', None, intMaterialIndex, strFileName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTransparencyMap', None, intMaterialIndex, strFileName)
 

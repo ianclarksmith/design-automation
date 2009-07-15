@@ -8,297 +8,297 @@ class ObjectGrip(DispatchBaseClass):
 
 
 
-	def enableobjectgrips(self, strobject, blnenable):
-		"""
+    def enableobjectgrips(self, strobject, blnenable):
+        """
 
-		Enables or disables an object's grips. For curves and surfaces, these are also called control points.
+        Enables or disables an object's grips. For curves and surfaces, these are also called control points.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
-		blnEnable : Optional,   Boolean,   If True (default), the specified object's grips will be turned on
+        strObject : Required,   String,   The identifier of the object
+        blnEnable : Optional,   Boolean,   If True (default), the specified object's grips will be turned on
 
-		Returns
+        Returns
 
-		Boolean : True of False indicating success or failure.
-		Null : If not successful, or on error.
+        Boolean : True of False indicating success or failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'EnableObjectGrips', None, strObject, blnEnable)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'EnableObjectGrips', None, strObject, blnEnable)
 
-	def getobjectgrip(self, strmessage, blnpreselect, blnselect):
-		"""
+    def getobjectgrip(self, strmessage, blnpreselect, blnselect):
+        """
 
-		Prompts the user to pick or select a single object grip.
+        Prompts the user to pick or select a single object grip.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of a pre-selected object grip
-		blnSelect : Optional,   Boolean,   Select the picked object grip
+        strMessage : Optional,   String,   A prompt or message
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of a pre-selected object grip
+        blnSelect : Optional,   Boolean,   Select the picked object grip
 
-		Returns
+        Returns
 
-		Array : A one-dimensional array containing the following three elements if successful:
-		String : The identifier of the object that owns the grip.
-		Number : The zero-based index value of the grip.
-		Array : A 3-D point identifying the location of the grip.
-		Null : If not successful, or on error.
+        Array : A one-dimensional array containing the following three elements if successful:
+        String : The identifier of the object that owns the grip.
+        Number : The zero-based index value of the grip.
+        Array : A 3-D point identifying the location of the grip.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectGrip', None, strMessage, blnPreSelect, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectGrip', None, strMessage, blnPreSelect, blnSelect)
 
-	def getobjectgrips(self, strmessage, blnpreselect, blnselect):
-		"""
+    def getobjectgrips(self, strmessage, blnpreselect, blnselect):
+        """
 
-		Prompts the user to pick or select one or more object grips from one or more objects.
+        Prompts the user to pick or select one or more object grips from one or more objects.
 
-		Parameters
+        Parameters
 
-		strMessage : Optional,   String,   A prompt or message
-		blnPreSelect : Optional,   Boolean,   Allow for the selection of a pre-selected object grips
-		blnSelect : Optional,   Boolean,   Select the picked object grips
+        strMessage : Optional,   String,   A prompt or message
+        blnPreSelect : Optional,   Boolean,   Allow for the selection of a pre-selected object grips
+        blnSelect : Optional,   Boolean,   Select the picked object grips
 
-		Returns
+        Returns
 
-		Array : A one-dimensional array containing one or more object grip records if successful. An object grip record itself is a one-dimensional array that contains the following three elements:
-		String : The identifier of the object that owns the grip.
-		Number : The zero-based index value of the grip.
-		Array : A 3-D point identifying the location of the grip.
-		Null : If not successful, or on error.
+        Array : A one-dimensional array containing one or more object grip records if successful. An object grip record itself is a one-dimensional array that contains the following three elements:
+        String : The identifier of the object that owns the grip.
+        Number : The zero-based index value of the grip.
+        Array : A 3-D point identifying the location of the grip.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectGrips', None, strMessage, blnPreSelect, blnSelect)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectGrips', None, strMessage, blnPreSelect, blnSelect)
 
-	def nextobjectgrip(self, strobject, intindex, intdirection, blnenable):
-		"""
+    def nextobjectgrip(self, strobject, intindex, intdirection, blnenable):
+        """
 
-		Returns the next grip index from a specified grip index of an object.
+        Returns the next grip index from a specified grip index of an object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
-		intIndex : Required,  Number,  The zero-based grip index from which to get the next grip index
-		intDirection : Optional,   Number,   The direction to get the next grip index, either 0=U or 1=V
-		blnEnable : Optional,   Boolean,   If True (default), the next grip index found will be selected
+        strObject : Required,   String,   The identifier of the object
+        intIndex : Required,  Number,  The zero-based grip index from which to get the next grip index
+        intDirection : Optional,   Number,   The direction to get the next grip index, either 0=U or 1=V
+        blnEnable : Optional,   Boolean,   If True (default), the next grip index found will be selected
 
-		Returns
+        Returns
 
-		Number : The index of the next grip from the specified grip index.
-		Null : If not successful, or on error.
+        Number : The index of the next grip from the specified grip index.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'NextObjectGrip', None, strObject, intIndex, intDirection, blnEnable)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'NextObjectGrip', None, strObject, intIndex, intDirection, blnEnable)
 
-	def objectgripcount(self, strobject):
-		"""
+    def objectgripcount(self, strobject):
+        """
 
-		Returns the number of grips owned by an object.
+        Returns the number of grips owned by an object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Number : The number of grips if successful.
-		Null : If not successful, or on error.
+        Number : The number of grips if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripCount', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripCount', None, strObject)
 
-	def objectgriplocation(self, strobject, intindex, arrpoint):
-		"""
+    def objectgriplocation(self, strobject, intindex, arrpoint):
+        """
 
-		Returns or modifies the location of an object's grip.
+        Returns or modifies the location of an object's grip.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
-		intIndex : Required,  Number,  The zero-based index of the grip to either query or modify
-		arrPoint : Optional,   Array,   A 3-D point identifying the new location of the grip
+        strObject : Required,   String,   The identifier of the object
+        intIndex : Required,  Number,  The zero-based index of the grip to either query or modify
+        arrPoint : Optional,   Array,   A 3-D point identifying the new location of the grip
 
-		Returns
+        Returns
 
-		Array : If arrPoint is not specified, the current location of the grip referenced by intIndex if successful.
-		Array : If arrPoint is specified, the previous location of the grip referenced by intIndex if successful.
-		Null : If not successful, or on error.
+        Array : If arrPoint is not specified, the current location of the grip referenced by intIndex if successful.
+        Array : If arrPoint is specified, the previous location of the grip referenced by intIndex if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripLocation', None, strObject, intIndex, arrPoint)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripLocation', None, strObject, intIndex, arrPoint)
 
-	def objectgriplocations(self, strobject, arrpoints):
-		"""
+    def objectgriplocations(self, strobject, arrpoints):
+        """
 
-		Returns or modifies the location of all grips owned by an object. The locations of the grips are returned in an array of 3-D points with each position in the array corresponding to that grip's index. To modify the locations of grips, you must provide an array of 3-D points that contains the same number of points at grips.
+        Returns or modifies the location of all grips owned by an object. The locations of the grips are returned in an array of 3-D points with each position in the array corresponding to that grip's index. To modify the locations of grips, you must provide an array of 3-D points that contains the same number of points at grips.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
-		arrPoints : Optional,   Array,   An array of 3-D points identifying the new locations of the grips
+        strObject : Required,   String,   The identifier of the object
+        arrPoints : Optional,   Array,   An array of 3-D points identifying the new locations of the grips
 
-		Returns
+        Returns
 
-		Array : If arrPoints is not specified, the current location of all grips if successful.
-		Array : If arrPoints is specified, the previous location of all grips if successful.
-		Null : If not successful, or on error.
+        Array : If arrPoints is not specified, the current location of all grips if successful.
+        Array : If arrPoints is specified, the previous location of all grips if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripLocations', None, strObject, arrPoints)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripLocations', None, strObject, arrPoints)
 
-	def objectgripson(self, strobject):
-		"""
+    def objectgripson(self, strobject):
+        """
 
-		Verifies that an object's grips are turned on.
+        Verifies that an object's grips are turned on.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Boolean : True of False indicating success or failure.
-		Null : If not successful, or on error.
+        Boolean : True of False indicating success or failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripsOn', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripsOn', None, strObject)
 
-	def objectgripsselected(self, strobject):
-		"""
+    def objectgripsselected(self, strobject):
+        """
 
-		Verifies that an object's grips are turned on and at least one grip is selected.
+        Verifies that an object's grips are turned on and at least one grip is selected.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Boolean : True of False indicating success or failure.
-		Null : If not successful, or on error.
+        Boolean : True of False indicating success or failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripsSelected', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripsSelected', None, strObject)
 
-	def prevobjectgrip(self, strobject, intindex, intdirection, blnenable):
-		"""
+    def prevobjectgrip(self, strobject, intindex, intdirection, blnenable):
+        """
 
-		Returns the previous grip index from a specified grip index of an object.
+        Returns the previous grip index from a specified grip index of an object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
-		intIndex : Required,  Number,  The zero-based grip index from which to get the previous grip index
-		intDirection : Optional,   Number,   The direction to get the previous grip index, either 0=U or 1=V
-		blnEnable : Optional,   Boolean,   If True (default), the previous grip index found will be selected
+        strObject : Required,   String,   The identifier of the object
+        intIndex : Required,  Number,  The zero-based grip index from which to get the previous grip index
+        intDirection : Optional,   Number,   The direction to get the previous grip index, either 0=U or 1=V
+        blnEnable : Optional,   Boolean,   If True (default), the previous grip index found will be selected
 
-		Returns
+        Returns
 
-		Number : The index of the next grip from the specified grip index.
-		Null : If not successful, or on error.
+        Number : The index of the next grip from the specified grip index.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'PrevObjectGrip', None, strObject, intIndex, intDirection, blnEnable)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'PrevObjectGrip', None, strObject, intIndex, intDirection, blnEnable)
 
-	def selectobjectgrip(self, strobject, intindex):
-		"""
+    def selectobjectgrip(self, strobject, intindex):
+        """
 
-		Selects a single grip owned by an object. If the object's grips are not turned on, grips will  not be selected.
+        Selects a single grip owned by an object. If the object's grips are not turned on, grips will  not be selected.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
-		intIndex : Required,  Number,  The zero-based grip index to select
+        strObject : Required,   String,   The identifier of the object
+        intIndex : Required,  Number,  The zero-based grip index to select
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating success or failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObjectGrip', None, strObject, intIndex)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObjectGrip', None, strObject, intIndex)
 
-	def selectobjectgrips(self, strobject):
-		"""
+    def selectobjectgrips(self, strobject):
+        """
 
-		Selects an object's grips. If the object's grips are not turned on, they will not be selected.
+        Selects an object's grips. If the object's grips are not turned on, they will not be selected.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Number : The number of grips selected if successful.
-		Null : If not successful, or on error.
+        Number : The number of grips selected if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObjectGrips', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObjectGrips', None, strObject)
 
-	def selectedobjectgrips(self, strobject):
-		"""
+    def selectedobjectgrips(self, strobject):
+        """
 
-		Returns an array of grip indices identifying an object's selected grips.
+        Returns an array of grip indices identifying an object's selected grips.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Array : An array of zero-based grip indices identifying the selected grips.
-		Null : If not successful, or on error.
+        Array : An array of zero-based grip indices identifying the selected grips.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectedObjectGrips', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SelectedObjectGrips', None, strObject)
 
-	def unselectobjectgrip(self, strobject, intindex):
-		"""
+    def unselectobjectgrip(self, strobject, intindex):
+        """
 
-		Unselects a single grip owned by an object.
+        Unselects a single grip owned by an object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
-		intIndex : Required,  Number,  The zero-based grip index to unselect
+        strObject : Required,   String,   The identifier of the object
+        intIndex : Required,  Number,  The zero-based grip index to unselect
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating success or failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObjectGrip', None, strObject, intIndex)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObjectGrip', None, strObject, intIndex)
 
-	def unselectobjectgrips(self, strobject):
-		"""
+    def unselectobjectgrips(self, strobject):
+        """
 
-		Unselects an object's grips. Note, the grips will not be turned off.
+        Unselects an object's grips. Note, the grips will not be turned off.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The identifier of the object
+        strObject : Required,   String,   The identifier of the object
 
-		Returns
+        Returns
 
-		Number : The number of grips unselected if successful.
-		Null : If not successful, or on error.
+        Number : The number of grips unselected if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObjectGrips', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObjectGrips', None, strObject)
 

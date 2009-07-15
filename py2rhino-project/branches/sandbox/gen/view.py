@@ -8,1028 +8,1028 @@ class View(DispatchBaseClass):
 
 
 
-	def addnamedcplane(self, ):
-		"""
+    def addnamedcplane(self, ):
+        """
 
-		Adds a new named construction plane to the document.
+        Adds a new named construction plane to the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		String : The name of the newly created named construction plane if successful.
-		Null : If not successful, or on error.
+        String : The name of the newly created named construction plane if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddNamedCPlane', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddNamedCPlane', None, )
 
-	def addnamedview(self, strname, strview):
-		"""
+    def addnamedview(self, strname, strview):
+        """
 
-		Adds a new named view to the document.
+        Adds a new named view to the document.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of the new named view
-		strView : Optional,   String,   The title or identifier of the view to save
+        strName : Required,   String,   The name of the new named view
+        strView : Optional,   String,   The title or identifier of the view to save
 
-		Returns
+        Returns
 
-		String : The name of the newly created named view if successful.
-		Null : If not successful, or on error.
+        String : The name of the newly created named view if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddNamedView', None, strName, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddNamedView', None, strName, strView)
 
-	def backgroundbitmap(self, strview, , arrpoint, dblwidth):
-		"""
+    def backgroundbitmap(self, strview, , arrpoint, dblwidth):
+        """
 
-		Returns or sets the background bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
+        Returns or sets the background bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		 : Optional,   String,   The name of the bitmap file to set as the background bitmap
-		arrPoint : Optional,  Array,   A 3-D point the lower left corner of the background bitmap
-		dblWidth : Optional,   Number,   The width of the background bitmap
+        strView : Optional,   String,   The title or identifier of the view
+         : Optional,   String,   The name of the bitmap file to set as the background bitmap
+        arrPoint : Optional,  Array,   A 3-D point the lower left corner of the background bitmap
+        dblWidth : Optional,   Number,   The width of the background bitmap
 
-		Returns
+        Returns
 
-		String : If strFileName is not specified,  then the current background bitmap filename if successful.
-		String : If strFileName is specified,  then the previous background bitmap filename if successful.
-		Null : If not successful, or on error.
+        String : If strFileName is not specified,  then the current background bitmap filename if successful.
+        String : If strFileName is specified,  then the previous background bitmap filename if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'BackgroundBitmap', None, strView, , arrPoint, dblWidth)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'BackgroundBitmap', None, strView, , arrPoint, dblWidth)
 
-	def currentdetail(self, strlayout, strdetail, blnreturnnames):
-		"""
+    def currentdetail(self, strlayout, strdetail, blnreturnnames):
+        """
 
-		Returns or changes the current detail view in a page layout view.
+        Returns or changes the current detail view in a page layout view.
 
-		Parameters
+        Parameters
 
-		strLayout : Required,   String,   The title or identifier of an existing page layout view
-		strDetail : Optional,   String,   The title identifier of the detail view to set current
-		blnReturnNames : Optional,   Boolean,   If True (default), then the name, or title, of the detail view is returned
+        strLayout : Required,   String,   The title or identifier of an existing page layout view
+        strDetail : Optional,   String,   The title identifier of the detail view to set current
+        blnReturnNames : Optional,   Boolean,   If True (default), then the name, or title, of the detail view is returned
 
-		Returns
+        Returns
 
-		String : If strDetail is not specified, the identifier of the current detail view if successful.
-		String : If strDetail is specified, the title or identifier of the previous current detail view is successful.
-		Null : If not successful, or on error.
+        String : If strDetail is not specified, the identifier of the current detail view if successful.
+        String : If strDetail is specified, the title or identifier of the previous current detail view is successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentDetail', None, strLayout, strDetail, blnReturnNames)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentDetail', None, strLayout, strDetail, blnReturnNames)
 
-	def currentview(self, strview, blnreturnname):
-		"""
+    def currentview(self, strview, blnreturnname):
+        """
 
-		Returns or sets the currently active view.
+        Returns or sets the currently active view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view to set current
-		blnReturnName : Optional,   Boolean,   If True (default), then the name, or title, of the view is returned
+        strView : Optional,   String,   The title or identifier of the view to set current
+        blnReturnName : Optional,   Boolean,   If True (default), then the name, or title, of the view is returned
 
-		Returns
+        Returns
 
-		String : If the title is not specified, the title or identifier of the current view if successful.
-		String : If the title is specified, the title or identifier of the previous current view is successful.
-		Null : If not successful, or on error.
+        String : If the title is not specified, the title or identifier of the current view if successful.
+        String : If the title is specified, the title or identifier of the previous current view is successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentView', None, strView, blnReturnName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentView', None, strView, blnReturnName)
 
-	def deletenamedcplane(self, ):
-		"""
+    def deletenamedcplane(self, ):
+        """
 
-		Removed a new named construction plane from the document.
+        Removed a new named construction plane from the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteNamedCPlane', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteNamedCPlane', None, )
 
-	def deletenamedview(self, ):
-		"""
+    def deletenamedview(self, ):
+        """
 
-		Removed a new named view from  the document.
+        Removed a new named view from  the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteNamedView', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteNamedView', None, )
 
-	def detailnames(self, strlayout, blnreturnnames):
-		"""
+    def detailnames(self, strlayout, blnreturnnames):
+        """
 
-		Returns the names, or titles, or identifiers of all detail views in a page layout view.
+        Returns the names, or titles, or identifiers of all detail views in a page layout view.
 
-		Parameters
+        Parameters
 
-		strLayout : Required,   String,   The title or identifier of an existing page layout view
-		blnReturnNames : Optional,   Boolean,   If True (default), then the names, or titles, of the detail views are returned
+        strLayout : Required,   String,   The title or identifier of an existing page layout view
+        blnReturnNames : Optional,   Boolean,   If True (default), then the names, or titles, of the detail views are returned
 
-		Returns
+        Returns
 
-		Array : A array of strings identifying the detail view names, or titles, or identifiers if successful.
-		Null : If not successful, or on error.
+        Array : A array of strings identifying the detail view names, or titles, or identifiers if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DetailNames', None, strLayout, blnReturnNames)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DetailNames', None, strLayout, blnReturnNames)
 
-	def isbackgroundbitmap(self, strview):
-		"""
+    def isbackgroundbitmap(self, strview):
+        """
 
-		Verifies that the specified view contains a background bitmap.
+        Verifies that the specified view contains a background bitmap.
 
-		Parameters
+        Parameters
 
-		strView : Required,   String,   The title or identifier of the view
+        strView : Required,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsBackgroundBitmap', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsBackgroundBitmap', None, strView)
 
-	def isdetail(self, strlayout, strdetail):
-		"""
+    def isdetail(self, strlayout, strdetail):
+        """
 
-		Verifies that a detail view exists on a page layout view.
+        Verifies that a detail view exists on a page layout view.
 
-		Parameters
+        Parameters
 
-		strLayout : Required,   String,   The title or identifier of an existing page layout view
-		strDetail : Required,   String,   The title or identifier of an existing detail view
+        strLayout : Required,   String,   The title or identifier of an existing page layout view
+        strDetail : Required,   String,   The title or identifier of an existing detail view
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDetail', None, strLayout, strDetail)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsDetail', None, strLayout, strDetail)
 
-	def islayout(self, strlayout):
-		"""
+    def islayout(self, strlayout):
+        """
 
-		Verifies that a view is a page layout view.
+        Verifies that a view is a page layout view.
 
-		Parameters
+        Parameters
 
-		strLayout : Required,   String,   The title or identifier of an existing page layout view
+        strLayout : Required,   String,   The title or identifier of an existing page layout view
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayout', None, strLayout)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayout', None, strLayout)
 
-	def isview(self, strview):
-		"""
+    def isview(self, strview):
+        """
 
-		Verifies that the specified view exists.
+        Verifies that the specified view exists.
 
-		Parameters
+        Parameters
 
-		strView : Required,   String,   The title or identifier of the view
+        strView : Required,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsView', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsView', None, strView)
 
-	def isviewcurrent(self, strview):
-		"""
+    def isviewcurrent(self, strview):
+        """
 
-		Verifies that the specified view is the current, or active, view.
+        Verifies that the specified view is the current, or active, view.
 
-		Parameters
+        Parameters
 
-		strView : Required,   String,   The title or identifier of the view
+        strView : Required,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewCurrent', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewCurrent', None, strView)
 
-	def isviewmaximized(self, strview):
-		"""
+    def isviewmaximized(self, strview):
+        """
 
-		Verifies that the specified view is maximized - enlarged so as to fill the entire Rhino window.
+        Verifies that the specified view is maximized - enlarged so as to fill the entire Rhino window.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
+        strView : Optional,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewMaximized', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewMaximized', None, strView)
 
-	def isviewperspective(self, strview):
-		"""
+    def isviewperspective(self, strview):
+        """
 
-		Verifies that the specified view's projection is set to perspective.
+        Verifies that the specified view's projection is set to perspective.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
+        strView : Optional,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewPerspective', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewPerspective', None, strView)
 
-	def isviewtitlevisible(self, strview):
-		"""
+    def isviewtitlevisible(self, strview):
+        """
 
-		Verifies that the specified view's title window is visible.
+        Verifies that the specified view's title window is visible.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
+        strView : Optional,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewTitleVisible', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewTitleVisible', None, strView)
 
-	def iswallpaper(self, strview):
-		"""
+    def iswallpaper(self, strview):
+        """
 
-		Verifies that the specified view contains a wallpaper bitmap.
+        Verifies that the specified view contains a wallpaper bitmap.
 
-		Parameters
+        Parameters
 
-		strView : Required,   String,   The title or identifier of the view
+        strView : Required,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsWallpaper', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsWallpaper', None, strView)
 
-	def maximizerestoreview(self, strview):
-		"""
+    def maximizerestoreview(self, strview):
+        """
 
-		Toggles a view's maximized/restore window state of the specified view.
+        Toggles a view's maximized/restore window state of the specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
+        strView : Optional,   String,   The title or identifier of the view
 
-		No returns
+        No returns
 
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'MaximizeRestoreView', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'MaximizeRestoreView', None, strView)
 
-	def namedcplane(self, strname):
-		"""
+    def namedcplane(self, strname):
+        """
 
-		Returns the plane geometry of the specified named construction plane.
+        Returns the plane geometry of the specified named construction plane.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a named construction plane
+        strName : Required,   String,   The name of a named construction plane
 
-		Returns
+        Returns
 
-		Array : An array containing the plane. The elements of a construction plane array are as follows:
-		Null : If not successful, or on error.
+        Array : An array containing the plane. The elements of a construction plane array are as follows:
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'NamedCPlane', None, strName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'NamedCPlane', None, strName)
 
-	def namedcplanes(self, ):
-		"""
+    def namedcplanes(self, ):
+        """
 
-		Returns the names of all named construction planes in the document.
+        Returns the names of all named construction planes in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Array : A zero-based, one-dimensional array of strings identifying the named construction planes if successful.
-		Null : If not successful, or on error.
+        Array : A zero-based, one-dimensional array of strings identifying the named construction planes if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'NamedCPlanes', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'NamedCPlanes', None, )
 
-	def namedviews(self, ):
-		"""
+    def namedviews(self, ):
+        """
 
-		Returns the names of all named views in the document.
+        Returns the names of all named views in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Array : A zero-based, one-dimensional array of strings identifying the named views if successful.
-		Null : If not successful, or on error.
+        Array : A zero-based, one-dimensional array of strings identifying the named views if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'NamedViews', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'NamedViews', None, )
 
-	def renameview(self, stroldtitle, strnewtitle):
-		"""
+    def renameview(self, stroldtitle, strnewtitle):
+        """
 
-		Renames, or changes the title, of the specified view..
+        Renames, or changes the title, of the specified view..
 
-		Parameters
+        Parameters
 
-		strOldTitle : Required,   String,   The title or identifier of the view to rename
-		strNewTitle : Required,   String,   The new title of the view
+        strOldTitle : Required,   String,   The title or identifier of the view to rename
+        strNewTitle : Required,   String,   The new title of the view
 
-		Returns
+        Returns
 
-		String : The view's previous title is successful.
-		Null : if not successful, or on error.
+        String : The view's previous title is successful.
+        Null : if not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameView', None, strOldTitle, strNewTitle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenameView', None, strOldTitle, strNewTitle)
 
-	def restorenamedcplane(self, ):
-		"""
+    def restorenamedcplane(self, ):
+        """
 
-		Restores a named construction plane to the specified view.
+        Restores a named construction plane to the specified view.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		String : The name of the restored named construction plane if successful.
-		Null : If not successful, or on error.
+        String : The name of the restored named construction plane if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreNamedCPlane', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreNamedCPlane', None, )
 
-	def restorenamedview(self, ):
-		"""
+    def restorenamedview(self, ):
+        """
 
-		Restores a named view to the specified view.
+        Restores a named view to the specified view.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		String : The name of the restored named view if successful.
-		Null : If not successful, or on error.
+        String : The name of the restored named view if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreNamedView', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreNamedView', None, )
 
-	def rotatecamera(self, strview, intdirection, dblangle):
-		"""
+    def rotatecamera(self, strview, intdirection, dblangle):
+        """
 
-		Rotates a perspective-projected view's camera. See the RotateCamera command in the Rhino help file for more details.
+        Rotates a perspective-projected view's camera. See the RotateCamera command in the Rhino help file for more details.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		intDirection : Optional,  Number, The direction to rotate the camera where 0 = right, 1 = left, 2 = down, and 3 = up,  The default is 0 = right
-		dblAngle : Optional,   Number,   The angle to rotate
+        strView : Optional,   String,   The title or identifier of the view
+        intDirection : Optional,  Number, The direction to rotate the camera where 0 = right, 1 = left, 2 = down, and 3 = up,  The default is 0 = right
+        dblAngle : Optional,   Number,   The angle to rotate
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RotateCamera', None, strView, intDirection, dblAngle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RotateCamera', None, strView, intDirection, dblAngle)
 
-	def rotateview(self, strview, intdirection, dblangle):
-		"""
+    def rotateview(self, strview, intdirection, dblangle):
+        """
 
-		Rotates a view. See the RotateView command in the Rhino help file for more information.
+        Rotates a view. See the RotateView command in the Rhino help file for more information.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		intDirection : Optional,  Number, The direction to rotate the view, where 0 = right, 1 = left, 2 = down, and 3 = up,  The default is 0 = right
-		dblAngle : Optional,   Number,   The angle to rotate
+        strView : Optional,   String,   The title or identifier of the view
+        intDirection : Optional,  Number, The direction to rotate the view, where 0 = right, 1 = left, 2 = down, and 3 = up,  The default is 0 = right
+        dblAngle : Optional,   Number,   The angle to rotate
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RotateView', None, strView, intDirection, dblAngle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RotateView', None, strView, intDirection, dblAngle)
 
-	def showgrid(self, strview, blnshow):
-		"""
+    def showgrid(self, strview, blnshow):
+        """
 
-		Shows or hides a view's construction plane grid.
+        Shows or hides a view's construction plane grid.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view to modify
-		blnShow : Optional,   Boolean,   The grid display state to set
+        strView : Optional,   String,   The title or identifier of the view to modify
+        blnShow : Optional,   Boolean,   The grid display state to set
 
-		Returns
+        Returns
 
-		Boolean : If blnShow is not specified, then the grid display state if successful.
-		Boolean : If blnShow is specified, then the previous grid display state if successful.
-		Null : On error.
+        Boolean : If blnShow is not specified, then the grid display state if successful.
+        Boolean : If blnShow is specified, then the previous grid display state if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGrid', None, strView, blnShow)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGrid', None, strView, blnShow)
 
-	def showgridaxes(self, strview, blnshow):
-		"""
+    def showgridaxes(self, strview, blnshow):
+        """
 
-		Shows or hides a view's construction plane grid axes.
+        Shows or hides a view's construction plane grid axes.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view to modify
-		blnShow : Optional,   Boolean,   The grid axes display state to set
+        strView : Optional,   String,   The title or identifier of the view to modify
+        blnShow : Optional,   Boolean,   The grid axes display state to set
 
-		Returns
+        Returns
 
-		Boolean : If blnShow is not specified, then the grid axes display state if successful.
-		Boolean : If blnShow is specified, then the previous grid axes display state if successful.
-		Null : On error.
+        Boolean : If blnShow is not specified, then the grid axes display state if successful.
+        Boolean : If blnShow is specified, then the previous grid axes display state if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGridAxes', None, strView, blnShow)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGridAxes', None, strView, blnShow)
 
-	def showviewtitle(self, strview, blnstate):
-		"""
+    def showviewtitle(self, strview, blnstate):
+        """
 
-		Shows or hides the title window of a view.
+        Shows or hides the title window of a view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		blnState : Optional,   Boolean,   The visible state of the view's title window
+        strView : Optional,   String,   The title or identifier of the view
+        blnState : Optional,   Boolean,   The visible state of the view's title window
 
-		No returns
+        No returns
 
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowViewTitle', None, strView, blnState)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowViewTitle', None, strView, blnState)
 
-	def showworldaxes(self, strview, blnshow):
-		"""
+    def showworldaxes(self, strview, blnshow):
+        """
 
-		Shows or hides a view's world axes icon.
+        Shows or hides a view's world axes icon.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view to modify
-		blnShow : Optional,   Boolean,   The world axes icon display state to set
+        strView : Optional,   String,   The title or identifier of the view to modify
+        blnShow : Optional,   Boolean,   The world axes icon display state to set
 
-		Returns
+        Returns
 
-		Boolean : If blnShow is not specified, then the world axes icon display state if successful.
-		Boolean : If blnShow is specified, then the previous world axes icon display state if successful.
-		Null : On error.
+        Boolean : If blnShow is not specified, then the world axes icon display state if successful.
+        Boolean : If blnShow is specified, then the previous world axes icon display state if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowWorldAxes', None, strView, blnShow)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowWorldAxes', None, strView, blnShow)
 
-	def synchronizecplanes(self, ):
-		"""
+    def synchronizecplanes(self, ):
+        """
 
-		The view synchronization only applies to Rhino's standard-named, parallel-projected views (e.g. Back, Bottom, Front, Left, Right, and Top).  All other views (e.g. Perspective, etc) simply have their construction plane synchronized to that of the specified view's construction plane.
+        The view synchronization only applies to Rhino's standard-named, parallel-projected views (e.g. Back, Bottom, Front, Left, Right, and Top).  All other views (e.g. Perspective, etc) simply have their construction plane synchronized to that of the specified view's construction plane.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SynchronizeCPlanes', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SynchronizeCPlanes', None, )
 
-	def tiltview(self, strview, intdirection, dblangle):
-		"""
+    def tiltview(self, strview, intdirection, dblangle):
+        """
 
-		Tilts a view by rotating the camera up vector.  See the TiltView command in the Rhino help file for more details.
+        Tilts a view by rotating the camera up vector.  See the TiltView command in the Rhino help file for more details.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		intDirection : Optional,  Number, The direction to rotate the camera where 0 = right and 1 = left, 
-		dblAngle : Optional,   Number,   The angle to rotate
+        strView : Optional,   String,   The title or identifier of the view
+        intDirection : Optional,  Number, The direction to rotate the camera where 0 = right and 1 = left, 
+        dblAngle : Optional,   Number,   The angle to rotate
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'TiltView', None, strView, intDirection, dblAngle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'TiltView', None, strView, intDirection, dblAngle)
 
-	def viewcplane(self, strview, arrplane, 0, 1, 2, 3):
-		"""
+    def viewcplane(self, strview, arrplane, 0, 1, 2, 3):
+        """
 
-		Returns or sets the specified view's construction plane.
+        Returns or sets the specified view's construction plane.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		arrPlane : Optional,   Array,  The new construction plane
-		0 : Required,   The construction plane's origin (3-D point), 
-		1 : Required,   The construction plane's X axis direction (3-D vector), 
-		2 : Required,   The construction plane's Y axis direction (3-D vector), 
-		3 : Optional,   The construction plane's Z axis direction (3-D vector), 
+        strView : Optional,   String,   The title or identifier of the view
+        arrPlane : Optional,   Array,  The new construction plane
+        0 : Required,   The construction plane's origin (3-D point), 
+        1 : Required,   The construction plane's X axis direction (3-D vector), 
+        2 : Required,   The construction plane's Y axis direction (3-D vector), 
+        3 : Optional,   The construction plane's Z axis direction (3-D vector), 
 
-		Returns
+        Returns
 
-		Array : If a construction plane is not specified, the current construction plane if successful.
-		Array : If a construction plane is specified, the previous construction plane if successful.
-		Null : If not successful, or on error.
+        Array : If a construction plane is not specified, the current construction plane if successful.
+        Array : If a construction plane is specified, the previous construction plane if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCPlane', None, strView, arrPlane, 0, 1, 2, 3)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCPlane', None, strView, arrPlane, 0, 1, 2, 3)
 
-	def viewcamera(self, strview, arrcamera):
-		"""
+    def viewcamera(self, strview, arrcamera):
+        """
 
-		Returns or sets the camera location of the specified view.
+        Returns or sets the camera location of the specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		arrCamera : Optional,   Array,   A 3-D point identifying the new camera location
+        strView : Optional,   String,   The title or identifier of the view
+        arrCamera : Optional,   Array,   A 3-D point identifying the new camera location
 
-		Returns
+        Returns
 
-		Array : If arrCamera is not specified,  then a 3-D point containing the current camera location if successful.
-		Array : If arrCamera is specified,  then a 3-D point containing the previous camera location if successful.
-		Null : If not successful, or on error.
+        Array : If arrCamera is not specified,  then a 3-D point containing the current camera location if successful.
+        Array : If arrCamera is specified,  then a 3-D point containing the previous camera location if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCamera', None, strView, arrCamera)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCamera', None, strView, arrCamera)
 
-	def viewcameralens(self, strview, dbllength):
-		"""
+    def viewcameralens(self, strview, dbllength):
+        """
 
-		Returns or sets the 35mm camera lens length of the specified perspective projection view.
+        Returns or sets the 35mm camera lens length of the specified perspective projection view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		dblLength : Optional,   Number,   The new 35mm camera lens length
+        strView : Optional,   String,   The title or identifier of the view
+        dblLength : Optional,   Number,   The new 35mm camera lens length
 
-		Returns
+        Returns
 
-		Number : If a lens length is not specified, the current lens length if successful.
-		Number : If a lens length is specified, the previous lens length is successful.
-		Null : If not successful, or on error.
+        Number : If a lens length is not specified, the current lens length if successful.
+        Number : If a lens length is specified, the previous lens length is successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraLens', None, strView, dblLength)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraLens', None, strView, dblLength)
 
-	def viewcameraplane(self, strview):
-		"""
+    def viewcameraplane(self, strview):
+        """
 
-		Returns the orientation of a view's camera.
+        Returns the orientation of a view's camera.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
+        strView : Optional,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Array : The view's camera plane if successful.  The elements of a plane array are as follows:
-		Null : If not successful, or on error.
+        Array : The view's camera plane if successful.  The elements of a plane array are as follows:
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraPlane', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraPlane', None, strView)
 
-	def viewcameratarget(self, strview, arrcamera, arrtarget):
-		"""
+    def viewcameratarget(self, strview, arrcamera, arrtarget):
+        """
 
-		Returns or sets the camera and target positions of the specified view.
+        Returns or sets the camera and target positions of the specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		arrCamera : Optional,   Array,   A 3-D point identifying the new camera location
-		arrTarget : Optional,   Array,   A 3-D point identifying the new target location
+        strView : Optional,   String,   The title or identifier of the view
+        arrCamera : Optional,   Array,   A 3-D point identifying the new camera location
+        arrTarget : Optional,   Array,   A 3-D point identifying the new target location
 
-		Returns
+        Returns
 
-		Array : If both arrCamera and arrTarget are not specified,  then an array of 3-D point containing the current camera and target locations is returned.
-		Array : If either arrCamera or arrTarget are specified,  then an array of 3-D point containing the previous camera and target locations is returned.
-		Null : If not successful, or on error.
+        Array : If both arrCamera and arrTarget are not specified,  then an array of 3-D point containing the current camera and target locations is returned.
+        Array : If either arrCamera or arrTarget are specified,  then an array of 3-D point containing the previous camera and target locations is returned.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraTarget', None, strView, arrCamera, arrTarget)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraTarget', None, strView, arrCamera, arrTarget)
 
-	def viewcameraup(self, strview, arrupvector):
-		"""
+    def viewcameraup(self, strview, arrupvector):
+        """
 
-		Returns or sets the camera up direction of specified view.
+        Returns or sets the camera up direction of specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		arrUpVector : Optional,   Array,   A 3-D vector identifying the new camera location
+        strView : Optional,   String,   The title or identifier of the view
+        arrUpVector : Optional,   Array,   A 3-D vector identifying the new camera location
 
-		Returns
+        Returns
 
-		Array : If arrUpVector is not specified,  then a 3-D vector identifying the current camera up direction if successful.
-		Array : If arrUpVector is specified,  then a 3-D vector identifying the previous camera up direction if successful.
-		Null : If not successful, or on error.
+        Array : If arrUpVector is not specified,  then a 3-D vector identifying the current camera up direction if successful.
+        Array : If arrUpVector is specified,  then a 3-D vector identifying the previous camera up direction if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraUp', None, strView, arrUpVector)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraUp', None, strView, arrUpVector)
 
-	def viewdisplaymode(self, strview, intmode):
-		"""
+    def viewdisplaymode(self, strview, intmode):
+        """
 
-		Returns or sets a view's display mode.  A view's display mode can be either wireframe, shaded, or render preview.
+        Returns or sets a view's display mode.  A view's display mode can be either wireframe, shaded, or render preview.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		intMode : Optional,   Number,   The display mode
+        strView : Optional,   String,   The title or identifier of the view
+        intMode : Optional,   Number,   The display mode
 
-		Returns
+        Returns
 
-		Number : If intMode is not specified, the current display mode for the specified view if successful.
-		Number : If intMode is specified, the previous display mode for the specified view if successful.
-		Null : If not successful, or on error.
+        Number : If intMode is not specified, the current display mode for the specified view if successful.
+        Number : If intMode is specified, the previous display mode for the specified view if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayMode', None, strView, intMode)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayMode', None, strView, intMode)
 
-	def viewdisplaymodeex(self, strview, strmode, blnreturnnames):
-		"""
+    def viewdisplaymodeex(self, strview, strmode, blnreturnnames):
+        """
 
-		Returns or sets a view's display mode.  Unlike the ViewDisplayMode method, which only allows you to set a view to wireframe, shaded, or render preview, this method allows you to set a view to any display mode including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
+        Returns or sets a view's display mode.  Unlike the ViewDisplayMode method, which only allows you to set a view to wireframe, shaded, or render preview, this method allows you to set a view to any display mode including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		strMode : Optional,   String,   The name or identifier of the display mode obtained from the ViewDisplayModes method
-		blnReturnNames : Optional,   Boolean,   If True (default), then the name the display mode is returned
+        strView : Optional,   String,   The title or identifier of the view
+        strMode : Optional,   String,   The name or identifier of the display mode obtained from the ViewDisplayModes method
+        blnReturnNames : Optional,   Boolean,   If True (default), then the name the display mode is returned
 
-		Returns
+        Returns
 
-		Number : If strMode is not specified, the current display mode for the specified view if successful.
-		Number : If strMode is specified, the previous display mode for the specified view if successful.
-		Null : If not successful, or on error.
+        Number : If strMode is not specified, the current display mode for the specified view if successful.
+        Number : If strMode is specified, the previous display mode for the specified view if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModeEx', None, strView, strMode, blnReturnNames)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModeEx', None, strView, strMode, blnReturnNames)
 
-	def viewdisplaymodename(self, strmode):
-		"""
+    def viewdisplaymodename(self, strmode):
+        """
 
-		Returns the name of a display mode given a display mode's identifier.
+        Returns the name of a display mode given a display mode's identifier.
 
-		Parameters
+        Parameters
 
-		strMode : Required,   String,   The identifier of the display mode obtained from the ViewDisplayModes method
+        strMode : Required,   String,   The identifier of the display mode obtained from the ViewDisplayModes method
 
-		Returns
+        Returns
 
-		String : The name of the display mode if successful.
-		Null : If not successful, or on error.
+        String : The name of the display mode if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModeName', None, strMode)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModeName', None, strMode)
 
-	def viewdisplaymodes(self, blnreturnname):
-		"""
+    def viewdisplaymodes(self, blnreturnname):
+        """
 
-		Returns a list of view display modes, including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
+        Returns a list of view display modes, including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
 
-		Parameters
+        Parameters
 
-		blnReturnName : Optional,   Boolean,   If True (default), then the names of the display modes are returned
+        blnReturnName : Optional,   Boolean,   If True (default), then the names of the display modes are returned
 
-		Returns
+        Returns
 
-		Array : A array of strings identifying the display mode names or identifiers if successful.
-		Null : If not successful, or on error.
+        Array : A array of strings identifying the display mode names or identifiers if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModes', None, blnReturnName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModes', None, blnReturnName)
 
-	def viewnames(self, blnreturnnames, inttype):
-		"""
+    def viewnames(self, blnreturnnames, inttype):
+        """
 
-		Returns the names, or titles, or identifiers of all views in the document.
+        Returns the names, or titles, or identifiers of all views in the document.
 
-		Parameters
+        Parameters
 
-		blnReturnNames : Optional,   Boolean,   If True (default), then the names, or titles, of the views are returned
-		intType : Optional,   Number,   The type of view to return, where:
+        blnReturnNames : Optional,   Boolean,   If True (default), then the names, or titles, of the views are returned
+        intType : Optional,   Number,   The type of view to return, where:
 
-		Returns
+        Returns
 
-		Array : A array of strings identifying the view names, or titles, or identifiers if successful.
-		Null : If not successful, or on error.
+        Array : A array of strings identifying the view names, or titles, or identifiers if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewNames', None, blnReturnNames, intType)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewNames', None, blnReturnNames, intType)
 
-	def viewnearcorners(self, strview):
-		"""
+    def viewnearcorners(self, strview):
+        """
 
-		Returns the 3-D corners points of a view's near clipping plane rectangle. This function can be useful in determining the "real world" size of a parallel-projected view.
+        Returns the 3-D corners points of a view's near clipping plane rectangle. This function can be useful in determining the "real world" size of a parallel-projected view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
+        strView : Optional,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Array : An array of four 3-D points that define the corners of the rectangle if successful.  Points are returned in counter-clockwise order.
-		Null : If not successful, or on error.
+        Array : An array of four 3-D points that define the corners of the rectangle if successful.  Points are returned in counter-clockwise order.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewNearCorners', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewNearCorners', None, strView)
 
-	def viewprojection(self, strview, intmode):
-		"""
+    def viewprojection(self, strview, intmode):
+        """
 
-		Returns or sets a view's projection mode.  A view's projection mode can be either parallel or perspective.
+        Returns or sets a view's projection mode.  A view's projection mode can be either parallel or perspective.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		intMode : Optional,   Number,   The projection mode
+        strView : Optional,   String,   The title or identifier of the view
+        intMode : Optional,   Number,   The projection mode
 
-		Returns
+        Returns
 
-		Number : If intMode is not specified, the current projection mode for the specified view if successful.
-		Number : If intMode is specified, the previous projection mode for the specified view if successful.
-		Null : If not successful, or on error.
+        Number : If intMode is not specified, the current projection mode for the specified view if successful.
+        Number : If intMode is specified, the previous projection mode for the specified view if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewProjection', None, strView, intMode)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewProjection', None, strView, intMode)
 
-	def viewradius(self, strview, dblradius):
-		"""
+    def viewradius(self, strview, dblradius):
+        """
 
-		Returns or sets the radius of the viewing frustum of a parallel-projected view. This function is useful when you need an absolute zoom factor for a parallel-projected view.
+        Returns or sets the radius of the viewing frustum of a parallel-projected view. This function is useful when you need an absolute zoom factor for a parallel-projected view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		dblRadius : Optional,   Number,   The view radius
+        strView : Optional,   String,   The title or identifier of the view
+        dblRadius : Optional,   Number,   The view radius
 
-		Returns
+        Returns
 
-		Number : If dblRadius is not specified, the current view radius for the specified view if successful.
-		Number : If dblRadius is specified, the previous view radius for the specified view if successful.
-		Null : If not successful, or on error.
+        Number : If dblRadius is not specified, the current view radius for the specified view if successful.
+        Number : If dblRadius is specified, the previous view radius for the specified view if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewRadius', None, strView, dblRadius)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewRadius', None, strView, dblRadius)
 
-	def viewsize(self, strview):
-		"""
+    def viewsize(self, strview):
+        """
 
-		Returns the width and height in pixels of the specified view.
+        Returns the width and height in pixels of the specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
+        strView : Optional,   String,   The title or identifier of the view
 
-		Returns
+        Returns
 
-		Array : A zero-based, one-dimensional array containing two numbers identifying the width and height if successful
-		Null : If not successful, or on error.
+        Array : A zero-based, one-dimensional array containing two numbers identifying the width and height if successful
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewSize', None, strView)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewSize', None, strView)
 
-	def viewtarget(self, strview, arrtarget):
-		"""
+    def viewtarget(self, strview, arrtarget):
+        """
 
-		Returns or sets the target location of the specified view.
+        Returns or sets the target location of the specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		arrTarget : Optional,   Array,   A 3-D point identifying the new target location
+        strView : Optional,   String,   The title or identifier of the view
+        arrTarget : Optional,   Array,   A 3-D point identifying the new target location
 
-		Returns
+        Returns
 
-		Array : If arrTarget is not specified,  then a 3-D point containing the current target location if successful.
-		Array : If arrTarget is specified,  then a 3-D point containing the previous target location if successful.
-		Null : If not successful, or on error.
+        Array : If arrTarget is not specified,  then a 3-D point containing the current target location if successful.
+        Array : If arrTarget is specified,  then a 3-D point containing the previous target location if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewTarget', None, strView, arrTarget)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewTarget', None, strView, arrTarget)
 
-	def viewtitle(self, strmode):
-		"""
+    def viewtitle(self, strmode):
+        """
 
-		Returns the name, or title, of a view given a view's identifier.
+        Returns the name, or title, of a view given a view's identifier.
 
-		Parameters
+        Parameters
 
-		strMode : Required,   String,   The identifier of the display mode obtained from the ViewNames method
+        strMode : Required,   String,   The identifier of the display mode obtained from the ViewNames method
 
-		Returns
+        Returns
 
-		String : The name, or title, of the view if successful.
-		Null : If not successful, or on error.
+        String : The name, or title, of the view if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ViewTitle', None, strMode)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewTitle', None, strMode)
 
-	def wallpaper(self, strview, strfilename):
-		"""
+    def wallpaper(self, strview, strfilename):
+        """
 
-		Returns or sets the wallpaper bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
+        Returns or sets the wallpaper bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		strFileName : Optional,   String,   The name of the bitmap file to set as the wallpaper
+        strView : Optional,   String,   The title or identifier of the view
+        strFileName : Optional,   String,   The name of the bitmap file to set as the wallpaper
 
-		Returns
+        Returns
 
-		String : If strFileName is not specified,  then the current wallpaper bitmap filename if successful.
-		String : If strFileName is specified,  then the previous wallpaper bitmap filename if successful.
-		Null : If not successful, or on error.
+        String : If strFileName is not specified,  then the current wallpaper bitmap filename if successful.
+        String : If strFileName is specified,  then the previous wallpaper bitmap filename if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'Wallpaper', None, strView, strFileName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'Wallpaper', None, strView, strFileName)
 
-	def wallpapergrayscale(self, strview, blngrayscale):
-		"""
+    def wallpapergrayscale(self, strview, blngrayscale):
+        """
 
-		Returns or sets the grayscale display option of the wallpaper bitmap of the specified view.
+        Returns or sets the grayscale display option of the wallpaper bitmap of the specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		blnGrayScale : Optional,   Boolean,   Display the wallpaper bitmap in grayscale (True) or color (False)
+        strView : Optional,   String,   The title or identifier of the view
+        blnGrayScale : Optional,   Boolean,   Display the wallpaper bitmap in grayscale (True) or color (False)
 
-		Returns
+        Returns
 
-		Boolean : If blnGrayScale is not specified,  then the current grayscale display option if successful.
-		Boolean : If blnGrayScale is specified,  then the previous grayscale display option if successful.
-		Null : If not successful, or on error.
+        Boolean : If blnGrayScale is not specified,  then the current grayscale display option if successful.
+        Boolean : If blnGrayScale is specified,  then the previous grayscale display option if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'WallpaperGrayScale', None, strView, blnGrayScale)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'WallpaperGrayScale', None, strView, blnGrayScale)
 
-	def wallpaperhidden(self, strview, blnhidden):
-		"""
+    def wallpaperhidden(self, strview, blnhidden):
+        """
 
-		Returns or sets the visibility of the wallpaper bitmap of the specified view.
+        Returns or sets the visibility of the wallpaper bitmap of the specified view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		blnHidden : Optional,   Boolean,   Hide the wallpaper bitmap (True) or show the wallpaper bitmap (False)
+        strView : Optional,   String,   The title or identifier of the view
+        blnHidden : Optional,   Boolean,   Hide the wallpaper bitmap (True) or show the wallpaper bitmap (False)
 
-		Returns
+        Returns
 
-		Boolean : If blnHidden is not specified,  then the current wallpaper visibility if successful.
-		Boolean : If blnHidden is specified,  then the previous wallpaper visibility if successful.
-		Null : If not successful, or on error.
+        Boolean : If blnHidden is not specified,  then the current wallpaper visibility if successful.
+        Boolean : If blnHidden is specified,  then the previous wallpaper visibility if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'WallpaperHidden', None, strView, blnHidden)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'WallpaperHidden', None, strView, blnHidden)
 
-	def zoomboundingbox(self, arrcorners, strview, blnall):
-		"""
+    def zoomboundingbox(self, arrcorners, strview, blnall):
+        """
 
-		Zooms to the extents of a specified bounding box in the specified view, or in the active view.
+        Zooms to the extents of a specified bounding box in the specified view, or in the active view.
 
-		Parameters
+        Parameters
 
-		arrCorners : Required,   Array,   An array of eight 3-D points that define the corners of the box
-		strView : Optional,   String,   The title or identifier of the view
-		blnAll : Optional,   Boolean,   Zoom extents in all views
+        arrCorners : Required,   Array,   An array of eight 3-D points that define the corners of the box
+        strView : Optional,   String,   The title or identifier of the view
+        blnAll : Optional,   Boolean,   Zoom extents in all views
 
-		No returns
+        No returns
 
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ZoomBoundingBox', None, arrCorners, strView, blnAll)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ZoomBoundingBox', None, arrCorners, strView, blnAll)
 
-	def zoomextents(self, strview, blnall):
-		"""
+    def zoomextents(self, strview, blnall):
+        """
 
-		Zooms to the extents of visible objects in the specified view, or in the active view.
+        Zooms to the extents of visible objects in the specified view, or in the active view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		blnAll : Optional,   Boolean,   Zoom extents in all views
+        strView : Optional,   String,   The title or identifier of the view
+        blnAll : Optional,   Boolean,   Zoom extents in all views
 
-		No returns
+        No returns
 
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ZoomExtents', None, strView, blnAll)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ZoomExtents', None, strView, blnAll)
 
-	def zoomselected(self, strview, blnall):
-		"""
+    def zoomselected(self, strview, blnall):
+        """
 
-		Zooms to the extents of selected objects in the specified view, or in the active view.
+        Zooms to the extents of selected objects in the specified view, or in the active view.
 
-		Parameters
+        Parameters
 
-		strView : Optional,   String,   The title or identifier of the view
-		blnAll : Optional,   Boolean,   Zoom selected in all views
+        strView : Optional,   String,   The title or identifier of the view
+        blnAll : Optional,   Boolean,   Zoom selected in all views
 
-		No returns
+        No returns
 
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ZoomSelected', None, strView, blnAll)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ZoomSelected', None, strView, blnAll)
 

@@ -8,643 +8,643 @@ class Dimension(DispatchBaseClass):
 
 
 
-	def adddimstyle(self, strdimstyle):
-		"""
+    def adddimstyle(self, strdimstyle):
+        """
 
-		Adds a new dimension style to the document.  The new dimension style will be initialized with the current default dimension style properties.
+        Adds a new dimension style to the document.  The new dimension style will be initialized with the current default dimension style properties.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Optional,   String,   The name of the new dimension style
+        strDimStyle : Optional,   String,   The name of the new dimension style
 
-		Returns
+        Returns
 
-		String : The name of the new dimension style if successful.
-		Null : If not successful, or on error.
+        String : The name of the new dimension style if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddDimStyle', None, strDimStyle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddDimStyle', None, strDimStyle)
 
-	def addleader(self, arrpoints, strview, strtext):
-		"""
+    def addleader(self, arrpoints, strview, strtext):
+        """
 
-		Adds an annotation leader to the document. Leader objects are planar. The array of 3-D points passed to this member should be co-planar.
+        Adds an annotation leader to the document. Leader objects are planar. The array of 3-D points passed to this member should be co-planar.
 
-		Parameters
+        Parameters
 
-		arrPoints : Required,   Array,   An array of 3-D points
-		strView : Optional,   String,   The title of the view
-		strText : Optional,   String,   The leader's text string
+        arrPoints : Required,   Array,   An array of 3-D points
+        strView : Optional,   String,   The title of the view
+        strText : Optional,   String,   The leader's text string
 
-		Returns
+        Returns
 
-		String : The identifier of the new object if successful.
-		Null : If not successful, or on error.
+        String : The identifier of the new object if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddLeader', None, arrPoints, strView, strText)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddLeader', None, arrPoints, strView, strText)
 
-	def currentdimstyle(self, strdimstyle):
-		"""
+    def currentdimstyle(self, strdimstyle):
+        """
 
-		Returns or changes the current default dimension style.
+        Returns or changes the current default dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Optional,   String,   The name of an existing dimension style to make current
+        strDimStyle : Optional,   String,   The name of an existing dimension style to make current
 
-		Returns
+        Returns
 
-		String : If a dimension style is not specified, the name of the current dimension style if successful.
-		String : If a dimension style is specified, the name of the previous current dimension style if successful.
-		Null : If not successful, or on error.
+        String : If a dimension style is not specified, the name of the current dimension style if successful.
+        String : If a dimension style is specified, the name of the previous current dimension style if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentDimStyle', None, strDimStyle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentDimStyle', None, strDimStyle)
 
-	def deletedimstyle(self, strdimstyle):
-		"""
+    def deletedimstyle(self, strdimstyle):
+        """
 
-		Removes an existing dimension style from the document.  The dimension style to be removed cannot be the reference by any dimension objects.
+        Removes an existing dimension style from the document.  The dimension style to be removed cannot be the reference by any dimension objects.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an un-referenced dimension style
+        strDimStyle : Required,   String,   The name of an un-referenced dimension style
 
-		Returns
+        Returns
 
-		String : The name of the deleted dimension style if successful.
-		Null : If not successful, or on error.
+        String : The name of the deleted dimension style if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteDimStyle', None, strDimStyle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteDimStyle', None, strDimStyle)
 
-	def dimscale(self, dblscale):
-		"""
+    def dimscale(self, dblscale):
+        """
 
-		Returns or changes the document's global dimension scale.
+        Returns or changes the document's global dimension scale.
 
-		Parameters
+        Parameters
 
-		dblScale : Optional,   Number,   The new global dimension scale value
+        dblScale : Optional,   Number,   The new global dimension scale value
 
-		Returns
+        Returns
 
-		Number : If a dimension scale is not specified, the current dimension scale if successful.
-		Number : If a dimension scale is specified, the previous dimension scale if successful.
-		Null : If not successful, or on error.
+        Number : If a dimension scale is not specified, the current dimension scale if successful.
+        Number : If a dimension scale is specified, the previous dimension scale if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimScale', None, dblScale)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimScale', None, dblScale)
 
-	def dimstyleangleprecision(self, strdimstyle, intprecision):
-		"""
+    def dimstyleangleprecision(self, strdimstyle, intprecision):
+        """
 
-		Returns or changes the angle display precision of a dimension style.
+        Returns or changes the angle display precision of a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		intPrecision : Optional,   Number,   The new angle precision value
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        intPrecision : Optional,   Number,   The new angle precision value
 
-		Returns
+        Returns
 
-		Number : If a precision is not specified, the current angle precision if successful.
-		Number : If a precision is specified, the previous angle precision if successful.
-		Null : If not successful, or on error.
+        Number : If a precision is not specified, the current angle precision if successful.
+        Number : If a precision is specified, the previous angle precision if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleAnglePrecision', None, strDimStyle, intPrecision)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleAnglePrecision', None, strDimStyle, intPrecision)
 
-	def dimstylearrowsize(self, strdimstyle, dblsize):
-		"""
+    def dimstylearrowsize(self, strdimstyle, dblsize):
+        """
 
-		Returns or changes the arrow size of a dimension style.
+        Returns or changes the arrow size of a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		dblSize : Optional,   Number,   The new arrow size
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        dblSize : Optional,   Number,   The new arrow size
 
-		Returns
+        Returns
 
-		Number : If a size value is not specified, the current arrow size if successful.
-		Number : If a size value is specified, the previous arrow size if successful.
-		Null : If not successful, or on error.
+        Number : If a size value is not specified, the current arrow size if successful.
+        Number : If a size value is specified, the previous arrow size if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleArrowSize', None, strDimStyle, dblSize)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleArrowSize', None, strDimStyle, dblSize)
 
-	def dimstylecount(self, ):
-		"""
+    def dimstylecount(self, ):
+        """
 
-		Returns the number of dimension styles in the document.
+        Returns the number of dimension styles in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The number of dimension styles in the document.
+        Number : The number of dimension styles in the document.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleCount', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleCount', None, )
 
-	def dimstyleextension(self, strdimstyle, dblextension):
-		"""
+    def dimstyleextension(self, strdimstyle, dblextension):
+        """
 
-		Returns or changes the extension line extension of a dimension style.
+        Returns or changes the extension line extension of a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		dblExtension : Optional,   Number,   The new extension line extension
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        dblExtension : Optional,   Number,   The new extension line extension
 
-		Returns
+        Returns
 
-		Number : If an extension is not specified, the current extension line extension if successful.
-		Number : If an extension is specified, the previous extension line extension if successful.
-		Null : If not successful, or on error.
+        Number : If an extension is not specified, the current extension line extension if successful.
+        Number : If an extension is specified, the previous extension line extension if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleExtension', None, strDimStyle, dblExtension)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleExtension', None, strDimStyle, dblExtension)
 
-	def dimstylefont(self, strdimstyle, strfont):
-		"""
+    def dimstylefont(self, strdimstyle, strfont):
+        """
 
-		Returns or changes the font used by a dimension style.
+        Returns or changes the font used by a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		strFont : Optional,   String,   The new font face name
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        strFont : Optional,   String,   The new font face name
 
-		Returns
+        Returns
 
-		String : If a font is not specified, the current font if successful.
-		String : If a font is specified, the previous font if successful.
-		Null : If not successful, or on error.
+        String : If a font is not specified, the current font if successful.
+        String : If a font is specified, the previous font if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleFont', None, strDimStyle, strFont)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleFont', None, strDimStyle, strFont)
 
-	def dimstyleleaderarrowsize(self, strdimstyle, dblsize):
-		"""
+    def dimstyleleaderarrowsize(self, strdimstyle, dblsize):
+        """
 
-		Returns or changes the leader arrow size of a dimension style.
+        Returns or changes the leader arrow size of a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		dblSize : Optional,   Number,   The new leader arrow size
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        dblSize : Optional,   Number,   The new leader arrow size
 
-		Returns
+        Returns
 
-		Number : If a size value is not specified, the current leader arrow size if successful.
-		Number : If a size value is specified, the previous leader arrow size if successful.
-		Null : If not successful, or on error.
+        Number : If a size value is not specified, the current leader arrow size if successful.
+        Number : If a size value is specified, the previous leader arrow size if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleLeaderArrowSize', None, strDimStyle, dblSize)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleLeaderArrowSize', None, strDimStyle, dblSize)
 
-	def dimstylelinearprecision(self, strdimstyle, intprecision):
-		"""
+    def dimstylelinearprecision(self, strdimstyle, intprecision):
+        """
 
-		Returns or changes the linear display precision of a dimension style.
+        Returns or changes the linear display precision of a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		intPrecision : Optional,   Number,   The new linear precision value
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        intPrecision : Optional,   Number,   The new linear precision value
 
-		Returns
+        Returns
 
-		Number : If a precision is not specified, the current linear precision if successful.
-		Number : If ar precision is specified, the previous linear precision if successful.
-		Null : If not successful, or on error.
+        Number : If a precision is not specified, the current linear precision if successful.
+        Number : If ar precision is specified, the previous linear precision if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleLinearPrecision', None, strDimStyle, intPrecision)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleLinearPrecision', None, strDimStyle, intPrecision)
 
-	def dimstylenames(self, blnsort):
-		"""
+    def dimstylenames(self, blnsort):
+        """
 
-		Returns the names of all dimension styles in the document.
+        Returns the names of all dimension styles in the document.
 
-		Parameters
+        Parameters
 
-		blnSort : Optional,   Boolean,   Return a sorted list of dimension style names
+        blnSort : Optional,   Boolean,   Return a sorted list of dimension style names
 
-		Returns
+        Returns
 
-		Array : An array of dimension style names if successful.
-		Null : If not successful, or on error.
+        Array : An array of dimension style names if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleNames', None, blnSort)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleNames', None, blnSort)
 
-	def dimstylenumberformat(self, strdimstyle, intformat):
-		"""
+    def dimstylenumberformat(self, strdimstyle, intformat):
+        """
 
-		Returns or changes the number display format of a dimension style.
+        Returns or changes the number display format of a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		intFormat : Optional,   Number,   The new number display format
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        intFormat : Optional,   Number,   The new number display format
 
-		Returns
+        Returns
 
-		Number : If a format is not specified, the current number display format if successful.
-		Number : If a format is specified, the previous number display format if successful.
-		Null : If not successful, or on error.
+        Number : If a format is not specified, the current number display format if successful.
+        Number : If a format is specified, the previous number display format if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleNumberFormat', None, strDimStyle, intFormat)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleNumberFormat', None, strDimStyle, intFormat)
 
-	def dimstyleoffset(self, strdimstyle, dbloffset):
-		"""
+    def dimstyleoffset(self, strdimstyle, dbloffset):
+        """
 
-		Returns or changes the extension line offset of a dimension style.
+        Returns or changes the extension line offset of a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		dblOffset : Optional,   Number,   The new extension line offset
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        dblOffset : Optional,   Number,   The new extension line offset
 
-		Returns
+        Returns
 
-		Number : If an offset is not specified, the current extension line offset if successful.
-		Number : If an offset is specified, the previous extension line offset if successful.
-		Null : If not successful, or on error.
+        Number : If an offset is not specified, the current extension line offset if successful.
+        Number : If an offset is specified, the previous extension line offset if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleOffset', None, strDimStyle, dblOffset)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleOffset', None, strDimStyle, dblOffset)
 
-	def dimstyletextalignment(self, strdimstyle, intalignment):
-		"""
+    def dimstyletextalignment(self, strdimstyle, intalignment):
+        """
 
-		Returns or changes the text alignment mode of a dimension style.
+        Returns or changes the text alignment mode of a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		intAlignment : Optional,   Number,   The new text alignment
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        intAlignment : Optional,   Number,   The new text alignment
 
-		Returns
+        Returns
 
-		Number : If a mode is not specified, the current text alignment mode  if successful.
-		Number : If a mode is specified, the previous text alignment mode if successful.
-		Null : If not successful, or on error.
+        Number : If a mode is not specified, the current text alignment mode  if successful.
+        Number : If a mode is specified, the previous text alignment mode if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextAlignment', None, strDimStyle, intAlignment)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextAlignment', None, strDimStyle, intAlignment)
 
-	def dimstyletextgap(self, strdimstyle, dblgap):
-		"""
+    def dimstyletextgap(self, strdimstyle, dblgap):
+        """
 
-		Returns or changes the text gap used by a dimension style.
+        Returns or changes the text gap used by a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		dblGap : Optional,   Number,   The new text gap
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        dblGap : Optional,   Number,   The new text gap
 
-		Returns
+        Returns
 
-		Number : If a gap is not specified, the current text gap if successful.
-		Number : If a gap is specified, the previous text gap if successful.
-		Null : If not successful, or on error.
+        Number : If a gap is not specified, the current text gap if successful.
+        Number : If a gap is specified, the previous text gap if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextGap', None, strDimStyle, dblGap)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextGap', None, strDimStyle, dblGap)
 
-	def dimstyletextheight(self, strdimstyle, dblheight):
-		"""
+    def dimstyletextheight(self, strdimstyle, dblheight):
+        """
 
-		Returns or changes the text height used by a dimension style.
+        Returns or changes the text height used by a dimension style.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
-		dblHeight : Optional,   Number,   The new text height
+        strDimStyle : Required,   String,   The name of an existing dimension style
+        dblHeight : Optional,   Number,   The new text height
 
-		Returns
+        Returns
 
-		Number : If a height is not specified, the current text height if successful.
-		Number : If a height is specified, the previous text height if successful.
-		Null : If not successful, or on error.
+        Number : If a height is not specified, the current text height if successful.
+        Number : If a height is specified, the previous text height if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextHeight', None, strDimStyle, dblHeight)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextHeight', None, strDimStyle, dblHeight)
 
-	def dimensionstyle(self, strobject, strstyle):
-		"""
+    def dimensionstyle(self, strobject, strstyle):
+        """
 
-		Returns or modifies the dimension style of a dimension object.
+        Returns or modifies the dimension style of a dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
-		strStyle : Optional,  String,  The name of an existing dimension style
+        strObject : Required,  String,  The object's identifier
+        strStyle : Optional,  String,  The name of an existing dimension style
 
-		Returns
+        Returns
 
-		String : If strStyle is not specified, then the object's current dimension style if successful.
-		String : If strStyle is specified, then the object's previous dimension style if successful.
-		Null : On error.
+        String : If strStyle is not specified, then the object's current dimension style if successful.
+        String : If strStyle is specified, then the object's previous dimension style if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionStyle', None, strObject, strStyle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionStyle', None, strObject, strStyle)
 
-	def dimensiontext(self, strobject):
-		"""
+    def dimensiontext(self, strobject):
+        """
 
-		Returns the text displayed by a dimension object.
+        Returns the text displayed by a dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		String : The dimension text if successful.
-		Null : On error.
+        String : The dimension text if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionText', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionText', None, strObject)
 
-	def dimensionusertext(self, strobject, strusertext):
-		"""
+    def dimensionusertext(self, strobject, strusertext):
+        """
 
-		Returns or modifies the user text string of a dimension object. The user text is the string that gets printed when the dimension is drawn. If it contains the token "<>", then the token is replaced with the measured value of the dimension, formatted according to the dimension style settings. Note,  "<>" is the default user text string for linear dimensions.
+        Returns or modifies the user text string of a dimension object. The user text is the string that gets printed when the dimension is drawn. If it contains the token "<>", then the token is replaced with the measured value of the dimension, formatted according to the dimension style settings. Note,  "<>" is the default user text string for linear dimensions.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
-		strUserText : Optional,  String,  The new user text string value
+        strObject : Required,  String,  The object's identifier
+        strUserText : Optional,  String,  The new user text string value
 
-		Returns
+        Returns
 
-		String : If strUserText is not specified, then the current user text string if successful.
-		String : If strUserText is specified, then the previous user text string if successful.
-		Null : On error.
+        String : If strUserText is not specified, then the current user text string if successful.
+        String : If strUserText is specified, then the previous user text string if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionUserText', None, strObject, strUserText)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionUserText', None, strObject, strUserText)
 
-	def dimensionvalue(self, strobject):
-		"""
+    def dimensionvalue(self, strobject):
+        """
 
-		Returns the value of a dimension object.
+        Returns the value of a dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Number : The value of the dimension successful.
-		Null : On error.
+        Number : The value of the dimension successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionValue', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionValue', None, strObject)
 
-	def isaligneddimension(self, strobject):
-		"""
+    def isaligneddimension(self, strobject):
+        """
 
-		Verifies an object is an aligned dimension object.
+        Verifies an object is an aligned dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsAlignedDimension', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsAlignedDimension', None, strObject)
 
-	def isangulardimension(self, strobject):
-		"""
+    def isangulardimension(self, strobject):
+        """
 
-		Verifies an object is an angular dimension object.
+        Verifies an object is an angular dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsAngularDimension', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsAngularDimension', None, strObject)
 
-	def isdiameterdimension(self, strobject):
-		"""
+    def isdiameterdimension(self, strobject):
+        """
 
-		Verifies an object is a diameter dimension object.
+        Verifies an object is a diameter dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDiameterDimension', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsDiameterDimension', None, strObject)
 
-	def isdimstyle(self, strdimstyle):
-		"""
+    def isdimstyle(self, strdimstyle):
+        """
 
-		Verifies the existence of a dimension style in the document.
+        Verifies the existence of a dimension style in the document.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of a dimension style to test
+        strDimStyle : Required,   String,   The name of a dimension style to test
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimStyle', None, strDimStyle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimStyle', None, strDimStyle)
 
-	def isdimstylereference(self, strdimstyle):
-		"""
+    def isdimstylereference(self, strdimstyle):
+        """
 
-		Verifies that an existing dimension style is from a reference file.
+        Verifies that an existing dimension style is from a reference file.
 
-		Parameters
+        Parameters
 
-		strDimStyle : Required,   String,   The name of an existing dimension style
+        strDimStyle : Required,   String,   The name of an existing dimension style
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimStyleReference', None, strDimStyle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimStyleReference', None, strDimStyle)
 
-	def isdimension(self, strobject):
-		"""
+    def isdimension(self, strobject):
+        """
 
-		Verifies an object is a dimension object.
+        Verifies an object is a dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimension', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimension', None, strObject)
 
-	def isleader(self, strobject):
-		"""
+    def isleader(self, strobject):
+        """
 
-		Verifies an object is a dimension leader object.
+        Verifies an object is a dimension leader object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLeader', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLeader', None, strObject)
 
-	def islineardimension(self, strobject):
-		"""
+    def islineardimension(self, strobject):
+        """
 
-		Verifies an object is a linear dimension object.
+        Verifies an object is a linear dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinearDimension', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinearDimension', None, strObject)
 
-	def isordinatedimension(self, strobject):
-		"""
+    def isordinatedimension(self, strobject):
+        """
 
-		Verifies an object is an ordinate dimension object.
+        Verifies an object is an ordinate dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsOrdinateDimension', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsOrdinateDimension', None, strObject)
 
-	def isradialdimension(self, strobject):
-		"""
+    def isradialdimension(self, strobject):
+        """
 
-		Verifies an object is a radial dimension object.
+        Verifies an object is a radial dimension object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
+        strObject : Required,  String,  The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True if successful, otherwise False.
-		Null : On error.
+        Boolean : True if successful, otherwise False.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsRadialDimension', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsRadialDimension', None, strObject)
 
-	def leadertext(self, strobject, strtext):
-		"""
+    def leadertext(self, strobject, strtext):
+        """
 
-		Returns or modifies the text string of a dimension leader object.
+        Returns or modifies the text string of a dimension leader object.
 
-		Parameters
+        Parameters
 
-		strObject : Required,  String,  The object's identifier
-		strText : Optional,  String,  The new text string value
+        strObject : Required,  String,  The object's identifier
+        strText : Optional,  String,  The new text string value
 
-		Returns
+        Returns
 
-		String : If strText is not specified, then the current text string if successful.
-		String : If strText is specified, then the previous text string if successful.
-		Null : On error.
+        String : If strText is not specified, then the current text string if successful.
+        String : If strText is specified, then the previous text string if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LeaderText', None, strObject, strText)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LeaderText', None, strObject, strText)
 
-	def renamedimstyle(self, stroldstyle, strnewstyle):
-		"""
+    def renamedimstyle(self, stroldstyle, strnewstyle):
+        """
 
-		Renames an existing dimension style.
+        Renames an existing dimension style.
 
-		Parameters
+        Parameters
 
-		strOldStyle : Required,   String,   The name of an existing dimension style
-		strNewStyle : Required,   String,   The new dimension style name
+        strOldStyle : Required,   String,   The name of an existing dimension style
+        strNewStyle : Required,   String,   The new dimension style name
 
-		Returns
+        Returns
 
-		String : The new dimension style name if successful.
-		Null : If not successful, or on error.
+        String : The new dimension style name if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameDimStyle', None, strOldStyle, strNewStyle)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenameDimStyle', None, strOldStyle, strNewStyle)
 

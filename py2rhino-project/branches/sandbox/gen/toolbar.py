@@ -8,351 +8,351 @@ class Toolbar(DispatchBaseClass):
 
 
 
-	def addtoolbar(self, strname, strtoolbar):
-		"""
+    def addtoolbar(self, strname, strtoolbar):
+        """
 
-		Create new toolbar with one blank button.
+        Create new toolbar with one blank button.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strToolbar : Required,   String,   The name of a toolbar in the collection to add
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strToolbar : Required,   String,   The name of a toolbar in the collection to add
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbar', None, strName, strToolbar)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbar', None, strName, strToolbar)
 
-	def addtoolbarbutton(self, strname, strtoolbar):
-		"""
+    def addtoolbarbutton(self, strname, strtoolbar):
+        """
 
-		Add a new button to specified toolbar.  The new button will be completely blank.
+        Add a new button to specified toolbar.  The new button will be completely blank.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strToolbar : Required,   String,   The name of a toolbar in the collection to add a button
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strToolbar : Required,   String,   The name of a toolbar in the collection to add a button
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbarButton', None, strName, strToolbar)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbarButton', None, strName, strToolbar)
 
-	def addtoolbarcollection(self, strfile):
-		"""
+    def addtoolbarcollection(self, strfile):
+        """
 
-		Create new toolbar collection file with no toolbars.
+        Create new toolbar collection file with no toolbars.
 
-		Parameters
+        Parameters
 
-		strFile : Required,   String,   The filename of the toolbar collection to create
+        strFile : Required,   String,   The filename of the toolbar collection to create
 
-		Returns
+        Returns
 
-		String : The name, or alias, of the newly created toolbar collection if successful.
-		Null : On error.
+        String : The name, or alias, of the newly created toolbar collection if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbarCollection', None, strFile)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbarCollection', None, strFile)
 
-	def closetoolbarcollection(self, strname, blnprompt):
-		"""
+    def closetoolbarcollection(self, strname, blnprompt):
+        """
 
-		Closes a currently open toolbar collection.
+        Closes a currently open toolbar collection.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		blnPrompt : Optional,   Boolean,   If True,  then the user will be prompted to save the collection file if it has been modified prior to closing
+        strName : Required,   String,   The name of a currently open toolbar collection
+        blnPrompt : Optional,   Boolean,   If True,  then the user will be prompted to save the collection file if it has been modified prior to closing
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'CloseToolbarCollection', None, strName, blnPrompt)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CloseToolbarCollection', None, strName, blnPrompt)
 
-	def deletetoolbar(self, strname, strtoolbar):
-		"""
+    def deletetoolbar(self, strname, strtoolbar):
+        """
 
-		Deletes a toolbar from an open toolbar collection.
+        Deletes a toolbar from an open toolbar collection.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strToolbar : Required,   String,   The name of a toolbar in the collection to remove
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strToolbar : Required,   String,   The name of a toolbar in the collection to remove
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteToolbar', None, strName, strToolbar)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteToolbar', None, strName, strToolbar)
 
-	def hidetoolbar(self, strname, strtoolbar):
-		"""
+    def hidetoolbar(self, strname, strtoolbar):
+        """
 
-		Hides a previously visible toolbar in a currently open toolbar collection.
+        Hides a previously visible toolbar in a currently open toolbar collection.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strToolbar : Required,   String,   The name of a toolbar in the collection to hide
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strToolbar : Required,   String,   The name of a toolbar in the collection to hide
 
-		Returns
+        Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+        Boolean : True or false indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'HideToolBar', None, strName, strToolbar)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'HideToolBar', None, strName, strToolbar)
 
-	def istoolbar(self, strname, strtoolbar):
-		"""
+    def istoolbar(self, strname, strtoolbar):
+        """
 
-		Verifies that a toolbar exists in a currently open toolbar collection.
+        Verifies that a toolbar exists in a currently open toolbar collection.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strToolbar : Required,   String,   The name of a toolbar in the collection to verify
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strToolbar : Required,   String,   The name of a toolbar in the collection to verify
 
-		Returns
+        Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+        Boolean : True or false indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolBar', None, strName, strToolbar)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolBar', None, strName, strToolbar)
 
-	def istoolbarvisible(self, strname, strtoolbar):
-		"""
+    def istoolbarvisible(self, strname, strtoolbar):
+        """
 
-		Verifies that a toolbar in a currently open toolbar collection is visible.
+        Verifies that a toolbar in a currently open toolbar collection is visible.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strToolbar : Required,   String,   The name of a toolbar in the collection to verify
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strToolbar : Required,   String,   The name of a toolbar in the collection to verify
 
-		Returns
+        Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+        Boolean : True or false indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolBarVisible', None, strName, strToolbar)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolBarVisible', None, strName, strToolbar)
 
-	def istoolbarcollection(self, strfile):
-		"""
+    def istoolbarcollection(self, strfile):
+        """
 
-		Verifies that a toolbar collection is open.
+        Verifies that a toolbar collection is open.
 
-		Parameters
+        Parameters
 
-		strFile : Required,   String,   The full path to the toolbar collection file to verify
+        strFile : Required,   String,   The full path to the toolbar collection file to verify
 
-		Returns
+        Returns
 
-		String : The Rhino-assigned name of the toolbar collection if successful..
-		Null : If not successful, or on error.
+        String : The Rhino-assigned name of the toolbar collection if successful..
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolbarCollection', None, strFile)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolbarCollection', None, strFile)
 
-	def istoolbardocked(self, strname, strtoolbar):
-		"""
+    def istoolbardocked(self, strname, strtoolbar):
+        """
 
-		Verifies that a visible toolbar in a currently open toolbar collection is docked.
+        Verifies that a visible toolbar in a currently open toolbar collection is docked.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strToolbar : Required,   String,   The name of a toolbar in the collection to verify
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strToolbar : Required,   String,   The name of a toolbar in the collection to verify
 
-		Returns
+        Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+        Boolean : True or false indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolbarDocked', None, strName, strToolbar)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolbarDocked', None, strName, strToolbar)
 
-	def opentoolbarcollection(self, strfile):
-		"""
+    def opentoolbarcollection(self, strfile):
+        """
 
-		Opens an existing toolbar collection file.
+        Opens an existing toolbar collection file.
 
-		Parameters
+        Parameters
 
-		strFile : Required,   String,   The full path to the toolbar collection file to open
+        strFile : Required,   String,   The full path to the toolbar collection file to open
 
-		Returns
+        Returns
 
-		String : The Rhino-assigned name of the toolbar collection if successful.
-		Null : If not successful, or on error.
+        String : The Rhino-assigned name of the toolbar collection if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'OpenToolbarCollection', None, strFile)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'OpenToolbarCollection', None, strFile)
 
-	def savetoolbarcollection(self, strname):
-		"""
+    def savetoolbarcollection(self, strname):
+        """
 
-		Saves an open toolbar collection to disk.
+        Saves an open toolbar collection to disk.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
+        strName : Required,   String,   The name of a currently open toolbar collection
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating success or failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SaveToolbarCollection', None, strName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SaveToolbarCollection', None, strName)
 
-	def savetoolbarcollectionas(self, strname, strfile):
-		"""
+    def savetoolbarcollectionas(self, strname, strfile):
+        """
 
-		Saves an open toolbar collection to a different disk file.
+        Saves an open toolbar collection to a different disk file.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strFile : Required,   String,   The full path to the toolbar collection file to create
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strFile : Required,   String,   The full path to the toolbar collection file to create
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating success or failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SaveToolbarCollectionAs', None, strName, strFile)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SaveToolbarCollectionAs', None, strName, strFile)
 
-	def showtoolbar(self, strname, strtoolbar):
-		"""
+    def showtoolbar(self, strname, strtoolbar):
+        """
 
-		Shows a previously hidden toolbar in a currently open toolbar collection.
+        Shows a previously hidden toolbar in a currently open toolbar collection.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
-		strToolbar : Required,   String,   The name of a toolbar in the collection to show
+        strName : Required,   String,   The name of a currently open toolbar collection
+        strToolbar : Required,   String,   The name of a toolbar in the collection to show
 
-		Returns
+        Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+        Boolean : True or false indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowToolBar', None, strName, strToolbar)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowToolBar', None, strName, strToolbar)
 
-	def toolbarcount(self, strname):
-		"""
+    def toolbarcount(self, strname):
+        """
 
-		Returns the number of toolbars found in a currently open toolbar collection file.
+        Returns the number of toolbars found in a currently open toolbar collection file.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
+        strName : Required,   String,   The name of a currently open toolbar collection
 
-		Returns
+        Returns
 
-		Number : The number of toolbars in the toolbar collection if successful.
-		Null : If not successful, or on error.
+        Number : The number of toolbars in the toolbar collection if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolBarCount', None, strName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ToolBarCount', None, strName)
 
-	def toolbarnames(self, strname):
-		"""
+    def toolbarnames(self, strname):
+        """
 
-		Returns the names of all toolbars found in a currently open toolbar collection file.
+        Returns the names of all toolbars found in a currently open toolbar collection file.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
+        strName : Required,   String,   The name of a currently open toolbar collection
 
-		Returns
+        Returns
 
-		Array : The names of all toolbars in the toolbar collection if successful.
-		Null : If not successful, or on error.
+        Array : The names of all toolbars in the toolbar collection if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolBarNames', None, strName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ToolBarNames', None, strName)
 
-	def toolbarcollectioncount(self, ):
-		"""
+    def toolbarcollectioncount(self, ):
+        """
 
-		Returns the number of currently open toolbar collections.
+        Returns the number of currently open toolbar collections.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The number of currently open toolbar collections if successful.
-		Null : If not successful, or on error.
+        Number : The number of currently open toolbar collections if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionCount', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionCount', None, )
 
-	def toolbarcollectionnames(self, ):
-		"""
+    def toolbarcollectionnames(self, ):
+        """
 
-		Returns the name of all currently open toolbar collections.
+        Returns the name of all currently open toolbar collections.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Array : The names of all currently open toolbar collections if successful.
-		Null : If not successful, or on error.
+        Array : The names of all currently open toolbar collections if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionNames', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionNames', None, )
 
-	def toolbarcollectionpath(self, strname):
-		"""
+    def toolbarcollectionpath(self, strname):
+        """
 
-		Returns the full path to a currently open toolbar collection file.
+        Returns the full path to a currently open toolbar collection file.
 
-		Parameters
+        Parameters
 
-		strName : Required,   String,   The name of a currently open toolbar collection
+        strName : Required,   String,   The name of a currently open toolbar collection
 
-		Returns
+        Returns
 
-		String : The full path to the toolbar collection if successful.
-		Null : If not successful, or on error.
+        String : The full path to the toolbar collection if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionPath', None, strName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionPath', None, strName)
 

@@ -8,163 +8,163 @@ class LayerState(DispatchBaseClass):
 
 
 
-	def deletelayerstate(self, strstate):
-		"""
+    def deletelayerstate(self, strstate):
+        """
 
-		Removes an existing layer state from the document.
+        Removes an existing layer state from the document.
 
-		Parameters
+        Parameters
 
-		strState : Required,   String,   The name of an existing layer state
+        strState : Required,   String,   The name of an existing layer state
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteLayerState', None, strState)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteLayerState', None, strState)
 
-	def exportlayerstates(self, strfilename):
-		"""
+    def exportlayerstates(self, strfilename):
+        """
 
-		Exports all layer states to an external file.
+        Exports all layer states to an external file.
 
-		Parameters
+        Parameters
 
-		strFilename : Required,   String,   The name of an file to create
+        strFilename : Required,   String,   The name of an file to create
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ExportLayerStates', None, strFilename)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ExportLayerStates', None, strFilename)
 
-	def importlayerstates(self, strfilename):
-		"""
+    def importlayerstates(self, strfilename):
+        """
 
-		Imports layer states from a previously exported layer state file.
+        Imports layer states from a previously exported layer state file.
 
-		Parameters
+        Parameters
 
-		strFilename : Required,   String,   The name of an existing layer state file to import
+        strFilename : Required,   String,   The name of an existing layer state file to import
 
-		Returns
+        Returns
 
-		Number : The number of layer states imported if successful.
-		Null : On error.
+        Number : The number of layer states imported if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ImportLayerStates', None, strFilename)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ImportLayerStates', None, strFilename)
 
-	def islayerstate(self, strstate):
-		"""
+    def islayerstate(self, strstate):
+        """
 
-		Verifies the existence of a layer state in the document.
+        Verifies the existence of a layer state in the document.
 
-		Parameters
+        Parameters
 
-		strState : Required,   String,   The name of an existing layer state
+        strState : Required,   String,   The name of an existing layer state
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerState', None, strState)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerState', None, strState)
 
-	def layerstatecount(self, ):
-		"""
+    def layerstatecount(self, ):
+        """
 
-		Returns the number of layer states in the document.
+        Returns the number of layer states in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The number of layer states in the document.
+        Number : The number of layer states in the document.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerStateCount', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerStateCount', None, )
 
-	def layerstatenames(self, blnsort):
-		"""
+    def layerstatenames(self, blnsort):
+        """
 
-		Returns the names of all layer states in the document.
+        Returns the names of all layer states in the document.
 
-		Parameters
+        Parameters
 
-		blnSort : Optional,   Boolean,   If not specified or True, then the layer state names are sorted in ascending order
+        blnSort : Optional,   Boolean,   If not specified or True, then the layer state names are sorted in ascending order
 
-		Returns
+        Returns
 
-		Array : An array of layer state names if successful.
-		Null : If not successful, or on error.
+        Array : An array of layer state names if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerStateNames', None, blnSort)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerStateNames', None, blnSort)
 
-	def renamelayerstate(self, stroldstate, strnewstate):
-		"""
+    def renamelayerstate(self, stroldstate, strnewstate):
+        """
 
-		Renames an existing layer state.
+        Renames an existing layer state.
 
-		Parameters
+        Parameters
 
-		strOldState : Required,   String,   The name of an existing layer state
-		strNewState : Required,   String,   The new layer name
+        strOldState : Required,   String,   The name of an existing layer state
+        strNewState : Required,   String,   The new layer name
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success of failure.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating success of failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameLayerState', None, strOldState, strNewState)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenameLayerState', None, strOldState, strNewState)
 
-	def restorelayerstate(self, strstate, intmode):
-		"""
+    def restorelayerstate(self, strstate, intmode):
+        """
 
-		Restores a previously saved layer state.
+        Restores a previously saved layer state.
 
-		Parameters
+        Parameters
 
-		strState : Required,   String,   The name of an existing layer state
-		intMode : Required,   Number,   The layer properties you want restored
+        strState : Required,   String,   The name of an existing layer state
+        intMode : Required,   Number,   The layer properties you want restored
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success of failure.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating success of failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreLayerState', None, strState, intMode)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreLayerState', None, strState, intMode)
 
-	def savelayerstate(self, strstate):
-		"""
+    def savelayerstate(self, strstate):
+        """
 
-		Saves the current state of the layers in the document.
+        Saves the current state of the layers in the document.
 
-		Parameters
+        Parameters
 
-		strState : Optional,   String,   The name of the layer state
+        strState : Optional,   String,   The name of the layer state
 
-		Returns
+        Returns
 
-		String : The name of the new or updated layer state if successful.
-		Null : On error.
+        String : The name of the new or updated layer state if successful.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SaveLayerState', None, strState)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SaveLayerState', None, strState)
 

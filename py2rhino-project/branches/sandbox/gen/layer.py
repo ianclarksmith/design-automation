@@ -8,592 +8,592 @@ class Layer(DispatchBaseClass):
 
 
 
-	def addlayer(self, strlayer, lngcolor, blnvisible, blnlocked, strparent):
-		"""
+    def addlayer(self, strlayer, lngcolor, blnvisible, blnlocked, strparent):
+        """
 
-		Adds a new layer to the document.
+        Adds a new layer to the document.
 
-		Parameters
+        Parameters
 
-		strLayer : Optional,   String,   The name of the new layer
-		lngColor : Optional,   Number,   A Red-Green-Blue color value
-		blnVisible : Optional,   Boolean,   The layer's visibility
-		blnLocked : Optional,   Boolean,   The layer's locked state
-		strParent : Optional,   String,   The name of the new layer's parent layer
+        strLayer : Optional,   String,   The name of the new layer
+        lngColor : Optional,   Number,   A Red-Green-Blue color value
+        blnVisible : Optional,   Boolean,   The layer's visibility
+        blnLocked : Optional,   Boolean,   The layer's locked state
+        strParent : Optional,   String,   The name of the new layer's parent layer
 
-		Returns
+        Returns
 
-		String : The name of the new layer if successful.
-		Null : If not successful, or on error.
+        String : The name of the new layer if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AddLayer', None, strLayer, lngColor, blnVisible, blnLocked, strParent)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AddLayer', None, strLayer, lngColor, blnVisible, blnLocked, strParent)
 
-	def currentlayer(self, strlayer):
-		"""
+    def currentlayer(self, strlayer):
+        """
 
-		Returns or changes the current layer.
+        Returns or changes the current layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Optional,   String,   The name of an existing layer to make current
+        strLayer : Optional,   String,   The name of an existing layer to make current
 
-		Returns
+        Returns
 
-		String : If a layer name is not specified, the name of the current layer if successful.
-		String : If a layer name is specified, the name of the previous current layer if successful.
-		Null : If not successful, or on error.
+        String : If a layer name is not specified, the name of the current layer if successful.
+        String : If a layer name is specified, the name of the previous current layer if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentLayer', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentLayer', None, strLayer)
 
-	def deletelayer(self, strlayer):
-		"""
+    def deletelayer(self, strlayer):
+        """
 
-		Removes an existing layer from the document.  The layer to be removed cannot be the current layer.  Unlike the PurgeLayer method,  the layer must be empty, or contain no objects, before it can be removed. Any layers that are children of the specified layer will also be removed if they are also empty.
+        Removes an existing layer from the document.  The layer to be removed cannot be the current layer.  Unlike the PurgeLayer method,  the layer must be empty, or contain no objects, before it can be removed. Any layers that are children of the specified layer will also be removed if they are also empty.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an empty layer
+        strLayer : Required,   String,   The name of an empty layer
 
-		Returns
+        Returns
 
-		Boolean : True or false indicating success or failure.
-		Null : On error.
+        Boolean : True or false indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteLayer', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteLayer', None, strLayer)
 
-	def expandlayer(self, strlayer, blnexpand):
-		"""
+    def expandlayer(self, strlayer, blnexpand):
+        """
 
-		Expands a layer. Expanded layers can be viewed in Rhino's Layer dialog.
+        Expands a layer. Expanded layers can be viewed in Rhino's Layer dialog.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of the layer to expand
-		blnExpand : Required,   Boolean,   True to expand, False to collapse
+        strLayer : Required,   String,   The name of the layer to expand
+        blnExpand : Required,   Boolean,   True to expand, False to collapse
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ExpandLayer', None, strLayer, blnExpand)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ExpandLayer', None, strLayer, blnExpand)
 
-	def islayer(self, strlayer):
-		"""
+    def islayer(self, strlayer):
+        """
 
-		Verifies the existence of a layer in the document.
+        Verifies the existence of a layer in the document.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayer', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayer', None, strLayer)
 
-	def islayerchangeable(self, strlayer):
-		"""
+    def islayerchangeable(self, strlayer):
+        """
 
-		Verifies that the objects on a layer can be changed (normal).
+        Verifies that the objects on a layer can be changed (normal).
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerChangeable', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerChangeable', None, strLayer)
 
-	def islayerchildof(self, strlayer, strtest):
-		"""
+    def islayerchildof(self, strlayer, strtest):
+        """
 
-		Verifies that a layer is a child of another layer.
+        Verifies that a layer is a child of another layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of the layer to test against
-		strTest : Required,   String,   The name of the layer to test
+        strLayer : Required,   String,   The name of the layer to test against
+        strTest : Required,   String,   The name of the layer to test
 
-		Returns
+        Returns
 
-		Boolean : True if strTest is a child of strLayer. False otherwise.
-		Null : On error.
+        Boolean : True if strTest is a child of strLayer. False otherwise.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerChildOf', None, strLayer, strTest)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerChildOf', None, strLayer, strTest)
 
-	def islayercurrent(self, strlayer):
-		"""
+    def islayercurrent(self, strlayer):
+        """
 
-		Verifies that a layer is the current layer.
+        Verifies that a layer is the current layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerCurrent', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerCurrent', None, strLayer)
 
-	def islayerempty(self, strlayer):
-		"""
+    def islayerempty(self, strlayer):
+        """
 
-		Verifies that an existing layer is empty, or contains no objects.
+        Verifies that an existing layer is empty, or contains no objects.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerEmpty', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerEmpty', None, strLayer)
 
-	def islayerexpanded(self, strlayer):
-		"""
+    def islayerexpanded(self, strlayer):
+        """
 
-		Verifies that a layer is expanded. Expanded layers can be viewed in Rhino's Layer dialog.
+        Verifies that a layer is expanded. Expanded layers can be viewed in Rhino's Layer dialog.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of the layer to test
+        strLayer : Required,   String,   The name of the layer to test
 
-		Returns
+        Returns
 
-		Boolean : True if expanded, False if collapsed.
-		Null : On error.
+        Boolean : True if expanded, False if collapsed.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerExpanded', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerExpanded', None, strLayer)
 
-	def islayerlocked(self, strlayer):
-		"""
+    def islayerlocked(self, strlayer):
+        """
 
-		Verifies that an existing layer is locked.
+        Verifies that an existing layer is locked.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerLocked', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerLocked', None, strLayer)
 
-	def islayeron(self, strlayer):
-		"""
+    def islayeron(self, strlayer):
+        """
 
-		Verifies that an existing layer is on.
+        Verifies that an existing layer is on.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerOn', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerOn', None, strLayer)
 
-	def islayerparentof(self, strlayer, strtest):
-		"""
+    def islayerparentof(self, strlayer, strtest):
+        """
 
-		Verifies that a layer is a parent of another layer.
+        Verifies that a layer is a parent of another layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of the layer to test against
-		strTest : Required,   String,   The name of the layer to test
+        strLayer : Required,   String,   The name of the layer to test against
+        strTest : Required,   String,   The name of the layer to test
 
-		Returns
+        Returns
 
-		Boolean : True if strTest is a parent of strLayer. False otherwise.
-		Null : On error.
+        Boolean : True if strTest is a parent of strLayer. False otherwise.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerParentOf', None, strLayer, strTest)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerParentOf', None, strLayer, strTest)
 
-	def islayerreference(self, strlayer):
-		"""
+    def islayerreference(self, strlayer):
+        """
 
-		Verifies that an existing layer is from a reference file.
+        Verifies that an existing layer is from a reference file.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerReference', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerReference', None, strLayer)
 
-	def islayerselectable(self, strlayer):
-		"""
+    def islayerselectable(self, strlayer):
+        """
 
-		Verifies that an existing layer is selectable (normal and reference).
+        Verifies that an existing layer is selectable (normal and reference).
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerSelectable', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerSelectable', None, strLayer)
 
-	def islayervisible(self, strlayer):
-		"""
+    def islayervisible(self, strlayer):
+        """
 
-		Verifies that an existing layer is visible (normal, locked,  and reference).
+        Verifies that an existing layer is visible (normal, locked,  and reference).
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Null : On error.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerVisible', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerVisible', None, strLayer)
 
-	def layerchildcount(self, strlayer):
-		"""
+    def layerchildcount(self, strlayer):
+        """
 
-		Returns the number of immediate child layers of a layer.
+        Returns the number of immediate child layers of a layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of the layer
+        strLayer : Required,   String,   The name of the layer
 
-		Returns
+        Returns
 
-		Number : The number of immediate child layers if successful
-		Null : On error.
+        Number : The number of immediate child layers if successful
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerChildCount', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerChildCount', None, strLayer)
 
-	def layerchildren(self, strlayer):
-		"""
+    def layerchildren(self, strlayer):
+        """
 
-		Returns the immediate child layers of a layer.
+        Returns the immediate child layers of a layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of the layer
+        strLayer : Required,   String,   The name of the layer
 
-		Returns
+        Returns
 
-		Array : An array of strings identifying the layer's children if successful
-		Null : If the layer has no children, or on error.
+        Array : An array of strings identifying the layer's children if successful
+        Null : If the layer has no children, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerChildren', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerChildren', None, strLayer)
 
-	def layercolor(self, strlayer, lngcolor):
-		"""
+    def layercolor(self, strlayer, lngcolor):
+        """
 
-		Returns or changes the color of a layer.  Layer colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+        Returns or changes the color of a layer.  Layer colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
-		lngColor : Optional,   Number,   The new color value
+        strLayer : Required,   String,   The name of an existing layer
+        lngColor : Optional,   Number,   The new color value
 
-		Returns
+        Returns
 
-		Number : If a color value  is not specified,  the current color value if successful.
-		Number : If a color value is specified, the previous color value if successful.
-		Null : If not successful, or on error.
+        Number : If a color value  is not specified,  the current color value if successful.
+        Number : If a color value is specified, the previous color value if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerColor', None, strLayer, lngColor)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerColor', None, strLayer, lngColor)
 
-	def layercount(self, ):
-		"""
+    def layercount(self, ):
+        """
 
-		Returns the number of layers in the document.
+        Returns the number of layers in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The number of layers in the document.
+        Number : The number of layers in the document.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerCount', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerCount', None, )
 
-	def layerlinetype(self, strlayer, strlinetype):
-		"""
+    def layerlinetype(self, strlayer, strlinetype):
+        """
 
-		Returns or changes the linetype of a layer.
+        Returns or changes the linetype of a layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,  String,  The name of an existing layer
-		strLinetype : Optional,  String,  The name of the new linetype
+        strLayer : Required,  String,  The name of an existing layer
+        strLinetype : Optional,  String,  The name of the new linetype
 
-		Returns
+        Returns
 
-		String : If a linetype is not specified,  the name of the current linetype if successful.
-		String : If a linetype is specified, the name of the previous linetype if successful.
-		Null : If not successful, or on error.
+        String : If a linetype is not specified,  the name of the current linetype if successful.
+        String : If a linetype is specified, the name of the previous linetype if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerLinetype', None, strLayer, strLinetype)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerLinetype', None, strLayer, strLinetype)
 
-	def layerlocked(self, strlayer, blnvisible):
-		"""
+    def layerlocked(self, strlayer, blnvisible):
+        """
 
-		Returns or changes the locked mode of a layer. This method should be use instead of LayerMode.
+        Returns or changes the locked mode of a layer. This method should be use instead of LayerMode.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
-		blnVisible : Optional,   Boolean,   The new layer locked mode
+        strLayer : Required,   String,   The name of an existing layer
+        blnVisible : Optional,   Boolean,   The new layer locked mode
 
-		Returns
+        Returns
 
-		Boolean : If a layer mode is not specified,  the current layer locked mode if successful.
-		Boolean : If a layer mode is specified, the previous layer locked mode if successful.
-		Null : If not successful, or on error.
+        Boolean : If a layer mode is not specified,  the current layer locked mode if successful.
+        Boolean : If a layer mode is specified, the previous layer locked mode if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerLocked', None, strLayer, blnVisible)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerLocked', None, strLayer, blnVisible)
 
-	def layermaterialindex(self, strlayer):
-		"""
+    def layermaterialindex(self, strlayer):
+        """
 
-		Returns the material index of a layer.  A material index of -1 indicates that no material has been assigned to the layer.  Thus, the layer will use Rhino's default layer material.
+        Returns the material index of a layer.  A material index of -1 indicates that no material has been assigned to the layer.  Thus, the layer will use Rhino's default layer material.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Number : A zero-based material index if successful.
-		Null : If not successful, or on error.
+        Number : A zero-based material index if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerMaterialIndex', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerMaterialIndex', None, strLayer)
 
-	def layermode(self, strlayer, intmode):
-		"""
+    def layermode(self, strlayer, intmode):
+        """
 
-		Returns or changes the mode of a layer.
+        Returns or changes the mode of a layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
-		intMode : Optional,   Number,   The new layer mode
+        strLayer : Required,   String,   The name of an existing layer
+        intMode : Optional,   Number,   The new layer mode
 
-		Returns
+        Returns
 
-		Number : If a layer mode is not specified,  the current layer mode  if successful.
-		Number : If a layer mode is specified, the previous layer mode if successful.
-		Null : If not successful, or on error.
+        Number : If a layer mode is not specified,  the current layer mode  if successful.
+        Number : If a layer mode is specified, the previous layer mode if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerMode', None, strLayer, intMode)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerMode', None, strLayer, intMode)
 
-	def layernames(self, blnsort):
-		"""
+    def layernames(self, blnsort):
+        """
 
-		Returns the names of all layers in the document.
+        Returns the names of all layers in the document.
 
-		Parameters
+        Parameters
 
-		blnSort : Optional,   Boolean,   Return a sorted list of layer names
+        blnSort : Optional,   Boolean,   Return a sorted list of layer names
 
-		Returns
+        Returns
 
-		Array : An array of layer names if successful.
-		Null : If not successful, or on error.
+        Array : An array of layer names if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerNames', None, blnSort)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerNames', None, blnSort)
 
-	def layerorder(self, strlayer):
-		"""
+    def layerorder(self, strlayer):
+        """
 
-		Returns the current display order index of a layer as displayed in Rhino's Layer dialog box.  A display order index of -1 indicates that the current Layer dialog filter does not allow the layer to appear in the layer list.
+        Returns the current display order index of a layer as displayed in Rhino's Layer dialog box.  A display order index of -1 indicates that the current Layer dialog filter does not allow the layer to appear in the layer list.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
+        strLayer : Required,   String,   The name of an existing layer
 
-		Returns
+        Returns
 
-		Number : A zero-based display order index if successful.
-		Null : If not successful, or on error.
+        Number : A zero-based display order index if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerOrder', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerOrder', None, strLayer)
 
-	def layerprintcolor(self, strlayer, lngcolor):
-		"""
+    def layerprintcolor(self, strlayer, lngcolor):
+        """
 
-		Returns or changes the print color of a layer. Layer print colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be printed.
+        Returns or changes the print color of a layer. Layer print colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be printed.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,  String,  The name of an existing layer
-		lngColor : Optional,  Number,  The new print color value
+        strLayer : Required,  String,  The name of an existing layer
+        lngColor : Optional,  Number,  The new print color value
 
-		Returns
+        Returns
 
-		Number : If a layer print color is not specified,  the current layer print color if successful.
-		Number : If a layer print color is specified, the previous layer print color if successful.
-		Null : If not successful, or on error.
+        Number : If a layer print color is not specified,  the current layer print color if successful.
+        Number : If a layer print color is specified, the previous layer print color if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerPrintColor', None, strLayer, lngColor)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerPrintColor', None, strLayer, lngColor)
 
-	def layerprintwidth(self, strlayer, dblwidth):
-		"""
+    def layerprintwidth(self, strlayer, dblwidth):
+        """
 
-		Returns or changes the print width of a layer. Print width is specified in millimeters. A print width of 0.0 denotes the "default" print width.
+        Returns or changes the print width of a layer. Print width is specified in millimeters. A print width of 0.0 denotes the "default" print width.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,  String,  The name of an existing layer
-		dblWidth : Optional,  Number,  The new layer print width in millimeters
+        strLayer : Required,  String,  The name of an existing layer
+        dblWidth : Optional,  Number,  The new layer print width in millimeters
 
-		Returns
+        Returns
 
-		Number : If a layer print width is not specified,  the current layer print width if successful.
-		Number : If a layer print width is specified, the previous layer print width if successful.
-		Null : If not successful, or on error.
+        Number : If a layer print width is not specified,  the current layer print width if successful.
+        Number : If a layer print width is specified, the previous layer print width if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerPrintWidth', None, strLayer, dblWidth)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerPrintWidth', None, strLayer, dblWidth)
 
-	def layervisible(self, strlayer, blnvisible):
-		"""
+    def layervisible(self, strlayer, blnvisible):
+        """
 
-		Returns or changes the visibility property of a layer. This method should be use instead of LayerMode.
+        Returns or changes the visibility property of a layer. This method should be use instead of LayerMode.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of an existing layer
-		blnVisible : Optional,   Boolean,   The new layer visibility
+        strLayer : Required,   String,   The name of an existing layer
+        blnVisible : Optional,   Boolean,   The new layer visibility
 
-		Returns
+        Returns
 
-		Boolean : If a layer mode is not specified,  the current layer visibility if successful.
-		Boolean : If a layer mode is specified, the previous layer visibility if successful.
-		Null : If not successful, or on error.
+        Boolean : If a layer mode is not specified,  the current layer visibility if successful.
+        Boolean : If a layer mode is specified, the previous layer visibility if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerVisible', None, strLayer, blnVisible)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerVisible', None, strLayer, blnVisible)
 
-	def parentlayer(self, strlayer, strparent):
-		"""
+    def parentlayer(self, strlayer, strparent):
+        """
 
-		Returns or modifies the parent layer of a layer.
+        Returns or modifies the parent layer of a layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of the layer
-		strParent : Optional,   String,   The name of the new parent layer
+        strLayer : Required,   String,   The name of the layer
+        strParent : Optional,   String,   The name of the new parent layer
 
-		Returns
+        Returns
 
-		String : If strParent is not specified, the name of the current parent layer if successful.
-		String : If strParent is specified, the name of the previous parent layer if successful.
-		Null : If the layer does not have a parent, or on error.
+        String : If strParent is not specified, the name of the current parent layer if successful.
+        String : If strParent is specified, the name of the previous parent layer if successful.
+        Null : If the layer does not have a parent, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ParentLayer', None, strLayer, strParent)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ParentLayer', None, strLayer, strParent)
 
-	def purgelayer(self, strlayer):
-		"""
+    def purgelayer(self, strlayer):
+        """
 
-		Removes an existing layer from the document.  Unlike the DeleteLayer method, PurgeLayer will remove the layer even if contains geometry objects.  The layer to be removed cannot be the current layer.
+        Removes an existing layer from the document.  Unlike the DeleteLayer method, PurgeLayer will remove the layer even if contains geometry objects.  The layer to be removed cannot be the current layer.
 
-		Parameters
+        Parameters
 
-		strLayer : Required,   String,   The name of the layer to purge
+        strLayer : Required,   String,   The name of the layer to purge
 
-		Returns
+        Returns
 
-		String : The name of the purged layer if successful.
-		Null : If not successful, or on error.
+        String : The name of the purged layer if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'PurgeLayer', None, strLayer)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'PurgeLayer', None, strLayer)
 
-	def renamelayer(self, stroldname, strnewname):
-		"""
+    def renamelayer(self, stroldname, strnewname):
+        """
 
-		Renames an existing layer.
+        Renames an existing layer.
 
-		Parameters
+        Parameters
 
-		strOldName : Required,   String,   The name of an existing layer
-		strNewName : Required,   String,   The new layer name
+        strOldName : Required,   String,   The name of an existing layer
+        strNewName : Required,   String,   The new layer name
 
-		Returns
+        Returns
 
-		String : The new layer name if successful.
-		Null : If not successful, or on error.
+        String : The new layer name if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameLayer', None, strOldName, strNewName)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'RenameLayer', None, strOldName, strNewName)
 

@@ -8,351 +8,351 @@ class UserData(DispatchBaseClass):
 
 
 
-	def attributedatacount(self, strobject):
-		"""
+    def attributedatacount(self, strobject):
+        """
 
-		Returns the number of RhinoScript user data items on an object's attributes.
+        Returns the number of RhinoScript user data items on an object's attributes.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
+        strObject : Required,   String,   The object's identifier
 
-		Returns
+        Returns
 
-		Number : The number of RhinoScript object user data items if successful.
-		Null : If not successful, or on error.
+        Number : The number of RhinoScript object user data items if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'AttributeDataCount', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'AttributeDataCount', None, strObject)
 
-	def deleteattributedata(self, strobject, strsection, strentry):
-		"""
+    def deleteattributedata(self, strobject, strsection, strentry):
+        """
 
-		Removes RhinoScript user data items from an object's attributes.
+        Removes RhinoScript user data items from an object's attributes.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
-		strSection : Optional,   String,   The section name
-		strEntry : Optional,   String,   The entry name
+        strObject : Required,   String,   The object's identifier
+        strSection : Optional,   String,   The section name
+        strEntry : Optional,   String,   The entry name
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteAttributeData', None, strObject, strSection, strEntry)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteAttributeData', None, strObject, strSection, strEntry)
 
-	def deletedocumentdata(self, strsection, strentry):
-		"""
+    def deletedocumentdata(self, strsection, strentry):
+        """
 
-		Removes RhinoScript user data items from the current document.
+        Removes RhinoScript user data items from the current document.
 
-		Parameters
+        Parameters
 
-		strSection : Optional,   String,   The section name
-		strEntry : Optional,   String,   The entry name
+        strSection : Optional,   String,   The section name
+        strEntry : Optional,   String,   The entry name
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteDocumentData', None, strSection, strEntry)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteDocumentData', None, strSection, strEntry)
 
-	def deleteobjectdata(self, strobject, strsection, strentry):
-		"""
+    def deleteobjectdata(self, strobject, strsection, strentry):
+        """
 
-		Removes RhinoScript user data items from an object's geometry.
+        Removes RhinoScript user data items from an object's geometry.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
-		strSection : Optional,   String,   The section name
-		strEntry : Optional,   String,   The entry name
+        strObject : Required,   String,   The object's identifier
+        strSection : Optional,   String,   The section name
+        strEntry : Optional,   String,   The entry name
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteObjectData', None, strObject, strSection, strEntry)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteObjectData', None, strObject, strSection, strEntry)
 
-	def documentdatacount(self, ):
-		"""
+    def documentdatacount(self, ):
+        """
 
-		Returns the number of RhinoScript user data items in the current document.
+        Returns the number of RhinoScript user data items in the current document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The number of RhinoScript document user data items.
+        Number : The number of RhinoScript document user data items.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentDataCount', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentDataCount', None, )
 
-	def getattributedata(self, strobject, strsection, strentry):
-		"""
+    def getattributedata(self, strobject, strsection, strentry):
+        """
 
-		Returns a RhinoScript user data item from an object's attributes.
+        Returns a RhinoScript user data item from an object's attributes.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
-		strSection : Optional,   String,   The section name
-		strEntry : Optional,   String,   The entry name
+        strObject : Required,   String,   The object's identifier
+        strSection : Optional,   String,   The section name
+        strEntry : Optional,   String,   The entry name
 
-		Returns
+        Returns
 
-		Array : A zero-based, one-dimensional array of all section names if strSection is not specified.
-		Array : A zero-based, one-dimensional array of all entry names for strSection if strEntry is not specified.
-		String : The value of the entry if both strSection and strEntry are specified.
-		Null : If not successful, or on error.
+        Array : A zero-based, one-dimensional array of all section names if strSection is not specified.
+        Array : A zero-based, one-dimensional array of all entry names for strSection if strEntry is not specified.
+        String : The value of the entry if both strSection and strEntry are specified.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetAttributeData', None, strObject, strSection, strEntry)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetAttributeData', None, strObject, strSection, strEntry)
 
-	def getdocumentdata(self, strsection, strentry):
-		"""
+    def getdocumentdata(self, strsection, strentry):
+        """
 
-		Returns a RhinoScript user data item from the current document.
+        Returns a RhinoScript user data item from the current document.
 
-		Parameters
+        Parameters
 
-		strSection : Optional,   String,   The section name
-		strEntry : Optional,   String,   The entry name
+        strSection : Optional,   String,   The section name
+        strEntry : Optional,   String,   The entry name
 
-		Returns
+        Returns
 
-		Array : A zero-based, one-dimensional array of all section names if strSection is not specified.
-		Array : A zero-based, one-dimensional array of all entry names for strSection if strEntry is not specified.
-		String : The value of the entry if both strSection and strEntry are specified.
-		Null : If not successful, or on error.
+        Array : A zero-based, one-dimensional array of all section names if strSection is not specified.
+        Array : A zero-based, one-dimensional array of all entry names for strSection if strEntry is not specified.
+        String : The value of the entry if both strSection and strEntry are specified.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetDocumentData', None, strSection, strEntry)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetDocumentData', None, strSection, strEntry)
 
-	def getobjectdata(self, strobject, strsection, strentry):
-		"""
+    def getobjectdata(self, strobject, strsection, strentry):
+        """
 
-		Returns a RhinoScript user data item from an object's geometry.
+        Returns a RhinoScript user data item from an object's geometry.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
-		strSection : Optional,   String,   The section name
-		strEntry : Optional,   String,   The entry name
+        strObject : Required,   String,   The object's identifier
+        strSection : Optional,   String,   The section name
+        strEntry : Optional,   String,   The entry name
 
-		Returns
+        Returns
 
-		Array : A zero-based, one-dimensional array of all section names if strSection is not specified.
-		Array : A zero-based, one-dimensional array of all entry names for strSection if strEntry is not specified.
-		String : The value of the entry if both strSection and strEntry are specified.
-		Null : If not successful, or on error.
+        Array : A zero-based, one-dimensional array of all section names if strSection is not specified.
+        Array : A zero-based, one-dimensional array of all entry names for strSection if strEntry is not specified.
+        String : The value of the entry if both strSection and strEntry are specified.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectData', None, strObject, strSection, strEntry)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectData', None, strObject, strSection, strEntry)
 
-	def getusertext(self, strobject, strkey, blnattachtogeometry):
-		"""
+    def getusertext(self, strobject, strkey, blnattachtogeometry):
+        """
 
-		Returns User Text that is stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
+        Returns User Text that is stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
-		strKey : Optional,   String,   The key name
-		blnAttachToGeometry : Optional,   Boolean,   The location on the object to retrieve the User Text
+        strObject : Required,   String,   The object's identifier
+        strKey : Optional,   String,   The key name
+        blnAttachToGeometry : Optional,   Boolean,   The location on the object to retrieve the User Text
 
-		Returns
+        Returns
 
-		String : If strKey is specified, then the associated value if successful.
-		Array : If strKey is not specified, then an array of key names if successful.
-		Null : If not successful, or on error.
+        String : If strKey is specified, then the associated value if successful.
+        Array : If strKey is not specified, then an array of key names if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'GetUserText', None, strObject, strKey, blnAttachToGeometry)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'GetUserText', None, strObject, strKey, blnAttachToGeometry)
 
-	def isattributedata(self, strobject):
-		"""
+    def isattributedata(self, strobject):
+        """
 
-		Verifies that an object's attributes contains RhinoScript user data.
+        Verifies that an object's attributes contains RhinoScript user data.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
+        strObject : Required,   String,   The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating whether or not the object's attributes contains any RhinoScript user data if successful.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating whether or not the object's attributes contains any RhinoScript user data if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsAttributeData', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsAttributeData', None, strObject)
 
-	def isdocumentdata(self, ):
-		"""
+    def isdocumentdata(self, ):
+        """
 
-		Verifies that the current document contains RhinoScript user data.
+        Verifies that the current document contains RhinoScript user data.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating whether or not the current document contains any RhinoScript document user data.
+        Boolean : True or False indicating whether or not the current document contains any RhinoScript document user data.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDocumentData', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsDocumentData', None, )
 
-	def isobjectdata(self, strobject):
-		"""
+    def isobjectdata(self, strobject):
+        """
 
-		Verifies that an object's geometry contains RhinoScript user data.
+        Verifies that an object's geometry contains RhinoScript user data.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
+        strObject : Required,   String,   The object's identifier
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating whether or not the object's geometry contains any RhinoScript user data if successful.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating whether or not the object's geometry contains any RhinoScript user data if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectData', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectData', None, strObject)
 
-	def isusertext(self, strobject):
-		"""
+    def isusertext(self, strobject):
+        """
 
-		Verifies that an object contains user text. For more details on User Text, see the discussion found in the User Data Methods summary.
+        Verifies that an object contains user text. For more details on User Text, see the discussion found in the User Data Methods summary.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
+        strObject : Required,   String,   The object's identifier
 
-		Returns
+        Returns
 
-		Number : 0 = no user text; 1 = attribute user text; 2 = geometry user text; 3 = both attribute and geometry user text.
-		Null : If not successful, or on error.
+        Number : 0 = no user text; 1 = attribute user text; 2 = geometry user text; 3 = both attribute and geometry user text.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsUserText', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsUserText', None, strObject)
 
-	def objectdatacount(self, strobject):
-		"""
+    def objectdatacount(self, strobject):
+        """
 
-		Returns the number of RhinoScript user data items on an object's geometry.
+        Returns the number of RhinoScript user data items on an object's geometry.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
+        strObject : Required,   String,   The object's identifier
 
-		Returns
+        Returns
 
-		Number : The number of RhinoScript object user data items if successful.
-		Null : If not successful, or on error.
+        Number : The number of RhinoScript object user data items if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectDataCount', None, strObject)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectDataCount', None, strObject)
 
-	def setattributedata(self, strobject, strsection, strentry, strvalue):
-		"""
+    def setattributedata(self, strobject, strsection, strentry, strvalue):
+        """
 
-		Adds or sets a RhinoScript user data item to an object's attributes.
+        Adds or sets a RhinoScript user data item to an object's attributes.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
-		strSection : Required,   String,   The application name
-		strEntry : Required,   String,   The key name
-		strValue : Required,   String,   The string value
+        strObject : Required,   String,   The object's identifier
+        strSection : Required,   String,   The application name
+        strEntry : Required,   String,   The key name
+        strValue : Required,   String,   The string value
 
-		Returns
+        Returns
 
-		String : The previous value if successful.
-		Null : If no previous value exits, if not successful, or on error.
+        String : The previous value if successful.
+        Null : If no previous value exits, if not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SetAttributeData', None, strObject, strSection, strEntry, strValue)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SetAttributeData', None, strObject, strSection, strEntry, strValue)
 
-	def setdocumentdata(self, strsection, strentry, strvalue):
-		"""
+    def setdocumentdata(self, strsection, strentry, strvalue):
+        """
 
-		Adds or sets a RhinoScript user data item to the current document.
+        Adds or sets a RhinoScript user data item to the current document.
 
-		Parameters
+        Parameters
 
-		strSection : Required,   String,   The section name
-		strEntry : Required,   String,   The entry name
-		strValue : Required,   String,   The string value
+        strSection : Required,   String,   The section name
+        strEntry : Required,   String,   The entry name
+        strValue : Required,   String,   The string value
 
-		Returns
+        Returns
 
-		String : The previous value if successful.
-		Null : If no previous value exits, if not successful, or on error.
+        String : The previous value if successful.
+        Null : If no previous value exits, if not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SetDocumentData', None, strSection, strEntry, strValue)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SetDocumentData', None, strSection, strEntry, strValue)
 
-	def setobjectdata(self, strobject, strsection, strentry, strvalue):
-		"""
+    def setobjectdata(self, strobject, strsection, strentry, strvalue):
+        """
 
-		Adds or sets a RhinoScript user data item to an object's geometry.
+        Adds or sets a RhinoScript user data item to an object's geometry.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
-		strSection : Required,   String,   The application name
-		strEntry : Required,   String,   The key name
-		strValue : Required,   String,   The string value
+        strObject : Required,   String,   The object's identifier
+        strSection : Required,   String,   The application name
+        strEntry : Required,   String,   The key name
+        strValue : Required,   String,   The string value
 
-		Returns
+        Returns
 
-		String : The previous value if successful.
-		Null : If no previous value exits, if not successful, or on error.
+        String : The previous value if successful.
+        Null : If no previous value exits, if not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SetObjectData', None, strObject, strSection, strEntry, strValue)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SetObjectData', None, strObject, strSection, strEntry, strValue)
 
-	def setusertext(self, strobject, strkey, strvalue, blnattachtogeometry):
-		"""
+    def setusertext(self, strobject, strkey, strvalue, blnattachtogeometry):
+        """
 
-		Sets or removes user text stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
+        Sets or removes user text stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
 
-		Parameters
+        Parameters
 
-		strObject : Required,   String,   The object's identifier
-		strKey : Required,   String,   The key name to set
-		strValue : Optional,   String,   The string value to set
-		blnAttachToGeometry : Optional,   Boolean,   The location on the object to store the User Text
+        strObject : Required,   String,   The object's identifier
+        strKey : Required,   String,   The key name to set
+        strValue : Optional,   String,   The string value to set
+        blnAttachToGeometry : Optional,   Boolean,   The location on the object to store the User Text
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : If not successful, or on error.
+        Boolean : True or False indicating success or failure.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'SetUserText', None, strObject, strKey, strValue, blnAttachToGeometry)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'SetUserText', None, strObject, strKey, strValue, blnAttachToGeometry)
 

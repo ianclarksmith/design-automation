@@ -8,72 +8,72 @@ class Linetype(DispatchBaseClass):
 
 
 
-	def islinetype(self, strlinetype):
-		"""
+    def islinetype(self, strlinetype):
+        """
 
-		Verifies the existence of a linetype in the document.
+        Verifies the existence of a linetype in the document.
 
-		Parameters
+        Parameters
 
-		strLinetype : Required,   String,   The name of an existing linetype
+        strLinetype : Required,   String,   The name of an existing linetype
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinetype', None, strLinetype)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinetype', None, strLinetype)
 
-	def islinetypereference(self, strlinetype):
-		"""
+    def islinetypereference(self, strlinetype):
+        """
 
-		Verifies that an existing linetype is from a reference file.
+        Verifies that an existing linetype is from a reference file.
 
-		Parameters
+        Parameters
 
-		strLinetype : Required,   String,   The name of an existing linetype
+        strLinetype : Required,   String,   The name of an existing linetype
 
-		Returns
+        Returns
 
-		Boolean : True or False indicating success or failure.
-		Null : On error.
+        Boolean : True or False indicating success or failure.
+        Null : On error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinetypeReference', None, strLinetype)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinetypeReference', None, strLinetype)
 
-	def linetypecount(self, ):
-		"""
+    def linetypecount(self, ):
+        """
 
-		Returns the number of linetypes in the document.
+        Returns the number of linetypes in the document.
 
-		No parameters
+        No parameters
 
-		Returns
+        Returns
 
-		Number : The number of linetypes in the document.
+        Number : The number of linetypes in the document.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LinetypeCount', None, )
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LinetypeCount', None, )
 
-	def linetypenames(self, blnsort):
-		"""
+    def linetypenames(self, blnsort):
+        """
 
-		Returns the names of all linetypes in the document.
+        Returns the names of all linetypes in the document.
 
-		Parameters
+        Parameters
 
-		blnSort : Optional,   Boolean,   Return a sorted list of linetype names
+        blnSort : Optional,   Boolean,   Return a sorted list of linetype names
 
-		Returns
+        Returns
 
-		Array : An array of linetype names if successful.
-		Null : If not successful, or on error.
+        Array : An array of linetype names if successful.
+        Null : If not successful, or on error.
 
-		"""
+        """
 
-		return self._ApplyTypes_(id, 1, (returns), (params), u'LinetypeNames', None, blnSort)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'LinetypeNames', None, blnSort)
 
