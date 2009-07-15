@@ -12,7 +12,7 @@ def _convert_str_to_list(string, *typeFunc):
     str_list = re.split("[,\s]+", string[:-1])
     listElements = len(str_list)
     try:
-        if listElements != 0:
+        if str_list[0].lower() != "nil" and listElements != 0:
             new_list = []
             if listElements == len(typeFunc):
                 typeFunc = tuple(typeFunc)
@@ -34,7 +34,7 @@ def _convert_str_to_list(string, *typeFunc):
 def _convert_str_to_type(string, typeFunc):
     string = string[:-1]
     try:
-        if len(string) != 0:
+        if string.lower() != "nil" and len(string) != 0:
             return typeFunc(string)
         else:
             return None
