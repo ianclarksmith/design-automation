@@ -7,7 +7,7 @@ class Project_Data(object):
     # Properties
     #===========================================================================
     
-    def get_data2(self, nodeName):
+    def get_data(self, nodeName):
         """
         
         Retrieves the stored data at the given node. 
@@ -33,7 +33,7 @@ class Project_Data(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, str)
 
-    def set_data2(self, nodeName, notes):
+    def set_data(self, nodeName, notes):
         """
         
         Sets the stored data for the given node. If the data node does not 
@@ -42,13 +42,13 @@ class Project_Data(object):
         Parameter(s)
         This property takes the following parameters.
         
-        nodeName 
+        nodeName
         A text string containing the full dot(.)-separated path to the embedded 
         data node. For example 'EXPORT.RADIANCE.MYDATA'. Paths to data nodes 
         cannot contain spaces of any kind. If you want to separate words, use 
         the underscore (_) character. 
         
-        notes 
+        notes
         A text string containing the data to be set. 
         
         Relevant Data Table(s)
@@ -136,7 +136,7 @@ class Project_Data(object):
                                                      nodeName)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
-        
+    
     def set_format(self, nodeName, format):
         """
         
@@ -302,31 +302,22 @@ class Project_Data(object):
         3 Data contains runnable script code. 
 
         """
+        arg_str = string_util._convert_args_to_string("set.project.data.param", 
+                                                     nodeName, key_value)
+        py2ecotect.conversation.Exec(arg_str)
 
-    data2 = property(fget = get_data2, fset = set_data2, 
-                        doc = "The stored data at the given node")
-    
-    format = property(fget = get_format, fset = set_format, 
-                        doc = "The format of the given data node")
-    
-    notes = property(fget = get_notes, fset = set_notes, 
-                        doc = "The notes text associated with the given data"
-                        " node")
-    
-    param = property(fget = get_param, fset = set_param, 
-                        doc = "The format of the given data node")
 
 if __name__ == "__main__":
     x = Project_Data()
     
     #print x.get_data("EXPORT.RADIANCE.MYDATA")
-    #x.set_data("EXPORT.RADIANCE.MYDATA", "sdfsdfdfs")
+    #x.set_data("EXPORT.RADIANCE.MYDATA", "TEST")
+    #x.set_data(["EXPORT.RADIANCE.MYDATA", "asd"])
     #x.add_data("EXPORT.RADIANCE.MYDATA", "xcvx")
     #print x.get_format("EXPORT.RADIANCE.MYDATA")
+    #x.format = ["EXPORT.RADIANCE.MYDATA",1]
     #x.set_format("EXPORT.RADIANCE.MYDATA", 2)
     #print x.get_param("EXPORT.RADIANCE.MYDATA", "title")
-    #x.data2 = "rt"
-    #print x.data2
-    #print x.format
+    #x.set_param("EXPORT.RADIANCE.MYDATA", "title=This is a test")
     
     print "Tests completed"

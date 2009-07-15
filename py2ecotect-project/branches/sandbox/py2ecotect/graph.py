@@ -18,6 +18,7 @@ class Graph(object):
         There are no parameters for this command.
     
         """
+        #TODO: check parameter
         arg_str = string_util._convert_args_to_string("graph.copy", format)
         py2ecotect.conversation.Exec(arg_str)
     
