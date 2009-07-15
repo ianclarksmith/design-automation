@@ -113,13 +113,24 @@ def write_class_header(class_name, f):
     w(f,"class %s(DispatchBaseClass):" % class_name, nle=4)
 
 def write_class_method(file_name, file_data, f):
-    method_sig = "def " + file_name + "(self, " 
-    for param in file_data["params"]:
-        method_sig += param[0]+ ", "
-    if method_sig.endswith(", "): method_sig = method_sig[:-2]
-    method_sig = method_sig + "):"
-    w(f, method_sig, tabs=1, nle=1)
-    w(f, '"""', tabs=2, nle=2)
+    #get the names into the right format
+    #TODO: underscores in py naming
+    vb_method_name = file_name
+    py_method_name = file_name.lower()
+    vb_params = []
+    py_params = []
+    if file_data["params"]:
+        for param in file_data["params"]:
+            vb_params.append(param[0])
+            py_params.append(param[0].lower())
+            
+    #create the method signature
+    w(f, ["def ", py_method_name, "(self, ", ", ".join(py_params), "):"], tabs=1, nle=1)
+
+    #create the method documentation
+    #TODO: add syntax example here
+    #TODO: use the py_params format in the doc string
+    w(f, '"""', tabs=2, nle=2)    
     w(f, file_data["help"], tabs=2, nle=2)
     if file_data["params"]:
         w(f, "Parameters", tabs=2, nle=2)
@@ -134,7 +145,12 @@ def write_class_method(file_name, file_data, f):
     else:
         w(f, "No returns", tabs=2, nls=1, nle=2)        
     w(f, '"""', tabs=2, nls=1, nle=2)
-    w(f, "pass", tabs=2, nle=2)
+    #w(f, "pass", tabs=2, nle=2)
+    
+    #now call the function
+    #TODO: figure out the magic numbers
+    magic_numbers = "id, 1, (returns), (params)" #for example: 77, 1, (12, 0), ((12, 0), (12, 16))
+    w(f, ["return self._ApplyTypes_(", magic_numbers,", u'",vb_method_name,"', None, ", ", ".join(vb_params), ")"], tabs=2, nle=2)
 
 def pretty_print_data(data):
     space = "    "
