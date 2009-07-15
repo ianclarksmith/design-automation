@@ -8,7 +8,7 @@ class Dimension(DispatchBaseClass):
 
 
 
-	def AddDimStyle(self, strDimStyle):
+	def adddimstyle(self, strdimstyle):
 		"""
 
 		Adds a new dimension style to the document.  The new dimension style will be initialized with the current default dimension style properties.
@@ -24,9 +24,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddDimStyle', None, strDimStyle)
 
-	def AddLeader(self, arrPoints, strView, strText):
+	def addleader(self, arrpoints, strview, strtext):
 		"""
 
 		Adds an annotation leader to the document. Leader objects are planar. The array of 3-D points passed to this member should be co-planar.
@@ -44,9 +44,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddLeader', None, arrPoints, strView, strText)
 
-	def CurrentDimStyle(self, strDimStyle):
+	def currentdimstyle(self, strdimstyle):
 		"""
 
 		Returns or changes the current default dimension style.
@@ -63,9 +63,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentDimStyle', None, strDimStyle)
 
-	def DeleteDimStyle(self, strDimStyle):
+	def deletedimstyle(self, strdimstyle):
 		"""
 
 		Removes an existing dimension style from the document.  The dimension style to be removed cannot be the reference by any dimension objects.
@@ -81,9 +81,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteDimStyle', None, strDimStyle)
 
-	def DimScale(self, dblScale):
+	def dimscale(self, dblscale):
 		"""
 
 		Returns or changes the document's global dimension scale.
@@ -100,9 +100,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimScale', None, dblScale)
 
-	def DimStyleAnglePrecision(self, strDimStyle, intPrecision):
+	def dimstyleangleprecision(self, strdimstyle, intprecision):
 		"""
 
 		Returns or changes the angle display precision of a dimension style.
@@ -120,9 +120,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleAnglePrecision', None, strDimStyle, intPrecision)
 
-	def DimStyleArrowSize(self, strDimStyle, dblSize):
+	def dimstylearrowsize(self, strdimstyle, dblsize):
 		"""
 
 		Returns or changes the arrow size of a dimension style.
@@ -140,9 +140,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleArrowSize', None, strDimStyle, dblSize)
 
-	def DimStyleCount(self):
+	def dimstylecount(self, ):
 		"""
 
 		Returns the number of dimension styles in the document.
@@ -155,9 +155,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleCount', None, )
 
-	def DimStyleExtension(self, strDimStyle, dblExtension):
+	def dimstyleextension(self, strdimstyle, dblextension):
 		"""
 
 		Returns or changes the extension line extension of a dimension style.
@@ -175,9 +175,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleExtension', None, strDimStyle, dblExtension)
 
-	def DimStyleFont(self, strDimStyle, strFont):
+	def dimstylefont(self, strdimstyle, strfont):
 		"""
 
 		Returns or changes the font used by a dimension style.
@@ -195,9 +195,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleFont', None, strDimStyle, strFont)
 
-	def DimStyleLeaderArrowSize(self, strDimStyle, dblSize):
+	def dimstyleleaderarrowsize(self, strdimstyle, dblsize):
 		"""
 
 		Returns or changes the leader arrow size of a dimension style.
@@ -215,9 +215,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleLeaderArrowSize', None, strDimStyle, dblSize)
 
-	def DimStyleLinearPrecision(self, strDimStyle, intPrecision):
+	def dimstylelinearprecision(self, strdimstyle, intprecision):
 		"""
 
 		Returns or changes the linear display precision of a dimension style.
@@ -235,9 +235,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleLinearPrecision', None, strDimStyle, intPrecision)
 
-	def DimStyleNames(self, blnSort):
+	def dimstylenames(self, blnsort):
 		"""
 
 		Returns the names of all dimension styles in the document.
@@ -253,9 +253,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleNames', None, blnSort)
 
-	def DimStyleNumberFormat(self, strDimStyle, intFormat):
+	def dimstylenumberformat(self, strdimstyle, intformat):
 		"""
 
 		Returns or changes the number display format of a dimension style.
@@ -273,9 +273,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleNumberFormat', None, strDimStyle, intFormat)
 
-	def DimStyleOffset(self, strDimStyle, dblOffset):
+	def dimstyleoffset(self, strdimstyle, dbloffset):
 		"""
 
 		Returns or changes the extension line offset of a dimension style.
@@ -293,9 +293,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleOffset', None, strDimStyle, dblOffset)
 
-	def DimStyleTextAlignment(self, strDimStyle, intAlignment):
+	def dimstyletextalignment(self, strdimstyle, intalignment):
 		"""
 
 		Returns or changes the text alignment mode of a dimension style.
@@ -313,9 +313,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextAlignment', None, strDimStyle, intAlignment)
 
-	def DimStyleTextGap(self, strDimStyle, dblGap):
+	def dimstyletextgap(self, strdimstyle, dblgap):
 		"""
 
 		Returns or changes the text gap used by a dimension style.
@@ -333,9 +333,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextGap', None, strDimStyle, dblGap)
 
-	def DimStyleTextHeight(self, strDimStyle, dblHeight):
+	def dimstyletextheight(self, strdimstyle, dblheight):
 		"""
 
 		Returns or changes the text height used by a dimension style.
@@ -353,9 +353,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimStyleTextHeight', None, strDimStyle, dblHeight)
 
-	def DimensionStyle(self, strObject, strStyle):
+	def dimensionstyle(self, strobject, strstyle):
 		"""
 
 		Returns or modifies the dimension style of a dimension object.
@@ -373,9 +373,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionStyle', None, strObject, strStyle)
 
-	def DimensionText(self, strObject):
+	def dimensiontext(self, strobject):
 		"""
 
 		Returns the text displayed by a dimension object.
@@ -391,9 +391,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionText', None, strObject)
 
-	def DimensionUserText(self, strObject, strUserText):
+	def dimensionusertext(self, strobject, strusertext):
 		"""
 
 		Returns or modifies the user text string of a dimension object. The user text is the string that gets printed when the dimension is drawn. If it contains the token "<>", then the token is replaced with the measured value of the dimension, formatted according to the dimension style settings. Note,  "<>" is the default user text string for linear dimensions.
@@ -411,9 +411,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionUserText', None, strObject, strUserText)
 
-	def DimensionValue(self, strObject):
+	def dimensionvalue(self, strobject):
 		"""
 
 		Returns the value of a dimension object.
@@ -429,9 +429,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DimensionValue', None, strObject)
 
-	def IsAlignedDimension(self, strObject):
+	def isaligneddimension(self, strobject):
 		"""
 
 		Verifies an object is an aligned dimension object.
@@ -447,9 +447,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsAlignedDimension', None, strObject)
 
-	def IsAngularDimension(self, strObject):
+	def isangulardimension(self, strobject):
 		"""
 
 		Verifies an object is an angular dimension object.
@@ -465,9 +465,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsAngularDimension', None, strObject)
 
-	def IsDiameterDimension(self, strObject):
+	def isdiameterdimension(self, strobject):
 		"""
 
 		Verifies an object is a diameter dimension object.
@@ -483,9 +483,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDiameterDimension', None, strObject)
 
-	def IsDimStyle(self, strDimStyle):
+	def isdimstyle(self, strdimstyle):
 		"""
 
 		Verifies the existence of a dimension style in the document.
@@ -500,9 +500,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimStyle', None, strDimStyle)
 
-	def IsDimStyleReference(self, strDimStyle):
+	def isdimstylereference(self, strdimstyle):
 		"""
 
 		Verifies that an existing dimension style is from a reference file.
@@ -517,9 +517,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimStyleReference', None, strDimStyle)
 
-	def IsDimension(self, strObject):
+	def isdimension(self, strobject):
 		"""
 
 		Verifies an object is a dimension object.
@@ -535,9 +535,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDimension', None, strObject)
 
-	def IsLeader(self, strObject):
+	def isleader(self, strobject):
 		"""
 
 		Verifies an object is a dimension leader object.
@@ -553,9 +553,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLeader', None, strObject)
 
-	def IsLinearDimension(self, strObject):
+	def islineardimension(self, strobject):
 		"""
 
 		Verifies an object is a linear dimension object.
@@ -571,9 +571,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinearDimension', None, strObject)
 
-	def IsOrdinateDimension(self, strObject):
+	def isordinatedimension(self, strobject):
 		"""
 
 		Verifies an object is an ordinate dimension object.
@@ -589,9 +589,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsOrdinateDimension', None, strObject)
 
-	def IsRadialDimension(self, strObject):
+	def isradialdimension(self, strobject):
 		"""
 
 		Verifies an object is a radial dimension object.
@@ -607,9 +607,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsRadialDimension', None, strObject)
 
-	def LeaderText(self, strObject, strText):
+	def leadertext(self, strobject, strtext):
 		"""
 
 		Returns or modifies the text string of a dimension leader object.
@@ -627,9 +627,9 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LeaderText', None, strObject, strText)
 
-	def RenameDimStyle(self, strOldStyle, strNewStyle):
+	def renamedimstyle(self, stroldstyle, strnewstyle):
 		"""
 
 		Renames an existing dimension style.
@@ -646,5 +646,5 @@ class Dimension(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameDimStyle', None, strOldStyle, strNewStyle)
 

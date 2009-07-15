@@ -8,7 +8,7 @@ class ObjectGrip(DispatchBaseClass):
 
 
 
-	def EnableObjectGrips(self, strObject, blnEnable):
+	def enableobjectgrips(self, strobject, blnenable):
 		"""
 
 		Enables or disables an object's grips. For curves and surfaces, these are also called control points.
@@ -25,9 +25,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EnableObjectGrips', None, strObject, blnEnable)
 
-	def GetObjectGrip(self, strMessage, blnPreSelect, blnSelect):
+	def getobjectgrip(self, strmessage, blnpreselect, blnselect):
 		"""
 
 		Prompts the user to pick or select a single object grip.
@@ -48,9 +48,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectGrip', None, strMessage, blnPreSelect, blnSelect)
 
-	def GetObjectGrips(self, strMessage, blnPreSelect, blnSelect):
+	def getobjectgrips(self, strmessage, blnpreselect, blnselect):
 		"""
 
 		Prompts the user to pick or select one or more object grips from one or more objects.
@@ -71,9 +71,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectGrips', None, strMessage, blnPreSelect, blnSelect)
 
-	def NextObjectGrip(self, strObject, intIndex, intDirection, blnEnable):
+	def nextobjectgrip(self, strobject, intindex, intdirection, blnenable):
 		"""
 
 		Returns the next grip index from a specified grip index of an object.
@@ -92,9 +92,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'NextObjectGrip', None, strObject, intIndex, intDirection, blnEnable)
 
-	def ObjectGripCount(self, strObject):
+	def objectgripcount(self, strobject):
 		"""
 
 		Returns the number of grips owned by an object.
@@ -110,9 +110,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripCount', None, strObject)
 
-	def ObjectGripLocation(self, strObject, intIndex, arrPoint):
+	def objectgriplocation(self, strobject, intindex, arrpoint):
 		"""
 
 		Returns or modifies the location of an object's grip.
@@ -131,9 +131,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripLocation', None, strObject, intIndex, arrPoint)
 
-	def ObjectGripLocations(self, strObject, arrPoints):
+	def objectgriplocations(self, strobject, arrpoints):
 		"""
 
 		Returns or modifies the location of all grips owned by an object. The locations of the grips are returned in an array of 3-D points with each position in the array corresponding to that grip's index. To modify the locations of grips, you must provide an array of 3-D points that contains the same number of points at grips.
@@ -151,9 +151,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripLocations', None, strObject, arrPoints)
 
-	def ObjectGripsOn(self, strObject):
+	def objectgripson(self, strobject):
 		"""
 
 		Verifies that an object's grips are turned on.
@@ -169,9 +169,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripsOn', None, strObject)
 
-	def ObjectGripsSelected(self, strObject):
+	def objectgripsselected(self, strobject):
 		"""
 
 		Verifies that an object's grips are turned on and at least one grip is selected.
@@ -187,9 +187,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGripsSelected', None, strObject)
 
-	def PrevObjectGrip(self, strObject, intIndex, intDirection, blnEnable):
+	def prevobjectgrip(self, strobject, intindex, intdirection, blnenable):
 		"""
 
 		Returns the previous grip index from a specified grip index of an object.
@@ -208,9 +208,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PrevObjectGrip', None, strObject, intIndex, intDirection, blnEnable)
 
-	def SelectObjectGrip(self, strObject, intIndex):
+	def selectobjectgrip(self, strobject, intindex):
 		"""
 
 		Selects a single grip owned by an object. If the object's grips are not turned on, grips will  not be selected.
@@ -227,9 +227,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObjectGrip', None, strObject, intIndex)
 
-	def SelectObjectGrips(self, strObject):
+	def selectobjectgrips(self, strobject):
 		"""
 
 		Selects an object's grips. If the object's grips are not turned on, they will not be selected.
@@ -245,9 +245,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObjectGrips', None, strObject)
 
-	def SelectedObjectGrips(self, strObject):
+	def selectedobjectgrips(self, strobject):
 		"""
 
 		Returns an array of grip indices identifying an object's selected grips.
@@ -263,9 +263,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectedObjectGrips', None, strObject)
 
-	def UnselectObjectGrip(self, strObject, intIndex):
+	def unselectobjectgrip(self, strobject, intindex):
 		"""
 
 		Unselects a single grip owned by an object.
@@ -282,9 +282,9 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObjectGrip', None, strObject, intIndex)
 
-	def UnselectObjectGrips(self, strObject):
+	def unselectobjectgrips(self, strobject):
 		"""
 
 		Unselects an object's grips. Note, the grips will not be turned off.
@@ -300,5 +300,5 @@ class ObjectGrip(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObjectGrips', None, strObject)
 

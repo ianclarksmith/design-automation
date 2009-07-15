@@ -8,7 +8,7 @@ class Selection(DispatchBaseClass):
 
 
 
-	def AllObjects(self, blnSelect, blnIncludeLights, blnIncludeGrips):
+	def allobjects(self, blnselect, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifiers of all objects in the document.
@@ -26,9 +26,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AllObjects', None, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def FirstObject(self, blnSelect, blnIncludeLights, blnIncludeGrips):
+	def firstobject(self, blnselect, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.
@@ -46,9 +46,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'FirstObject', None, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def GetCurveObject(self, strMessage, blnPreSelect, blnSelect):
+	def getcurveobject(self, strmessage, blnpreselect, blnselect):
 		"""
 
 		Prompts the user to pick, or select, a single curve object.
@@ -66,9 +66,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetCurveObject', None, strMessage, blnPreSelect, blnSelect)
 
-	def GetObject(self, strMessage, intType, blnPreSelect, blnSelect, arrObjects):
+	def getobject(self, strmessage, inttype, blnpreselect, blnselect, arrobjects):
 		"""
 
 		Prompts the user to pick, or select, a single object.
@@ -88,9 +88,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObject', None, strMessage, intType, blnPreSelect, blnSelect, arrObjects)
 
-	def GetObjectEx(self, strMessage, intType, blnPreSelect, blnSelect, arrObjects):
+	def getobjectex(self, strmessage, inttype, blnpreselect, blnselect, arrobjects):
 		"""
 
 		Prompts the user to pick, or select, a single object.
@@ -110,9 +110,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectEx', None, strMessage, intType, blnPreSelect, blnSelect, arrObjects)
 
-	def GetObjects(self, strMessage, intType, blnGroup, blnPreSelect, blnSelect, arrObjects):
+	def getobjects(self, strmessage, inttype, blngroup, blnpreselect, blnselect, arrobjects):
 		"""
 
 		Prompts the user to pick or select one or more objects.
@@ -133,9 +133,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjects', None, strMessage, intType, blnGroup, blnPreSelect, blnSelect, arrObjects)
 
-	def GetObjectsEx(self, strMessage, intType, blnGroup, blnPreSelect, blnSelect, arrObjects):
+	def getobjectsex(self, strmessage, inttype, blngroup, blnpreselect, blnselect, arrobjects):
 		"""
 
 		Prompts the user to pick or select one or more objects.
@@ -156,9 +156,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectsEx', None, strMessage, intType, blnGroup, blnPreSelect, blnSelect, arrObjects)
 
-	def GetPointCoordinates(self, strMessage, blnPreSelect):
+	def getpointcoordinates(self, strmessage, blnpreselect):
 		"""
 
 		Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.
@@ -175,9 +175,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointCoordinates', None, strMessage, blnPreSelect)
 
-	def GetSurfaceObject(self, strMessage, blnPreSelect, blnSelect):
+	def getsurfaceobject(self, strmessage, blnpreselect, blnselect):
 		"""
 
 		Prompts the user to pick, or select, a single surface object.
@@ -195,9 +195,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetSurfaceObject', None, strMessage, blnPreSelect, blnSelect)
 
-	def HiddenObjects(self, blnIncludeLights, blnIncludeGrips):
+	def hiddenobjects(self, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
@@ -214,9 +214,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HiddenObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def InvertSelectedObjects(self, blnIncludeLights, blnIncludeGrips):
+	def invertselectedobjects(self, blnincludelights, blnincludegrips):
 		"""
 
 		Inverts the current object selection.  The identifiers of the newly selected objects are returned.
@@ -233,9 +233,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'InvertSelectedObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def LastCreatedObjects(self, blnSelect):
+	def lastcreatedobjects(self, blnselect):
 		"""
 
 		Returns the identifiers of the objects that were most recently created or changed by scripting a Rhino command using the Command function.  It is important to call this function immediately after calling the Command function as only the most recently created or changed object identifiers will be returned.
@@ -251,9 +251,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LastCreatedObjects', None, blnSelect)
 
-	def LastObject(self, blnSelect, blnIncludeLights, blnIncludeGrips):
+	def lastobject(self, blnselect, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
@@ -271,9 +271,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LastObject', None, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def LockedObjects(self, blnIncludeLights, blnIncludeGrips):
+	def lockedobjects(self, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifiers of all locked objects in the document.  Visible objects are visible and can be snapped to, but they cannot be selected.
@@ -290,9 +290,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LockedObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def NextObject(self, strObject, blnSelect, blnIncludeLights, blnIncludeGrips):
+	def nextobject(self, strobject, blnselect, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifier of the next object in the document.
@@ -311,9 +311,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'NextObject', None, strObject, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def NormalObjects(self, blnIncludeLights, blnIncludeGrips):
+	def normalobjects(self, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifiers of all normal objects in the document.  Normal objects are visible, can be snapped to, and are independent of selection state.
@@ -330,9 +330,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'NormalObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def ObjectsByColor(self, lngColor, blnSelect, blnIncludeLights):
+	def objectsbycolor(self, lngcolor, blnselect, blnincludelights):
 		"""
 
 		Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
@@ -350,9 +350,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByColor', None, lngColor, blnSelect, blnIncludeLights)
 
-	def ObjectsByGroup(self, strGroup, blnSelect):
+	def objectsbygroup(self, strgroup, blnselect):
 		"""
 
 		Returns the identifiers of all objects based on the objects' group name.
@@ -369,9 +369,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByGroup', None, strGroup, blnSelect)
 
-	def ObjectsByLayer(self, strLayer, blnSelect):
+	def objectsbylayer(self, strlayer, blnselect):
 		"""
 
 		Returns the identifiers of all objects based on the objects' layer.
@@ -388,9 +388,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByLayer', None, strLayer, blnSelect)
 
-	def ObjectsByName(self, strName, blnSelect, blnIncludeLights):
+	def objectsbyname(self, strname, blnselect, blnincludelights):
 		"""
 
 		Returns the identifiers of all objects based on the objects' user-assigned name.
@@ -408,9 +408,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByName', None, strName, blnSelect, blnIncludeLights)
 
-	def ObjectsByType(self, intType, blnSelect):
+	def objectsbytype(self, inttype, blnselect):
 		"""
 
 		Returns the identifiers of all objects based on the objects' geometry type.
@@ -427,9 +427,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByType', None, intType, blnSelect)
 
-	def ObjectsByURL(self, strURL, blnSelect, blnIncludeLights):
+	def objectsbyurl(self, strurl, blnselect, blnincludelights):
 		"""
 
 		Returns the identifiers of all objects based on the objects' user-assigned URL.
@@ -447,9 +447,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectsByURL', None, strURL, blnSelect, blnIncludeLights)
 
-	def PrevSelectedObjects(self, blnSelect):
+	def prevselectedobjects(self, blnselect):
 		"""
 
 		Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
@@ -465,9 +465,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PrevSelectedObjects', None, blnSelect)
 
-	def ReferenceObjects(self, blnIncludeLights, blnIncludeGrips):
+	def referenceobjects(self, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
@@ -484,9 +484,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ReferenceObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def SelectedObjects(self, blnIncludeLights, blnIncludeGrips):
+	def selectedobjects(self, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifiers of all objects that are currently selected.
@@ -503,9 +503,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectedObjects', None, blnIncludeLights, blnIncludeGrips)
 
-	def UnselectAllObjects(self):
+	def unselectallobjects(self, ):
 		"""
 
 		Unselects all objects in the document.
@@ -518,9 +518,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectAllObjects', None, )
 
-	def UnselectedObjects(self, blnSelect, blnIncludeLights, blnIncludeGrips):
+	def unselectedobjects(self, blnselect, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifiers of all objects that are currently unselected.
@@ -538,9 +538,9 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectedObjects', None, blnSelect, blnIncludeLights, blnIncludeGrips)
 
-	def VisibleObjects(self, strView, blnSelect, blnIncludeLights, blnIncludeGrips):
+	def visibleobjects(self, strview, blnselect, blnincludelights, blnincludegrips):
 		"""
 
 		Returns the identifiers of all objects that are visible in a specified view.
@@ -559,5 +559,5 @@ class Selection(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'VisibleObjects', None, strView, blnSelect, blnIncludeLights, blnIncludeGrips)
 

@@ -8,7 +8,7 @@ class Application(DispatchBaseClass):
 
 
 
-	def AddAlias(self, strAlias, strMacro):
+	def addalias(self, stralias, strmacro):
 		"""
 
 		Adds a new command alias to Rhino. Command aliases can be added manually by using Rhino's Options command and modifying the contents of the Aliases tab. See "Options Aliases" in the Rhino help file for more details.
@@ -25,9 +25,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddAlias', None, strAlias, strMacro)
 
-	def AddSearchPath(self, strFolder, intIndex):
+	def addsearchpath(self, strfolder, intindex):
 		"""
 
 		Adds a new path to Rhino's search path list. Search path items can be added manually by using Rhino's Options command and modifying the contents of the Files tab. See "Options Files settings" in the Rhino help file for more details.
@@ -44,9 +44,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSearchPath', None, strFolder, intIndex)
 
-	def AddStartupScript(self, strScriptFile, intIndex):
+	def addstartupscript(self, strscriptfile, intindex):
 		"""
 
 		Adds a new startup script to RhinoScript's startup script list. Startup script  items can be added manually by using Rhino's Options command and modifying the contents of the RhinoScript tab.
@@ -63,9 +63,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddStartupScript', None, strScriptFile, intIndex)
 
-	def AliasCount(self):
+	def aliascount(self, ):
 		"""
 
 		Returns the number of command alias in Rhino.
@@ -78,9 +78,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AliasCount', None, )
 
-	def AliasMacro(self, strAlias, strMacro):
+	def aliasmacro(self, stralias, strmacro):
 		"""
 
 		Returns or modifies the macro of a command alias.
@@ -98,9 +98,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AliasMacro', None, strAlias, strMacro)
 
-	def AliasNames(self):
+	def aliasnames(self, ):
 		"""
 
 		Returns a list of command alias names.
@@ -113,9 +113,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AliasNames', None, )
 
-	def AppearanceColor(self, intItem, lngColor):
+	def appearancecolor(self, intitem, lngcolor):
 		"""
 
 		Returns or modifies an application interface item's color.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
@@ -133,9 +133,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AppearanceColor', None, intItem, lngColor)
 
-	def AppearanceDisplay(self, intItem, blnShow):
+	def appearancedisplay(self, intitem, blnshow):
 		"""
 
 		Returns or modifies an application interface item's visibility.
@@ -153,9 +153,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AppearanceDisplay', None, intItem, blnShow)
 
-	def AutosaveFile(self, strFile):
+	def autosavefile(self, strfile):
 		"""
 
 		Returns or changes the file name used by Rhino's automatic file saving mechanism.
@@ -172,9 +172,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AutosaveFile', None, strFile)
 
-	def AutosaveInterval(self, intMinutes):
+	def autosaveinterval(self, intminutes):
 		"""
 
 		Returns or changes how often the document will be saved when Rhino's automatic file saving mechanism is enabled.
@@ -191,9 +191,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AutosaveInterval', None, intMinutes)
 
-	def BuildDate(self):
+	def builddate(self, ):
 		"""
 
 		Returns the build date of Rhino.  The build date is a number in the form of YYYYMMDD.
@@ -207,9 +207,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BuildDate', None, )
 
-	def ClearCommandHistory(self):
+	def clearcommandhistory(self, ):
 		"""
 
 		Clears the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
@@ -221,9 +221,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ClearCommandHistory', None, )
 
-	def Command(self, strCommand, blnEcho):
+	def command(self, strcommand, blnecho):
 		"""
 
 		After the command script has run, you can obtain the identifiers of most recently created or changed object by calling LastCreatedObjects.
@@ -240,9 +240,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Command', None, strCommand, blnEcho)
 
-	def CommandHistory(self):
+	def commandhistory(self, ):
 		"""
 
 		Returns the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
@@ -256,9 +256,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CommandHistory', None, )
 
-	def DefaultRenderer(self, strRenderer):
+	def defaultrenderer(self, strrenderer):
 		"""
 
 		Returns or changes Rhino's current, or default, render plug-in.  Use the PlugIns method to get a list of available render plug-ins.
@@ -275,9 +275,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DefaultRenderer', None, strRenderer)
 
-	def DeleteAlias(self, strAlias):
+	def deletealias(self, stralias):
 		"""
 
 		Deletes an existing command alias from Rhino.
@@ -293,9 +293,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteAlias', None, strAlias)
 
-	def DeleteSearchPath(self, strFolder):
+	def deletesearchpath(self, strfolder):
 		"""
 
 		Removes an existing path from Rhino's search path list. Search path items can be removed manually by using Rhino's Options command and modifying the contents of the Files tab. See "Options Files settings" in the Rhino help file for more details.
@@ -311,9 +311,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteSearchPath', None, strFolder)
 
-	def DeleteStartupScript(self, strScriptFile):
+	def deletestartupscript(self, strscriptfile):
 		"""
 
 		Removes an existing startup script from RhinoScript's startup script list. Startup script items can be removed manually by using Rhino's Options command and modifying the contents of the RhinoScript tab.
@@ -329,9 +329,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteStartupScript', None, strScriptFile)
 
-	def DisplayOleAlerts(self, blnDisplay):
+	def displayolealerts(self, blndisplay):
 		"""
 
 		Note, the display of OLE Server Busy/Not Responding dialog boxes will be re-enabled whenever the script engine is reset, either by running the ResetRhinoScript command or by having the Reinitialize option enabled in Tools->Options->RhinoScript.
@@ -346,9 +346,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DisplayOleAlerts', None, blnDisplay)
 
-	def EdgeAnalysisColor(self, lngColor):
+	def edgeanalysiscolor(self, lngcolor):
 		"""
 
 		Returns or modifies edge analysis color displayed by the ShowEdges command.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
@@ -365,9 +365,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EdgeAnalysisColor', None, lngColor)
 
-	def EdgeAnalysisMode(self, intMode):
+	def edgeanalysismode(self, intmode):
 		"""
 
 		Returns or modifies edge analysis mode displayed by the ShowEdges command.
@@ -384,9 +384,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EdgeAnalysisMode', None, intMode)
 
-	def EnableAutosave(self, blnEnable):
+	def enableautosave(self, blnenable):
 		"""
 
 		Enables or disables Rhino's automatic file saving mechanism.
@@ -401,9 +401,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EnableAutosave', None, blnEnable)
 
-	def EnableHistoryRecording(self, blnEnable):
+	def enablehistoryrecording(self, blnenable):
 		"""
 
 		Enables or disables Rhino's command history recording. For more information, see the Rhino help file for the History command.
@@ -419,9 +419,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EnableHistoryRecording', None, blnEnable)
 
-	def ExeFolder(self):
+	def exefolder(self, ):
 		"""
 
 		Returns the full path to Rhino's executable folder.
@@ -435,9 +435,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExeFolder', None, )
 
-	def Exit(self):
+	def exit(self, ):
 		"""
 
 		Closes the Rhino application.
@@ -449,9 +449,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Exit', None, )
 
-	def FindFile(self, strFilename):
+	def findfile(self, strfilename):
 		"""
 
 		3. Rhino's System folders.
@@ -467,9 +467,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'FindFile', None, strFilename)
 
-	def GetPlugInObject(self, strPlugIn):
+	def getpluginobject(self, strplugin):
 		"""
 
 		Returns a scriptable object from a specified plug-in. Note, not all plug-ins contain scriptable objects. Check with the manufacturer of your plug-in to see if they support this capability.
@@ -484,9 +484,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPlugInObject', None, strPlugIn)
 
-	def Help(self, intTopic):
+	def help(self, inttopic):
 		"""
 
 		Displays a topic in Rhino's Help file.
@@ -501,9 +501,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Help', None, intTopic)
 
-	def InCommand(self, blnIgnoreRunners):
+	def incommand(self, blnignorerunners):
 		"""
 
 		Determines if Rhino is currently running a command. Because Rhino allow for transparent commands (commands that can be run from inside of other commands), this method returns the total number of active commands.
@@ -518,9 +518,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'InCommand', None, blnIgnoreRunners)
 
-	def InstallFolder(self):
+	def installfolder(self, ):
 		"""
 
 		Returns the full path to Rhino's installation folder.
@@ -534,9 +534,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'InstallFolder', None, )
 
-	def IsAlias(self, strAlias):
+	def isalias(self, stralias):
 		"""
 
 		Verifies that a command alias exists in Rhino.
@@ -552,9 +552,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsAlias', None, strAlias)
 
-	def IsCommand(self, strCommandName):
+	def iscommand(self, strcommandname):
 		"""
 
 		Verifies that a command exists in Rhino. The function is useful when scripting commands found in 3rd party plug-ins.
@@ -570,9 +570,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsCommand', None, strCommandName)
 
-	def LastCommandName(self):
+	def lastcommandname(self, ):
 		"""
 
 		Returns the name of the last executed command.
@@ -585,9 +585,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LastCommandName', None, )
 
-	def LastCommandResult(self):
+	def lastcommandresult(self, ):
 		"""
 
 		Returns the result code for the last executed command.
@@ -600,9 +600,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LastCommandResult', None, )
 
-	def LastLoadedScriptFile(self):
+	def lastloadedscriptfile(self, ):
 		"""
 
 		Return the full path to the last RhinoScript file that was loaded using the LoadScript command..
@@ -616,9 +616,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LastLoadedScriptFile', None, )
 
-	def LocaleID(self):
+	def localeid(self, ):
 		"""
 
 		Returns the language used for the Rhino interface.  The current language is returned as a locale ID, or LCID, value.
@@ -631,9 +631,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LocaleID', None, )
 
-	def Ortho(self, blnEnable):
+	def ortho(self, blnenable):
 		"""
 
 		Enables or disables Rhino's ortho modeling aid.
@@ -649,9 +649,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Ortho', None, blnEnable)
 
-	def Osnap(self, blnEnable):
+	def osnap(self, blnenable):
 		"""
 
 		Enables or disables Rhino's object snap modeling aid.  Object snaps are tools for specifying points on existing objects.
@@ -667,9 +667,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Osnap', None, blnEnable)
 
-	def OsnapDialog(self, blnVisible):
+	def osnapdialog(self, blnvisible):
 		"""
 
 		Shows or hides Rhino's dockable object snap bar.
@@ -685,9 +685,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'OsnapDialog', None, blnVisible)
 
-	def OsnapMode(self, intMode):
+	def osnapmode(self, intmode):
 		"""
 
 		Returns or sets the object snap mode. Object snaps are tools for specifying points on existing objects.
@@ -704,9 +704,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'OsnapMode', None, intMode)
 
-	def Planar(self, blnEnable):
+	def planar(self, blnenable):
 		"""
 
 		Enables or disables Rhino's planar modeling aid.
@@ -722,9 +722,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Planar', None, blnEnable)
 
-	def PlugIns(self, intTypes, intStatus):
+	def plugins(self, inttypes, intstatus):
 		"""
 
 		Returns an array of registered Rhino plug-ins.
@@ -741,9 +741,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlugIns', None, intTypes, intStatus)
 
-	def Print(self, strMessage):
+	def print(self, strmessage):
 		"""
 
 		Prints a string to Rhino's command window.  Note, this method cannot be called from Visual Basic.  If you are using Visual Basic, use the PrintEx method.
@@ -757,9 +757,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Print', None, strMessage)
 
-	def PrintEx(self, strMessage):
+	def printex(self, strmessage):
 		"""
 
 		Prints a string to Rhino's command window.  Use this method, instead of the Print method, if you are using Visual Basic.
@@ -773,9 +773,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PrintEx', None, strMessage)
 
-	def ProjectOsnaps(self, blnEnable):
+	def projectosnaps(self, blnenable):
 		"""
 
 		Enables or disables object snap projection.
@@ -791,9 +791,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ProjectOsnaps', None, blnEnable)
 
-	def Prompt(self, strPrompt):
+	def prompt(self, strprompt):
 		"""
 
 		Changes Rhino's command window prompt.
@@ -807,9 +807,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Prompt', None, strPrompt)
 
-	def RegistryKey(self):
+	def registrykey(self, ):
 		"""
 
 		Returns Rhino's Windows Registry key.
@@ -823,9 +823,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RegistryKey', None, )
 
-	def ScreenSize(self):
+	def screensize(self, ):
 		"""
 
 		Returns the current width and height, in pixels, of the screen of the primary display monitor.
@@ -839,9 +839,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ScreenSize', None, )
 
-	def SdkVersion(self):
+	def sdkversion(self, ):
 		"""
 
 		Returns the version of the Rhino SDK supported by the running version of Rhino.  Rhino SDK versions are 9 digit numbers in the form of YYYYMMDDn.
@@ -855,9 +855,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SdkVersion', None, )
 
-	def SearchPathCount(self):
+	def searchpathcount(self, ):
 		"""
 
 		Returns the number of path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.
@@ -870,9 +870,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SearchPathCount', None, )
 
-	def SearchPathList(self):
+	def searchpathlist(self, ):
 		"""
 
 		Returns all of the path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.
@@ -885,9 +885,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SearchPathList', None, )
 
-	def SendKeystrokes(self, strKeys, blnAddReturn):
+	def sendkeystrokes(self, strkeys, blnaddreturn):
 		"""
 
 		Sends a string of printable characters, including spaces, to Rhino's command line.
@@ -902,9 +902,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SendKeystrokes', None, strKeys, blnAddReturn)
 
-	def Snap(self, blnEnable):
+	def snap(self, blnenable):
 		"""
 
 		Enables or disables Rhino's grid snap modeling aid.
@@ -920,9 +920,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Snap', None, blnEnable)
 
-	def StartupScriptCount(self):
+	def startupscriptcount(self, ):
 		"""
 
 		Returns the number of startup script items in RhinoScript's startup script list. See "Options RhinoScript" for more details.
@@ -935,9 +935,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'StartupScriptCount', None, )
 
-	def StartupScriptList(self):
+	def startupscriptlist(self, ):
 		"""
 
 		Returns all of the startup script items in Rhino's startup script list. See "Options RhinoScript" for more details.
@@ -950,9 +950,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'StartupScriptList', None, )
 
-	def StatusBarDistance(self, dblDistance):
+	def statusbardistance(self, dbldistance):
 		"""
 
 		Sets Rhino's status bar distance pane.
@@ -966,9 +966,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'StatusBarDistance', None, dblDistance)
 
-	def StatusBarMessage(self, strMessage):
+	def statusbarmessage(self, strmessage):
 		"""
 
 		Sets Rhino's status bar message pane.
@@ -982,9 +982,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'StatusBarMessage', None, strMessage)
 
-	def StatusBarNumber(self, dblNumber):
+	def statusbarnumber(self, dblnumber):
 		"""
 
 		Sets Rhino's status bar number pane.
@@ -998,9 +998,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'StatusBarNumber', None, dblNumber)
 
-	def StatusBarPoint(self, arrPoint):
+	def statusbarpoint(self, arrpoint):
 		"""
 
 		Sets Rhino's status bar point coordinate panes.
@@ -1014,9 +1014,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'StatusBarPoint', None, arrPoint)
 
-	def TemplateFile(self, strFilename):
+	def templatefile(self, strfilename):
 		"""
 
 		Returns or sets Rhino's default template file. The default template file is the template file used when Rhino starts.
@@ -1032,9 +1032,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'TemplateFile', None, strFilename)
 
-	def TemplateFolder(self, strFolder):
+	def templatefolder(self, strfolder):
 		"""
 
 		Returns or sets the location of Rhino's template files.
@@ -1050,9 +1050,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'TemplateFolder', None, strFolder)
 
-	def WindowHandle(self):
+	def windowhandle(self, ):
 		"""
 
 		Returns the Windows handle of Rhino's main window.
@@ -1065,9 +1065,9 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'WindowHandle', None, )
 
-	def WorkingFolder(self, blnEnable):
+	def workingfolder(self, blnenable):
 		"""
 
 		Returns or sets Rhino's working directory, or folder.  The working folder is the default folder for all file operations.
@@ -1083,5 +1083,5 @@ class Application(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'WorkingFolder', None, blnEnable)
 

@@ -8,7 +8,7 @@ class UserInterface(DispatchBaseClass):
 
 
 
-	def BrowseForFolder(self, strFolder, strMessage, strTitle):
+	def browseforfolder(self, strfolder, strmessage, strtitle):
 		"""
 
 		Displays the Windows browse-for-folder dialog box allowing the user to select a folder.
@@ -26,9 +26,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BrowseForFolder', None, strFolder, strMessage, strTitle)
 
-	def CheckListBox(self, arrItems, arrValues, strMessage, strTitle):
+	def checklistbox(self, arritems, arrvalues, strmessage, strtitle):
 		"""
 
 		Displays a list of items in a checkable-style list box dialog.
@@ -47,9 +47,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CheckListBox', None, arrItems, arrValues, strMessage, strTitle)
 
-	def ComboListBox(self, arrItems, strMessage, strTitle):
+	def combolistbox(self, arritems, strmessage, strtitle):
 		"""
 
 		Displays a list of items in a combo-style list box dialog.
@@ -67,9 +67,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ComboListBox', None, arrItems, strMessage, strTitle)
 
-	def EditBox(self, strString, strMessage, strTitle):
+	def editbox(self, strstring, strmessage, strtitle):
 		"""
 
 		Displays a dialog box prompting the user to enter a string value.  The string value may span multiple lines.
@@ -87,9 +87,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EditBox', None, strString, strMessage, strTitle)
 
-	def GetAngle(self, arrPoint, arrReference, dblAngle, strMessage):
+	def getangle(self, arrpoint, arrreference, dblangle, strmessage):
 		"""
 
 		Pauses for user input of an angle.
@@ -108,9 +108,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetAngle', None, arrPoint, arrReference, dblAngle, strMessage)
 
-	def GetBoolean(self, strMessage, arrItems, arrDefaults):
+	def getboolean(self, strmessage, arritems, arrdefaults):
 		"""
 
 		Pauses for user input of one or more boolean values. Boolean values are displayed as click-able command-line option toggles.
@@ -128,9 +128,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetBoolean', None, strMessage, arrItems, arrDefaults)
 
-	def GetBox(self, intMode, arrPoint, strPrompt1, strPrompt2, strPrompt3):
+	def getbox(self, intmode, arrpoint, strprompt1, strprompt2, strprompt3):
 		"""
 
 		Pauses for user input of a box.
@@ -150,9 +150,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetBox', None, intMode, arrPoint, strPrompt1, strPrompt2, strPrompt3)
 
-	def GetColor(self, lngColor):
+	def getcolor(self, lngcolor):
 		"""
 
 		Displays the Rhino color picker dialog box allowing the user to select an RGB color value.
@@ -168,9 +168,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetColor', None, lngColor)
 
-	def GetDistance(self, arrPoint, dblDistance, strMessage1, strMessage2):
+	def getdistance(self, arrpoint, dbldistance, strmessage1, strmessage2):
 		"""
 
 		Pauses for user input of a distance.
@@ -189,9 +189,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetDistance', None, arrPoint, dblDistance, strMessage1, strMessage2)
 
-	def GetInteger(self, strMessage, intNumber, intMin, intMax):
+	def getinteger(self, strmessage, intnumber, intmin, intmax):
 		"""
 
 		Pauses for user input of a whole number.
@@ -210,9 +210,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetInteger', None, strMessage, intNumber, intMin, intMax)
 
-	def GetLayer(self, strTitle, strLayer, blnShowNewLayer, blnShowSetCurrent):
+	def getlayer(self, strtitle, strlayer, blnshownewlayer, blnshowsetcurrent):
 		"""
 
 		Displays a dialog box prompting the user to select a layer.
@@ -231,9 +231,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetLayer', None, strTitle, strLayer, blnShowNewLayer, blnShowSetCurrent)
 
-	def GetLinetype(self, strLinetype):
+	def getlinetype(self, strlinetype):
 		"""
 
 		Displays a dialog box prompting the user to select a linetype.
@@ -249,9 +249,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetLinetype', None, strLinetype)
 
-	def GetPoint(self, strMessage, arrPoint, dblDistance, blnPlane):
+	def getpoint(self, strmessage, arrpoint, dbldistance, blnplane):
 		"""
 
 		Pauses for user input of a point.
@@ -270,9 +270,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPoint', None, strMessage, arrPoint, dblDistance, blnPlane)
 
-	def GetPointOnCurve(self, strObject, strMessage):
+	def getpointoncurve(self, strobject, strmessage):
 		"""
 
 		Pauses for user input of a point constrained to a curve object.
@@ -289,9 +289,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnCurve', None, strObject, strMessage)
 
-	def GetPointOnLine(self, strMessage, arrStart, arrEnd, blnTrack):
+	def getpointonline(self, strmessage, arrstart, arrend, blntrack):
 		"""
 
 		Pauses for user input of a point constrained to an infinite line.
@@ -310,9 +310,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnLine', None, strMessage, arrStart, arrEnd, blnTrack)
 
-	def GetPointOnMesh(self, strObject, strMessage):
+	def getpointonmesh(self, strobject, strmessage):
 		"""
 
 		Pauses for user input of a point constrained to a mesh object.
@@ -329,9 +329,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnMesh', None, strObject, strMessage)
 
-	def GetPointOnPlane(self, strMessage, arrPlane, arrPoint):
+	def getpointonplane(self, strmessage, arrplane, arrpoint):
 		"""
 
 		Pauses for user input of a point constrained to a plane.
@@ -349,9 +349,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnPlane', None, strMessage, arrPlane, arrPoint)
 
-	def GetPointOnSurface(self, strObject, strMessage):
+	def getpointonsurface(self, strobject, strmessage):
 		"""
 
 		Pauses for user input of a point constrained to a surface or polysurface object.
@@ -368,9 +368,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnSurface', None, strObject, strMessage)
 
-	def GetPoints(self, blnDraw, blnPlane, strMessage1, strMessage2, intMaxPoints, arrBasePoint):
+	def getpoints(self, blndraw, blnplane, strmessage1, strmessage2, intmaxpoints, arrbasepoint):
 		"""
 
 		Pauses for user input of one or more points.
@@ -391,9 +391,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPoints', None, blnDraw, blnPlane, strMessage1, strMessage2, intMaxPoints, arrBasePoint)
 
-	def GetPrintWidth(self, dblPrintWidth):
+	def getprintwidth(self, dblprintwidth):
 		"""
 
 		Displays a dialog box prompting the user to select a print width.
@@ -409,9 +409,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetPrintWidth', None, dblPrintWidth)
 
-	def GetReal(self, strMessage, dblNumber, dblMin, dblMax):
+	def getreal(self, strmessage, dblnumber, dblmin, dblmax):
 		"""
 
 		Pauses for user input of a number.
@@ -430,9 +430,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetReal', None, strMessage, dblNumber, dblMin, dblMax)
 
-	def GetRectangle(self, intMode, arrPoint, strPrompt1, strPrompt2, strPrompt3):
+	def getrectangle(self, intmode, arrpoint, strprompt1, strprompt2, strprompt3):
 		"""
 
 		Pauses for user input of a rectangle.
@@ -452,9 +452,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetRectangle', None, intMode, arrPoint, strPrompt1, strPrompt2, strPrompt3)
 
-	def GetString(self, strMessage, strString, arrStrings):
+	def getstring(self, strmessage, strstring, arrstrings):
 		"""
 
 		Pauses for user input of string value.
@@ -472,9 +472,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetString', None, strMessage, strString, arrStrings)
 
-	def GetSurfaceIsoParamPoint(self, strObject, strMessage):
+	def getsurfaceisoparampoint(self, strobject, strmessage):
 		"""
 
 		Pauses for user input of a point constrained to a surface object.
@@ -491,9 +491,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetSurfaceIsoParamPoint', None, strObject, strMessage)
 
-	def HtmlBox(self, strFileName, vaArguments, strOptions, blnModal):
+	def htmlbox(self, strfilename, vaarguments, stroptions, blnmodal):
 		"""
 
 		Displays a custom, modal HTML dialog page. A modal dialog box retains the input focus while open. The user cannot switch windows until the dialog box is closed.
@@ -512,9 +512,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HtmlBox', None, strFileName, vaArguments, strOptions, blnModal)
 
-	def IntegerBox(self, strMessage, intNumber, strTitle):
+	def integerbox(self, strmessage, intnumber, strtitle):
 		"""
 
 		Displays a dialog box prompting the user to enter a whole number.
@@ -532,9 +532,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IntegerBox', None, strMessage, intNumber, strTitle)
 
-	def ListBox(self, arrItems, strMessage, strTitle):
+	def listbox(self, arritems, strmessage, strtitle):
 		"""
 
 		Displays a list of items in a list box dialog.
@@ -552,9 +552,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ListBox', None, arrItems, strMessage, strTitle)
 
-	def MessageBeep(self, intBeep):
+	def messagebeep(self, intbeep):
 		"""
 
 		Plays a system waveform sound.
@@ -568,9 +568,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MessageBeep', None, intBeep)
 
-	def MessageBox(self, strMessage, intButtons, strTitle):
+	def messagebox(self, strmessage, intbuttons, strtitle):
 		"""
 
 		Displays a Windows message box. A message box contains an application-defined message and title, plus any combination of predefined icons and push buttons.
@@ -587,9 +587,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MessageBox', None, strMessage, intButtons, strTitle)
 
-	def MultiListBox(self, arrItems, strMessage, strTitle):
+	def multilistbox(self, arritems, strmessage, strtitle):
 		"""
 
 		Displays a list of items in a multiple-selection list box dialog.
@@ -607,9 +607,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MultiListBox', None, arrItems, strMessage, strTitle)
 
-	def OpenFileName(self, strTitle, strFilter, strFolder, strFilename, strExtension):
+	def openfilename(self, strtitle, strfilter, strfolder, strfilename, strextension):
 		"""
 
 		Displays a Windows file open dialog box allowing the user to select a file name. Note, this function does not open the file.
@@ -629,9 +629,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'OpenFileName', None, strTitle, strFilter, strFolder, strFilename, strExtension)
 
-	def OpenFileNames(self, strTitle, strFilter, strFolder, strFilename, strExtension):
+	def openfilenames(self, strtitle, strfilter, strfolder, strfilename, strextension):
 		"""
 
 		Displays a Windows file open dialog box allowing the user to select one or more file names. Note, this function does not open files.
@@ -651,9 +651,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'OpenFileNames', None, strTitle, strFilter, strFolder, strFilename, strExtension)
 
-	def PopupMenu(self, arrrItems, arrModes, arrPoint, strView):
+	def popupmenu(self, arrritems, arrmodes, arrpoint, strview):
 		"""
 
 		Displays a user-defined, context-style popup menu. The popup menu can appear almost anywhere. And, it can be dismissed by either clicking the left or right mouse buttons.
@@ -673,9 +673,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PopupMenu', None, arrrItems, arrModes, arrPoint, strView)
 
-	def PropertyListBox(self, arrItems, arrValues, strMessage, strTitle):
+	def propertylistbox(self, arritems, arrvalues, strmessage, strtitle):
 		"""
 
 		Displays a list of items and their values in a property-style list box dialog.
@@ -694,9 +694,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PropertyListBox', None, arrItems, arrValues, strMessage, strTitle)
 
-	def RealBox(self, strMessage, dblNumber, strTitle):
+	def realbox(self, strmessage, dblnumber, strtitle):
 		"""
 
 		Displays a dialog box prompting the user to enter a number.
@@ -714,9 +714,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RealBox', None, strMessage, dblNumber, strTitle)
 
-	def SaveFileName(self, strTitle, strFilter, strFolder, strFilename, strExtension):
+	def savefilename(self, strtitle, strfilter, strfolder, strfilename, strextension):
 		"""
 
 		Displays a Windows file save dialog box allowing the user to enter a file name. Note, this function does not save the file.
@@ -736,9 +736,9 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SaveFileName', None, strTitle, strFilter, strFolder, strFilename, strExtension)
 
-	def StringBox(self, strMessage, strString, strTitle):
+	def stringbox(self, strmessage, strstring, strtitle):
 		"""
 
 		Displays a dialog box prompting the user to enter a string value.
@@ -756,5 +756,5 @@ class UserInterface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'StringBox', None, strMessage, strString, strTitle)
 

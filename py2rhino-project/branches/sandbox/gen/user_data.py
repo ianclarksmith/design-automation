@@ -8,7 +8,7 @@ class UserData(DispatchBaseClass):
 
 
 
-	def AttributeDataCount(self, strObject):
+	def attributedatacount(self, strobject):
 		"""
 
 		Returns the number of RhinoScript user data items on an object's attributes.
@@ -24,9 +24,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AttributeDataCount', None, strObject)
 
-	def DeleteAttributeData(self, strObject, strSection, strEntry):
+	def deleteattributedata(self, strobject, strsection, strentry):
 		"""
 
 		Removes RhinoScript user data items from an object's attributes.
@@ -44,9 +44,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteAttributeData', None, strObject, strSection, strEntry)
 
-	def DeleteDocumentData(self, strSection, strEntry):
+	def deletedocumentdata(self, strsection, strentry):
 		"""
 
 		Removes RhinoScript user data items from the current document.
@@ -63,9 +63,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteDocumentData', None, strSection, strEntry)
 
-	def DeleteObjectData(self, strObject, strSection, strEntry):
+	def deleteobjectdata(self, strobject, strsection, strentry):
 		"""
 
 		Removes RhinoScript user data items from an object's geometry.
@@ -83,9 +83,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteObjectData', None, strObject, strSection, strEntry)
 
-	def DocumentDataCount(self):
+	def documentdatacount(self, ):
 		"""
 
 		Returns the number of RhinoScript user data items in the current document.
@@ -98,9 +98,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentDataCount', None, )
 
-	def GetAttributeData(self, strObject, strSection, strEntry):
+	def getattributedata(self, strobject, strsection, strentry):
 		"""
 
 		Returns a RhinoScript user data item from an object's attributes.
@@ -120,9 +120,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetAttributeData', None, strObject, strSection, strEntry)
 
-	def GetDocumentData(self, strSection, strEntry):
+	def getdocumentdata(self, strsection, strentry):
 		"""
 
 		Returns a RhinoScript user data item from the current document.
@@ -141,9 +141,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetDocumentData', None, strSection, strEntry)
 
-	def GetObjectData(self, strObject, strSection, strEntry):
+	def getobjectdata(self, strobject, strsection, strentry):
 		"""
 
 		Returns a RhinoScript user data item from an object's geometry.
@@ -163,9 +163,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectData', None, strObject, strSection, strEntry)
 
-	def GetUserText(self, strObject, strKey, blnAttachToGeometry):
+	def getusertext(self, strobject, strkey, blnattachtogeometry):
 		"""
 
 		Returns User Text that is stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
@@ -184,9 +184,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetUserText', None, strObject, strKey, blnAttachToGeometry)
 
-	def IsAttributeData(self, strObject):
+	def isattributedata(self, strobject):
 		"""
 
 		Verifies that an object's attributes contains RhinoScript user data.
@@ -202,9 +202,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsAttributeData', None, strObject)
 
-	def IsDocumentData(self):
+	def isdocumentdata(self, ):
 		"""
 
 		Verifies that the current document contains RhinoScript user data.
@@ -217,9 +217,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDocumentData', None, )
 
-	def IsObjectData(self, strObject):
+	def isobjectdata(self, strobject):
 		"""
 
 		Verifies that an object's geometry contains RhinoScript user data.
@@ -235,9 +235,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectData', None, strObject)
 
-	def IsUserText(self, strObject):
+	def isusertext(self, strobject):
 		"""
 
 		Verifies that an object contains user text. For more details on User Text, see the discussion found in the User Data Methods summary.
@@ -253,9 +253,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsUserText', None, strObject)
 
-	def ObjectDataCount(self, strObject):
+	def objectdatacount(self, strobject):
 		"""
 
 		Returns the number of RhinoScript user data items on an object's geometry.
@@ -271,9 +271,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectDataCount', None, strObject)
 
-	def SetAttributeData(self, strObject, strSection, strEntry, strValue):
+	def setattributedata(self, strobject, strsection, strentry, strvalue):
 		"""
 
 		Adds or sets a RhinoScript user data item to an object's attributes.
@@ -292,9 +292,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SetAttributeData', None, strObject, strSection, strEntry, strValue)
 
-	def SetDocumentData(self, strSection, strEntry, strValue):
+	def setdocumentdata(self, strsection, strentry, strvalue):
 		"""
 
 		Adds or sets a RhinoScript user data item to the current document.
@@ -312,9 +312,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SetDocumentData', None, strSection, strEntry, strValue)
 
-	def SetObjectData(self, strObject, strSection, strEntry, strValue):
+	def setobjectdata(self, strobject, strsection, strentry, strvalue):
 		"""
 
 		Adds or sets a RhinoScript user data item to an object's geometry.
@@ -333,9 +333,9 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SetObjectData', None, strObject, strSection, strEntry, strValue)
 
-	def SetUserText(self, strObject, strKey, strValue, blnAttachToGeometry):
+	def setusertext(self, strobject, strkey, strvalue, blnattachtogeometry):
 		"""
 
 		Sets or removes user text stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
@@ -354,5 +354,5 @@ class UserData(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SetUserText', None, strObject, strKey, strValue, blnAttachToGeometry)
 

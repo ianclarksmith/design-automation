@@ -8,7 +8,7 @@ class Toolbar(DispatchBaseClass):
 
 
 
-	def AddToolbar(self, strName, strToolbar):
+	def addtoolbar(self, strname, strtoolbar):
 		"""
 
 		Create new toolbar with one blank button.
@@ -25,9 +25,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbar', None, strName, strToolbar)
 
-	def AddToolbarButton(self, strName, strToolbar):
+	def addtoolbarbutton(self, strname, strtoolbar):
 		"""
 
 		Add a new button to specified toolbar.  The new button will be completely blank.
@@ -44,9 +44,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbarButton', None, strName, strToolbar)
 
-	def AddToolbarCollection(self, strFile):
+	def addtoolbarcollection(self, strfile):
 		"""
 
 		Create new toolbar collection file with no toolbars.
@@ -62,9 +62,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddToolbarCollection', None, strFile)
 
-	def CloseToolbarCollection(self, strName, blnPrompt):
+	def closetoolbarcollection(self, strname, blnprompt):
 		"""
 
 		Closes a currently open toolbar collection.
@@ -81,9 +81,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CloseToolbarCollection', None, strName, blnPrompt)
 
-	def DeleteToolbar(self, strName, strToolbar):
+	def deletetoolbar(self, strname, strtoolbar):
 		"""
 
 		Deletes a toolbar from an open toolbar collection.
@@ -100,9 +100,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteToolbar', None, strName, strToolbar)
 
-	def HideToolBar(self, strName, strToolbar):
+	def hidetoolbar(self, strname, strtoolbar):
 		"""
 
 		Hides a previously visible toolbar in a currently open toolbar collection.
@@ -119,9 +119,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HideToolBar', None, strName, strToolbar)
 
-	def IsToolBar(self, strName, strToolbar):
+	def istoolbar(self, strname, strtoolbar):
 		"""
 
 		Verifies that a toolbar exists in a currently open toolbar collection.
@@ -138,9 +138,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolBar', None, strName, strToolbar)
 
-	def IsToolBarVisible(self, strName, strToolbar):
+	def istoolbarvisible(self, strname, strtoolbar):
 		"""
 
 		Verifies that a toolbar in a currently open toolbar collection is visible.
@@ -157,9 +157,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolBarVisible', None, strName, strToolbar)
 
-	def IsToolbarCollection(self, strFile):
+	def istoolbarcollection(self, strfile):
 		"""
 
 		Verifies that a toolbar collection is open.
@@ -175,9 +175,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolbarCollection', None, strFile)
 
-	def IsToolbarDocked(self, strName, strToolbar):
+	def istoolbardocked(self, strname, strtoolbar):
 		"""
 
 		Verifies that a visible toolbar in a currently open toolbar collection is docked.
@@ -194,9 +194,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsToolbarDocked', None, strName, strToolbar)
 
-	def OpenToolbarCollection(self, strFile):
+	def opentoolbarcollection(self, strfile):
 		"""
 
 		Opens an existing toolbar collection file.
@@ -212,9 +212,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'OpenToolbarCollection', None, strFile)
 
-	def SaveToolbarCollection(self, strName):
+	def savetoolbarcollection(self, strname):
 		"""
 
 		Saves an open toolbar collection to disk.
@@ -230,9 +230,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SaveToolbarCollection', None, strName)
 
-	def SaveToolbarCollectionAs(self, strName, strFile):
+	def savetoolbarcollectionas(self, strname, strfile):
 		"""
 
 		Saves an open toolbar collection to a different disk file.
@@ -249,9 +249,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SaveToolbarCollectionAs', None, strName, strFile)
 
-	def ShowToolBar(self, strName, strToolbar):
+	def showtoolbar(self, strname, strtoolbar):
 		"""
 
 		Shows a previously hidden toolbar in a currently open toolbar collection.
@@ -268,9 +268,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowToolBar', None, strName, strToolbar)
 
-	def ToolBarCount(self, strName):
+	def toolbarcount(self, strname):
 		"""
 
 		Returns the number of toolbars found in a currently open toolbar collection file.
@@ -286,9 +286,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolBarCount', None, strName)
 
-	def ToolBarNames(self, strName):
+	def toolbarnames(self, strname):
 		"""
 
 		Returns the names of all toolbars found in a currently open toolbar collection file.
@@ -304,9 +304,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolBarNames', None, strName)
 
-	def ToolbarCollectionCount(self):
+	def toolbarcollectioncount(self, ):
 		"""
 
 		Returns the number of currently open toolbar collections.
@@ -320,9 +320,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionCount', None, )
 
-	def ToolbarCollectionNames(self):
+	def toolbarcollectionnames(self, ):
 		"""
 
 		Returns the name of all currently open toolbar collections.
@@ -336,9 +336,9 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionNames', None, )
 
-	def ToolbarCollectionPath(self, strName):
+	def toolbarcollectionpath(self, strname):
 		"""
 
 		Returns the full path to a currently open toolbar collection file.
@@ -354,5 +354,5 @@ class Toolbar(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ToolbarCollectionPath', None, strName)
 

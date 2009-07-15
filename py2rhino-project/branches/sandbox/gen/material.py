@@ -8,7 +8,7 @@ class Material(DispatchBaseClass):
 
 
 
-	def AddMaterialToLayer(self, strObject):
+	def addmaterialtolayer(self, strobject):
 		"""
 
 		Adds a material to a layer and returns the new material's index.  If the layer already has a material, then the layer's current material index is returned.
@@ -24,9 +24,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddMaterialToLayer', None, strObject)
 
-	def AddMaterialToObject(self, strObject):
+	def addmaterialtoobject(self, strobject):
 		"""
 
 		Adds a material to an object and returns the new material's index.  Note, adding a material to an object modifies the object's material source from "By Layer" to "By Object."  See ObjectMaterialSource for details.  If the object already has a material, then the object's current material index is returned.
@@ -42,9 +42,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddMaterialToObject', None, strObject)
 
-	def CopyMaterial(self, intSrcIndex, intDstIndex):
+	def copymaterial(self, intsrcindex, intdstindex):
 		"""
 
 		Copies the definition of a source material to a destination material.
@@ -61,9 +61,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CopyMaterial', None, intSrcIndex, intDstIndex)
 
-	def IsMaterialDefault(self, intMaterialIndex):
+	def ismaterialdefault(self, intmaterialindex):
 		"""
 
 		Verifies that a material is a copy of Rhino's built-in "default" material.  The default material is used by objects and layers that have not been assigned a material.
@@ -78,9 +78,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsMaterialDefault', None, intMaterialIndex)
 
-	def IsMaterialReference(self, intMaterialIndex):
+	def ismaterialreference(self, intmaterialindex):
 		"""
 
 		Verifies a material is referenced from another file.
@@ -96,9 +96,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsMaterialReference', None, intMaterialIndex)
 
-	def MatchMaterial(self, intSrcMaterialIndex, strSrcObject, strDestObject, arrDestObjects):
+	def matchmaterial(self, intsrcmaterialindex, strsrcobject, strdestobject, arrdestobjects):
 		"""
 
 		Copies the material definition from one material to one or more objects.
@@ -117,9 +117,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MatchMaterial', None, intSrcMaterialIndex, strSrcObject, strDestObject, arrDestObjects)
 
-	def MaterialBump(self, intMaterialIndex, strFileName):
+	def materialbump(self, intmaterialindex, strfilename):
 		"""
 
 		Returns or modifies a material's bump bitmap filename.
@@ -137,9 +137,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialBump', None, intMaterialIndex, strFileName)
 
-	def MaterialColor(self, intMaterialIndex, lngColor):
+	def materialcolor(self, intmaterialindex, lngcolor):
 		"""
 
 		Returns or modifies a material's diffuse color.  Material colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
@@ -157,9 +157,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialColor', None, intMaterialIndex, lngColor)
 
-	def MaterialEnvironmentMap(self, intMaterialIndex, strFileName):
+	def materialenvironmentmap(self, intmaterialindex, strfilename):
 		"""
 
 		Returns or modifies a material's environment bitmap filename.
@@ -177,9 +177,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialEnvironmentMap', None, intMaterialIndex, strFileName)
 
-	def MaterialName(self, intMaterialIndex, strName):
+	def materialname(self, intmaterialindex, strname):
 		"""
 
 		Returns or modifies a material's user-definable name.
@@ -197,9 +197,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialName', None, intMaterialIndex, strName)
 
-	def MaterialReflectiveColor(self, intMaterialIndex, lngColor):
+	def materialreflectivecolor(self, intmaterialindex, lngcolor):
 		"""
 
 		Returns or modifies a material's reflective color.  Reflective colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
@@ -217,9 +217,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialReflectiveColor', None, intMaterialIndex, lngColor)
 
-	def MaterialShine(self, intMaterialIndex, dblShine):
+	def materialshine(self, intmaterialindex, dblshine):
 		"""
 
 		Returns or modifies a material's shine value.
@@ -237,9 +237,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialShine', None, intMaterialIndex, dblShine)
 
-	def MaterialTexture(self, intMaterialIndex, strFileName):
+	def materialtexture(self, intmaterialindex, strfilename):
 		"""
 
 		Returns or modifies a material's texture bitmap filename.
@@ -257,9 +257,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTexture', None, intMaterialIndex, strFileName)
 
-	def MaterialTransparency(self, intMaterialIndex, dblTransparency):
+	def materialtransparency(self, intmaterialindex, dbltransparency):
 		"""
 
 		Returns or modifies a material's transparency value.
@@ -277,9 +277,9 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTransparency', None, intMaterialIndex, dblTransparency)
 
-	def MaterialTransparencyMap(self, intMaterialIndex, strFileName):
+	def materialtransparencymap(self, intmaterialindex, strfilename):
 		"""
 
 		Returns or modifies a material's transparency bitmap filename.
@@ -297,5 +297,5 @@ class Material(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MaterialTransparencyMap', None, intMaterialIndex, strFileName)
 

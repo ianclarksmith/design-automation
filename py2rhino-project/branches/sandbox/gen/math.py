@@ -8,7 +8,7 @@ class Math(DispatchBaseClass):
 
 
 
-	def ACos(self, dblNumber):
+	def acos(self, dblnumber):
 		"""
 
 		Returns the arccosine, or inverse cosine, of a number. The arccosine is the angle whose cosine is number. The returned angle is given in radians in the range 0 (zero) to PI.
@@ -24,9 +24,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ACos', None, dblNumber)
 
-	def ACosH(self, dblNumber):
+	def acosh(self, dblnumber):
 		"""
 
 		Returns the inverse hyperbolic cosine of a number. Number must be greater than or equal to 1. The inverse hyperbolic cosine is the value whose hyperbolic cosine is number, so ACosH(CosH(number)) equals the number.
@@ -42,9 +42,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ACosH', None, dblNumber)
 
-	def ASin(self, dblNumber):
+	def asin(self, dblnumber):
 		"""
 
 		Returns the arcsine, or inverse sine, of a number. The arcsine is the angle whose sine is number. The returned angle is given in radians in the range -PI/2 to PI/2.
@@ -60,9 +60,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ASin', None, dblNumber)
 
-	def ASinH(self, dblNumber):
+	def asinh(self, dblnumber):
 		"""
 
 		Returns the inverse hyperbolic sine of a number. The inverse hyperbolic sine is the value whose hyperbolic sine is number, so ASinH(SinH(number)) equals number.
@@ -78,9 +78,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ASinH', None, dblNumber)
 
-	def ATan2(self, y, x):
+	def atan2(self, y, x):
 		"""
 
 		Returns the angle whose tangent is the quotient of two specified numbers.
@@ -97,9 +97,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ATan2', None, y, x)
 
-	def ATanH(self, dblNumber):
+	def atanh(self, dblnumber):
 		"""
 
 		Returns the inverse hyperbolic tangent of a number. Number must be between -1 and 1 (excluding -1 and 1). The inverse hyperbolic tangent is the value whose hyperbolic tangent is number; ATanH(TanH(number)) equals number.
@@ -115,9 +115,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ATanH', None, dblNumber)
 
-	def Angle(self, arrPoint1, arrPoint2, blnWorld):
+	def angle(self, arrpoint1, arrpoint2, blnworld):
 		"""
 
 		Measures the angle between two points.
@@ -135,9 +135,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Angle', None, arrPoint1, arrPoint2, blnWorld)
 
-	def Angle2(self, arrPoint1, arrPoint2):
+	def angle2(self, arrpoint1, arrpoint2):
 		"""
 
 		Measures the angle between two lines.
@@ -154,9 +154,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Angle2', None, arrPoint1, arrPoint2)
 
-	def Ceil(self, dblNumber):
+	def ceil(self, dblnumber):
 		"""
 
 		Returns the smallest integer greater than or equal to the specified number.
@@ -172,9 +172,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Ceil', None, dblNumber)
 
-	def CosH(self, dblAngle):
+	def cosh(self, dblangle):
 		"""
 
 		Returns the hyperbolic cosine of the specified angle.
@@ -190,9 +190,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CosH', None, dblAngle)
 
-	def Deviation(self, arrNumbers):
+	def deviation(self, arrnumbers):
 		"""
 
 		Returns the standard deviation from an array of numbers.
@@ -208,9 +208,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Deviation', None, arrNumbers)
 
-	def Distance(self, arrPoint1, arrPoint2, arrPointArray):
+	def distance(self, arrpoint1, arrpoint2, arrpointarray):
 		"""
 
 		Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.
@@ -229,9 +229,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Distance', None, arrPoint1, arrPoint2, arrPointArray)
 
-	def E(self):
+	def e(self, ):
 		"""
 
 		Returns the value of the base of the natural system of logarithms (e).
@@ -244,9 +244,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'E', None, )
 
-	def Floor(self, dblNumber):
+	def floor(self, dblnumber):
 		"""
 
 		Returns the largest integer less than or equal to the specified number.
@@ -262,9 +262,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Floor', None, dblNumber)
 
-	def Hypot(self, x, y):
+	def hypot(self, x, y):
 		"""
 
 		Calculates the length of the hypotenuse of a right triangle, given the length of the two sides x and y (in other words, the square root of x2 + y2).
@@ -281,9 +281,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Hypot', None, x, y)
 
-	def Log10(self, dblNumber):
+	def log10(self, dblnumber):
 		"""
 
 		Returns the base-10 logarithm of a number.
@@ -299,9 +299,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Log10', None, dblNumber)
 
-	def Max(self, arrNumbers):
+	def max(self, arrnumbers):
 		"""
 
 		Returns the maximum number from an array of numbers.
@@ -317,9 +317,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Max', None, arrNumbers)
 
-	def Mean(self, arrNumbers):
+	def mean(self, arrnumbers):
 		"""
 
 		Returns the mean number, or average, from an array of numbers.
@@ -335,9 +335,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Mean', None, arrNumbers)
 
-	def Median(self, arrNumbers):
+	def median(self, arrnumbers):
 		"""
 
 		Returns the median value from an array of numbers.
@@ -353,9 +353,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Median', None, arrNumbers)
 
-	def Min(self, arrNumbers):
+	def min(self, arrnumbers):
 		"""
 
 		Returns the minimum number from an array of numbers.
@@ -371,9 +371,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Min', None, arrNumbers)
 
-	def PI(self):
+	def pi(self, ):
 		"""
 
 		Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793238462643.
@@ -386,9 +386,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PI', None, )
 
-	def Polar(self, arrPoint, dblAngle, dblDistance, arrPlane, 0, 1, 2, 3):
+	def polar(self, arrpoint, dblangle, dbldistance, arrplane, 0, 1, 2, 3):
 		"""
 
 		Returns the 3-D point that is a specified angle and distance from a 3-D point.
@@ -411,9 +411,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Polar', None, arrPoint, dblAngle, dblDistance, arrPlane, 0, 1, 2, 3)
 
-	def SinH(self, dblAngle):
+	def sinh(self, dblangle):
 		"""
 
 		Returns the hyperbolic sine of the specified angle.
@@ -429,9 +429,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SinH', None, dblAngle)
 
-	def Sum(self, arrNumbers):
+	def sum(self, arrnumbers):
 		"""
 
 		Returns the sum of an array of numbers.
@@ -447,9 +447,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Sum', None, arrNumbers)
 
-	def TanH(self, dblAngle):
+	def tanh(self, dblangle):
 		"""
 
 		Returns the hyperbolic tangent of the specified angle.
@@ -465,9 +465,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'TanH', None, dblAngle)
 
-	def ToDegrees(self, dblRadians):
+	def todegrees(self, dblradians):
 		"""
 
 		Converts an angle specified in radians to degrees.
@@ -483,9 +483,9 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ToDegrees', None, dblRadians)
 
-	def ToRadians(self, dblDegrees):
+	def toradians(self, dbldegrees):
 		"""
 
 		Converts an angle specified in degrees to radians.
@@ -501,5 +501,5 @@ class Math(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ToRadians', None, dblDegrees)
 

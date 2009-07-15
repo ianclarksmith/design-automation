@@ -8,7 +8,7 @@ class Block(DispatchBaseClass):
 
 
 
-	def BlockContainerCount(self, strBlock):
+	def blockcontainercount(self, strblock):
 		"""
 
 		Returns the number of block definitions that contain a specified block definition.
@@ -24,9 +24,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockContainerCount', None, strBlock)
 
-	def BlockContainers(self, strBlock):
+	def blockcontainers(self, strblock):
 		"""
 
 		Returns the names of the block definitions that contain a specified block definition.
@@ -42,9 +42,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockContainers', None, strBlock)
 
-	def BlockCount(self):
+	def blockcount(self, ):
 		"""
 
 		Returns the number of block definitions in the document.
@@ -58,9 +58,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockCount', None, )
 
-	def BlockDescription(self, strBlock, strText):
+	def blockdescription(self, strblock, strtext):
 		"""
 
 		Returns or sets the description of a block definition.
@@ -78,9 +78,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockDescription', None, strBlock, strText)
 
-	def BlockInstanceCount(self, strBlock):
+	def blockinstancecount(self, strblock):
 		"""
 
 		Counts the number of instances of the block in the document.  Nested instances are not included in the count.
@@ -96,9 +96,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstanceCount', None, strBlock)
 
-	def BlockInstanceInsertPoint(self, strObject):
+	def blockinstanceinsertpoint(self, strobject):
 		"""
 
 		Returns the insertion point of a block instance.
@@ -114,9 +114,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstanceInsertPoint', None, strObject)
 
-	def BlockInstanceName(self, strObject):
+	def blockinstancename(self, strobject):
 		"""
 
 		Returns the block name of a block instance.
@@ -132,9 +132,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstanceName', None, strObject)
 
-	def BlockInstanceXform(self, strObject):
+	def blockinstancexform(self, strobject):
 		"""
 
 		Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
@@ -150,9 +150,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstanceXform', None, strObject)
 
-	def BlockInstances(self, strBlock):
+	def blockinstances(self, strblock):
 		"""
 
 		Returns the identifiers of the inserted instances of a block.
@@ -168,9 +168,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstances', None, strBlock)
 
-	def BlockNames(self, blnSort):
+	def blocknames(self, blnsort):
 		"""
 
 		Returns the names of all block definitions in the document.
@@ -186,9 +186,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockNames', None, blnSort)
 
-	def BlockObjectCount(self, strBlock):
+	def blockobjectcount(self, strblock):
 		"""
 
 		Returns the number of objects that make up a block definition.
@@ -204,9 +204,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockObjectCount', None, strBlock)
 
-	def BlockObjects(self, strBlock):
+	def blockobjects(self, strblock):
 		"""
 
 		Returns the identifiers of the objects that make up a block definition.
@@ -222,9 +222,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockObjects', None, strBlock)
 
-	def BlockPath(self, strBlock):
+	def blockpath(self, strblock):
 		"""
 
 		Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.
@@ -240,9 +240,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockPath', None, strBlock)
 
-	def BlockURL(self, strBlock, strURL):
+	def blockurl(self, strblock, strurl):
 		"""
 
 		Returns or sets the URL of a block definition.
@@ -260,9 +260,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockURL', None, strBlock, strURL)
 
-	def BlockURLTag(self, strBlock, strURL):
+	def blockurltag(self, strblock, strurl):
 		"""
 
 		Returns or sets the URL tag, or description, of a block definition.
@@ -280,9 +280,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BlockURLTag', None, strBlock, strURL)
 
-	def DeleteBlock(self, strBlock):
+	def deleteblock(self, strblock):
 		"""
 
 		Deletes a block definition and all of it's inserted instances.
@@ -298,9 +298,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteBlock', None, strBlock)
 
-	def ExplodeBlockInstance(self, strObject):
+	def explodeblockinstance(self, strobject):
 		"""
 
 		Explodes a block instance into it's geometric components.  The exploded objects are added to the document.
@@ -316,9 +316,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExplodeBlockInstance', None, strObject)
 
-	def InsertBlock(self, strName, arrPoint, arrScale, dblAngle, arrNormal, arrXform):
+	def insertblock(self, strname, arrpoint, arrscale, dblangle, arrnormal, arrxform):
 		"""
 
 		Inserts a block whose definition already exists in the document.
@@ -339,9 +339,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'InsertBlock', None, strName, arrPoint, arrScale, dblAngle, arrNormal, arrXform)
 
-	def IsBlock(self, strBlock):
+	def isblock(self, strblock):
 		"""
 
 		Verifies the existence of a block definition in the document.
@@ -357,9 +357,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlock', None, strBlock)
 
-	def IsBlockEmbedded(self, strBlock):
+	def isblockembedded(self, strblock):
 		"""
 
 		Verifies that a block definition is embedded, or linked, from an external file.
@@ -375,9 +375,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlockEmbedded', None, strBlock)
 
-	def IsBlockInUse(self, strBlock, intWhere):
+	def isblockinuse(self, strblock, intwhere):
 		"""
 
 		Verifies that a block definition is being used by an inserted instance.
@@ -394,9 +394,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlockInUse', None, strBlock, intWhere)
 
-	def IsBlockInstance(self, strObject):
+	def isblockinstance(self, strobject):
 		"""
 
 		Verifies an object is a block instance.
@@ -412,9 +412,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlockInstance', None, strObject)
 
-	def IsBlockReference(self, strBlock):
+	def isblockreference(self, strblock):
 		"""
 
 		Verifies that a block definition is from a reference file.
@@ -430,9 +430,9 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlockReference', None, strBlock)
 
-	def RenameBlock(self, strOldBlock, strNewBlock):
+	def renameblock(self, stroldblock, strnewblock):
 		"""
 
 		Renames an existing block definition.
@@ -449,5 +449,5 @@ class Block(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameBlock', None, strOldBlock, strNewBlock)
 

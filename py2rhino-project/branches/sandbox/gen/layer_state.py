@@ -8,7 +8,7 @@ class LayerState(DispatchBaseClass):
 
 
 
-	def DeleteLayerState(self, strState):
+	def deletelayerstate(self, strstate):
 		"""
 
 		Removes an existing layer state from the document.
@@ -24,9 +24,9 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteLayerState', None, strState)
 
-	def ExportLayerStates(self, strFilename):
+	def exportlayerstates(self, strfilename):
 		"""
 
 		Exports all layer states to an external file.
@@ -42,9 +42,9 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExportLayerStates', None, strFilename)
 
-	def ImportLayerStates(self, strFilename):
+	def importlayerstates(self, strfilename):
 		"""
 
 		Imports layer states from a previously exported layer state file.
@@ -60,9 +60,9 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ImportLayerStates', None, strFilename)
 
-	def IsLayerState(self, strState):
+	def islayerstate(self, strstate):
 		"""
 
 		Verifies the existence of a layer state in the document.
@@ -77,9 +77,9 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerState', None, strState)
 
-	def LayerStateCount(self):
+	def layerstatecount(self, ):
 		"""
 
 		Returns the number of layer states in the document.
@@ -92,9 +92,9 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerStateCount', None, )
 
-	def LayerStateNames(self, blnSort):
+	def layerstatenames(self, blnsort):
 		"""
 
 		Returns the names of all layer states in the document.
@@ -110,9 +110,9 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LayerStateNames', None, blnSort)
 
-	def RenameLayerState(self, strOldState, strNewState):
+	def renamelayerstate(self, stroldstate, strnewstate):
 		"""
 
 		Renames an existing layer state.
@@ -129,9 +129,9 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameLayerState', None, strOldState, strNewState)
 
-	def RestoreLayerState(self, strState, intMode):
+	def restorelayerstate(self, strstate, intmode):
 		"""
 
 		Restores a previously saved layer state.
@@ -148,9 +148,9 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreLayerState', None, strState, intMode)
 
-	def SaveLayerState(self, strState):
+	def savelayerstate(self, strstate):
 		"""
 
 		Saves the current state of the layers in the document.
@@ -166,5 +166,5 @@ class LayerState(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SaveLayerState', None, strState)
 

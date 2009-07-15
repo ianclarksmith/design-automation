@@ -8,7 +8,7 @@ class Utility(DispatchBaseClass):
 
 
 
-	def AllProcedures(self, blnAll):
+	def allprocedures(self, blnall):
 		"""
 
 		Returns the names of the  user-defined subroutines and functions resident in RhinoScript's VBScript engine.
@@ -24,9 +24,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AllProcedures', None, blnAll)
 
-	def ClipboardText(self, strText):
+	def clipboardtext(self, strtext):
 		"""
 
 		Returns or sets a text string to the Windows clipboard.
@@ -43,9 +43,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ClipboardText', None, strText)
 
-	def ColorAdjustLuma(self, lngRGB, intLuma, bScale):
+	def coloradjustluma(self, lngrgb, intluma, bscale):
 		"""
 
 		Changes the luminance of a red-green-blue (RGB) value. Hue and saturation are not affected.
@@ -63,9 +63,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ColorAdjustLuma', None, lngRGB, intLuma, bScale)
 
-	def ColorBlueValue(self, lngRGB):
+	def colorbluevalue(self, lngrgb):
 		"""
 
 		Retrieves an intensity value for the blue component of a red-green-blue (RGB) value.
@@ -81,9 +81,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ColorBlueValue', None, lngRGB)
 
-	def ColorGreenValue(self, lngRGB):
+	def colorgreenvalue(self, lngrgb):
 		"""
 
 		Retrieves an intensity value for the green component of a red-green-blue (RGB) value.
@@ -99,9 +99,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ColorGreenValue', None, lngRGB)
 
-	def ColorHLSToRGB(self, lngRGB):
+	def colorhlstorgb(self, lngrgb):
 		"""
 
 		Converts colors from hue-luminance-saturation (HLS) to red-green-blue format.
@@ -117,9 +117,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ColorHLSToRGB', None, lngRGB)
 
-	def ColorRGBToHLS(self, lngRGB):
+	def colorrgbtohls(self, lngrgb):
 		"""
 
 		Converts colors from red-green-blue (RGB) to hue-luminance-saturation (HLS) format.
@@ -135,9 +135,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ColorRGBToHLS', None, lngRGB)
 
-	def ColorRedValue(self, lngRGB):
+	def colorredvalue(self, lngrgb):
 		"""
 
 		Retrieves an intensity value for the red component of a red-green-blue (RGB) value.
@@ -153,9 +153,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ColorRedValue', None, lngRGB)
 
-	def CullDuplicateNumbers(self, arrNumbers, dblTolerance):
+	def cullduplicatenumbers(self, arrnumbers, dbltolerance):
 		"""
 
 		Removes duplicates from an array of numbers.
@@ -172,9 +172,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CullDuplicateNumbers', None, arrNumbers, dblTolerance)
 
-	def CullDuplicatePoints(self, arrPoints, dblTolerance):
+	def cullduplicatepoints(self, arrpoints, dbltolerance):
 		"""
 
 		Removes duplicates from an array of 3-D points.
@@ -191,9 +191,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CullDuplicatePoints', None, arrPoints, dblTolerance)
 
-	def CullDuplicateStrings(self, arrStrings, blnCaseSensitive):
+	def cullduplicatestrings(self, arrstrings, blncasesensitive):
 		"""
 
 		Removes duplicates from an array of strings.
@@ -210,9 +210,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CullDuplicateStrings', None, arrStrings, blnCaseSensitive)
 
-	def CurrentPrinter(self, strPrinter):
+	def currentprinter(self, strprinter):
 		"""
 
 		Returns or changes the current Windows printer.
@@ -229,9 +229,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentPrinter', None, strPrinter)
 
-	def GetSettings(self, strFilename, strSection, strEntry):
+	def getsettings(self, strfilename, strsection, strentry):
 		"""
 
 		...
@@ -251,9 +251,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GetSettings', None, strFilename, strSection, strEntry)
 
-	def IsProcedure(self, strSubName):
+	def isprocedure(self, strsubname):
 		"""
 
 		Verifies that a user-defined subroutine or function is resident in RhinoScript's VBScript engine.
@@ -269,9 +269,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsProcedure', None, strSubName)
 
-	def JoinArrays(self, arr1, arr2):
+	def joinarrays(self, arr1, arr2):
 		"""
 
 		Joins two one-dimensional arrays in to a single one-dimensional array.
@@ -288,9 +288,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'JoinArrays', None, arr1, arr2)
 
-	def MakeArray(self, nUpperBound, vVariant):
+	def makearray(self, nupperbound, vvariant):
 		"""
 
 		Creates a new, initialized one-dimensional array of a user-specified bounds.
@@ -307,9 +307,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MakeArray', None, nUpperBound, vVariant)
 
-	def PrinterNames(self):
+	def printernames(self, ):
 		"""
 
 		Returns the name of all installed Windows printer.
@@ -323,9 +323,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PrinterNames', None, )
 
-	def Pt2Str(self, arrPoint, nPrecision, blnSpace):
+	def pt2str(self, arrpoint, nprecision, blnspace):
 		"""
 
 		Converts a 3-D point value to a string.  Useful for display point values as output, or passing point values to Rhino commands.
@@ -343,9 +343,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Pt2Str', None, arrPoint, nPrecision, blnSpace)
 
-	def SaveSettings(self, strFilename, strSection, strEntry, strString):
+	def savesettings(self, strfilename, strsection, strentry, strstring):
 		"""
 
 		...
@@ -364,9 +364,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SaveSettings', None, strFilename, strSection, strEntry, strString)
 
-	def SimplifyArray(self, arrPoints):
+	def simplifyarray(self, arrpoints):
 		"""
 
 		Flattens an array of 3-D points into a one-dimensional array of real number. For example, if you had an array containing three 3-D points, this method would return a one-dimensional array containing nine real numbers.
@@ -382,9 +382,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SimplifyArray', None, arrPoints)
 
-	def Sleep(self, lngMilliseconds):
+	def sleep(self, lngmilliseconds):
 		"""
 
 		Suspends the execution of a running script for the specified interval.
@@ -399,9 +399,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Sleep', None, lngMilliseconds)
 
-	def Sort(self, arrStrings, blnAscending, blnNoCase):
+	def sort(self, arrstrings, blnascending, blnnocase):
 		"""
 
 		Sorts an array of strings.
@@ -419,9 +419,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Sort', None, arrStrings, blnAscending, blnNoCase)
 
-	def SortNumbers(self, arrNumbers, blnAscending):
+	def sortnumbers(self, arrnumbers, blnascending):
 		"""
 
 		Sorts an array of numbers.
@@ -438,9 +438,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SortNumbers', None, arrNumbers, blnAscending)
 
-	def SortPointList(self, arrPoints, dblTolerance):
+	def sortpointlist(self, arrpoints, dbltolerance):
 		"""
 
 		Sorts an array of 3-D points so they will be connected in "reasonable" polyline order.
@@ -457,9 +457,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SortPointList', None, arrPoints, dblTolerance)
 
-	def SortPoints(self, arrPoints, blnAscending, blnOrder):
+	def sortpoints(self, arrpoints, blnascending, blnorder):
 		"""
 
 		Sorts an array of 3-D points.
@@ -477,9 +477,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SortPoints', None, arrPoints, blnAscending, blnOrder)
 
-	def SpoolToPrinter(self, strFile, strPrinter):
+	def spooltoprinter(self, strfile, strprinter):
 		"""
 
 		Spools, or sends, a text file or a print/plot file to a Windows printer.
@@ -496,9 +496,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SpoolToPrinter', None, strFile, strPrinter)
 
-	def Str2Pt(self, arrPoint):
+	def str2pt(self, arrpoint):
 		"""
 
 		Converts a formatted string value into a 3-D point value.
@@ -514,9 +514,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Str2Pt', None, arrPoint)
 
-	def Str2PtArray(self, strPoints):
+	def str2ptarray(self, strpoints):
 		"""
 
 		Converts a formatted string value into an array of 3-D point value.
@@ -532,9 +532,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Str2PtArray', None, strPoints)
 
-	def Strtok(self, strText, strDelimiters):
+	def strtok(self, strtext, strdelimiters):
 		"""
 
 		Returns the tokens in a string.  Use this method as an alternative to the VBScript's Split function.
@@ -551,9 +551,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Strtok', None, strText, strDelimiters)
 
-	def TextOut(self, strText, strTitle):
+	def textout(self, strtext, strtitle):
 		"""
 
 		Displays a text output window.
@@ -569,9 +569,9 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'TextOut', None, strText, strTitle)
 
-	def Version(self):
+	def version(self, ):
 		"""
 
 		Returns the version of RhinoScript.
@@ -584,5 +584,5 @@ class Utility(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Version', None, )
 

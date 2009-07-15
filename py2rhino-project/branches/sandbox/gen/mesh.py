@@ -8,7 +8,7 @@ class Mesh(DispatchBaseClass):
 
 
 
-	def AddMesh(self, arrVertices, arrFaceVertices, arrVertexNormals, arrTextureCoordinates, arrVertexColors):
+	def addmesh(self, arrvertices, arrfacevertices, arrvertexnormals, arrtexturecoordinates, arrvertexcolors):
 		"""
 
 		Adds a mesh object to the document.
@@ -28,9 +28,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddMesh', None, arrVertices, arrFaceVertices, arrVertexNormals, arrTextureCoordinates, arrVertexColors)
 
-	def AddPlanarMesh(self, strObject, blnDelete):
+	def addplanarmesh(self, strobject, blndelete):
 		"""
 
 		Creates a planar mesh from a closed, planar curve.
@@ -47,9 +47,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddPlanarMesh', None, strObject, blnDelete)
 
-	def CurveMeshIntersect(self, strCurve, strMesh, blnReturnFaces):
+	def curvemeshintersect(self, strcurve, strmesh, blnreturnfaces):
 		"""
 
 		Calculates the intersection of a curve object and a mesh object.
@@ -70,9 +70,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CurveMeshIntersect', None, strCurve, strMesh, blnReturnFaces)
 
-	def DisjointMeshCount(self, strObject):
+	def disjointmeshcount(self, strobject):
 		"""
 
 		Returns the number of meshes that could be created by calling SplitDisjointMesh.
@@ -88,9 +88,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DisjointMeshCount', None, strObject)
 
-	def DuplicateMeshBorder(self, strObject):
+	def duplicatemeshborder(self, strobject):
 		"""
 
 		Creates a curve that duplicates a mesh border.
@@ -106,9 +106,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DuplicateMeshBorder', None, strObject)
 
-	def ExplodeMeshes(self, strObject, arrObjects, blnDelete):
+	def explodemeshes(self, strobject, arrobjects, blndelete):
 		"""
 
 		Explodes a mesh object, or mesh objects,  into submeshes.  A submesh is a collection of mesh faces that are contained within a closed loop of unwelded mesh edges.  Unwelded mesh edges are edges where the mesh faces that share the edge have unique mesh vertices (not mesh topology vertices) at both ends of the edge.
@@ -126,9 +126,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExplodeMeshes', None, strObject, arrObjects, blnDelete)
 
-	def IsMesh(self, strObject):
+	def ismesh(self, strobject):
 		"""
 
 		Verifies an object is a mesh object.
@@ -144,9 +144,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsMesh', None, strObject)
 
-	def IsMeshClosed(self, strObject):
+	def ismeshclosed(self, strobject):
 		"""
 
 		Verifies a mesh object is closed.
@@ -162,9 +162,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsMeshClosed', None, strObject)
 
-	def IsMeshManifold(self, strObject):
+	def ismeshmanifold(self, strobject):
 		"""
 
 		Verifies a mesh object is manifold.  A mesh for which every edge is shared by at most two faces is called a manifold.  If a mesh has at least one edge that is shared by more than two faces, then that mesh is called non-manifold.
@@ -180,9 +180,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsMeshManifold', None, strObject)
 
-	def MeshArea(self, strObject, arrObjects):
+	def mesharea(self, strobject, arrobjects):
 		"""
 
 		Returns the approximate area of one or more mesh objects.
@@ -202,9 +202,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshArea', None, strObject, arrObjects)
 
-	def MeshAreaCentroid(self, strObject):
+	def meshareacentroid(self, strobject):
 		"""
 
 		Calculates the area centroid of a mesh object.
@@ -220,9 +220,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshAreaCentroid', None, strObject)
 
-	def MeshBooleanDifference(self, arrInput0, arrInput1, blnDelete):
+	def meshbooleandifference(self, arrinput0, arrinput1, blndelete):
 		"""
 
 		Performs a Boolean difference operation on two sets of input meshes. For more details, see the MeshBooleanDifference command in the Rhino help file.
@@ -240,9 +240,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshBooleanDifference', None, arrInput0, arrInput1, blnDelete)
 
-	def MeshBooleanIntersection(self, arrInput0, arrInput1, blnDelete):
+	def meshbooleanintersection(self, arrinput0, arrinput1, blndelete):
 		"""
 
 		Performs a Boolean intersection operation on two sets of input meshes. For more details, see the MeshBooleanIntersection command in the Rhino help file.
@@ -260,9 +260,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshBooleanIntersection', None, arrInput0, arrInput1, blnDelete)
 
-	def MeshBooleanSplit(self, arrInput0, arrInput1, blnDelete):
+	def meshbooleansplit(self, arrinput0, arrinput1, blndelete):
 		"""
 
 		Performs a Boolean split operation on two sets of input meshes. For more details, see the MeshBooleanSplit command in the Rhino help file.
@@ -280,9 +280,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshBooleanSplit', None, arrInput0, arrInput1, blnDelete)
 
-	def MeshBooleanUnion(self, arrInput, blnDelete):
+	def meshbooleanunion(self, arrinput, blndelete):
 		"""
 
 		Performs a Boolean union operation on a set of input meshes. For more details, see the MeshBooleanUnion command in the Rhino help file.
@@ -299,9 +299,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshBooleanUnion', None, arrInput, blnDelete)
 
-	def MeshClosestPoint(self, strObject, arrPoint, dblTolerance):
+	def meshclosestpoint(self, strobject, arrpoint, dbltolerance):
 		"""
 
 		Returns the point on a mesh that is closest to a test point.
@@ -321,9 +321,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshClosestPoint', None, strObject, arrPoint, dblTolerance)
 
-	def MeshContourPoints(self, strObject, arrStartPoint, arrEndPoint, dblInterval, blnRemoveCoincidentPoints):
+	def meshcontourpoints(self, strobject, arrstartpoint, arrendpoint, dblinterval, blnremovecoincidentpoints):
 		"""
 
 		Returns the vertices of the polyline curves generated by contouring a mesh object.
@@ -343,9 +343,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshContourPoints', None, strObject, arrStartPoint, arrEndPoint, dblInterval, blnRemoveCoincidentPoints)
 
-	def MeshFaceCenters(self, strObject):
+	def meshfacecenters(self, strobject):
 		"""
 
 		Returns the center point of each face of a mesh object.
@@ -361,9 +361,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaceCenters', None, strObject)
 
-	def MeshFaceCount(self, strObject):
+	def meshfacecount(self, strobject):
 		"""
 
 		Returns the total face count of a mesh object.
@@ -379,9 +379,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaceCount', None, strObject)
 
-	def MeshFaceNormals(self, strObject):
+	def meshfacenormals(self, strobject):
 		"""
 
 		Returns the face unit normal for each face of a mesh object.
@@ -397,9 +397,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaceNormals', None, strObject)
 
-	def MeshFaceVertices(self, strObject):
+	def meshfacevertices(self, strobject):
 		"""
 
 		Returns the vertex indices of all faces of a mesh object.
@@ -415,9 +415,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaceVertices', None, strObject)
 
-	def MeshFaces(self, strObject, blnFaceType):
+	def meshfaces(self, strobject, blnfacetype):
 		"""
 
 		Returns the face vertices of a mesh object.
@@ -434,9 +434,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaces', None, strObject, blnFaceType)
 
-	def MeshHasFaceNormals(self, strObject):
+	def meshhasfacenormals(self, strobject):
 		"""
 
 		Verifies a mesh object has face normals.
@@ -452,9 +452,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshHasFaceNormals', None, strObject)
 
-	def MeshHasTextureCoordinates(self, strObject):
+	def meshhastexturecoordinates(self, strobject):
 		"""
 
 		Verifies a mesh object has texture coordinates.
@@ -470,9 +470,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshHasTextureCoordinates', None, strObject)
 
-	def MeshHasVertexColors(self, strObject):
+	def meshhasvertexcolors(self, strobject):
 		"""
 
 		Verifies a mesh object has vertex colors.
@@ -488,9 +488,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshHasVertexColors', None, strObject)
 
-	def MeshHasVertexNormals(self, strObject):
+	def meshhasvertexnormals(self, strobject):
 		"""
 
 		Verifies a mesh object has vertex normals.
@@ -506,9 +506,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshHasVertexNormals', None, strObject)
 
-	def MeshMeshIntersection(self, strMesh1, strMesh2, dblTolerance):
+	def meshmeshintersection(self, strmesh1, strmesh2, dbltolerance):
 		"""
 
 		Calculates the intersection of a mesh object with another mesh object.
@@ -526,9 +526,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshMeshIntersection', None, strMesh1, strMesh2, dblTolerance)
 
-	def MeshNakedEdgePoints(self, strObject):
+	def meshnakededgepoints(self, strobject):
 		"""
 
 		Identifies the naked edge points of a polygon mesh object. This function shows where polygon mesh vertices are not completely surrounded by faces. Joined meshes, such as are made by Mesh Box, have naked mesh edge points where the sub-meshes are joined.
@@ -544,9 +544,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshNakedEdgePoints', None, strObject)
 
-	def MeshOffset(self, strMesh, dblDistance):
+	def meshoffset(self, strmesh, dbldistance):
 		"""
 
 		Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
@@ -563,9 +563,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshOffset', None, strMesh, dblDistance)
 
-	def MeshQuadCount(self, strObject):
+	def meshquadcount(self, strobject):
 		"""
 
 		Returns the number of quad faces of a mesh object.
@@ -581,9 +581,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshQuadCount', None, strObject)
 
-	def MeshQuadsToTriangles(self, strObject):
+	def meshquadstotriangles(self, strobject):
 		"""
 
 		Converts a mesh object's quad faces to triangles.
@@ -599,9 +599,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshQuadsToTriangles', None, strObject)
 
-	def MeshTextureCoordinates(self, strObject):
+	def meshtexturecoordinates(self, strobject):
 		"""
 
 		Returns the normalized 2-D texture coordinates of a mesh object.
@@ -617,9 +617,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshTextureCoordinates', None, strObject)
 
-	def MeshTriangleCount(self, strObject):
+	def meshtrianglecount(self, strobject):
 		"""
 
 		Returns the number of triangular faces of a mesh object.
@@ -635,9 +635,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshTriangleCount', None, strObject)
 
-	def MeshVertexColors(self, strObject, arrVertexColors, Null):
+	def meshvertexcolors(self, strobject, arrvertexcolors, null):
 		"""
 
 		Returns or modifies the  vertex colors of a mesh object
@@ -656,9 +656,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVertexColors', None, strObject, arrVertexColors, Null)
 
-	def MeshVertexCount(self, strObject):
+	def meshvertexcount(self, strobject):
 		"""
 
 		Returns the vertex count of a mesh object.
@@ -674,9 +674,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVertexCount', None, strObject)
 
-	def MeshVertexNormals(self, strObject):
+	def meshvertexnormals(self, strobject):
 		"""
 
 		Returns the vertex unit normal for each vertex of a mesh object.
@@ -692,9 +692,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVertexNormals', None, strObject)
 
-	def MeshVertices(self, strObject):
+	def meshvertices(self, strobject):
 		"""
 
 		Returns the vertices of a mesh object.
@@ -710,9 +710,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVertices', None, strObject)
 
-	def MeshVolume(self, strObject, arrObjects):
+	def meshvolume(self, strobject, arrobjects):
 		"""
 
 		Returns the approximate volume of one or more closed mesh objects.
@@ -732,9 +732,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVolume', None, strObject, arrObjects)
 
-	def MeshVolumeCentroid(self, strObject):
+	def meshvolumecentroid(self, strobject):
 		"""
 
 		Calculates the volume centroid of a mesh object.
@@ -750,9 +750,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVolumeCentroid', None, strObject)
 
-	def PullCurveToMesh(self, strMesh, strCurve):
+	def pullcurvetomesh(self, strmesh, strcurve):
 		"""
 
 		Pulls a curve object to a mesh object. The function makes a polyline approximation of the input curve and gets the closest point on the mesh for each point on the mesh.  Then it "connects the points" so  that you have a polyline on the mesh.
@@ -769,9 +769,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PullCurveToMesh', None, strMesh, strCurve)
 
-	def SplitDisjointMesh(self, strObject, blnDelete):
+	def splitdisjointmesh(self, strobject, blndelete):
 		"""
 
 		Splits up a mesh object into its unconnected pieces.
@@ -788,9 +788,9 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SplitDisjointMesh', None, strObject, blnDelete)
 
-	def UnifyMeshNormals(self, strObject):
+	def unifymeshnormals(self, strobject):
 		"""
 
 		Fixes inconsistencies in the directions of faces of a mesh object.
@@ -806,5 +806,5 @@ class Mesh(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnifyMeshNormals', None, strObject)
 

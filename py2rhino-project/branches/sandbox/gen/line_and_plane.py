@@ -8,7 +8,7 @@ class LineAndPlane(DispatchBaseClass):
 
 
 
-	def DistanceToPlane(self, arrPlane, 0, 1, 2, 3, arrPoint):
+	def distancetoplane(self, arrplane, 0, 1, 2, 3, arrpoint):
 		"""
 
 		Returns the distance from a 3-D point to a plane.
@@ -29,9 +29,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DistanceToPlane', None, arrPlane, 0, 1, 2, 3, arrPoint)
 
-	def EvaluatePlane(self, arrPlane, 0, 1, 2, 3, arrParameter):
+	def evaluateplane(self, arrplane, 0, 1, 2, 3, arrparameter):
 		"""
 
 		Evaluates a plane at a U,V parameter.
@@ -52,9 +52,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EvaluatePlane', None, arrPlane, 0, 1, 2, 3, arrParameter)
 
-	def IntersectPlanes(self, arrPlane1, arrPlane2, arrPlane3):
+	def intersectplanes(self, arrplane1, arrplane2, arrplane3):
 		"""
 
 		Calculates the intersection of three planes.
@@ -72,9 +72,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IntersectPlanes', None, arrPlane1, arrPlane2, arrPlane3)
 
-	def LineClosestPoint(self, arrLine, arrPoint):
+	def lineclosestpoint(self, arrline, arrpoint):
 		"""
 
 		Finds the point on an infinite line that is closest to a test point.
@@ -91,9 +91,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LineClosestPoint', None, arrLine, arrPoint)
 
-	def LineIsFartherThan(self, arrLine, dblDistance, arrPoint, arrLine2):
+	def lineisfartherthan(self, arrline, dbldistance, arrpoint, arrline2):
 		"""
 
 		Determines if the shortest distance from a line to a point or another line is greater than a specified distance.
@@ -112,9 +112,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LineIsFartherThan', None, arrLine, dblDistance, arrPoint, arrLine2)
 
-	def LineLineIntersection(self, arrLineA, arrLineB, blnPlanar):
+	def linelineintersection(self, arrlinea, arrlineb, blnplanar):
 		"""
 
 		But, two lines in three dimensions generally do not intersect at a point. They may be parallel (no intersections) or they may be coincident (infinite intersections). But, most often only their projection onto a plane intersects. When they do not exactly intersect at a point they can be connected by a line segment, the shortest line segment is unique and is often considered to be their intersection in 3-D.
@@ -133,9 +133,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LineLineIntersection', None, arrLineA, arrLineB, blnPlanar)
 
-	def LineMaxDistanceTo(self, arrLine, arrPoint, arrLine2):
+	def linemaxdistanceto(self, arrline, arrpoint, arrline2):
 		"""
 
 		Finds the longest distance between the line, as a finite chord, and a point or another line.
@@ -153,9 +153,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LineMaxDistanceTo', None, arrLine, arrPoint, arrLine2)
 
-	def LineMinDistanceTo(self, arrLine, arrPoint, arrLine2):
+	def linemindistanceto(self, arrline, arrpoint, arrline2):
 		"""
 
 		Finds the shortest distance between the line, as a finite chord, and a point or another line.
@@ -173,9 +173,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LineMinDistanceTo', None, arrLine, arrPoint, arrLine2)
 
-	def LinePlane(self, arrLine):
+	def lineplane(self, arrline):
 		"""
 
 		Returns a plane that contains the line.  The origin of the plane is at the start of the line.  If possible, a plane parallel to the world XY, YZ or ZX plane is returned.
@@ -191,9 +191,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LinePlane', None, arrLine)
 
-	def LinePlaneIntersection(self, arrLine, arrPoint):
+	def lineplaneintersection(self, arrline, arrpoint):
 		"""
 
 		Calculates the intersection of a line and a plane.
@@ -210,9 +210,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LinePlaneIntersection', None, arrLine, arrPoint)
 
-	def LineTransform(self, arrLine, arrXform):
+	def linetransform(self, arrline, arrxform):
 		"""
 
 		Transforms a line.
@@ -229,9 +229,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LineTransform', None, arrLine, arrXform)
 
-	def MovePlane(self, arrPlane, 0, 1, 2, 3, arrOrigin):
+	def moveplane(self, arrplane, 0, 1, 2, 3, arrorigin):
 		"""
 
 		Moves the origin of a plane.
@@ -252,9 +252,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MovePlane', None, arrPlane, 0, 1, 2, 3, arrOrigin)
 
-	def PlaneClosestPoint(self, arrPlane, 0, 1, 2, 3, arrPoint, blnReturnPoint):
+	def planeclosestpoint(self, arrplane, 0, 1, 2, 3, arrpoint, blnreturnpoint):
 		"""
 
 		Returns the point on a plane that is closest to a test point.
@@ -276,9 +276,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlaneClosestPoint', None, arrPlane, 0, 1, 2, 3, arrPoint, blnReturnPoint)
 
-	def PlaneEquation(self, arrPlane, 0, 1, 2, 3):
+	def planeequation(self, arrplane, 0, 1, 2, 3):
 		"""
 
 		Ax + By + Cz + D = 0
@@ -298,9 +298,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlaneEquation', None, arrPlane, 0, 1, 2, 3)
 
-	def PlaneFitFromPoints(self, arrPoints):
+	def planefitfrompoints(self, arrpoints):
 		"""
 
 		Returns a plane that was fit through an array of 3-D points.
@@ -316,9 +316,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlaneFitFromPoints', None, arrPoints)
 
-	def PlaneFromFrame(self, arrOrigin, arrXaxis, arrYaxis):
+	def planefromframe(self, arrorigin, arrxaxis, arryaxis):
 		"""
 
 		Construct a plane from a point, and two vectors in the plane.
@@ -336,9 +336,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlaneFromFrame', None, arrOrigin, arrXaxis, arrYaxis)
 
-	def PlaneFromNormal(self, arrOrigin, arrNormal):
+	def planefromnormal(self, arrorigin, arrnormal):
 		"""
 
 		Creates a plane from an origin point and a normal direction vector.
@@ -355,9 +355,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlaneFromNormal', None, arrOrigin, arrNormal)
 
-	def PlaneFromPoints(self, arrOrigin, arrPointX, arrPointY):
+	def planefrompoints(self, arrorigin, arrpointx, arrpointy):
 		"""
 
 		Creates a plane from three non-colinear points.
@@ -375,9 +375,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlaneFromPoints', None, arrOrigin, arrPointX, arrPointY)
 
-	def PlanePlaneIntersection(self, arrPlane1, arrPoint2):
+	def planeplaneintersection(self, arrplane1, arrpoint2):
 		"""
 
 		Calculates the intersection of two planes.
@@ -394,9 +394,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlanePlaneIntersection', None, arrPlane1, arrPoint2)
 
-	def PlaneTransform(self, arrPlane, arrXform):
+	def planetransform(self, arrplane, arrxform):
 		"""
 
 		Transforms a plane.
@@ -413,9 +413,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PlaneTransform', None, arrPlane, arrXform)
 
-	def RotatePlane(self, arrPlane, 0, 1, 2, 3, dblAngle, arrAxis):
+	def rotateplane(self, arrplane, 0, 1, 2, 3, dblangle, arraxis):
 		"""
 
 		Rotates a plane.
@@ -437,9 +437,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RotatePlane', None, arrPlane, 0, 1, 2, 3, dblAngle, arrAxis)
 
-	def WorldXYPlane(self):
+	def worldxyplane(self, ):
 		"""
 
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(1.0,0.0,0.0), Array(0.0,1.0,0.0)
@@ -452,9 +452,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'WorldXYPlane', None, )
 
-	def WorldYZPlane(self):
+	def worldyzplane(self, ):
 		"""
 
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,1.0,0.0), Array(0.0,0.0,1.0)
@@ -467,9 +467,9 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'WorldYZPlane', None, )
 
-	def WorldZXPlane(self):
+	def worldzxplane(self, ):
 		"""
 
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,0.0,1.0), Array(1.0,0.0,0.0)
@@ -482,5 +482,5 @@ class LineAndPlane(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'WorldZXPlane', None, )
 

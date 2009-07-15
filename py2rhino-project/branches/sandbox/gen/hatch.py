@@ -8,7 +8,7 @@ class Hatch(DispatchBaseClass):
 
 
 
-	def AddHatch(self, strCurve, strHatch, dblScale, dblRotation):
+	def addhatch(self, strcurve, strhatch, dblscale, dblrotation):
 		"""
 
 		Creates a new hatch object from a closed planar curve object.
@@ -27,9 +27,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddHatch', None, strCurve, strHatch, dblScale, dblRotation)
 
-	def AddHatchPatterns(self, strFileName, blnReplace):
+	def addhatchpatterns(self, strfilename, blnreplace):
 		"""
 
 		Adds hatch pattens to the document by importing hatch pattern definitions from a pattern file. For more information on hatch pattern files, see the Rhino help file for the Hatch command.
@@ -46,9 +46,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddHatchPatterns', None, strFileName, blnReplace)
 
-	def AddHatches(self, arrCurves, strHatch, dblScale, dblRotation):
+	def addhatches(self, arrcurves, strhatch, dblscale, dblrotation):
 		"""
 
 		Creates one or more new hatch objects from an array of closed planar curve objects.
@@ -67,9 +67,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddHatches', None, arrCurves, strHatch, dblScale, dblRotation)
 
-	def CurrentHatchPattern(self, strHatch):
+	def currenthatchpattern(self, strhatch):
 		"""
 
 		Returns or sets the current hatch pattern file.
@@ -86,9 +86,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentHatchPattern', None, strHatch)
 
-	def ExplodeHatch(self, strHatch, blnDelete):
+	def explodehatch(self, strhatch, blndelete):
 		"""
 
 		Explodes a hatch object into its component objects. The exploded objects will be added to the document. If the hatch object uses a solid pattern, then planar face Brep objects will be created. Otherwise, line curve objects will be created.
@@ -105,9 +105,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExplodeHatch', None, strHatch, blnDelete)
 
-	def HatchPattern(self, strObject, strHatch):
+	def hatchpattern(self, strobject, strhatch):
 		"""
 
 		Returns or changes a hatch object's hatch pattern.
@@ -125,9 +125,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HatchPattern', None, strObject, strHatch)
 
-	def HatchPatternCount(self):
+	def hatchpatterncount(self, ):
 		"""
 
 		Returns the number of hatch patterns in the document.
@@ -140,9 +140,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HatchPatternCount', None, )
 
-	def HatchPatternDescription(self, strHatch):
+	def hatchpatterndescription(self, strhatch):
 		"""
 
 		Returns the description of a hatch pattern. Note, not all hatch patterns have descriptions for descriptions are optional.
@@ -158,9 +158,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HatchPatternDescription', None, strHatch)
 
-	def HatchPatternFillType(self, strHatch):
+	def hatchpatternfilltype(self, strhatch):
 		"""
 
 		Gradient, uses fill color definition.
@@ -176,9 +176,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HatchPatternFillType', None, strHatch)
 
-	def HatchPatternNames(self):
+	def hatchpatternnames(self, ):
 		"""
 
 		Returns the names of all of the hatch pattern in the document.
@@ -192,9 +192,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HatchPatternNames', None, )
 
-	def HatchRotation(self, strObject, dblRotation):
+	def hatchrotation(self, strobject, dblrotation):
 		"""
 
 		Returns or modifies the rotation applied to the hatch pattern when it is mapped to the hatch's plane.
@@ -212,9 +212,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HatchRotation', None, strObject, dblRotation)
 
-	def HatchScale(self, strObject, dblScale):
+	def hatchscale(self, strobject, dblscale):
 		"""
 
 		Returns or modifies the scale applied to the hatch pattern when it is mapped to the hatch's plane.
@@ -232,9 +232,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HatchScale', None, strObject, dblScale)
 
-	def IsHatch(self, strObject):
+	def ishatch(self, strobject):
 		"""
 
 		Verifies the existence of a hatch object in the document.
@@ -249,9 +249,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsHatch', None, strObject)
 
-	def IsHatchPattern(self, strHatch):
+	def ishatchpattern(self, strhatch):
 		"""
 
 		Verifies the existence of a hatch pattern in the document.
@@ -266,9 +266,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsHatchPattern', None, strHatch)
 
-	def IsHatchPatternCurrent(self, strHatch):
+	def ishatchpatterncurrent(self, strhatch):
 		"""
 
 		Verifies that a hatch pattern is the current hatch pattern.
@@ -283,9 +283,9 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsHatchPatternCurrent', None, strHatch)
 
-	def IsHatchPatternReference(self, strHatch):
+	def ishatchpatternreference(self, strhatch):
 		"""
 
 		Verifies that a hatch pattern is from a reference file.
@@ -300,5 +300,5 @@ class Hatch(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsHatchPatternReference', None, strHatch)
 

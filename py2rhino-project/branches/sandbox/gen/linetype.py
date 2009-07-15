@@ -8,7 +8,7 @@ class Linetype(DispatchBaseClass):
 
 
 
-	def IsLinetype(self, strLinetype):
+	def islinetype(self, strlinetype):
 		"""
 
 		Verifies the existence of a linetype in the document.
@@ -24,9 +24,9 @@ class Linetype(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinetype', None, strLinetype)
 
-	def IsLinetypeReference(self, strLinetype):
+	def islinetypereference(self, strlinetype):
 		"""
 
 		Verifies that an existing linetype is from a reference file.
@@ -42,9 +42,9 @@ class Linetype(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinetypeReference', None, strLinetype)
 
-	def LinetypeCount(self):
+	def linetypecount(self, ):
 		"""
 
 		Returns the number of linetypes in the document.
@@ -57,9 +57,9 @@ class Linetype(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LinetypeCount', None, )
 
-	def LinetypeNames(self, blnSort):
+	def linetypenames(self, blnsort):
 		"""
 
 		Returns the names of all linetypes in the document.
@@ -75,5 +75,5 @@ class Linetype(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LinetypeNames', None, blnSort)
 

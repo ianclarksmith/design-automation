@@ -8,7 +8,7 @@ class Group(DispatchBaseClass):
 
 
 
-	def AddGroup(self, strGroup):
+	def addgroup(self, strgroup):
 		"""
 
 		Adds a new empty group to the document.
@@ -24,9 +24,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddGroup', None, strGroup)
 
-	def AddObjectToGroup(self, strObject, strGroup):
+	def addobjecttogroup(self, strobject, strgroup):
 		"""
 
 		Adds a single object to an existing group. Neither the object nor the group can be reference objects.
@@ -43,9 +43,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectToGroup', None, strObject, strGroup)
 
-	def AddObjectsToGroup(self, arrObjects, strGroup):
+	def addobjectstogroup(self, arrobjects, strgroup):
 		"""
 
 		Adds one or more objects to an existing group. Neither the objects nor the group can be reference objects.
@@ -62,9 +62,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectsToGroup', None, arrObjects, strGroup)
 
-	def DeleteGroup(self, strGroup):
+	def deletegroup(self, strgroup):
 		"""
 
 		Removes an existing group from the document. Reference groups cannot be removed. Deleting a group does not delete the member objects.
@@ -80,9 +80,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteGroup', None, strGroup)
 
-	def GroupCount(self):
+	def groupcount(self, ):
 		"""
 
 		Returns the number of groups in the document.
@@ -96,9 +96,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GroupCount', None, )
 
-	def GroupNames(self):
+	def groupnames(self, ):
 		"""
 
 		Returns the name of all the groups in the document.
@@ -112,9 +112,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'GroupNames', None, )
 
-	def HideGroup(self, strGroup):
+	def hidegroup(self, strgroup):
 		"""
 
 		Hides a group of object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
@@ -130,9 +130,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HideGroup', None, strGroup)
 
-	def IsGroup(self, strGroup):
+	def isgroup(self, strgroup):
 		"""
 
 		Verifies the existence of a group.
@@ -148,9 +148,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsGroup', None, strGroup)
 
-	def IsGroupEmpty(self, strGroup):
+	def isgroupempty(self, strgroup):
 		"""
 
 		Verifies that an existing group is empty, or contains no object members.
@@ -166,9 +166,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsGroupEmpty', None, strGroup)
 
-	def LockGroup(self, strGroup):
+	def lockgroup(self, strgroup):
 		"""
 
 		Locks a group of objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
@@ -184,9 +184,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LockGroup', None, strGroup)
 
-	def RemoveObjectFromAllGroups(self, strObject):
+	def removeobjectfromallgroups(self, strobject):
 		"""
 
 		Removes a single object from any and all groups that it is a member. Neither the object nor the group can be a reference object.
@@ -202,9 +202,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromAllGroups', None, strObject)
 
-	def RemoveObjectFromGroup(self, strObject, strGroup):
+	def removeobjectfromgroup(self, strobject, strgroup):
 		"""
 
 		Removes a single object from an existing group.
@@ -221,9 +221,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromGroup', None, strObject, strGroup)
 
-	def RemoveObjectFromTopGroup(self, strObject):
+	def removeobjectfromtopgroup(self, strobject):
 		"""
 
 		Removes a single object from it's top-most group.
@@ -239,9 +239,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromTopGroup', None, strObject)
 
-	def RemoveObjectsFromGroup(self, arrObjects, strGroup):
+	def removeobjectsfromgroup(self, arrobjects, strgroup):
 		"""
 
 		Removes one or more objects from an existing group.
@@ -258,9 +258,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectsFromGroup', None, arrObjects, strGroup)
 
-	def RenameGroup(self, strOldGroup, strNewGroup):
+	def renamegroup(self, stroldgroup, strnewgroup):
 		"""
 
 		Renames an existing group.
@@ -277,9 +277,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenameGroup', None, strOldGroup, strNewGroup)
 
-	def ShowGroup(self, strGroup):
+	def showgroup(self, strgroup):
 		"""
 
 		Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
@@ -295,9 +295,9 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGroup', None, strGroup)
 
-	def UnlockGroup(self, strGroup):
+	def unlockgroup(self, strgroup):
 		"""
 
 		Unlocks a group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
@@ -313,5 +313,5 @@ class Group(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnlockGroup', None, strGroup)
 

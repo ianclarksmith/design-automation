@@ -8,7 +8,7 @@ class Document(DispatchBaseClass):
 
 
 
-	def CreatePreviewImage(self, strFile, strView, arrSize, intFlags, blnWireframe):
+	def createpreviewimage(self, strfile, strview, arrsize, intflags, blnwireframe):
 		"""
 
 		Creates a bitmap preview image of the current model.
@@ -27,9 +27,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CreatePreviewImage', None, strFile, strView, arrSize, intFlags, blnWireframe)
 
-	def DocumentModified(self, blnModified):
+	def documentmodified(self, blnmodified):
 		"""
 
 		Note, setting the document modified flag to false will prevent the "Do you want to save this file..." from displaying when you close Rhino.
@@ -45,9 +45,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentModified', None, blnModified)
 
-	def DocumentName(self):
+	def documentname(self, ):
 		"""
 
 		Returns the name of the currently loaded Rhino document (3DM file).
@@ -61,9 +61,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentName', None, )
 
-	def DocumentPath(self):
+	def documentpath(self, ):
 		"""
 
 		Returns the path of the currently loaded Rhino document (3DM file).
@@ -77,9 +77,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentPath', None, )
 
-	def DocumentURL(self, strURL):
+	def documenturl(self, strurl):
 		"""
 
 		Returns or sets the uniform resource locator (URL) of the currently loaded Rhino document (3DM file).
@@ -96,9 +96,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentURL', None, strURL)
 
-	def EnableRedraw(self, blnSelect):
+	def enableredraw(self, blnselect):
 		"""
 
 		Enables or disables screen redrawing.
@@ -113,9 +113,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EnableRedraw', None, blnSelect)
 
-	def ExtractPreviewImage(self, strFileName, strModelName):
+	def extractpreviewimage(self, strfilename, strmodelname):
 		"""
 
 		Extracts the bitmap preview image from the specified model (.3dm).
@@ -131,9 +131,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExtractPreviewImage', None, strFileName, strModelName)
 
-	def IsDocumentModified(self):
+	def isdocumentmodified(self, ):
 		"""
 
 		Verifies that the current document has been modified in some way.
@@ -146,9 +146,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsDocumentModified', None, )
 
-	def Notes(self, strNotes):
+	def notes(self, strnotes):
 		"""
 
 		Returns or sets the document's notes.  Notes are generally created by using Rhino's Notes command.
@@ -165,9 +165,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Notes', None, strNotes)
 
-	def ReadFileVersion(self):
+	def readfileversion(self, ):
 		"""
 
 		Returns the file version of the current document.  Use this function to determine which version of Rhino last saved the document. Note, this function will not return values from referenced or merged files.
@@ -181,9 +181,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ReadFileVersion', None, )
 
-	def Redraw(self):
+	def redraw(self, ):
 		"""
 
 		Redraws all views.
@@ -195,9 +195,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'Redraw', None, )
 
-	def RenderAntialias(self, intStyle):
+	def renderantialias(self, intstyle):
 		"""
 
 		pixel.  Increasing the antialiasing level can add considerable time to the overall rendering.  See Rhino's DocumentProperties command (Rhino Render window) for details.
@@ -214,9 +214,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderAntialias', None, intStyle)
 
-	def RenderColor(self, intItem, lngColor):
+	def rendercolor(self, intitem, lngcolor):
 		"""
 
 		Returns or sets the render ambient light or background color. Render colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed. See Rhino's DocumentProperties command (Rhino Render window) for details.
@@ -234,9 +234,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderColor', None, intItem, lngColor)
 
-	def RenderMeshDensity(self, dblDensity):
+	def rendermeshdensity(self, dbldensity):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -253,9 +253,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshDensity', None, dblDensity)
 
-	def RenderMeshMaxAngle(self, dblAngle):
+	def rendermeshmaxangle(self, dblangle):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -272,9 +272,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxAngle', None, dblAngle)
 
-	def RenderMeshMaxAspectRatio(self, dblRatio):
+	def rendermeshmaxaspectratio(self, dblratio):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -291,9 +291,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxAspectRatio', None, dblRatio)
 
-	def RenderMeshMaxDistEdgeToSrf(self, dblDistance):
+	def rendermeshmaxdistedgetosrf(self, dbldistance):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -310,9 +310,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxDistEdgeToSrf', None, dblDistance)
 
-	def RenderMeshMaxEdgeLength(self, dblLength):
+	def rendermeshmaxedgelength(self, dbllength):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -329,9 +329,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMaxEdgeLength', None, dblLength)
 
-	def RenderMeshMinEdgeLength(self, dblLength):
+	def rendermeshminedgelength(self, dbllength):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -348,9 +348,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMinEdgeLength', None, dblLength)
 
-	def RenderMeshMinInitialGridQuads(self, intQuads):
+	def rendermeshmininitialgridquads(self, intquads):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -367,9 +367,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshMinInitialGridQuads', None, intQuads)
 
-	def RenderMeshQuality(self, intQuality):
+	def rendermeshquality(self, intquality):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -386,9 +386,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshQuality', None, intQuality)
 
-	def RenderMeshSettings(self, intSettings):
+	def rendermeshsettings(self, intsettings):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -405,9 +405,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderMeshSettings', None, intSettings)
 
-	def RenderResolution(self, arrResolution):
+	def renderresolution(self, arrresolution):
 		"""
 
 		Returns or sets the render resolution. Resolution is measured in pixels. See Rhino's DocumentProperties command (Rhino Render window) for details. Note, if the render resolution is set to "viewport", then the size of the active viewt is returned.
@@ -424,9 +424,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderResolution', None, arrResolution)
 
-	def RenderSettings(self, intSettings):
+	def rendersettings(self, intsettings):
 		"""
 
 		Returns or sets render settings.  See Rhino's DocumentProperties command (Rhino Render window) for details.
@@ -443,9 +443,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RenderSettings', None, intSettings)
 
-	def UnitAbsoluteTolerance(self, dblAbsTol):
+	def unitabsolutetolerance(self, dblabstol):
 		"""
 
 		Returns or sets the document's absolute tolerance parameter.  Absolute tolerance is measured in drawing units. See Rhino's DocumentProperties command (Units window) for details.
@@ -462,9 +462,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitAbsoluteTolerance', None, dblAbsTol)
 
-	def UnitAngleTolerance(self, dblAngleTol):
+	def unitangletolerance(self, dblangletol):
 		"""
 
 		Returns or sets the document's angle tolerance parameter.  Angle tolerance is measured degrees.  See Rhino's DocumentProperties command (Units window) for details.
@@ -481,9 +481,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitAngleTolerance', None, dblAngleTol)
 
-	def UnitCustomUnitSystem(self, dblUnits, blnScale, strName):
+	def unitcustomunitsystem(self, dblunits, blnscale, strname):
 		"""
 
 		Sets the document's units system to a user-defined system.  This overrides the units system set using the UnitSystem method.  See Rhino's DocumentProperties command (Units window) for details.
@@ -501,9 +501,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitCustomUnitSystem', None, dblUnits, blnScale, strName)
 
-	def UnitDistanceDisplayMode(self, intMode):
+	def unitdistancedisplaymode(self, intmode):
 		"""
 
 		Returns or sets the document's distance display mode parameter.  See Rhino's DocumentProperties command (Units window) for details.
@@ -520,9 +520,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitDistanceDisplayMode', None, intMode)
 
-	def UnitDistanceDisplayPrecision(self, intPrecision):
+	def unitdistancedisplayprecision(self, intprecision):
 		"""
 
 		Returns or sets the document's distance display precision parameter.  See Rhino's DocumentProperties command (Units window) for details.
@@ -539,9 +539,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitDistanceDisplayPrecision', None, intPrecision)
 
-	def UnitRelativeTolerance(self, dblRelTol):
+	def unitrelativetolerance(self, dblreltol):
 		"""
 
 		Returns or sets the document's relative tolerance parameter.  Relative tolerance is measured in percent. See Rhino's DocumentProperties command (Units window) for details.
@@ -558,9 +558,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitRelativeTolerance', None, dblRelTol)
 
-	def UnitScale(self, intToSystem, intFromSystem):
+	def unitscale(self, inttosystem, intfromsystem):
 		"""
 
 		Returns the scale factor for changing between unit systems.
@@ -577,9 +577,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitScale', None, intToSystem, intFromSystem)
 
-	def UnitSystem(self, intSystem, blnScale):
+	def unitsystem(self, intsystem, blnscale):
 		"""
 
 		Returns or sets the document's units system.  See Rhino's DocumentProperties command (Units window) for details.
@@ -596,9 +596,9 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitSystem', None, intSystem, blnScale)
 
-	def UnitSystemName(self, blnCapitalize, blnSingular, blnAbbreviate):
+	def unitsystemname(self, blncapitalize, blnsingular, blnabbreviate):
 		"""
 
 		Returns the name of the current unit system.
@@ -615,5 +615,5 @@ class Document(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnitSystemName', None, blnCapitalize, blnSingular, blnAbbreviate)
 

@@ -8,7 +8,7 @@ class Object(DispatchBaseClass):
 
 
 
-	def AddObjectMesh(self, strObject, intQuality, blnEnable):
+	def addobjectmesh(self, strobject, intquality, blnenable):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -27,9 +27,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectMesh', None, strObject, intQuality, blnEnable)
 
-	def BoxMorphObject(self, strObject, arrObjects, arrBoxPoints, blnCopy):
+	def boxmorphobject(self, strobject, arrobjects, arrboxpoints, blncopy):
 		"""
 
 		Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
@@ -49,9 +49,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BoxMorphObject', None, strObject, arrObjects, arrBoxPoints, blnCopy)
 
-	def CopyObject(self, strObject, arrStart, arrEnd, arrTranslation):
+	def copyobject(self, strobject, arrstart, arrend, arrtranslation):
 		"""
 
 		Copies a single object from one location to another, or in-place.
@@ -70,9 +70,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CopyObject', None, strObject, arrStart, arrEnd, arrTranslation)
 
-	def CopyObjects(self, arrObjects, arrStart, arrEnd, arrTranslation):
+	def copyobjects(self, arrobjects, arrstart, arrend, arrtranslation):
 		"""
 
 		Copies one or more objects from one location to another, or in-place.
@@ -91,9 +91,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CopyObjects', None, arrObjects, arrStart, arrEnd, arrTranslation)
 
-	def DeleteObject(self, strObject):
+	def deleteobject(self, strobject):
 		"""
 
 		Deletes a single object from the document.
@@ -109,9 +109,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteObject', None, strObject)
 
-	def DeleteObjects(self, arrObjects):
+	def deleteobjects(self, arrobjects):
 		"""
 
 		Deletes one or more objects from the document.
@@ -127,9 +127,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteObjects', None, arrObjects)
 
-	def EnableObjectMesh(self, arrObjects, blnEnable):
+	def enableobjectmesh(self, arrobjects, blnenable):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -147,9 +147,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EnableObjectMesh', None, arrObjects, blnEnable)
 
-	def FlashObject(self, strObject, arrObjects, blnStyle):
+	def flashobject(self, strobject, arrobjects, blnstyle):
 		"""
 
 		Causes the selection state of one or more objects to change momentarily so the object appears to flash on the screen.
@@ -165,9 +165,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'FlashObject', None, strObject, arrObjects, blnStyle)
 
-	def HideObject(self, strObject):
+	def hideobject(self, strobject):
 		"""
 
 		Hides a single object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
@@ -183,9 +183,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HideObject', None, strObject)
 
-	def HideObjects(self, arrObjects):
+	def hideobjects(self, arrobjects):
 		"""
 
 		Hides one or more objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
@@ -201,9 +201,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'HideObjects', None, arrObjects)
 
-	def IsLayoutObject(self, strObject):
+	def islayoutobject(self, strobject):
 		"""
 
 		Verifies that an object is in either page layout space or model space.
@@ -218,9 +218,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayoutObject', None, strObject)
 
-	def IsObject(self, strObject):
+	def isobject(self, strobject):
 		"""
 
 		Verifies the existence of an object.
@@ -234,9 +234,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObject', None, strObject)
 
-	def IsObjectHidden(self, strObject):
+	def isobjecthidden(self, strobject):
 		"""
 
 		Verifies that an object is hidden.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
@@ -251,9 +251,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectHidden', None, strObject)
 
-	def IsObjectInBox(self, strObject, arrBox, blnMode):
+	def isobjectinbox(self, strobject, arrbox, blnmode):
 		"""
 
 		Verifies an object's bounding box is inside of another bounding box.
@@ -270,9 +270,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectInBox', None, strObject, arrBox, blnMode)
 
-	def IsObjectInGroup(self, strObject, strGroup):
+	def isobjectingroup(self, strobject, strgroup):
 		"""
 
 		Verifies that an object is a member of a specified group.
@@ -288,9 +288,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectInGroup', None, strObject, strGroup)
 
-	def IsObjectLocked(self, strObject):
+	def isobjectlocked(self, strobject):
 		"""
 
 		Verifies that an object is locked.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
@@ -305,9 +305,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectLocked', None, strObject)
 
-	def IsObjectNormal(self, strObject):
+	def isobjectnormal(self, strobject):
 		"""
 
 		Verifies that an object is normal.  Normal objects are visible, can be snapped to, and can be selected.
@@ -322,9 +322,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectNormal', None, strObject)
 
-	def IsObjectReference(self, strObject):
+	def isobjectreference(self, strobject):
 		"""
 
 		Verifies that an object is a reference object.  Reference objects are object that are not part of the current document.
@@ -339,9 +339,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectReference', None, strObject)
 
-	def IsObjectSelectable(self, strObject):
+	def isobjectselectable(self, strobject):
 		"""
 
 		Verifies that an object is selectable.  Objects that are locked, hidden, or on locked or hidden layers cannot be selected.
@@ -356,9 +356,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectSelectable', None, strObject)
 
-	def IsObjectSelected(self, strObject):
+	def isobjectselected(self, strobject):
 		"""
 
 		Verifies that an object is currently selected.
@@ -373,9 +373,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectSelected', None, strObject)
 
-	def IsObjectSolid(self, strObject):
+	def isobjectsolid(self, strobject):
 		"""
 
 		Verifies that an object is a closed, solid object.
@@ -390,9 +390,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectSolid', None, strObject)
 
-	def IsObjectValid(self, strObject):
+	def isobjectvalid(self, strobject):
 		"""
 
 		Verifies that an object's geometry is valid and without error.
@@ -407,9 +407,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectValid', None, strObject)
 
-	def IsVisibleInView(self, strObject, strView):
+	def isvisibleinview(self, strobject, strview):
 		"""
 
 		Verifies that an object is visible in a view.
@@ -425,9 +425,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsVisibleInView', None, strObject, strView)
 
-	def LockObject(self, strObject):
+	def lockobject(self, strobject):
 		"""
 
 		Locks a single object.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
@@ -443,9 +443,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LockObject', None, strObject)
 
-	def LockObjects(self, arrObjects):
+	def lockobjects(self, arrobjects):
 		"""
 
 		Locks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
@@ -461,9 +461,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'LockObjects', None, arrObjects)
 
-	def MatchObjectAttributes(self, strTarget, arrTargets, strSource):
+	def matchobjectattributes(self, strtarget, arrtargets, strsource):
 		"""
 
 		Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
@@ -481,9 +481,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MatchObjectAttributes', None, strTarget, arrTargets, strSource)
 
-	def MirrorObject(self, strObject, arrStartPt, arrEndPt, blnCopy):
+	def mirrorobject(self, strobject, arrstartpt, arrendpt, blncopy):
 		"""
 
 		Mirrors a single object.
@@ -502,9 +502,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MirrorObject', None, strObject, arrStartPt, arrEndPt, blnCopy)
 
-	def MirrorObjects(self, arrObjects, arrStartPt, arrEndPt, blnCopy):
+	def mirrorobjects(self, arrobjects, arrstartpt, arrendpt, blncopy):
 		"""
 
 		Mirrors one or more objects.
@@ -523,9 +523,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MirrorObjects', None, arrObjects, arrStartPt, arrEndPt, blnCopy)
 
-	def MoveObject(self, strObject, arrStart, arrEnd, arrTranslation):
+	def moveobject(self, strobject, arrstart, arrend, arrtranslation):
 		"""
 
 		Moves a single object.
@@ -544,9 +544,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MoveObject', None, strObject, arrStart, arrEnd, arrTranslation)
 
-	def MoveObjects(self, arrObjects, arrStart, arrEnd, arrTranslation):
+	def moveobjects(self, arrobjects, arrstart, arrend, arrtranslation):
 		"""
 
 		Copies one or more objects.
@@ -565,9 +565,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MoveObjects', None, arrObjects, arrStart, arrEnd, arrTranslation)
 
-	def ObjectColor(self, strObject, arrObjects, lngColor):
+	def objectcolor(self, strobject, arrobjects, lngcolor):
 		"""
 
 		Returns or modifies the color of an object.  Object colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
@@ -587,9 +587,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectColor', None, strObject, arrObjects, lngColor)
 
-	def ObjectColorSource(self, strObject, arrObjects, intSource):
+	def objectcolorsource(self, strobject, arrobjects, intsource):
 		"""
 
 		4. Color from parent. For objects with parents, like objects in block instances, use parent's color source. If no parent, treats as color from layer.
@@ -609,9 +609,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectColorSource', None, strObject, arrObjects, intSource)
 
-	def ObjectDescription(self, strObject):
+	def objectdescription(self, strobject):
 		"""
 
 		Returns a short text description of an object.
@@ -627,9 +627,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectDescription', None, strObject)
 
-	def ObjectDump(self, strObject, intType):
+	def objectdump(self, strobject, inttype):
 		"""
 
 		Returns a detailed description of an object.
@@ -646,9 +646,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectDump', None, strObject, intType)
 
-	def ObjectGroups(self, strObject):
+	def objectgroups(self, strobject):
 		"""
 
 		Returns all of the group names that an object is assigned.
@@ -664,9 +664,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGroups', None, strObject)
 
-	def ObjectHasMesh(self, strObject):
+	def objecthasmesh(self, strobject):
 		"""
 
 		Verifies that an object has custom render mesh parameters.
@@ -682,9 +682,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectHasMesh', None, strObject)
 
-	def ObjectLayer(self, strObject, arrObjects, strLayer):
+	def objectlayer(self, strobject, arrobjects, strlayer):
 		"""
 
 		Returns or modifies the layer of an object.
@@ -704,9 +704,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectLayer', None, strObject, arrObjects, strLayer)
 
-	def ObjectLayout(self, strObject, strLayout, blnReturnName):
+	def objectlayout(self, strobject, strlayout, blnreturnname):
 		"""
 
 		Returns or changes the layout or model space of an object.
@@ -725,9 +725,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectLayout', None, strObject, strLayout, blnReturnName)
 
-	def ObjectLinetype(self, strObject, arrObjects, strLayer):
+	def objectlinetype(self, strobject, arrobjects, strlayer):
 		"""
 
 		Returns or modifies the linetype of an object.
@@ -747,9 +747,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectLinetype', None, strObject, arrObjects, strLayer)
 
-	def ObjectLinetypeSource(self, strObject, arrObjects, intSource):
+	def objectlinetypesource(self, strobject, arrobjects, intsource):
 		"""
 
 		3. Linetype from parent.  For objects with parents, like objects in block instances, use parent's linetype. If no parent, treats as linetype from layer.
@@ -769,9 +769,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectLinetypeSource', None, strObject, arrObjects, intSource)
 
-	def ObjectMaterialIndex(self, strObject):
+	def objectmaterialindex(self, strobject):
 		"""
 
 		If the return value of ObjectMaterialSource is "material by object", then the return value of this function is the index of the object's rendering material.  A material index of -1 indicates no material has been assigned, and that Rhino's internal default material has been assigned to the object.
@@ -787,9 +787,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMaterialIndex', None, strObject)
 
-	def ObjectMaterialSource(self, strObject, arrObjects, intSource):
+	def objectmaterialsource(self, strobject, arrobjects, intsource):
 		"""
 
 		The default rendering material source for new objects is "material by layer."
@@ -809,9 +809,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMaterialSource', None, strObject, arrObjects, intSource)
 
-	def ObjectMeshDensity(self, strObject, dblDensity):
+	def objectmeshdensity(self, strobject, dbldensity):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -829,9 +829,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshDensity', None, strObject, dblDensity)
 
-	def ObjectMeshMaxAngle(self, strObject, dblAngle):
+	def objectmeshmaxangle(self, strobject, dblangle):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -849,9 +849,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMaxAngle', None, strObject, dblAngle)
 
-	def ObjectMeshMaxAspectRatio(self, strObject, dblRatio):
+	def objectmeshmaxaspectratio(self, strobject, dblratio):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -869,9 +869,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMaxAspectRatio', None, strObject, dblRatio)
 
-	def ObjectMeshMaxDistEdgeToSrf(self, strObject, dblDistance):
+	def objectmeshmaxdistedgetosrf(self, strobject, dbldistance):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -889,9 +889,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMaxDistEdgeToSrf', None, strObject, dblDistance)
 
-	def ObjectMeshMaxEdgeLength(self, strObject, dblLength):
+	def objectmeshmaxedgelength(self, strobject, dbllength):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -909,9 +909,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMaxEdgeLength', None, strObject, dblLength)
 
-	def ObjectMeshMinEdgeLength(self, strObject, dblLength):
+	def objectmeshminedgelength(self, strobject, dbllength):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -929,9 +929,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMinEdgeLength', None, strObject, dblLength)
 
-	def ObjectMeshMinInitialGridQuads(self, strObject, intQuads):
+	def objectmeshmininitialgridquads(self, strobject, intquads):
 		"""
 
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -949,9 +949,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMinInitialGridQuads', None, strObject, intQuads)
 
-	def ObjectMeshQuality(self, strObject, intQuality):
+	def objectmeshquality(self, strobject, intquality):
 		"""
 
 		Returns or sets the render mesh quality of an object's custom render mesh parameters.
@@ -969,9 +969,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshQuality', None, strObject, intQuality)
 
-	def ObjectMeshSettings(self, strObject, intSettings):
+	def objectmeshsettings(self, strobject, intsettings):
 		"""
 
 		Returns or sets the render mesh settings of an object's custom render mesh parameters.
@@ -989,9 +989,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshSettings', None, strObject, intSettings)
 
-	def ObjectName(self, strObject, arrObjects, strName):
+	def objectname(self, strobject, arrobjects, strname):
 		"""
 
 		Returns or modifies the user-definable name of an object.
@@ -1011,9 +1011,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectName', None, strObject, arrObjects, strName)
 
-	def ObjectNames(self, arrObjects, arrNames):
+	def objectnames(self, arrobjects, arrnames):
 		"""
 
 		Returns or modifies the user-definable name of one or more objects.
@@ -1031,9 +1031,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectNames', None, arrObjects, arrNames)
 
-	def ObjectPrintColor(self, strObject, arrObjects, lngColor):
+	def objectprintcolor(self, strobject, arrobjects, lngcolor):
 		"""
 
 		Returns or modifies the print color of an object.  Object print colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
@@ -1053,9 +1053,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectPrintColor', None, strObject, arrObjects, lngColor)
 
-	def ObjectPrintColorSource(self, strObject, arrObjects, intSource):
+	def objectprintcolorsource(self, strobject, arrobjects, intsource):
 		"""
 
 		4. Print color from parent.  For objects with parents, like objects in block instances, use parent's print color.  If no parent, treats as print color from layer.
@@ -1075,9 +1075,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectPrintColorSource', None, strObject, arrObjects, intSource)
 
-	def ObjectPrintWidth(self, strObject, arrObjects, dblWidth):
+	def objectprintwidth(self, strobject, arrobjects, dblwidth):
 		"""
 
 		Returns or modifies the print width of an object.  Object print widths are measured in millimeters (mm).
@@ -1097,9 +1097,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectPrintWidth', None, strObject, arrObjects, dblWidth)
 
-	def ObjectPrintWidthSource(self, strObject, arrObjects, intSource):
+	def objectprintwidthsource(self, strobject, arrobjects, intsource):
 		"""
 
 		3. Print width from parent.  For objects with parents, like objects in block instances, use parent's print width.  If no parent, treats as print width from layer.
@@ -1119,9 +1119,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectPrintWidthSource', None, strObject, arrObjects, intSource)
 
-	def ObjectTopGroup(self, strObject):
+	def objecttopgroup(self, strobject):
 		"""
 
 		Returns the top most group name that an object is assigned.  This function primarily applies to objects that are members of nested groups.
@@ -1137,9 +1137,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectTopGroup', None, strObject)
 
-	def ObjectType(self, strObject):
+	def objecttype(self, strobject):
 		"""
 
 		Returns the object type.
@@ -1155,9 +1155,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectType', None, strObject)
 
-	def ObjectURL(self, strObject, arrObjects, strURL):
+	def objecturl(self, strobject, arrobjects, strurl):
 		"""
 
 		Returns or modifies the user-definable URL of an object.
@@ -1177,9 +1177,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectURL', None, strObject, arrObjects, strURL)
 
-	def OrientObject(self, strObject, arrReference, arrTarget, intFlags):
+	def orientobject(self, strobject, arrreference, arrtarget, intflags):
 		"""
 
 		Orients a single object based on input points.
@@ -1198,9 +1198,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'OrientObject', None, strObject, arrReference, arrTarget, intFlags)
 
-	def OrientObjects(self, arrObjects, arrReference, arrTarget, intFlags):
+	def orientobjects(self, arrobjects, arrreference, arrtarget, intflags):
 		"""
 
 		Orients one or more objects based on input points.
@@ -1219,9 +1219,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'OrientObjects', None, arrObjects, arrReference, arrTarget, intFlags)
 
-	def RemapObject(self, strObject, arrSrcPlane, arrDstPlane, blnCopy):
+	def remapobject(self, strobject, arrsrcplane, arrdstplane, blncopy):
 		"""
 
 		Remqps a single object from one plane, or coordinate system, to another.
@@ -1240,9 +1240,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RemapObject', None, strObject, arrSrcPlane, arrDstPlane, blnCopy)
 
-	def RemapObjects(self, arrObject, arrSrcPlane, arrDstPlane, blnCopy):
+	def remapobjects(self, arrobject, arrsrcplane, arrdstplane, blncopy):
 		"""
 
 		Remqps one or more objects from one plane, or coordinate system, to another.
@@ -1261,9 +1261,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RemapObjects', None, arrObject, arrSrcPlane, arrDstPlane, blnCopy)
 
-	def RotateObject(self, strObject, arrPoint, dblAngle, arrAxis, blnCopy):
+	def rotateobject(self, strobject, arrpoint, dblangle, arraxis, blncopy):
 		"""
 
 		Rotates a single object. Rotation is based on the active construction plane.
@@ -1283,9 +1283,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RotateObject', None, strObject, arrPoint, dblAngle, arrAxis, blnCopy)
 
-	def RotateObjects(self, arrObjects, arrPoint, dblAngle, arrAxis, blnCopy):
+	def rotateobjects(self, arrobjects, arrpoint, dblangle, arraxis, blncopy):
 		"""
 
 		Rotates one or more objects. Rotation is based on the active construction plane.
@@ -1305,9 +1305,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RotateObjects', None, arrObjects, arrPoint, dblAngle, arrAxis, blnCopy)
 
-	def ScaleObject(self, strObject, arrOrigin, arrScale, blnCopy):
+	def scaleobject(self, strobject, arrorigin, arrscale, blncopy):
 		"""
 
 		Scales a single object. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
@@ -1326,9 +1326,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ScaleObject', None, strObject, arrOrigin, arrScale, blnCopy)
 
-	def ScaleObjects(self, arrObjects, arrOrigin, arrScale, blnCopy):
+	def scaleobjects(self, arrobjects, arrorigin, arrscale, blncopy):
 		"""
 
 		Scales one or more objects. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
@@ -1347,9 +1347,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ScaleObjects', None, arrObjects, arrOrigin, arrScale, blnCopy)
 
-	def SelectObject(self, strObject):
+	def selectobject(self, strobject):
 		"""
 
 		Selects a single object.
@@ -1365,9 +1365,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObject', None, strObject)
 
-	def SelectObjects(self, arrObjects):
+	def selectobjects(self, arrobjects):
 		"""
 
 		Selects one or more objects.
@@ -1383,9 +1383,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObjects', None, arrObjects)
 
-	def ShearObject(self, strObject, arrOrigin, arrRefPt, arrScale, blnCopy):
+	def shearobject(self, strobject, arrorigin, arrrefpt, arrscale, blncopy):
 		"""
 
 		Performs a shear transformation on a single object. Transformation is based on the active construction plane.
@@ -1405,9 +1405,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ShearObject', None, strObject, arrOrigin, arrRefPt, arrScale, blnCopy)
 
-	def ShearObjects(self, arrObjects, arrOrigin, arrRefPt, arrScale, blnCopy):
+	def shearobjects(self, arrobjects, arrorigin, arrrefpt, arrscale, blncopy):
 		"""
 
 		Performs a shear transformation on one or more objects. Transformation is based on the active construction plane.
@@ -1427,9 +1427,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ShearObjects', None, arrObjects, arrOrigin, arrRefPt, arrScale, blnCopy)
 
-	def ShowObject(self, strObject):
+	def showobject(self, strobject):
 		"""
 
 		Shows a previously hidden object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
@@ -1445,9 +1445,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowObject', None, strObject)
 
-	def ShowObjects(self, arrObjects):
+	def showobjects(self, arrobjects):
 		"""
 
 		Shows one or more hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
@@ -1463,9 +1463,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ShowObjects', None, arrObjects)
 
-	def TransformObject(self, strObject, arrMatrix, blnCopy):
+	def transformobject(self, strobject, arrmatrix, blncopy):
 		"""
 
 		1
@@ -1483,9 +1483,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'TransformObject', None, strObject, arrMatrix, blnCopy)
 
-	def TransformObjects(self, arrObjects, arrMatrix, blnCopy):
+	def transformobjects(self, arrobjects, arrmatrix, blncopy):
 		"""
 
 		1
@@ -1503,9 +1503,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'TransformObjects', None, arrObjects, arrMatrix, blnCopy)
 
-	def UnlockObject(self, strObject):
+	def unlockobject(self, strobject):
 		"""
 
 		Unlocks a previously locked object.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
@@ -1521,9 +1521,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnlockObject', None, strObject)
 
-	def UnlockObjects(self, arrObjects):
+	def unlockobjects(self, arrobjects):
 		"""
 
 		Unlocks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
@@ -1539,9 +1539,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnlockObjects', None, arrObjects)
 
-	def UnselectObject(self, strObject):
+	def unselectobject(self, strobject):
 		"""
 
 		Unselects a single selected object.
@@ -1557,9 +1557,9 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObject', None, strObject)
 
-	def UnselectObjects(self, arrObjects):
+	def unselectobjects(self, arrobjects):
 		"""
 
 		Unselects one or more selected objects.
@@ -1575,5 +1575,5 @@ class Object(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObjects', None, arrObjects)
 

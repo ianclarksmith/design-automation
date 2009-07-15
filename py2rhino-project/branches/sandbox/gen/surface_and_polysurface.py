@@ -8,7 +8,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 
 
-	def AddBox(self, arrCorners):
+	def addbox(self, arrcorners):
 		"""
 
 		Adds a new box-shaped polysurface to the document.
@@ -24,9 +24,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddBox', None, arrCorners)
 
-	def AddCone(self, arrBase, arrPlane, arrHeight, dblHeight, dblRadius, blnCap):
+	def addcone(self, arrbase, arrplane, arrheight, dblheight, dblradius, blncap):
 		"""
 
 		Adds a cone-shaped polysurface to the document.
@@ -47,9 +47,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddCone', None, arrBase, arrPlane, arrHeight, dblHeight, dblRadius, blnCap)
 
-	def AddCutPlane(self, arrObjects, arrStartPoint, arrEndPoint, arrNormal):
+	def addcutplane(self, arrobjects, arrstartpoint, arrendpoint, arrnormal):
 		"""
 
 		Adds a planar surface through objects at a designated location.  For more information, see the Rhino help file for the CutPlane command.
@@ -68,9 +68,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddCutPlane', None, arrObjects, arrStartPoint, arrEndPoint, arrNormal)
 
-	def AddCylinder(self, arrBase, arrPlane, arrHeight, dblHeight, dblRadius, blnCap):
+	def addcylinder(self, arrbase, arrplane, arrheight, dblheight, dblradius, blncap):
 		"""
 
 		Adds a cylinder-shaped polysurface to the document.
@@ -91,9 +91,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddCylinder', None, arrBase, arrPlane, arrHeight, dblHeight, dblRadius, blnCap)
 
-	def AddEdgeSrf(self, arrObjects):
+	def addedgesrf(self, arrobjects):
 		"""
 
 		Creates a surface from 2, 3, or 4 edge curves.
@@ -109,9 +109,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddEdgeSrf', None, arrObjects)
 
-	def AddLoftSurface(self, arrObjects, arrStartPt, arrEndPt, intType, intStyle, nValue, blnClosed):
+	def addloftsurface(self, arrobjects, arrstartpt, arrendpt, inttype, intstyle, nvalue, blnclosed):
 		"""
 
 		* This function will not adjust the seams of closed curves. Use CurveSeam to adjust the seam of closed curves.
@@ -133,9 +133,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddLoftSurface', None, arrObjects, arrStartPt, arrEndPt, intType, intStyle, nValue, blnClosed)
 
-	def AddNurbsSurface(self, arrPointCount, arrPoints, arrKnotsU, arrKnotsU, arrDegree, arrWeights):
+	def addnurbssurface(self, arrpointcount, arrpoints, arrknotsu, arrknotsu, arrdegree, arrweights):
 		"""
 
 		Adds a NURBS surface object to the document.
@@ -156,9 +156,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddNurbsSurface', None, arrPointCount, arrPoints, arrKnotsU, arrKnotsU, arrDegree, arrWeights)
 
-	def AddPlanarSrf(self, arrObjects):
+	def addplanarsrf(self, arrobjects):
 		"""
 
 		Creates one or more surfaces from planar curves.
@@ -174,9 +174,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddPlanarSrf', None, arrObjects)
 
-	def AddPlaneSurface(self, arrPlane, dblDU, dblDV):
+	def addplanesurface(self, arrplane, dbldu, dbldv):
 		"""
 
 		Creates a plane surface.
@@ -194,9 +194,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddPlaneSurface', None, arrPlane, dblDU, dblDV)
 
-	def AddRailRevSrf(self, strProfile, strRail, arrAxis):
+	def addrailrevsrf(self, strprofile, strrail, arraxis):
 		"""
 
 		Create a surface by revolving a profile curve along a rail curve.
@@ -214,9 +214,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddRailRevSrf', None, strProfile, strRail, arrAxis)
 
-	def AddRevSrf(self, strProfile, arrAxis, dblStartAngle, dblEndAngle):
+	def addrevsrf(self, strprofile, arraxis, dblstartangle, dblendangle):
 		"""
 
 		Create a surface by revolving a curve around an axis.
@@ -235,9 +235,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddRevSrf', None, strProfile, arrAxis, dblStartAngle, dblEndAngle)
 
-	def AddSphere(self, arrCenter, arrPlane, dblRadius):
+	def addsphere(self, arrcenter, arrplane, dblradius):
 		"""
 
 		Adds a spherical surface to the document.
@@ -255,9 +255,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSphere', None, arrCenter, arrPlane, dblRadius)
 
-	def AddSrfContourCrvs(self, strObject, arrStartPoint, arrEndPoint, arrPlane, dblInterval):
+	def addsrfcontourcrvs(self, strobject, arrstartpoint, arrendpoint, arrplane, dblinterval):
 		"""
 
 		Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.
@@ -277,9 +277,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSrfContourCrvs', None, strObject, arrStartPoint, arrEndPoint, arrPlane, dblInterval)
 
-	def AddSrfControlPtGrid(self, arrCount, arrPoints, arrDegree):
+	def addsrfcontrolptgrid(self, arrcount, arrpoints, arrdegree):
 		"""
 
 		Creates a surface from a grid of control points.
@@ -297,9 +297,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSrfControlPtGrid', None, arrCount, arrPoints, arrDegree)
 
-	def AddSrfPt(self, arrPoints):
+	def addsrfpt(self, arrpoints):
 		"""
 
 		Creates a new surface from either 3 or 4 corner points.
@@ -315,9 +315,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSrfPt', None, arrPoints)
 
-	def AddSrfPtGrid(self, arrCount, arrPoints, arrDegree, arrClosed):
+	def addsrfptgrid(self, arrcount, arrpoints, arrdegree, arrclosed):
 		"""
 
 		Creates a surface from a grid of points.
@@ -336,9 +336,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSrfPtGrid', None, arrCount, arrPoints, arrDegree, arrClosed)
 
-	def AddSrfSectionCrvs(self, strObject, arrPlane):
+	def addsrfsectioncrvs(self, strobject, arrplane):
 		"""
 
 		Adds planar curves resulting from the intersection of a defined cutting plane through a surface or a polysurface. For more information, see the Rhino help file for details on the Section command.
@@ -355,9 +355,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSrfSectionCrvs', None, strObject, arrPlane)
 
-	def AddSweep1(self, strRail, arrShapes, arrStartPt, arrEndPt, blnClosed, intStyle, vaStyleArg, intSimplify, vaSimplifyArg):
+	def addsweep1(self, strrail, arrshapes, arrstartpt, arrendpt, blnclosed, intstyle, vastylearg, intsimplify, vasimplifyarg):
 		"""
 
 		* The shape curves should be passed in order, starting with the curve closest to the starting point of the rail.
@@ -381,9 +381,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSweep1', None, strRail, arrShapes, arrStartPt, arrEndPt, blnClosed, intStyle, vaStyleArg, intSimplify, vaSimplifyArg)
 
-	def AddSweep2(self, arrRails, arrShapes, arrStartPt, arrEndPt, blnClosed, blnSimpleSweep, blnMaintainHeight, intSimplify, vaSimplifyArg):
+	def addsweep2(self, arrrails, arrshapes, arrstartpt, arrendpt, blnclosed, blnsimplesweep, blnmaintainheight, intsimplify, vasimplifyarg):
 		"""
 
 		* The shape curves should be passed in order, starting with the curve closest to the starting point of the rail.
@@ -407,9 +407,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddSweep2', None, arrRails, arrShapes, arrStartPt, arrEndPt, blnClosed, blnSimpleSweep, blnMaintainHeight, intSimplify, vaSimplifyArg)
 
-	def AddTorus(self, arrBase, arrPlane, dblMajorRadius, dblMinorRadius, arrDirection):
+	def addtorus(self, arrbase, arrplane, dblmajorradius, dblminorradius, arrdirection):
 		"""
 
 		Adds a torus-shaped revolved surface to the document.
@@ -429,9 +429,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'AddTorus', None, arrBase, arrPlane, dblMajorRadius, dblMinorRadius, arrDirection)
 
-	def BooleanDifference(self, arrInput0, arrInput1, blnDelete):
+	def booleandifference(self, arrinput0, arrinput1, blndelete):
 		"""
 
 		Performs a Boolean difference operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanDifference command in the Rhino help file.
@@ -449,9 +449,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BooleanDifference', None, arrInput0, arrInput1, blnDelete)
 
-	def BooleanIntersection(self, arrInput0, arrInput1, blnDelete):
+	def booleanintersection(self, arrinput0, arrinput1, blndelete):
 		"""
 
 		Performs a Boolean intersection operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanIntersection command in the Rhino help file.
@@ -469,9 +469,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BooleanIntersection', None, arrInput0, arrInput1, blnDelete)
 
-	def BooleanUnion(self, arrInput, blnDelete):
+	def booleanunion(self, arrinput, blndelete):
 		"""
 
 		Performs a Boolean union operation on a set of input surfaces and polysurfaces. For more details, see the BooleanUnion command in the Rhino help file.
@@ -488,9 +488,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BooleanUnion', None, arrInput, blnDelete)
 
-	def BrepClosestPoint(self, strObject, arrPoint):
+	def brepclosestpoint(self, strobject, arrpoint):
 		"""
 
 		Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.
@@ -507,9 +507,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'BrepClosestPoint', None, strObject, arrPoint)
 
-	def CapPlanarHoles(self, strSurface):
+	def capplanarholes(self, strsurface):
 		"""
 
 		Caps planar holes in a surface or polysurface. For more details, see the Cap command in the Rhino help file.
@@ -525,9 +525,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'CapPlanarHoles', None, strSurface)
 
-	def DuplicateEdgeCurves(self, strObject, blnSelect):
+	def duplicateedgecurves(self, strobject, blnselect):
 		"""
 
 		Duplicates the edge curves of a surface or polysurface. For more information, see the Rhino help file for information on the DupEdge command.
@@ -544,9 +544,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DuplicateEdgeCurves', None, strObject, blnSelect)
 
-	def DuplicateSurfaceBorder(self, strObject):
+	def duplicatesurfaceborder(self, strobject):
 		"""
 
 		Creates a curve that duplicates a surface or polysurface border.
@@ -562,9 +562,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'DuplicateSurfaceBorder', None, strObject)
 
-	def EvaluateSurface(self, strObject, arrParameter):
+	def evaluatesurface(self, strobject, arrparameter):
 		"""
 
 		Evaluates a surface at a U,V parameter.
@@ -581,9 +581,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'EvaluateSurface', None, strObject, arrParameter)
 
-	def ExplodePolysurfaces(self, strObject, arrObjects, blnDelete):
+	def explodepolysurfaces(self, strobject, arrobjects, blndelete):
 		"""
 
 		Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.
@@ -601,9 +601,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExplodePolysurfaces', None, strObject, arrObjects, blnDelete)
 
-	def ExtractIsoCurve(self, strObject, arrParameter, intDir):
+	def extractisocurve(self, strobject, arrparameter, intdir):
 		"""
 
 		Extracts isoparametric curves from a surface.
@@ -621,9 +621,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExtractIsoCurve', None, strObject, arrParameter, intDir)
 
-	def ExtrudeCurve(self, strCurve, strPath):
+	def extrudecurve(self, strcurve, strpath):
 		"""
 
 		Creates a surface by extruding a curve along a path curve.
@@ -640,9 +640,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExtrudeCurve', None, strCurve, strPath)
 
-	def ExtrudeCurvePoint(self, strCurve, arrPoint):
+	def extrudecurvepoint(self, strcurve, arrpoint):
 		"""
 
 		Creates a surface by extruding a curve to a point.
@@ -659,9 +659,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExtrudeCurvePoint', None, strCurve, arrPoint)
 
-	def ExtrudeCurveStraight(self, strCurve, arrStartPoint, arrEndPoint):
+	def extrudecurvestraight(self, strcurve, arrstartpoint, arrendpoint):
 		"""
 
 		Creates a surface by extruding a curve straight along two points that define a line.
@@ -679,9 +679,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExtrudeCurveStraight', None, strCurve, arrStartPoint, arrEndPoint)
 
-	def ExtrudeCurveTapered(self, strCurve, dblDistance, arrDirection, arrBasePoint, dblAngle, intCornerType):
+	def extrudecurvetapered(self, strcurve, dbldistance, arrdirection, arrbasepoint, dblangle, intcornertype):
 		"""
 
 		Creates a surface by extruding a curve to a taper. Unlike Lofts and Sweeps, the initial orientation of the profile curve is maintained through the extrusion.
@@ -702,9 +702,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExtrudeCurveTapered', None, strCurve, dblDistance, arrDirection, arrBasePoint, dblAngle, intCornerType)
 
-	def ExtrudeSurface(self, strSurface, strCurve, blnCap):
+	def extrudesurface(self, strsurface, strcurve, blncap):
 		"""
 
 		Creates a surface or solid by extruding a straight along a path curve.
@@ -722,9 +722,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ExtrudeSurface', None, strSurface, strCurve, blnCap)
 
-	def FitSurface(self, strObject, arrDegree, dblTolerance):
+	def fitsurface(self, strobject, arrdegree, dbltolerance):
 		"""
 
 		Reduces the number of surface control points while maintaining the surfaces' same general shape.  Use this function for replacing surface with too many control points.  For more information, see the Rhino help file for the FitSrf command.
@@ -742,9 +742,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'FitSurface', None, strObject, arrDegree, dblTolerance)
 
-	def FlipSurface(self, strObject, blnFlip):
+	def flipsurface(self, strobject, blnflip):
 		"""
 
 		Returns or changes the normal direction of a surface. This feature can also be found in Rhino's Dir command.
@@ -762,9 +762,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'FlipSurface', None, strObject, blnFlip)
 
-	def InsertSurfaceKnot(self, strObject, dblParameter, intDirection, blnSymmetrical):
+	def insertsurfaceknot(self, strobject, dblparameter, intdirection, blnsymmetrical):
 		"""
 
 		Inserts a knot into a surface object.
@@ -783,9 +783,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'InsertSurfaceKnot', None, strObject, dblParameter, intDirection, blnSymmetrical)
 
-	def IntersectBreps(self, strBrep1, strBrep2, dblTolerance):
+	def intersectbreps(self, strbrep1, strbrep2, dbltolerance):
 		"""
 
 		Intersects a brep object with another  brep object. Note, unlike the SurfaceSurfaceIntersection function this function works on trimmed surfaces.
@@ -803,9 +803,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IntersectBreps', None, strBrep1, strBrep2, dblTolerance)
 
-	def IsBrep(self, strObject):
+	def isbrep(self, strobject):
 		"""
 
 		Verifies an object is a Brep, or a boundary representation model, object.
@@ -821,9 +821,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsBrep', None, strObject)
 
-	def IsBrepManifold(self, strObject):
+	def isbrepmanifold(self, strobject):
 		"""
 
 		Verifies a polysurface object is manifold.  A polysurface for which every edge is shared by at most two faces is called a manifold.  If a polysurface has at least one edge that is shared by more than two faces, then that polysurface is called non-manifold.
@@ -839,9 +839,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsBrepManifold', None, strObject)
 
-	def IsCone(self, strSurface):
+	def iscone(self, strsurface):
 		"""
 
 		Determines if a surface is a portion of a cone.
@@ -857,9 +857,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsCone', None, strSurface)
 
-	def IsCylinder(self, strSurface):
+	def iscylinder(self, strsurface):
 		"""
 
 		Determines if a surface is a portion of a cylinder.
@@ -875,9 +875,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsCylinder', None, strSurface)
 
-	def IsParameterOnSurface(self, strObject, arrParameter):
+	def isparameteronsurface(self, strobject, arrparameter):
 		"""
 
 		Verifies that a parameter space point is on a trimmed surface, or not on the trimmed portion of a surface.
@@ -894,9 +894,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsParameterOnSurface', None, strObject, arrParameter)
 
-	def IsPlaneSurface(self, strObject):
+	def isplanesurface(self, strobject):
 		"""
 
 		Verifies an object is a plane surface. Plane surfaces can be created by the Plane command. Note, a plane surface is not a planar NURBS surface.
@@ -912,9 +912,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsPlaneSurface', None, strObject)
 
-	def IsPointInSurface(self, strObject, arrPoint):
+	def ispointinsurface(self, strobject, arrpoint):
 		"""
 
 		Verifies that a point is inside a closed surface or polysurface.
@@ -931,9 +931,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsPointInSurface', None, strObject, arrPoint)
 
-	def IsPointOnSurface(self, strObject, arrPoint):
+	def ispointonsurface(self, strobject, arrpoint):
 		"""
 
 		Verifies that a point lies on a surface.
@@ -950,9 +950,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsPointOnSurface', None, strObject, arrPoint)
 
-	def IsPolysurface(self, strObject):
+	def ispolysurface(self, strobject):
 		"""
 
 		Verifies an object is a polysurface.  Polysurfaces consists of two or more surfaces joined together. If the polysurface fully encloses a volume, it is considered a solid. In some other 3-D programs, this is called a "quilt."
@@ -968,9 +968,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsPolysurface', None, strObject)
 
-	def IsPolysurfaceClosed(self, strObject):
+	def ispolysurfaceclosed(self, strobject):
 		"""
 
 		Verifies a polysurface object is closed.  If the polysurface fully encloses a volume, it is considered a solid.
@@ -986,9 +986,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsPolysurfaceClosed', None, strObject)
 
-	def IsPolysurfacePlanar(self, strObject):
+	def ispolysurfaceplanar(self, strobject):
 		"""
 
 		Verifies a polysurface object is planar.
@@ -1004,9 +1004,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsPolysurfacePlanar', None, strObject)
 
-	def IsSphere(self, strSurface):
+	def issphere(self, strsurface):
 		"""
 
 		Determines if a surface is a portion of a sphere.
@@ -1022,9 +1022,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsSphere', None, strSurface)
 
-	def IsSurface(self, strObject):
+	def issurface(self, strobject):
 		"""
 
 		Verifies an object is surface.  Brep objects with only one face are also considered surfaces.
@@ -1040,9 +1040,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsSurface', None, strObject)
 
-	def IsSurfaceClosed(self, strObject, intDirection):
+	def issurfaceclosed(self, strobject, intdirection):
 		"""
 
 		Verifies a surface object is closed in the specified direction.  If the surface fully encloses a volume, it is considered a solid.
@@ -1059,9 +1059,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsSurfaceClosed', None, strObject, intDirection)
 
-	def IsSurfacePeriodic(self, strObject, intDirection):
+	def issurfaceperiodic(self, strobject, intdirection):
 		"""
 
 		Verifies a surface object is periodic in the specified direction.
@@ -1078,9 +1078,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsSurfacePeriodic', None, strObject, intDirection)
 
-	def IsSurfacePlanar(self, strObject, dblTolerance):
+	def issurfaceplanar(self, strobject, dbltolerance):
 		"""
 
 		Verifies a surface object is planar.
@@ -1097,9 +1097,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsSurfacePlanar', None, strObject, dblTolerance)
 
-	def IsSurfaceRational(self, strObject):
+	def issurfacerational(self, strobject):
 		"""
 
 		Verifies a surface object is rational.
@@ -1115,9 +1115,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsSurfaceRational', None, strObject)
 
-	def IsSurfaceSingular(self, strObject, intDirection):
+	def issurfacesingular(self, strobject, intdirection):
 		"""
 
 		Verifies a surface object is singular in the specified direction.  Surfaces are considered singular if a side collapses to a point.
@@ -1134,9 +1134,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsSurfaceSingular', None, strObject, intDirection)
 
-	def IsSurfaceTrimmed(self, strObject):
+	def issurfacetrimmed(self, strobject):
 		"""
 
 		Verifies a surface object has been trimmed.
@@ -1152,9 +1152,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsSurfaceTrimmed', None, strObject)
 
-	def IsTorus(self, strSurface):
+	def istorus(self, strsurface):
 		"""
 
 		Determines if a surface is a portion of a torus.
@@ -1170,9 +1170,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsTorus', None, strSurface)
 
-	def JoinSurfaces(self, strObject, blnDelete):
+	def joinsurfaces(self, strobject, blndelete):
 		"""
 
 		Joins two or more surface or polysurface object together to form one polysurface object.
@@ -1189,9 +1189,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'JoinSurfaces', None, strObject, blnDelete)
 
-	def MakeSurfaceNonPeriodic(self, strObject, intDirection, blnDelete):
+	def makesurfacenonperiodic(self, strobject, intdirection, blndelete):
 		"""
 
 		Makes a periodic surface non-periodic. Non-periodic surfaces can develop kinks when deformed.
@@ -1210,9 +1210,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MakeSurfaceNonPeriodic', None, strObject, intDirection, blnDelete)
 
-	def MakeSurfacePeriodic(self, strObject, intDirection, blnDelete):
+	def makesurfaceperiodic(self, strobject, intdirection, blndelete):
 		"""
 
 		Makes an existing surface a periodic NURBS surface.
@@ -1231,9 +1231,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'MakeSurfacePeriodic', None, strObject, intDirection, blnDelete)
 
-	def OffsetSurface(self, strObject, dblDistance):
+	def offsetsurface(self, strobject, dbldistance):
 		"""
 
 		Offsets a surface by a distance. The offset surface will be added to Rhino.
@@ -1250,9 +1250,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'OffsetSurface', None, strObject, dblDistance)
 
-	def PullCurve(self, strSurface, strCurve, blnDelete):
+	def pullcurve(self, strsurface, strcurve, blndelete):
 		"""
 
 		Pulls a curve object to a surface object. For more information, see the Rhino help file for information on the Pull command.
@@ -1270,9 +1270,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'PullCurve', None, strSurface, strCurve, blnDelete)
 
-	def RebuildSurface(self, strObject, arrDegree, arrPointCount):
+	def rebuildsurface(self, strobject, arrdegree, arrpointcount):
 		"""
 
 		Rebuilds a surface to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.
@@ -1290,9 +1290,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RebuildSurface', None, strObject, arrDegree, arrPointCount)
 
-	def RemoveSurfaceKnot(self, strObject, dblParameter, intDirection):
+	def removesurfaceknot(self, strobject, dblparameter, intdirection):
 		"""
 
 		Deletes a knot-line from a surface object.
@@ -1310,9 +1310,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveSurfaceKnot', None, strObject, dblParameter, intDirection)
 
-	def ReverseSurface(self, strObject, intDirection):
+	def reversesurface(self, strobject, intdirection):
 		"""
 
 		To reverse the normal direction of a surface, use the FlipSurface method.
@@ -1329,9 +1329,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ReverseSurface', None, strObject, intDirection)
 
-	def ShortPath(self, strSurface, arrStart, arrEnd):
+	def shortpath(self, strsurface, arrstart, arrend):
 		"""
 
 		Creates the shortest possible curve (geodesic) between two points on a surface. For more details, see the ShortPath command in the Rhino help file.
@@ -1349,9 +1349,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ShortPath', None, strSurface, arrStart, arrEnd)
 
-	def ShrinkTrimmedSurface(self, strSurface):
+	def shrinktrimmedsurface(self, strsurface):
 		"""
 
 		Shrinks the underlying untrimmed surfaces near to trimming boundaries. For more details, see the ShrinkTrimmedSrf command in the Rhino help file.
@@ -1367,9 +1367,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'ShrinkTrimmedSurface', None, strSurface)
 
-	def SplitBrep(self, strBrep, strCutter, blnDelete):
+	def splitbrep(self, strbrep, strcutter, blndelete):
 		"""
 
 		Splits a brep.  A brep can be either a surface with a single face or a polysurface.
@@ -1387,9 +1387,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SplitBrep', None, strBrep, strCutter, blnDelete)
 
-	def SurfaceArea(self, strObject):
+	def surfacearea(self, strobject):
 		"""
 
 		Calculates the area of a surface or polysurface object. The results are based on the current drawing units.
@@ -1407,9 +1407,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceArea', None, strObject)
 
-	def SurfaceAreaCentroid(self, strObject):
+	def surfaceareacentroid(self, strobject):
 		"""
 
 		Calculates the area centroid of a surface or polysurface object.
@@ -1425,9 +1425,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceAreaCentroid', None, strObject)
 
-	def SurfaceAreaMoments(self, strObject):
+	def surfaceareamoments(self, strobject):
 		"""
 
 		Calculates the area moments of inertia of a surface or polysurface object.  For more information, see the Rhino help file for "Mass Properties Calculation Details."
@@ -1443,9 +1443,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceAreaMoments', None, strObject)
 
-	def SurfaceClosestPoint(self, strObject, arrPoint):
+	def surfaceclosestpoint(self, strobject, arrpoint):
 		"""
 
 		Returns the UV parameter of the point on a surface that is closest to a test point.
@@ -1462,9 +1462,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceClosestPoint', None, strObject, arrPoint)
 
-	def SurfaceCone(self, strSurface):
+	def surfacecone(self, strsurface):
 		"""
 
 		Returns the definition of a cone surface.
@@ -1483,9 +1483,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceCone', None, strSurface)
 
-	def SurfaceContourPoints(self, strObject, arrStartPoint, arrEndPoint, dblInterval, dblAngle):
+	def surfacecontourpoints(self, strobject, arrstartpoint, arrendpoint, dblinterval, dblangle):
 		"""
 
 		Returns the vertices of the polyline curves generated by contouring a surface or polysurface object.
@@ -1505,9 +1505,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceContourPoints', None, strObject, arrStartPoint, arrEndPoint, dblInterval, dblAngle)
 
-	def SurfaceCurvature(self, strObject, arrParameter):
+	def surfacecurvature(self, strobject, arrparameter):
 		"""
 
 		Returns the curvature of a surface at a U,V parameter.  See the Rhino help file for details on surface curvature.
@@ -1528,9 +1528,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceCurvature', None, strObject, arrParameter)
 
-	def SurfaceCurvatureAnalysis(self, strObject):
+	def surfacecurvatureanalysis(self, strobject):
 		"""
 
 		Returns the curvature of a surface.  See the Rhino help file for details on surface curvature analysis.
@@ -1550,9 +1550,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceCurvatureAnalysis', None, strObject)
 
-	def SurfaceCylinder(self, strSurface):
+	def surfacecylinder(self, strsurface):
 		"""
 
 		Returns the definition of a cylinder surface.
@@ -1571,9 +1571,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceCylinder', None, strSurface)
 
-	def SurfaceDegree(self, strObject, intDirection):
+	def surfacedegree(self, strobject, intdirection):
 		"""
 
 		Returns the degree of a  surface object in the specified direction.
@@ -1591,9 +1591,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceDegree', None, strObject, intDirection)
 
-	def SurfaceDomain(self, strObject, intDirection):
+	def surfacedomain(self, strobject, intdirection):
 		"""
 
 		Returns the domain of a  surface object in the specified direction.
@@ -1610,9 +1610,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceDomain', None, strObject, intDirection)
 
-	def SurfaceEditPoints(self, strObject, blnReturnParameters, blnReturnAll):
+	def surfaceeditpoints(self, strobject, blnreturnparameters, blnreturnall):
 		"""
 
 		Returns the edit, or Greville, points of a surface object.  For each surface control point, there is a corresponding edit point.
@@ -1631,9 +1631,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceEditPoints', None, strObject, blnReturnParameters, blnReturnAll)
 
-	def SurfaceEvaluate(self, strObject, arrParameter, intDerivative):
+	def surfaceevaluate(self, strobject, arrparameter, intderivative):
 		"""
 
 		A general purpose surface evaluator.
@@ -1658,9 +1658,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceEvaluate', None, strObject, arrParameter, intDerivative)
 
-	def SurfaceFrame(self, strObject, arrParameter):
+	def surfaceframe(self, strobject, arrparameter):
 		"""
 
 		Returns a plane based on the normal, u, and v directions at a given surface U,V parameter.
@@ -1677,9 +1677,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceFrame', None, strObject, arrParameter)
 
-	def SurfaceIsocurveDensity(self, strObject, intDensity):
+	def surfaceisocurvedensity(self, strobject, intdensity):
 		"""
 
 		Returns or sets the isocurve density of a surface or polysurface object. An isoparametric curve is a curve of constant U or V value on a surface. Rhino uses isocurves and surface edge curves to visualize the shape of a NURBS surface.
@@ -1697,9 +1697,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceIsocurveDensity', None, strObject, intDensity)
 
-	def SurfaceKnotCount(self, strObject):
+	def surfaceknotcount(self, strobject):
 		"""
 
 		Returns the knot count of a surface object.
@@ -1715,9 +1715,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceKnotCount', None, strObject)
 
-	def SurfaceKnots(self, strObject):
+	def surfaceknots(self, strobject):
 		"""
 
 		Returns the knots, or knot vector, of a surface object.
@@ -1733,9 +1733,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceKnots', None, strObject)
 
-	def SurfaceNormal(self, strObject, arrParameter):
+	def surfacenormal(self, strobject, arrparameter):
 		"""
 
 		Returns a 3-D vector that is the normal to a surface at a parameter.
@@ -1752,9 +1752,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceNormal', None, strObject, arrParameter)
 
-	def SurfacePointCount(self, strObject):
+	def surfacepointcount(self, strobject):
 		"""
 
 		Returns the control points count of a surface object.
@@ -1770,9 +1770,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfacePointCount', None, strObject)
 
-	def SurfacePoints(self, strObject, blnReturnAll):
+	def surfacepoints(self, strobject, blnreturnall):
 		"""
 
 		Returns the control points, or control vertices, of a surface object.
@@ -1789,9 +1789,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfacePoints', None, strObject, blnReturnAll)
 
-	def SurfacePrincipalCurvature(self, strObject, arrPoint):
+	def surfaceprincipalcurvature(self, strobject, arrpoint):
 		"""
 
 		Adds curvature curves at the evaluated point on a surface. For more information, see the Rhino help file for the Curvature command.
@@ -1808,9 +1808,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfacePrincipalCurvature', None, strObject, arrPoint)
 
-	def SurfaceSeam(self, strObject, intDirection, dblParameter):
+	def surfaceseam(self, strobject, intdirection, dblparameter):
 		"""
 
 		Changes the seam of a closed surface. For more information, see the Rhino help file for the SrfSeam command.
@@ -1828,9 +1828,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceSeam', None, strObject, intDirection, dblParameter)
 
-	def SurfaceSphere(self, strSurface):
+	def surfacesphere(self, strsurface):
 		"""
 
 		Returns the definition of a sphere surface.
@@ -1848,9 +1848,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceSphere', None, strSurface)
 
-	def SurfaceSurfaceIntersection(self, strSurfaceA, strSurfaceB, dblTolerance, blnCreate):
+	def surfacesurfaceintersection(self, strsurfacea, strsurfaceb, dbltolerance, blncreate):
 		"""
 
 		Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
@@ -1872,9 +1872,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceSurfaceIntersection', None, strSurfaceA, strSurfaceB, dblTolerance, blnCreate)
 
-	def SurfaceTorus(self, strSurface):
+	def surfacetorus(self, strsurface):
 		"""
 
 		Returns the definition of a torus surface.
@@ -1893,9 +1893,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceTorus', None, strSurface)
 
-	def SurfaceVolume(self, strObject):
+	def surfacevolume(self, strobject):
 		"""
 
 		Calculates the volume of closed surface or polysurface objects.
@@ -1913,9 +1913,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceVolume', None, strObject)
 
-	def SurfaceVolumeCentroid(self, strObject):
+	def surfacevolumecentroid(self, strobject):
 		"""
 
 		Calculates the volume centroid of closed surface or polysurface objects.
@@ -1931,9 +1931,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceVolumeCentroid', None, strObject)
 
-	def SurfaceVolumeMoments(self, strObject):
+	def surfacevolumemoments(self, strobject):
 		"""
 
 		Calculates the volume moments of inertia of closed surface or polysurface objects.  For more information, see the Rhino help file for "Mass Properties Calculation Details."
@@ -1949,9 +1949,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceVolumeMoments', None, strObject)
 
-	def SurfaceWeights(self, strObject):
+	def surfaceweights(self, strobject):
 		"""
 
 		Returns an array of weight values that are assigned to the control points of a surface.  The number of weights returned will be equal to the number of control points in the U and V directions.
@@ -1967,5 +1967,5 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'SurfaceWeights', None, strObject)
 

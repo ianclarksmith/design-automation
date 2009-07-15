@@ -8,7 +8,7 @@ class Transformation(DispatchBaseClass):
 
 
 
-	def IsXformIdentity(self, arrXform):
+	def isxformidentity(self, arrxform):
 		"""
 
 		1
@@ -24,9 +24,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsXformIdentity', None, arrXform)
 
-	def IsXformIsSimilarity(self, arrXform):
+	def isxformissimilarity(self, arrxform):
 		"""
 
 		Verifies that a matrix is a similarity transformation. A similarity transformation can be broken into a sequence of dialations, translations, rotations, and reflections.
@@ -42,9 +42,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsXformIsSimilarity', None, arrXform)
 
-	def IsXformZero(self, arrXform):
+	def isxformzero(self, arrxform):
 		"""
 
 		0
@@ -60,9 +60,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'IsXformZero', None, arrXform)
 
-	def XformCPlaneToWorld(self, arrPoint, arrPlane, 0, 1, 2, 3):
+	def xformcplanetoworld(self, arrpoint, arrplane, 0, 1, 2, 3):
 		"""
 
 		Transforms a point from construction plane coordinates to world coordinates.
@@ -83,9 +83,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformCPlaneToWorld', None, arrPoint, arrPlane, 0, 1, 2, 3)
 
-	def XformChangeBasis(self, arrPlane1, arrPlane2, arrX0, arrY0, arrZ0, arrX1, arrY1, arrZ1):
+	def xformchangebasis(self, arrplane1, arrplane2, arrx0, arry0, arrz0, arrx1, arry1, arrz1):
 		"""
 
 		Returns a change of basis transformation matrix.
@@ -108,9 +108,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformChangeBasis', None, arrPlane1, arrPlane2, arrX0, arrY0, arrZ0, arrX1, arrY1, arrZ1)
 
-	def XformCompare(self, arrXform1, arrXform2):
+	def xformcompare(self, arrxform1, arrxform2):
 		"""
 
 		Compares two transformation matrices.
@@ -126,9 +126,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformCompare', None, arrXform1, arrXform2)
 
-	def XformDeterminant(self, arrXform):
+	def xformdeterminant(self, arrxform):
 		"""
 
 		Returns the determinant of a transformation matrix. If the determinant of a transformation matrix is 0, the matrix is said to be singular. Singular matrices do not have inverses.
@@ -144,9 +144,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformDeterminant', None, arrXform)
 
-	def XformDiagonal(self, dblValue):
+	def xformdiagonal(self, dblvalue):
 		"""
 
 		1
@@ -162,9 +162,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformDiagonal', None, dblValue)
 
-	def XformIdentity(self):
+	def xformidentity(self, ):
 		"""
 
 		1
@@ -177,9 +177,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformIdentity', None, )
 
-	def XformInverse(self, arrXform):
+	def xforminverse(self, arrxform):
 		"""
 
 		Returns the inverse of a non-singular transformation matrix.
@@ -195,9 +195,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformInverse', None, arrXform)
 
-	def XformMirror(self, arrPoint, arrNormal):
+	def xformmirror(self, arrpoint, arrnormal):
 		"""
 
 		Creates a mirror transformation matrix.
@@ -214,9 +214,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformMirror', None, arrPoint, arrNormal)
 
-	def XformMultiply(self, arrXform1, arrXform2):
+	def xformmultiply(self, arrxform1, arrxform2):
 		"""
 
 		Multiples two transformation matrices, where arrXform = arrXform1 * arrXform2.
@@ -233,9 +233,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformMultiply', None, arrXform1, arrXform2)
 
-	def XformPlanarProjection(self, arrPlane):
+	def xformplanarprojection(self, arrplane):
 		"""
 
 		Returns a transformation matrix that projects to a plane.
@@ -251,9 +251,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformPlanarProjection', None, arrPlane)
 
-	def XformRotation(self, arrPlane1, arrPlane2, dblAngle, arrAxis, arrStartDir, arrEndDir, arrPoint, arrX0, arrY0, arrZ0, arrX1, arrY1, arrZ1):
+	def xformrotation(self, arrplane1, arrplane2, dblangle, arraxis, arrstartdir, arrenddir, arrpoint, arrx0, arry0, arrz0, arrx1, arry1, arrz1):
 		"""
 
 		Returns a rotation transformation matrix. The XformRotation provides several ways to compute a rotation transformation.  A positive rotation angle indicates a counter-clockwise (right hand rule) rotation about the axis of rotation.
@@ -281,9 +281,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformRotation', None, arrPlane1, arrPlane2, dblAngle, arrAxis, arrStartDir, arrEndDir, arrPoint, arrX0, arrY0, arrZ0, arrX1, arrY1, arrZ1)
 
-	def XformScale(self, arrPlane, dblXScale, dblYScale, dblZScale, arrVector, arrPoint, dblScale):
+	def xformscale(self, arrplane, dblxscale, dblyscale, dblzscale, arrvector, arrpoint, dblscale):
 		"""
 
 		Returns a scale transformation matrix.
@@ -305,9 +305,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformScale', None, arrPlane, dblXScale, dblYScale, dblZScale, arrVector, arrPoint, dblScale)
 
-	def XformScreenToWorld(self, arrPoint, strView, blnConvert):
+	def xformscreentoworld(self, arrpoint, strview, blnconvert):
 		"""
 
 		Transforms either client-area coordinates of a specified view or screen coordinates to world coordinates. The resulting coordinates are represented as a 3-D point.
@@ -325,9 +325,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformScreenToWorld', None, arrPoint, strView, blnConvert)
 
-	def XformShear(self, arrPlane, arrX1, arrY1, arrZ1):
+	def xformshear(self, arrplane, arrx1, arry1, arrz1):
 		"""
 
 		Returns a scale transformation matrix.
@@ -346,9 +346,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformShear', None, arrPlane, arrX1, arrY1, arrZ1)
 
-	def XformTranslation(self, arrVector):
+	def xformtranslation(self, arrvector):
 		"""
 
 		Creates a translation transformation matrix.
@@ -364,9 +364,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformTranslation', None, arrVector)
 
-	def XformWorldToCPlane(self, arrPoint, arrPlane, 0, 1, 2, 3):
+	def xformworldtocplane(self, arrpoint, arrplane, 0, 1, 2, 3):
 		"""
 
 		Transforms a point from world coordinates to construction plane coordinates.
@@ -387,9 +387,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformWorldToCPlane', None, arrPoint, arrPlane, 0, 1, 2, 3)
 
-	def XformWorldToScreen(self, arrPoint, strView, blnConvert):
+	def xformworldtoscreen(self, arrpoint, strview, blnconvert):
 		"""
 
 		Transforms a point from world coordinates to either client-area coordinates of the specified view or screen coordinates. The resulting coordinates are represented as a 2-D point.
@@ -408,9 +408,9 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformWorldToScreen', None, arrPoint, strView, blnConvert)
 
-	def XformZero(self):
+	def xformzero(self, ):
 		"""
 
 		0
@@ -423,5 +423,5 @@ class Transformation(DispatchBaseClass):
 
 		"""
 
-		pass
+		return self._ApplyTypes_(id, 1, (returns), (params), u'XformZero', None, )
 
