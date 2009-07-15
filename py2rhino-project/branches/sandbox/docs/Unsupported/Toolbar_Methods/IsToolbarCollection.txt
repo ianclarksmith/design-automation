@@ -1,0 +1,71 @@
+IsToolbarCollection
+
+
+
+IsToolbarCollection
+
+
+Verifies that a toolbar collection is open.
+
+
+Syntax
+
+
+Rhino.IsToolbarCollection (strFile)
+
+
+Parameters
+
+
+
+strFile 
+
+Required.  String.  The full path to the toolbar collection file to verify.
+
+
+Returns
+
+
+
+String 
+
+The Rhino-assigned name of the toolbar collection if successful..
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strFile, strName
+
+strFile = "C:\Program Files\Rhinoceros\System\Default.tb"
+
+strName = Rhino.IsToolbarCollection(strFile)
+
+If Not IsNull(strName) Then
+
+Rhino.Print "The default toolbar collection is loaded."
+
+Else
+
+Rhino.Print "The default toolbar collection is not loaded."
+
+End If
+
+
+Also See
+
+
+CloseToolbarCollection
+
+OpenToolbarCollection
+
+ToolbarCollectionCount
+
+ToolbarCollectionNames
+
+ToolbarCollectionPath
+
