@@ -38,7 +38,7 @@ class View(object):
             format = "." + format
         py2ecotect.conversation.Exec("view.copy" + format)
 
-    def draw_arrow2d(self, x, y, size = 0):
+    def draw_arrow2d(self, x, y, size = ""):
         """
         
         Draws a 2D arrow object from the origin point to the specified 2D screen 
@@ -60,7 +60,7 @@ class View(object):
                                                       size)
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_arrowto(self, x, y, z, size = 0):
+    def draw_arrowto(self, x, y, z, size = ""):
         """
         
         Draws a 3D arrow object from the origin point to the specified 3D world 
@@ -241,7 +241,7 @@ class View(object):
                                                       z, text)
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_text2d(selfx, y, string):
+    def draw_text2d(self, x, y, string):
         """
         
         Displays a string of text at the specified 3D world position inside the 
@@ -1011,7 +1011,7 @@ if __name__ == "__main__":
     x = View()
     
     #x.copy()
-    #x.draw_arrow2d(100, 250)
+    x.draw_arrow2d(100, 250)
     #x.draw_arrowto(50, 100, 100)
     #x.draw_cross(2300.0, 5400.0, 2400.0)
     #x.draw_text(2300, 5400, 2400, "TEST")
