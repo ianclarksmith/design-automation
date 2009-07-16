@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Material(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Material(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -25,7 +24,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(173, 1, (12, 0), ((12, 0)), u'AddMaterialToLayer', None, object)
+        return self._ApplyTypes_(173, 1, (12, 0), ((8, 0),), u'AddMaterialToLayer', None, object)
 
     def add_material_to_object(self, object):
         """
@@ -34,7 +33,7 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -43,7 +42,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(174, 1, (12, 0), ((12, 0)), u'AddMaterialToObject', None, object)
+        return self._ApplyTypes_(174, 1, (12, 0), ((8, 0),), u'AddMaterialToObject', None, object)
 
     def copy_material(self, src_index, dst_index):
         """
@@ -52,8 +51,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        SrcIndex : Required, Number, int
-        DstIndex : Required, Number, int
+        SrcIndex : Required, Number, int, Integer
+        DstIndex : Required, Number, int, Integer
 
         Returns
 
@@ -62,7 +61,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(812, 1, (12, 0), ((12, 0), (12, 0)), u'CopyMaterial', None, src_index, dst_index)
+        return self._ApplyTypes_(812, 1, (12, 0), ((2, 0), (2, 0),), u'CopyMaterial', None, src_index, dst_index)
 
     def is_material_default(self, material_index):
         """
@@ -71,7 +70,7 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
+        MaterialIndex : Required, Number, int, Integer
 
         Returns
 
@@ -79,7 +78,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(175, 1, (12, 0), ((12, 0)), u'IsMaterialDefault', None, material_index)
+        return self._ApplyTypes_(175, 1, (12, 0), ((2, 0),), u'IsMaterialDefault', None, material_index)
 
     def is_material_reference(self, material_index):
         """
@@ -88,7 +87,7 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
+        MaterialIndex : Required, Number, int, Integer
 
         Returns
 
@@ -97,7 +96,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(176, 1, (12, 0), ((12, 0)), u'IsMaterialReference', None, material_index)
+        return self._ApplyTypes_(176, 1, (12, 0), ((2, 0),), u'IsMaterialReference', None, material_index)
 
     def match_material(self, src_material_index, src_object, dest_object, dest_objects):
         """
@@ -117,8 +116,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        FileName : Optional, String, str
+        MaterialIndex : Required, Number, int, Integer
+        FileName : Optional, String, str, String
 
         Returns
 
@@ -128,7 +127,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(177, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialBump', None, material_index, file_name)
+        return self._ApplyTypes_(177, 1, (12, 0), ((2, 0), (8, 0),), u'MaterialBump', None, material_index, file_name)
 
     def material_color(self, material_index, color):
         """
@@ -137,8 +136,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        Color : Optional, Number, lng
+        MaterialIndex : Required, Number, int, Integer
+        Color : Optional, Number, lng, Integer
 
         Returns
 
@@ -148,7 +147,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(178, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialColor', None, material_index, color)
+        return self._ApplyTypes_(178, 1, (12, 0), ((2, 0), (3, 0),), u'MaterialColor', None, material_index, color)
 
     def material_environment_map(self, material_index, file_name):
         """
@@ -157,8 +156,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        FileName : Optional, String, str
+        MaterialIndex : Required, Number, int, Integer
+        FileName : Optional, String, str, String
 
         Returns
 
@@ -168,7 +167,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(754, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialEnvironmentMap', None, material_index, file_name)
+        return self._ApplyTypes_(754, 1, (12, 0), ((2, 0), (8, 0),), u'MaterialEnvironmentMap', None, material_index, file_name)
 
     def material_name(self, material_index, name):
         """
@@ -177,8 +176,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        Name : Optional, String, str
+        MaterialIndex : Required, Number, int, Integer
+        Name : Optional, String, str, String
 
         Returns
 
@@ -188,7 +187,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(179, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialName', None, material_index, name)
+        return self._ApplyTypes_(179, 1, (12, 0), ((2, 0), (8, 0),), u'MaterialName', None, material_index, name)
 
     def material_reflective_color(self, material_index, color):
         """
@@ -197,8 +196,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        Color : Optional, Number, lng
+        MaterialIndex : Required, Number, int, Integer
+        Color : Optional, Number, lng, Integer
 
         Returns
 
@@ -208,7 +207,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(180, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialReflectiveColor', None, material_index, color)
+        return self._ApplyTypes_(180, 1, (12, 0), ((2, 0), (3, 0),), u'MaterialReflectiveColor', None, material_index, color)
 
     def material_shine(self, material_index, shine):
         """
@@ -217,8 +216,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        Shine : Optional, Number, dbl
+        MaterialIndex : Required, Number, int, Integer
+        Shine : Optional, Number, dbl, Double
 
         Returns
 
@@ -228,7 +227,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(181, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialShine', None, material_index, shine)
+        return self._ApplyTypes_(181, 1, (12, 0), ((2, 0), (5, 0),), u'MaterialShine', None, material_index, shine)
 
     def material_texture(self, material_index, file_name):
         """
@@ -237,8 +236,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        FileName : Optional, String, str
+        MaterialIndex : Required, Number, int, Integer
+        FileName : Optional, String, str, String
 
         Returns
 
@@ -248,7 +247,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(182, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialTexture', None, material_index, file_name)
+        return self._ApplyTypes_(182, 1, (12, 0), ((2, 0), (8, 0),), u'MaterialTexture', None, material_index, file_name)
 
     def material_transparency(self, material_index, transparency):
         """
@@ -257,8 +256,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        Transparency : Optional, Number, dbl
+        MaterialIndex : Required, Number, int, Integer
+        Transparency : Optional, Number, dbl, Double
 
         Returns
 
@@ -268,7 +267,7 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(183, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialTransparency', None, material_index, transparency)
+        return self._ApplyTypes_(183, 1, (12, 0), ((2, 0), (5, 0),), u'MaterialTransparency', None, material_index, transparency)
 
     def material_transparency_map(self, material_index, file_name):
         """
@@ -277,8 +276,8 @@ class Material(DispatchBaseClass):
 
         Parameters
 
-        MaterialIndex : Required, Number, int
-        FileName : Optional, String, str
+        MaterialIndex : Required, Number, int, Integer
+        FileName : Optional, String, str, String
 
         Returns
 
@@ -288,5 +287,5 @@ class Material(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(753, 1, (12, 0), ((12, 0), (12, 0)), u'MaterialTransparencyMap', None, material_index, file_name)
+        return self._ApplyTypes_(753, 1, (12, 0), ((2, 0), (8, 0),), u'MaterialTransparencyMap', None, material_index, file_name)
 

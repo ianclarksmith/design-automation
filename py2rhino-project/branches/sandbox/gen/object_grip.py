@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class ObjectGrip(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class ObjectGrip(IRhinoScript):
 
 
 
@@ -16,8 +15,8 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Enable : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -26,7 +25,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(499, 1, (12, 0), ((12, 0), (12, 0)), u'EnableObjectGrips', None, object, enable)
+        return self._ApplyTypes_(499, 1, (12, 0), ((8, 0), (11, 0),), u'EnableObjectGrips', None, object, enable)
 
     def get_object_grip(self, message, pre_select, select):
         """
@@ -35,9 +34,9 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Message : Optional, String, str
-        PreSelect : Optional, Boolean, bln
-        Select : Optional, Boolean, bln
+        Message : Optional, String, str, String
+        PreSelect : Optional, Boolean, bln, Boolean
+        Select : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -49,7 +48,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(561, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetObjectGrip', None, message, pre_select, select)
+        return self._ApplyTypes_(561, 1, (12, 0), ((8, 0), (11, 0), (11, 0),), u'GetObjectGrip', None, message, pre_select, select)
 
     def get_object_grips(self, message, pre_select, select):
         """
@@ -58,9 +57,9 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Message : Optional, String, str
-        PreSelect : Optional, Boolean, bln
-        Select : Optional, Boolean, bln
+        Message : Optional, String, str, String
+        PreSelect : Optional, Boolean, bln, Boolean
+        Select : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -72,7 +71,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(562, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetObjectGrips', None, message, pre_select, select)
+        return self._ApplyTypes_(562, 1, (12, 0), ((8, 0), (11, 0), (11, 0),), u'GetObjectGrips', None, message, pre_select, select)
 
     def next_object_grip(self, object, index, direction, enable):
         """
@@ -81,10 +80,10 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Required, Number, int
-        Direction : Optional, Number, int
-        Enable : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Index : Required, Number, int, Integer
+        Direction : Optional, Number, int, Integer
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -93,7 +92,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(558, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'NextObjectGrip', None, object, index, direction, enable)
+        return self._ApplyTypes_(558, 1, (12, 0), ((8, 0), (2, 0), (2, 0), (11, 0),), u'NextObjectGrip', None, object, index, direction, enable)
 
     def object_grip_count(self, object):
         """
@@ -102,7 +101,7 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -111,7 +110,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(500, 1, (12, 0), ((12, 0)), u'ObjectGripCount', None, object)
+        return self._ApplyTypes_(500, 1, (12, 0), ((8, 0),), u'ObjectGripCount', None, object)
 
     def object_grip_location(self, object, index, point):
         """
@@ -120,9 +119,9 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Required, Number, int
-        Point : Optional, Array, arr
+        Object : Required, String, str, String
+        Index : Required, Number, int, Integer
+        Point : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -132,7 +131,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(556, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ObjectGripLocation', None, object, index, point)
+        return self._ApplyTypes_(556, 1, (12, 0), ((8, 0), (2, 0), (8197, 0),), u'ObjectGripLocation', None, object, index, _utils.flatten(point))
 
     def object_grip_locations(self, object, points):
         """
@@ -141,8 +140,8 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Points : Optional, Array, arr
+        Object : Required, String, str, String
+        Points : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -152,7 +151,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(557, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectGripLocations', None, object, points)
+        return self._ApplyTypes_(557, 1, (12, 0), ((8, 0), (8197, 0),), u'ObjectGripLocations', None, object, _utils.flatten(points))
 
     def object_grips_on(self, object):
         """
@@ -161,7 +160,7 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -170,7 +169,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(497, 1, (12, 0), ((12, 0)), u'ObjectGripsOn', None, object)
+        return self._ApplyTypes_(497, 1, (12, 0), ((8, 0),), u'ObjectGripsOn', None, object)
 
     def object_grips_selected(self, object):
         """
@@ -179,7 +178,7 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -188,7 +187,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(498, 1, (12, 0), ((12, 0)), u'ObjectGripsSelected', None, object)
+        return self._ApplyTypes_(498, 1, (12, 0), ((8, 0),), u'ObjectGripsSelected', None, object)
 
     def prev_object_grip(self, object, index, direction, enable):
         """
@@ -197,10 +196,10 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Required, Number, int
-        Direction : Optional, Number, int
-        Enable : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Index : Required, Number, int, Integer
+        Direction : Optional, Number, int, Integer
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -209,7 +208,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(559, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'PrevObjectGrip', None, object, index, direction, enable)
+        return self._ApplyTypes_(559, 1, (12, 0), ((8, 0), (2, 0), (2, 0), (11, 0),), u'PrevObjectGrip', None, object, index, direction, enable)
 
     def select_object_grip(self, object, index):
         """
@@ -218,8 +217,8 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Required, Number, int
+        Object : Required, String, str, String
+        Index : Required, Number, int, Integer
 
         Returns
 
@@ -228,7 +227,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(554, 1, (12, 0), ((12, 0), (12, 0)), u'SelectObjectGrip', None, object, index)
+        return self._ApplyTypes_(554, 1, (12, 0), ((8, 0), (2, 0),), u'SelectObjectGrip', None, object, index)
 
     def select_object_grips(self, object):
         """
@@ -237,7 +236,7 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -246,7 +245,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(501, 1, (12, 0), ((12, 0)), u'SelectObjectGrips', None, object)
+        return self._ApplyTypes_(501, 1, (12, 0), ((8, 0),), u'SelectObjectGrips', None, object)
 
     def selected_object_grips(self, object):
         """
@@ -255,7 +254,7 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -264,7 +263,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(560, 1, (12, 0), ((12, 0)), u'SelectedObjectGrips', None, object)
+        return self._ApplyTypes_(560, 1, (12, 0), ((8, 0),), u'SelectedObjectGrips', None, object)
 
     def unselect_object_grip(self, object, index):
         """
@@ -273,8 +272,8 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Required, Number, int
+        Object : Required, String, str, String
+        Index : Required, Number, int, Integer
 
         Returns
 
@@ -283,7 +282,7 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(555, 1, (12, 0), ((12, 0), (12, 0)), u'UnselectObjectGrip', None, object, index)
+        return self._ApplyTypes_(555, 1, (12, 0), ((8, 0), (2, 0),), u'UnselectObjectGrip', None, object, index)
 
     def unselect_object_grips(self, object):
         """
@@ -292,7 +291,7 @@ class ObjectGrip(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -301,5 +300,5 @@ class ObjectGrip(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(502, 1, (12, 0), ((12, 0)), u'UnselectObjectGrips', None, object)
+        return self._ApplyTypes_(502, 1, (12, 0), ((8, 0),), u'UnselectObjectGrips', None, object)
 

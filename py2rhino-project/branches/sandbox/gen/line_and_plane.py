@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class LineAndPlane(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class LineAndPlane(IRhinoScript):
 
 
 
@@ -16,8 +15,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        Point : Required, Array, arr
+        Plane : Required, Array, arrdbl, Array of ?
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -26,7 +25,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(628, 1, (12, 0), ((12, 0), (12, 0)), u'DistanceToPlane', None, plane, point)
+        return self._ApplyTypes_(628, 1, (12, 0), ((8197, 0), (8197, 0),), u'DistanceToPlane', None, _utils.flatten(plane), _utils.flatten(point))
 
     def evaluate_plane(self, plane, parameter):
         """
@@ -35,8 +34,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        Parameter : Required, Array, arr
+        Plane : Required, Array, arrdbl, Array of ?
+        Parameter : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -45,7 +44,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(751, 1, (12, 0), ((12, 0), (12, 0)), u'EvaluatePlane', None, plane, parameter)
+        return self._ApplyTypes_(751, 1, (12, 0), ((8197, 0), (8197, 0),), u'EvaluatePlane', None, _utils.flatten(plane), _utils.flatten(parameter))
 
     def intersect_planes(self, plane1, plane2, plane3):
         """
@@ -54,9 +53,9 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane1 : Required, Array, arr
-        Plane2 : Required, Array, arr
-        Plane3 : Required, Array, arr
+        Plane1 : Required, Array, arrdbl, Array of ?
+        Plane2 : Required, Array, arrdbl, Array of ?
+        Plane3 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -65,7 +64,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(745, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'IntersectPlanes', None, plane1, plane2, plane3)
+        return self._ApplyTypes_(745, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0),), u'IntersectPlanes', None, _utils.flatten(plane1), _utils.flatten(plane2), _utils.flatten(plane3))
 
     def line_closest_point(self, line, point):
         """
@@ -74,8 +73,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Line : Required, Array, arr
-        Point : Required, Array, arr
+        Line : Required, Array, arrdbl, Array of ?
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -84,7 +83,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(899, 1, (12, 0), ((12, 0), (12, 0)), u'LineClosestPoint', None, line, point)
+        return self._ApplyTypes_(899, 1, (12, 0), ((8197, 0), (8197, 0),), u'LineClosestPoint', None, _utils.flatten(line), _utils.flatten(point))
 
     def line_is_farther_than(self, line, distance, point, line2):
         """
@@ -104,9 +103,9 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        LineA : Required, Array, arr
-        LineB : Required, Array, arr
-        Planar : Optional, Boolean, bln
+        LineA : Required, Array, arrdbl, Array of ?
+        LineB : Required, Array, arrdbl, Array of ?
+        Planar : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -116,7 +115,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(736, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'LineLineIntersection', None, line_a, line_b, planar)
+        return self._ApplyTypes_(736, 1, (12, 0), ((8197, 0), (8197, 0), (11, 0),), u'LineLineIntersection', None, _utils.flatten(line_a), _utils.flatten(line_b), planar)
 
     def line_max_distance_to(self, line, point, line2):
         """
@@ -147,7 +146,7 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Line : Required, Array, arr
+        Line : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -156,7 +155,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(898, 1, (12, 0), ((12, 0)), u'LinePlane', None, line)
+        return self._ApplyTypes_(898, 1, (12, 0), ((8197, 0),), u'LinePlane', None, _utils.flatten(line))
 
     def line_plane_intersection(self, line, point):
         """
@@ -165,8 +164,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Line : Required, Array, arr
-        Point : Required, Array, arr
+        Line : Required, Array, arrdbl, Array of ?
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -175,7 +174,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(743, 1, (12, 0), ((12, 0), (12, 0)), u'LinePlaneIntersection', None, line, point)
+        return self._ApplyTypes_(743, 1, (12, 0), ((8197, 0), (8197, 0),), u'LinePlaneIntersection', None, _utils.flatten(line), _utils.flatten(point))
 
     def line_transform(self, line, xform):
         """
@@ -184,8 +183,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Line : Required, Array, arr
-        Xform : Required, Array, arr
+        Line : Required, Array, arrdbl, Array of ?
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -194,7 +193,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(897, 1, (12, 0), ((12, 0), (12, 0)), u'LineTransform', None, line, xform)
+        return self._ApplyTypes_(897, 1, (12, 0), ((8197, 0), (8197, 0),), u'LineTransform', None, _utils.flatten(line), _utils.flatten(xform))
 
     def move_plane(self, plane, origin):
         """
@@ -203,8 +202,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        Origin : Required, Array, arr
+        Plane : Required, Array, arrdbl, Array of ?
+        Origin : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -213,7 +212,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(631, 1, (12, 0), ((12, 0), (12, 0)), u'MovePlane', None, plane, origin)
+        return self._ApplyTypes_(631, 1, (12, 0), ((8197, 0), (8197, 0),), u'MovePlane', None, _utils.flatten(plane), _utils.flatten(origin))
 
     def plane_closest_point(self, plane, point, return_point):
         """
@@ -222,9 +221,9 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        Point : Required, Array, arr
-        ReturnPoint : Optional, Boolean, bln
+        Plane : Required, Array, arrdbl, Array of ?
+        Point : Required, Array, arrdbl, Array of ?
+        ReturnPoint : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -233,7 +232,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(629, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'PlaneClosestPoint', None, plane, point, return_point)
+        return self._ApplyTypes_(629, 1, (12, 0), ((8197, 0), (8197, 0), (11, 0),), u'PlaneClosestPoint', None, _utils.flatten(plane), _utils.flatten(point), return_point)
 
     def plane_equation(self, plane):
         """
@@ -242,7 +241,7 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
+        Plane : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -251,7 +250,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(642, 1, (12, 0), ((12, 0)), u'PlaneEquation', None, plane)
+        return self._ApplyTypes_(642, 1, (12, 0), ((8197, 0),), u'PlaneEquation', None, _utils.flatten(plane))
 
     def plane_fit_from_points(self, points):
         """
@@ -260,7 +259,7 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -269,7 +268,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(725, 1, (12, 0), ((12, 0)), u'PlaneFitFromPoints', None, points)
+        return self._ApplyTypes_(725, 1, (12, 0), ((8197, 0),), u'PlaneFitFromPoints', None, _utils.flatten(points))
 
     def plane_from_frame(self, origin, xaxis, yaxis):
         """
@@ -278,9 +277,9 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Origin : Required, Array, arr
-        Xaxis : Required, Array, arr
-        Yaxis : Required, Array, arr
+        Origin : Required, Array, arrdbl, Array of ?
+        Xaxis : Required, Array, arrdbl, Array of ?
+        Yaxis : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -289,7 +288,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(627, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'PlaneFromFrame', None, origin, xaxis, yaxis)
+        return self._ApplyTypes_(627, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0),), u'PlaneFromFrame', None, _utils.flatten(origin), _utils.flatten(xaxis), _utils.flatten(yaxis))
 
     def plane_from_normal(self, origin, normal):
         """
@@ -298,8 +297,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Origin : Required, Array, arr
-        Normal : Required, Array, arr
+        Origin : Required, Array, arrdbl, Array of ?
+        Normal : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -308,7 +307,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(626, 1, (12, 0), ((12, 0), (12, 0)), u'PlaneFromNormal', None, origin, normal)
+        return self._ApplyTypes_(626, 1, (12, 0), ((8197, 0), (8197, 0),), u'PlaneFromNormal', None, _utils.flatten(origin), _utils.flatten(normal))
 
     def plane_from_points(self, origin, point_x, point_y):
         """
@@ -317,9 +316,9 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Origin : Required, Array, arr
-        PointX : Required, Array, arr
-        PointY : Required, Array, arr
+        Origin : Required, Array, arrdbl, Array of ?
+        PointX : Required, Array, arrdbl, Array of ?
+        PointY : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -328,7 +327,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(649, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'PlaneFromPoints', None, origin, point_x, point_y)
+        return self._ApplyTypes_(649, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0),), u'PlaneFromPoints', None, _utils.flatten(origin), _utils.flatten(point_x), _utils.flatten(point_y))
 
     def plane_plane_intersection(self, plane1, point2):
         """
@@ -337,8 +336,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane1 : Required, Array, arr
-        Point2 : Required, Array, arr
+        Plane1 : Required, Array, arrdbl, Array of ?
+        Point2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -347,7 +346,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(744, 1, (12, 0), ((12, 0), (12, 0)), u'PlanePlaneIntersection', None, plane1, point2)
+        return self._ApplyTypes_(744, 1, (12, 0), ((8197, 0), (8197, 0),), u'PlanePlaneIntersection', None, _utils.flatten(plane1), _utils.flatten(point2))
 
     def plane_transform(self, plane, xform):
         """
@@ -356,8 +355,8 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        Xform : Required, Array, arr
+        Plane : Required, Array, arrdbl, Array of ?
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -366,7 +365,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(801, 1, (12, 0), ((12, 0), (12, 0)), u'PlaneTransform', None, plane, xform)
+        return self._ApplyTypes_(801, 1, (12, 0), ((8197, 0), (8197, 0),), u'PlaneTransform', None, _utils.flatten(plane), _utils.flatten(xform))
 
     def rotate_plane(self, plane, angle, axis):
         """
@@ -375,9 +374,9 @@ class LineAndPlane(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        Angle : Required, Number, dbl
-        Axis : Required, Array, arr
+        Plane : Required, Array, arrdbl, Array of ?
+        Angle : Required, Number, dbl, Double
+        Axis : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -386,7 +385,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(630, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'RotatePlane', None, plane, angle, axis)
+        return self._ApplyTypes_(630, 1, (12, 0), ((8197, 0), (5, 0), (8197, 0),), u'RotatePlane', None, _utils.flatten(plane), angle, _utils.flatten(axis))
 
     def world_x_y_plane(self):
         """
@@ -401,7 +400,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(652, 1, (12, 0), (), u'WorldXYPlane', None, )
+        return self._ApplyTypes_(652, 1, (12, 0), (,), u'WorldXYPlane', None, )
 
     def world_y_z_plane(self):
         """
@@ -416,7 +415,7 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(653, 1, (12, 0), (), u'WorldYZPlane', None, )
+        return self._ApplyTypes_(653, 1, (12, 0), (,), u'WorldYZPlane', None, )
 
     def world_z_x_plane(self):
         """
@@ -431,5 +430,5 @@ class LineAndPlane(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(654, 1, (12, 0), (), u'WorldZXPlane', None, )
+        return self._ApplyTypes_(654, 1, (12, 0), (,), u'WorldZXPlane', None, )
 

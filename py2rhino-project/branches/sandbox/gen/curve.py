@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Curve(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Curve(IRhinoScript):
 
 
 
@@ -16,9 +15,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        Radius : Required, Number, dbl
-        Angle : Required, Number, dbl
+        Plane : Required, Array, arrdbl, Array of ?
+        Radius : Required, Number, dbl, Double
+        Angle : Required, Number, dbl, Double
 
         Returns
 
@@ -27,7 +26,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(651, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddArc', None, plane, radius, angle)
+        return self._ApplyTypes_(651, 1, (12, 0), ((8197, 0), (5, 0), (5, 0),), u'AddArc', None, _utils.flatten(plane), radius, angle)
 
     def add_arc3_pt(self, start, end, point):
         """
@@ -36,9 +35,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Start : Required, Array, arr
-        End : Required, Array, arr
-        Point : Required, Array, arr
+        Start : Required, Array, arrdbl, Array of ?
+        End : Required, Array, arrdbl, Array of ?
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -47,7 +46,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(82, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddArc3Pt', None, start, end, point)
+        return self._ApplyTypes_(82, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0),), u'AddArc3Pt', None, _utils.flatten(start), _utils.flatten(end), _utils.flatten(point))
 
     def add_circle(self, plane, radius):
         """
@@ -56,8 +55,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        Radius : Required, Number, dbl
+        Plane : Required, Array, arrdbl, Array of ?
+        Radius : Required, Number, dbl, Double
 
         Returns
 
@@ -66,7 +65,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(83, 1, (12, 0), ((12, 0), (12, 0)), u'AddCircle', None, plane, radius)
+        return self._ApplyTypes_(83, 1, (12, 0), ((8197, 0), (5, 0),), u'AddCircle', None, _utils.flatten(plane), radius)
 
     def add_circle3_pt(self, start, end, point):
         """
@@ -75,9 +74,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Start : Required, Array, arr
-        End : Required, Array, arr
-        Point : Required, Array, arr
+        Start : Required, Array, arrdbl, Array of ?
+        End : Required, Array, arrdbl, Array of ?
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -86,7 +85,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(84, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddCircle3Pt', None, start, end, point)
+        return self._ApplyTypes_(84, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0),), u'AddCircle3Pt', None, _utils.flatten(start), _utils.flatten(end), _utils.flatten(point))
 
     def add_curve(self, points, degree):
         """
@@ -95,8 +94,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        Degree : Optional, Number, int
+        Points : Required, Array, arrdbl, Array of ?
+        Degree : Optional, Number, int, Integer
 
         Returns
 
@@ -105,7 +104,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(77, 1, (12, 0), ((12, 0), (12, 0)), u'AddCurve', None, points, degree)
+        return self._ApplyTypes_(77, 1, (12, 0), ((8197, 0), (2, 0),), u'AddCurve', None, _utils.flatten(points), degree)
 
     def add_ellipse(self, plane, x_radius, y_radius):
         """
@@ -114,9 +113,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        XRadius : Required, Number, dbl
-        YRadius : Required, Number, dbl
+        Plane : Required, Array, arrdbl, Array of ?
+        XRadius : Required, Number, dbl, Double
+        YRadius : Required, Number, dbl, Double
 
         Returns
 
@@ -125,7 +124,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(679, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddEllipse', None, plane, x_radius, y_radius)
+        return self._ApplyTypes_(679, 1, (12, 0), ((8197, 0), (5, 0), (5, 0),), u'AddEllipse', None, _utils.flatten(plane), x_radius, y_radius)
 
     def add_ellipse3_pt(self, center, second, third):
         """
@@ -134,9 +133,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Center : Required, Array, arr
-        Second : Required, Array, arr
-        Third : Required, Array, arr
+        Center : Required, Array, arrdbl, Array of ?
+        Second : Required, Array, arrdbl, Array of ?
+        Third : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -145,7 +144,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(680, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddEllipse3Pt', None, center, second, third)
+        return self._ApplyTypes_(680, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0),), u'AddEllipse3Pt', None, _utils.flatten(center), _utils.flatten(second), _utils.flatten(third))
 
     def add_fillet_curve(self, curve0, curve1, radius, point0, point1):
         """
@@ -154,11 +153,11 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Curve0 : Required, String, str
-        Curve1 : Required, String, str
-        Radius : Optional, Number, dbl
-        Point0 : Optional, Array, arr
-        Point1 : Optional, Array, arr
+        Curve0 : Required, String, str, String
+        Curve1 : Required, String, str, String
+        Radius : Optional, Number, dbl, Double
+        Point0 : Optional, Array, arrdbl, Array of ?
+        Point1 : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -167,7 +166,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(574, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddFilletCurve', None, curve0, curve1, radius, point0, point1)
+        return self._ApplyTypes_(574, 1, (12, 0), ((8, 0), (8, 0), (5, 0), (8197, 0), (8197, 0),), u'AddFilletCurve', None, curve0, curve1, radius, _utils.flatten(point0), _utils.flatten(point1))
 
     def add_interp_crv_on_srf(self, object, points):
         """
@@ -176,8 +175,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Points : Required, Array, arr
+        Object : Required, String, str, String
+        Points : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -186,7 +185,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(513, 1, (12, 0), ((12, 0), (12, 0)), u'AddInterpCrvOnSrf', None, object, points)
+        return self._ApplyTypes_(513, 1, (12, 0), ((8, 0), (8197, 0),), u'AddInterpCrvOnSrf', None, object, _utils.flatten(points))
 
     def add_interp_crv_on_srf_u_v(self, object, points):
         """
@@ -195,8 +194,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Points : Required, Array, arr
+        Object : Required, String, str, String
+        Points : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -205,7 +204,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(641, 1, (12, 0), ((12, 0), (12, 0)), u'AddInterpCrvOnSrfUV', None, object, points)
+        return self._ApplyTypes_(641, 1, (12, 0), ((8, 0), (8197, 0),), u'AddInterpCrvOnSrfUV', None, object, _utils.flatten(points))
 
     def add_interp_curve(self, points, degree, knot_style, start_tan, end_tan):
         """
@@ -214,11 +213,11 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        Degree : Optional, Number, int
-        KnotStyle : Optional, Number, int
-        StartTan : Optional, Array, arr
-        EndTan : Optional, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
+        Degree : Optional, Number, int, Integer
+        KnotStyle : Optional, Number, int, Integer
+        StartTan : Optional, Array, arrdbl, Array of ?
+        EndTan : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -227,7 +226,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(268, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddInterpCurve', None, points, degree, knot_style, start_tan, end_tan)
+        return self._ApplyTypes_(268, 1, (12, 0), ((8197, 0), (2, 0), (2, 0), (8197, 0), (8197, 0),), u'AddInterpCurve', None, _utils.flatten(points), degree, knot_style, _utils.flatten(start_tan), _utils.flatten(end_tan))
 
     def add_interp_curve_ex(self, points, degree, knot_style, sharp, start_tangent, end_tangent):
         """
@@ -236,12 +235,12 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        Degree : Optional, Number, int
-        KnotStyle : Optional, Number, int
-        Sharp : Optional, Boolean, bln
-        StartTangent : Optional, Array, arr
-        EndTangent : Optional, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
+        Degree : Optional, Number, int, Integer
+        KnotStyle : Optional, Number, int, Integer
+        Sharp : Optional, Boolean, bln, Boolean
+        StartTangent : Optional, Array, arrdbl, Array of ?
+        EndTangent : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -250,7 +249,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(520, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddInterpCurveEx', None, points, degree, knot_style, sharp, start_tangent, end_tangent)
+        return self._ApplyTypes_(520, 1, (12, 0), ((8197, 0), (2, 0), (2, 0), (11, 0), (8197, 0), (8197, 0),), u'AddInterpCurveEx', None, _utils.flatten(points), degree, knot_style, sharp, _utils.flatten(start_tangent), _utils.flatten(end_tangent))
 
     def add_line(self, start, end):
         """
@@ -259,8 +258,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Start : Required, Array, arr
-        End : Required, Array, arr
+        Start : Required, Array, arrdbl, Array of ?
+        End : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -269,7 +268,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(70, 1, (12, 0), ((12, 0), (12, 0)), u'AddLine', None, start, end)
+        return self._ApplyTypes_(70, 1, (12, 0), ((8197, 0), (8197, 0),), u'AddLine', None, _utils.flatten(start), _utils.flatten(end))
 
     def add_nurbs_curve(self, points, knots, degree, weights):
         """
@@ -278,10 +277,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        Knots : Required, Array, arr
-        Degree : Required, Number, int
-        Weights : Optional, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
+        Knots : Required, Array, arrdbl, Array of ?
+        Degree : Required, Number, int, Integer
+        Weights : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -290,7 +289,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(309, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'AddNurbsCurve', None, points, knots, degree, weights)
+        return self._ApplyTypes_(309, 1, (12, 0), ((8197, 0), (8197, 0), (2, 0), (8197, 0),), u'AddNurbsCurve', None, _utils.flatten(points), _utils.flatten(knots), degree, _utils.flatten(weights))
 
     def add_polyline(self, points):
         """
@@ -299,7 +298,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -308,7 +307,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(85, 1, (12, 0), ((12, 0)), u'AddPolyline', None, points)
+        return self._ApplyTypes_(85, 1, (12, 0), ((8197, 0),), u'AddPolyline', None, _utils.flatten(points))
 
     def add_sub_crv(self, object, param0, param1):
         """
@@ -317,9 +316,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Param0 : Required, Number, dbl
-        Param1 : Required, Number, dbl
+        Object : Required, String, str, String
+        Param0 : Required, Number, dbl, Double
+        Param1 : Required, Number, dbl, Double
 
         Returns
 
@@ -328,7 +327,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(681, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddSubCrv', None, object, param0, param1)
+        return self._ApplyTypes_(681, 1, (12, 0), ((8, 0), (5, 0), (5, 0),), u'AddSubCrv', None, object, param0, param1)
 
     def arc_angle(self, object, index):
         """
@@ -337,8 +336,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -347,7 +346,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(86, 1, (12, 0), ((12, 0), (12, 0)), u'ArcAngle', None, object, index)
+        return self._ApplyTypes_(86, 1, (12, 0), ((8, 0), (2, 0),), u'ArcAngle', None, object, index)
 
     def arc_center_point(self, object, index):
         """
@@ -356,8 +355,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -365,7 +364,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(87, 1, (12, 0), ((12, 0), (12, 0)), u'ArcCenterPoint', None, object, index)
+        return self._ApplyTypes_(87, 1, (12, 0), ((8, 0), (2, 0),), u'ArcCenterPoint', None, object, index)
 
     def arc_mid_point(self, object, index):
         """
@@ -374,8 +373,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -383,7 +382,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(88, 1, (12, 0), ((12, 0), (12, 0)), u'ArcMidPoint', None, object, index)
+        return self._ApplyTypes_(88, 1, (12, 0), ((8, 0), (2, 0),), u'ArcMidPoint', None, object, index)
 
     def arc_radius(self, object, index):
         """
@@ -392,8 +391,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -402,7 +401,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(89, 1, (12, 0), ((12, 0), (12, 0)), u'ArcRadius', None, object, index)
+        return self._ApplyTypes_(89, 1, (12, 0), ((8, 0), (2, 0),), u'ArcRadius', None, object, index)
 
     def circle_center_point(self, object, index):
         """
@@ -411,8 +410,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -421,7 +420,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(90, 1, (12, 0), ((12, 0), (12, 0)), u'CircleCenterPoint', None, object, index)
+        return self._ApplyTypes_(90, 1, (12, 0), ((8, 0), (2, 0),), u'CircleCenterPoint', None, object, index)
 
     def circle_circumference(self, object, index):
         """
@@ -430,8 +429,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -440,7 +439,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(91, 1, (12, 0), ((12, 0), (12, 0)), u'CircleCircumference', None, object, index)
+        return self._ApplyTypes_(91, 1, (12, 0), ((8, 0), (2, 0),), u'CircleCircumference', None, object, index)
 
     def circle_radius(self, object, index):
         """
@@ -449,8 +448,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -459,7 +458,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(92, 1, (12, 0), ((12, 0), (12, 0)), u'CircleRadius', None, object, index)
+        return self._ApplyTypes_(92, 1, (12, 0), ((8, 0), (2, 0),), u'CircleRadius', None, object, index)
 
     def close_curve(self, object, tolerance):
         """
@@ -468,8 +467,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Tolerance : Optional, Number, dbl
+        Object : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -478,7 +477,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(440, 1, (12, 0), ((12, 0), (12, 0)), u'CloseCurve', None, object, tolerance)
+        return self._ApplyTypes_(440, 1, (12, 0), ((8, 0), (5, 0),), u'CloseCurve', None, object, tolerance)
 
     def convert_curve_to_polyline(self, object, angle_tolerance, tolerance, delete_input):
         """
@@ -487,10 +486,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        AngleTolerance : Optional, Number, dbl
-        Tolerance : Optional, Number, dbl
-        DeleteInput : Optional, Boolean, bln
+        Object : Required, String, str, String
+        AngleTolerance : Optional, Number, dbl, Double
+        Tolerance : Optional, Number, dbl, Double
+        DeleteInput : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -499,7 +498,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(377, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ConvertCurveToPolyline', None, object, angle_tolerance, tolerance, delete_input)
+        return self._ApplyTypes_(377, 1, (12, 0), ((8, 0), (5, 0), (5, 0), (11, 0),), u'ConvertCurveToPolyline', None, object, angle_tolerance, tolerance, delete_input)
 
     def curve_arc_length_point(self, object, length, from_start):
         """
@@ -508,9 +507,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Length : Required, Number, dbl
-        FromStart : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Length : Required, Number, dbl, Double
+        FromStart : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -519,7 +518,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(658, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveArcLengthPoint', None, object, length, from_start)
+        return self._ApplyTypes_(658, 1, (12, 0), ((8, 0), (5, 0), (11, 0),), u'CurveArcLengthPoint', None, object, length, from_start)
 
     def curve_area(self, object, objects):
         """
@@ -550,8 +549,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Style : Optional, Number, int
+        Object : Required, String, str, String
+        Style : Optional, Number, int, Integer
 
         Returns
 
@@ -561,7 +560,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(578, 1, (12, 0), ((12, 0), (12, 0)), u'CurveArrows', None, object, style)
+        return self._ApplyTypes_(578, 1, (12, 0), ((8, 0), (2, 0),), u'CurveArrows', None, object, style)
 
     def curve_boolean_difference(self, curve_a, curve_b):
         """
@@ -570,8 +569,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        CurveA : Required, String, str
-        CurveB : Required, String, str
+        CurveA : Required, String, str, String
+        CurveB : Required, String, str, String
 
         Returns
 
@@ -580,7 +579,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(811, 1, (12, 0), ((12, 0), (12, 0)), u'CurveBooleanDifference', None, curve_a, curve_b)
+        return self._ApplyTypes_(811, 1, (12, 0), ((8, 0), (8, 0),), u'CurveBooleanDifference', None, curve_a, curve_b)
 
     def curve_boolean_intersection(self, curve_a, curve_b):
         """
@@ -589,8 +588,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        CurveA : Required, String, str
-        CurveB : Required, String, str
+        CurveA : Required, String, str, String
+        CurveB : Required, String, str, String
 
         Returns
 
@@ -599,7 +598,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(810, 1, (12, 0), ((12, 0), (12, 0)), u'CurveBooleanIntersection', None, curve_a, curve_b)
+        return self._ApplyTypes_(810, 1, (12, 0), ((8, 0), (8, 0),), u'CurveBooleanIntersection', None, curve_a, curve_b)
 
     def curve_boolean_union(self, curves):
         """
@@ -608,7 +607,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Curves : Required, Array, arr
+        Curves : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -617,7 +616,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(809, 1, (12, 0), ((12, 0)), u'CurveBooleanUnion', None, curves)
+        return self._ApplyTypes_(809, 1, (12, 0), ((8197, 0),), u'CurveBooleanUnion', None, _utils.flatten(curves))
 
     def curve_brep_intersect(self, curve, brep, tolerance):
         """
@@ -626,9 +625,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
-        Brep : Required, String, str
-        Tolerance : Optional, Number, dbl
+        Curve : Required, String, str, String
+        Brep : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -637,7 +636,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(545, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveBrepIntersect', None, curve, brep, tolerance)
+        return self._ApplyTypes_(545, 1, (12, 0), ((8, 0), (8, 0), (5, 0),), u'CurveBrepIntersect', None, curve, brep, tolerance)
 
     def curve_closest_object(self, curve, object, objects):
         """
@@ -657,9 +656,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -668,7 +667,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(93, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveClosestPoint', None, object, point, index)
+        return self._ApplyTypes_(93, 1, (12, 0), ((8, 0), (8197, 0), (2, 0),), u'CurveClosestPoint', None, object, _utils.flatten(point), index)
 
     def curve_contour_points(self, object, start_point, end_point, interval):
         """
@@ -677,10 +676,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        StartPoint : Required, Array, arr
-        EndPoint : Required, Array, arr
-        Interval : Optional, Number, dbl
+        Object : Required, String, str, String
+        StartPoint : Required, Array, arrdbl, Array of ?
+        EndPoint : Required, Array, arrdbl, Array of ?
+        Interval : Optional, Number, dbl, Double
 
         Returns
 
@@ -689,7 +688,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(748, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'CurveContourPoints', None, object, start_point, end_point, interval)
+        return self._ApplyTypes_(748, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0), (5, 0),), u'CurveContourPoints', None, object, _utils.flatten(start_point), _utils.flatten(end_point), interval)
 
     def curve_curvature(self, object, parameter):
         """
@@ -698,8 +697,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
 
         Returns
 
@@ -709,7 +708,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(379, 1, (12, 0), ((12, 0), (12, 0)), u'CurveCurvature', None, object, parameter)
+        return self._ApplyTypes_(379, 1, (12, 0), ((8, 0), (5, 0),), u'CurveCurvature', None, object, parameter)
 
     def curve_curve_intersection(self, object1, object2, tolerance):
         """
@@ -718,9 +717,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object1 : Required, String, str
-        Object2 : Optional, String, str
-        Tolerance : Optional, Number, dbl
+        Object1 : Required, String, str, String
+        Object2 : Optional, String, str, String
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -734,7 +733,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(423, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveCurveIntersection', None, object1, object2, tolerance)
+        return self._ApplyTypes_(423, 1, (12, 0), ((8, 0), (8, 0), (5, 0),), u'CurveCurveIntersection', None, object1, object2, tolerance)
 
     def curve_degree(self, object, index):
         """
@@ -743,8 +742,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -753,7 +752,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(94, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDegree', None, object, index)
+        return self._ApplyTypes_(94, 1, (12, 0), ((8, 0), (2, 0),), u'CurveDegree', None, object, index)
 
     def curve_deviation(self, curve_a, curve_b):
         """
@@ -762,8 +761,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        CurveA : Required, String, str
-        CurveB : Required, String, str
+        CurveA : Required, String, str, String
+        CurveB : Required, String, str, String
 
         Returns
 
@@ -778,7 +777,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(687, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDeviation', None, curve_a, curve_b)
+        return self._ApplyTypes_(687, 1, (12, 0), ((8, 0), (8, 0),), u'CurveDeviation', None, curve_a, curve_b)
 
     def curve_dim(self, object, index):
         """
@@ -787,8 +786,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -797,7 +796,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(381, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDim', None, object, index)
+        return self._ApplyTypes_(381, 1, (12, 0), ((8, 0), (2, 0),), u'CurveDim', None, object, index)
 
     def curve_directions_match(self, curve1, curve2):
         """
@@ -806,8 +805,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Curve1 : Required, String, str
-        Curve2 : Required, String, str
+        Curve1 : Required, String, str, String
+        Curve2 : Required, String, str, String
 
         Returns
 
@@ -816,7 +815,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(543, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDirectionsMatch', None, curve1, curve2)
+        return self._ApplyTypes_(543, 1, (12, 0), ((8, 0), (8, 0),), u'CurveDirectionsMatch', None, curve1, curve2)
 
     def curve_discontinuity(self, object, style):
         """
@@ -825,8 +824,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Style : Required, Number, int
+        Object : Required, String, str, String
+        Style : Required, Number, int, Integer
 
         Returns
 
@@ -835,7 +834,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(579, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDiscontinuity', None, object, style)
+        return self._ApplyTypes_(579, 1, (12, 0), ((8, 0), (2, 0),), u'CurveDiscontinuity', None, object, style)
 
     def curve_domain(self, object, index):
         """
@@ -844,8 +843,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -854,7 +853,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(95, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDomain', None, object, index)
+        return self._ApplyTypes_(95, 1, (12, 0), ((8, 0), (2, 0),), u'CurveDomain', None, object, index)
 
     def curve_edit_points(self, object, return_parameters, index):
         """
@@ -863,9 +862,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        ReturnParameters : Optional, Boolean, bln
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        ReturnParameters : Optional, Boolean, bln, Boolean
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -875,7 +874,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(442, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveEditPoints', None, object, return_parameters, index)
+        return self._ApplyTypes_(442, 1, (12, 0), ((8, 0), (11, 0), (2, 0),), u'CurveEditPoints', None, object, return_parameters, index)
 
     def curve_end_point(self, object, index):
         """
@@ -884,8 +883,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -894,7 +893,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(96, 1, (12, 0), ((12, 0), (12, 0)), u'CurveEndPoint', None, object, index)
+        return self._ApplyTypes_(96, 1, (12, 0), ((8, 0), (2, 0),), u'CurveEndPoint', None, object, index)
 
     def curve_evaluate(self, object, parameter, derivative):
         """
@@ -903,9 +902,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
-        Derivative : Required, Number, int
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
+        Derivative : Required, Number, int, Integer
 
         Returns
 
@@ -918,7 +917,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(489, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveEvaluate', None, object, parameter, derivative)
+        return self._ApplyTypes_(489, 1, (12, 0), ((8, 0), (5, 0), (2, 0),), u'CurveEvaluate', None, object, parameter, derivative)
 
     def curve_fillet_points(self, curve0, curve1, radius, base_point0, base_point1):
         """
@@ -927,11 +926,11 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Curve0 : Required, String, str
-        Curve1 : Required, String, str
-        Radius : Optional, Number, dbl
-        BasePoint0 : Optional, Array, arr
-        BasePoint1 : Optional, Array, arr
+        Curve0 : Required, String, str, String
+        Curve1 : Required, String, str, String
+        Radius : Optional, Number, dbl, Double
+        BasePoint0 : Optional, Array, arrdbl, Array of ?
+        BasePoint1 : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -941,7 +940,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(572, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'CurveFilletPoints', None, curve0, curve1, radius, base_point0, base_point1)
+        return self._ApplyTypes_(572, 1, (12, 0), ((8, 0), (8, 0), (5, 0), (8197, 0), (8197, 0),), u'CurveFilletPoints', None, curve0, curve1, radius, _utils.flatten(base_point0), _utils.flatten(base_point1))
 
     def curve_frame(self, object, parameter):
         """
@@ -950,8 +949,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
 
         Returns
 
@@ -960,7 +959,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(675, 1, (12, 0), ((12, 0), (12, 0)), u'CurveFrame', None, object, parameter)
+        return self._ApplyTypes_(675, 1, (12, 0), ((8, 0), (5, 0),), u'CurveFrame', None, object, parameter)
 
     def curve_knot_count(self, object, index):
         """
@@ -991,9 +990,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
-        SubDomain : Optional, Array, arr
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
+        SubDomain : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1002,7 +1001,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(97, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveLength', None, object, index, sub_domain)
+        return self._ApplyTypes_(97, 1, (12, 0), ((8, 0), (2, 0), (8197, 0),), u'CurveLength', None, object, index, _utils.flatten(sub_domain))
 
     def curve_mid_point(self, object):
         """
@@ -1022,7 +1021,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1031,7 +1030,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(521, 1, (12, 0), ((12, 0)), u'CurveNormal', None, object)
+        return self._ApplyTypes_(521, 1, (12, 0), ((8, 0),), u'CurveNormal', None, object)
 
     def curve_perp_frame(self, object, parameter):
         """
@@ -1040,8 +1039,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
 
         Returns
 
@@ -1050,7 +1049,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(676, 1, (12, 0), ((12, 0), (12, 0)), u'CurvePerpFrame', None, object, parameter)
+        return self._ApplyTypes_(676, 1, (12, 0), ((8, 0), (5, 0),), u'CurvePerpFrame', None, object, parameter)
 
     def curve_plane(self, curve):
         """
@@ -1059,7 +1058,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
+        Curve : Required, String, str, String
 
         Returns
 
@@ -1068,7 +1067,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(609, 1, (12, 0), ((12, 0)), u'CurvePlane', None, curve)
+        return self._ApplyTypes_(609, 1, (12, 0), ((8, 0),), u'CurvePlane', None, curve)
 
     def curve_point_count(self, object, index):
         """
@@ -1077,8 +1076,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1087,7 +1086,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(98, 1, (12, 0), ((12, 0), (12, 0)), u'CurvePointCount', None, object, index)
+        return self._ApplyTypes_(98, 1, (12, 0), ((8, 0), (2, 0),), u'CurvePointCount', None, object, index)
 
     def curve_points(self, object, index):
         """
@@ -1096,8 +1095,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1106,7 +1105,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(308, 1, (12, 0), ((12, 0), (12, 0)), u'CurvePoints', None, object, index)
+        return self._ApplyTypes_(308, 1, (12, 0), ((8, 0), (2, 0),), u'CurvePoints', None, object, index)
 
     def curve_radius(self, object, point, index):
         """
@@ -1115,9 +1114,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1126,7 +1125,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(80, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveRadius', None, object, point, index)
+        return self._ApplyTypes_(80, 1, (12, 0), ((8, 0), (8197, 0), (2, 0),), u'CurveRadius', None, object, _utils.flatten(point), index)
 
     def curve_seam(self, object, parameter):
         """
@@ -1135,8 +1134,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
 
         Returns
 
@@ -1145,7 +1144,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(527, 1, (12, 0), ((12, 0), (12, 0)), u'CurveSeam', None, object, parameter)
+        return self._ApplyTypes_(527, 1, (12, 0), ((8, 0), (5, 0),), u'CurveSeam', None, object, parameter)
 
     def curve_start_point(self, object, index):
         """
@@ -1154,8 +1153,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1164,7 +1163,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(99, 1, (12, 0), ((12, 0), (12, 0)), u'CurveStartPoint', None, object, index)
+        return self._ApplyTypes_(99, 1, (12, 0), ((8, 0), (2, 0),), u'CurveStartPoint', None, object, index)
 
     def curve_surface_intersection(self, curve, surface, tolerance, angle_tolerance):
         """
@@ -1173,10 +1172,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
-        Surface : Required, String, str
-        Tolerance : Optional, Number, dbl
-        AngleTolerance : Optional, Number, dbl
+        Curve : Required, String, str, String
+        Surface : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
+        AngleTolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -1192,7 +1191,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(424, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'CurveSurfaceIntersection', None, curve, surface, tolerance, angle_tolerance)
+        return self._ApplyTypes_(424, 1, (12, 0), ((8, 0), (8, 0), (5, 0), (5, 0),), u'CurveSurfaceIntersection', None, curve, surface, tolerance, angle_tolerance)
 
     def curve_tangent(self, object, parameter, index):
         """
@@ -1201,9 +1200,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1212,7 +1211,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(363, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveTangent', None, object, parameter, index)
+        return self._ApplyTypes_(363, 1, (12, 0), ((8, 0), (5, 0), (2, 0),), u'CurveTangent', None, object, parameter, index)
 
     def curve_weights(self, object, index):
         """
@@ -1221,8 +1220,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1231,7 +1230,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(314, 1, (12, 0), ((12, 0), (12, 0)), u'CurveWeights', None, object, index)
+        return self._ApplyTypes_(314, 1, (12, 0), ((8, 0), (2, 0),), u'CurveWeights', None, object, index)
 
     def divide_curve(self, object, segments, create, points):
         """
@@ -1240,10 +1239,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Segments : Required, Number, lng
-        Create : Optional, Boolean, bln
-        Points : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Segments : Required, Number, lng, Integer
+        Create : Optional, Boolean, bln, Boolean
+        Points : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1253,7 +1252,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(78, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'DivideCurve', None, object, segments, create, points)
+        return self._ApplyTypes_(78, 1, (12, 0), ((8, 0), (3, 0), (11, 0), (11, 0),), u'DivideCurve', None, object, segments, create, points)
 
     def divide_curve_equidistant(self, object, distance, create, points):
         """
@@ -1262,10 +1261,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Distance : Required, Number, dbl
-        Create : Optional, Boolean, bln
-        Points : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Distance : Required, Number, dbl, Double
+        Create : Optional, Boolean, bln, Boolean
+        Points : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1275,7 +1274,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(913, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'DivideCurveEquidistant', None, object, distance, create, points)
+        return self._ApplyTypes_(913, 1, (12, 0), ((8, 0), (5, 0), (11, 0), (11, 0),), u'DivideCurveEquidistant', None, object, distance, create, points)
 
     def divide_curve_length(self, object, length, create, points):
         """
@@ -1284,10 +1283,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Length : Required, Number, dbl
-        Create : Optional, Boolean, bln
-        Points : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Length : Required, Number, dbl, Double
+        Create : Optional, Boolean, bln, Boolean
+        Points : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1297,7 +1296,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(374, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'DivideCurveLength', None, object, length, create, points)
+        return self._ApplyTypes_(374, 1, (12, 0), ((8, 0), (5, 0), (11, 0), (11, 0),), u'DivideCurveLength', None, object, length, create, points)
 
     def ellipse_center_point(self, object):
         """
@@ -1306,7 +1305,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1315,7 +1314,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(524, 1, (12, 0), ((12, 0)), u'EllipseCenterPoint', None, object)
+        return self._ApplyTypes_(524, 1, (12, 0), ((8, 0),), u'EllipseCenterPoint', None, object)
 
     def ellipse_quad_points(self, object):
         """
@@ -1324,7 +1323,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1333,7 +1332,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(525, 1, (12, 0), ((12, 0)), u'EllipseQuadPoints', None, object)
+        return self._ApplyTypes_(525, 1, (12, 0), ((8, 0),), u'EllipseQuadPoints', None, object)
 
     def evaluate_curve(self, object, parameter, index):
         """
@@ -1342,9 +1341,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1353,7 +1352,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(100, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'EvaluateCurve', None, object, parameter, index)
+        return self._ApplyTypes_(100, 1, (12, 0), ((8, 0), (5, 0), (2, 0),), u'EvaluateCurve', None, object, parameter, index)
 
     def explode_curves(self, object, objects, delete):
         """
@@ -1373,10 +1372,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Type : Required, Number, int
-        Side : Required, Number, int
-        Objects : Required, Array, arr
+        Object : Required, String, str, String
+        Type : Required, Number, int, Integer
+        Side : Required, Number, int, Integer
+        Objects : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1385,7 +1384,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(438, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ExtendCurve', None, object, type, side, objects)
+        return self._ApplyTypes_(438, 1, (12, 0), ((8, 0), (2, 0), (2, 0), (8197, 0),), u'ExtendCurve', None, object, type, side, _utils.flatten(objects))
 
     def extend_curve_length(self, object, type, side, length):
         """
@@ -1394,10 +1393,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Type : Required, Number, int
-        Side : Required, Number, int
-        Length : Required, Number, dbl
+        Object : Required, String, str, String
+        Type : Required, Number, int, Integer
+        Side : Required, Number, int, Integer
+        Length : Required, Number, dbl, Double
 
         Returns
 
@@ -1406,7 +1405,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(436, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ExtendCurveLength', None, object, type, side, length)
+        return self._ApplyTypes_(436, 1, (12, 0), ((8, 0), (2, 0), (2, 0), (5, 0),), u'ExtendCurveLength', None, object, type, side, length)
 
     def extend_curve_point(self, object, side, point):
         """
@@ -1415,9 +1414,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Side : Required, Number, int
-        Point : Required, Array, arr
+        Object : Required, String, str, String
+        Side : Required, Number, int, Integer
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1426,7 +1425,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(437, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ExtendCurvePoint', None, object, side, point)
+        return self._ApplyTypes_(437, 1, (12, 0), ((8, 0), (2, 0), (8197, 0),), u'ExtendCurvePoint', None, object, side, _utils.flatten(point))
 
     def fair_curve(self, object, tolerance):
         """
@@ -1435,8 +1434,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Tolerance : Optional, Number, dbl
+        Object : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -1445,7 +1444,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(599, 1, (12, 0), ((12, 0), (12, 0)), u'FairCurve', None, object, tolerance)
+        return self._ApplyTypes_(599, 1, (12, 0), ((8, 0), (5, 0),), u'FairCurve', None, object, tolerance)
 
     def fit_curve(self, object, degree, tolerance, angle_tolerance):
         """
@@ -1454,10 +1453,10 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Degree : Optional, Number, int
-        Tolerance : Optional, Number, dbl
-        AngleTolerance : Optional, Number, dbl
+        Object : Required, String, str, String
+        Degree : Optional, Number, int, Integer
+        Tolerance : Optional, Number, dbl, Double
+        AngleTolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -1466,7 +1465,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(813, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'FitCurve', None, object, degree, tolerance, angle_tolerance)
+        return self._ApplyTypes_(813, 1, (12, 0), ((8, 0), (2, 0), (5, 0), (5, 0),), u'FitCurve', None, object, degree, tolerance, angle_tolerance)
 
     def insert_curve_knot(self, object, parameter, symmetrical):
         """
@@ -1475,9 +1474,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
-        Symmetrical : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
+        Symmetrical : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1486,7 +1485,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(515, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'InsertCurveKnot', None, object, parameter, symmetrical)
+        return self._ApplyTypes_(515, 1, (12, 0), ((8, 0), (5, 0), (11, 0),), u'InsertCurveKnot', None, object, parameter, symmetrical)
 
     def is_arc(self, object, index):
         """
@@ -1495,8 +1494,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1505,7 +1504,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(101, 1, (12, 0), ((12, 0), (12, 0)), u'IsArc', None, object, index)
+        return self._ApplyTypes_(101, 1, (12, 0), ((8, 0), (2, 0),), u'IsArc', None, object, index)
 
     def is_circle(self, object, index):
         """
@@ -1514,8 +1513,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1524,7 +1523,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(102, 1, (12, 0), ((12, 0), (12, 0)), u'IsCircle', None, object, index)
+        return self._ApplyTypes_(102, 1, (12, 0), ((8, 0), (2, 0),), u'IsCircle', None, object, index)
 
     def is_curve(self, object, index):
         """
@@ -1533,8 +1532,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1543,7 +1542,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(103, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurve', None, object, index)
+        return self._ApplyTypes_(103, 1, (12, 0), ((8, 0), (2, 0),), u'IsCurve', None, object, index)
 
     def is_curve_closable(self, object, tolerance):
         """
@@ -1552,8 +1551,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Tolerance : Optional, Number, dbl
+        Object : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -1562,7 +1561,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(441, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurveClosable', None, object, tolerance)
+        return self._ApplyTypes_(441, 1, (12, 0), ((8, 0), (5, 0),), u'IsCurveClosable', None, object, tolerance)
 
     def is_curve_closed(self, object, index):
         """
@@ -1571,8 +1570,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1581,18 +1580,26 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(104, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurveClosed', None, object, index)
+        return self._ApplyTypes_(104, 1, (12, 0), ((8, 0), (2, 0),), u'IsCurveClosed', None, object, index)
 
-    def is_curve_in_plane(self, object, plane, ay, ay, ay, ay):
+    def is_curve_in_plane(self, object, plane):
         """
 
+        Test a curve to see if it lies in a specific plane.
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+        Parameters
 
+        Object : Required, String, str, String
+        Plane : Optional, Array, arrdbl, Array of ?
+
+        Returns
+
+        Boolean : True if successful, otherwise False.
+        Null : If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(483, 1, (12, 0), ((8, 0), (8197, 0),), u'IsCurveInPlane', None, object, _utils.flatten(plane))
 
     def is_curve_linear(self, object, index):
         """
@@ -1601,8 +1608,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1611,7 +1618,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(105, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurveLinear', None, object, index)
+        return self._ApplyTypes_(105, 1, (12, 0), ((8, 0), (2, 0),), u'IsCurveLinear', None, object, index)
 
     def is_curve_periodic(self, object, index):
         """
@@ -1620,8 +1627,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1630,7 +1637,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(106, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurvePeriodic', None, object, index)
+        return self._ApplyTypes_(106, 1, (12, 0), ((8, 0), (2, 0),), u'IsCurvePeriodic', None, object, index)
 
     def is_curve_planar(self, object, index):
         """
@@ -1639,8 +1646,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1649,7 +1656,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(107, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurvePlanar', None, object, index)
+        return self._ApplyTypes_(107, 1, (12, 0), ((8, 0), (2, 0),), u'IsCurvePlanar', None, object, index)
 
     def is_curve_rational(self, object, index):
         """
@@ -1658,8 +1665,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1668,7 +1675,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(380, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurveRational', None, object, index)
+        return self._ApplyTypes_(380, 1, (12, 0), ((8, 0), (2, 0),), u'IsCurveRational', None, object, index)
 
     def is_ellipse(self, object):
         """
@@ -1677,7 +1684,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1686,7 +1693,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(523, 1, (12, 0), ((12, 0)), u'IsEllipse', None, object)
+        return self._ApplyTypes_(523, 1, (12, 0), ((8, 0),), u'IsEllipse', None, object)
 
     def is_line(self, object, index):
         """
@@ -1695,8 +1702,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1705,18 +1712,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(108, 1, (12, 0), ((12, 0), (12, 0)), u'IsLine', None, object, index)
+        return self._ApplyTypes_(108, 1, (12, 0), ((8, 0), (2, 0),), u'IsLine', None, object, index)
 
-    def is_point_on_curve(self, object, point, point):
+    def is_point_on_curve(self, object, point, index):
         """
 
         Verifies that a point is on a curve.
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
-        Point : Optional, Number, arr
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1725,7 +1732,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(318, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'IsPointOnCurve', None, object, point, point)
+        return self._ApplyTypes_(318, 1, (12, 0), ((8, 0), (8197, 0), (2, 0),), u'IsPointOnCurve', None, object, _utils.flatten(point), index)
 
     def is_poly_curve(self, object, index):
         """
@@ -1734,8 +1741,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1744,7 +1751,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(368, 1, (12, 0), ((12, 0), (12, 0)), u'IsPolyCurve', None, object, index)
+        return self._ApplyTypes_(368, 1, (12, 0), ((8, 0), (2, 0),), u'IsPolyCurve', None, object, index)
 
     def is_polyline(self, object, index):
         """
@@ -1753,8 +1760,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1763,7 +1770,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(110, 1, (12, 0), ((12, 0), (12, 0)), u'IsPolyline', None, object, index)
+        return self._ApplyTypes_(110, 1, (12, 0), ((8, 0), (2, 0),), u'IsPolyline', None, object, index)
 
     def join_curves(self, object, delete):
         """
@@ -1772,8 +1779,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Array, str
-        Delete : Optional, Boolean, bln
+        Object : Required, Array, str, String
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1782,7 +1789,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(111, 1, (12, 0), ((12, 0), (12, 0)), u'JoinCurves', None, object, delete)
+        return self._ApplyTypes_(111, 1, (12, 0), ((8, 0), (11, 0),), u'JoinCurves', None, object, delete)
 
     def line_fit_from_points(self, object):
         """
@@ -1791,7 +1798,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Array, str
+        Object : Required, Array, str, String
 
         Returns
 
@@ -1800,7 +1807,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(726, 1, (12, 0), ((12, 0)), u'LineFitFromPoints', None, object)
+        return self._ApplyTypes_(726, 1, (12, 0), ((8, 0),), u'LineFitFromPoints', None, object)
 
     def make_curve_non_periodic(self, object, delete):
         """
@@ -1809,8 +1816,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Delete : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1820,7 +1827,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(925, 1, (12, 0), ((12, 0), (12, 0)), u'MakeCurveNonPeriodic', None, object, delete)
+        return self._ApplyTypes_(925, 1, (12, 0), ((8, 0), (11, 0),), u'MakeCurveNonPeriodic', None, object, delete)
 
     def make_curve_periodic(self, object, delete):
         """
@@ -1829,8 +1836,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Delete : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1840,7 +1847,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(444, 1, (12, 0), ((12, 0), (12, 0)), u'MakeCurvePeriodic', None, object, delete)
+        return self._ApplyTypes_(444, 1, (12, 0), ((8, 0), (11, 0),), u'MakeCurvePeriodic', None, object, delete)
 
     def mesh_polyline(self, polyline):
         """
@@ -1849,7 +1856,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Polyline : Required, String, str
+        Polyline : Required, String, str, String
 
         Returns
 
@@ -1858,7 +1865,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(546, 1, (12, 0), ((12, 0)), u'MeshPolyline', None, polyline)
+        return self._ApplyTypes_(546, 1, (12, 0), ((8, 0),), u'MeshPolyline', None, polyline)
 
     def offset_curve(self, object, direction, normal, style):
         """
@@ -1882,38 +1889,67 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def planar_closed_curve_containment(self, curve1, curve2, plane, ay, ay, ay, ay, tolerance):
+    def planar_closed_curve_containment(self, curve1, curve2, plane, tolerance):
         """
 
+        Determines the relationship between the regions bounded by two coplanar simple closed curves.
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+        Parameters
 
+        Curve1 : Required, String, str, String
+        Curve2 : Required, String, str, String
+        Plane : Optional, Array, arrdbl, Array of ?
+        Tolerance : Optional, Number, dbl, Double
 
-        """
+        Returns
 
-        raise exceptions.NotImplementedError
-
-    def planar_curve_collision(self, curve1, curve2, plane, ay, ay, ay, ay, tolerance):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
-
-    def point_in_planar_closed_curve(self, point, curve, plane, ay, ay, ay, ay, tolerance):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
+        Number : A number identifying the relationship if successful.  The possible values are as follows:
+        Null : If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(480, 1, (12, 0), ((8, 0), (8, 0), (8197, 0), (5, 0),), u'PlanarClosedCurveContainment', None, curve1, curve2, _utils.flatten(plane), tolerance)
+
+    def planar_curve_collision(self, curve1, curve2, plane, tolerance):
+        """
+
+        Determines if two coplanar curves intersect.
+
+        Parameters
+
+        Curve1 : Required, String, str, String
+        Curve2 : Required, String, str, String
+        Plane : Optional, Array, arrdbl, Array of ?
+        Tolerance : Optional, Number, dbl, Double
+
+        Returns
+
+        Null : On error.
+
+        """
+
+        return self._ApplyTypes_(481, 1, (12, 0), ((8, 0), (8, 0), (8197, 0), (5, 0),), u'PlanarCurveCollision', None, curve1, curve2, _utils.flatten(plane), tolerance)
+
+    def point_in_planar_closed_curve(self, point, curve, plane, tolerance):
+        """
+
+        Determines if a point is inside of a closed curve, on  a closed curve, or outside of a closed curve.
+
+        Parameters
+
+        Point : Required, Array, arrdbl, Array of ?
+        Curve : Required, String, str, String
+        Plane : Optional, Array, arrdbl, Array of ?
+        Tolerance : Optional, Number, dbl, Double
+
+        Returns
+
+        Number : A number identifying the result if successful.  The possible values are as follows:
+        Null : If not successful, or on error.
+
+        """
+
+        return self._ApplyTypes_(482, 1, (12, 0), ((8197, 0), (8, 0), (8197, 0), (5, 0),), u'PointInPlanarClosedCurve', None, _utils.flatten(point), curve, _utils.flatten(plane), tolerance)
 
     def poly_curve_count(self, object, index):
         """
@@ -1922,8 +1958,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1932,7 +1968,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(369, 1, (12, 0), ((12, 0), (12, 0)), u'PolyCurveCount', None, object, index)
+        return self._ApplyTypes_(369, 1, (12, 0), ((8, 0), (2, 0),), u'PolyCurveCount', None, object, index)
 
     def polyline_vertices(self, object, index):
         """
@@ -1941,8 +1977,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Index : Optional, Number, int
+        Object : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -1951,7 +1987,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(112, 1, (12, 0), ((12, 0), (12, 0)), u'PolylineVertices', None, object, index)
+        return self._ApplyTypes_(112, 1, (12, 0), ((8, 0), (2, 0),), u'PolylineVertices', None, object, index)
 
     def project_curve_to_mesh(self, curve, curves, mesh, meshes, direction):
         """
@@ -1982,9 +2018,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Degree : Optional, Number, int
-        PointCount : Optional, Number, int
+        Object : Required, String, str, String
+        Degree : Optional, Number, int, Integer
+        PointCount : Optional, Number, int, Integer
 
         Returns
 
@@ -1993,7 +2029,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(814, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'RebuildCurve', None, object, degree, point_count)
+        return self._ApplyTypes_(814, 1, (12, 0), ((8, 0), (2, 0), (2, 0),), u'RebuildCurve', None, object, degree, point_count)
 
     def remove_curve_knot(self, object, parameter):
         """
@@ -2002,8 +2038,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Number, dbl
+        Object : Required, String, str, String
+        Parameter : Required, Number, dbl, Double
 
         Returns
 
@@ -2012,7 +2048,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(916, 1, (12, 0), ((12, 0), (12, 0)), u'RemoveCurveKnot', None, object, parameter)
+        return self._ApplyTypes_(916, 1, (12, 0), ((8, 0), (5, 0),), u'RemoveCurveKnot', None, object, parameter)
 
     def reverse_curve(self, object):
         """
@@ -2021,7 +2057,7 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -2030,7 +2066,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(542, 1, (12, 0), ((12, 0)), u'ReverseCurve', None, object)
+        return self._ApplyTypes_(542, 1, (12, 0), ((8, 0),), u'ReverseCurve', None, object)
 
     def simplify_curve(self, object, flags):
         """
@@ -2039,8 +2075,8 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Flags : Optional, Number, int
+        Object : Required, String, str, String
+        Flags : Optional, Number, int, Integer
 
         Returns
 
@@ -2049,7 +2085,7 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(573, 1, (12, 0), ((12, 0), (12, 0)), u'SimplifyCurve', None, object, flags)
+        return self._ApplyTypes_(573, 1, (12, 0), ((8, 0), (2, 0),), u'SimplifyCurve', None, object, flags)
 
     def split_curve(self, object, parameter, parameters, delete):
         """
@@ -2069,9 +2105,9 @@ class Curve(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Interval : Required, Array, arr
-        Delete : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Interval : Required, Array, arrdbl, Array of ?
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -2080,5 +2116,5 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(505, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'TrimCurve', None, object, interval, delete)
+        return self._ApplyTypes_(505, 1, (12, 0), ((8, 0), (8197, 0), (11, 0),), u'TrimCurve', None, object, _utils.flatten(interval), delete)
 

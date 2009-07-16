@@ -11,18 +11,18 @@ Returns the angle whose tangent is the quotient of two specified numbers.
 Syntax
 
 
-Rhino.ATan2 (y, x)
+Rhino.ATan2 (dblNumberY, dblNumberX)
 
 
 Parameters
 
 
 
-y 
+dblNumberY 
 
 Required.  Number.  The y coordinate of a point.
 
-x 
+dblNumberX 
 
 Required.  Number.  The x coordinate of a point.
 

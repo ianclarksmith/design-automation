@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Group(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Group(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Group : Optional, String, str
+        Group : Optional, String, str, String
 
         Returns
 
@@ -25,7 +24,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(133, 1, (12, 0), ((12, 0)), u'AddGroup', None, group)
+        return self._ApplyTypes_(133, 1, (12, 0), ((8, 0),), u'AddGroup', None, group)
 
     def add_object_to_group(self, object, group):
         """
@@ -34,8 +33,8 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Group : Required, String, str
+        Object : Required, String, str, String
+        Group : Required, String, str, String
 
         Returns
 
@@ -44,7 +43,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(134, 1, (12, 0), ((12, 0), (12, 0)), u'AddObjectToGroup', None, object, group)
+        return self._ApplyTypes_(134, 1, (12, 0), ((8, 0), (8, 0),), u'AddObjectToGroup', None, object, group)
 
     def add_objects_to_group(self, objects, group):
         """
@@ -53,8 +52,8 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        Group : Required, String, str
+        Objects : Required, Array, arrdbl, Array of ?
+        Group : Required, String, str, String
 
         Returns
 
@@ -63,7 +62,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(135, 1, (12, 0), ((12, 0), (12, 0)), u'AddObjectsToGroup', None, objects, group)
+        return self._ApplyTypes_(135, 1, (12, 0), ((8197, 0), (8, 0),), u'AddObjectsToGroup', None, _utils.flatten(objects), group)
 
     def delete_group(self, group):
         """
@@ -72,7 +71,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Group : Required, String, str
+        Group : Required, String, str, String
 
         Returns
 
@@ -81,7 +80,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(136, 1, (12, 0), ((12, 0)), u'DeleteGroup', None, group)
+        return self._ApplyTypes_(136, 1, (12, 0), ((8, 0),), u'DeleteGroup', None, group)
 
     def group_count(self):
         """
@@ -97,7 +96,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(137, 1, (12, 0), (), u'GroupCount', None, )
+        return self._ApplyTypes_(137, 1, (12, 0), (,), u'GroupCount', None, )
 
     def group_names(self):
         """
@@ -113,7 +112,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(138, 1, (12, 0), (), u'GroupNames', None, )
+        return self._ApplyTypes_(138, 1, (12, 0), (,), u'GroupNames', None, )
 
     def hide_group(self, group):
         """
@@ -122,7 +121,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Group : Required, String, str
+        Group : Required, String, str, String
 
         Returns
 
@@ -131,7 +130,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(871, 1, (12, 0), ((12, 0)), u'HideGroup', None, group)
+        return self._ApplyTypes_(871, 1, (12, 0), ((8, 0),), u'HideGroup', None, group)
 
     def is_group(self, group):
         """
@@ -140,7 +139,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Group : Required, String, str
+        Group : Required, String, str, String
 
         Returns
 
@@ -149,7 +148,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(139, 1, (12, 0), ((12, 0)), u'IsGroup', None, group)
+        return self._ApplyTypes_(139, 1, (12, 0), ((8, 0),), u'IsGroup', None, group)
 
     def is_group_empty(self, group):
         """
@@ -158,7 +157,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Group : Required, String, str
+        Group : Required, String, str, String
 
         Returns
 
@@ -167,7 +166,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(140, 1, (12, 0), ((12, 0)), u'IsGroupEmpty', None, group)
+        return self._ApplyTypes_(140, 1, (12, 0), ((8, 0),), u'IsGroupEmpty', None, group)
 
     def lock_group(self, group):
         """
@@ -176,7 +175,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Group : Required, String, str
+        Group : Required, String, str, String
 
         Returns
 
@@ -185,7 +184,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(873, 1, (12, 0), ((12, 0)), u'LockGroup', None, group)
+        return self._ApplyTypes_(873, 1, (12, 0), ((8, 0),), u'LockGroup', None, group)
 
     def remove_object_from_all_groups(self, object):
         """
@@ -194,7 +193,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -203,7 +202,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(141, 1, (12, 0), ((12, 0)), u'RemoveObjectFromAllGroups', None, object)
+        return self._ApplyTypes_(141, 1, (12, 0), ((8, 0),), u'RemoveObjectFromAllGroups', None, object)
 
     def remove_object_from_group(self, object, group):
         """
@@ -212,8 +211,8 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Group : Required, String, str
+        Object : Required, String, str, String
+        Group : Required, String, str, String
 
         Returns
 
@@ -222,7 +221,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(142, 1, (12, 0), ((12, 0), (12, 0)), u'RemoveObjectFromGroup', None, object, group)
+        return self._ApplyTypes_(142, 1, (12, 0), ((8, 0), (8, 0),), u'RemoveObjectFromGroup', None, object, group)
 
     def remove_object_from_top_group(self, object):
         """
@@ -231,7 +230,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -240,7 +239,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(143, 1, (12, 0), ((12, 0)), u'RemoveObjectFromTopGroup', None, object)
+        return self._ApplyTypes_(143, 1, (12, 0), ((8, 0),), u'RemoveObjectFromTopGroup', None, object)
 
     def remove_objects_from_group(self, objects, group):
         """
@@ -249,8 +248,8 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        Group : Required, String, str
+        Objects : Required, Array, arrdbl, Array of ?
+        Group : Required, String, str, String
 
         Returns
 
@@ -259,7 +258,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(144, 1, (12, 0), ((12, 0), (12, 0)), u'RemoveObjectsFromGroup', None, objects, group)
+        return self._ApplyTypes_(144, 1, (12, 0), ((8197, 0), (8, 0),), u'RemoveObjectsFromGroup', None, _utils.flatten(objects), group)
 
     def rename_group(self, old_group, new_group):
         """
@@ -268,8 +267,8 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        OldGroup : Required, String, str
-        NewGroup : Required, String, str
+        OldGroup : Required, String, str, String
+        NewGroup : Required, String, str, String
 
         Returns
 
@@ -278,7 +277,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(145, 1, (12, 0), ((12, 0), (12, 0)), u'RenameGroup', None, old_group, new_group)
+        return self._ApplyTypes_(145, 1, (12, 0), ((8, 0), (8, 0),), u'RenameGroup', None, old_group, new_group)
 
     def show_group(self, group):
         """
@@ -287,7 +286,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Group : Required, String, str
+        Group : Required, String, str, String
 
         Returns
 
@@ -296,7 +295,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(872, 1, (12, 0), ((12, 0)), u'ShowGroup', None, group)
+        return self._ApplyTypes_(872, 1, (12, 0), ((8, 0),), u'ShowGroup', None, group)
 
     def unlock_group(self, group):
         """
@@ -305,7 +304,7 @@ class Group(DispatchBaseClass):
 
         Parameters
 
-        Group : Required, String, str
+        Group : Required, String, str, String
 
         Returns
 
@@ -314,5 +313,5 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(874, 1, (12, 0), ((12, 0)), u'UnlockGroup', None, group)
+        return self._ApplyTypes_(874, 1, (12, 0), ((8, 0),), u'UnlockGroup', None, group)
 

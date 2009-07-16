@@ -26,7 +26,7 @@ arrPoint
 
 Required.  Array.  The test, or sampling, point.
 
-arrPoint 
+intIndex 
 
 Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 

@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Document(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Document(IRhinoScript):
 
 
 
@@ -16,11 +15,11 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        File : Required, String, str
-        View : Optional, String, str
-        Size : Optional, Array, arr
-        Flags : Optional, Integer, int
-        Wireframe : Optional, Boolean, bln
+        File : Required, String, str, String
+        View : Optional, String, str, String
+        Size : Optional, Array, arrdbl, Array of ?
+        Flags : Optional, Integer, int, Integer
+        Wireframe : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -28,7 +27,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(388, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'CreatePreviewImage', None, file, view, size, flags, wireframe)
+        return self._ApplyTypes_(388, 1, (12, 0), ((8, 0), (8, 0), (8197, 0), (2, 0), (11, 0),), u'CreatePreviewImage', None, file, view, _utils.flatten(size), flags, wireframe)
 
     def document_modified(self, modified):
         """
@@ -37,7 +36,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Modified : Optional, Boolean, bln
+        Modified : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -46,7 +45,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(323, 1, (12, 0), ((12, 0)), u'DocumentModified', None, modified)
+        return self._ApplyTypes_(323, 1, (12, 0), ((11, 0),), u'DocumentModified', None, modified)
 
     def document_name(self):
         """
@@ -62,7 +61,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(113, 1, (12, 0), (), u'DocumentName', None, )
+        return self._ApplyTypes_(113, 1, (12, 0), (,), u'DocumentName', None, )
 
     def document_path(self):
         """
@@ -78,7 +77,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(301, 1, (12, 0), (), u'DocumentPath', None, )
+        return self._ApplyTypes_(301, 1, (12, 0), (,), u'DocumentPath', None, )
 
     def document_u_r_l(self, u_r_l):
         """
@@ -87,7 +86,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        URL : Optional, String, str
+        URL : Optional, String, str, String
 
         Returns
 
@@ -97,7 +96,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(275, 1, (12, 0), ((12, 0)), u'DocumentURL', None, u_r_l)
+        return self._ApplyTypes_(275, 1, (12, 0), ((8, 0),), u'DocumentURL', None, u_r_l)
 
     def enable_redraw(self, select):
         """
@@ -106,7 +105,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Select : Optional, Boolean, bln
+        Select : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -114,7 +113,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(317, 1, (12, 0), ((12, 0)), u'EnableRedraw', None, select)
+        return self._ApplyTypes_(317, 1, (12, 0), ((11, 0),), u'EnableRedraw', None, select)
 
     def extract_preview_image(self, file_name, model_name):
         """
@@ -123,8 +122,8 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        FileName : Required, String, str
-        ModelName : Optional, String, str
+        FileName : Required, String, str, String
+        ModelName : Optional, String, str, String
 
         Returns
 
@@ -132,7 +131,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(389, 1, (12, 0), ((12, 0), (12, 0)), u'ExtractPreviewImage', None, file_name, model_name)
+        return self._ApplyTypes_(389, 1, (12, 0), ((8, 0), (8, 0),), u'ExtractPreviewImage', None, file_name, model_name)
 
     def is_document_modified(self):
         """
@@ -147,7 +146,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(273, 1, (12, 0), (), u'IsDocumentModified', None, )
+        return self._ApplyTypes_(273, 1, (12, 0), (,), u'IsDocumentModified', None, )
 
     def notes(self, notes):
         """
@@ -156,7 +155,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Notes : Optional, String, str
+        Notes : Optional, String, str, String
 
         Returns
 
@@ -166,7 +165,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(274, 1, (12, 0), ((12, 0)), u'Notes', None, notes)
+        return self._ApplyTypes_(274, 1, (12, 0), ((8, 0),), u'Notes', None, notes)
 
     def read_file_version(self):
         """
@@ -182,7 +181,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(737, 1, (12, 0), (), u'ReadFileVersion', None, )
+        return self._ApplyTypes_(737, 1, (12, 0), (,), u'ReadFileVersion', None, )
 
     def redraw(self):
         """
@@ -196,7 +195,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(114, 1, (12, 0), (), u'Redraw', None, )
+        return self._ApplyTypes_(114, 1, (12, 0), (,), u'Redraw', None, )
 
     def render_antialias(self, style):
         """
@@ -205,7 +204,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Style : Optional, Number, int
+        Style : Optional, Number, int, Integer
 
         Returns
 
@@ -215,7 +214,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(333, 1, (12, 0), ((12, 0)), u'RenderAntialias', None, style)
+        return self._ApplyTypes_(333, 1, (12, 0), ((2, 0),), u'RenderAntialias', None, style)
 
     def render_color(self, item, color):
         """
@@ -224,8 +223,8 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Item : Required, Number, int
-        Color : Optional, Number, lng
+        Item : Required, Number, int, Integer
+        Color : Optional, Number, lng, Integer
 
         Returns
 
@@ -235,7 +234,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(331, 1, (12, 0), ((12, 0), (12, 0)), u'RenderColor', None, item, color)
+        return self._ApplyTypes_(331, 1, (12, 0), ((2, 0), (3, 0),), u'RenderColor', None, item, color)
 
     def render_mesh_density(self, density):
         """
@@ -244,7 +243,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Density : Optional, Number, dbl
+        Density : Optional, Number, dbl, Double
 
         Returns
 
@@ -254,7 +253,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(844, 1, (12, 0), ((12, 0)), u'RenderMeshDensity', None, density)
+        return self._ApplyTypes_(844, 1, (12, 0), ((5, 0),), u'RenderMeshDensity', None, density)
 
     def render_mesh_max_angle(self, angle):
         """
@@ -263,7 +262,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Angle : Optional, Number, dbl
+        Angle : Optional, Number, dbl, Double
 
         Returns
 
@@ -273,7 +272,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(845, 1, (12, 0), ((12, 0)), u'RenderMeshMaxAngle', None, angle)
+        return self._ApplyTypes_(845, 1, (12, 0), ((5, 0),), u'RenderMeshMaxAngle', None, angle)
 
     def render_mesh_max_aspect_ratio(self, ratio):
         """
@@ -282,7 +281,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Ratio : Optional, Number, dbl
+        Ratio : Optional, Number, dbl, Double
 
         Returns
 
@@ -292,7 +291,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(846, 1, (12, 0), ((12, 0)), u'RenderMeshMaxAspectRatio', None, ratio)
+        return self._ApplyTypes_(846, 1, (12, 0), ((5, 0),), u'RenderMeshMaxAspectRatio', None, ratio)
 
     def render_mesh_max_dist_edge_to_srf(self, distance):
         """
@@ -301,7 +300,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Distance : Optional, Number, dbl
+        Distance : Optional, Number, dbl, Double
 
         Returns
 
@@ -311,7 +310,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(849, 1, (12, 0), ((12, 0)), u'RenderMeshMaxDistEdgeToSrf', None, distance)
+        return self._ApplyTypes_(849, 1, (12, 0), ((5, 0),), u'RenderMeshMaxDistEdgeToSrf', None, distance)
 
     def render_mesh_max_edge_length(self, length):
         """
@@ -320,7 +319,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Length : Optional, Number, dbl
+        Length : Optional, Number, dbl, Double
 
         Returns
 
@@ -330,7 +329,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(848, 1, (12, 0), ((12, 0)), u'RenderMeshMaxEdgeLength', None, length)
+        return self._ApplyTypes_(848, 1, (12, 0), ((5, 0),), u'RenderMeshMaxEdgeLength', None, length)
 
     def render_mesh_min_edge_length(self, length):
         """
@@ -339,7 +338,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Length : Optional, Number, dbl
+        Length : Optional, Number, dbl, Double
 
         Returns
 
@@ -349,7 +348,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(847, 1, (12, 0), ((12, 0)), u'RenderMeshMinEdgeLength', None, length)
+        return self._ApplyTypes_(847, 1, (12, 0), ((5, 0),), u'RenderMeshMinEdgeLength', None, length)
 
     def render_mesh_min_initial_grid_quads(self, quads):
         """
@@ -358,7 +357,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Quads : Optional, Number, int
+        Quads : Optional, Number, int, Integer
 
         Returns
 
@@ -368,7 +367,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(850, 1, (12, 0), ((12, 0)), u'RenderMeshMinInitialGridQuads', None, quads)
+        return self._ApplyTypes_(850, 1, (12, 0), ((2, 0),), u'RenderMeshMinInitialGridQuads', None, quads)
 
     def render_mesh_quality(self, quality):
         """
@@ -377,7 +376,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Quality : Optional, Number, int
+        Quality : Optional, Number, int, Integer
 
         Returns
 
@@ -387,7 +386,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(843, 1, (12, 0), ((12, 0)), u'RenderMeshQuality', None, quality)
+        return self._ApplyTypes_(843, 1, (12, 0), ((2, 0),), u'RenderMeshQuality', None, quality)
 
     def render_mesh_settings(self, settings):
         """
@@ -396,7 +395,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Settings : Optional, Number, int
+        Settings : Optional, Number, int, Integer
 
         Returns
 
@@ -406,7 +405,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(851, 1, (12, 0), ((12, 0)), u'RenderMeshSettings', None, settings)
+        return self._ApplyTypes_(851, 1, (12, 0), ((2, 0),), u'RenderMeshSettings', None, settings)
 
     def render_resolution(self, resolution):
         """
@@ -415,7 +414,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Resolution : Required, Array, arr
+        Resolution : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -425,7 +424,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(332, 1, (12, 0), ((12, 0)), u'RenderResolution', None, resolution)
+        return self._ApplyTypes_(332, 1, (12, 0), ((8197, 0),), u'RenderResolution', None, _utils.flatten(resolution))
 
     def render_settings(self, settings):
         """
@@ -434,7 +433,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Settings : Optional, Number, int
+        Settings : Optional, Number, int, Integer
 
         Returns
 
@@ -444,7 +443,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(334, 1, (12, 0), ((12, 0)), u'RenderSettings', None, settings)
+        return self._ApplyTypes_(334, 1, (12, 0), ((2, 0),), u'RenderSettings', None, settings)
 
     def unit_absolute_tolerance(self, abs_tol):
         """
@@ -453,7 +452,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        AbsTol : Optional, Number, dbl
+        AbsTol : Optional, Number, dbl, Double
 
         Returns
 
@@ -463,7 +462,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(324, 1, (12, 0), ((12, 0)), u'UnitAbsoluteTolerance', None, abs_tol)
+        return self._ApplyTypes_(324, 1, (12, 0), ((5, 0),), u'UnitAbsoluteTolerance', None, abs_tol)
 
     def unit_angle_tolerance(self, angle_tol):
         """
@@ -472,7 +471,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        AngleTol : Optional, Number, dbl
+        AngleTol : Optional, Number, dbl, Double
 
         Returns
 
@@ -482,7 +481,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(325, 1, (12, 0), ((12, 0)), u'UnitAngleTolerance', None, angle_tol)
+        return self._ApplyTypes_(325, 1, (12, 0), ((5, 0),), u'UnitAngleTolerance', None, angle_tol)
 
     def unit_custom_unit_system(self, units, scale, name):
         """
@@ -491,9 +490,9 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Units : Required, Number, dbl
-        Scale : Optional, Boolean, bln
-        Name : Optional, String, str
+        Units : Required, Number, dbl, Double
+        Scale : Optional, Boolean, bln, Boolean
+        Name : Optional, String, str, String
 
         Returns
 
@@ -502,7 +501,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(326, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'UnitCustomUnitSystem', None, units, scale, name)
+        return self._ApplyTypes_(326, 1, (12, 0), ((5, 0), (11, 0), (8, 0),), u'UnitCustomUnitSystem', None, units, scale, name)
 
     def unit_distance_display_mode(self, mode):
         """
@@ -511,7 +510,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Mode : Optional, Number, int
+        Mode : Optional, Number, int, Integer
 
         Returns
 
@@ -521,7 +520,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(327, 1, (12, 0), ((12, 0)), u'UnitDistanceDisplayMode', None, mode)
+        return self._ApplyTypes_(327, 1, (12, 0), ((2, 0),), u'UnitDistanceDisplayMode', None, mode)
 
     def unit_distance_display_precision(self, precision):
         """
@@ -530,7 +529,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Precision : Optional, Number, int
+        Precision : Optional, Number, int, Integer
 
         Returns
 
@@ -540,7 +539,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(328, 1, (12, 0), ((12, 0)), u'UnitDistanceDisplayPrecision', None, precision)
+        return self._ApplyTypes_(328, 1, (12, 0), ((2, 0),), u'UnitDistanceDisplayPrecision', None, precision)
 
     def unit_relative_tolerance(self, rel_tol):
         """
@@ -549,7 +548,7 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        RelTol : Optional, Number, dbl
+        RelTol : Optional, Number, dbl, Double
 
         Returns
 
@@ -559,7 +558,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(329, 1, (12, 0), ((12, 0)), u'UnitRelativeTolerance', None, rel_tol)
+        return self._ApplyTypes_(329, 1, (12, 0), ((5, 0),), u'UnitRelativeTolerance', None, rel_tol)
 
     def unit_scale(self, to_system, from_system):
         """
@@ -568,8 +567,8 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        ToSystem : Required, Number, int
-        FromSystem : Optional, Number, int
+        ToSystem : Required, Number, int, Integer
+        FromSystem : Optional, Number, int, Integer
 
         Returns
 
@@ -578,7 +577,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(868, 1, (12, 0), ((12, 0), (12, 0)), u'UnitScale', None, to_system, from_system)
+        return self._ApplyTypes_(868, 1, (12, 0), ((2, 0), (2, 0),), u'UnitScale', None, to_system, from_system)
 
     def unit_system(self, system, scale):
         """
@@ -587,8 +586,8 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        System : Optional, Number, int
-        Scale : Optional, Boolean, bln
+        System : Optional, Number, int, Integer
+        Scale : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -597,7 +596,7 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(330, 1, (12, 0), ((12, 0), (12, 0)), u'UnitSystem', None, system, scale)
+        return self._ApplyTypes_(330, 1, (12, 0), ((2, 0), (11, 0),), u'UnitSystem', None, system, scale)
 
     def unit_system_name(self, capitalize, singular, abbreviate):
         """
@@ -606,9 +605,9 @@ class Document(DispatchBaseClass):
 
         Parameters
 
-        Capitalize : Optional, Boolean, bln
-        Singular : Optional, Boolean, bln
-        Abbreviate : Optional, Boolean, bln
+        Capitalize : Optional, Boolean, bln, Boolean
+        Singular : Optional, Boolean, bln, Boolean
+        Abbreviate : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -616,5 +615,5 @@ class Document(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(492, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'UnitSystemName', None, capitalize, singular, abbreviate)
+        return self._ApplyTypes_(492, 1, (12, 0), ((11, 0), (11, 0), (11, 0),), u'UnitSystemName', None, capitalize, singular, abbreviate)
 

@@ -18,7 +18,7 @@ Parameters
 
 
 
-arrPoint 
+strPoint 
 
 Required.  String.  A string that contains a delimited point like "1,2,3".
 

@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class SurfaceAndPolysurface(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class SurfaceAndPolysurface(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Corners : Required, Array, arr
+        Corners : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -25,9 +24,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(72, 1, (12, 0), ((12, 0)), u'AddBox', None, corners)
+        return self._ApplyTypes_(72, 1, (12, 0), ((8197, 0),), u'AddBox', None, _utils.flatten(corners))
 
-    def add_cone(self, base, plane, height, height, radius, cap):
+    def add_cone(self, base, plane, height1, height2, radius, cap):
         """
 
 
@@ -45,10 +44,10 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        StartPoint : Required, Array, arr
-        EndPoint : Required, Number, arr
-        Normal : Optional, A vector that will be contained in the returned planar surface, arr
+        Objects : Required, Array, arrdbl, Array of ?
+        StartPoint : Required, Array, arrdbl, Array of ?
+        EndPoint : Required, Number, arrdbl, Array of ?
+        Normal : Optional, A vector that will be contained in the returned planar surface, arrdbl, Array of ?
 
         Returns
 
@@ -57,9 +56,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(822, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'AddCutPlane', None, objects, start_point, end_point, normal)
+        return self._ApplyTypes_(822, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0), (8197, 0),), u'AddCutPlane', None, _utils.flatten(objects), _utils.flatten(start_point), _utils.flatten(end_point), _utils.flatten(normal))
 
-    def add_cylinder(self, base, plane, height, height, radius, cap):
+    def add_cylinder(self, base, plane, height1, height2, radius, cap):
         """
 
 
@@ -77,7 +76,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -86,22 +85,22 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(203, 1, (12, 0), ((12, 0)), u'AddEdgeSrf', None, objects)
+        return self._ApplyTypes_(203, 1, (12, 0), ((8197, 0),), u'AddEdgeSrf', None, _utils.flatten(objects))
 
-    def add_loft_srf(self, objects, start_pt, end_pt, type, style, lue, closed):
+    def add_loft_srf(self, objects, start_pt, end_pt, type, style, value, closed):
         """
 
         * This function will not adjust the seams of closed curves. Use CurveSeam to adjust the seam of closed curves.
 
         Parameters
 
-        Objects : Required, Array, arr
-        StartPt : Optional, Array, arr
-        EndPt : Optional, Array, arr
-        Type : Optional, Number, int
-        Style : Optional, Number, int
-        lue : Optional, Number, nVa
-        Closed : Optional, Boolean, bln
+        Objects : Required, Array, arrdbl, Array of ?
+        StartPt : Optional, Array, arrdbl, Array of ?
+        EndPt : Optional, Array, arrdbl, Array of ?
+        Type : Optional, Number, int, Integer
+        Style : Optional, Number, int, Integer
+        Value : Optional, Number, n, Integer
+        Closed : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -110,21 +109,21 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(567, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0), nVa, (12, 0)), u'AddLoftSrf', None, objects, start_pt, end_pt, type, style, lue, closed)
+        return self._ApplyTypes_(567, 1, (12, 0), ((8200, 0), (8197, 0), (8197, 0), (2, 0), (2, 0), (2, 0), (11, 0),), u'AddLoftSrf', None, _utils.flatten(objects), _utils.flatten(start_pt), _utils.flatten(end_pt), type, style, value, closed)
 
-    def add_nurbs_surface(self, point_count, points, knots_u, knots_u, degree, weights):
+    def add_nurbs_surface(self, point_count, points, knots_u, knots_v, degree, weights):
         """
 
         Adds a NURBS surface object to the document.
 
         Parameters
 
-        PointCount : Required, Array, arr
-        Points : Required, Array, arr
-        KnotsU : Required, Array, arr
-        KnotsU : Required, Array, arr
-        Degree : Required, Array, arr
-        Weights : Required, Array, arr
+        PointCount : Required, Array, arrdbl, Array of ?
+        Points : Required, Array, arrdbl, Array of ?
+        KnotsU : Required, Array, arrdbl, Array of ?
+        KnotsU : Required, Array, arrdbl, Array of ?
+        Degree : Required, Array, arrdbl, Array of ?
+        Weights : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -133,7 +132,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(435, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddNurbsSurface', None, point_count, points, knots_u, knots_u, degree, weights)
+        return self._ApplyTypes_(435, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0), (8197, 0), (8197, 0), (8197, 0),), u'AddNurbsSurface', None, _utils.flatten(point_count), _utils.flatten(points), _utils.flatten(knots_u), _utils.flatten(knots_v), _utils.flatten(degree), _utils.flatten(weights))
 
     def add_planar_srf(self, objects):
         """
@@ -142,7 +141,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -151,7 +150,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(371, 1, (12, 0), ((12, 0)), u'AddPlanarSrf', None, objects)
+        return self._ApplyTypes_(371, 1, (12, 0), ((8197, 0),), u'AddPlanarSrf', None, _utils.flatten(objects))
 
     def add_plane_surface(self, plane, d_u, d_v):
         """
@@ -160,9 +159,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
-        DU : Required, Number, dbl
-        DV : Required, Number, dbl
+        Plane : Required, Array, arrdbl, Array of ?
+        DU : Required, Number, dbl, Double
+        DV : Required, Number, dbl, Double
 
         Returns
 
@@ -171,7 +170,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(648, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddPlaneSurface', None, plane, d_u, d_v)
+        return self._ApplyTypes_(648, 1, (12, 0), ((8197, 0), (5, 0), (5, 0),), u'AddPlaneSurface', None, _utils.flatten(plane), d_u, d_v)
 
     def add_rail_rev_srf(self, profile, rail, axis):
         """
@@ -180,9 +179,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Profile : Required, String, str
-        Rail : Required, String, str
-        Axis : Required, Array, arr
+        Profile : Required, String, str, String
+        Rail : Required, String, str, String
+        Axis : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -191,7 +190,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(536, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddRailRevSrf', None, profile, rail, axis)
+        return self._ApplyTypes_(536, 1, (12, 0), ((8, 0), (8, 0), (8197, 0),), u'AddRailRevSrf', None, profile, rail, _utils.flatten(axis))
 
     def add_rev_srf(self, profile, axis, start_angle, end_angle):
         """
@@ -200,10 +199,10 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Profile : Required, String, str
-        Axis : Required, Array, arr
-        StartAngle : Optional, Number, dbl
-        EndAngle : Optional, Number, dbl
+        Profile : Required, String, str, String
+        Axis : Required, Array, arrdbl, Array of ?
+        StartAngle : Optional, Number, dbl, Double
+        EndAngle : Optional, Number, dbl, Double
 
         Returns
 
@@ -212,7 +211,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(535, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'AddRevSrf', None, profile, axis, start_angle, end_angle)
+        return self._ApplyTypes_(535, 1, (12, 0), ((8, 0), (8197, 0), (5, 0), (5, 0),), u'AddRevSrf', None, profile, _utils.flatten(axis), start_angle, end_angle)
 
     def add_sphere(self, center, plane, radius):
         """
@@ -243,9 +242,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Count : Required, Array, arr
-        Points : Required, Array, arr
-        Degree : Optional, Array, arr
+        Count : Required, Array, arrdbl, Array of ?
+        Points : Required, Array, arrdbl, Array of ?
+        Degree : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -254,7 +253,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(294, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddSrfControlPtGrid', None, count, points, degree)
+        return self._ApplyTypes_(294, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0),), u'AddSrfControlPtGrid', None, _utils.flatten(count), _utils.flatten(points), _utils.flatten(degree))
 
     def add_srf_pt(self, points):
         """
@@ -263,7 +262,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -272,7 +271,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(204, 1, (12, 0), ((12, 0)), u'AddSrfPt', None, points)
+        return self._ApplyTypes_(204, 1, (12, 0), ((8197, 0),), u'AddSrfPt', None, _utils.flatten(points))
 
     def add_srf_pt_grid(self, count, points, degree, closed):
         """
@@ -281,10 +280,10 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Count : Required, Array, arr
-        Points : Required, Array, arr
-        Degree : Optional, Array, arr
-        Closed : Optional, Array, arr
+        Count : Required, Array, arrdbl, Array of ?
+        Points : Required, Array, arrdbl, Array of ?
+        Degree : Optional, Array, arrdbl, Array of ?
+        Closed : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -293,7 +292,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(293, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'AddSrfPtGrid', None, count, points, degree, closed)
+        return self._ApplyTypes_(293, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0), (8197, 0),), u'AddSrfPtGrid', None, _utils.flatten(count), _utils.flatten(points), _utils.flatten(degree), _utils.flatten(closed))
 
     def add_srf_section_crvs(self, object, plane):
         """
@@ -302,8 +301,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Plane : Required, Array, arr
+        Object : Required, String, str, String
+        Plane : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -312,24 +311,24 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(803, 1, (12, 0), ((12, 0), (12, 0)), u'AddSrfSectionCrvs', None, object, plane)
+        return self._ApplyTypes_(803, 1, (12, 0), ((8, 0), (8197, 0),), u'AddSrfSectionCrvs', None, object, _utils.flatten(plane))
 
-    def add_sweep1(self, rail, shapes, start_pt, end_pt, closed, style, tyle_arg, simplify, implify_arg):
+    def add_sweep1(self, rail, shapes, start_pt, end_pt, closed, style, style_arg, simplify, simplify_arg):
         """
 
         * The shape curves should be passed in order, starting with the curve closest to the starting point of the rail.
 
         Parameters
 
-        Rail : Required, String, str
-        Shapes : Required, Array, arr
-        StartPt : Optional, Array, arr
-        EndPt : Optional, Array, arr
-        Closed : Optional, Boolean, bln
-        Style : Optional, Integer, int
-        tyleArg : Optional, Variant, vaS
-        Simplify : Optional, Integer, int
-        implifyArg : Optional, Variant, vaS
+        Rail : Required, String, str, String
+        Shapes : Required, Array, arrstr, Array of ?
+        StartPt : Optional, Array, arrdbl, Array of ?
+        EndPt : Optional, Array, arrdbl, Array of ?
+        Closed : Optional, Boolean, bln, Boolean
+        Style : Optional, Integer, int, Integer
+        StyleArg : Optional, Variant, va, Array of ?
+        Simplify : Optional, Integer, int, Integer
+        SimplifyArg : Optional, Variant, va, Array of ?
 
         Returns
 
@@ -338,24 +337,24 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(893, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0), vaS, (12, 0), vaS), u'AddSweep1', None, rail, shapes, start_pt, end_pt, closed, style, tyle_arg, simplify, implify_arg)
+        return self._ApplyTypes_(893, 1, (12, 0), ((8, 0), (8200, 0), (8197, 0), (8197, 0), (11, 0), (2, 0), (12, 0), (2, 0), (12, 0),), u'AddSweep1', None, rail, _utils.flatten(shapes), _utils.flatten(start_pt), _utils.flatten(end_pt), closed, style, style_arg, simplify, simplify_arg)
 
-    def add_sweep2(self, rails, shapes, start_pt, end_pt, closed, simple_sweep, maintain_height, simplify, implify_arg):
+    def add_sweep2(self, rails, shapes, start_pt, end_pt, closed, simple_sweep, maintain_height, simplify, simplify_arg):
         """
 
         * The shape curves should be passed in order, starting with the curve closest to the starting point of the rail.
 
         Parameters
 
-        Rails : Required, String, arr
-        Shapes : Required, Array, arr
-        StartPt : Optional, Array, arr
-        EndPt : Optional, Array, arr
-        Closed : Optional, Boolean, bln
-        SimpleSweep : Optional, Boolean, bln
-        MaintainHeight : Optional, Boolean, bln
-        Simplify : Optional, Integer, int
-        implifyArg : Optional, Variant, vaS
+        Rails : Required, String, arrstr, Array of ?
+        Shapes : Required, Array, arrstr, Array of ?
+        StartPt : Optional, Array, arrdbl, Array of ?
+        EndPt : Optional, Array, arrdbl, Array of ?
+        Closed : Optional, Boolean, bln, Boolean
+        SimpleSweep : Optional, Boolean, bln, Boolean
+        MaintainHeight : Optional, Boolean, bln, Boolean
+        Simplify : Optional, Integer, int, Integer
+        SimplifyArg : Optional, Variant, va, Array of ?
 
         Returns
 
@@ -364,7 +363,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(894, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0), vaS), u'AddSweep2', None, rails, shapes, start_pt, end_pt, closed, simple_sweep, maintain_height, simplify, implify_arg)
+        return self._ApplyTypes_(894, 1, (12, 0), ((8200, 0), (8200, 0), (8197, 0), (8197, 0), (11, 0), (11, 0), (11, 0), (2, 0), (12, 0),), u'AddSweep2', None, _utils.flatten(rails), _utils.flatten(shapes), _utils.flatten(start_pt), _utils.flatten(end_pt), closed, simple_sweep, maintain_height, simplify, simplify_arg)
 
     def add_torus(self, base, plane, major_radius, minor_radius, direction):
         """
@@ -384,9 +383,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Input0 : Required, Array, arr
-        Input1 : Required, Array, arr
-        Delete : Optional, Boolean, bln
+        Input0 : Required, Array, arrdbl, Array of ?
+        Input1 : Required, Array, arrdbl, Array of ?
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -395,7 +394,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(508, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'BooleanDifference', None, input0, input1, delete)
+        return self._ApplyTypes_(508, 1, (12, 0), ((8197, 0), (8197, 0), (11, 0),), u'BooleanDifference', None, _utils.flatten(input0), _utils.flatten(input1), delete)
 
     def boolean_intersection(self, input0, input1, delete):
         """
@@ -404,9 +403,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Input0 : Required, Array, arr
-        Input1 : Required, Array, arr
-        Delete : Optional, Boolean, bln
+        Input0 : Required, Array, arrdbl, Array of ?
+        Input1 : Required, Array, arrdbl, Array of ?
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -415,7 +414,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(507, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'BooleanIntersection', None, input0, input1, delete)
+        return self._ApplyTypes_(507, 1, (12, 0), ((8197, 0), (8197, 0), (11, 0),), u'BooleanIntersection', None, _utils.flatten(input0), _utils.flatten(input1), delete)
 
     def boolean_union(self, input, delete):
         """
@@ -424,8 +423,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Input : Required, Array, arr
-        Delete : Optional, Boolean, bln
+        Input : Required, Array, arrdbl, Array of ?
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -434,7 +433,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(506, 1, (12, 0), ((12, 0), (12, 0)), u'BooleanUnion', None, input, delete)
+        return self._ApplyTypes_(506, 1, (12, 0), ((8197, 0), (11, 0),), u'BooleanUnion', None, _utils.flatten(input), delete)
 
     def brep_closest_point(self, object, point):
         """
@@ -443,8 +442,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -453,7 +452,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(514, 1, (12, 0), ((12, 0), (12, 0)), u'BrepClosestPoint', None, object, point)
+        return self._ApplyTypes_(514, 1, (12, 0), ((8, 0), (8197, 0),), u'BrepClosestPoint', None, object, _utils.flatten(point))
 
     def cap_planar_holes(self, surface):
         """
@@ -462,7 +461,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -471,7 +470,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(701, 1, (12, 0), ((12, 0)), u'CapPlanarHoles', None, surface)
+        return self._ApplyTypes_(701, 1, (12, 0), ((8, 0),), u'CapPlanarHoles', None, surface)
 
     def duplicate_edge_curves(self, object, select):
         """
@@ -480,8 +479,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Select : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Select : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -490,7 +489,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(657, 1, (12, 0), ((12, 0), (12, 0)), u'DuplicateEdgeCurves', None, object, select)
+        return self._ApplyTypes_(657, 1, (12, 0), ((8, 0), (11, 0),), u'DuplicateEdgeCurves', None, object, select)
 
     def duplicate_surface_border(self, object):
         """
@@ -499,7 +498,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -508,7 +507,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(852, 1, (12, 0), ((12, 0)), u'DuplicateSurfaceBorder', None, object)
+        return self._ApplyTypes_(852, 1, (12, 0), ((8, 0),), u'DuplicateSurfaceBorder', None, object)
 
     def evaluate_surface(self, object, parameter):
         """
@@ -517,8 +516,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, arr
+        Object : Required, String, str, String
+        Parameter : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -527,7 +526,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(205, 1, (12, 0), ((12, 0), (12, 0)), u'EvaluateSurface', None, object, parameter)
+        return self._ApplyTypes_(205, 1, (12, 0), ((8, 0), (8197, 0),), u'EvaluateSurface', None, object, _utils.flatten(parameter))
 
     def explode_polysurfaces(self, object, objects, delete):
         """
@@ -547,9 +546,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, arr
-        Dir : Required, Number, int
+        Object : Required, String, str, String
+        Parameter : Required, Array, arrdbl, Array of ?
+        Dir : Required, Number, int, Integer
 
         Returns
 
@@ -558,7 +557,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(488, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ExtractIsoCurve', None, object, parameter, dir)
+        return self._ApplyTypes_(488, 1, (12, 0), ((8, 0), (8197, 0), (2, 0),), u'ExtractIsoCurve', None, object, _utils.flatten(parameter), dir)
 
     def extrude_curve(self, curve, path):
         """
@@ -567,8 +566,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
-        Path : Required, String, str
+        Curve : Required, String, str, String
+        Path : Required, String, str, String
 
         Returns
 
@@ -577,7 +576,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(538, 1, (12, 0), ((12, 0), (12, 0)), u'ExtrudeCurve', None, curve, path)
+        return self._ApplyTypes_(538, 1, (12, 0), ((8, 0), (8, 0),), u'ExtrudeCurve', None, curve, path)
 
     def extrude_curve_point(self, curve, point):
         """
@@ -586,8 +585,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
-        Point : Required, Array, arr
+        Curve : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -596,7 +595,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(540, 1, (12, 0), ((12, 0), (12, 0)), u'ExtrudeCurvePoint', None, curve, point)
+        return self._ApplyTypes_(540, 1, (12, 0), ((8, 0), (8197, 0),), u'ExtrudeCurvePoint', None, curve, _utils.flatten(point))
 
     def extrude_curve_straight(self, curve, start_point, end_point):
         """
@@ -605,9 +604,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
-        StartPoint : Required, Array, arr
-        EndPoint : Required, Array, arr
+        Curve : Required, String, str, String
+        StartPoint : Required, Array, arrdbl, Array of ?
+        EndPoint : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -616,7 +615,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(539, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ExtrudeCurveStraight', None, curve, start_point, end_point)
+        return self._ApplyTypes_(539, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0),), u'ExtrudeCurveStraight', None, curve, _utils.flatten(start_point), _utils.flatten(end_point))
 
     def extrude_curve_tapered(self, curve, distance, direction, base_point, angle, corner_type):
         """
@@ -625,12 +624,12 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
-        Distance : Required, Number, dbl
-        Direction : Required, Array, arr
-        BasePoint : Required, Array, arr
-        Angle : Required, Number, dbl
-        CornerType : Optional, Number, int
+        Curve : Required, String, str, String
+        Distance : Required, Number, dbl, Double
+        Direction : Required, Array, arrdbl, Array of ?
+        BasePoint : Required, Array, arrdbl, Array of ?
+        Angle : Required, Number, dbl, Double
+        CornerType : Optional, Number, int, Integer
 
         Returns
 
@@ -639,7 +638,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(914, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'ExtrudeCurveTapered', None, curve, distance, direction, base_point, angle, corner_type)
+        return self._ApplyTypes_(914, 1, (12, 0), ((8, 0), (5, 0), (8197, 0), (8197, 0), (5, 0), (2, 0),), u'ExtrudeCurveTapered', None, curve, distance, _utils.flatten(direction), _utils.flatten(base_point), angle, corner_type)
 
     def extrude_surface(self, surface, curve, cap):
         """
@@ -648,9 +647,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
-        Curve : Required, String, str
-        Cap : Optional, Boolean, bln
+        Surface : Required, String, str, String
+        Curve : Required, String, str, String
+        Cap : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -659,7 +658,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(541, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ExtrudeSurface', None, surface, curve, cap)
+        return self._ApplyTypes_(541, 1, (12, 0), ((8, 0), (8, 0), (11, 0),), u'ExtrudeSurface', None, surface, curve, cap)
 
     def fit_surface(self, object, degree, tolerance):
         """
@@ -668,9 +667,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Degree : Optional, Array, arr
-        Tolerance : Optional, Number, dbl
+        Object : Required, String, str, String
+        Degree : Optional, Array, arrdbl, Array of ?
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -679,7 +678,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(815, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'FitSurface', None, object, degree, tolerance)
+        return self._ApplyTypes_(815, 1, (12, 0), ((8, 0), (8197, 0), (5, 0),), u'FitSurface', None, object, _utils.flatten(degree), tolerance)
 
     def flip_surface(self, object, flip):
         """
@@ -688,8 +687,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Flip : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Flip : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -699,7 +698,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(718, 1, (12, 0), ((12, 0), (12, 0)), u'FlipSurface', None, object, flip)
+        return self._ApplyTypes_(718, 1, (12, 0), ((8, 0), (11, 0),), u'FlipSurface', None, object, flip)
 
     def insert_surface_knot(self, object, parameter, direction, symmetrical):
         """
@@ -708,10 +707,10 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, dbl
-        Direction : Required, Number, int
-        Symmetrical : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Parameter : Required, Array, dbl, Double
+        Direction : Required, Number, int, Integer
+        Symmetrical : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -720,7 +719,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(516, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'InsertSurfaceKnot', None, object, parameter, direction, symmetrical)
+        return self._ApplyTypes_(516, 1, (12, 0), ((8, 0), (5, 0), (2, 0), (11, 0),), u'InsertSurfaceKnot', None, object, parameter, direction, symmetrical)
 
     def intersect_breps(self, brep1, brep2, tolerance):
         """
@@ -729,9 +728,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Brep1 : Required, String, str
-        Brep2 : Required, String, str
-        Tolerance : Optional, Number, dbl
+        Brep1 : Required, String, str, String
+        Brep2 : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -740,7 +739,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(544, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'IntersectBreps', None, brep1, brep2, tolerance)
+        return self._ApplyTypes_(544, 1, (12, 0), ((8, 0), (8, 0), (5, 0),), u'IntersectBreps', None, brep1, brep2, tolerance)
 
     def is_brep(self, object):
         """
@@ -749,7 +748,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -758,7 +757,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(206, 1, (12, 0), ((12, 0)), u'IsBrep', None, object)
+        return self._ApplyTypes_(206, 1, (12, 0), ((8, 0),), u'IsBrep', None, object)
 
     def is_brep_manifold(self, object):
         """
@@ -767,7 +766,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -776,7 +775,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(854, 1, (12, 0), ((12, 0)), u'IsBrepManifold', None, object)
+        return self._ApplyTypes_(854, 1, (12, 0), ((8, 0),), u'IsBrepManifold', None, object)
 
     def is_cone(self, surface):
         """
@@ -785,7 +784,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -794,7 +793,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(885, 1, (12, 0), ((12, 0)), u'IsCone', None, surface)
+        return self._ApplyTypes_(885, 1, (12, 0), ((8, 0),), u'IsCone', None, surface)
 
     def is_cylinder(self, surface):
         """
@@ -803,7 +802,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -812,7 +811,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(884, 1, (12, 0), ((12, 0)), u'IsCylinder', None, surface)
+        return self._ApplyTypes_(884, 1, (12, 0), ((8, 0),), u'IsCylinder', None, surface)
 
     def is_parameter_on_surface(self, object, parameter):
         """
@@ -821,8 +820,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, arr
+        Object : Required, String, str, String
+        Parameter : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -831,7 +830,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(879, 1, (12, 0), ((12, 0), (12, 0)), u'IsParameterOnSurface', None, object, parameter)
+        return self._ApplyTypes_(879, 1, (12, 0), ((8, 0), (8197, 0),), u'IsParameterOnSurface', None, object, _utils.flatten(parameter))
 
     def is_plane_surface(self, object):
         """
@@ -840,7 +839,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -849,7 +848,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(638, 1, (12, 0), ((12, 0)), u'IsPlaneSurface', None, object)
+        return self._ApplyTypes_(638, 1, (12, 0), ((8, 0),), u'IsPlaneSurface', None, object)
 
     def is_point_in_surface(self, object, point):
         """
@@ -858,8 +857,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -868,7 +867,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(443, 1, (12, 0), ((12, 0), (12, 0)), u'IsPointInSurface', None, object, point)
+        return self._ApplyTypes_(443, 1, (12, 0), ((8, 0), (8197, 0),), u'IsPointInSurface', None, object, _utils.flatten(point))
 
     def is_point_on_surface(self, object, point):
         """
@@ -877,8 +876,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -887,7 +886,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(319, 1, (12, 0), ((12, 0), (12, 0)), u'IsPointOnSurface', None, object, point)
+        return self._ApplyTypes_(319, 1, (12, 0), ((8, 0), (8197, 0),), u'IsPointOnSurface', None, object, _utils.flatten(point))
 
     def is_poly_surface(self, object):
         """
@@ -896,7 +895,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -905,7 +904,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(207, 1, (12, 0), ((12, 0)), u'IsPolySurface', None, object)
+        return self._ApplyTypes_(207, 1, (12, 0), ((8, 0),), u'IsPolySurface', None, object)
 
     def is_poly_surface_closed(self, object):
         """
@@ -914,7 +913,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -923,7 +922,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(208, 1, (12, 0), ((12, 0)), u'IsPolySurfaceClosed', None, object)
+        return self._ApplyTypes_(208, 1, (12, 0), ((8, 0),), u'IsPolySurfaceClosed', None, object)
 
     def is_poly_surface_planar(self, object):
         """
@@ -932,7 +931,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -941,7 +940,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(209, 1, (12, 0), ((12, 0)), u'IsPolySurfacePlanar', None, object)
+        return self._ApplyTypes_(209, 1, (12, 0), ((8, 0),), u'IsPolySurfacePlanar', None, object)
 
     def is_sphere(self, surface):
         """
@@ -950,7 +949,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -959,7 +958,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(883, 1, (12, 0), ((12, 0)), u'IsSphere', None, surface)
+        return self._ApplyTypes_(883, 1, (12, 0), ((8, 0),), u'IsSphere', None, surface)
 
     def is_surface(self, object):
         """
@@ -968,7 +967,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -977,7 +976,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(210, 1, (12, 0), ((12, 0)), u'IsSurface', None, object)
+        return self._ApplyTypes_(210, 1, (12, 0), ((8, 0),), u'IsSurface', None, object)
 
     def is_surface_closed(self, object, direction):
         """
@@ -986,8 +985,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Required, Number, int
+        Object : Required, String, str, String
+        Direction : Required, Number, int, Integer
 
         Returns
 
@@ -996,7 +995,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(211, 1, (12, 0), ((12, 0), (12, 0)), u'IsSurfaceClosed', None, object, direction)
+        return self._ApplyTypes_(211, 1, (12, 0), ((8, 0), (2, 0),), u'IsSurfaceClosed', None, object, direction)
 
     def is_surface_periodic(self, object, direction):
         """
@@ -1005,8 +1004,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Required, Number, int
+        Object : Required, String, str, String
+        Direction : Required, Number, int, Integer
 
         Returns
 
@@ -1015,7 +1014,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(212, 1, (12, 0), ((12, 0), (12, 0)), u'IsSurfacePeriodic', None, object, direction)
+        return self._ApplyTypes_(212, 1, (12, 0), ((8, 0), (2, 0),), u'IsSurfacePeriodic', None, object, direction)
 
     def is_surface_planar(self, object, tolerance):
         """
@@ -1024,8 +1023,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Tolerance : Optional, Number, dbl
+        Object : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -1034,7 +1033,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(213, 1, (12, 0), ((12, 0), (12, 0)), u'IsSurfacePlanar', None, object, tolerance)
+        return self._ApplyTypes_(213, 1, (12, 0), ((8, 0), (5, 0),), u'IsSurfacePlanar', None, object, tolerance)
 
     def is_surface_rational(self, object):
         """
@@ -1043,7 +1042,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1052,7 +1051,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(434, 1, (12, 0), ((12, 0)), u'IsSurfaceRational', None, object)
+        return self._ApplyTypes_(434, 1, (12, 0), ((8, 0),), u'IsSurfaceRational', None, object)
 
     def is_surface_singular(self, object, direction):
         """
@@ -1061,8 +1060,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Required, Number, int
+        Object : Required, String, str, String
+        Direction : Required, Number, int, Integer
 
         Returns
 
@@ -1071,7 +1070,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(214, 1, (12, 0), ((12, 0), (12, 0)), u'IsSurfaceSingular', None, object, direction)
+        return self._ApplyTypes_(214, 1, (12, 0), ((8, 0), (2, 0),), u'IsSurfaceSingular', None, object, direction)
 
     def is_surface_trimmed(self, object):
         """
@@ -1080,7 +1079,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1089,7 +1088,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(269, 1, (12, 0), ((12, 0)), u'IsSurfaceTrimmed', None, object)
+        return self._ApplyTypes_(269, 1, (12, 0), ((8, 0),), u'IsSurfaceTrimmed', None, object)
 
     def is_torus(self, surface):
         """
@@ -1098,7 +1097,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -1107,7 +1106,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(886, 1, (12, 0), ((12, 0)), u'IsTorus', None, surface)
+        return self._ApplyTypes_(886, 1, (12, 0), ((8, 0),), u'IsTorus', None, surface)
 
     def join_surfaces(self, object, delete):
         """
@@ -1116,8 +1115,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Array, str
-        Delete : Optional, Boolean, bln
+        Object : Required, Array, str, String
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1126,7 +1125,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(487, 1, (12, 0), ((12, 0), (12, 0)), u'JoinSurfaces', None, object, delete)
+        return self._ApplyTypes_(487, 1, (12, 0), ((8, 0), (11, 0),), u'JoinSurfaces', None, object, delete)
 
     def make_surface_non_periodic(self, object, direction, delete):
         """
@@ -1135,9 +1134,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Required, Number, int
-        Delete : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Direction : Required, Number, int, Integer
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1147,7 +1146,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(926, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MakeSurfaceNonPeriodic', None, object, direction, delete)
+        return self._ApplyTypes_(926, 1, (12, 0), ((8, 0), (2, 0), (11, 0),), u'MakeSurfaceNonPeriodic', None, object, direction, delete)
 
     def make_surface_periodic(self, object, direction, delete):
         """
@@ -1156,9 +1155,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Required, Number, int
-        Delete : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Direction : Required, Number, int, Integer
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1168,7 +1167,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(445, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MakeSurfacePeriodic', None, object, direction, delete)
+        return self._ApplyTypes_(445, 1, (12, 0), ((8, 0), (2, 0), (11, 0),), u'MakeSurfacePeriodic', None, object, direction, delete)
 
     def offset_surface(self, object, distance):
         """
@@ -1177,8 +1176,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Distance : Required, Number, dbl
+        Object : Required, String, str, String
+        Distance : Required, Number, dbl, Double
 
         Returns
 
@@ -1187,7 +1186,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(635, 1, (12, 0), ((12, 0), (12, 0)), u'OffsetSurface', None, object, distance)
+        return self._ApplyTypes_(635, 1, (12, 0), ((8, 0), (5, 0),), u'OffsetSurface', None, object, distance)
 
     def pull_curve(self, surface, curve, delete):
         """
@@ -1196,9 +1195,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
-        Curve : Required, String, str
-        Delete : Optional, Boolean, bln
+        Surface : Required, String, str, String
+        Curve : Required, String, str, String
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1207,7 +1206,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(493, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'PullCurve', None, surface, curve, delete)
+        return self._ApplyTypes_(493, 1, (12, 0), ((8, 0), (8, 0), (11, 0),), u'PullCurve', None, surface, curve, delete)
 
     def rebuild_surface(self, object, degree, point_count):
         """
@@ -1216,9 +1215,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Degree : Optional, Array, arr
-        PointCount : Optional, Array, arr
+        Object : Required, String, str, String
+        Degree : Optional, Array, arrdbl, Array of ?
+        PointCount : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1227,7 +1226,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(816, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'RebuildSurface', None, object, degree, point_count)
+        return self._ApplyTypes_(816, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0),), u'RebuildSurface', None, object, _utils.flatten(degree), _utils.flatten(point_count))
 
     def remove_surface_knot(self, object, parameter, direction):
         """
@@ -1236,9 +1235,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, dbl
-        Direction : Required, Number, int
+        Object : Required, String, str, String
+        Parameter : Required, Array, dbl, Double
+        Direction : Required, Number, int, Integer
 
         Returns
 
@@ -1247,7 +1246,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(917, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'RemoveSurfaceKnot', None, object, parameter, direction)
+        return self._ApplyTypes_(917, 1, (12, 0), ((8, 0), (5, 0), (2, 0),), u'RemoveSurfaceKnot', None, object, parameter, direction)
 
     def reverse_surface(self, object, direction):
         """
@@ -1256,8 +1255,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Required, Number, int
+        Object : Required, String, str, String
+        Direction : Required, Number, int, Integer
 
         Returns
 
@@ -1266,7 +1265,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(927, 1, (12, 0), ((12, 0), (12, 0)), u'ReverseSurface', None, object, direction)
+        return self._ApplyTypes_(927, 1, (12, 0), ((8, 0), (2, 0),), u'ReverseSurface', None, object, direction)
 
     def short_path(self, surface, start, end):
         """
@@ -1275,9 +1274,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
-        Start : Required, Array, arr
-        End : Required, Array, arr
+        Surface : Required, String, str, String
+        Start : Required, Array, arrdbl, Array of ?
+        End : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1286,7 +1285,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(702, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ShortPath', None, surface, start, end)
+        return self._ApplyTypes_(702, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0),), u'ShortPath', None, surface, _utils.flatten(start), _utils.flatten(end))
 
     def shrink_trimmed_surface(self, surface):
         """
@@ -1295,7 +1294,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -1304,7 +1303,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(700, 1, (12, 0), ((12, 0)), u'ShrinkTrimmedSurface', None, surface)
+        return self._ApplyTypes_(700, 1, (12, 0), ((8, 0),), u'ShrinkTrimmedSurface', None, surface)
 
     def split_brep(self, brep, cutter, delete):
         """
@@ -1313,9 +1312,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Brep : Required, String, str
-        Cutter : Required, String, str
-        Delete : Optional, Boolean, bln
+        Brep : Required, String, str, String
+        Cutter : Required, String, str, String
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1324,7 +1323,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(637, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'SplitBrep', None, brep, cutter, delete)
+        return self._ApplyTypes_(637, 1, (12, 0), ((8, 0), (8, 0), (11, 0),), u'SplitBrep', None, brep, cutter, delete)
 
     def surface_area(self, object):
         """
@@ -1333,7 +1332,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1344,7 +1343,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(382, 1, (12, 0), ((12, 0)), u'SurfaceArea', None, object)
+        return self._ApplyTypes_(382, 1, (12, 0), ((8, 0),), u'SurfaceArea', None, object)
 
     def surface_area_centroid(self, object):
         """
@@ -1353,7 +1352,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1362,7 +1361,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(384, 1, (12, 0), ((12, 0)), u'SurfaceAreaCentroid', None, object)
+        return self._ApplyTypes_(384, 1, (12, 0), ((8, 0),), u'SurfaceAreaCentroid', None, object)
 
     def surface_area_moments(self, object):
         """
@@ -1371,7 +1370,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1380,7 +1379,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(386, 1, (12, 0), ((12, 0)), u'SurfaceAreaMoments', None, object)
+        return self._ApplyTypes_(386, 1, (12, 0), ((8, 0),), u'SurfaceAreaMoments', None, object)
 
     def surface_closest_point(self, object, point):
         """
@@ -1389,8 +1388,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1399,7 +1398,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(215, 1, (12, 0), ((12, 0), (12, 0)), u'SurfaceClosestPoint', None, object, point)
+        return self._ApplyTypes_(215, 1, (12, 0), ((8, 0), (8197, 0),), u'SurfaceClosestPoint', None, object, _utils.flatten(point))
 
     def surface_cone(self, surface):
         """
@@ -1408,7 +1407,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -1420,7 +1419,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(889, 1, (12, 0), ((12, 0)), u'SurfaceCone', None, surface)
+        return self._ApplyTypes_(889, 1, (12, 0), ((8, 0),), u'SurfaceCone', None, surface)
 
     def surface_contour_points(self, object, start_point, end_point, interval, angle):
         """
@@ -1429,11 +1428,11 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        StartPoint : Required, Array, arr
-        EndPoint : Required, Array, arr
-        Interval : Optional, Number, dbl
-        Angle : Optional, Number, dbl
+        Object : Required, String, str, String
+        StartPoint : Required, Array, arrdbl, Array of ?
+        EndPoint : Required, Array, arrdbl, Array of ?
+        Interval : Optional, Number, dbl, Double
+        Angle : Optional, Number, dbl, Double
 
         Returns
 
@@ -1442,7 +1441,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(79, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'SurfaceContourPoints', None, object, start_point, end_point, interval, angle)
+        return self._ApplyTypes_(79, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0), (5, 0), (5, 0),), u'SurfaceContourPoints', None, object, _utils.flatten(start_point), _utils.flatten(end_point), interval, angle)
 
     def surface_curvature(self, object, parameter):
         """
@@ -1451,8 +1450,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, arr
+        Object : Required, String, str, String
+        Parameter : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1465,7 +1464,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(378, 1, (12, 0), ((12, 0), (12, 0)), u'SurfaceCurvature', None, object, parameter)
+        return self._ApplyTypes_(378, 1, (12, 0), ((8, 0), (8197, 0),), u'SurfaceCurvature', None, object, _utils.flatten(parameter))
 
     def surface_curvature_analysis(self, object):
         """
@@ -1474,7 +1473,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1487,7 +1486,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(632, 1, (12, 0), ((12, 0)), u'SurfaceCurvatureAnalysis', None, object)
+        return self._ApplyTypes_(632, 1, (12, 0), ((8, 0),), u'SurfaceCurvatureAnalysis', None, object)
 
     def surface_cylinder(self, surface):
         """
@@ -1496,7 +1495,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -1508,7 +1507,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(888, 1, (12, 0), ((12, 0)), u'SurfaceCylinder', None, surface)
+        return self._ApplyTypes_(888, 1, (12, 0), ((8, 0),), u'SurfaceCylinder', None, surface)
 
     def surface_degree(self, object, direction):
         """
@@ -1517,8 +1516,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Optional, Number, int
+        Object : Required, String, str, String
+        Direction : Optional, Number, int, Integer
 
         Returns
 
@@ -1528,7 +1527,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(216, 1, (12, 0), ((12, 0), (12, 0)), u'SurfaceDegree', None, object, direction)
+        return self._ApplyTypes_(216, 1, (12, 0), ((8, 0), (2, 0),), u'SurfaceDegree', None, object, direction)
 
     def surface_domain(self, object, direction):
         """
@@ -1537,8 +1536,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Required, Number, int
+        Object : Required, String, str, String
+        Direction : Required, Number, int, Integer
 
         Returns
 
@@ -1547,7 +1546,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(217, 1, (12, 0), ((12, 0), (12, 0)), u'SurfaceDomain', None, object, direction)
+        return self._ApplyTypes_(217, 1, (12, 0), ((8, 0), (2, 0),), u'SurfaceDomain', None, object, direction)
 
     def surface_edit_points(self, object, return_parameters, return_all):
         """
@@ -1556,9 +1555,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        ReturnParameters : Optional, Boolean, bln
-        ReturnAll : Optional, Boolean, bln
+        Object : Required, String, str, String
+        ReturnParameters : Optional, Boolean, bln, Boolean
+        ReturnAll : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1568,7 +1567,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(427, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'SurfaceEditPoints', None, object, return_parameters, return_all)
+        return self._ApplyTypes_(427, 1, (12, 0), ((8, 0), (11, 0), (11, 0),), u'SurfaceEditPoints', None, object, return_parameters, return_all)
 
     def surface_evaluate(self, object, parameter, derivative):
         """
@@ -1577,9 +1576,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, arr
-        Derivative : Required, Number, int
+        Object : Required, String, str, String
+        Parameter : Required, Array, arrdbl, Array of ?
+        Derivative : Required, Number, int, Integer
 
         Returns
 
@@ -1595,7 +1594,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(583, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'SurfaceEvaluate', None, object, parameter, derivative)
+        return self._ApplyTypes_(583, 1, (12, 0), ((8, 0), (8197, 0), (2, 0),), u'SurfaceEvaluate', None, object, _utils.flatten(parameter), derivative)
 
     def surface_frame(self, object, parameter):
         """
@@ -1604,8 +1603,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, arr
+        Object : Required, String, str, String
+        Parameter : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1614,7 +1613,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(623, 1, (12, 0), ((12, 0), (12, 0)), u'SurfaceFrame', None, object, parameter)
+        return self._ApplyTypes_(623, 1, (12, 0), ((8, 0), (8197, 0),), u'SurfaceFrame', None, object, _utils.flatten(parameter))
 
     def surface_isocurve_density(self, object, density):
         """
@@ -1623,8 +1622,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Density : Optional, Number, int
+        Object : Required, String, str, String
+        Density : Optional, Number, int, Integer
 
         Returns
 
@@ -1634,7 +1633,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(361, 1, (12, 0), ((12, 0), (12, 0)), u'SurfaceIsocurveDensity', None, object, density)
+        return self._ApplyTypes_(361, 1, (12, 0), ((8, 0), (2, 0),), u'SurfaceIsocurveDensity', None, object, density)
 
     def surface_knot_count(self, object):
         """
@@ -1643,7 +1642,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1652,7 +1651,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(431, 1, (12, 0), ((12, 0)), u'SurfaceKnotCount', None, object)
+        return self._ApplyTypes_(431, 1, (12, 0), ((8, 0),), u'SurfaceKnotCount', None, object)
 
     def surface_knots(self, object):
         """
@@ -1661,7 +1660,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1670,7 +1669,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(432, 1, (12, 0), ((12, 0)), u'SurfaceKnots', None, object)
+        return self._ApplyTypes_(432, 1, (12, 0), ((8, 0),), u'SurfaceKnots', None, object)
 
     def surface_normal(self, object, parameter):
         """
@@ -1679,8 +1678,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Parameter : Required, Array, arr
+        Object : Required, String, str, String
+        Parameter : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1689,7 +1688,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(362, 1, (12, 0), ((12, 0), (12, 0)), u'SurfaceNormal', None, object, parameter)
+        return self._ApplyTypes_(362, 1, (12, 0), ((8, 0), (8197, 0),), u'SurfaceNormal', None, object, _utils.flatten(parameter))
 
     def surface_point_count(self, object):
         """
@@ -1698,7 +1697,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1707,7 +1706,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(218, 1, (12, 0), ((12, 0)), u'SurfacePointCount', None, object)
+        return self._ApplyTypes_(218, 1, (12, 0), ((8, 0),), u'SurfacePointCount', None, object)
 
     def surface_points(self, object, return_all):
         """
@@ -1716,8 +1715,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        ReturnAll : Optional, Boolean, bln
+        Object : Required, String, str, String
+        ReturnAll : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1726,7 +1725,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(372, 1, (12, 0), ((12, 0), (12, 0)), u'SurfacePoints', None, object, return_all)
+        return self._ApplyTypes_(372, 1, (12, 0), ((8, 0), (11, 0),), u'SurfacePoints', None, object, return_all)
 
     def surface_principal_curvature(self, object, point):
         """
@@ -1735,8 +1734,8 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -1745,7 +1744,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(717, 1, (12, 0), ((12, 0), (12, 0)), u'SurfacePrincipalCurvature', None, object, point)
+        return self._ApplyTypes_(717, 1, (12, 0), ((8, 0), (8197, 0),), u'SurfacePrincipalCurvature', None, object, _utils.flatten(point))
 
     def surface_seam(self, object, direction, parameter):
         """
@@ -1754,9 +1753,9 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Required, Number, int
-        Parameter : Required, Number, dbl
+        Object : Required, String, str, String
+        Direction : Required, Number, int, Integer
+        Parameter : Required, Number, dbl, Double
 
         Returns
 
@@ -1765,7 +1764,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(804, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'SurfaceSeam', None, object, direction, parameter)
+        return self._ApplyTypes_(804, 1, (12, 0), ((8, 0), (2, 0), (5, 0),), u'SurfaceSeam', None, object, direction, parameter)
 
     def surface_sphere(self, surface):
         """
@@ -1774,7 +1773,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -1785,7 +1784,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(887, 1, (12, 0), ((12, 0)), u'SurfaceSphere', None, surface)
+        return self._ApplyTypes_(887, 1, (12, 0), ((8, 0),), u'SurfaceSphere', None, surface)
 
     def surface_surface_intersection(self, surface_a, surface_b, tolerance, create):
         """
@@ -1794,10 +1793,10 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        SurfaceA : Required, String, str
-        SurfaceB : Required, String, str
-        Tolerance : Optional, Number, dbl
-        Create : Optional, Boolean, bln
+        SurfaceA : Required, String, str, String
+        SurfaceB : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
+        Create : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1809,7 +1808,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(484, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'SurfaceSurfaceIntersection', None, surface_a, surface_b, tolerance, create)
+        return self._ApplyTypes_(484, 1, (12, 0), ((8, 0), (8, 0), (5, 0), (11, 0),), u'SurfaceSurfaceIntersection', None, surface_a, surface_b, tolerance, create)
 
     def surface_torus(self, surface):
         """
@@ -1818,7 +1817,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Surface : Required, String, str
+        Surface : Required, String, str, String
 
         Returns
 
@@ -1830,7 +1829,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(890, 1, (12, 0), ((12, 0)), u'SurfaceTorus', None, surface)
+        return self._ApplyTypes_(890, 1, (12, 0), ((8, 0),), u'SurfaceTorus', None, surface)
 
     def surface_volume(self, object):
         """
@@ -1839,7 +1838,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1850,7 +1849,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(383, 1, (12, 0), ((12, 0)), u'SurfaceVolume', None, object)
+        return self._ApplyTypes_(383, 1, (12, 0), ((8, 0),), u'SurfaceVolume', None, object)
 
     def surface_volume_centroid(self, object):
         """
@@ -1859,7 +1858,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1868,7 +1867,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(385, 1, (12, 0), ((12, 0)), u'SurfaceVolumeCentroid', None, object)
+        return self._ApplyTypes_(385, 1, (12, 0), ((8, 0),), u'SurfaceVolumeCentroid', None, object)
 
     def surface_volume_moments(self, object):
         """
@@ -1877,7 +1876,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1886,7 +1885,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(387, 1, (12, 0), ((12, 0)), u'SurfaceVolumeMoments', None, object)
+        return self._ApplyTypes_(387, 1, (12, 0), ((8, 0),), u'SurfaceVolumeMoments', None, object)
 
     def surface_weights(self, object):
         """
@@ -1895,7 +1894,7 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1904,5 +1903,5 @@ class SurfaceAndPolysurface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(433, 1, (12, 0), ((12, 0)), u'SurfaceWeights', None, object)
+        return self._ApplyTypes_(433, 1, (12, 0), ((8, 0),), u'SurfaceWeights', None, object)
 

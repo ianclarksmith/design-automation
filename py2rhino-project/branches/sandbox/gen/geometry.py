@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Geometry(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Geometry(IRhinoScript):
 
 
 
@@ -27,7 +26,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -36,7 +35,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(68, 1, (12, 0), ((12, 0)), u'AddPoint', None, point)
+        return self._ApplyTypes_(68, 1, (12, 0), ((8197, 0),), u'AddPoint', None, _utils.flatten(point))
 
     def add_point_cloud(self, points):
         """
@@ -45,7 +44,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -54,7 +53,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(69, 1, (12, 0), ((12, 0)), u'AddPointCloud', None, points)
+        return self._ApplyTypes_(69, 1, (12, 0), ((8197, 0),), u'AddPointCloud', None, _utils.flatten(points))
 
     def add_points(self, points):
         """
@@ -63,7 +62,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -72,7 +71,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(526, 1, (12, 0), ((12, 0)), u'AddPoints', None, points)
+        return self._ApplyTypes_(526, 1, (12, 0), ((8197, 0),), u'AddPoints', None, _utils.flatten(points))
 
     def add_text(self, text, point, plane, height, font, style):
         """
@@ -92,8 +91,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Test : Required, String, str
-        Point : Required, Array, arr
+        Test : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -102,7 +101,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(320, 1, (12, 0), ((12, 0), (12, 0)), u'AddTextDot', None, test, point)
+        return self._ApplyTypes_(320, 1, (12, 0), ((8, 0), (8197, 0),), u'AddTextDot', None, test, _utils.flatten(point))
 
     def bounding_box(self, object, objects, view, world_coords):
         """
@@ -122,8 +121,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object1 : Required, String, str
-        Object2 : Required, String, str
+        Object1 : Required, String, str, String
+        Object2 : Required, String, str, String
 
         Returns
 
@@ -132,7 +131,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(598, 1, (12, 0), ((12, 0), (12, 0)), u'CompareGeometry', None, object1, object2)
+        return self._ApplyTypes_(598, 1, (12, 0), ((8, 0), (8, 0),), u'CompareGeometry', None, object1, object2)
 
     def is_clipping_plane(self, object):
         """
@@ -141,7 +140,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -150,7 +149,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(905, 1, (12, 0), ((12, 0)), u'IsClippingPlane', None, object)
+        return self._ApplyTypes_(905, 1, (12, 0), ((8, 0),), u'IsClippingPlane', None, object)
 
     def is_point(self, object):
         """
@@ -159,7 +158,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -168,7 +167,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(120, 1, (12, 0), ((12, 0)), u'IsPoint', None, object)
+        return self._ApplyTypes_(120, 1, (12, 0), ((8, 0),), u'IsPoint', None, object)
 
     def is_point_cloud(self, object):
         """
@@ -177,7 +176,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -186,7 +185,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(121, 1, (12, 0), ((12, 0)), u'IsPointCloud', None, object)
+        return self._ApplyTypes_(121, 1, (12, 0), ((8, 0),), u'IsPointCloud', None, object)
 
     def is_text(self, object):
         """
@@ -195,7 +194,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -204,7 +203,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(122, 1, (12, 0), ((12, 0)), u'IsText', None, object)
+        return self._ApplyTypes_(122, 1, (12, 0), ((8, 0),), u'IsText', None, object)
 
     def is_text_dot(self, object):
         """
@@ -213,7 +212,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -222,7 +221,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(336, 1, (12, 0), ((12, 0)), u'IsTextDot', None, object)
+        return self._ApplyTypes_(336, 1, (12, 0), ((8, 0),), u'IsTextDot', None, object)
 
     def point_cloud_count(self, object):
         """
@@ -231,7 +230,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -240,7 +239,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(128, 1, (12, 0), ((12, 0)), u'PointCloudCount', None, object)
+        return self._ApplyTypes_(128, 1, (12, 0), ((8, 0),), u'PointCloudCount', None, object)
 
     def point_cloud_points(self, object):
         """
@@ -249,7 +248,7 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -258,7 +257,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(129, 1, (12, 0), ((12, 0)), u'PointCloudPoints', None, object)
+        return self._ApplyTypes_(129, 1, (12, 0), ((8, 0),), u'PointCloudPoints', None, object)
 
     def point_coordinates(self, object, point):
         """
@@ -267,8 +266,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Optional, Array, arr
+        Object : Required, String, str, String
+        Point : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -278,7 +277,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(130, 1, (12, 0), ((12, 0), (12, 0)), u'PointCoordinates', None, object, point)
+        return self._ApplyTypes_(130, 1, (12, 0), ((8, 0), (8197, 0),), u'PointCoordinates', None, object, _utils.flatten(point))
 
     def text_dot_point(self, object, point):
         """
@@ -287,8 +286,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Optional, Array, arr
+        Object : Required, String, str, String
+        Point : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -298,7 +297,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(422, 1, (12, 0), ((12, 0), (12, 0)), u'TextDotPoint', None, object, point)
+        return self._ApplyTypes_(422, 1, (12, 0), ((8, 0), (8197, 0),), u'TextDotPoint', None, object, _utils.flatten(point))
 
     def text_dot_text(self, object, text):
         """
@@ -307,8 +306,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Text : Optional, String, str
+        Object : Required, String, str, String
+        Text : Optional, String, str, String
 
         Returns
 
@@ -318,7 +317,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(421, 1, (12, 0), ((12, 0), (12, 0)), u'TextDotText', None, object, text)
+        return self._ApplyTypes_(421, 1, (12, 0), ((8, 0), (8, 0),), u'TextDotText', None, object, text)
 
     def text_object_font(self, object, font):
         """
@@ -327,8 +326,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Font : Optional, String, str
+        Object : Required, String, str, String
+        Font : Optional, String, str, String
 
         Returns
 
@@ -338,7 +337,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(474, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectFont', None, object, font)
+        return self._ApplyTypes_(474, 1, (12, 0), ((8, 0), (8, 0),), u'TextObjectFont', None, object, font)
 
     def text_object_height(self, object, height):
         """
@@ -347,8 +346,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Height : Optional, Number, dbl
+        Object : Required, String, str, String
+        Height : Optional, Number, dbl, Double
 
         Returns
 
@@ -358,7 +357,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(473, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectHeight', None, object, height)
+        return self._ApplyTypes_(473, 1, (12, 0), ((8, 0), (5, 0),), u'TextObjectHeight', None, object, height)
 
     def text_object_plane(self, object, plane):
         """
@@ -367,8 +366,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Plane : Optional, Array, arr
+        Object : Required, String, str, String
+        Plane : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -378,7 +377,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(476, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectPlane', None, object, plane)
+        return self._ApplyTypes_(476, 1, (12, 0), ((8, 0), (8197, 0),), u'TextObjectPlane', None, object, _utils.flatten(plane))
 
     def text_object_point(self, object, point):
         """
@@ -387,8 +386,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Optional, Array, arr
+        Object : Required, String, str, String
+        Point : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -398,7 +397,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(471, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectPoint', None, object, point)
+        return self._ApplyTypes_(471, 1, (12, 0), ((8, 0), (8197, 0),), u'TextObjectPoint', None, object, _utils.flatten(point))
 
     def text_object_style(self, object, style):
         """
@@ -407,8 +406,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Style : Optional, Number, int
+        Object : Required, String, str, String
+        Style : Optional, Number, int, Integer
 
         Returns
 
@@ -418,7 +417,7 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(475, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectStyle', None, object, style)
+        return self._ApplyTypes_(475, 1, (12, 0), ((8, 0), (2, 0),), u'TextObjectStyle', None, object, style)
 
     def text_object_text(self, object, text):
         """
@@ -427,8 +426,8 @@ class Geometry(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Text : Optional, String, str
+        Object : Required, String, str, String
+        Text : Optional, String, str, String
 
         Returns
 
@@ -438,5 +437,5 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(472, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectText', None, object, text)
+        return self._ApplyTypes_(472, 1, (12, 0), ((8, 0), (8, 0),), u'TextObjectText', None, object, text)
 

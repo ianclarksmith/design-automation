@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Math(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Math(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Number : Required, Number, dbl
+        Number : Required, Number, dbl, Double
 
         Returns
 
@@ -25,7 +24,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(757, 1, (12, 0), ((12, 0)), u'ACos', None, number)
+        return self._ApplyTypes_(757, 1, (12, 0), ((5, 0),), u'ACos', None, number)
 
     def a_cos_h(self, number):
         """
@@ -34,7 +33,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Number : Required, Number, dbl
+        Number : Required, Number, dbl, Double
 
         Returns
 
@@ -43,7 +42,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(763, 1, (12, 0), ((12, 0)), u'ACosH', None, number)
+        return self._ApplyTypes_(763, 1, (12, 0), ((5, 0),), u'ACosH', None, number)
 
     def a_sin(self, number):
         """
@@ -52,7 +51,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Number : Required, Number, dbl
+        Number : Required, Number, dbl, Double
 
         Returns
 
@@ -61,7 +60,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(756, 1, (12, 0), ((12, 0)), u'ASin', None, number)
+        return self._ApplyTypes_(756, 1, (12, 0), ((5, 0),), u'ASin', None, number)
 
     def a_sin_h(self, number):
         """
@@ -70,7 +69,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Number : Required, Number, dbl
+        Number : Required, Number, dbl, Double
 
         Returns
 
@@ -79,17 +78,17 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(762, 1, (12, 0), ((12, 0)), u'ASinH', None, number)
+        return self._ApplyTypes_(762, 1, (12, 0), ((5, 0),), u'ASinH', None, number)
 
-    def a_tan2(self, , ):
+    def a_tan2(self, number_y, number_x):
         """
 
         Returns the angle whose tangent is the quotient of two specified numbers.
 
         Parameters
 
-         : Required, Number, y
-         : Required, Number, x
+        NumberY : Required, Number, dbl, Double
+        NumberX : Required, Number, dbl, Double
 
         Returns
 
@@ -98,7 +97,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(758, 1, (12, 0), (y, x), u'ATan2', None, , )
+        return self._ApplyTypes_(758, 1, (12, 0), ((5, 0), (5, 0),), u'ATan2', None, number_y, number_x)
 
     def a_tan_h(self, number):
         """
@@ -107,7 +106,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Number : Required, Number, dbl
+        Number : Required, Number, dbl, Double
 
         Returns
 
@@ -116,7 +115,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(764, 1, (12, 0), ((12, 0)), u'ATanH', None, number)
+        return self._ApplyTypes_(764, 1, (12, 0), ((5, 0),), u'ATanH', None, number)
 
     def angle(self, point1, point2, world):
         """
@@ -125,9 +124,9 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Point1 : Required, Array, arr
-        Point2 : Required, Array, arr
-        World : Optional, Boolean, bln
+        Point1 : Required, Array, arrdbl, Array of ?
+        Point2 : Required, Array, arrdbl, Array of ?
+        World : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -136,7 +135,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(115, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'Angle', None, point1, point2, world)
+        return self._ApplyTypes_(115, 1, (12, 0), ((8197, 0), (8197, 0), (11, 0),), u'Angle', None, _utils.flatten(point1), _utils.flatten(point2), world)
 
     def angle2(self, point1, point2):
         """
@@ -145,8 +144,8 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Point1 : Required, Array, arr
-        Point2 : Required, Array, arr
+        Point1 : Required, Array, arrdbl, Array of ?
+        Point2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -155,7 +154,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(116, 1, (12, 0), ((12, 0), (12, 0)), u'Angle2', None, point1, point2)
+        return self._ApplyTypes_(116, 1, (12, 0), ((8197, 0), (8197, 0),), u'Angle2', None, _utils.flatten(point1), _utils.flatten(point2))
 
     def ceil(self, number):
         """
@@ -164,7 +163,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Number : Required, Number, dbl
+        Number : Required, Number, dbl, Double
 
         Returns
 
@@ -173,7 +172,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(766, 1, (12, 0), ((12, 0)), u'Ceil', None, number)
+        return self._ApplyTypes_(766, 1, (12, 0), ((5, 0),), u'Ceil', None, number)
 
     def cos_h(self, angle):
         """
@@ -182,7 +181,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Angle : Required, Number, dbl
+        Angle : Required, Number, dbl, Double
 
         Returns
 
@@ -191,7 +190,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(760, 1, (12, 0), ((12, 0)), u'CosH', None, angle)
+        return self._ApplyTypes_(760, 1, (12, 0), ((5, 0),), u'CosH', None, angle)
 
     def deviation(self, numbers):
         """
@@ -200,7 +199,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Numbers : Required, Array, arr
+        Numbers : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -209,7 +208,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(773, 1, (12, 0), ((12, 0)), u'Deviation', None, numbers)
+        return self._ApplyTypes_(773, 1, (12, 0), ((8197, 0),), u'Deviation', None, _utils.flatten(numbers))
 
     def distance(self, point1, point2, point_array):
         """
@@ -235,7 +234,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(774, 1, (12, 0), (), u'E', None, )
+        return self._ApplyTypes_(774, 1, (12, 0), (,), u'E', None, )
 
     def floor(self, number):
         """
@@ -244,7 +243,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Number : Required, Number, dbl
+        Number : Required, Number, dbl, Double
 
         Returns
 
@@ -253,17 +252,17 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(767, 1, (12, 0), ((12, 0)), u'Floor', None, number)
+        return self._ApplyTypes_(767, 1, (12, 0), ((5, 0),), u'Floor', None, number)
 
-    def hypot(self, , ):
+    def hypot(self, number_x, number_y):
         """
 
         Calculates the length of the hypotenuse of a right triangle, given the length of the two sides x and y (in other words, the square root of x2 + y2).
 
         Parameters
 
-         : Required, Number, x
-         : Required, Number, y
+        NumberX : Required, Number, dbl, Double
+        NumberY : Required, Number, dbl, Double
 
         Returns
 
@@ -272,7 +271,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(765, 1, (12, 0), (x, y), u'Hypot', None, , )
+        return self._ApplyTypes_(765, 1, (12, 0), ((5, 0), (5, 0),), u'Hypot', None, number_x, number_y)
 
     def log10(self, number):
         """
@@ -281,7 +280,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Number : Required, Number, dbl
+        Number : Required, Number, dbl, Double
 
         Returns
 
@@ -290,7 +289,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(777, 1, (12, 0), ((12, 0)), u'Log10', None, number)
+        return self._ApplyTypes_(777, 1, (12, 0), ((5, 0),), u'Log10', None, number)
 
     def max(self, numbers):
         """
@@ -299,7 +298,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Numbers : Required, Array, arr
+        Numbers : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -308,7 +307,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(768, 1, (12, 0), ((12, 0)), u'Max', None, numbers)
+        return self._ApplyTypes_(768, 1, (12, 0), ((8197, 0),), u'Max', None, _utils.flatten(numbers))
 
     def mean(self, numbers):
         """
@@ -317,7 +316,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Numbers : Required, Array, arr
+        Numbers : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -326,7 +325,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(771, 1, (12, 0), ((12, 0)), u'Mean', None, numbers)
+        return self._ApplyTypes_(771, 1, (12, 0), ((8197, 0),), u'Mean', None, _utils.flatten(numbers))
 
     def median(self, numbers):
         """
@@ -335,7 +334,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Numbers : Required, Array, arr
+        Numbers : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -344,7 +343,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(772, 1, (12, 0), ((12, 0)), u'Median', None, numbers)
+        return self._ApplyTypes_(772, 1, (12, 0), ((8197, 0),), u'Median', None, _utils.flatten(numbers))
 
     def min(self, numbers):
         """
@@ -353,7 +352,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Numbers : Required, Array, arr
+        Numbers : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -362,7 +361,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(769, 1, (12, 0), ((12, 0)), u'Min', None, numbers)
+        return self._ApplyTypes_(769, 1, (12, 0), ((8197, 0),), u'Min', None, _utils.flatten(numbers))
 
     def p_i(self):
         """
@@ -377,7 +376,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(663, 1, (12, 0), (), u'PI', None, )
+        return self._ApplyTypes_(663, 1, (12, 0), (,), u'PI', None, )
 
     def polar(self, point, angle, distance, plane):
         """
@@ -386,10 +385,10 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        Angle : Required, Number, dbl
-        Distance : Required, Number, dbl
-        Plane : Optional, Array, arr
+        Point : Required, Array, arrdbl, Array of ?
+        Angle : Required, Number, dbl, Double
+        Distance : Required, Number, dbl, Double
+        Plane : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -398,7 +397,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(662, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'Polar', None, point, angle, distance, plane)
+        return self._ApplyTypes_(662, 1, (12, 0), ((8197, 0), (5, 0), (5, 0), (8197, 0),), u'Polar', None, _utils.flatten(point), angle, distance, _utils.flatten(plane))
 
     def sin_h(self, angle):
         """
@@ -407,7 +406,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Angle : Required, Number, dbl
+        Angle : Required, Number, dbl, Double
 
         Returns
 
@@ -416,7 +415,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(759, 1, (12, 0), ((12, 0)), u'SinH', None, angle)
+        return self._ApplyTypes_(759, 1, (12, 0), ((5, 0),), u'SinH', None, angle)
 
     def sum(self, numbers):
         """
@@ -425,7 +424,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Numbers : Required, Array, arr
+        Numbers : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -434,7 +433,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(770, 1, (12, 0), ((12, 0)), u'Sum', None, numbers)
+        return self._ApplyTypes_(770, 1, (12, 0), ((8197, 0),), u'Sum', None, _utils.flatten(numbers))
 
     def tan_h(self, angle):
         """
@@ -443,7 +442,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Angle : Required, Number, dbl
+        Angle : Required, Number, dbl, Double
 
         Returns
 
@@ -452,7 +451,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(761, 1, (12, 0), ((12, 0)), u'TanH', None, angle)
+        return self._ApplyTypes_(761, 1, (12, 0), ((5, 0),), u'TanH', None, angle)
 
     def to_degrees(self, radians):
         """
@@ -461,7 +460,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Radians : Required, Number, dbl
+        Radians : Required, Number, dbl, Double
 
         Returns
 
@@ -470,7 +469,7 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(664, 1, (12, 0), ((12, 0)), u'ToDegrees', None, radians)
+        return self._ApplyTypes_(664, 1, (12, 0), ((5, 0),), u'ToDegrees', None, radians)
 
     def to_radians(self, degrees):
         """
@@ -479,7 +478,7 @@ class Math(DispatchBaseClass):
 
         Parameters
 
-        Degrees : Required, Number, dbl
+        Degrees : Required, Number, dbl, Double
 
         Returns
 
@@ -488,5 +487,5 @@ class Math(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(665, 1, (12, 0), ((12, 0)), u'ToRadians', None, degrees)
+        return self._ApplyTypes_(665, 1, (12, 0), ((5, 0),), u'ToRadians', None, degrees)
 

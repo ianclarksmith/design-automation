@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Dimension(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Dimension(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Optional, String, str
+        DimStyle : Optional, String, str, String
 
         Returns
 
@@ -25,7 +24,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(455, 1, (12, 0), ((12, 0)), u'AddDimStyle', None, dim_style)
+        return self._ApplyTypes_(455, 1, (12, 0), ((8, 0),), u'AddDimStyle', None, dim_style)
 
     def add_leader(self, points, view, text):
         """
@@ -34,9 +33,9 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        View : Optional, String, str
-        Text : Optional, String, str
+        Points : Required, Array, arrdbl, Array of ?
+        View : Optional, String, str, String
+        Text : Optional, String, str, String
 
         Returns
 
@@ -45,7 +44,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(321, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddLeader', None, points, view, text)
+        return self._ApplyTypes_(321, 1, (12, 0), ((8197, 0), (8, 0), (8, 0),), u'AddLeader', None, _utils.flatten(points), view, text)
 
     def current_dim_style(self, dim_style):
         """
@@ -54,7 +53,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Optional, String, str
+        DimStyle : Optional, String, str, String
 
         Returns
 
@@ -64,7 +63,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(453, 1, (12, 0), ((12, 0)), u'CurrentDimStyle', None, dim_style)
+        return self._ApplyTypes_(453, 1, (12, 0), ((8, 0),), u'CurrentDimStyle', None, dim_style)
 
     def delete_dim_style(self, dim_style):
         """
@@ -73,7 +72,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
+        DimStyle : Required, String, str, String
 
         Returns
 
@@ -82,7 +81,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(456, 1, (12, 0), ((12, 0)), u'DeleteDimStyle', None, dim_style)
+        return self._ApplyTypes_(456, 1, (12, 0), ((8, 0),), u'DeleteDimStyle', None, dim_style)
 
     def dim_scale(self, scale):
         """
@@ -91,7 +90,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Scale : Optional, Number, dbl
+        Scale : Optional, Number, dbl, Double
 
         Returns
 
@@ -101,7 +100,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(460, 1, (12, 0), ((12, 0)), u'DimScale', None, scale)
+        return self._ApplyTypes_(460, 1, (12, 0), ((5, 0),), u'DimScale', None, scale)
 
     def dim_style_angle_precision(self, dim_style, precision):
         """
@@ -110,8 +109,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Precision : Optional, Number, int
+        DimStyle : Required, String, str, String
+        Precision : Optional, Number, int, Integer
 
         Returns
 
@@ -121,7 +120,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(464, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleAnglePrecision', None, dim_style, precision)
+        return self._ApplyTypes_(464, 1, (12, 0), ((8, 0), (2, 0),), u'DimStyleAnglePrecision', None, dim_style, precision)
 
     def dim_style_arrow_size(self, dim_style, size):
         """
@@ -130,8 +129,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Size : Optional, Number, dbl
+        DimStyle : Required, String, str, String
+        Size : Optional, Number, dbl, Double
 
         Returns
 
@@ -141,7 +140,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(468, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleArrowSize', None, dim_style, size)
+        return self._ApplyTypes_(468, 1, (12, 0), ((8, 0), (5, 0),), u'DimStyleArrowSize', None, dim_style, size)
 
     def dim_style_count(self):
         """
@@ -156,7 +155,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(451, 1, (12, 0), (), u'DimStyleCount', None, )
+        return self._ApplyTypes_(451, 1, (12, 0), (,), u'DimStyleCount', None, )
 
     def dim_style_extension(self, dim_style, extension):
         """
@@ -165,8 +164,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Extension : Optional, Number, dbl
+        DimStyle : Required, String, str, String
+        Extension : Optional, Number, dbl, Double
 
         Returns
 
@@ -176,7 +175,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(466, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleExtension', None, dim_style, extension)
+        return self._ApplyTypes_(466, 1, (12, 0), ((8, 0), (5, 0),), u'DimStyleExtension', None, dim_style, extension)
 
     def dim_style_font(self, dim_style, font):
         """
@@ -185,8 +184,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Font : Optional, String, str
+        DimStyle : Required, String, str, String
+        Font : Optional, String, str, String
 
         Returns
 
@@ -196,7 +195,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(462, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleFont', None, dim_style, font)
+        return self._ApplyTypes_(462, 1, (12, 0), ((8, 0), (8, 0),), u'DimStyleFont', None, dim_style, font)
 
     def dim_style_leader_arrow_size(self, dim_style, size):
         """
@@ -205,8 +204,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Size : Optional, Number, dbl
+        DimStyle : Required, String, str, String
+        Size : Optional, Number, dbl, Double
 
         Returns
 
@@ -216,7 +215,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(704, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleLeaderArrowSize', None, dim_style, size)
+        return self._ApplyTypes_(704, 1, (12, 0), ((8, 0), (5, 0),), u'DimStyleLeaderArrowSize', None, dim_style, size)
 
     def dim_style_linear_precision(self, dim_style, precision):
         """
@@ -225,8 +224,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Precision : Optional, Number, int
+        DimStyle : Required, String, str, String
+        Precision : Optional, Number, int, Integer
 
         Returns
 
@@ -236,7 +235,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(463, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleLinearPrecision', None, dim_style, precision)
+        return self._ApplyTypes_(463, 1, (12, 0), ((8, 0), (2, 0),), u'DimStyleLinearPrecision', None, dim_style, precision)
 
     def dim_style_names(self, sort):
         """
@@ -245,7 +244,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Sort : Optional, Boolean, bln
+        Sort : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -254,7 +253,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(452, 1, (12, 0), ((12, 0)), u'DimStyleNames', None, sort)
+        return self._ApplyTypes_(452, 1, (12, 0), ((11, 0),), u'DimStyleNames', None, sort)
 
     def dim_style_number_format(self, dim_style, format):
         """
@@ -263,8 +262,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Format : Optional, Number, int
+        DimStyle : Required, String, str, String
+        Format : Optional, Number, int, Integer
 
         Returns
 
@@ -274,7 +273,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(459, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleNumberFormat', None, dim_style, format)
+        return self._ApplyTypes_(459, 1, (12, 0), ((8, 0), (2, 0),), u'DimStyleNumberFormat', None, dim_style, format)
 
     def dim_style_offset(self, dim_style, offset):
         """
@@ -283,8 +282,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Offset : Optional, Number, dbl
+        DimStyle : Required, String, str, String
+        Offset : Optional, Number, dbl, Double
 
         Returns
 
@@ -294,7 +293,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(467, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleOffset', None, dim_style, offset)
+        return self._ApplyTypes_(467, 1, (12, 0), ((8, 0), (5, 0),), u'DimStyleOffset', None, dim_style, offset)
 
     def dim_style_text_alignment(self, dim_style, alignment):
         """
@@ -303,8 +302,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Alignment : Optional, Number, int
+        DimStyle : Required, String, str, String
+        Alignment : Optional, Number, int, Integer
 
         Returns
 
@@ -314,7 +313,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(461, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleTextAlignment', None, dim_style, alignment)
+        return self._ApplyTypes_(461, 1, (12, 0), ((8, 0), (2, 0),), u'DimStyleTextAlignment', None, dim_style, alignment)
 
     def dim_style_text_gap(self, dim_style, gap):
         """
@@ -323,8 +322,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Gap : Optional, Number, dbl
+        DimStyle : Required, String, str, String
+        Gap : Optional, Number, dbl, Double
 
         Returns
 
@@ -334,7 +333,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(741, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleTextGap', None, dim_style, gap)
+        return self._ApplyTypes_(741, 1, (12, 0), ((8, 0), (5, 0),), u'DimStyleTextGap', None, dim_style, gap)
 
     def dim_style_text_height(self, dim_style, height):
         """
@@ -343,8 +342,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
-        Height : Optional, Number, dbl
+        DimStyle : Required, String, str, String
+        Height : Optional, Number, dbl, Double
 
         Returns
 
@@ -354,7 +353,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(465, 1, (12, 0), ((12, 0), (12, 0)), u'DimStyleTextHeight', None, dim_style, height)
+        return self._ApplyTypes_(465, 1, (12, 0), ((8, 0), (5, 0),), u'DimStyleTextHeight', None, dim_style, height)
 
     def dimension_style(self, object, style):
         """
@@ -363,8 +362,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Style : Optional, String, str
+        Object : Required, String, str, String
+        Style : Optional, String, str, String
 
         Returns
 
@@ -374,7 +373,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(703, 1, (12, 0), ((12, 0), (12, 0)), u'DimensionStyle', None, object, style)
+        return self._ApplyTypes_(703, 1, (12, 0), ((8, 0), (8, 0),), u'DimensionStyle', None, object, style)
 
     def dimension_text(self, object):
         """
@@ -383,7 +382,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -392,7 +391,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(469, 1, (12, 0), ((12, 0)), u'DimensionText', None, object)
+        return self._ApplyTypes_(469, 1, (12, 0), ((8, 0),), u'DimensionText', None, object)
 
     def dimension_user_text(self, object, user_text):
         """
@@ -401,8 +400,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        UserText : Optional, String, str
+        Object : Required, String, str, String
+        UserText : Optional, String, str, String
 
         Returns
 
@@ -412,7 +411,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(563, 1, (12, 0), ((12, 0), (12, 0)), u'DimensionUserText', None, object, user_text)
+        return self._ApplyTypes_(563, 1, (12, 0), ((8, 0), (8, 0),), u'DimensionUserText', None, object, user_text)
 
     def dimension_value(self, object):
         """
@@ -421,7 +420,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -430,7 +429,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(568, 1, (12, 0), ((12, 0)), u'DimensionValue', None, object)
+        return self._ApplyTypes_(568, 1, (12, 0), ((8, 0),), u'DimensionValue', None, object)
 
     def is_aligned_dimension(self, object):
         """
@@ -439,7 +438,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -448,7 +447,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(566, 1, (12, 0), ((12, 0)), u'IsAlignedDimension', None, object)
+        return self._ApplyTypes_(566, 1, (12, 0), ((8, 0),), u'IsAlignedDimension', None, object)
 
     def is_angular_dimension(self, object):
         """
@@ -457,7 +456,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -466,7 +465,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(338, 1, (12, 0), ((12, 0)), u'IsAngularDimension', None, object)
+        return self._ApplyTypes_(338, 1, (12, 0), ((8, 0),), u'IsAngularDimension', None, object)
 
     def is_diameter_dimension(self, object):
         """
@@ -475,7 +474,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -484,7 +483,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(565, 1, (12, 0), ((12, 0)), u'IsDiameterDimension', None, object)
+        return self._ApplyTypes_(565, 1, (12, 0), ((8, 0),), u'IsDiameterDimension', None, object)
 
     def is_dim_style(self, dim_style):
         """
@@ -493,7 +492,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
+        DimStyle : Required, String, str, String
 
         Returns
 
@@ -501,7 +500,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(454, 1, (12, 0), ((12, 0)), u'IsDimStyle', None, dim_style)
+        return self._ApplyTypes_(454, 1, (12, 0), ((8, 0),), u'IsDimStyle', None, dim_style)
 
     def is_dim_style_reference(self, dim_style):
         """
@@ -510,7 +509,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        DimStyle : Required, String, str
+        DimStyle : Required, String, str, String
 
         Returns
 
@@ -518,7 +517,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(457, 1, (12, 0), ((12, 0)), u'IsDimStyleReference', None, dim_style)
+        return self._ApplyTypes_(457, 1, (12, 0), ((8, 0),), u'IsDimStyleReference', None, dim_style)
 
     def is_dimension(self, object):
         """
@@ -527,7 +526,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -536,7 +535,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(564, 1, (12, 0), ((12, 0)), u'IsDimension', None, object)
+        return self._ApplyTypes_(564, 1, (12, 0), ((8, 0),), u'IsDimension', None, object)
 
     def is_leader(self, object):
         """
@@ -545,7 +544,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -554,7 +553,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(337, 1, (12, 0), ((12, 0)), u'IsLeader', None, object)
+        return self._ApplyTypes_(337, 1, (12, 0), ((8, 0),), u'IsLeader', None, object)
 
     def is_linear_dimension(self, object):
         """
@@ -563,7 +562,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -572,7 +571,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(339, 1, (12, 0), ((12, 0)), u'IsLinearDimension', None, object)
+        return self._ApplyTypes_(339, 1, (12, 0), ((8, 0),), u'IsLinearDimension', None, object)
 
     def is_ordinate_dimension(self, object):
         """
@@ -581,7 +580,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -590,7 +589,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(659, 1, (12, 0), ((12, 0)), u'IsOrdinateDimension', None, object)
+        return self._ApplyTypes_(659, 1, (12, 0), ((8, 0),), u'IsOrdinateDimension', None, object)
 
     def is_radial_dimension(self, object):
         """
@@ -599,7 +598,7 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -608,7 +607,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(340, 1, (12, 0), ((12, 0)), u'IsRadialDimension', None, object)
+        return self._ApplyTypes_(340, 1, (12, 0), ((8, 0),), u'IsRadialDimension', None, object)
 
     def leader_text(self, object, text):
         """
@@ -617,8 +616,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Text : Optional, String, str
+        Object : Required, String, str, String
+        Text : Optional, String, str, String
 
         Returns
 
@@ -628,7 +627,7 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(895, 1, (12, 0), ((12, 0), (12, 0)), u'LeaderText', None, object, text)
+        return self._ApplyTypes_(895, 1, (12, 0), ((8, 0), (8, 0),), u'LeaderText', None, object, text)
 
     def rename_dim_style(self, old_style, new_style):
         """
@@ -637,8 +636,8 @@ class Dimension(DispatchBaseClass):
 
         Parameters
 
-        OldStyle : Required, String, str
-        NewStyle : Required, String, str
+        OldStyle : Required, String, str, String
+        NewStyle : Required, String, str, String
 
         Returns
 
@@ -647,5 +646,5 @@ class Dimension(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(458, 1, (12, 0), ((12, 0), (12, 0)), u'RenameDimStyle', None, old_style, new_style)
+        return self._ApplyTypes_(458, 1, (12, 0), ((8, 0), (8, 0),), u'RenameDimStyle', None, old_style, new_style)
 

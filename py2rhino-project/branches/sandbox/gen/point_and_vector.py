@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class PointAndVector(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class PointAndVector(IRhinoScript):
 
 
 
@@ -16,8 +15,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector1 : Required, Array, arr
-        Vector2 : Required, Array, arr
+        Vector1 : Required, Array, arrdbl, Array of ?
+        Vector2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -26,7 +25,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(660, 1, (12, 0), ((12, 0), (12, 0)), u'IsVectorParallelTo', None, vector1, vector2)
+        return self._ApplyTypes_(660, 1, (12, 0), ((8197, 0), (8197, 0),), u'IsVectorParallelTo', None, _utils.flatten(vector1), _utils.flatten(vector2))
 
     def is_vector_perpendicular_to(self, vector1, vector2):
         """
@@ -35,8 +34,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector1 : Required, Array, arr
-        Vector2 : Required, Array, arr
+        Vector1 : Required, Array, arrdbl, Array of ?
+        Vector2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -45,7 +44,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(661, 1, (12, 0), ((12, 0), (12, 0)), u'IsVectorPerpendicularTo', None, vector1, vector2)
+        return self._ApplyTypes_(661, 1, (12, 0), ((8197, 0), (8197, 0),), u'IsVectorPerpendicularTo', None, _utils.flatten(vector1), _utils.flatten(vector2))
 
     def is_vector_tiny(self, vector):
         """
@@ -54,7 +53,7 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
+        Vector : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -63,7 +62,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(610, 1, (12, 0), ((12, 0)), u'IsVectorTiny', None, vector)
+        return self._ApplyTypes_(610, 1, (12, 0), ((8197, 0),), u'IsVectorTiny', None, _utils.flatten(vector))
 
     def is_vector_zero(self, vector):
         """
@@ -72,7 +71,7 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
+        Vector : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -81,7 +80,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(611, 1, (12, 0), ((12, 0)), u'IsVectorZero', None, vector)
+        return self._ApplyTypes_(611, 1, (12, 0), ((8197, 0),), u'IsVectorZero', None, _utils.flatten(vector))
 
     def point_add(self, point1, point2):
         """
@@ -90,8 +89,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Point1 : Required, Array, arr
-        Point2 : Required, Array, arr
+        Point1 : Required, Array, arrdbl, Array of ?
+        Point2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -100,7 +99,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(666, 1, (12, 0), ((12, 0), (12, 0)), u'PointAdd', None, point1, point2)
+        return self._ApplyTypes_(666, 1, (12, 0), ((8197, 0), (8197, 0),), u'PointAdd', None, _utils.flatten(point1), _utils.flatten(point2))
 
     def point_array_bounding_box(self, points, view, world_coords):
         """
@@ -109,9 +108,9 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        View : Optional, String, str
-        WorldCoords : Optional, Boolean, bln
+        Points : Required, Array, arrdbl, Array of ?
+        View : Optional, String, str, String
+        WorldCoords : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -120,7 +119,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(746, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'PointArrayBoundingBox', None, points, view, world_coords)
+        return self._ApplyTypes_(746, 1, (12, 0), ((8197, 0), (8, 0), (11, 0),), u'PointArrayBoundingBox', None, _utils.flatten(points), view, world_coords)
 
     def point_array_closest_point(self, points, point):
         """
@@ -129,8 +128,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        Point : Required, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -139,7 +138,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(742, 1, (12, 0), ((12, 0), (12, 0)), u'PointArrayClosestPoint', None, points, point)
+        return self._ApplyTypes_(742, 1, (12, 0), ((8197, 0), (8197, 0),), u'PointArrayClosestPoint', None, _utils.flatten(points), _utils.flatten(point))
 
     def point_array_transform(self, points, xform):
         """
@@ -148,8 +147,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        Xform : Required, Array, arr
+        Points : Required, Array, arrdbl, Array of ?
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -158,7 +157,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(802, 1, (12, 0), ((12, 0), (12, 0)), u'PointArrayTransform', None, points, xform)
+        return self._ApplyTypes_(802, 1, (12, 0), ((8197, 0), (8197, 0),), u'PointArrayTransform', None, _utils.flatten(points), _utils.flatten(xform))
 
     def point_compare(self, point1, point2, tolerance):
         """
@@ -167,9 +166,9 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Point1 : Required, Array, arr
-        Point2 : Required, Array, arr
-        Tolerance : Optional, Number, dbl
+        Point1 : Required, Array, arrdbl, Array of ?
+        Point2 : Required, Array, arrdbl, Array of ?
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -178,7 +177,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(667, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'PointCompare', None, point1, point2, tolerance)
+        return self._ApplyTypes_(667, 1, (12, 0), ((8197, 0), (8197, 0), (5, 0),), u'PointCompare', None, _utils.flatten(point1), _utils.flatten(point2), tolerance)
 
     def point_divide(self, point, scale):
         """
@@ -187,8 +186,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        Scale : Required, Number, dbl
+        Point : Required, Array, arrdbl, Array of ?
+        Scale : Required, Number, dbl, Double
 
         Returns
 
@@ -197,7 +196,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(668, 1, (12, 0), ((12, 0), (12, 0)), u'PointDivide', None, point, scale)
+        return self._ApplyTypes_(668, 1, (12, 0), ((8197, 0), (5, 0),), u'PointDivide', None, _utils.flatten(point), scale)
 
     def point_scale(self, point, scale):
         """
@@ -206,8 +205,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        Scale : Required, Number, dbl
+        Point : Required, Array, arrdbl, Array of ?
+        Scale : Required, Number, dbl, Double
 
         Returns
 
@@ -216,7 +215,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(669, 1, (12, 0), ((12, 0), (12, 0)), u'PointScale', None, point, scale)
+        return self._ApplyTypes_(669, 1, (12, 0), ((8197, 0), (5, 0),), u'PointScale', None, _utils.flatten(point), scale)
 
     def point_subtract(self, point1, point2):
         """
@@ -225,8 +224,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Point1 : Required, Array, arr
-        Point2 : Required, Array, arr
+        Point1 : Required, Array, arrdbl, Array of ?
+        Point2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -235,7 +234,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(670, 1, (12, 0), ((12, 0), (12, 0)), u'PointSubtract', None, point1, point2)
+        return self._ApplyTypes_(670, 1, (12, 0), ((8197, 0), (8197, 0),), u'PointSubtract', None, _utils.flatten(point1), _utils.flatten(point2))
 
     def point_transform(self, point, xform):
         """
@@ -244,8 +243,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        Xform : Required, Array, arr
+        Point : Required, Array, arrdbl, Array of ?
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -254,7 +253,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(671, 1, (12, 0), ((12, 0), (12, 0)), u'PointTransform', None, point, xform)
+        return self._ApplyTypes_(671, 1, (12, 0), ((8197, 0), (8197, 0),), u'PointTransform', None, _utils.flatten(point), _utils.flatten(xform))
 
     def points_are_coplanar(self, points, tolerance):
         """
@@ -263,8 +262,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Points : Required, Array, arr
-        Tolerance : Optional, Number, dbl
+        Points : Required, Array, arrdbl, Array of ?
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -273,7 +272,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(593, 1, (12, 0), ((12, 0), (12, 0)), u'PointsAreCoplanar', None, points, tolerance)
+        return self._ApplyTypes_(593, 1, (12, 0), ((8197, 0), (5, 0),), u'PointsAreCoplanar', None, _utils.flatten(points), tolerance)
 
     def project_point_to_mesh(self, points, points, mesh, meshes, direction):
         """
@@ -304,8 +303,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Points : Required, String, arr
+        Object : Required, String, str, String
+        Points : Required, String, arrdbl, Array of ?
 
         Returns
 
@@ -314,7 +313,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(716, 1, (12, 0), ((12, 0), (12, 0)), u'PullPoints', None, object, points)
+        return self._ApplyTypes_(716, 1, (12, 0), ((8, 0), (8197, 0),), u'PullPoints', None, object, _utils.flatten(points))
 
     def vector_add(self, vector1, vector2):
         """
@@ -323,8 +322,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector1 : Required, Array, arr
-        Vector2 : Required, Array, arr
+        Vector1 : Required, Array, arrdbl, Array of ?
+        Vector2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -333,7 +332,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(612, 1, (12, 0), ((12, 0), (12, 0)), u'VectorAdd', None, vector1, vector2)
+        return self._ApplyTypes_(612, 1, (12, 0), ((8197, 0), (8197, 0),), u'VectorAdd', None, _utils.flatten(vector1), _utils.flatten(vector2))
 
     def vector_compare(self, vector1, vector2):
         """
@@ -342,8 +341,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector1 : Required, Array, arr
-        Vector2 : Required, Array, arr
+        Vector1 : Required, Array, arrdbl, Array of ?
+        Vector2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -351,7 +350,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(613, 1, (12, 0), ((12, 0), (12, 0)), u'VectorCompare', None, vector1, vector2)
+        return self._ApplyTypes_(613, 1, (12, 0), ((8197, 0), (8197, 0),), u'VectorCompare', None, _utils.flatten(vector1), _utils.flatten(vector2))
 
     def vector_create(self, point1, point2):
         """
@@ -360,8 +359,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Point1 : Required, Array, arr
-        Point2 : Required, Array, arr
+        Point1 : Required, Array, arrdbl, Array of ?
+        Point2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -370,7 +369,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(614, 1, (12, 0), ((12, 0), (12, 0)), u'VectorCreate', None, point1, point2)
+        return self._ApplyTypes_(614, 1, (12, 0), ((8197, 0), (8197, 0),), u'VectorCreate', None, _utils.flatten(point1), _utils.flatten(point2))
 
     def vector_cross_product(self, vector1, vector2):
         """
@@ -379,8 +378,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector1 : Required, Array, arr
-        Vector2 : Required, Array, arr
+        Vector1 : Required, Array, arrdbl, Array of ?
+        Vector2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -389,7 +388,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(615, 1, (12, 0), ((12, 0), (12, 0)), u'VectorCrossProduct', None, vector1, vector2)
+        return self._ApplyTypes_(615, 1, (12, 0), ((8197, 0), (8197, 0),), u'VectorCrossProduct', None, _utils.flatten(vector1), _utils.flatten(vector2))
 
     def vector_divide(self, vector, divide):
         """
@@ -398,8 +397,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
-        Divide : Required, Number, dbl
+        Vector : Required, Array, arrdbl, Array of ?
+        Divide : Required, Number, dbl, Double
 
         Returns
 
@@ -408,7 +407,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(625, 1, (12, 0), ((12, 0), (12, 0)), u'VectorDivide', None, vector, divide)
+        return self._ApplyTypes_(625, 1, (12, 0), ((8197, 0), (5, 0),), u'VectorDivide', None, _utils.flatten(vector), divide)
 
     def vector_dot_product(self, vector1, vector2):
         """
@@ -417,8 +416,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector1 : Required, Array, arr
-        Vector2 : Required, Array, arr
+        Vector1 : Required, Array, arrdbl, Array of ?
+        Vector2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -426,7 +425,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(616, 1, (12, 0), ((12, 0), (12, 0)), u'VectorDotProduct', None, vector1, vector2)
+        return self._ApplyTypes_(616, 1, (12, 0), ((8197, 0), (8197, 0),), u'VectorDotProduct', None, _utils.flatten(vector1), _utils.flatten(vector2))
 
     def vector_length(self, vector):
         """
@@ -435,7 +434,7 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
+        Vector : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -443,7 +442,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(617, 1, (12, 0), ((12, 0)), u'VectorLength', None, vector)
+        return self._ApplyTypes_(617, 1, (12, 0), ((8197, 0),), u'VectorLength', None, _utils.flatten(vector))
 
     def vector_multiply(self, vector1, vector2):
         """
@@ -452,8 +451,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector1 : Required, Array, arr
-        Vector2 : Required, Array, arr
+        Vector1 : Required, Array, arrdbl, Array of ?
+        Vector2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -462,7 +461,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(624, 1, (12, 0), ((12, 0), (12, 0)), u'VectorMultiply', None, vector1, vector2)
+        return self._ApplyTypes_(624, 1, (12, 0), ((8197, 0), (8197, 0),), u'VectorMultiply', None, _utils.flatten(vector1), _utils.flatten(vector2))
 
     def vector_reverse(self, vector):
         """
@@ -471,7 +470,7 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
+        Vector : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -480,7 +479,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(618, 1, (12, 0), ((12, 0)), u'VectorReverse', None, vector)
+        return self._ApplyTypes_(618, 1, (12, 0), ((8197, 0),), u'VectorReverse', None, _utils.flatten(vector))
 
     def vector_rotate(self, vector, angle, axis):
         """
@@ -489,9 +488,9 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
-        Angle : Required, Number, dbl
-        Axis : Required, Array, arr
+        Vector : Required, Array, arrdbl, Array of ?
+        Angle : Required, Number, dbl, Double
+        Axis : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -500,7 +499,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(678, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'VectorRotate', None, vector, angle, axis)
+        return self._ApplyTypes_(678, 1, (12, 0), ((8197, 0), (5, 0), (8197, 0),), u'VectorRotate', None, _utils.flatten(vector), angle, _utils.flatten(axis))
 
     def vector_scale(self, vector, scale):
         """
@@ -509,8 +508,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
-        Scale : Required, Number, dbl
+        Vector : Required, Array, arrdbl, Array of ?
+        Scale : Required, Number, dbl, Double
 
         Returns
 
@@ -519,7 +518,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(619, 1, (12, 0), ((12, 0), (12, 0)), u'VectorScale', None, vector, scale)
+        return self._ApplyTypes_(619, 1, (12, 0), ((8197, 0), (5, 0),), u'VectorScale', None, _utils.flatten(vector), scale)
 
     def vector_subtract(self, vector1, vector2):
         """
@@ -528,8 +527,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector1 : Required, Array, arr
-        Vector2 : Required, Array, arr
+        Vector1 : Required, Array, arrdbl, Array of ?
+        Vector2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -538,7 +537,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(620, 1, (12, 0), ((12, 0), (12, 0)), u'VectorSubtract', None, vector1, vector2)
+        return self._ApplyTypes_(620, 1, (12, 0), ((8197, 0), (8197, 0),), u'VectorSubtract', None, _utils.flatten(vector1), _utils.flatten(vector2))
 
     def vector_transform(self, vector, xform):
         """
@@ -547,8 +546,8 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
-        Xform : Required, Array, arr
+        Vector : Required, Array, arrdbl, Array of ?
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -557,7 +556,7 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(800, 1, (12, 0), ((12, 0), (12, 0)), u'VectorTransform', None, vector, xform)
+        return self._ApplyTypes_(800, 1, (12, 0), ((8197, 0), (8197, 0),), u'VectorTransform', None, _utils.flatten(vector), _utils.flatten(xform))
 
     def vector_unitize(self, vector):
         """
@@ -566,7 +565,7 @@ class PointAndVector(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
+        Vector : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -575,5 +574,5 @@ class PointAndVector(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(621, 1, (12, 0), ((12, 0)), u'VectorUnitize', None, vector)
+        return self._ApplyTypes_(621, 1, (12, 0), ((8197, 0),), u'VectorUnitize', None, _utils.flatten(vector))
 

@@ -18,7 +18,7 @@ Parameters
 
 
 
-arrrItems 
+arrItems 
 
 Required.  Array.  An array of string representing the menu items. An empty string, or "", will create a menu separator item.
 

@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Block(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Block(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -25,7 +24,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(411, 1, (12, 0), ((12, 0)), u'BlockContainerCount', None, block)
+        return self._ApplyTypes_(411, 1, (12, 0), ((8, 0),), u'BlockContainerCount', None, block)
 
     def block_containers(self, block):
         """
@@ -34,7 +33,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -43,7 +42,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(412, 1, (12, 0), ((12, 0)), u'BlockContainers', None, block)
+        return self._ApplyTypes_(412, 1, (12, 0), ((8, 0),), u'BlockContainers', None, block)
 
     def block_count(self):
         """
@@ -59,7 +58,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(397, 1, (12, 0), (), u'BlockCount', None, )
+        return self._ApplyTypes_(397, 1, (12, 0), (,), u'BlockCount', None, )
 
     def block_description(self, block, text):
         """
@@ -68,8 +67,8 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
-        Text : Optional, String, str
+        Block : Required, String, str, String
+        Text : Optional, String, str, String
 
         Returns
 
@@ -79,7 +78,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(400, 1, (12, 0), ((12, 0), (12, 0)), u'BlockDescription', None, block, text)
+        return self._ApplyTypes_(400, 1, (12, 0), ((8, 0), (8, 0),), u'BlockDescription', None, block, text)
 
     def block_instance_count(self, block):
         """
@@ -88,7 +87,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -97,7 +96,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(404, 1, (12, 0), ((12, 0)), u'BlockInstanceCount', None, block)
+        return self._ApplyTypes_(404, 1, (12, 0), ((8, 0),), u'BlockInstanceCount', None, block)
 
     def block_instance_insert_point(self, object):
         """
@@ -106,7 +105,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -115,7 +114,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(413, 1, (12, 0), ((12, 0)), u'BlockInstanceInsertPoint', None, object)
+        return self._ApplyTypes_(413, 1, (12, 0), ((8, 0),), u'BlockInstanceInsertPoint', None, object)
 
     def block_instance_name(self, object):
         """
@@ -124,7 +123,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -133,7 +132,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(571, 1, (12, 0), ((12, 0)), u'BlockInstanceName', None, object)
+        return self._ApplyTypes_(571, 1, (12, 0), ((8, 0),), u'BlockInstanceName', None, object)
 
     def block_instance_xform(self, object):
         """
@@ -142,7 +141,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -151,7 +150,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(415, 1, (12, 0), ((12, 0)), u'BlockInstanceXform', None, object)
+        return self._ApplyTypes_(415, 1, (12, 0), ((8, 0),), u'BlockInstanceXform', None, object)
 
     def block_instances(self, block):
         """
@@ -171,7 +170,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Sort : Optional, Boolean, bln
+        Sort : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -180,7 +179,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(396, 1, (12, 0), ((12, 0)), u'BlockNames', None, sort)
+        return self._ApplyTypes_(396, 1, (12, 0), ((11, 0),), u'BlockNames', None, sort)
 
     def block_object_count(self, block):
         """
@@ -189,7 +188,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -198,7 +197,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(416, 1, (12, 0), ((12, 0)), u'BlockObjectCount', None, block)
+        return self._ApplyTypes_(416, 1, (12, 0), ((8, 0),), u'BlockObjectCount', None, block)
 
     def block_objects(self, block):
         """
@@ -207,7 +206,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -216,7 +215,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(417, 1, (12, 0), ((12, 0)), u'BlockObjects', None, block)
+        return self._ApplyTypes_(417, 1, (12, 0), ((8, 0),), u'BlockObjects', None, block)
 
     def block_path(self, block):
         """
@@ -225,7 +224,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -234,7 +233,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(408, 1, (12, 0), ((12, 0)), u'BlockPath', None, block)
+        return self._ApplyTypes_(408, 1, (12, 0), ((8, 0),), u'BlockPath', None, block)
 
     def block_u_r_l(self, block, u_r_l):
         """
@@ -243,8 +242,8 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
-        URL : Optional, String, str
+        Block : Required, String, str, String
+        URL : Optional, String, str, String
 
         Returns
 
@@ -254,7 +253,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(402, 1, (12, 0), ((12, 0), (12, 0)), u'BlockURL', None, block, u_r_l)
+        return self._ApplyTypes_(402, 1, (12, 0), ((8, 0), (8, 0),), u'BlockURL', None, block, u_r_l)
 
     def block_u_r_l_tag(self, block, u_r_l):
         """
@@ -263,8 +262,8 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
-        URL : Optional, String, str
+        Block : Required, String, str, String
+        URL : Optional, String, str, String
 
         Returns
 
@@ -274,7 +273,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(403, 1, (12, 0), ((12, 0), (12, 0)), u'BlockURLTag', None, block, u_r_l)
+        return self._ApplyTypes_(403, 1, (12, 0), ((8, 0), (8, 0),), u'BlockURLTag', None, block, u_r_l)
 
     def delete_block(self, block):
         """
@@ -283,7 +282,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -292,7 +291,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(418, 1, (12, 0), ((12, 0)), u'DeleteBlock', None, block)
+        return self._ApplyTypes_(418, 1, (12, 0), ((8, 0),), u'DeleteBlock', None, block)
 
     def explode_block_instance(self, object):
         """
@@ -301,7 +300,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -310,7 +309,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(419, 1, (12, 0), ((12, 0)), u'ExplodeBlockInstance', None, object)
+        return self._ApplyTypes_(419, 1, (12, 0), ((8, 0),), u'ExplodeBlockInstance', None, object)
 
     def insert_block(self, name, point, scale, angle, normal, xform):
         """
@@ -330,7 +329,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -339,7 +338,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(398, 1, (12, 0), ((12, 0)), u'IsBlock', None, block)
+        return self._ApplyTypes_(398, 1, (12, 0), ((8, 0),), u'IsBlock', None, block)
 
     def is_block_embedded(self, block):
         """
@@ -348,7 +347,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -357,7 +356,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(405, 1, (12, 0), ((12, 0)), u'IsBlockEmbedded', None, block)
+        return self._ApplyTypes_(405, 1, (12, 0), ((8, 0),), u'IsBlockEmbedded', None, block)
 
     def is_block_in_use(self, block, where):
         """
@@ -366,8 +365,8 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
-        Where : Optional, Number, int
+        Block : Required, String, str, String
+        Where : Optional, Number, int, Integer
 
         Returns
 
@@ -376,7 +375,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(406, 1, (12, 0), ((12, 0), (12, 0)), u'IsBlockInUse', None, block, where)
+        return self._ApplyTypes_(406, 1, (12, 0), ((8, 0), (2, 0),), u'IsBlockInUse', None, block, where)
 
     def is_block_instance(self, object):
         """
@@ -385,7 +384,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -394,7 +393,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(420, 1, (12, 0), ((12, 0)), u'IsBlockInstance', None, object)
+        return self._ApplyTypes_(420, 1, (12, 0), ((8, 0),), u'IsBlockInstance', None, object)
 
     def is_block_reference(self, block):
         """
@@ -403,7 +402,7 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        Block : Required, String, str
+        Block : Required, String, str, String
 
         Returns
 
@@ -412,7 +411,7 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(407, 1, (12, 0), ((12, 0)), u'IsBlockReference', None, block)
+        return self._ApplyTypes_(407, 1, (12, 0), ((8, 0),), u'IsBlockReference', None, block)
 
     def rename_block(self, old_block, new_block):
         """
@@ -421,8 +420,8 @@ class Block(DispatchBaseClass):
 
         Parameters
 
-        OldBlock : Required, String, str
-        NewBlock : Required, String, str
+        OldBlock : Required, String, str, String
+        NewBlock : Required, String, str, String
 
         Returns
 
@@ -431,5 +430,5 @@ class Block(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(399, 1, (12, 0), ((12, 0), (12, 0)), u'RenameBlock', None, old_block, new_block)
+        return self._ApplyTypes_(399, 1, (12, 0), ((8, 0), (8, 0),), u'RenameBlock', None, old_block, new_block)
 

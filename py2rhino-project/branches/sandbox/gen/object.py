@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Object(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Object(IRhinoScript):
 
 
 
@@ -16,9 +15,9 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Quality : Optional, Number, int
-        Enable : Optional, Boolean, bln
+        Object : Required, Object, str, String
+        Quality : Optional, Number, int, Integer
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -28,7 +27,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(866, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddObjectMesh', None, object, quality, enable)
+        return self._ApplyTypes_(866, 1, (12, 0), ((8, 0), (2, 0), (11, 0),), u'AddObjectMesh', None, object, quality, enable)
 
     def box_morph_object(self, object, objects, box_points, copy):
         """
@@ -70,7 +69,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -79,7 +78,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(185, 1, (12, 0), ((12, 0)), u'DeleteObject', None, object)
+        return self._ApplyTypes_(185, 1, (12, 0), ((8, 0),), u'DeleteObject', None, object)
 
     def delete_objects(self, objects):
         """
@@ -88,7 +87,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrstr, Array of ?
 
         Returns
 
@@ -97,7 +96,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(186, 1, (12, 0), ((12, 0)), u'DeleteObjects', None, objects)
+        return self._ApplyTypes_(186, 1, (12, 0), ((8200, 0),), u'DeleteObjects', None, _utils.flatten(objects))
 
     def enable_object_mesh(self, objects, enable):
         """
@@ -106,8 +105,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Object, arr
-        Enable : Optional, Boolean, bln
+        Objects : Required, Object, arrdbl, Array of ?
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -117,7 +116,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(856, 1, (12, 0), ((12, 0), (12, 0)), u'EnableObjectMesh', None, objects, enable)
+        return self._ApplyTypes_(856, 1, (12, 0), ((8197, 0), (11, 0),), u'EnableObjectMesh', None, _utils.flatten(objects), enable)
 
     def flash_object(self, object, objects, style):
         """
@@ -137,7 +136,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -146,7 +145,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(187, 1, (12, 0), ((12, 0)), u'HideObject', None, object)
+        return self._ApplyTypes_(187, 1, (12, 0), ((8, 0),), u'HideObject', None, object)
 
     def hide_objects(self, objects):
         """
@@ -155,7 +154,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrstr, Array of ?
 
         Returns
 
@@ -164,7 +163,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(303, 1, (12, 0), ((12, 0)), u'HideObjects', None, objects)
+        return self._ApplyTypes_(303, 1, (12, 0), ((8200, 0),), u'HideObjects', None, _utils.flatten(objects))
 
     def is_layout_object(self, object):
         """
@@ -173,7 +172,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -181,7 +180,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(919, 1, (12, 0), ((12, 0)), u'IsLayoutObject', None, object)
+        return self._ApplyTypes_(919, 1, (12, 0), ((8, 0),), u'IsLayoutObject', None, object)
 
     def is_object(self, object):
         """
@@ -190,14 +189,14 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(46, 1, (12, 0), ((12, 0)), u'IsObject', None, object)
+        return self._ApplyTypes_(46, 1, (12, 0), ((8, 0),), u'IsObject', None, object)
 
     def is_object_hidden(self, object):
         """
@@ -206,7 +205,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -214,7 +213,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(47, 1, (12, 0), ((12, 0)), u'IsObjectHidden', None, object)
+        return self._ApplyTypes_(47, 1, (12, 0), ((8, 0),), u'IsObjectHidden', None, object)
 
     def is_object_in_box(self, object, box, mode):
         """
@@ -223,9 +222,9 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Box : Required, Array, arr
-        Mode : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Box : Required, Array, arrdbl, Array of ?
+        Mode : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -233,7 +232,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(799, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'IsObjectInBox', None, object, box, mode)
+        return self._ApplyTypes_(799, 1, (12, 0), ((8, 0), (8197, 0), (11, 0),), u'IsObjectInBox', None, object, _utils.flatten(box), mode)
 
     def is_object_in_group(self, object, group):
         """
@@ -242,8 +241,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Group : Optional, String, str
+        Object : Required, String, str, String
+        Group : Optional, String, str, String
 
         Returns
 
@@ -251,7 +250,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(188, 1, (12, 0), ((12, 0), (12, 0)), u'IsObjectInGroup', None, object, group)
+        return self._ApplyTypes_(188, 1, (12, 0), ((8, 0), (8, 0),), u'IsObjectInGroup', None, object, group)
 
     def is_object_locked(self, object):
         """
@@ -260,7 +259,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -268,7 +267,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(48, 1, (12, 0), ((12, 0)), u'IsObjectLocked', None, object)
+        return self._ApplyTypes_(48, 1, (12, 0), ((8, 0),), u'IsObjectLocked', None, object)
 
     def is_object_normal(self, object):
         """
@@ -277,7 +276,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -285,7 +284,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(49, 1, (12, 0), ((12, 0)), u'IsObjectNormal', None, object)
+        return self._ApplyTypes_(49, 1, (12, 0), ((8, 0),), u'IsObjectNormal', None, object)
 
     def is_object_reference(self, object):
         """
@@ -294,7 +293,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -302,7 +301,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(271, 1, (12, 0), ((12, 0)), u'IsObjectReference', None, object)
+        return self._ApplyTypes_(271, 1, (12, 0), ((8, 0),), u'IsObjectReference', None, object)
 
     def is_object_selectable(self, object):
         """
@@ -311,7 +310,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -319,7 +318,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(307, 1, (12, 0), ((12, 0)), u'IsObjectSelectable', None, object)
+        return self._ApplyTypes_(307, 1, (12, 0), ((8, 0),), u'IsObjectSelectable', None, object)
 
     def is_object_selected(self, object):
         """
@@ -328,7 +327,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -336,7 +335,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(50, 1, (12, 0), ((12, 0)), u'IsObjectSelected', None, object)
+        return self._ApplyTypes_(50, 1, (12, 0), ((8, 0),), u'IsObjectSelected', None, object)
 
     def is_object_solid(self, object):
         """
@@ -345,7 +344,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -353,7 +352,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(189, 1, (12, 0), ((12, 0)), u'IsObjectSolid', None, object)
+        return self._ApplyTypes_(189, 1, (12, 0), ((8, 0),), u'IsObjectSolid', None, object)
 
     def is_object_valid(self, object):
         """
@@ -362,7 +361,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -370,7 +369,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(522, 1, (12, 0), ((12, 0)), u'IsObjectValid', None, object)
+        return self._ApplyTypes_(522, 1, (12, 0), ((8, 0),), u'IsObjectValid', None, object)
 
     def is_visible_in_view(self, object, view):
         """
@@ -379,8 +378,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        View : Optional, String, str
+        Object : Required, String, str, String
+        View : Optional, String, str, String
 
         Returns
 
@@ -388,7 +387,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(727, 1, (12, 0), ((12, 0), (12, 0)), u'IsVisibleInView', None, object, view)
+        return self._ApplyTypes_(727, 1, (12, 0), ((8, 0), (8, 0),), u'IsVisibleInView', None, object, view)
 
     def lock_object(self, object):
         """
@@ -397,7 +396,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -406,7 +405,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(190, 1, (12, 0), ((12, 0)), u'LockObject', None, object)
+        return self._ApplyTypes_(190, 1, (12, 0), ((8, 0),), u'LockObject', None, object)
 
     def lock_objects(self, objects):
         """
@@ -415,7 +414,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrstr, Array of ?
 
         Returns
 
@@ -424,7 +423,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(304, 1, (12, 0), ((12, 0)), u'LockObjects', None, objects)
+        return self._ApplyTypes_(304, 1, (12, 0), ((8200, 0),), u'LockObjects', None, _utils.flatten(objects))
 
     def match_object_attributes(self, target, targets, source):
         """
@@ -444,10 +443,10 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        StartPt : Required, Array, arr
-        EndPt : Required, Array, arr
-        Copy : Optional, Boolean, bln
+        Object : Required, String, str, String
+        StartPt : Required, Array, arrdbl, Array of ?
+        EndPt : Required, Array, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -456,7 +455,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(589, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'MirrorObject', None, object, start_pt, end_pt, copy)
+        return self._ApplyTypes_(589, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0), (11, 0),), u'MirrorObject', None, object, _utils.flatten(start_pt), _utils.flatten(end_pt), copy)
 
     def mirror_objects(self, objects, start_pt, end_pt, copy):
         """
@@ -465,10 +464,10 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        StartPt : Required, Array, arr
-        EndPt : Required, Array, arr
-        Copy : Optional, Boolean, bln
+        Objects : Required, Array, arrstr, Array of ?
+        StartPt : Required, Array, arrdbl, Array of ?
+        EndPt : Required, Array, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -477,7 +476,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(590, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'MirrorObjects', None, objects, start_pt, end_pt, copy)
+        return self._ApplyTypes_(590, 1, (12, 0), ((8200, 0), (8197, 0), (8197, 0), (11, 0),), u'MirrorObjects', None, _utils.flatten(objects), _utils.flatten(start_pt), _utils.flatten(end_pt), copy)
 
     def move_object(self, object, start, end, translation):
         """
@@ -530,7 +529,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -539,7 +538,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(470, 1, (12, 0), ((12, 0)), u'ObjectDescription', None, object)
+        return self._ApplyTypes_(470, 1, (12, 0), ((8, 0),), u'ObjectDescription', None, object)
 
     def object_dump(self, object, type):
         """
@@ -548,8 +547,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Type : Optional, The type of dump, int
+        Object : Required, String, str, String
+        Type : Optional, The type of dump, int, Integer
 
         Returns
 
@@ -558,7 +557,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(705, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectDump', None, object, type)
+        return self._ApplyTypes_(705, 1, (12, 0), ((8, 0), (2, 0),), u'ObjectDump', None, object, type)
 
     def object_groups(self, object):
         """
@@ -567,7 +566,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -576,7 +575,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(193, 1, (12, 0), ((12, 0)), u'ObjectGroups', None, object)
+        return self._ApplyTypes_(193, 1, (12, 0), ((8, 0),), u'ObjectGroups', None, object)
 
     def object_has_mesh(self, object):
         """
@@ -585,7 +584,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
+        Object : Required, Object, str, String
 
         Returns
 
@@ -594,7 +593,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(867, 1, (12, 0), ((12, 0)), u'ObjectHasMesh', None, object)
+        return self._ApplyTypes_(867, 1, (12, 0), ((8, 0),), u'ObjectHasMesh', None, object)
 
     def object_layer(self, object, objects, layer):
         """
@@ -614,9 +613,9 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Layout : Optional, String, str
-        ReturnName : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Layout : Optional, String, str, String
+        ReturnName : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -626,7 +625,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(924, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ObjectLayout', None, object, layout, return_name)
+        return self._ApplyTypes_(924, 1, (12, 0), ((8, 0), (8, 0), (11, 0),), u'ObjectLayout', None, object, layout, return_name)
 
     def object_linetype(self, object, objects, layer):
         """
@@ -657,7 +656,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -666,7 +665,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(194, 1, (12, 0), ((12, 0)), u'ObjectMaterialIndex', None, object)
+        return self._ApplyTypes_(194, 1, (12, 0), ((8, 0),), u'ObjectMaterialIndex', None, object)
 
     def object_material_source(self, object, objects, source):
         """
@@ -686,8 +685,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Density : Optional, Number, dbl
+        Object : Required, Object, str, String
+        Density : Optional, Number, dbl, Double
 
         Returns
 
@@ -697,7 +696,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(858, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshDensity', None, object, density)
+        return self._ApplyTypes_(858, 1, (12, 0), ((8, 0), (5, 0),), u'ObjectMeshDensity', None, object, density)
 
     def object_mesh_max_angle(self, object, angle):
         """
@@ -706,8 +705,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Angle : Optional, Number, dbl
+        Object : Required, Object, str, String
+        Angle : Optional, Number, dbl, Double
 
         Returns
 
@@ -717,7 +716,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(859, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMaxAngle', None, object, angle)
+        return self._ApplyTypes_(859, 1, (12, 0), ((8, 0), (5, 0),), u'ObjectMeshMaxAngle', None, object, angle)
 
     def object_mesh_max_aspect_ratio(self, object, ratio):
         """
@@ -726,8 +725,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Ratio : Optional, Number, dbl
+        Object : Required, Object, str, String
+        Ratio : Optional, Number, dbl, Double
 
         Returns
 
@@ -737,7 +736,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(860, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMaxAspectRatio', None, object, ratio)
+        return self._ApplyTypes_(860, 1, (12, 0), ((8, 0), (5, 0),), u'ObjectMeshMaxAspectRatio', None, object, ratio)
 
     def object_mesh_max_dist_edge_to_srf(self, object, distance):
         """
@@ -746,8 +745,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Distance : Optional, Number, dbl
+        Object : Required, Object, str, String
+        Distance : Optional, Number, dbl, Double
 
         Returns
 
@@ -757,7 +756,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(863, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMaxDistEdgeToSrf', None, object, distance)
+        return self._ApplyTypes_(863, 1, (12, 0), ((8, 0), (5, 0),), u'ObjectMeshMaxDistEdgeToSrf', None, object, distance)
 
     def object_mesh_max_edge_length(self, object, length):
         """
@@ -766,8 +765,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Length : Optional, Number, dbl
+        Object : Required, Object, str, String
+        Length : Optional, Number, dbl, Double
 
         Returns
 
@@ -777,7 +776,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(862, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMaxEdgeLength', None, object, length)
+        return self._ApplyTypes_(862, 1, (12, 0), ((8, 0), (5, 0),), u'ObjectMeshMaxEdgeLength', None, object, length)
 
     def object_mesh_min_edge_length(self, object, length):
         """
@@ -786,8 +785,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Length : Optional, Number, dbl
+        Object : Required, Object, str, String
+        Length : Optional, Number, dbl, Double
 
         Returns
 
@@ -797,7 +796,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(861, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMinEdgeLength', None, object, length)
+        return self._ApplyTypes_(861, 1, (12, 0), ((8, 0), (5, 0),), u'ObjectMeshMinEdgeLength', None, object, length)
 
     def object_mesh_min_initial_grid_quads(self, object, quads):
         """
@@ -806,8 +805,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Quads : Optional, Number, int
+        Object : Required, Object, str, String
+        Quads : Optional, Number, int, Integer
 
         Returns
 
@@ -817,7 +816,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(864, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMinInitialGridQuads', None, object, quads)
+        return self._ApplyTypes_(864, 1, (12, 0), ((8, 0), (2, 0),), u'ObjectMeshMinInitialGridQuads', None, object, quads)
 
     def object_mesh_quality(self, object, quality):
         """
@@ -826,8 +825,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Quality : Optional, Number, int
+        Object : Required, Object, str, String
+        Quality : Optional, Number, int, Integer
 
         Returns
 
@@ -837,7 +836,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(857, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshQuality', None, object, quality)
+        return self._ApplyTypes_(857, 1, (12, 0), ((8, 0), (2, 0),), u'ObjectMeshQuality', None, object, quality)
 
     def object_mesh_settings(self, object, settings):
         """
@@ -846,8 +845,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Object, str
-        Settings : Optional, Number, int
+        Object : Required, Object, str, String
+        Settings : Optional, Number, int, Integer
 
         Returns
 
@@ -857,7 +856,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(865, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshSettings', None, object, settings)
+        return self._ApplyTypes_(865, 1, (12, 0), ((8, 0), (2, 0),), u'ObjectMeshSettings', None, object, settings)
 
     def object_name(self, object, objects, name):
         """
@@ -877,8 +876,8 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        Names : Optional, Array, arr
+        Objects : Required, Array, arrstr, Array of ?
+        Names : Optional, Array, arrstr, Array of ?
 
         Returns
 
@@ -888,7 +887,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(639, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectNames', None, objects, names)
+        return self._ApplyTypes_(639, 1, (12, 0), ((8200, 0), (8200, 0),), u'ObjectNames', None, _utils.flatten(objects), _utils.flatten(names))
 
     def object_print_color(self, object, objects, color):
         """
@@ -941,7 +940,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -950,7 +949,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(197, 1, (12, 0), ((12, 0)), u'ObjectTopGroup', None, object)
+        return self._ApplyTypes_(197, 1, (12, 0), ((8, 0),), u'ObjectTopGroup', None, object)
 
     def object_type(self, object):
         """
@@ -959,7 +958,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -968,7 +967,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(198, 1, (12, 0), ((12, 0)), u'ObjectType', None, object)
+        return self._ApplyTypes_(198, 1, (12, 0), ((8, 0),), u'ObjectType', None, object)
 
     def object_u_r_l(self, object, objects, u_r_l):
         """
@@ -988,10 +987,10 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Reference : Required, Array, arr
-        Target : Required, Array, arr
-        Flags : Optional, Number, int
+        Object : Required, String, str, String
+        Reference : Required, Array, arrdbl, Array of ?
+        Target : Required, Array, arrdbl, Array of ?
+        Flags : Optional, Number, int, Integer
 
         Returns
 
@@ -1000,7 +999,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(390, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'OrientObject', None, object, reference, target, flags)
+        return self._ApplyTypes_(390, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0), (2, 0),), u'OrientObject', None, object, _utils.flatten(reference), _utils.flatten(target), flags)
 
     def orient_objects(self, objects, reference, target, flags):
         """
@@ -1009,10 +1008,10 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        Reference : Required, Array, arr
-        Target : Required, Array, arr
-        Flags : Optional, Number, int
+        Objects : Required, Array, arrstr, Array of ?
+        Reference : Required, Array, arrdbl, Array of ?
+        Target : Required, Array, arrdbl, Array of ?
+        Flags : Optional, Number, int, Integer
 
         Returns
 
@@ -1021,7 +1020,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(391, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'OrientObjects', None, objects, reference, target, flags)
+        return self._ApplyTypes_(391, 1, (12, 0), ((8200, 0), (8197, 0), (8197, 0), (2, 0),), u'OrientObjects', None, _utils.flatten(objects), _utils.flatten(reference), _utils.flatten(target), flags)
 
     def remap_object(self, object, src_plane, dst_plane, copy):
         """
@@ -1030,10 +1029,10 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        SrcPlane : Required, Array, arr
-        DstPlane : Required, Array, arr
-        Copy : Optional, Boolean, bln
+        Object : Required, String, str, String
+        SrcPlane : Required, Array, arrdbl, Array of ?
+        DstPlane : Required, Array, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1042,7 +1041,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(655, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'RemapObject', None, object, src_plane, dst_plane, copy)
+        return self._ApplyTypes_(655, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0), (11, 0),), u'RemapObject', None, object, _utils.flatten(src_plane), _utils.flatten(dst_plane), copy)
 
     def remap_objects(self, object, src_plane, dst_plane, copy):
         """
@@ -1051,10 +1050,10 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, Array, arr
-        SrcPlane : Required, Array, arr
-        DstPlane : Required, Array, arr
-        Copy : Optional, Boolean, bln
+        Object : Required, Array, arrdbl, Array of ?
+        SrcPlane : Required, Array, arrdbl, Array of ?
+        DstPlane : Required, Array, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1063,7 +1062,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(656, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'RemapObjects', None, object, src_plane, dst_plane, copy)
+        return self._ApplyTypes_(656, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0), (11, 0),), u'RemapObjects', None, _utils.flatten(object), _utils.flatten(src_plane), _utils.flatten(dst_plane), copy)
 
     def rotate_object(self, object, point, angle, axis, copy):
         """
@@ -1072,11 +1071,11 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
-        Angle : Required, Number, dbl
-        Axis : Optional, Array, arr
-        Copy : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
+        Angle : Required, Number, dbl, Double
+        Axis : Optional, Array, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1085,7 +1084,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(392, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'RotateObject', None, object, point, angle, axis, copy)
+        return self._ApplyTypes_(392, 1, (12, 0), ((8, 0), (8197, 0), (5, 0), (8197, 0), (11, 0),), u'RotateObject', None, object, _utils.flatten(point), angle, _utils.flatten(axis), copy)
 
     def rotate_objects(self, objects, point, angle, axis, copy):
         """
@@ -1094,11 +1093,11 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        Point : Required, Array, arr
-        Angle : Required, Number, dbl
-        Axis : Optional, Array, arr
-        Copy : Optional, Boolean, bln
+        Objects : Required, Array, arrstr, Array of ?
+        Point : Required, Array, arrdbl, Array of ?
+        Angle : Required, Number, dbl, Double
+        Axis : Optional, Array, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1107,7 +1106,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(393, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'RotateObjects', None, objects, point, angle, axis, copy)
+        return self._ApplyTypes_(393, 1, (12, 0), ((8200, 0), (8197, 0), (5, 0), (8197, 0), (11, 0),), u'RotateObjects', None, _utils.flatten(objects), _utils.flatten(point), angle, _utils.flatten(axis), copy)
 
     def scale_object(self, object, origin, scale, copy):
         """
@@ -1116,10 +1115,10 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Origin : Required, Array, arr
-        Scale : Required, Array, arr
-        Copy : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Origin : Required, Array, arrdbl, Array of ?
+        Scale : Required, Array, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1128,7 +1127,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(585, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ScaleObject', None, object, origin, scale, copy)
+        return self._ApplyTypes_(585, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0), (11, 0),), u'ScaleObject', None, object, _utils.flatten(origin), _utils.flatten(scale), copy)
 
     def scale_objects(self, objects, origin, scale, copy):
         """
@@ -1137,10 +1136,10 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        Origin : Required, Array, arr
-        Scale : Required, Array, arr
-        Copy : Optional, Boolean, bln
+        Objects : Required, Array, arrstr, Array of ?
+        Origin : Required, Array, arrdbl, Array of ?
+        Scale : Required, Array, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1149,7 +1148,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(586, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ScaleObjects', None, objects, origin, scale, copy)
+        return self._ApplyTypes_(586, 1, (12, 0), ((8200, 0), (8197, 0), (8197, 0), (11, 0),), u'ScaleObjects', None, _utils.flatten(objects), _utils.flatten(origin), _utils.flatten(scale), copy)
 
     def select_object(self, object):
         """
@@ -1158,7 +1157,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1167,7 +1166,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(200, 1, (12, 0), ((12, 0)), u'SelectObject', None, object)
+        return self._ApplyTypes_(200, 1, (12, 0), ((8, 0),), u'SelectObject', None, object)
 
     def select_objects(self, objects):
         """
@@ -1176,7 +1175,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrstr, Array of ?
 
         Returns
 
@@ -1185,7 +1184,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(298, 1, (12, 0), ((12, 0)), u'SelectObjects', None, objects)
+        return self._ApplyTypes_(298, 1, (12, 0), ((8200, 0),), u'SelectObjects', None, _utils.flatten(objects))
 
     def shear_object(self, object, origin, ref_pt, scale, copy):
         """
@@ -1194,11 +1193,11 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Origin : Required, Array, arr
-        RefPt : Required, Array, arr
-        Scale : Required, Number, arr
-        Copy : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Origin : Required, Array, arrdbl, Array of ?
+        RefPt : Required, Array, arrdbl, Array of ?
+        Scale : Required, Number, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1207,7 +1206,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(587, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'ShearObject', None, object, origin, ref_pt, scale, copy)
+        return self._ApplyTypes_(587, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0), (8197, 0), (11, 0),), u'ShearObject', None, object, _utils.flatten(origin), _utils.flatten(ref_pt), _utils.flatten(scale), copy)
 
     def shear_objects(self, objects, origin, ref_pt, scale, copy):
         """
@@ -1216,11 +1215,11 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
-        Origin : Required, Array, arr
-        RefPt : Required, Array, arr
-        Scale : Required, Number, arr
-        Copy : Optional, Boolean, bln
+        Objects : Required, Array, arrstr, Array of ?
+        Origin : Required, Array, arrdbl, Array of ?
+        RefPt : Required, Array, arrdbl, Array of ?
+        Scale : Required, Number, arrdbl, Array of ?
+        Copy : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -1229,7 +1228,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(588, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'ShearObjects', None, objects, origin, ref_pt, scale, copy)
+        return self._ApplyTypes_(588, 1, (12, 0), ((8200, 0), (8197, 0), (8197, 0), (8197, 0), (11, 0),), u'ShearObjects', None, _utils.flatten(objects), _utils.flatten(origin), _utils.flatten(ref_pt), _utils.flatten(scale), copy)
 
     def show_object(self, object):
         """
@@ -1238,7 +1237,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1247,7 +1246,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(201, 1, (12, 0), ((12, 0)), u'ShowObject', None, object)
+        return self._ApplyTypes_(201, 1, (12, 0), ((8, 0),), u'ShowObject', None, object)
 
     def show_objects(self, objects):
         """
@@ -1256,7 +1255,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrstr, Array of ?
 
         Returns
 
@@ -1265,7 +1264,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(305, 1, (12, 0), ((12, 0)), u'ShowObjects', None, objects)
+        return self._ApplyTypes_(305, 1, (12, 0), ((8200, 0),), u'ShowObjects', None, _utils.flatten(objects))
 
     def transform_object(self, object, matrix, copy):
         """
@@ -1296,7 +1295,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1305,7 +1304,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(202, 1, (12, 0), ((12, 0)), u'UnlockObject', None, object)
+        return self._ApplyTypes_(202, 1, (12, 0), ((8, 0),), u'UnlockObject', None, object)
 
     def unlock_objects(self, objects):
         """
@@ -1314,7 +1313,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrstr, Array of ?
 
         Returns
 
@@ -1323,7 +1322,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(306, 1, (12, 0), ((12, 0)), u'UnlockObjects', None, objects)
+        return self._ApplyTypes_(306, 1, (12, 0), ((8200, 0),), u'UnlockObjects', None, _utils.flatten(objects))
 
     def unselect_object(self, object):
         """
@@ -1332,7 +1331,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -1341,7 +1340,7 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(299, 1, (12, 0), ((12, 0)), u'UnselectObject', None, object)
+        return self._ApplyTypes_(299, 1, (12, 0), ((8, 0),), u'UnselectObject', None, object)
 
     def unselect_objects(self, objects):
         """
@@ -1350,7 +1349,7 @@ class Object(DispatchBaseClass):
 
         Parameters
 
-        Objects : Required, Array, arr
+        Objects : Required, Array, arrstr, Array of ?
 
         Returns
 
@@ -1359,5 +1358,5 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(300, 1, (12, 0), ((12, 0)), u'UnselectObjects', None, objects)
+        return self._ApplyTypes_(300, 1, (12, 0), ((8200, 0),), u'UnselectObjects', None, _utils.flatten(objects))
 

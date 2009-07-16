@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Linetype(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Linetype(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class Linetype(DispatchBaseClass):
 
         Parameters
 
-        Linetype : Required, String, str
+        Linetype : Required, String, str, String
 
         Returns
 
@@ -25,7 +24,7 @@ class Linetype(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(607, 1, (12, 0), ((12, 0)), u'IsLinetype', None, linetype)
+        return self._ApplyTypes_(607, 1, (12, 0), ((8, 0),), u'IsLinetype', None, linetype)
 
     def is_linetype_reference(self, linetype):
         """
@@ -34,7 +33,7 @@ class Linetype(DispatchBaseClass):
 
         Parameters
 
-        Linetype : Required, String, str
+        Linetype : Required, String, str, String
 
         Returns
 
@@ -43,7 +42,7 @@ class Linetype(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(608, 1, (12, 0), ((12, 0)), u'IsLinetypeReference', None, linetype)
+        return self._ApplyTypes_(608, 1, (12, 0), ((8, 0),), u'IsLinetypeReference', None, linetype)
 
     def linetype_count(self):
         """
@@ -58,7 +57,7 @@ class Linetype(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(605, 1, (12, 0), (), u'LinetypeCount', None, )
+        return self._ApplyTypes_(605, 1, (12, 0), (,), u'LinetypeCount', None, )
 
     def linetype_names(self, sort):
         """
@@ -67,7 +66,7 @@ class Linetype(DispatchBaseClass):
 
         Parameters
 
-        Sort : Optional, Boolean, bln
+        Sort : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -76,5 +75,5 @@ class Linetype(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(606, 1, (12, 0), ((12, 0)), u'LinetypeNames', None, sort)
+        return self._ApplyTypes_(606, 1, (12, 0), ((11, 0),), u'LinetypeNames', None, sort)
 

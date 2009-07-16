@@ -25,6 +25,7 @@ def parse_docs():
             if file != ".svn":
                 files.append(file)
         for file in files:
+            found_array_param = False
             #print file, " in ", folder
             file_name = file[:-4]
             if file_name != folder:
@@ -67,7 +68,7 @@ def parse_docs():
                         #check is this line is a single word (i.e. the name of the param)
                         this_line_words = contents[line_num].split()
                         is_word = False
-                        if (len(this_line_words) == 1) and (not this_line_words[0].isdigit()):
+                        if (len(this_line_words) == 1) and (not this_line_words[0].isdigit()) and this_line_words[0] != "Array":
                             is_word = True
                         #check is this line starts with either 'Required' or 'Optional'
                         next_line = contents[line_num + 1]
@@ -75,13 +76,68 @@ def parse_docs():
                         if (next_line.startswith("Required") or next_line.startswith("Optional")):
                             has_flag = True
                         if is_word and has_flag:
-                            next_line_phrases = next_line.split(".")
-                            param_name = this_line_words[0].strip()[3:]
-                            param_req = next_line_phrases[0].strip()
-                            param_type1 = next_line_phrases[1].strip()
-                            param_type2 = this_line_words[0].strip()[:3]                            
-                            param_text = next_line_phrases[2].strip()
-                            content_params.append((param_name, param_req, param_type1, param_type2, param_text))
+                            #split the next line into the right bits
+                            next_line_word1 = next_line[:next_line.find(".")].strip()
+                            next_line_temp = next_line[next_line.find(".")+1:].strip()
+                            next_line_word2 = next_line_temp[:next_line_temp.find(".")].strip()
+                            next_line_rest = next_line_temp[next_line_temp.find(".")+1:].strip()
+                            #get the type from the param name
+                            param_name = this_line_words[0].strip()
+                            if param_name.startswith("bln"): 
+                                param_name = param_name[3:]
+                                param_prefix = "bln"
+                                param_type_name = "Boolean"
+                            elif param_name.startswith("int"): 
+                                param_name = param_name[3:]
+                                param_prefix = "int"
+                                param_type_name = "Integer"
+                            elif param_name.startswith("lng"): 
+                                param_name = param_name[3:]
+                                param_prefix = "lng"
+                                param_type_name = "Integer"
+                            elif param_name.startswith("dbl"): 
+                                param_name = param_name[3:]
+                                param_prefix = "dbl"
+                                param_type_name = "Double"
+                            elif param_name.startswith("str"): 
+                                param_name = param_name[3:]
+                                param_prefix = "str"
+                                param_type_name = "String"
+                            elif param_name.startswith("va"): 
+                                param_name = param_name[2:]
+                                param_prefix = "va"
+                                param_type_name = "Array of ?"
+                            elif param_name.startswith("n"): 
+                                param_name = param_name[1:]
+                                param_prefix = "n"
+                                param_type_name = "Integer"
+                            elif param_name.startswith("arr"): 
+                                param_name = param_name[3:]
+                                param_type_name = "Array of ?"
+                                found_array_param = True
+                                if next_line_rest.lower().startswith("an array of string"):
+                                    param_prefix = "arrstr"
+                                    print "found string array..."
+                                elif next_line_rest.lower().startswith("an array of number"):
+                                    param_prefix = "arrdbl"
+                                    print "found numbers array"
+                                elif next_line_rest.lower().startswith("an array of point"):
+                                    param_prefix = "arrdbl"
+                                    print "found points array"
+                                elif next_line_rest.lower().startswith("an array of 3-d point"):
+                                    param_prefix = "arrdbl"
+                                    print "found points array"  
+                                elif next_line_rest.lower().startswith("an array of"):
+                                    param_prefix = "arrdbl"
+                                    print "***FOUND SOMETHING ELSE***"                                                                                    
+                                else:
+                                    param_prefix = "arrdbl"
+
+                            #assign parameters
+                            param_req = next_line_word1
+                            param_vb_type = next_line_word2
+                            param_text = next_line_rest
+                            content_params.append((param_name, param_req, param_vb_type, param_prefix, param_type_name, param_text))
                 
                 #now get the returns
                 content_returns = []
@@ -99,6 +155,8 @@ def parse_docs():
                     "params": content_params,
                     "returns": content_returns
                 }
+            if found_array_param:
+                print "FOUND ARRAY IN ", file_name, " in ", folder
     return data
 
 def write_classes(folders):
@@ -118,14 +176,11 @@ def write_class(folder_name, folder_data):
     f.close()
     
 def write_class_header(class_name, f):
-    w(f,"# Auto-generated wrapper for Rhino4 RhinoScript functions")
-    w(f,"import win32com.client.CLSIDToClass, pythoncom")
-    w(f,"import win32com.client.util")
-    w(f,"from pywintypes import IID")
-    w(f,"from win32com.client import Dispatch")
-    w(f,"from win32com.client import DispatchBaseClass")
+    w(f,"# Auto-generated wrapper for Rhino4 RhinoScript functions", nle=2)
     w(f,"import exceptions")
-    w(f,"class %s(DispatchBaseClass):" % class_name, nle=4)
+    w(f,"import _utils")
+    w(f,"from _rhinoscript import IRhinoScript", nle=2)
+    w(f,"class %s(IRhinoScript):" % class_name, nle=4)
 
 def write_class_method(file_name, file_data, f):
 
@@ -168,7 +223,7 @@ def write_class_method(file_name, file_data, f):
     if file_data["params"]:
         w(f, "Parameters", tabs=2, nle=2)
         for param in file_data["params"]:
-            w(f, [param[0], " : ", param[1],", ", param[2], ", ", param[3]], tabs=2, nle=1)
+            w(f, [param[0], " : ", param[1],", ", param[2], ", ", param[3], ", ", param[4]], tabs=2, nle=1)
     else:
         w(f, "No parameters", tabs=2, nle=1)
     if file_data["returns"]:
@@ -181,30 +236,61 @@ def write_class_method(file_name, file_data, f):
     #w(f, "pass", tabs=2, nle=2)
     
     #mapping from type to magic numbers
+    #VT_I2 = 2 = signed short
+    #VT_I4 = 3 = signed long
+    #VT_R4 = 4 = signed float
+    #VT_R8 = 5 = signed double
+    #VT_CY = 6
+    #VT_DATE = 7
+    #VT_BSTR = 8
+    #VT_DISPATCH = 9
+    #VT_ERROR = 10
+    #VT_BOOL = 11
+    #VT_VARIANT = 12
+    #VT_UNKNOWN = 13
+    #VT_DECIMAL = 14
+    #VT_I1 = 16
+    #VT_ARRAY = 8192    
     type_map = {
-        "bln":"(12, 0)",
-        "int":"(12, 0)",        
-        "lng":"(12, 0)",
-        "dbl":"(12, 0)",
-        "str":"(12, 0)",        
-        "arr":"(12, 0)",
+        "bln":"(11, 0)",
+        "int":"(2, 0)",        
+        "lng":"(3, 0)",
+        "dbl":"(5, 0)",
+        "str":"(8, 0)",        
+        "arrdbl":"(8197, 0)",#array of doubles
+        "arrstr":"(8200, 0)",#array of doubles        
+        "va":"(12, 0)",
+        "n":"(2, 0)"
     }
     
-    #now call the function
-    #TODO: figure out the magic numbers
+    #figure out the params, adding in flatten for all arrays
+    py_params_flattened = []
+    if file_data["params"]:
+        for param in file_data["params"]:
+            py_param = camel_to_underscore(param[0])
+            if keyword.iskeyword(py_param):
+                py_param += "_param"
+            if param[3].startswith("arr"):
+                py_param = "_utils.flatten(" + py_param + ")"
+            py_params_flattened.append(py_param)
+    py_params_flattened = ", ".join(py_params_flattened)
+
+    #figure out the magic numbers
     magic_id = get_ct_id_by_name(vb_method_name)
     magic_returns = "(12, 0)"
     magic_params = []
     for i in file_data["params"]:
-        if i[3] in ("str", "int", "bln", "lng", "dbl", "arr"):
+        if i[3] in type_map.keys():
             param = type_map[i[3]]
         else:
             param = i[3]
             print "ERROR FINDING TYPE: ", i[3], file_name
         magic_params.append(param)
     magic_params = ", ".join(magic_params)
-    magic = str(magic_id) + ", 1, "+magic_returns+", ("+magic_params+")"
-    w(f, ["return self._ApplyTypes_(", magic,", u'",vb_method_name,"', None, ", ", ".join(py_params), ")"], tabs=2, nle=2)
+    
+    #now write the function    
+    magic = str(magic_id) + ", 1, "+magic_returns+", ("+magic_params+",)"
+    w(f, ["return self._ApplyTypes_(", magic,", u'",vb_method_name,"', None, ", py_params_flattened, ")"], tabs=2, nle=2)
 
 def pretty_print_data(folder_data):
     space = "    "
@@ -341,7 +427,7 @@ def camel_to_underscore(name_cc):
 
 data = parse_docs()
 find_methods_mismatch(data)
-compare_with_ct(data)
+#compare_with_ct(data)
 write_classes(data)
 
 #pretty_print_data(data) 

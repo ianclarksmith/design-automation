@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Transformation(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Transformation(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Xform : Required, Array, arr
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -25,7 +24,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(786, 1, (12, 0), ((12, 0)), u'IsXformIdentity', None, xform)
+        return self._ApplyTypes_(786, 1, (12, 0), ((8197, 0),), u'IsXformIdentity', None, _utils.flatten(xform))
 
     def is_xform_similarity(self, xform):
         """
@@ -34,7 +33,7 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Xform : Required, Array, arr
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -43,7 +42,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(787, 1, (12, 0), ((12, 0)), u'IsXformSimilarity', None, xform)
+        return self._ApplyTypes_(787, 1, (12, 0), ((8197, 0),), u'IsXformSimilarity', None, _utils.flatten(xform))
 
     def is_xform_zero(self, xform):
         """
@@ -52,7 +51,7 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Xform : Required, Array, arr
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -61,7 +60,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(785, 1, (12, 0), ((12, 0)), u'IsXformZero', None, xform)
+        return self._ApplyTypes_(785, 1, (12, 0), ((8197, 0),), u'IsXformZero', None, _utils.flatten(xform))
 
     def xform_c_plane_to_world(self, point, plane):
         """
@@ -70,8 +69,8 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        Plane : Required, Array, arr
+        Point : Required, Array, arrdbl, Array of ?
+        Plane : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -80,7 +79,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(131, 1, (12, 0), ((12, 0), (12, 0)), u'XformCPlaneToWorld', None, point, plane)
+        return self._ApplyTypes_(131, 1, (12, 0), ((8197, 0), (8197, 0),), u'XformCPlaneToWorld', None, _utils.flatten(point), _utils.flatten(plane))
 
     def xform_change_basis(self, plane1, plane2, x0, y0, z0, x1, y1, z1):
         """
@@ -100,8 +99,8 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Xform1 : Required, Array, arr
-        Xform2 : Required, Array, arr
+        Xform1 : Required, Array, arrdbl, Array of ?
+        Xform2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -109,7 +108,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(789, 1, (12, 0), ((12, 0), (12, 0)), u'XformCompare', None, xform1, xform2)
+        return self._ApplyTypes_(789, 1, (12, 0), ((8197, 0), (8197, 0),), u'XformCompare', None, _utils.flatten(xform1), _utils.flatten(xform2))
 
     def xform_determinant(self, xform):
         """
@@ -118,7 +117,7 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Xform : Required, Array, arr
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -127,7 +126,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(818, 1, (12, 0), ((12, 0)), u'XformDeterminant', None, xform)
+        return self._ApplyTypes_(818, 1, (12, 0), ((8197, 0),), u'XformDeterminant', None, _utils.flatten(xform))
 
     def xform_diagonal(self, value):
         """
@@ -136,7 +135,7 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Value : Required, number, dbl
+        Value : Required, number, dbl, Double
 
         Returns
 
@@ -145,7 +144,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(784, 1, (12, 0), ((12, 0)), u'XformDiagonal', None, value)
+        return self._ApplyTypes_(784, 1, (12, 0), ((5, 0),), u'XformDiagonal', None, value)
 
     def xform_identity(self):
         """
@@ -160,7 +159,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(783, 1, (12, 0), (), u'XformIdentity', None, )
+        return self._ApplyTypes_(783, 1, (12, 0), (,), u'XformIdentity', None, )
 
     def xform_inverse(self, xform):
         """
@@ -169,7 +168,7 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Xform : Required, Array, arr
+        Xform : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -178,7 +177,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(817, 1, (12, 0), ((12, 0)), u'XformInverse', None, xform)
+        return self._ApplyTypes_(817, 1, (12, 0), ((8197, 0),), u'XformInverse', None, _utils.flatten(xform))
 
     def xform_mirror(self, point, normal):
         """
@@ -187,8 +186,8 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        Normal : Required, Array, arr
+        Point : Required, Array, arrdbl, Array of ?
+        Normal : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -197,7 +196,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(795, 1, (12, 0), ((12, 0), (12, 0)), u'XformMirror', None, point, normal)
+        return self._ApplyTypes_(795, 1, (12, 0), ((8197, 0), (8197, 0),), u'XformMirror', None, _utils.flatten(point), _utils.flatten(normal))
 
     def xform_multiply(self, xform1, xform2):
         """
@@ -206,8 +205,8 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Xform1 : Required, Array, arr
-        Xform2 : Required, Array, arr
+        Xform1 : Required, Array, arrdbl, Array of ?
+        Xform2 : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -216,7 +215,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(788, 1, (12, 0), ((12, 0), (12, 0)), u'XformMultiply', None, xform1, xform2)
+        return self._ApplyTypes_(788, 1, (12, 0), ((8197, 0), (8197, 0),), u'XformMultiply', None, _utils.flatten(xform1), _utils.flatten(xform2))
 
     def xform_planar_projection(self, plane):
         """
@@ -225,7 +224,7 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array, arr
+        Plane : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -234,7 +233,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(793, 1, (12, 0), ((12, 0)), u'XformPlanarProjection', None, plane)
+        return self._ApplyTypes_(793, 1, (12, 0), ((8197, 0),), u'XformPlanarProjection', None, _utils.flatten(plane))
 
     def xform_rotation(self, plane1, plane2, angle, axis, start_dir, end_dir, point, x0, y0, z0, x1, y1, z1):
         """
@@ -265,9 +264,9 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        View : Optional, String, str
-        Convert : Optional, Boolean, bln
+        Point : Required, Array, arrdbl, Array of ?
+        View : Optional, String, str, String
+        Convert : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -276,7 +275,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(581, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'XformScreenToWorld', None, point, view, convert)
+        return self._ApplyTypes_(581, 1, (12, 0), ((8197, 0), (8, 0), (11, 0),), u'XformScreenToWorld', None, _utils.flatten(point), view, convert)
 
     def xform_shear(self, plane, x1, y1, z1):
         """
@@ -285,10 +284,10 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Plane : Required, Array (Plane), arr
-        X1 : Required, Array (3-D Vector), arr
-        Y1 : Required, Array (3-D Vector), arr
-        Z1 : Required, Array (3-D Vector), arr
+        Plane : Required, Array (Plane), arrdbl, Array of ?
+        X1 : Required, Array (3-D Vector), arrdbl, Array of ?
+        Y1 : Required, Array (3-D Vector), arrdbl, Array of ?
+        Z1 : Required, Array (3-D Vector), arrdbl, Array of ?
 
         Returns
 
@@ -297,7 +296,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(791, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'XformShear', None, plane, x1, y1, z1)
+        return self._ApplyTypes_(791, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0), (8197, 0),), u'XformShear', None, _utils.flatten(plane), _utils.flatten(x1), _utils.flatten(y1), _utils.flatten(z1))
 
     def xform_translation(self, vector):
         """
@@ -306,7 +305,7 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Vector : Required, Array, arr
+        Vector : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -315,7 +314,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(792, 1, (12, 0), ((12, 0)), u'XformTranslation', None, vector)
+        return self._ApplyTypes_(792, 1, (12, 0), ((8197, 0),), u'XformTranslation', None, _utils.flatten(vector))
 
     def xform_world_to_c_plane(self, point, plane):
         """
@@ -324,8 +323,8 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        Plane : Required, Array, arr
+        Point : Required, Array, arrdbl, Array of ?
+        Plane : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -334,7 +333,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(132, 1, (12, 0), ((12, 0), (12, 0)), u'XformWorldToCPlane', None, point, plane)
+        return self._ApplyTypes_(132, 1, (12, 0), ((8197, 0), (8197, 0),), u'XformWorldToCPlane', None, _utils.flatten(point), _utils.flatten(plane))
 
     def xform_world_to_screen(self, point, view, convert):
         """
@@ -343,9 +342,9 @@ class Transformation(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
-        View : Optional, String, str
-        Convert : Optional, Boolean, bln
+        Point : Required, Array, arrdbl, Array of ?
+        View : Optional, String, str, String
+        Convert : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -355,7 +354,7 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(582, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'XformWorldToScreen', None, point, view, convert)
+        return self._ApplyTypes_(582, 1, (12, 0), ((8197, 0), (8, 0), (11, 0),), u'XformWorldToScreen', None, _utils.flatten(point), view, convert)
 
     def xform_zero(self):
         """
@@ -370,5 +369,5 @@ class Transformation(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(782, 1, (12, 0), (), u'XformZero', None, )
+        return self._ApplyTypes_(782, 1, (12, 0), (,), u'XformZero', None, )
 

@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class View(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class View(IRhinoScript):
 
 
 
@@ -27,8 +26,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Name : Required, String, str
-        View : Optional, String, str
+        Name : Required, String, str, String
+        View : Optional, String, str, String
 
         Returns
 
@@ -37,7 +36,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(281, 1, (12, 0), ((12, 0), (12, 0)), u'AddNamedView', None, name, view)
+        return self._ApplyTypes_(281, 1, (12, 0), ((8, 0), (8, 0),), u'AddNamedView', None, name, view)
 
     def background_bitmap(self, view, point, width):
         """
@@ -57,9 +56,9 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Layout : Required, String, str
-        Detail : Optional, String, str
-        ReturnNames : Optional, Boolean, bln
+        Layout : Required, String, str, String
+        Detail : Optional, String, str, String
+        ReturnNames : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -69,7 +68,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(923, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurrentDetail', None, layout, detail, return_names)
+        return self._ApplyTypes_(923, 1, (12, 0), ((8, 0), (8, 0), (11, 0),), u'CurrentDetail', None, layout, detail, return_names)
 
     def current_view(self, view, return_name):
         """
@@ -78,8 +77,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        ReturnName : Optional, Boolean, bln
+        View : Optional, String, str, String
+        ReturnName : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -89,7 +88,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(251, 1, (12, 0), ((12, 0), (12, 0)), u'CurrentView', None, view, return_name)
+        return self._ApplyTypes_(251, 1, (12, 0), ((8, 0), (11, 0),), u'CurrentView', None, view, return_name)
 
     def delete_named_c_plane(self):
         """
@@ -120,8 +119,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Layout : Required, String, str
-        ReturnNames : Optional, Boolean, bln
+        Layout : Required, String, str, String
+        ReturnNames : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -130,7 +129,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(922, 1, (12, 0), ((12, 0), (12, 0)), u'DetailNames', None, layout, return_names)
+        return self._ApplyTypes_(922, 1, (12, 0), ((8, 0), (11, 0),), u'DetailNames', None, layout, return_names)
 
     def is_background_bitmap(self, view):
         """
@@ -139,7 +138,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Required, String, str
+        View : Required, String, str, String
 
         Returns
 
@@ -148,7 +147,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(779, 1, (12, 0), ((12, 0)), u'IsBackgroundBitmap', None, view)
+        return self._ApplyTypes_(779, 1, (12, 0), ((8, 0),), u'IsBackgroundBitmap', None, view)
 
     def is_detail(self, layout, detail):
         """
@@ -157,8 +156,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Layout : Required, String, str
-        Detail : Required, String, str
+        Layout : Required, String, str, String
+        Detail : Required, String, str, String
 
         Returns
 
@@ -166,7 +165,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(921, 1, (12, 0), ((12, 0), (12, 0)), u'IsDetail', None, layout, detail)
+        return self._ApplyTypes_(921, 1, (12, 0), ((8, 0), (8, 0),), u'IsDetail', None, layout, detail)
 
     def is_layout(self, layout):
         """
@@ -175,7 +174,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Layout : Required, String, str
+        Layout : Required, String, str, String
 
         Returns
 
@@ -183,7 +182,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(920, 1, (12, 0), ((12, 0)), u'IsLayout', None, layout)
+        return self._ApplyTypes_(920, 1, (12, 0), ((8, 0),), u'IsLayout', None, layout)
 
     def is_view(self, view):
         """
@@ -192,7 +191,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Required, String, str
+        View : Required, String, str, String
 
         Returns
 
@@ -201,7 +200,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(252, 1, (12, 0), ((12, 0)), u'IsView', None, view)
+        return self._ApplyTypes_(252, 1, (12, 0), ((8, 0),), u'IsView', None, view)
 
     def is_view_current(self, view):
         """
@@ -210,7 +209,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Required, String, str
+        View : Required, String, str, String
 
         Returns
 
@@ -219,7 +218,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(253, 1, (12, 0), ((12, 0)), u'IsViewCurrent', None, view)
+        return self._ApplyTypes_(253, 1, (12, 0), ((8, 0),), u'IsViewCurrent', None, view)
 
     def is_view_maximized(self, view):
         """
@@ -228,7 +227,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
+        View : Optional, String, str, String
 
         Returns
 
@@ -237,7 +236,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(254, 1, (12, 0), ((12, 0)), u'IsViewMaximized', None, view)
+        return self._ApplyTypes_(254, 1, (12, 0), ((8, 0),), u'IsViewMaximized', None, view)
 
     def is_view_perspective(self, view):
         """
@@ -246,7 +245,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
+        View : Optional, String, str, String
 
         Returns
 
@@ -255,7 +254,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(255, 1, (12, 0), ((12, 0)), u'IsViewPerspective', None, view)
+        return self._ApplyTypes_(255, 1, (12, 0), ((8, 0),), u'IsViewPerspective', None, view)
 
     def is_view_title_visible(self, view):
         """
@@ -264,7 +263,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
+        View : Optional, String, str, String
 
         Returns
 
@@ -273,7 +272,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(256, 1, (12, 0), ((12, 0)), u'IsViewTitleVisible', None, view)
+        return self._ApplyTypes_(256, 1, (12, 0), ((8, 0),), u'IsViewTitleVisible', None, view)
 
     def is_wallpaper(self, view):
         """
@@ -282,7 +281,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Required, String, str
+        View : Required, String, str, String
 
         Returns
 
@@ -291,7 +290,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(531, 1, (12, 0), ((12, 0)), u'IsWallpaper', None, view)
+        return self._ApplyTypes_(531, 1, (12, 0), ((8, 0),), u'IsWallpaper', None, view)
 
     def maximize_restore_view(self, view):
         """
@@ -300,14 +299,14 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
+        View : Optional, String, str, String
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(257, 1, (12, 0), ((12, 0)), u'MaximizeRestoreView', None, view)
+        return self._ApplyTypes_(257, 1, (12, 0), ((8, 0),), u'MaximizeRestoreView', None, view)
 
     def named_c_plane(self, name):
         """
@@ -316,7 +315,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Name : Required, String, str
+        Name : Required, String, str, String
 
         Returns
 
@@ -325,7 +324,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(286, 1, (12, 0), ((12, 0)), u'NamedCPlane', None, name)
+        return self._ApplyTypes_(286, 1, (12, 0), ((8, 0),), u'NamedCPlane', None, name)
 
     def named_c_planes(self):
         """
@@ -341,7 +340,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(258, 1, (12, 0), (), u'NamedCPlanes', None, )
+        return self._ApplyTypes_(258, 1, (12, 0), (,), u'NamedCPlanes', None, )
 
     def named_views(self):
         """
@@ -357,7 +356,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(259, 1, (12, 0), (), u'NamedViews', None, )
+        return self._ApplyTypes_(259, 1, (12, 0), (,), u'NamedViews', None, )
 
     def rename_view(self, old_title, new_title):
         """
@@ -366,8 +365,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        OldTitle : Required, String, str
-        NewTitle : Required, String, str
+        OldTitle : Required, String, str, String
+        NewTitle : Required, String, str, String
 
         Returns
 
@@ -376,7 +375,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(260, 1, (12, 0), ((12, 0), (12, 0)), u'RenameView', None, old_title, new_title)
+        return self._ApplyTypes_(260, 1, (12, 0), ((8, 0), (8, 0),), u'RenameView', None, old_title, new_title)
 
     def restore_named_c_plane(self):
         """
@@ -407,9 +406,9 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Direction : Optional, Number, The direction to rotate the camera where 0 = right, 1 = left, 2 = down, and 3 = up, int
-        Angle : Optional, Number, dbl
+        View : Optional, String, str, String
+        Direction : Optional, Number, The direction to rotate the camera where 0 = right, 1 = left, 2 = down, and 3 = up, int, Integer
+        Angle : Optional, Number, dbl, Double
 
         Returns
 
@@ -418,7 +417,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(519, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'RotateCamera', None, view, direction, angle)
+        return self._ApplyTypes_(519, 1, (12, 0), ((8, 0), (2, 0), (5, 0),), u'RotateCamera', None, view, direction, angle)
 
     def rotate_view(self, view, direction, angle):
         """
@@ -427,9 +426,9 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Direction : Optional, Number, The direction to rotate the view, where 0 = right, 1 = left, 2 = down, and 3 = up, int
-        Angle : Optional, Number, dbl
+        View : Optional, String, str, String
+        Direction : Optional, Number, The direction to rotate the view, where 0 = right, 1 = left, 2 = down, and 3 = up, int, Integer
+        Angle : Optional, Number, dbl, Double
 
         Returns
 
@@ -438,7 +437,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(650, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'RotateView', None, view, direction, angle)
+        return self._ApplyTypes_(650, 1, (12, 0), ((8, 0), (2, 0), (5, 0),), u'RotateView', None, view, direction, angle)
 
     def show_grid(self, view, show):
         """
@@ -447,8 +446,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Show : Optional, Boolean, bln
+        View : Optional, String, str, String
+        Show : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -458,7 +457,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(738, 1, (12, 0), ((12, 0), (12, 0)), u'ShowGrid', None, view, show)
+        return self._ApplyTypes_(738, 1, (12, 0), ((8, 0), (11, 0),), u'ShowGrid', None, view, show)
 
     def show_grid_axes(self, view, show):
         """
@@ -467,8 +466,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Show : Optional, Boolean, bln
+        View : Optional, String, str, String
+        Show : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -478,7 +477,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(739, 1, (12, 0), ((12, 0), (12, 0)), u'ShowGridAxes', None, view, show)
+        return self._ApplyTypes_(739, 1, (12, 0), ((8, 0), (11, 0),), u'ShowGridAxes', None, view, show)
 
     def show_view_title(self, view, state):
         """
@@ -487,15 +486,15 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        State : Optional, Boolean, bln
+        View : Optional, String, str, String
+        State : Optional, Boolean, bln, Boolean
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(261, 1, (12, 0), ((12, 0), (12, 0)), u'ShowViewTitle', None, view, state)
+        return self._ApplyTypes_(261, 1, (12, 0), ((8, 0), (11, 0),), u'ShowViewTitle', None, view, state)
 
     def show_world_axes(self, view, show):
         """
@@ -504,8 +503,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Show : Optional, Boolean, bln
+        View : Optional, String, str, String
+        Show : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -515,7 +514,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(740, 1, (12, 0), ((12, 0), (12, 0)), u'ShowWorldAxes', None, view, show)
+        return self._ApplyTypes_(740, 1, (12, 0), ((8, 0), (11, 0),), u'ShowWorldAxes', None, view, show)
 
     def synchronize_c_planes(self):
         """
@@ -535,9 +534,9 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Direction : Optional, Number, The direction to rotate the camera where 0 = right and 1 = left, int
-        Angle : Optional, Number, dbl
+        View : Optional, String, str, String
+        Direction : Optional, Number, The direction to rotate the camera where 0 = right and 1 = left, int, Integer
+        Angle : Optional, Number, dbl, Double
 
         Returns
 
@@ -546,7 +545,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(518, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'TiltView', None, view, direction, angle)
+        return self._ApplyTypes_(518, 1, (12, 0), ((8, 0), (2, 0), (5, 0),), u'TiltView', None, view, direction, angle)
 
     def view_c_plane(self, view, plane):
         """
@@ -555,8 +554,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Plane : Optional, Array, arr
+        View : Optional, String, str, String
+        Plane : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -566,7 +565,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(264, 1, (12, 0), ((12, 0), (12, 0)), u'ViewCPlane', None, view, plane)
+        return self._ApplyTypes_(264, 1, (12, 0), ((8, 0), (8197, 0),), u'ViewCPlane', None, view, _utils.flatten(plane))
 
     def view_camera(self, view, camera):
         """
@@ -575,8 +574,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Camera : Optional, Array, arr
+        View : Optional, String, str, String
+        Camera : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -586,7 +585,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(394, 1, (12, 0), ((12, 0), (12, 0)), u'ViewCamera', None, view, camera)
+        return self._ApplyTypes_(394, 1, (12, 0), ((8, 0), (8197, 0),), u'ViewCamera', None, view, _utils.flatten(camera))
 
     def view_camera_lens(self, view, length):
         """
@@ -595,8 +594,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Length : Optional, Number, dbl
+        View : Optional, String, str, String
+        Length : Optional, Number, dbl, Double
 
         Returns
 
@@ -606,7 +605,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(262, 1, (12, 0), ((12, 0), (12, 0)), u'ViewCameraLens', None, view, length)
+        return self._ApplyTypes_(262, 1, (12, 0), ((8, 0), (5, 0),), u'ViewCameraLens', None, view, length)
 
     def view_camera_plane(self, view):
         """
@@ -615,7 +614,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
+        View : Optional, String, str, String
 
         Returns
 
@@ -624,7 +623,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(778, 1, (12, 0), ((12, 0)), u'ViewCameraPlane', None, view)
+        return self._ApplyTypes_(778, 1, (12, 0), ((8, 0),), u'ViewCameraPlane', None, view)
 
     def view_camera_target(self, view, camera, target):
         """
@@ -633,9 +632,9 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Camera : Optional, Array, arr
-        Target : Optional, Array, arr
+        View : Optional, String, str, String
+        Camera : Optional, Array, arrdbl, Array of ?
+        Target : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -645,7 +644,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(263, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ViewCameraTarget', None, view, camera, target)
+        return self._ApplyTypes_(263, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0),), u'ViewCameraTarget', None, view, _utils.flatten(camera), _utils.flatten(target))
 
     def view_camera_up(self, view, up_vector):
         """
@@ -654,8 +653,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        UpVector : Optional, Array, arr
+        View : Optional, String, str, String
+        UpVector : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -665,7 +664,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(517, 1, (12, 0), ((12, 0), (12, 0)), u'ViewCameraUp', None, view, up_vector)
+        return self._ApplyTypes_(517, 1, (12, 0), ((8, 0), (8197, 0),), u'ViewCameraUp', None, view, _utils.flatten(up_vector))
 
     def view_display_mode(self, view, mode):
         """
@@ -674,8 +673,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Mode : Optional, Number, int
+        View : Optional, String, str, String
+        Mode : Optional, Number, int, Integer
 
         Returns
 
@@ -685,7 +684,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(290, 1, (12, 0), ((12, 0), (12, 0)), u'ViewDisplayMode', None, view, mode)
+        return self._ApplyTypes_(290, 1, (12, 0), ((8, 0), (2, 0),), u'ViewDisplayMode', None, view, mode)
 
     def view_display_mode_ex(self, view, mode, return_names):
         """
@@ -694,9 +693,9 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Mode : Optional, String, str
-        ReturnNames : Optional, Boolean, bln
+        View : Optional, String, str, String
+        Mode : Optional, String, str, String
+        ReturnNames : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -706,7 +705,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(910, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ViewDisplayModeEx', None, view, mode, return_names)
+        return self._ApplyTypes_(910, 1, (12, 0), ((8, 0), (8, 0), (11, 0),), u'ViewDisplayModeEx', None, view, mode, return_names)
 
     def view_display_mode_name(self, mode):
         """
@@ -715,7 +714,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Mode : Required, String, str
+        Mode : Required, String, str, String
 
         Returns
 
@@ -724,7 +723,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(909, 1, (12, 0), ((12, 0)), u'ViewDisplayModeName', None, mode)
+        return self._ApplyTypes_(909, 1, (12, 0), ((8, 0),), u'ViewDisplayModeName', None, mode)
 
     def view_display_modes(self, return_name):
         """
@@ -733,7 +732,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        ReturnName : Optional, Boolean, bln
+        ReturnName : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -742,7 +741,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(908, 1, (12, 0), ((12, 0)), u'ViewDisplayModes', None, return_name)
+        return self._ApplyTypes_(908, 1, (12, 0), ((11, 0),), u'ViewDisplayModes', None, return_name)
 
     def view_names(self, return_names, type):
         """
@@ -751,8 +750,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        ReturnNames : Optional, Boolean, bln
-        Type : Optional, Number, int
+        ReturnNames : Optional, Boolean, bln, Boolean
+        Type : Optional, Number, int, Integer
 
         Returns
 
@@ -761,7 +760,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(265, 1, (12, 0), ((12, 0), (12, 0)), u'ViewNames', None, return_names, type)
+        return self._ApplyTypes_(265, 1, (12, 0), ((11, 0), (2, 0),), u'ViewNames', None, return_names, type)
 
     def view_near_corners(self, view):
         """
@@ -770,7 +769,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
+        View : Optional, String, str, String
 
         Returns
 
@@ -779,7 +778,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(823, 1, (12, 0), ((12, 0)), u'ViewNearCorners', None, view)
+        return self._ApplyTypes_(823, 1, (12, 0), ((8, 0),), u'ViewNearCorners', None, view)
 
     def view_projection(self, view, mode):
         """
@@ -788,8 +787,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Mode : Optional, Number, int
+        View : Optional, String, str, String
+        Mode : Optional, Number, int, Integer
 
         Returns
 
@@ -799,7 +798,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(266, 1, (12, 0), ((12, 0), (12, 0)), u'ViewProjection', None, view, mode)
+        return self._ApplyTypes_(266, 1, (12, 0), ((8, 0), (2, 0),), u'ViewProjection', None, view, mode)
 
     def view_radius(self, view, radius):
         """
@@ -808,8 +807,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Radius : Optional, Number, dbl
+        View : Optional, String, str, String
+        Radius : Optional, Number, dbl, Double
 
         Returns
 
@@ -819,7 +818,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(824, 1, (12, 0), ((12, 0), (12, 0)), u'ViewRadius', None, view, radius)
+        return self._ApplyTypes_(824, 1, (12, 0), ((8, 0), (5, 0),), u'ViewRadius', None, view, radius)
 
     def view_size(self, view):
         """
@@ -828,7 +827,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
+        View : Optional, String, str, String
 
         Returns
 
@@ -837,7 +836,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(267, 1, (12, 0), ((12, 0)), u'ViewSize', None, view)
+        return self._ApplyTypes_(267, 1, (12, 0), ((8, 0),), u'ViewSize', None, view)
 
     def view_target(self, view, target):
         """
@@ -846,8 +845,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Target : Optional, Array, arr
+        View : Optional, String, str, String
+        Target : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -857,7 +856,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(395, 1, (12, 0), ((12, 0), (12, 0)), u'ViewTarget', None, view, target)
+        return self._ApplyTypes_(395, 1, (12, 0), ((8, 0), (8197, 0),), u'ViewTarget', None, view, _utils.flatten(target))
 
     def view_title(self, mode):
         """
@@ -866,7 +865,7 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Mode : Required, String, str
+        Mode : Required, String, str, String
 
         Returns
 
@@ -875,7 +874,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(907, 1, (12, 0), ((12, 0)), u'ViewTitle', None, mode)
+        return self._ApplyTypes_(907, 1, (12, 0), ((8, 0),), u'ViewTitle', None, mode)
 
     def wallpaper(self, view, file_name):
         """
@@ -895,8 +894,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        GrayScale : Optional, Boolean, bln
+        View : Optional, String, str, String
+        GrayScale : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -906,7 +905,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(534, 1, (12, 0), ((12, 0), (12, 0)), u'WallpaperGrayScale', None, view, gray_scale)
+        return self._ApplyTypes_(534, 1, (12, 0), ((8, 0), (11, 0),), u'WallpaperGrayScale', None, view, gray_scale)
 
     def wallpaper_hidden(self, view, hidden):
         """
@@ -915,8 +914,8 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        Hidden : Optional, Boolean, bln
+        View : Optional, String, str, String
+        Hidden : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -926,7 +925,7 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(533, 1, (12, 0), ((12, 0), (12, 0)), u'WallpaperHidden', None, view, hidden)
+        return self._ApplyTypes_(533, 1, (12, 0), ((8, 0), (11, 0),), u'WallpaperHidden', None, view, hidden)
 
     def zoom_bounding_box(self, corners, view, all):
         """
@@ -935,16 +934,16 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        Corners : Required, Array, arr
-        View : Optional, String, str
-        All : Optional, Boolean, bln
+        Corners : Required, Array, arrdbl, Array of ?
+        View : Optional, String, str, String
+        All : Optional, Boolean, bln, Boolean
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(479, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ZoomBoundingBox', None, corners, view, all)
+        return self._ApplyTypes_(479, 1, (12, 0), ((8197, 0), (8, 0), (11, 0),), u'ZoomBoundingBox', None, _utils.flatten(corners), view, all)
 
     def zoom_extents(self, view, all):
         """
@@ -953,15 +952,15 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        All : Optional, Boolean, bln
+        View : Optional, String, str, String
+        All : Optional, Boolean, bln, Boolean
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(375, 1, (12, 0), ((12, 0), (12, 0)), u'ZoomExtents', None, view, all)
+        return self._ApplyTypes_(375, 1, (12, 0), ((8, 0), (11, 0),), u'ZoomExtents', None, view, all)
 
     def zoom_selected(self, view, all):
         """
@@ -970,13 +969,13 @@ class View(DispatchBaseClass):
 
         Parameters
 
-        View : Optional, String, str
-        All : Optional, Boolean, bln
+        View : Optional, String, str, String
+        All : Optional, Boolean, bln, Boolean
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(376, 1, (12, 0), ((12, 0), (12, 0)), u'ZoomSelected', None, view, all)
+        return self._ApplyTypes_(376, 1, (12, 0), ((8, 0), (11, 0),), u'ZoomSelected', None, view, all)
 

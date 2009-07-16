@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class UserData(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class UserData(IRhinoScript):
 
 
 
@@ -16,7 +15,7 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -25,7 +24,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(685, 1, (12, 0), ((12, 0)), u'AttributeDataCount', None, object)
+        return self._ApplyTypes_(685, 1, (12, 0), ((8, 0),), u'AttributeDataCount', None, object)
 
     def delete_attribute_data(self, object, section, entry):
         """
@@ -34,9 +33,9 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Section : Optional, String, str
-        Entry : Optional, String, str
+        Object : Required, String, str, String
+        Section : Optional, String, str, String
+        Entry : Optional, String, str, String
 
         Returns
 
@@ -45,7 +44,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(684, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'DeleteAttributeData', None, object, section, entry)
+        return self._ApplyTypes_(684, 1, (12, 0), ((8, 0), (8, 0), (8, 0),), u'DeleteAttributeData', None, object, section, entry)
 
     def delete_document_data(self, section, entry):
         """
@@ -54,8 +53,8 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Section : Optional, String, str
-        Entry : Optional, String, str
+        Section : Optional, String, str, String
+        Entry : Optional, String, str, String
 
         Returns
 
@@ -64,7 +63,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(237, 1, (12, 0), ((12, 0), (12, 0)), u'DeleteDocumentData', None, section, entry)
+        return self._ApplyTypes_(237, 1, (12, 0), ((8, 0), (8, 0),), u'DeleteDocumentData', None, section, entry)
 
     def delete_object_data(self, object, section, entry):
         """
@@ -73,9 +72,9 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Section : Optional, String, str
-        Entry : Optional, String, str
+        Object : Required, String, str, String
+        Section : Optional, String, str, String
+        Entry : Optional, String, str, String
 
         Returns
 
@@ -84,7 +83,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(238, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'DeleteObjectData', None, object, section, entry)
+        return self._ApplyTypes_(238, 1, (12, 0), ((8, 0), (8, 0), (8, 0),), u'DeleteObjectData', None, object, section, entry)
 
     def document_data_count(self):
         """
@@ -99,7 +98,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(239, 1, (12, 0), (), u'DocumentDataCount', None, )
+        return self._ApplyTypes_(239, 1, (12, 0), (,), u'DocumentDataCount', None, )
 
     def get_attribute_data(self, object, section, entry):
         """
@@ -108,9 +107,9 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Section : Optional, String, str
-        Entry : Optional, String, str
+        Object : Required, String, str, String
+        Section : Optional, String, str, String
+        Entry : Optional, String, str, String
 
         Returns
 
@@ -121,7 +120,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(682, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetAttributeData', None, object, section, entry)
+        return self._ApplyTypes_(682, 1, (12, 0), ((8, 0), (8, 0), (8, 0),), u'GetAttributeData', None, object, section, entry)
 
     def get_document_data(self, section, entry):
         """
@@ -130,8 +129,8 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Section : Optional, String, str
-        Entry : Optional, String, str
+        Section : Optional, String, str, String
+        Entry : Optional, String, str, String
 
         Returns
 
@@ -142,7 +141,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(240, 1, (12, 0), ((12, 0), (12, 0)), u'GetDocumentData', None, section, entry)
+        return self._ApplyTypes_(240, 1, (12, 0), ((8, 0), (8, 0),), u'GetDocumentData', None, section, entry)
 
     def get_object_data(self, object, section, entry):
         """
@@ -151,9 +150,9 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Section : Optional, String, str
-        Entry : Optional, String, str
+        Object : Required, String, str, String
+        Section : Optional, String, str, String
+        Entry : Optional, String, str, String
 
         Returns
 
@@ -164,7 +163,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(241, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetObjectData', None, object, section, entry)
+        return self._ApplyTypes_(241, 1, (12, 0), ((8, 0), (8, 0), (8, 0),), u'GetObjectData', None, object, section, entry)
 
     def get_user_text(self, object, key, attach_to_geometry):
         """
@@ -173,9 +172,9 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Key : Optional, String, str
-        AttachToGeometry : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Key : Optional, String, str, String
+        AttachToGeometry : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -185,7 +184,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(729, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetUserText', None, object, key, attach_to_geometry)
+        return self._ApplyTypes_(729, 1, (12, 0), ((8, 0), (8, 0), (11, 0),), u'GetUserText', None, object, key, attach_to_geometry)
 
     def is_attribute_data(self, object):
         """
@@ -194,7 +193,7 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -203,7 +202,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(686, 1, (12, 0), ((12, 0)), u'IsAttributeData', None, object)
+        return self._ApplyTypes_(686, 1, (12, 0), ((8, 0),), u'IsAttributeData', None, object)
 
     def is_document_data(self):
         """
@@ -218,7 +217,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(278, 1, (12, 0), (), u'IsDocumentData', None, )
+        return self._ApplyTypes_(278, 1, (12, 0), (,), u'IsDocumentData', None, )
 
     def is_object_data(self, object):
         """
@@ -227,7 +226,7 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -236,7 +235,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(279, 1, (12, 0), ((12, 0)), u'IsObjectData', None, object)
+        return self._ApplyTypes_(279, 1, (12, 0), ((8, 0),), u'IsObjectData', None, object)
 
     def is_user_text(self, object):
         """
@@ -245,7 +244,7 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -254,7 +253,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(730, 1, (12, 0), ((12, 0)), u'IsUserText', None, object)
+        return self._ApplyTypes_(730, 1, (12, 0), ((8, 0),), u'IsUserText', None, object)
 
     def object_data_count(self, object):
         """
@@ -263,7 +262,7 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -272,7 +271,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(242, 1, (12, 0), ((12, 0)), u'ObjectDataCount', None, object)
+        return self._ApplyTypes_(242, 1, (12, 0), ((8, 0),), u'ObjectDataCount', None, object)
 
     def set_attribute_data(self, object, section, entry, value):
         """
@@ -281,10 +280,10 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Section : Required, String, str
-        Entry : Required, String, str
-        Value : Required, String, str
+        Object : Required, String, str, String
+        Section : Required, String, str, String
+        Entry : Required, String, str, String
+        Value : Required, String, str, String
 
         Returns
 
@@ -293,7 +292,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(683, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'SetAttributeData', None, object, section, entry, value)
+        return self._ApplyTypes_(683, 1, (12, 0), ((8, 0), (8, 0), (8, 0), (8, 0),), u'SetAttributeData', None, object, section, entry, value)
 
     def set_document_data(self, section, entry, value):
         """
@@ -302,9 +301,9 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Section : Required, String, str
-        Entry : Required, String, str
-        Value : Required, String, str
+        Section : Required, String, str, String
+        Entry : Required, String, str, String
+        Value : Required, String, str, String
 
         Returns
 
@@ -313,7 +312,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(243, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'SetDocumentData', None, section, entry, value)
+        return self._ApplyTypes_(243, 1, (12, 0), ((8, 0), (8, 0), (8, 0),), u'SetDocumentData', None, section, entry, value)
 
     def set_object_data(self, object, section, entry, value):
         """
@@ -322,10 +321,10 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Section : Required, String, str
-        Entry : Required, String, str
-        Value : Required, String, str
+        Object : Required, String, str, String
+        Section : Required, String, str, String
+        Entry : Required, String, str, String
+        Value : Required, String, str, String
 
         Returns
 
@@ -334,7 +333,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(244, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'SetObjectData', None, object, section, entry, value)
+        return self._ApplyTypes_(244, 1, (12, 0), ((8, 0), (8, 0), (8, 0), (8, 0),), u'SetObjectData', None, object, section, entry, value)
 
     def set_user_text(self, object, key, value, attach_to_geometry):
         """
@@ -343,10 +342,10 @@ class UserData(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Key : Required, String, str
-        Value : Optional, String, str
-        AttachToGeometry : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Key : Required, String, str, String
+        Value : Optional, String, str, String
+        AttachToGeometry : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -355,5 +354,5 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(728, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'SetUserText', None, object, key, value, attach_to_geometry)
+        return self._ApplyTypes_(728, 1, (12, 0), ((8, 0), (8, 0), (8, 0), (11, 0),), u'SetUserText', None, object, key, value, attach_to_geometry)
 

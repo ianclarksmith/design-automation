@@ -11,18 +11,18 @@ Calculates the length of the hypotenuse of a right triangle, given the length of
 Syntax
 
 
-Rhino.Hypot (x, y)
+Rhino.Hypot (dblNumberX, dblNumberY)
 
 
 Parameters
 
 
 
-x 
+dblNumberX 
 
 Required.  Number.  The x value.
 
-y 
+dblNumberY 
 
 Required.  Number.  The y value.
 

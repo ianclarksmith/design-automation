@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Hatch(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Hatch(IRhinoScript):
 
 
 
@@ -16,10 +15,10 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
-        Hatch : Optional, String, str
-        Scale : Optional, Number, dbl
-        Rotation : Optional, Number, dbl
+        Curve : Required, String, str, String
+        Hatch : Optional, String, str, String
+        Scale : Optional, Number, dbl, Double
+        Rotation : Optional, Number, dbl, Double
 
         Returns
 
@@ -28,7 +27,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(835, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'AddHatch', None, curve, hatch, scale, rotation)
+        return self._ApplyTypes_(835, 1, (12, 0), ((8, 0), (8, 0), (5, 0), (5, 0),), u'AddHatch', None, curve, hatch, scale, rotation)
 
     def add_hatch_patterns(self, file_name, replace):
         """
@@ -37,8 +36,8 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        FileName : Required, String, str
-        Replace : Optional, Boolean, bln
+        FileName : Required, String, str, String
+        Replace : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -47,7 +46,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(826, 1, (12, 0), ((12, 0), (12, 0)), u'AddHatchPatterns', None, file_name, replace)
+        return self._ApplyTypes_(826, 1, (12, 0), ((8, 0), (11, 0),), u'AddHatchPatterns', None, file_name, replace)
 
     def add_hatches(self, curves, hatch, scale, rotation):
         """
@@ -56,10 +55,10 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Curves : Required, Array, arr
-        Hatch : Optional, String, str
-        Scale : Optional, Number, dbl
-        Rotation : Optional, Number, dbl
+        Curves : Required, Array, arrstr, Array of ?
+        Hatch : Optional, String, str, String
+        Scale : Optional, Number, dbl, Double
+        Rotation : Optional, Number, dbl, Double
 
         Returns
 
@@ -68,7 +67,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(836, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'AddHatches', None, curves, hatch, scale, rotation)
+        return self._ApplyTypes_(836, 1, (12, 0), ((8200, 0), (8, 0), (5, 0), (5, 0),), u'AddHatches', None, _utils.flatten(curves), hatch, scale, rotation)
 
     def current_hatch_pattern(self, hatch):
         """
@@ -77,7 +76,7 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Hatch : Optional, String, str
+        Hatch : Optional, String, str, String
 
         Returns
 
@@ -87,7 +86,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(827, 1, (12, 0), ((12, 0)), u'CurrentHatchPattern', None, hatch)
+        return self._ApplyTypes_(827, 1, (12, 0), ((8, 0),), u'CurrentHatchPattern', None, hatch)
 
     def explode_hatch(self, hatch, delete):
         """
@@ -96,8 +95,8 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Hatch : Required, String, str
-        Delete : Optional, Boolean, bln
+        Hatch : Required, String, str, String
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -106,7 +105,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(841, 1, (12, 0), ((12, 0), (12, 0)), u'ExplodeHatch', None, hatch, delete)
+        return self._ApplyTypes_(841, 1, (12, 0), ((8, 0), (11, 0),), u'ExplodeHatch', None, hatch, delete)
 
     def hatch_pattern(self, object, hatch):
         """
@@ -115,8 +114,8 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Hatch : Optional, String, str
+        Object : Required, String, str, String
+        Hatch : Optional, String, str, String
 
         Returns
 
@@ -126,7 +125,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(837, 1, (12, 0), ((12, 0), (12, 0)), u'HatchPattern', None, object, hatch)
+        return self._ApplyTypes_(837, 1, (12, 0), ((8, 0), (8, 0),), u'HatchPattern', None, object, hatch)
 
     def hatch_pattern_count(self):
         """
@@ -141,7 +140,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(828, 1, (12, 0), (), u'HatchPatternCount', None, )
+        return self._ApplyTypes_(828, 1, (12, 0), (,), u'HatchPatternCount', None, )
 
     def hatch_pattern_description(self, hatch):
         """
@@ -150,7 +149,7 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Hatch : Required, String, str
+        Hatch : Required, String, str, String
 
         Returns
 
@@ -159,7 +158,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(829, 1, (12, 0), ((12, 0)), u'HatchPatternDescription', None, hatch)
+        return self._ApplyTypes_(829, 1, (12, 0), ((8, 0),), u'HatchPatternDescription', None, hatch)
 
     def hatch_pattern_fill_type(self, hatch):
         """
@@ -168,7 +167,7 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Hatch : Required, String, str
+        Hatch : Required, String, str, String
 
         Returns
 
@@ -177,7 +176,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(831, 1, (12, 0), ((12, 0)), u'HatchPatternFillType', None, hatch)
+        return self._ApplyTypes_(831, 1, (12, 0), ((8, 0),), u'HatchPatternFillType', None, hatch)
 
     def hatch_pattern_names(self):
         """
@@ -193,7 +192,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(830, 1, (12, 0), (), u'HatchPatternNames', None, )
+        return self._ApplyTypes_(830, 1, (12, 0), (,), u'HatchPatternNames', None, )
 
     def hatch_rotation(self, object, rotation):
         """
@@ -202,8 +201,8 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Rotation : Optional, Number, dbl
+        Object : Required, String, str, String
+        Rotation : Optional, Number, dbl, Double
 
         Returns
 
@@ -213,7 +212,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(839, 1, (12, 0), ((12, 0), (12, 0)), u'HatchRotation', None, object, rotation)
+        return self._ApplyTypes_(839, 1, (12, 0), ((8, 0), (5, 0),), u'HatchRotation', None, object, rotation)
 
     def hatch_scale(self, object, scale):
         """
@@ -222,8 +221,8 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Scale : Optional, Number, dbl
+        Object : Required, String, str, String
+        Scale : Optional, Number, dbl, Double
 
         Returns
 
@@ -233,7 +232,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(838, 1, (12, 0), ((12, 0), (12, 0)), u'HatchScale', None, object, scale)
+        return self._ApplyTypes_(838, 1, (12, 0), ((8, 0), (5, 0),), u'HatchScale', None, object, scale)
 
     def is_hatch(self, object):
         """
@@ -242,7 +241,7 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -250,7 +249,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(840, 1, (12, 0), ((12, 0)), u'IsHatch', None, object)
+        return self._ApplyTypes_(840, 1, (12, 0), ((8, 0),), u'IsHatch', None, object)
 
     def is_hatch_pattern(self, hatch):
         """
@@ -259,7 +258,7 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Hatch : Required, String, str
+        Hatch : Required, String, str, String
 
         Returns
 
@@ -267,7 +266,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(832, 1, (12, 0), ((12, 0)), u'IsHatchPattern', None, hatch)
+        return self._ApplyTypes_(832, 1, (12, 0), ((8, 0),), u'IsHatchPattern', None, hatch)
 
     def is_hatch_pattern_current(self, hatch):
         """
@@ -276,7 +275,7 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Hatch : Required, String, str
+        Hatch : Required, String, str, String
 
         Returns
 
@@ -284,7 +283,7 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(833, 1, (12, 0), ((12, 0)), u'IsHatchPatternCurrent', None, hatch)
+        return self._ApplyTypes_(833, 1, (12, 0), ((8, 0),), u'IsHatchPatternCurrent', None, hatch)
 
     def is_hatch_pattern_reference(self, hatch):
         """
@@ -293,7 +292,7 @@ class Hatch(DispatchBaseClass):
 
         Parameters
 
-        Hatch : Required, String, str
+        Hatch : Required, String, str, String
 
         Returns
 
@@ -301,5 +300,5 @@ class Hatch(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(834, 1, (12, 0), ((12, 0)), u'IsHatchPatternReference', None, hatch)
+        return self._ApplyTypes_(834, 1, (12, 0), ((8, 0),), u'IsHatchPatternReference', None, hatch)
 

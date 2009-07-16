@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Application(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Application(IRhinoScript):
 
 
 
@@ -16,8 +15,8 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Alias : Required, String, str
-        Macro : Required, String, str
+        Alias : Required, String, str, String
+        Macro : Required, String, str, String
 
         Returns
 
@@ -26,7 +25,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(709, 1, (12, 0), ((12, 0), (12, 0)), u'AddAlias', None, alias, macro)
+        return self._ApplyTypes_(709, 1, (12, 0), ((8, 0), (8, 0),), u'AddAlias', None, alias, macro)
 
     def add_search_path(self, folder, index):
         """
@@ -35,8 +34,8 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Folder : Required, String, str
-        Index : Optional, Number, int
+        Folder : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -45,7 +44,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(511, 1, (12, 0), ((12, 0), (12, 0)), u'AddSearchPath', None, folder, index)
+        return self._ApplyTypes_(511, 1, (12, 0), ((8, 0), (2, 0),), u'AddSearchPath', None, folder, index)
 
     def add_startup_script(self, script_file, index):
         """
@@ -54,8 +53,8 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        ScriptFile : Required, String, str
-        Index : Optional, Number, int
+        ScriptFile : Required, String, str, String
+        Index : Optional, Number, int, Integer
 
         Returns
 
@@ -64,7 +63,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(714, 1, (12, 0), ((12, 0), (12, 0)), u'AddStartupScript', None, script_file, index)
+        return self._ApplyTypes_(714, 1, (12, 0), ((8, 0), (2, 0),), u'AddStartupScript', None, script_file, index)
 
     def alias_count(self):
         """
@@ -79,7 +78,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(706, 1, (12, 0), (), u'AliasCount', None, )
+        return self._ApplyTypes_(706, 1, (12, 0), (,), u'AliasCount', None, )
 
     def alias_macro(self, alias, macro):
         """
@@ -88,8 +87,8 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Alias : Required, String, str
-        Macro : Optional, String, str
+        Alias : Required, String, str, String
+        Macro : Optional, String, str, String
 
         Returns
 
@@ -99,7 +98,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(708, 1, (12, 0), ((12, 0), (12, 0)), u'AliasMacro', None, alias, macro)
+        return self._ApplyTypes_(708, 1, (12, 0), ((8, 0), (8, 0),), u'AliasMacro', None, alias, macro)
 
     def alias_names(self):
         """
@@ -114,7 +113,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(707, 1, (12, 0), (), u'AliasNames', None, )
+        return self._ApplyTypes_(707, 1, (12, 0), (,), u'AliasNames', None, )
 
     def appearance_color(self, item, color):
         """
@@ -123,8 +122,8 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Item : Required, Number, int
-        Color : Optional, Number, lng
+        Item : Required, Number, int, Integer
+        Color : Optional, Number, lng, Integer
 
         Returns
 
@@ -134,7 +133,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(335, 1, (12, 0), ((12, 0), (12, 0)), u'AppearanceColor', None, item, color)
+        return self._ApplyTypes_(335, 1, (12, 0), ((2, 0), (3, 0),), u'AppearanceColor', None, item, color)
 
     def appearance_display(self, item, show):
         """
@@ -143,8 +142,8 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Item : Required, Number, int
-        Show : Optional, Boolean, bln
+        Item : Required, Number, int, Integer
+        Show : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -154,7 +153,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(752, 1, (12, 0), ((12, 0), (12, 0)), u'AppearanceDisplay', None, item, show)
+        return self._ApplyTypes_(752, 1, (12, 0), ((2, 0), (11, 0),), u'AppearanceDisplay', None, item, show)
 
     def autosave_file(self, file):
         """
@@ -163,7 +162,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        File : Optional, String, str
+        File : Optional, String, str, String
 
         Returns
 
@@ -173,7 +172,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(428, 1, (12, 0), ((12, 0)), u'AutosaveFile', None, file)
+        return self._ApplyTypes_(428, 1, (12, 0), ((8, 0),), u'AutosaveFile', None, file)
 
     def autosave_interval(self, minutes):
         """
@@ -182,7 +181,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Minutes : Optional, Number, int
+        Minutes : Optional, Number, int, Integer
 
         Returns
 
@@ -192,7 +191,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(429, 1, (12, 0), ((12, 0)), u'AutosaveInterval', None, minutes)
+        return self._ApplyTypes_(429, 1, (12, 0), ((2, 0),), u'AutosaveInterval', None, minutes)
 
     def build_date(self):
         """
@@ -208,7 +207,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(360, 1, (12, 0), (), u'BuildDate', None, )
+        return self._ApplyTypes_(360, 1, (12, 0), (,), u'BuildDate', None, )
 
     def clear_command_history(self):
         """
@@ -222,7 +221,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(592, 1, (12, 0), (), u'ClearCommandHistory', None, )
+        return self._ApplyTypes_(592, 1, (12, 0), (,), u'ClearCommandHistory', None, )
 
     def command(self, command, echo):
         """
@@ -231,8 +230,8 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Command : Required, String, str
-        Echo : Optional, Boolean, bln
+        Command : Required, String, str, String
+        Echo : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -241,7 +240,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(1, 1, (12, 0), ((12, 0), (12, 0)), u'Command', None, command, echo)
+        return self._ApplyTypes_(1, 1, (12, 0), ((8, 0), (11, 0),), u'Command', None, command, echo)
 
     def command_history(self):
         """
@@ -257,7 +256,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(591, 1, (12, 0), (), u'CommandHistory', None, )
+        return self._ApplyTypes_(591, 1, (12, 0), (,), u'CommandHistory', None, )
 
     def default_renderer(self, renderer):
         """
@@ -266,7 +265,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Renderer : Optional, String, str
+        Renderer : Optional, String, str, String
 
         Returns
 
@@ -276,7 +275,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(316, 1, (12, 0), ((12, 0)), u'DefaultRenderer', None, renderer)
+        return self._ApplyTypes_(316, 1, (12, 0), ((8, 0),), u'DefaultRenderer', None, renderer)
 
     def delete_alias(self, alias):
         """
@@ -285,7 +284,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Alias : Required, String, str
+        Alias : Required, String, str, String
 
         Returns
 
@@ -294,7 +293,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(710, 1, (12, 0), ((12, 0)), u'DeleteAlias', None, alias)
+        return self._ApplyTypes_(710, 1, (12, 0), ((8, 0),), u'DeleteAlias', None, alias)
 
     def delete_search_path(self, folder):
         """
@@ -303,7 +302,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Folder : Required, String, str
+        Folder : Required, String, str, String
 
         Returns
 
@@ -312,7 +311,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(512, 1, (12, 0), ((12, 0)), u'DeleteSearchPath', None, folder)
+        return self._ApplyTypes_(512, 1, (12, 0), ((8, 0),), u'DeleteSearchPath', None, folder)
 
     def delete_startup_script(self, script_file):
         """
@@ -321,7 +320,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        ScriptFile : Required, String, str
+        ScriptFile : Required, String, str, String
 
         Returns
 
@@ -330,7 +329,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(715, 1, (12, 0), ((12, 0)), u'DeleteStartupScript', None, script_file)
+        return self._ApplyTypes_(715, 1, (12, 0), ((8, 0),), u'DeleteStartupScript', None, script_file)
 
     def display_ole_alerts(self, display):
         """
@@ -339,7 +338,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Display : Required, Boolean, bln
+        Display : Required, Boolean, bln, Boolean
 
         Returns
 
@@ -347,7 +346,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(896, 1, (12, 0), ((12, 0)), u'DisplayOleAlerts', None, display)
+        return self._ApplyTypes_(896, 1, (12, 0), ((11, 0),), u'DisplayOleAlerts', None, display)
 
     def edge_analysis_color(self, color):
         """
@@ -356,7 +355,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Color : Optional, Number, lng
+        Color : Optional, Number, lng, Integer
 
         Returns
 
@@ -366,7 +365,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(449, 1, (12, 0), ((12, 0)), u'EdgeAnalysisColor', None, color)
+        return self._ApplyTypes_(449, 1, (12, 0), ((3, 0),), u'EdgeAnalysisColor', None, color)
 
     def edge_analysis_mode(self, mode):
         """
@@ -375,7 +374,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Mode : Optional, Number, int
+        Mode : Optional, Number, int, Integer
 
         Returns
 
@@ -385,7 +384,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(448, 1, (12, 0), ((12, 0)), u'EdgeAnalysisMode', None, mode)
+        return self._ApplyTypes_(448, 1, (12, 0), ((2, 0),), u'EdgeAnalysisMode', None, mode)
 
     def enable_autosave(self, enable):
         """
@@ -394,7 +393,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Enable : Optional, Boolean, bln
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -402,7 +401,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(430, 1, (12, 0), ((12, 0)), u'EnableAutosave', None, enable)
+        return self._ApplyTypes_(430, 1, (12, 0), ((11, 0),), u'EnableAutosave', None, enable)
 
     def enable_history_recording(self, enable):
         """
@@ -411,7 +410,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Enable : Optional, Boolean, bln
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -420,7 +419,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(735, 1, (12, 0), ((12, 0)), u'EnableHistoryRecording', None, enable)
+        return self._ApplyTypes_(735, 1, (12, 0), ((11, 0),), u'EnableHistoryRecording', None, enable)
 
     def exe_folder(self):
         """
@@ -436,7 +435,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(21, 1, (12, 0), (), u'ExeFolder', None, )
+        return self._ApplyTypes_(21, 1, (12, 0), (,), u'ExeFolder', None, )
 
     def exit(self):
         """
@@ -450,7 +449,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(537, 1, (12, 0), (), u'Exit', None, )
+        return self._ApplyTypes_(537, 1, (12, 0), (,), u'Exit', None, )
 
     def find_file(self, filename):
         """
@@ -459,7 +458,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Filename : Required, String, str
+        Filename : Required, String, str, String
 
         Returns
 
@@ -468,7 +467,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(81, 1, (12, 0), ((12, 0)), u'FindFile', None, filename)
+        return self._ApplyTypes_(81, 1, (12, 0), ((8, 0),), u'FindFile', None, filename)
 
     def get_plug_in_object(self, plug_in):
         """
@@ -477,7 +476,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        PlugIn : Required, String, str
+        PlugIn : Required, String, str, String
 
         Returns
 
@@ -485,7 +484,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(636, 1, (12, 0), ((12, 0)), u'GetPlugInObject', None, plug_in)
+        return self._ApplyTypes_(636, 1, (12, 0), ((8, 0),), u'GetPlugInObject', None, plug_in)
 
     def help(self, topic):
         """
@@ -494,7 +493,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Topic : Optional, Number, int
+        Topic : Optional, Number, int, Integer
 
         Returns
 
@@ -502,7 +501,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(22, 1, (12, 0), ((12, 0)), u'Help', None, topic)
+        return self._ApplyTypes_(22, 1, (12, 0), ((2, 0),), u'Help', None, topic)
 
     def in_command(self, ignore_runners):
         """
@@ -511,7 +510,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        IgnoreRunners : Optional, Boolean, bln
+        IgnoreRunners : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -519,7 +518,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(596, 1, (12, 0), ((12, 0)), u'InCommand', None, ignore_runners)
+        return self._ApplyTypes_(596, 1, (12, 0), ((11, 0),), u'InCommand', None, ignore_runners)
 
     def install_folder(self):
         """
@@ -535,7 +534,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(23, 1, (12, 0), (), u'InstallFolder', None, )
+        return self._ApplyTypes_(23, 1, (12, 0), (,), u'InstallFolder', None, )
 
     def is_alias(self, alias):
         """
@@ -544,7 +543,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Alias : Required, String, str
+        Alias : Required, String, str, String
 
         Returns
 
@@ -553,7 +552,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(711, 1, (12, 0), ((12, 0)), u'IsAlias', None, alias)
+        return self._ApplyTypes_(711, 1, (12, 0), ((8, 0),), u'IsAlias', None, alias)
 
     def is_command(self, command_name):
         """
@@ -562,7 +561,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        CommandName : Required, String, str
+        CommandName : Required, String, str, String
 
         Returns
 
@@ -571,7 +570,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(530, 1, (12, 0), ((12, 0)), u'IsCommand', None, command_name)
+        return self._ApplyTypes_(530, 1, (12, 0), ((8, 0),), u'IsCommand', None, command_name)
 
     def last_command_name(self):
         """
@@ -586,7 +585,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(594, 1, (12, 0), (), u'LastCommandName', None, )
+        return self._ApplyTypes_(594, 1, (12, 0), (,), u'LastCommandName', None, )
 
     def last_command_result(self):
         """
@@ -601,7 +600,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(292, 1, (12, 0), (), u'LastCommandResult', None, )
+        return self._ApplyTypes_(292, 1, (12, 0), (,), u'LastCommandResult', None, )
 
     def last_loaded_script_file(self):
         """
@@ -617,7 +616,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(373, 1, (12, 0), (), u'LastLoadedScriptFile', None, )
+        return self._ApplyTypes_(373, 1, (12, 0), (,), u'LastLoadedScriptFile', None, )
 
     def locale_i_d(self):
         """
@@ -632,7 +631,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(450, 1, (12, 0), (), u'LocaleID', None, )
+        return self._ApplyTypes_(450, 1, (12, 0), (,), u'LocaleID', None, )
 
     def ortho(self, enable):
         """
@@ -641,7 +640,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Enable : Optional, Boolean, bln
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -650,7 +649,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(345, 1, (12, 0), ((12, 0)), u'Ortho', None, enable)
+        return self._ApplyTypes_(345, 1, (12, 0), ((11, 0),), u'Ortho', None, enable)
 
     def osnap(self, enable):
         """
@@ -659,7 +658,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Enable : Optional, Boolean, bln
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -668,7 +667,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(347, 1, (12, 0), ((12, 0)), u'Osnap', None, enable)
+        return self._ApplyTypes_(347, 1, (12, 0), ((11, 0),), u'Osnap', None, enable)
 
     def osnap_dialog(self, visible):
         """
@@ -677,7 +676,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Visible : Optional, Boolean, bln
+        Visible : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -686,7 +685,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(349, 1, (12, 0), ((12, 0)), u'OsnapDialog', None, visible)
+        return self._ApplyTypes_(349, 1, (12, 0), ((11, 0),), u'OsnapDialog', None, visible)
 
     def osnap_mode(self, mode):
         """
@@ -695,7 +694,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Mode : Optional, Number, int
+        Mode : Optional, Number, int, Integer
 
         Returns
 
@@ -705,7 +704,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(343, 1, (12, 0), ((12, 0)), u'OsnapMode', None, mode)
+        return self._ApplyTypes_(343, 1, (12, 0), ((2, 0),), u'OsnapMode', None, mode)
 
     def planar(self, enable):
         """
@@ -714,7 +713,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Enable : Optional, Boolean, bln
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -723,7 +722,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(346, 1, (12, 0), ((12, 0)), u'Planar', None, enable)
+        return self._ApplyTypes_(346, 1, (12, 0), ((11, 0),), u'Planar', None, enable)
 
     def plug_ins(self, types, status):
         """
@@ -732,8 +731,8 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Types : Optional, Number, int
-        Status : Optional, Number, int
+        Types : Optional, Number, int, Integer
+        Status : Optional, Number, int, Integer
 
         Returns
 
@@ -742,7 +741,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(315, 1, (12, 0), ((12, 0), (12, 0)), u'PlugIns', None, types, status)
+        return self._ApplyTypes_(315, 1, (12, 0), ((2, 0), (2, 0),), u'PlugIns', None, types, status)
 
     def print_rh(self, message):
         """
@@ -751,14 +750,14 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Message : Optional, String, str
+        Message : Optional, String, str, String
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(2, 1, (12, 0), ((12, 0)), u'Print', None, message)
+        return self._ApplyTypes_(2, 1, (12, 0), ((8, 0),), u'Print', None, message)
 
     def print_ex(self, message):
         """
@@ -767,14 +766,14 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Message : Optional, String, str
+        Message : Optional, String, str, String
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(370, 1, (12, 0), ((12, 0)), u'PrintEx', None, message)
+        return self._ApplyTypes_(370, 1, (12, 0), ((8, 0),), u'PrintEx', None, message)
 
     def project_osnaps(self, enable):
         """
@@ -783,7 +782,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Enable : Optional, Boolean, bln
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -792,7 +791,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(348, 1, (12, 0), ((12, 0)), u'ProjectOsnaps', None, enable)
+        return self._ApplyTypes_(348, 1, (12, 0), ((11, 0),), u'ProjectOsnaps', None, enable)
 
     def prompt(self, prompt):
         """
@@ -801,14 +800,14 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Prompt : Optional, String, str
+        Prompt : Optional, String, str, String
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(24, 1, (12, 0), ((12, 0)), u'Prompt', None, prompt)
+        return self._ApplyTypes_(24, 1, (12, 0), ((8, 0),), u'Prompt', None, prompt)
 
     def registry_key(self):
         """
@@ -824,7 +823,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(25, 1, (12, 0), (), u'RegistryKey', None, )
+        return self._ApplyTypes_(25, 1, (12, 0), (,), u'RegistryKey', None, )
 
     def screen_size(self):
         """
@@ -840,7 +839,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(553, 1, (12, 0), (), u'ScreenSize', None, )
+        return self._ApplyTypes_(553, 1, (12, 0), (,), u'ScreenSize', None, )
 
     def sdk_version(self):
         """
@@ -856,7 +855,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(359, 1, (12, 0), (), u'SdkVersion', None, )
+        return self._ApplyTypes_(359, 1, (12, 0), (,), u'SdkVersion', None, )
 
     def search_path_count(self):
         """
@@ -871,7 +870,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(509, 1, (12, 0), (), u'SearchPathCount', None, )
+        return self._ApplyTypes_(509, 1, (12, 0), (,), u'SearchPathCount', None, )
 
     def search_path_list(self):
         """
@@ -886,7 +885,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(510, 1, (12, 0), (), u'SearchPathList', None, )
+        return self._ApplyTypes_(510, 1, (12, 0), (,), u'SearchPathList', None, )
 
     def send_keystrokes(self, keys, add_return):
         """
@@ -895,15 +894,15 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Keys : Optional, String, str
-        AddReturn : Optional, String, bln
+        Keys : Optional, String, str, String
+        AddReturn : Optional, String, bln, Boolean
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(496, 1, (12, 0), ((12, 0), (12, 0)), u'SendKeystrokes', None, keys, add_return)
+        return self._ApplyTypes_(496, 1, (12, 0), ((8, 0), (11, 0),), u'SendKeystrokes', None, keys, add_return)
 
     def snap(self, enable):
         """
@@ -912,7 +911,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Enable : Optional, Boolean, bln
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -921,7 +920,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(344, 1, (12, 0), ((12, 0)), u'Snap', None, enable)
+        return self._ApplyTypes_(344, 1, (12, 0), ((11, 0),), u'Snap', None, enable)
 
     def startup_script_count(self):
         """
@@ -936,7 +935,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(712, 1, (12, 0), (), u'StartupScriptCount', None, )
+        return self._ApplyTypes_(712, 1, (12, 0), (,), u'StartupScriptCount', None, )
 
     def startup_script_list(self):
         """
@@ -951,7 +950,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(713, 1, (12, 0), (), u'StartupScriptList', None, )
+        return self._ApplyTypes_(713, 1, (12, 0), (,), u'StartupScriptList', None, )
 
     def status_bar_distance(self, distance):
         """
@@ -960,14 +959,14 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Distance : Optional, Number, dbl
+        Distance : Optional, Number, dbl, Double
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(26, 1, (12, 0), ((12, 0)), u'StatusBarDistance', None, distance)
+        return self._ApplyTypes_(26, 1, (12, 0), ((5, 0),), u'StatusBarDistance', None, distance)
 
     def status_bar_message(self, message):
         """
@@ -976,14 +975,14 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Message : Optional, String, str
+        Message : Optional, String, str, String
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(28, 1, (12, 0), ((12, 0)), u'StatusBarMessage', None, message)
+        return self._ApplyTypes_(28, 1, (12, 0), ((8, 0),), u'StatusBarMessage', None, message)
 
     def status_bar_number(self, number):
         """
@@ -992,14 +991,14 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Number : Optional, Number, dbl
+        Number : Optional, Number, dbl, Double
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(312, 1, (12, 0), ((12, 0)), u'StatusBarNumber', None, number)
+        return self._ApplyTypes_(312, 1, (12, 0), ((5, 0),), u'StatusBarNumber', None, number)
 
     def status_bar_point(self, point):
         """
@@ -1008,14 +1007,14 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Point : Optional, Array, arr
+        Point : Optional, Array, arrdbl, Array of ?
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(27, 1, (12, 0), ((12, 0)), u'StatusBarPoint', None, point)
+        return self._ApplyTypes_(27, 1, (12, 0), ((8197, 0),), u'StatusBarPoint', None, _utils.flatten(point))
 
     def template_file(self, filename):
         """
@@ -1024,7 +1023,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Filename : Optional, String, str
+        Filename : Optional, String, str, String
 
         Returns
 
@@ -1033,7 +1032,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(529, 1, (12, 0), ((12, 0)), u'TemplateFile', None, filename)
+        return self._ApplyTypes_(529, 1, (12, 0), ((8, 0),), u'TemplateFile', None, filename)
 
     def template_folder(self, folder):
         """
@@ -1042,7 +1041,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Folder : Optional, String, str
+        Folder : Optional, String, str, String
 
         Returns
 
@@ -1051,7 +1050,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(528, 1, (12, 0), ((12, 0)), u'TemplateFolder', None, folder)
+        return self._ApplyTypes_(528, 1, (12, 0), ((8, 0),), u'TemplateFolder', None, folder)
 
     def window_handle(self):
         """
@@ -1066,7 +1065,7 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(29, 1, (12, 0), (), u'WindowHandle', None, )
+        return self._ApplyTypes_(29, 1, (12, 0), (,), u'WindowHandle', None, )
 
     def working_folder(self, enable):
         """
@@ -1075,7 +1074,7 @@ class Application(DispatchBaseClass):
 
         Parameters
 
-        Enable : Optional, String, bln
+        Enable : Optional, String, bln, Boolean
 
         Returns
 
@@ -1084,5 +1083,5 @@ class Application(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(439, 1, (12, 0), ((12, 0)), u'WorkingFolder', None, enable)
+        return self._ApplyTypes_(439, 1, (12, 0), ((11, 0),), u'WorkingFolder', None, enable)
 

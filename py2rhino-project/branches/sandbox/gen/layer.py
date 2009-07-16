@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Layer(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Layer(IRhinoScript):
 
 
 
@@ -16,11 +15,11 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Optional, String, str
-        Color : Optional, Number, lng
-        Visible : Optional, Boolean, bln
-        Locked : Optional, Boolean, bln
-        Parent : Optional, String, str
+        Layer : Optional, String, str, String
+        Color : Optional, Number, lng, Integer
+        Visible : Optional, Boolean, bln, Boolean
+        Locked : Optional, Boolean, bln, Boolean
+        Parent : Optional, String, str, String
 
         Returns
 
@@ -29,7 +28,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(3, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddLayer', None, layer, color, visible, locked, parent)
+        return self._ApplyTypes_(3, 1, (12, 0), ((8, 0), (3, 0), (11, 0), (11, 0), (8, 0),), u'AddLayer', None, layer, color, visible, locked, parent)
 
     def current_layer(self, layer):
         """
@@ -38,7 +37,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Optional, String, str
+        Layer : Optional, String, str, String
 
         Returns
 
@@ -48,7 +47,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(5, 1, (12, 0), ((12, 0)), u'CurrentLayer', None, layer)
+        return self._ApplyTypes_(5, 1, (12, 0), ((8, 0),), u'CurrentLayer', None, layer)
 
     def delete_layer(self, layer):
         """
@@ -57,7 +56,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -66,7 +65,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(4, 1, (12, 0), ((12, 0)), u'DeleteLayer', None, layer)
+        return self._ApplyTypes_(4, 1, (12, 0), ((8, 0),), u'DeleteLayer', None, layer)
 
     def expand_layer(self, layer, expand):
         """
@@ -75,8 +74,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Expand : Required, Boolean, bln
+        Layer : Required, String, str, String
+        Expand : Required, Boolean, bln, Boolean
 
         Returns
 
@@ -85,7 +84,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(690, 1, (12, 0), ((12, 0), (12, 0)), u'ExpandLayer', None, layer, expand)
+        return self._ApplyTypes_(690, 1, (12, 0), ((8, 0), (11, 0),), u'ExpandLayer', None, layer, expand)
 
     def is_layer(self, layer):
         """
@@ -94,7 +93,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -102,7 +101,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(6, 1, (12, 0), ((12, 0)), u'IsLayer', None, layer)
+        return self._ApplyTypes_(6, 1, (12, 0), ((8, 0),), u'IsLayer', None, layer)
 
     def is_layer_changeable(self, layer):
         """
@@ -111,7 +110,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -119,7 +118,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(18, 1, (12, 0), ((12, 0)), u'IsLayerChangeable', None, layer)
+        return self._ApplyTypes_(18, 1, (12, 0), ((8, 0),), u'IsLayerChangeable', None, layer)
 
     def is_layer_child_of(self, layer, test):
         """
@@ -128,8 +127,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Test : Required, String, str
+        Layer : Required, String, str, String
+        Test : Required, String, str, String
 
         Returns
 
@@ -138,7 +137,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(692, 1, (12, 0), ((12, 0), (12, 0)), u'IsLayerChildOf', None, layer, test)
+        return self._ApplyTypes_(692, 1, (12, 0), ((8, 0), (8, 0),), u'IsLayerChildOf', None, layer, test)
 
     def is_layer_current(self, layer):
         """
@@ -147,7 +146,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -155,7 +154,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(313, 1, (12, 0), ((12, 0)), u'IsLayerCurrent', None, layer)
+        return self._ApplyTypes_(313, 1, (12, 0), ((8, 0),), u'IsLayerCurrent', None, layer)
 
     def is_layer_empty(self, layer):
         """
@@ -164,7 +163,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -172,7 +171,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(7, 1, (12, 0), ((12, 0)), u'IsLayerEmpty', None, layer)
+        return self._ApplyTypes_(7, 1, (12, 0), ((8, 0),), u'IsLayerEmpty', None, layer)
 
     def is_layer_expanded(self, layer):
         """
@@ -181,7 +180,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -190,7 +189,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(689, 1, (12, 0), ((12, 0)), u'IsLayerExpanded', None, layer)
+        return self._ApplyTypes_(689, 1, (12, 0), ((8, 0),), u'IsLayerExpanded', None, layer)
 
     def is_layer_locked(self, layer):
         """
@@ -199,7 +198,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -207,7 +206,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(8, 1, (12, 0), ((12, 0)), u'IsLayerLocked', None, layer)
+        return self._ApplyTypes_(8, 1, (12, 0), ((8, 0),), u'IsLayerLocked', None, layer)
 
     def is_layer_on(self, layer):
         """
@@ -216,7 +215,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -224,7 +223,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(9, 1, (12, 0), ((12, 0)), u'IsLayerOn', None, layer)
+        return self._ApplyTypes_(9, 1, (12, 0), ((8, 0),), u'IsLayerOn', None, layer)
 
     def is_layer_parent_of(self, layer, test):
         """
@@ -233,8 +232,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Test : Required, String, str
+        Layer : Required, String, str, String
+        Test : Required, String, str, String
 
         Returns
 
@@ -243,7 +242,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(693, 1, (12, 0), ((12, 0), (12, 0)), u'IsLayerParentOf', None, layer, test)
+        return self._ApplyTypes_(693, 1, (12, 0), ((8, 0), (8, 0),), u'IsLayerParentOf', None, layer, test)
 
     def is_layer_reference(self, layer):
         """
@@ -252,7 +251,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -260,7 +259,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(10, 1, (12, 0), ((12, 0)), u'IsLayerReference', None, layer)
+        return self._ApplyTypes_(10, 1, (12, 0), ((8, 0),), u'IsLayerReference', None, layer)
 
     def is_layer_selectable(self, layer):
         """
@@ -269,7 +268,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -277,7 +276,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(19, 1, (12, 0), ((12, 0)), u'IsLayerSelectable', None, layer)
+        return self._ApplyTypes_(19, 1, (12, 0), ((8, 0),), u'IsLayerSelectable', None, layer)
 
     def is_layer_visible(self, layer):
         """
@@ -286,7 +285,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -294,7 +293,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(20, 1, (12, 0), ((12, 0)), u'IsLayerVisible', None, layer)
+        return self._ApplyTypes_(20, 1, (12, 0), ((8, 0),), u'IsLayerVisible', None, layer)
 
     def layer_child_count(self, layer):
         """
@@ -303,7 +302,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -312,7 +311,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(694, 1, (12, 0), ((12, 0)), u'LayerChildCount', None, layer)
+        return self._ApplyTypes_(694, 1, (12, 0), ((8, 0),), u'LayerChildCount', None, layer)
 
     def layer_children(self, layer):
         """
@@ -321,7 +320,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -330,7 +329,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(691, 1, (12, 0), ((12, 0)), u'LayerChildren', None, layer)
+        return self._ApplyTypes_(691, 1, (12, 0), ((8, 0),), u'LayerChildren', None, layer)
 
     def layer_color(self, layer, color):
         """
@@ -339,8 +338,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Color : Optional, Number, lng
+        Layer : Required, String, str, String
+        Color : Optional, Number, lng, Integer
 
         Returns
 
@@ -350,7 +349,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(11, 1, (12, 0), ((12, 0), (12, 0)), u'LayerColor', None, layer, color)
+        return self._ApplyTypes_(11, 1, (12, 0), ((8, 0), (3, 0),), u'LayerColor', None, layer, color)
 
     def layer_count(self):
         """
@@ -365,7 +364,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(12, 1, (12, 0), (), u'LayerCount', None, )
+        return self._ApplyTypes_(12, 1, (12, 0), (,), u'LayerCount', None, )
 
     def layer_linetype(self, layer, linetype):
         """
@@ -374,8 +373,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Linetype : Optional, String, str
+        Layer : Required, String, str, String
+        Linetype : Optional, String, str, String
 
         Returns
 
@@ -385,7 +384,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(602, 1, (12, 0), ((12, 0), (12, 0)), u'LayerLinetype', None, layer, linetype)
+        return self._ApplyTypes_(602, 1, (12, 0), ((8, 0), (8, 0),), u'LayerLinetype', None, layer, linetype)
 
     def layer_locked(self, layer, visible):
         """
@@ -394,8 +393,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Visible : Optional, Boolean, bln
+        Layer : Required, String, str, String
+        Visible : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -405,7 +404,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(601, 1, (12, 0), ((12, 0), (12, 0)), u'LayerLocked', None, layer, visible)
+        return self._ApplyTypes_(601, 1, (12, 0), ((8, 0), (11, 0),), u'LayerLocked', None, layer, visible)
 
     def layer_material_index(self, layer):
         """
@@ -414,7 +413,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -423,7 +422,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(13, 1, (12, 0), ((12, 0)), u'LayerMaterialIndex', None, layer)
+        return self._ApplyTypes_(13, 1, (12, 0), ((8, 0),), u'LayerMaterialIndex', None, layer)
 
     def layer_mode(self, layer, mode):
         """
@@ -432,8 +431,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Mode : Optional, Number, int
+        Layer : Required, String, str, String
+        Mode : Optional, Number, int, Integer
 
         Returns
 
@@ -443,7 +442,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(14, 1, (12, 0), ((12, 0), (12, 0)), u'LayerMode', None, layer, mode)
+        return self._ApplyTypes_(14, 1, (12, 0), ((8, 0), (2, 0),), u'LayerMode', None, layer, mode)
 
     def layer_names(self, sort):
         """
@@ -452,7 +451,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Sort : Optional, Boolean, bln
+        Sort : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -461,7 +460,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(15, 1, (12, 0), ((12, 0)), u'LayerNames', None, sort)
+        return self._ApplyTypes_(15, 1, (12, 0), ((11, 0),), u'LayerNames', None, sort)
 
     def layer_order(self, layer):
         """
@@ -470,7 +469,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -479,7 +478,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(17, 1, (12, 0), ((12, 0)), u'LayerOrder', None, layer)
+        return self._ApplyTypes_(17, 1, (12, 0), ((8, 0),), u'LayerOrder', None, layer)
 
     def layer_print_color(self, layer, color):
         """
@@ -488,8 +487,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Color : Optional, Number, lng
+        Layer : Required, String, str, String
+        Color : Optional, Number, lng, Integer
 
         Returns
 
@@ -499,7 +498,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(603, 1, (12, 0), ((12, 0), (12, 0)), u'LayerPrintColor', None, layer, color)
+        return self._ApplyTypes_(603, 1, (12, 0), ((8, 0), (3, 0),), u'LayerPrintColor', None, layer, color)
 
     def layer_print_width(self, layer, width):
         """
@@ -508,8 +507,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Width : Optional, Number, dbl
+        Layer : Required, String, str, String
+        Width : Optional, Number, dbl, Double
 
         Returns
 
@@ -519,7 +518,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(604, 1, (12, 0), ((12, 0), (12, 0)), u'LayerPrintWidth', None, layer, width)
+        return self._ApplyTypes_(604, 1, (12, 0), ((8, 0), (5, 0),), u'LayerPrintWidth', None, layer, width)
 
     def layer_visible(self, layer, visible):
         """
@@ -528,8 +527,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Visible : Optional, Boolean, bln
+        Layer : Required, String, str, String
+        Visible : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -539,7 +538,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(600, 1, (12, 0), ((12, 0), (12, 0)), u'LayerVisible', None, layer, visible)
+        return self._ApplyTypes_(600, 1, (12, 0), ((8, 0), (11, 0),), u'LayerVisible', None, layer, visible)
 
     def parent_layer(self, layer, parent):
         """
@@ -548,8 +547,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
-        Parent : Optional, String, str
+        Layer : Required, String, str, String
+        Parent : Optional, String, str, String
 
         Returns
 
@@ -559,7 +558,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(688, 1, (12, 0), ((12, 0), (12, 0)), u'ParentLayer', None, layer, parent)
+        return self._ApplyTypes_(688, 1, (12, 0), ((8, 0), (8, 0),), u'ParentLayer', None, layer, parent)
 
     def purge_layer(self, layer):
         """
@@ -568,7 +567,7 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        Layer : Required, String, str
+        Layer : Required, String, str, String
 
         Returns
 
@@ -577,7 +576,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(291, 1, (12, 0), ((12, 0)), u'PurgeLayer', None, layer)
+        return self._ApplyTypes_(291, 1, (12, 0), ((8, 0),), u'PurgeLayer', None, layer)
 
     def rename_layer(self, old_name, new_name):
         """
@@ -586,8 +585,8 @@ class Layer(DispatchBaseClass):
 
         Parameters
 
-        OldName : Required, String, str
-        NewName : Required, String, str
+        OldName : Required, String, str, String
+        NewName : Required, String, str, String
 
         Returns
 
@@ -596,5 +595,5 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(16, 1, (12, 0), ((12, 0), (12, 0)), u'RenameLayer', None, old_name, new_name)
+        return self._ApplyTypes_(16, 1, (12, 0), ((8, 0), (8, 0),), u'RenameLayer', None, old_name, new_name)
 

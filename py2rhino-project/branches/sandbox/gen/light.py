@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Light(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Light(IRhinoScript):
 
 
 
@@ -16,8 +15,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        StartPoint : Required, Array, arr
-        EndPoint : Required, Array, arr
+        StartPoint : Required, Array, arrdbl, Array of ?
+        EndPoint : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -26,7 +25,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(153, 1, (12, 0), ((12, 0), (12, 0)), u'AddDirectionalLight', None, start_point, end_point)
+        return self._ApplyTypes_(153, 1, (12, 0), ((8197, 0), (8197, 0),), u'AddDirectionalLight', None, _utils.flatten(start_point), _utils.flatten(end_point))
 
     def add_linear_light(self, start_point, end_point, width):
         """
@@ -35,9 +34,9 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        StartPoint : Required, Array, arr
-        EndPoint : Required, Array, arr
-        Width : Optional, Number, dbl
+        StartPoint : Required, Array, arrdbl, Array of ?
+        EndPoint : Required, Array, arrdbl, Array of ?
+        Width : Optional, Number, dbl, Double
 
         Returns
 
@@ -46,7 +45,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(154, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddLinearLight', None, start_point, end_point, width)
+        return self._ApplyTypes_(154, 1, (12, 0), ((8197, 0), (8197, 0), (5, 0),), u'AddLinearLight', None, _utils.flatten(start_point), _utils.flatten(end_point), width)
 
     def add_point_light(self, point):
         """
@@ -55,7 +54,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Point : Required, Array, arr
+        Point : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -64,7 +63,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(155, 1, (12, 0), ((12, 0)), u'AddPointLight', None, point)
+        return self._ApplyTypes_(155, 1, (12, 0), ((8197, 0),), u'AddPointLight', None, _utils.flatten(point))
 
     def add_rectangular_light(self, origin, width, height):
         """
@@ -73,9 +72,9 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Origin : Required, Array, arr
-        Width : Required, Array, arr
-        Height : Required, Array, arr
+        Origin : Required, Array, arrdbl, Array of ?
+        Width : Required, Array, arrdbl, Array of ?
+        Height : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -84,7 +83,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(156, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddRectangularLight', None, origin, width, height)
+        return self._ApplyTypes_(156, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0),), u'AddRectangularLight', None, _utils.flatten(origin), _utils.flatten(width), _utils.flatten(height))
 
     def add_spot_light(self, origin, radius, apex):
         """
@@ -93,9 +92,9 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Origin : Required, Array, arr
-        Radius : Required, Number, dbl
-        Apex : Required, Array, arr
+        Origin : Required, Array, arrdbl, Array of ?
+        Radius : Required, Number, dbl, Double
+        Apex : Required, Array, arrdbl, Array of ?
 
         Returns
 
@@ -104,7 +103,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(157, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddSpotLight', None, origin, radius, apex)
+        return self._ApplyTypes_(157, 1, (12, 0), ((8197, 0), (5, 0), (8197, 0),), u'AddSpotLight', None, _utils.flatten(origin), radius, _utils.flatten(apex))
 
     def enable_light(self, object, enable):
         """
@@ -113,8 +112,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Enable : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Enable : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -124,7 +123,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(158, 1, (12, 0), ((12, 0), (12, 0)), u'EnableLight', None, object, enable)
+        return self._ApplyTypes_(158, 1, (12, 0), ((8, 0), (11, 0),), u'EnableLight', None, object, enable)
 
     def is_directional_light(self, object):
         """
@@ -133,7 +132,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -142,7 +141,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(159, 1, (12, 0), ((12, 0)), u'IsDirectionalLight', None, object)
+        return self._ApplyTypes_(159, 1, (12, 0), ((8, 0),), u'IsDirectionalLight', None, object)
 
     def is_light(self, object):
         """
@@ -151,7 +150,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -160,7 +159,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(160, 1, (12, 0), ((12, 0)), u'IsLight', None, object)
+        return self._ApplyTypes_(160, 1, (12, 0), ((8, 0),), u'IsLight', None, object)
 
     def is_light_enabled(self, object):
         """
@@ -169,7 +168,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -178,7 +177,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(161, 1, (12, 0), ((12, 0)), u'IsLightEnabled', None, object)
+        return self._ApplyTypes_(161, 1, (12, 0), ((8, 0),), u'IsLightEnabled', None, object)
 
     def is_light_reference(self, object):
         """
@@ -187,7 +186,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -196,7 +195,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(162, 1, (12, 0), ((12, 0)), u'IsLightReference', None, object)
+        return self._ApplyTypes_(162, 1, (12, 0), ((8, 0),), u'IsLightReference', None, object)
 
     def is_linear_light(self, object):
         """
@@ -205,7 +204,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -214,7 +213,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(163, 1, (12, 0), ((12, 0)), u'IsLinearLight', None, object)
+        return self._ApplyTypes_(163, 1, (12, 0), ((8, 0),), u'IsLinearLight', None, object)
 
     def is_point_light(self, object):
         """
@@ -223,7 +222,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -232,7 +231,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(164, 1, (12, 0), ((12, 0)), u'IsPointLight', None, object)
+        return self._ApplyTypes_(164, 1, (12, 0), ((8, 0),), u'IsPointLight', None, object)
 
     def is_rectangular_light(self, object):
         """
@@ -241,7 +240,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -250,7 +249,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(165, 1, (12, 0), ((12, 0)), u'IsRectangularLight', None, object)
+        return self._ApplyTypes_(165, 1, (12, 0), ((8, 0),), u'IsRectangularLight', None, object)
 
     def is_spot_light(self, object):
         """
@@ -259,7 +258,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -268,7 +267,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(166, 1, (12, 0), ((12, 0)), u'IsSpotLight', None, object)
+        return self._ApplyTypes_(166, 1, (12, 0), ((8, 0),), u'IsSpotLight', None, object)
 
     def light_color(self, object, color):
         """
@@ -277,8 +276,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Color : Optional, Number, lng
+        Object : Required, String, str, String
+        Color : Optional, Number, lng, Integer
 
         Returns
 
@@ -288,7 +287,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(167, 1, (12, 0), ((12, 0), (12, 0)), u'LightColor', None, object, color)
+        return self._ApplyTypes_(167, 1, (12, 0), ((8, 0), (3, 0),), u'LightColor', None, object, color)
 
     def light_count(self):
         """
@@ -303,7 +302,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(168, 1, (12, 0), (), u'LightCount', None, )
+        return self._ApplyTypes_(168, 1, (12, 0), (,), u'LightCount', None, )
 
     def light_direction(self, object, direction):
         """
@@ -312,8 +311,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Direction : Optional, Array, arr
+        Object : Required, String, str, String
+        Direction : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -323,7 +322,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(491, 1, (12, 0), ((12, 0), (12, 0)), u'LightDirection', None, object, direction)
+        return self._ApplyTypes_(491, 1, (12, 0), ((8, 0), (8197, 0),), u'LightDirection', None, object, _utils.flatten(direction))
 
     def light_location(self, object, location):
         """
@@ -332,8 +331,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        location : Optional, Array, arr
+        Object : Required, String, str, String
+        location : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -343,7 +342,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(490, 1, (12, 0), ((12, 0), (12, 0)), u'LightLocation', None, object, location)
+        return self._ApplyTypes_(490, 1, (12, 0), ((8, 0), (8197, 0),), u'LightLocation', None, object, _utils.flatten(location))
 
     def light_name(self, object, name):
         """
@@ -352,8 +351,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Name : Optional, String, str
+        Object : Required, String, str, String
+        Name : Optional, String, str, String
 
         Returns
 
@@ -363,7 +362,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(169, 1, (12, 0), ((12, 0), (12, 0)), u'LightName', None, object, name)
+        return self._ApplyTypes_(169, 1, (12, 0), ((8, 0), (8, 0),), u'LightName', None, object, name)
 
     def light_objects(self):
         """
@@ -379,7 +378,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(170, 1, (12, 0), (), u'LightObjects', None, )
+        return self._ApplyTypes_(170, 1, (12, 0), (,), u'LightObjects', None, )
 
     def rectangular_light_plane(self, object):
         """
@@ -388,7 +387,7 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -401,7 +400,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(776, 1, (12, 0), ((12, 0)), u'RectangularLightPlane', None, object)
+        return self._ApplyTypes_(776, 1, (12, 0), ((8, 0),), u'RectangularLightPlane', None, object)
 
     def spot_light_hardness(self, object, hardness):
         """
@@ -410,8 +409,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Hardness : Optional, Number, dbl
+        Object : Required, String, str, String
+        Hardness : Optional, Number, dbl, Double
 
         Returns
 
@@ -421,7 +420,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(171, 1, (12, 0), ((12, 0), (12, 0)), u'SpotLightHardness', None, object, hardness)
+        return self._ApplyTypes_(171, 1, (12, 0), ((8, 0), (5, 0),), u'SpotLightHardness', None, object, hardness)
 
     def spot_light_radius(self, object, radius):
         """
@@ -430,8 +429,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Radius : Optional, Number, dbl
+        Object : Required, String, str, String
+        Radius : Optional, Number, dbl, Double
 
         Returns
 
@@ -441,7 +440,7 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(584, 1, (12, 0), ((12, 0), (12, 0)), u'SpotLightRadius', None, object, radius)
+        return self._ApplyTypes_(584, 1, (12, 0), ((8, 0), (5, 0),), u'SpotLightRadius', None, object, radius)
 
     def spot_light_shadow_intensity(self, object, intensity):
         """
@@ -450,8 +449,8 @@ class Light(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Intensity : Optional, Number, dbl
+        Object : Required, String, str, String
+        Intensity : Optional, Number, dbl, Double
 
         Returns
 
@@ -461,5 +460,5 @@ class Light(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(172, 1, (12, 0), ((12, 0), (12, 0)), u'SpotLightShadowIntensity', None, object, intensity)
+        return self._ApplyTypes_(172, 1, (12, 0), ((8, 0), (5, 0),), u'SpotLightShadowIntensity', None, object, intensity)
 

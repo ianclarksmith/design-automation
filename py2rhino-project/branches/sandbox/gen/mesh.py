@@ -1,11 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
-import win32com.client.CLSIDToClass, pythoncom
-import win32com.client.util
-from pywintypes import IID
-from win32com.client import Dispatch
-from win32com.client import DispatchBaseClass
+
 import exceptions
-class Mesh(DispatchBaseClass):
+import _utils
+from _rhinoscript import IRhinoScript
+
+class Mesh(IRhinoScript):
 
 
 
@@ -16,11 +15,11 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Vertices : Required, Array, arr
-        FaceVertices : Required, Array, arr
-        VertexNormals : Optional, Array, arr
-        TextureCoordinates : Optional, Array, arr
-        VertexColors : Optional, Array, arr
+        Vertices : Required, Array, arrdbl, Array of ?
+        FaceVertices : Required, Array, arrdbl, Array of ?
+        VertexNormals : Optional, Array, arrdbl, Array of ?
+        TextureCoordinates : Optional, Array, arrdbl, Array of ?
+        VertexColors : Optional, Array, arrdbl, Array of ?
 
         Returns
 
@@ -29,7 +28,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(494, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddMesh', None, vertices, face_vertices, vertex_normals, texture_coordinates, vertex_colors)
+        return self._ApplyTypes_(494, 1, (12, 0), ((8197, 0), (8197, 0), (8197, 0), (8197, 0), (8197, 0),), u'AddMesh', None, _utils.flatten(vertices), _utils.flatten(face_vertices), _utils.flatten(vertex_normals), _utils.flatten(texture_coordinates), _utils.flatten(vertex_colors))
 
     def add_planar_mesh(self, object, delete):
         """
@@ -38,8 +37,8 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Delete : Required, Boolean, bln
+        Object : Required, String, str, String
+        Delete : Required, Boolean, bln, Boolean
 
         Returns
 
@@ -48,7 +47,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(915, 1, (12, 0), ((12, 0), (12, 0)), u'AddPlanarMesh', None, object, delete)
+        return self._ApplyTypes_(915, 1, (12, 0), ((8, 0), (11, 0),), u'AddPlanarMesh', None, object, delete)
 
     def curve_mesh_intersection(self, curve, mesh, return_faces):
         """
@@ -57,9 +56,9 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Curve : Required, String, str
-        Mesh : Required, String, str
-        ReturnFaces : Optional, Boolean, bln
+        Curve : Required, String, str, String
+        Mesh : Required, String, str, String
+        ReturnFaces : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -71,7 +70,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(842, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveMeshIntersection', None, curve, mesh, return_faces)
+        return self._ApplyTypes_(842, 1, (12, 0), ((8, 0), (8, 0), (11, 0),), u'CurveMeshIntersection', None, curve, mesh, return_faces)
 
     def disjoint_mesh_count(self, object):
         """
@@ -80,7 +79,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -89,7 +88,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(721, 1, (12, 0), ((12, 0)), u'DisjointMeshCount', None, object)
+        return self._ApplyTypes_(721, 1, (12, 0), ((8, 0),), u'DisjointMeshCount', None, object)
 
     def duplicate_mesh_border(self, object):
         """
@@ -98,7 +97,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -107,7 +106,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(853, 1, (12, 0), ((12, 0)), u'DuplicateMeshBorder', None, object)
+        return self._ApplyTypes_(853, 1, (12, 0), ((8, 0),), u'DuplicateMeshBorder', None, object)
 
     def explode_meshes(self, object, objects, delete):
         """
@@ -127,7 +126,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -136,7 +135,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(119, 1, (12, 0), ((12, 0)), u'IsMesh', None, object)
+        return self._ApplyTypes_(119, 1, (12, 0), ((8, 0),), u'IsMesh', None, object)
 
     def is_mesh_closed(self, object):
         """
@@ -145,7 +144,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -154,7 +153,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(355, 1, (12, 0), ((12, 0)), u'IsMeshClosed', None, object)
+        return self._ApplyTypes_(355, 1, (12, 0), ((8, 0),), u'IsMeshClosed', None, object)
 
     def is_mesh_manifold(self, object):
         """
@@ -163,7 +162,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -172,7 +171,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(855, 1, (12, 0), ((12, 0)), u'IsMeshManifold', None, object)
+        return self._ApplyTypes_(855, 1, (12, 0), ((8, 0),), u'IsMeshManifold', None, object)
 
     def mesh_area(self, object, objects):
         """
@@ -192,7 +191,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -201,7 +200,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(477, 1, (12, 0), ((12, 0)), u'MeshAreaCentroid', None, object)
+        return self._ApplyTypes_(477, 1, (12, 0), ((8, 0),), u'MeshAreaCentroid', None, object)
 
     def mesh_boolean_difference(self, input0, input1, delete):
         """
@@ -210,9 +209,9 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Input0 : Required, Array, arr
-        Input1 : Required, Array, arr
-        Delete : Optional, Boolean, bln
+        Input0 : Required, Array, arrdbl, Array of ?
+        Input1 : Required, Array, arrdbl, Array of ?
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -221,7 +220,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(732, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MeshBooleanDifference', None, input0, input1, delete)
+        return self._ApplyTypes_(732, 1, (12, 0), ((8197, 0), (8197, 0), (11, 0),), u'MeshBooleanDifference', None, _utils.flatten(input0), _utils.flatten(input1), delete)
 
     def mesh_boolean_intersection(self, input0, input1, delete):
         """
@@ -230,9 +229,9 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Input0 : Required, Array, arr
-        Input1 : Required, Array, arr
-        Delete : Optional, Boolean, bln
+        Input0 : Required, Array, arrdbl, Array of ?
+        Input1 : Required, Array, arrdbl, Array of ?
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -241,7 +240,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(733, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MeshBooleanIntersection', None, input0, input1, delete)
+        return self._ApplyTypes_(733, 1, (12, 0), ((8197, 0), (8197, 0), (11, 0),), u'MeshBooleanIntersection', None, _utils.flatten(input0), _utils.flatten(input1), delete)
 
     def mesh_boolean_split(self, input0, input1, delete):
         """
@@ -250,9 +249,9 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Input0 : Required, Array, arr
-        Input1 : Required, Array, arr
-        Delete : Optional, Boolean, bln
+        Input0 : Required, Array, arrdbl, Array of ?
+        Input1 : Required, Array, arrdbl, Array of ?
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -261,7 +260,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(734, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MeshBooleanSplit', None, input0, input1, delete)
+        return self._ApplyTypes_(734, 1, (12, 0), ((8197, 0), (8197, 0), (11, 0),), u'MeshBooleanSplit', None, _utils.flatten(input0), _utils.flatten(input1), delete)
 
     def mesh_boolean_union(self, input, delete):
         """
@@ -270,8 +269,8 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Input : Required, Array, arr
-        Delete : Optional, Boolean, bln
+        Input : Required, Array, arrdbl, Array of ?
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -280,7 +279,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(731, 1, (12, 0), ((12, 0), (12, 0)), u'MeshBooleanUnion', None, input, delete)
+        return self._ApplyTypes_(731, 1, (12, 0), ((8197, 0), (11, 0),), u'MeshBooleanUnion', None, _utils.flatten(input), delete)
 
     def mesh_closest_point(self, object, point, tolerance):
         """
@@ -289,9 +288,9 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Point : Required, Array, arr
-        Tolerance : Optional, Number, dbl
+        Object : Required, String, str, String
+        Point : Required, Array, arrdbl, Array of ?
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -302,7 +301,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(750, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MeshClosestPoint', None, object, point, tolerance)
+        return self._ApplyTypes_(750, 1, (12, 0), ((8, 0), (8197, 0), (5, 0),), u'MeshClosestPoint', None, object, _utils.flatten(point), tolerance)
 
     def mesh_contour_points(self, object, start_point, end_point, interval, remove_coincident_points):
         """
@@ -311,11 +310,11 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        StartPoint : Required, Array, arr
-        EndPoint : Required, Array, arr
-        Interval : Optional, Number, dbl
-        RemoveCoincidentPoints : Optional, Boolean, bln
+        Object : Required, String, str, String
+        StartPoint : Required, Array, arrdbl, Array of ?
+        EndPoint : Required, Array, arrdbl, Array of ?
+        Interval : Optional, Number, dbl, Double
+        RemoveCoincidentPoints : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -324,7 +323,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(123, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'MeshContourPoints', None, object, start_point, end_point, interval, remove_coincident_points)
+        return self._ApplyTypes_(123, 1, (12, 0), ((8, 0), (8197, 0), (8197, 0), (5, 0), (11, 0),), u'MeshContourPoints', None, object, _utils.flatten(start_point), _utils.flatten(end_point), interval, remove_coincident_points)
 
     def mesh_face_centers(self, object):
         """
@@ -333,7 +332,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -342,7 +341,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(570, 1, (12, 0), ((12, 0)), u'MeshFaceCenters', None, object)
+        return self._ApplyTypes_(570, 1, (12, 0), ((8, 0),), u'MeshFaceCenters', None, object)
 
     def mesh_face_count(self, object):
         """
@@ -351,7 +350,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -360,7 +359,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(124, 1, (12, 0), ((12, 0)), u'MeshFaceCount', None, object)
+        return self._ApplyTypes_(124, 1, (12, 0), ((8, 0),), u'MeshFaceCount', None, object)
 
     def mesh_face_normals(self, object):
         """
@@ -369,7 +368,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -378,7 +377,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(569, 1, (12, 0), ((12, 0)), u'MeshFaceNormals', None, object)
+        return self._ApplyTypes_(569, 1, (12, 0), ((8, 0),), u'MeshFaceNormals', None, object)
 
     def mesh_face_vertices(self, object):
         """
@@ -387,7 +386,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -396,7 +395,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(495, 1, (12, 0), ((12, 0)), u'MeshFaceVertices', None, object)
+        return self._ApplyTypes_(495, 1, (12, 0), ((8, 0),), u'MeshFaceVertices', None, object)
 
     def mesh_faces(self, object, face_type):
         """
@@ -405,8 +404,8 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        FaceType : Optional, Boolean, bln
+        Object : Required, String, str, String
+        FaceType : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -415,7 +414,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(125, 1, (12, 0), ((12, 0), (12, 0)), u'MeshFaces', None, object, face_type)
+        return self._ApplyTypes_(125, 1, (12, 0), ((8, 0), (11, 0),), u'MeshFaces', None, object, face_type)
 
     def mesh_has_face_normals(self, object):
         """
@@ -424,7 +423,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -433,7 +432,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(696, 1, (12, 0), ((12, 0)), u'MeshHasFaceNormals', None, object)
+        return self._ApplyTypes_(696, 1, (12, 0), ((8, 0),), u'MeshHasFaceNormals', None, object)
 
     def mesh_has_texture_coordinates(self, object):
         """
@@ -442,7 +441,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -451,7 +450,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(697, 1, (12, 0), ((12, 0)), u'MeshHasTextureCoordinates', None, object)
+        return self._ApplyTypes_(697, 1, (12, 0), ((8, 0),), u'MeshHasTextureCoordinates', None, object)
 
     def mesh_has_vertex_colors(self, object):
         """
@@ -460,7 +459,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -469,7 +468,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(698, 1, (12, 0), ((12, 0)), u'MeshHasVertexColors', None, object)
+        return self._ApplyTypes_(698, 1, (12, 0), ((8, 0),), u'MeshHasVertexColors', None, object)
 
     def mesh_has_vertex_normals(self, object):
         """
@@ -478,7 +477,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -487,7 +486,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(695, 1, (12, 0), ((12, 0)), u'MeshHasVertexNormals', None, object)
+        return self._ApplyTypes_(695, 1, (12, 0), ((8, 0),), u'MeshHasVertexNormals', None, object)
 
     def mesh_mesh_intersection(self, mesh1, mesh2, tolerance):
         """
@@ -496,9 +495,9 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Mesh1 : Required, String, str
-        Mesh2 : Required, String, str
-        Tolerance : Optional, Number, dbl
+        Mesh1 : Required, String, str, String
+        Mesh2 : Required, String, str, String
+        Tolerance : Optional, Number, dbl, Double
 
         Returns
 
@@ -507,7 +506,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(749, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MeshMeshIntersection', None, mesh1, mesh2, tolerance)
+        return self._ApplyTypes_(749, 1, (12, 0), ((8, 0), (8, 0), (5, 0),), u'MeshMeshIntersection', None, mesh1, mesh2, tolerance)
 
     def mesh_naked_edge_points(self, object):
         """
@@ -516,7 +515,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -525,7 +524,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(580, 1, (12, 0), ((12, 0)), u'MeshNakedEdgePoints', None, object)
+        return self._ApplyTypes_(580, 1, (12, 0), ((8, 0),), u'MeshNakedEdgePoints', None, object)
 
     def mesh_offset(self, mesh, distance):
         """
@@ -534,8 +533,8 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Mesh : Required, String, str
-        Distance : Required, Number, dbl
+        Mesh : Required, String, str, String
+        Distance : Required, Number, dbl, Double
 
         Returns
 
@@ -544,7 +543,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(720, 1, (12, 0), ((12, 0), (12, 0)), u'MeshOffset', None, mesh, distance)
+        return self._ApplyTypes_(720, 1, (12, 0), ((8, 0), (5, 0),), u'MeshOffset', None, mesh, distance)
 
     def mesh_quad_count(self, object):
         """
@@ -553,7 +552,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -562,7 +561,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(350, 1, (12, 0), ((12, 0)), u'MeshQuadCount', None, object)
+        return self._ApplyTypes_(350, 1, (12, 0), ((8, 0),), u'MeshQuadCount', None, object)
 
     def mesh_quads_to_triangles(self, object):
         """
@@ -571,7 +570,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -580,7 +579,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(352, 1, (12, 0), ((12, 0)), u'MeshQuadsToTriangles', None, object)
+        return self._ApplyTypes_(352, 1, (12, 0), ((8, 0),), u'MeshQuadsToTriangles', None, object)
 
     def mesh_texture_coordinates(self, object):
         """
@@ -589,7 +588,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -598,7 +597,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(425, 1, (12, 0), ((12, 0)), u'MeshTextureCoordinates', None, object)
+        return self._ApplyTypes_(425, 1, (12, 0), ((8, 0),), u'MeshTextureCoordinates', None, object)
 
     def mesh_triangle_count(self, object):
         """
@@ -607,7 +606,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -616,9 +615,9 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(351, 1, (12, 0), ((12, 0)), u'MeshTriangleCount', None, object)
+        return self._ApplyTypes_(351, 1, (12, 0), ((8, 0),), u'MeshTriangleCount', None, object)
 
-    def mesh_vertex_colors(self, object, vertex_colors, l):
+    def mesh_vertex_colors(self, object, vertex_colors, null):
         """
 
 
@@ -636,7 +635,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -645,7 +644,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(126, 1, (12, 0), ((12, 0)), u'MeshVertexCount', None, object)
+        return self._ApplyTypes_(126, 1, (12, 0), ((8, 0),), u'MeshVertexCount', None, object)
 
     def mesh_vertex_normals(self, object):
         """
@@ -654,7 +653,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -663,7 +662,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(426, 1, (12, 0), ((12, 0)), u'MeshVertexNormals', None, object)
+        return self._ApplyTypes_(426, 1, (12, 0), ((8, 0),), u'MeshVertexNormals', None, object)
 
     def mesh_vertices(self, object):
         """
@@ -672,7 +671,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -681,7 +680,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(127, 1, (12, 0), ((12, 0)), u'MeshVertices', None, object)
+        return self._ApplyTypes_(127, 1, (12, 0), ((8, 0),), u'MeshVertices', None, object)
 
     def mesh_volume(self, object, objects):
         """
@@ -701,7 +700,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -710,7 +709,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(478, 1, (12, 0), ((12, 0)), u'MeshVolumeCentroid', None, object)
+        return self._ApplyTypes_(478, 1, (12, 0), ((8, 0),), u'MeshVolumeCentroid', None, object)
 
     def pull_curve_to_mesh(self, mesh, curve):
         """
@@ -719,8 +718,8 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Mesh : Required, String, str
-        Curve : Required, String, str
+        Mesh : Required, String, str, String
+        Curve : Required, String, str, String
 
         Returns
 
@@ -729,7 +728,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(719, 1, (12, 0), ((12, 0), (12, 0)), u'PullCurveToMesh', None, mesh, curve)
+        return self._ApplyTypes_(719, 1, (12, 0), ((8, 0), (8, 0),), u'PullCurveToMesh', None, mesh, curve)
 
     def split_disjoint_mesh(self, object, delete):
         """
@@ -738,8 +737,8 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
-        Delete : Optional, Boolean, bln
+        Object : Required, String, str, String
+        Delete : Optional, Boolean, bln, Boolean
 
         Returns
 
@@ -748,7 +747,7 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(722, 1, (12, 0), ((12, 0), (12, 0)), u'SplitDisjointMesh', None, object, delete)
+        return self._ApplyTypes_(722, 1, (12, 0), ((8, 0), (11, 0),), u'SplitDisjointMesh', None, object, delete)
 
     def unify_mesh_normals(self, object):
         """
@@ -757,7 +756,7 @@ class Mesh(DispatchBaseClass):
 
         Parameters
 
-        Object : Required, String, str
+        Object : Required, String, str, String
 
         Returns
 
@@ -766,5 +765,5 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(723, 1, (12, 0), ((12, 0)), u'UnifyMeshNormals', None, object)
+        return self._ApplyTypes_(723, 1, (12, 0), ((8, 0),), u'UnifyMeshNormals', None, object)
 
