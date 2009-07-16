@@ -872,7 +872,7 @@ class Selection(object):
     next = property(fget = get_next, doc = "The index of the next object in the"
                     " current selection set")
     
-    panelarea = property(fget = get_panel_area, doc = "The surface overlapping a"
+    panel_area = property(fget = get_panel_area, doc = "The surface overlapping a"
                          " WINDOW / DOOR in adjacent zone (m^2)")
     
     prev = property(fget = get_prev, doc = "The index of the previous object in"
