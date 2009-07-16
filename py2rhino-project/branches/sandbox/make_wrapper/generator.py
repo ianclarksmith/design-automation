@@ -261,8 +261,8 @@ def find_methods_mismatch(folder_data):
     print "MISSING METHODS"
     for folder_name in folder_data.keys():
         for file_name in folder_data[folder_name]:
-            #if not is_in_ct(file_name):
-            #    print "ct \t", file_name, " in ", folder_name
+            if not is_in_ct(file_name):
+                print "ct \t", file_name, " in ", folder_name
             if not is_in_pw32(file_name):
                 print "pw32 \t", file_name, " in ", folder_name
 
