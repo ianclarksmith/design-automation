@@ -290,16 +290,15 @@ def is_in_ct(name):
     return True
 
 
-def camel_to_underscore(name):
-    letters = []
+def camel_to_underscore(name_cc):
+    name_us = ""
     #get list of letters
-    for i in range(len(name)):
-        if (name[i].isupper()):
-            letters += [("_"), name[i].lower()]
+    for i in range(len(name_cc)):
+        if (name_cc[i].isupper()):
+            name_us += "_"
+            name_us += name_cc[i].lower()
         else:
-            letters.append(name[i])
-    #join them up to make a word
-    name_us = "".join(letters)
+            name_us += name_cc[i]
     #check we are not starting with an underscore
     if name_us.startswith("_"):
         name_us = name_us[1:]
