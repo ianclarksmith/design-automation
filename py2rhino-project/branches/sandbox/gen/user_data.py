@@ -4,18 +4,19 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class UserData(DispatchBaseClass):
 
 
 
-    def attribute_data_count(self, str_object):
+    def attribute_data_count(self, object):
         """
 
         Returns the number of RhinoScript user data items on an object's attributes.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -24,18 +25,18 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AttributeDataCount', None, strObject)
+        return self._ApplyTypes_(685, 1, (12, 0), ((12, 0)), u'AttributeDataCount', None, object)
 
-    def delete_attribute_data(self, str_object, str_section, str_entry):
+    def delete_attribute_data(self, object, section, entry):
         """
 
         Removes RhinoScript user data items from an object's attributes.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strSection : Optional, String, The section name
-        strEntry : Optional, String, The entry name
+        Object : Required, String, str
+        Section : Optional, String, str
+        Entry : Optional, String, str
 
         Returns
 
@@ -44,17 +45,17 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteAttributeData', None, strObject, strSection, strEntry)
+        return self._ApplyTypes_(684, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'DeleteAttributeData', None, object, section, entry)
 
-    def delete_document_data(self, str_section, str_entry):
+    def delete_document_data(self, section, entry):
         """
 
         Removes RhinoScript user data items from the current document.
 
         Parameters
 
-        strSection : Optional, String, The section name
-        strEntry : Optional, String, The entry name
+        Section : Optional, String, str
+        Entry : Optional, String, str
 
         Returns
 
@@ -63,18 +64,18 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteDocumentData', None, strSection, strEntry)
+        return self._ApplyTypes_(237, 1, (12, 0), ((12, 0), (12, 0)), u'DeleteDocumentData', None, section, entry)
 
-    def delete_object_data(self, str_object, str_section, str_entry):
+    def delete_object_data(self, object, section, entry):
         """
 
         Removes RhinoScript user data items from an object's geometry.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strSection : Optional, String, The section name
-        strEntry : Optional, String, The entry name
+        Object : Required, String, str
+        Section : Optional, String, str
+        Entry : Optional, String, str
 
         Returns
 
@@ -83,7 +84,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteObjectData', None, strObject, strSection, strEntry)
+        return self._ApplyTypes_(238, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'DeleteObjectData', None, object, section, entry)
 
     def document_data_count(self):
         """
@@ -98,18 +99,18 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DocumentDataCount', None, )
+        return self._ApplyTypes_(239, 1, (12, 0), (), u'DocumentDataCount', None, )
 
-    def get_attribute_data(self, str_object, str_section, str_entry):
+    def get_attribute_data(self, object, section, entry):
         """
 
         Returns a RhinoScript user data item from an object's attributes.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strSection : Optional, String, The section name
-        strEntry : Optional, String, The entry name
+        Object : Required, String, str
+        Section : Optional, String, str
+        Entry : Optional, String, str
 
         Returns
 
@@ -120,17 +121,17 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetAttributeData', None, strObject, strSection, strEntry)
+        return self._ApplyTypes_(682, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetAttributeData', None, object, section, entry)
 
-    def get_document_data(self, str_section, str_entry):
+    def get_document_data(self, section, entry):
         """
 
         Returns a RhinoScript user data item from the current document.
 
         Parameters
 
-        strSection : Optional, String, The section name
-        strEntry : Optional, String, The entry name
+        Section : Optional, String, str
+        Entry : Optional, String, str
 
         Returns
 
@@ -141,18 +142,18 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetDocumentData', None, strSection, strEntry)
+        return self._ApplyTypes_(240, 1, (12, 0), ((12, 0), (12, 0)), u'GetDocumentData', None, section, entry)
 
-    def get_object_data(self, str_object, str_section, str_entry):
+    def get_object_data(self, object, section, entry):
         """
 
         Returns a RhinoScript user data item from an object's geometry.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strSection : Optional, String, The section name
-        strEntry : Optional, String, The entry name
+        Object : Required, String, str
+        Section : Optional, String, str
+        Entry : Optional, String, str
 
         Returns
 
@@ -163,18 +164,18 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetObjectData', None, strObject, strSection, strEntry)
+        return self._ApplyTypes_(241, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetObjectData', None, object, section, entry)
 
-    def get_user_text(self, str_object, str_key, bln_attach_to_geometry):
+    def get_user_text(self, object, key, attach_to_geometry):
         """
 
         Returns User Text that is stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strKey : Optional, String, The key name
-        blnAttachToGeometry : Optional, Boolean, The location on the object to retrieve the User Text
+        Object : Required, String, str
+        Key : Optional, String, str
+        AttachToGeometry : Optional, Boolean, bln
 
         Returns
 
@@ -184,16 +185,16 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetUserText', None, strObject, strKey, blnAttachToGeometry)
+        return self._ApplyTypes_(729, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetUserText', None, object, key, attach_to_geometry)
 
-    def is_attribute_data(self, str_object):
+    def is_attribute_data(self, object):
         """
 
         Verifies that an object's attributes contains RhinoScript user data.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -202,7 +203,7 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsAttributeData', None, strObject)
+        return self._ApplyTypes_(686, 1, (12, 0), ((12, 0)), u'IsAttributeData', None, object)
 
     def is_document_data(self):
         """
@@ -217,16 +218,16 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsDocumentData', None, )
+        return self._ApplyTypes_(278, 1, (12, 0), (), u'IsDocumentData', None, )
 
-    def is_object_data(self, str_object):
+    def is_object_data(self, object):
         """
 
         Verifies that an object's geometry contains RhinoScript user data.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -235,16 +236,16 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectData', None, strObject)
+        return self._ApplyTypes_(279, 1, (12, 0), ((12, 0)), u'IsObjectData', None, object)
 
-    def is_user_text(self, str_object):
+    def is_user_text(self, object):
         """
 
         Verifies that an object contains user text. For more details on User Text, see the discussion found in the User Data Methods summary.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -253,16 +254,16 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsUserText', None, strObject)
+        return self._ApplyTypes_(730, 1, (12, 0), ((12, 0)), u'IsUserText', None, object)
 
-    def object_data_count(self, str_object):
+    def object_data_count(self, object):
         """
 
         Returns the number of RhinoScript user data items on an object's geometry.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -271,19 +272,19 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectDataCount', None, strObject)
+        return self._ApplyTypes_(242, 1, (12, 0), ((12, 0)), u'ObjectDataCount', None, object)
 
-    def set_attribute_data(self, str_object, str_section, str_entry, str_value):
+    def set_attribute_data(self, object, section, entry, value):
         """
 
         Adds or sets a RhinoScript user data item to an object's attributes.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strSection : Required, String, The application name
-        strEntry : Required, String, The key name
-        strValue : Required, String, The string value
+        Object : Required, String, str
+        Section : Required, String, str
+        Entry : Required, String, str
+        Value : Required, String, str
 
         Returns
 
@@ -292,18 +293,18 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SetAttributeData', None, strObject, strSection, strEntry, strValue)
+        return self._ApplyTypes_(683, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'SetAttributeData', None, object, section, entry, value)
 
-    def set_document_data(self, str_section, str_entry, str_value):
+    def set_document_data(self, section, entry, value):
         """
 
         Adds or sets a RhinoScript user data item to the current document.
 
         Parameters
 
-        strSection : Required, String, The section name
-        strEntry : Required, String, The entry name
-        strValue : Required, String, The string value
+        Section : Required, String, str
+        Entry : Required, String, str
+        Value : Required, String, str
 
         Returns
 
@@ -312,19 +313,19 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SetDocumentData', None, strSection, strEntry, strValue)
+        return self._ApplyTypes_(243, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'SetDocumentData', None, section, entry, value)
 
-    def set_object_data(self, str_object, str_section, str_entry, str_value):
+    def set_object_data(self, object, section, entry, value):
         """
 
         Adds or sets a RhinoScript user data item to an object's geometry.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strSection : Required, String, The application name
-        strEntry : Required, String, The key name
-        strValue : Required, String, The string value
+        Object : Required, String, str
+        Section : Required, String, str
+        Entry : Required, String, str
+        Value : Required, String, str
 
         Returns
 
@@ -333,19 +334,19 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SetObjectData', None, strObject, strSection, strEntry, strValue)
+        return self._ApplyTypes_(244, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'SetObjectData', None, object, section, entry, value)
 
-    def set_user_text(self, str_object, str_key, str_value, bln_attach_to_geometry):
+    def set_user_text(self, object, key, value, attach_to_geometry):
         """
 
         Sets or removes user text stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strKey : Required, String, The key name to set
-        strValue : Optional, String, The string value to set
-        blnAttachToGeometry : Optional, Boolean, The location on the object to store the User Text
+        Object : Required, String, str
+        Key : Required, String, str
+        Value : Optional, String, str
+        AttachToGeometry : Optional, Boolean, bln
 
         Returns
 
@@ -354,5 +355,5 @@ class UserData(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SetUserText', None, strObject, strKey, strValue, blnAttachToGeometry)
+        return self._ApplyTypes_(728, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'SetUserText', None, object, key, value, attach_to_geometry)
 

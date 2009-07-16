@@ -4,18 +4,19 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class Linetype(DispatchBaseClass):
 
 
 
-    def is_linetype(self, str_linetype):
+    def is_linetype(self, linetype):
         """
 
         Verifies the existence of a linetype in the document.
 
         Parameters
 
-        strLinetype : Required, String, The name of an existing linetype
+        Linetype : Required, String, str
 
         Returns
 
@@ -24,16 +25,16 @@ class Linetype(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinetype', None, strLinetype)
+        return self._ApplyTypes_(607, 1, (12, 0), ((12, 0)), u'IsLinetype', None, linetype)
 
-    def is_linetype_reference(self, str_linetype):
+    def is_linetype_reference(self, linetype):
         """
 
         Verifies that an existing linetype is from a reference file.
 
         Parameters
 
-        strLinetype : Required, String, The name of an existing linetype
+        Linetype : Required, String, str
 
         Returns
 
@@ -42,7 +43,7 @@ class Linetype(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinetypeReference', None, strLinetype)
+        return self._ApplyTypes_(608, 1, (12, 0), ((12, 0)), u'IsLinetypeReference', None, linetype)
 
     def linetype_count(self):
         """
@@ -57,16 +58,16 @@ class Linetype(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LinetypeCount', None, )
+        return self._ApplyTypes_(605, 1, (12, 0), (), u'LinetypeCount', None, )
 
-    def linetype_names(self, bln_sort):
+    def linetype_names(self, sort):
         """
 
         Returns the names of all linetypes in the document.
 
         Parameters
 
-        blnSort : Optional, Boolean, Return a sorted list of linetype names
+        Sort : Optional, Boolean, bln
 
         Returns
 
@@ -75,5 +76,5 @@ class Linetype(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LinetypeNames', None, blnSort)
+        return self._ApplyTypes_(606, 1, (12, 0), ((12, 0)), u'LinetypeNames', None, sort)
 

@@ -3,7 +3,7 @@ import os
 import string
 from ct  import rhinoscript as ct_rs
 from pw32 import  rhinoscript as pw32_rs
-import exceptions
+import keyword
 
 def parse_docs():
     data = {}
@@ -76,11 +76,12 @@ def parse_docs():
                             has_flag = True
                         if is_word and has_flag:
                             next_line_phrases = next_line.split(".")
-                            param_name = this_line_words[0].strip()
+                            param_name = this_line_words[0].strip()[3:]
                             param_req = next_line_phrases[0].strip()
-                            param_type = next_line_phrases[1].strip()
+                            param_type1 = next_line_phrases[1].strip()
+                            param_type2 = this_line_words[0].strip()[:3]                            
                             param_text = next_line_phrases[2].strip()
-                            content_params.append((param_name, param_req, param_type, param_text))
+                            content_params.append((param_name, param_req, param_type1, param_type2, param_text))
                 
                 #now get the returns
                 content_returns = []
@@ -123,9 +124,33 @@ def write_class_header(class_name, f):
     w(f,"from pywintypes import IID")
     w(f,"from win32com.client import Dispatch")
     w(f,"from win32com.client import DispatchBaseClass")
+    w(f,"import exceptions")
     w(f,"class %s(DispatchBaseClass):" % class_name, nle=4)
 
 def write_class_method(file_name, file_data, f):
+
+    #get the names into the right format
+    vb_method_name = file_name
+    py_method_name = camel_to_underscore(file_name)
+    if keyword.iskeyword(py_method_name):
+        py_method_name += "_rh"
+    vb_params = []
+    py_params = []
+    if file_data["params"]:
+        for param in file_data["params"]:
+            vb_params.append(param[0])
+            py_param = camel_to_underscore(param[0])
+            if keyword.iskeyword(py_param):
+                py_param += "_param"
+            py_params.append(py_param)
+            
+    #create the method signature
+    w(f, ["def ", py_method_name, "(self"], tabs=1, nle=0)
+    if py_params:
+        w(f, [", ", ", ".join(py_params), "):"], tabs=0, nle=1)
+    else:
+        w(f, "):", tabs=0, nle=1)
+        
     #first check if this is a method with mismatch in parameters
     if not params_match_ct(file_name, file_data):
         w(f, '"""', tabs=2, nle=2)
@@ -134,22 +159,6 @@ def write_class_method(file_name, file_data, f):
         w(f, "raise exceptions.NotImplementedError", tabs=2, nle=2)
         return
         
-    #get the names into the right format
-    vb_method_name = file_name
-    py_method_name = camel_to_underscore(file_name)
-    vb_params = []
-    py_params = []
-    if file_data["params"]:
-        for param in file_data["params"]:
-            vb_params.append(param[0])
-            py_params.append(camel_to_underscore(param[0]))
-            
-    #create the method signature
-    w(f, ["def ", py_method_name, "(self"], tabs=1, nle=0)
-    if py_params:
-        w(f, [", ", ", ".join(py_params), "):"], tabs=0, nle=1)
-    else:
-        w(f, "):", tabs=0, nle=1)
         
     #create the method documentation
     #TODO: add syntax example here
@@ -171,10 +180,31 @@ def write_class_method(file_name, file_data, f):
     w(f, '"""', tabs=2, nls=1, nle=2)
     #w(f, "pass", tabs=2, nle=2)
     
+    #mapping from type to magic numbers
+    type_map = {
+        "bln":"(12, 0)",
+        "int":"(12, 0)",        
+        "lng":"(12, 0)",
+        "dbl":"(12, 0)",
+        "str":"(12, 0)",        
+        "arr":"(12, 0)",
+    }
+    
     #now call the function
     #TODO: figure out the magic numbers
-    magic_numbers = "id, 1, (returns), (params)" #for example: 77, 1, (12, 0), ((12, 0), (12, 16))
-    w(f, ["return self._ApplyTypes_(", magic_numbers,", u'",vb_method_name,"', None, ", ", ".join(vb_params), ")"], tabs=2, nle=2)
+    magic_id = get_ct_id_by_name(vb_method_name)
+    magic_returns = "(12, 0)"
+    magic_params = []
+    for i in file_data["params"]:
+        if i[3] in ("str", "int", "bln", "lng", "dbl", "arr"):
+            param = type_map[i[3]]
+        else:
+            param = i[3]
+            print "ERROR FINDING TYPE: ", i[3], file_name
+        magic_params.append(param)
+    magic_params = ", ".join(magic_params)
+    magic = str(magic_id) + ", 1, "+magic_returns+", ("+magic_params+")"
+    w(f, ["return self._ApplyTypes_(", magic,", u'",vb_method_name,"', None, ", ", ".join(py_params), ")"], tabs=2, nle=2)
 
 def pretty_print_data(folder_data):
     space = "    "

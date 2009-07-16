@@ -4,18 +4,19 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class Group(DispatchBaseClass):
 
 
 
-    def add_group(self, str_group):
+    def add_group(self, group):
         """
 
         Adds a new empty group to the document.
 
         Parameters
 
-        strGroup : Optional, String, The name of the new group
+        Group : Optional, String, str
 
         Returns
 
@@ -24,17 +25,17 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddGroup', None, strGroup)
+        return self._ApplyTypes_(133, 1, (12, 0), ((12, 0)), u'AddGroup', None, group)
 
-    def add_object_to_group(self, str_object, str_group):
+    def add_object_to_group(self, object, group):
         """
 
         Adds a single object to an existing group. Neither the object nor the group can be reference objects.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to add to the group
-        strGroup : Required, String, The name of an existing group
+        Object : Required, String, str
+        Group : Required, String, str
 
         Returns
 
@@ -43,17 +44,17 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectToGroup', None, strObject, strGroup)
+        return self._ApplyTypes_(134, 1, (12, 0), ((12, 0), (12, 0)), u'AddObjectToGroup', None, object, group)
 
-    def add_objects_to_group(self, arr_objects, str_group):
+    def add_objects_to_group(self, objects, group):
         """
 
         Adds one or more objects to an existing group. Neither the objects nor the group can be reference objects.
 
         Parameters
 
-        arrObjects : Required, Array, An array of object identifiers
-        strGroup : Required, String, The name of an existing group
+        Objects : Required, Array, arr
+        Group : Required, String, str
 
         Returns
 
@@ -62,16 +63,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectsToGroup', None, arrObjects, strGroup)
+        return self._ApplyTypes_(135, 1, (12, 0), ((12, 0), (12, 0)), u'AddObjectsToGroup', None, objects, group)
 
-    def delete_group(self, str_group):
+    def delete_group(self, group):
         """
 
         Removes an existing group from the document. Reference groups cannot be removed. Deleting a group does not delete the member objects.
 
         Parameters
 
-        strGroup : Required, String, The name of an existing group
+        Group : Required, String, str
 
         Returns
 
@@ -80,7 +81,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteGroup', None, strGroup)
+        return self._ApplyTypes_(136, 1, (12, 0), ((12, 0)), u'DeleteGroup', None, group)
 
     def group_count(self):
         """
@@ -96,7 +97,7 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GroupCount', None, )
+        return self._ApplyTypes_(137, 1, (12, 0), (), u'GroupCount', None, )
 
     def group_names(self):
         """
@@ -112,16 +113,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GroupNames', None, )
+        return self._ApplyTypes_(138, 1, (12, 0), (), u'GroupNames', None, )
 
-    def hide_group(self, str_group):
+    def hide_group(self, group):
         """
 
         Hides a group of object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
         Parameters
 
-        strGroup : Required, String, The name of an existing group
+        Group : Required, String, str
 
         Returns
 
@@ -130,16 +131,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'HideGroup', None, strGroup)
+        return self._ApplyTypes_(871, 1, (12, 0), ((12, 0)), u'HideGroup', None, group)
 
-    def is_group(self, str_group):
+    def is_group(self, group):
         """
 
         Verifies the existence of a group.
 
         Parameters
 
-        strGroup : Required, String, The name of an existing group
+        Group : Required, String, str
 
         Returns
 
@@ -148,16 +149,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsGroup', None, strGroup)
+        return self._ApplyTypes_(139, 1, (12, 0), ((12, 0)), u'IsGroup', None, group)
 
-    def is_group_empty(self, str_group):
+    def is_group_empty(self, group):
         """
 
         Verifies that an existing group is empty, or contains no object members.
 
         Parameters
 
-        strGroup : Required, String, The name of an existing group
+        Group : Required, String, str
 
         Returns
 
@@ -166,16 +167,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsGroupEmpty', None, strGroup)
+        return self._ApplyTypes_(140, 1, (12, 0), ((12, 0)), u'IsGroupEmpty', None, group)
 
-    def lock_group(self, str_group):
+    def lock_group(self, group):
         """
 
         Locks a group of objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
         Parameters
 
-        strGroup : Required, String, The name of an existing group
+        Group : Required, String, str
 
         Returns
 
@@ -184,16 +185,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LockGroup', None, strGroup)
+        return self._ApplyTypes_(873, 1, (12, 0), ((12, 0)), u'LockGroup', None, group)
 
-    def remove_object_from_all_groups(self, str_object):
+    def remove_object_from_all_groups(self, object):
         """
 
         Removes a single object from any and all groups that it is a member. Neither the object nor the group can be a reference object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
+        Object : Required, String, str
 
         Returns
 
@@ -202,17 +203,17 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromAllGroups', None, strObject)
+        return self._ApplyTypes_(141, 1, (12, 0), ((12, 0)), u'RemoveObjectFromAllGroups', None, object)
 
-    def remove_object_from_group(self, str_object, str_group):
+    def remove_object_from_group(self, object, group):
         """
 
         Removes a single object from an existing group.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        strGroup : Required, String, The name of an existing group
+        Object : Required, String, str
+        Group : Required, String, str
 
         Returns
 
@@ -221,16 +222,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromGroup', None, strObject, strGroup)
+        return self._ApplyTypes_(142, 1, (12, 0), ((12, 0), (12, 0)), u'RemoveObjectFromGroup', None, object, group)
 
-    def remove_object_from_top_group(self, str_object):
+    def remove_object_from_top_group(self, object):
         """
 
         Removes a single object from it's top-most group.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
+        Object : Required, String, str
 
         Returns
 
@@ -239,17 +240,17 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectFromTopGroup', None, strObject)
+        return self._ApplyTypes_(143, 1, (12, 0), ((12, 0)), u'RemoveObjectFromTopGroup', None, object)
 
-    def remove_objects_from_group(self, arr_objects, str_group):
+    def remove_objects_from_group(self, objects, group):
         """
 
         Removes one or more objects from an existing group.
 
         Parameters
 
-        arrObjects : Required, Array, An array of object identifiers
-        strGroup : Required, String, The name of an existing group
+        Objects : Required, Array, arr
+        Group : Required, String, str
 
         Returns
 
@@ -258,17 +259,17 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveObjectsFromGroup', None, arrObjects, strGroup)
+        return self._ApplyTypes_(144, 1, (12, 0), ((12, 0), (12, 0)), u'RemoveObjectsFromGroup', None, objects, group)
 
-    def rename_group(self, str_old_group, str_new_group):
+    def rename_group(self, old_group, new_group):
         """
 
         Renames an existing group.
 
         Parameters
 
-        strOldGroup : Required, String, The name of an existing group
-        strNewGroup : Required, String, The new group name
+        OldGroup : Required, String, str
+        NewGroup : Required, String, str
 
         Returns
 
@@ -277,16 +278,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RenameGroup', None, strOldGroup, strNewGroup)
+        return self._ApplyTypes_(145, 1, (12, 0), ((12, 0), (12, 0)), u'RenameGroup', None, old_group, new_group)
 
-    def show_group(self, str_group):
+    def show_group(self, group):
         """
 
         Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
         Parameters
 
-        strGroup : Required, String, The name of an existing group
+        Group : Required, String, str
 
         Returns
 
@@ -295,16 +296,16 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGroup', None, strGroup)
+        return self._ApplyTypes_(872, 1, (12, 0), ((12, 0)), u'ShowGroup', None, group)
 
-    def unlock_group(self, str_group):
+    def unlock_group(self, group):
         """
 
         Unlocks a group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
         Parameters
 
-        strGroup : Required, String, The name of an existing group
+        Group : Required, String, str
 
         Returns
 
@@ -313,5 +314,5 @@ class Group(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'UnlockGroup', None, strGroup)
+        return self._ApplyTypes_(874, 1, (12, 0), ((12, 0)), u'UnlockGroup', None, group)
 

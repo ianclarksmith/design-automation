@@ -4,10 +4,12 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class Geometry(DispatchBaseClass):
 
 
 
+    def add_clipping_plane(self, plane, d_u, d_v, view, views):
         """
 
 
@@ -18,14 +20,14 @@ class Geometry(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def add_point(self, arr_point):
+    def add_point(self, point):
         """
 
         Adds a point object to the document.
 
         Parameters
 
-        arrPoint : Required, Array, A 3-D point
+        Point : Required, Array, arr
 
         Returns
 
@@ -34,16 +36,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddPoint', None, arrPoint)
+        return self._ApplyTypes_(68, 1, (12, 0), ((12, 0)), u'AddPoint', None, point)
 
-    def add_point_cloud(self, arr_points):
+    def add_point_cloud(self, points):
         """
 
         Adds a point cloud object to the document.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D points
+        Points : Required, Array, arr
 
         Returns
 
@@ -52,16 +54,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddPointCloud', None, arrPoints)
+        return self._ApplyTypes_(69, 1, (12, 0), ((12, 0)), u'AddPointCloud', None, points)
 
-    def add_points(self, arr_points):
+    def add_points(self, points):
         """
 
         Adds one or more point objects to the document.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D points
+        Points : Required, Array, arr
 
         Returns
 
@@ -70,8 +72,9 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddPoints', None, arrPoints)
+        return self._ApplyTypes_(526, 1, (12, 0), ((12, 0)), u'AddPoints', None, points)
 
+    def add_text(self, text, point, plane, height, font, style):
         """
 
 
@@ -82,15 +85,15 @@ class Geometry(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def add_text_dot(self, str_test, arr_point):
+    def add_text_dot(self, test, point):
         """
 
         Adds an annotation text dot to the document.
 
         Parameters
 
-        strTest : Required, String, A character or text string
-        arrPoint : Required, Array, A 3-D point identifying the origin point
+        Test : Required, String, str
+        Point : Required, Array, arr
 
         Returns
 
@@ -99,8 +102,9 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddTextDot', None, strTest, arrPoint)
+        return self._ApplyTypes_(320, 1, (12, 0), ((12, 0), (12, 0)), u'AddTextDot', None, test, point)
 
+    def bounding_box(self, object, objects, view, world_coords):
         """
 
 
@@ -111,15 +115,15 @@ class Geometry(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def compare_geometry(self, str_object1, str_object2):
+    def compare_geometry(self, object1, object2):
         """
 
         Compares two objects to determine if they are geometrically identical.
 
         Parameters
 
-        strObject1 : Required, String, The identifier of the first object to compare
-        strObject2 : Required, String, The identifier of the second object to compare
+        Object1 : Required, String, str
+        Object2 : Required, String, str
 
         Returns
 
@@ -128,16 +132,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CompareGeometry', None, strObject1, strObject2)
+        return self._ApplyTypes_(598, 1, (12, 0), ((12, 0), (12, 0)), u'CompareGeometry', None, object1, object2)
 
-    def is_clipping_plane(self, str_object):
+    def is_clipping_plane(self, object):
         """
 
         Verifies that an object is a clipping plane object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -146,16 +150,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsClippingPlane', None, strObject)
+        return self._ApplyTypes_(905, 1, (12, 0), ((12, 0)), u'IsClippingPlane', None, object)
 
-    def is_point(self, str_object):
+    def is_point(self, object):
         """
 
         Verifies an object is a point object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -164,16 +168,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsPoint', None, strObject)
+        return self._ApplyTypes_(120, 1, (12, 0), ((12, 0)), u'IsPoint', None, object)
 
-    def is_point_cloud(self, str_object):
+    def is_point_cloud(self, object):
         """
 
         Verifies an object is a point cloud object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -182,16 +186,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsPointCloud', None, strObject)
+        return self._ApplyTypes_(121, 1, (12, 0), ((12, 0)), u'IsPointCloud', None, object)
 
-    def is_text(self, str_object):
+    def is_text(self, object):
         """
 
         Verifies an object is a text object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -200,16 +204,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsText', None, strObject)
+        return self._ApplyTypes_(122, 1, (12, 0), ((12, 0)), u'IsText', None, object)
 
-    def is_text_dot(self, str_object):
+    def is_text_dot(self, object):
         """
 
         Verifies an object is a text dot object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -218,16 +222,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsTextDot', None, strObject)
+        return self._ApplyTypes_(336, 1, (12, 0), ((12, 0)), u'IsTextDot', None, object)
 
-    def point_cloud_count(self, str_object):
+    def point_cloud_count(self, object):
         """
 
         Returns the point count of a point cloud object.
 
         Parameters
 
-        strObject : Required, String, The identifier of a point cloud object
+        Object : Required, String, str
 
         Returns
 
@@ -236,16 +240,16 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PointCloudCount', None, strObject)
+        return self._ApplyTypes_(128, 1, (12, 0), ((12, 0)), u'PointCloudCount', None, object)
 
-    def point_cloud_points(self, str_object):
+    def point_cloud_points(self, object):
         """
 
         Returns the points of a point cloud object.
 
         Parameters
 
-        strObject : Required, String, The identifier of a point cloud object
+        Object : Required, String, str
 
         Returns
 
@@ -254,17 +258,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PointCloudPoints', None, strObject)
+        return self._ApplyTypes_(129, 1, (12, 0), ((12, 0)), u'PointCloudPoints', None, object)
 
-    def point_coordinates(self, str_object, arr_point):
+    def point_coordinates(self, object, point):
         """
 
         Returns or modifies the X, Y, and Z coordinates of a point object.
 
         Parameters
 
-        strObject : Required, String, The identifier of a point object
-        arrPoint : Optional, Array, A new 3-D point location
+        Object : Required, String, str
+        Point : Optional, Array, arr
 
         Returns
 
@@ -274,17 +278,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PointCoordinates', None, strObject, arrPoint)
+        return self._ApplyTypes_(130, 1, (12, 0), ((12, 0), (12, 0)), u'PointCoordinates', None, object, point)
 
-    def text_dot_point(self, str_object, arr_point):
+    def text_dot_point(self, object, point):
         """
 
         Returns or modifies the location, or insertion point, of an annotation text dot object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        arrPoint : Optional, Array, A 3-D point identifying the new location point
+        Object : Required, String, str
+        Point : Optional, Array, arr
 
         Returns
 
@@ -294,17 +298,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextDotPoint', None, strObject, arrPoint)
+        return self._ApplyTypes_(422, 1, (12, 0), ((12, 0), (12, 0)), u'TextDotPoint', None, object, point)
 
-    def text_dot_text(self, str_object, str_text):
+    def text_dot_text(self, object, text):
         """
 
         Returns or modifies the text string of an annotation text dot object.  Annotation dots can be created using Rhino's Dot command.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        strText : Optional, String, A new character or text string
+        Object : Required, String, str
+        Text : Optional, String, str
 
         Returns
 
@@ -314,17 +318,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextDotText', None, strObject, strText)
+        return self._ApplyTypes_(421, 1, (12, 0), ((12, 0), (12, 0)), u'TextDotText', None, object, text)
 
-    def text_object_font(self, str_object, str_font):
+    def text_object_font(self, object, font):
         """
 
         Returns or modifies the font used by text object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        strFont : Optional, String, The new font face name
+        Object : Required, String, str
+        Font : Optional, String, str
 
         Returns
 
@@ -334,17 +338,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextObjectFont', None, strObject, strFont)
+        return self._ApplyTypes_(474, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectFont', None, object, font)
 
-    def text_object_height(self, str_object, dbl_height):
+    def text_object_height(self, object, height):
         """
 
         Returns or modifies the height of a text object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        dblHeight : Optional, Number, The new text height
+        Object : Required, String, str
+        Height : Optional, Number, dbl
 
         Returns
 
@@ -354,17 +358,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextObjectHeight', None, strObject, dblHeight)
+        return self._ApplyTypes_(473, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectHeight', None, object, height)
 
-    def text_object_plane(self, str_object, arr_plane):
+    def text_object_plane(self, object, plane):
         """
 
         Returns or modifies the plane used by a text object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        arrPlane : Optional, Array, The new construction plane
+        Object : Required, String, str
+        Plane : Optional, Array, arr
 
         Returns
 
@@ -374,17 +378,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextObjectPlane', None, strObject, arrPlane)
+        return self._ApplyTypes_(476, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectPlane', None, object, plane)
 
-    def text_object_point(self, str_object, arr_point):
+    def text_object_point(self, object, point):
         """
 
         Returns or modifies the location of a text object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        arrPoint : Optional, Array, A 3-D point identifying the new location point
+        Object : Required, String, str
+        Point : Optional, Array, arr
 
         Returns
 
@@ -394,17 +398,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextObjectPoint', None, strObject, arrPoint)
+        return self._ApplyTypes_(471, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectPoint', None, object, point)
 
-    def text_object_style(self, str_object, int_style):
+    def text_object_style(self, object, style):
         """
 
         Returns or modifies the font style of a text object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        intStyle : Optional, Number, The font style
+        Object : Required, String, str
+        Style : Optional, Number, int
 
         Returns
 
@@ -414,17 +418,17 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextObjectStyle', None, strObject, intStyle)
+        return self._ApplyTypes_(475, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectStyle', None, object, style)
 
-    def text_object_text(self, str_object, str_text):
+    def text_object_text(self, object, text):
         """
 
         Returns or modifies the text string of a text object.  Text objects can be created using Rhino's Text command.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        strText : Optional, String, A new character or text string
+        Object : Required, String, str
+        Text : Optional, String, str
 
         Returns
 
@@ -434,5 +438,5 @@ class Geometry(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextObjectText', None, strObject, strText)
+        return self._ApplyTypes_(472, 1, (12, 0), ((12, 0), (12, 0)), u'TextObjectText', None, object, text)
 

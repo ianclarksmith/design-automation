@@ -4,20 +4,21 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class Curve(DispatchBaseClass):
 
 
 
-    def add_arc(self, arr_plane, dbl_radius, dbl_angle):
+    def add_arc(self, plane, radius, angle):
         """
 
         Adds an arc curve to the document.
 
         Parameters
 
-        arrPlane : Required, Array, The plane on which the arc will lie
-        dblRadius : Required, Number, The radius arc
-        dblAngle : Required, Number, A angle or interval, in degrees, of the arc
+        Plane : Required, Array, arr
+        Radius : Required, Number, dbl
+        Angle : Required, Number, dbl
 
         Returns
 
@@ -26,18 +27,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddArc', None, arrPlane, dblRadius, dblAngle)
+        return self._ApplyTypes_(651, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddArc', None, plane, radius, angle)
 
-    def add_arc3_pt(self, arr_start, arr_end, arr_point):
+    def add_arc3_pt(self, start, end, point):
         """
 
         Adds a 3-point arc curve to the document.
 
         Parameters
 
-        arrStart : Required, Array, The starting point of the arc
-        arrEnd : Required, Array, The ending point of the arc
-        arrPoint : Required, Array, A point on the arc
+        Start : Required, Array, arr
+        End : Required, Array, arr
+        Point : Required, Array, arr
 
         Returns
 
@@ -46,17 +47,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddArc3Pt', None, arrStart, arrEnd, arrPoint)
+        return self._ApplyTypes_(82, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddArc3Pt', None, start, end, point)
 
-    def add_circle(self, arr_plane, dbl_radius):
+    def add_circle(self, plane, radius):
         """
 
         Adds a circle curve to the document.
 
         Parameters
 
-        arrPlane : Required, Array, The plane on which the circle will lie
-        dblRadius : Required, Number, The radius of the circle
+        Plane : Required, Array, arr
+        Radius : Required, Number, dbl
 
         Returns
 
@@ -65,18 +66,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddCircle', None, arrPlane, dblRadius)
+        return self._ApplyTypes_(83, 1, (12, 0), ((12, 0), (12, 0)), u'AddCircle', None, plane, radius)
 
-    def add_circle3_pt(self, arr_start, arr_end, arr_point):
+    def add_circle3_pt(self, start, end, point):
         """
 
         Adds a 3-point circle curve to the document.
 
         Parameters
 
-        arrStart : Required, Array, The first point of the circle
-        arrEnd : Required, Array, The second point of the circle
-        arrPoint : Required, Array, The third point of the circle
+        Start : Required, Array, arr
+        End : Required, Array, arr
+        Point : Required, Array, arr
 
         Returns
 
@@ -85,17 +86,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddCircle3Pt', None, arrStart, arrEnd, arrPoint)
+        return self._ApplyTypes_(84, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddCircle3Pt', None, start, end, point)
 
-    def add_curve(self, arr_points, int_degree):
+    def add_curve(self, points, degree):
         """
 
         Adds a control points curve object to the document.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D points
-        intDegree : Optional, Number, The degree of the curve
+        Points : Required, Array, arr
+        Degree : Optional, Number, int
 
         Returns
 
@@ -104,18 +105,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddCurve', None, arrPoints, intDegree)
+        return self._ApplyTypes_(77, 1, (12, 0), ((12, 0), (12, 0)), u'AddCurve', None, points, degree)
 
-    def add_ellipse(self, arr_plane, dbl_x_radius, dbl_y_radius):
+    def add_ellipse(self, plane, x_radius, y_radius):
         """
 
         Adds an elliptical curve to the document.
 
         Parameters
 
-        arrPlane : Required, Array, The plane on which the ellipse will lie
-        dblXRadius : Required, Number, The radius in the X-axis direction
-        dblYRadius : Required, Number, The radius in the Y-axis direction
+        Plane : Required, Array, arr
+        XRadius : Required, Number, dbl
+        YRadius : Required, Number, dbl
 
         Returns
 
@@ -124,18 +125,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddEllipse', None, arrPlane, dblXRadius, dblYRadius)
+        return self._ApplyTypes_(679, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddEllipse', None, plane, x_radius, y_radius)
 
-    def add_ellipse3_pt(self, arr_center, arr_second, arr_third):
+    def add_ellipse3_pt(self, center, second, third):
         """
 
         Adds a 3 point elliptical curve to the document.
 
         Parameters
 
-        arrCenter : Required, Array, The center point of the ellipse
-        arrSecond : Required, Array, The end point of the X-axis
-        arrThird : Required, Array, The end point of the Y-axis
+        Center : Required, Array, arr
+        Second : Required, Array, arr
+        Third : Required, Array, arr
 
         Returns
 
@@ -144,20 +145,20 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddEllipse3Pt', None, arrCenter, arrSecond, arrThird)
+        return self._ApplyTypes_(680, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddEllipse3Pt', None, center, second, third)
 
-    def add_fillet_curve(self, str_curve0, str_curve1, dbl_radius, arr_point0, arr_point1):
+    def add_fillet_curve(self, curve0, curve1, radius, point0, point1):
         """
 
         Adds a fillet curve between two curve objects.
 
         Parameters
 
-        strCurve0 : Required, String, The identifier of the first curve object
-        strCurve1 : Required, String, The identifier of the second curve object
-        dblRadius : Optional, Number, The fillet radius
-        arrPoint0 : Optional, Array, The base point on the first curve
-        arrPoint1 : Optional, Array, The base point on the second curve
+        Curve0 : Required, String, str
+        Curve1 : Required, String, str
+        Radius : Optional, Number, dbl
+        Point0 : Optional, Array, arr
+        Point1 : Optional, Array, arr
 
         Returns
 
@@ -166,17 +167,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddFilletCurve', None, strCurve0, strCurve1, dblRadius, arrPoint0, arrPoint1)
+        return self._ApplyTypes_(574, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddFilletCurve', None, curve0, curve1, radius, point0, point1)
 
-    def add_interp_crv_on_srf(self, str_object, arr_points):
+    def add_interp_crv_on_srf(self, object, points):
         """
 
         Adds an interpolated curve object that lies on a specified surface. Note, this function will not create periodic curves, but it will create closed curves.
 
         Parameters
 
-        strObject : Required, String, The surface object's identifier
-        arrPoints : Required, Array, An array of 3-D points that lie on the specified surface
+        Object : Required, String, str
+        Points : Required, Array, arr
 
         Returns
 
@@ -185,17 +186,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddInterpCrvOnSrf', None, strObject, arrPoints)
+        return self._ApplyTypes_(513, 1, (12, 0), ((12, 0), (12, 0)), u'AddInterpCrvOnSrf', None, object, points)
 
-    def add_interp_crv_on_srf_u_v(self, str_object, arr_points):
+    def add_interp_crv_on_srf_u_v(self, object, points):
         """
 
         Adds an interpolated curve object. based on surface parameters, that lies on a specified surface. Note, this function will not create periodic curves, but it will create closed curves.
 
         Parameters
 
-        strObject : Required, String, The surface object's identifier
-        arrPoints : Required, Array, An array of 2-D surface parameters
+        Object : Required, String, str
+        Points : Required, Array, arr
 
         Returns
 
@@ -204,20 +205,20 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddInterpCrvOnSrfUV', None, strObject, arrPoints)
+        return self._ApplyTypes_(641, 1, (12, 0), ((12, 0), (12, 0)), u'AddInterpCrvOnSrfUV', None, object, points)
 
-    def add_interp_curve(self, arr_points, int_degree, int_knot_style, arr_start_tan, arr_end_tan):
+    def add_interp_curve(self, points, degree, knot_style, start_tan, end_tan):
         """
 
         Adds an interpolated curve object to  the document.  Options exist to make a periodic curve or to specify the tangent at the endpoints.  The resulting curve is a non-rational NURBS curve of the specified degree.
 
         Parameters
 
-        arrPoints : Required, Array, An array containing 3-D points to interpolate
-        intDegree : Optional, Number, The degree of the curve
-        intKnotStyle : Optional, Number, The knot style to use, and whether the curve should be periodic
-        arrStartTan : Optional, Array, A 3-D vector that specifies a tangency condition at the beginning of the curve
-        arrEndTan : Optional, Array, A 3-D vector that specifies a tangency condition at the end of the curve
+        Points : Required, Array, arr
+        Degree : Optional, Number, int
+        KnotStyle : Optional, Number, int
+        StartTan : Optional, Array, arr
+        EndTan : Optional, Array, arr
 
         Returns
 
@@ -226,21 +227,21 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddInterpCurve', None, arrPoints, intDegree, intKnotStyle, arrStartTan, arrEndTan)
+        return self._ApplyTypes_(268, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddInterpCurve', None, points, degree, knot_style, start_tan, end_tan)
 
-    def add_interp_curve_ex(self, arr_points, int_degree, int_knot_style, bln_sharp, arr_start_tangent, arr_end_tangent):
+    def add_interp_curve_ex(self, points, degree, knot_style, sharp, start_tangent, end_tangent):
         """
 
         Adds an interpolated curve object to  the document similar to Rhino's InterpCrv command.
 
         Parameters
 
-        arrPoints : Required, Array, An array containing 3-D points to interpolate
-        intDegree : Optional, Number, The degree of the curve
-        intKnotStyle : Optional, Number, The knot style to use
-        blnSharp : Optional, Boolean, If True, when you create a closed curve, it will have a kink at the start/end point
-        arrStartTangent : Optional, Array, A 3-D vector that specifies a tangency condition at the beginning of the curve
-        arrEndTangent : Optional, Array, A 3-D vector that specifies a tangency condition at the end of the curve
+        Points : Required, Array, arr
+        Degree : Optional, Number, int
+        KnotStyle : Optional, Number, int
+        Sharp : Optional, Boolean, bln
+        StartTangent : Optional, Array, arr
+        EndTangent : Optional, Array, arr
 
         Returns
 
@@ -249,17 +250,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddInterpCurveEx', None, arrPoints, intDegree, intKnotStyle, blnSharp, arrStartTangent, arrEndTangent)
+        return self._ApplyTypes_(520, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddInterpCurveEx', None, points, degree, knot_style, sharp, start_tangent, end_tangent)
 
-    def add_line(self, arr_start, arr_end):
+    def add_line(self, start, end):
         """
 
         Adds a line curve to the current model.
 
         Parameters
 
-        arrStart : Required, Array, The starting point of the line
-        arrEnd : Required, Array, The ending point of the line
+        Start : Required, Array, arr
+        End : Required, Array, arr
 
         Returns
 
@@ -268,19 +269,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddLine', None, arrStart, arrEnd)
+        return self._ApplyTypes_(70, 1, (12, 0), ((12, 0), (12, 0)), u'AddLine', None, start, end)
 
-    def add_nurbs_curve(self, arr_points, arr_knots, int_degree, arr_weights):
+    def add_nurbs_curve(self, points, knots, degree, weights):
         """
 
         Adds a NURBS curve object to the document.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D control points
-        arrKnots : Required, Array, The knot values for the curve
-        intDegree : Required, Number, The degree of the curve
-        arrWeights : Optional, Array, The weight values for the curve
+        Points : Required, Array, arr
+        Knots : Required, Array, arr
+        Degree : Required, Number, int
+        Weights : Optional, Array, arr
 
         Returns
 
@@ -289,16 +290,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddNurbsCurve', None, arrPoints, arrKnots, intDegree, arrWeights)
+        return self._ApplyTypes_(309, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'AddNurbsCurve', None, points, knots, degree, weights)
 
-    def add_polyline(self, arr_points):
+    def add_polyline(self, points):
         """
 
         Adds a polyline curve object to the current model.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D points
+        Points : Required, Array, arr
 
         Returns
 
@@ -307,18 +308,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddPolyline', None, arrPoints)
+        return self._ApplyTypes_(85, 1, (12, 0), ((12, 0)), u'AddPolyline', None, points)
 
-    def add_sub_crv(self, str_object, dbl_param0, dbl_param1):
+    def add_sub_crv(self, object, param0, param1):
         """
 
         Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
 
         Parameters
 
-        strObject : Required, String, The identifier of a closed, planar curve object
-        dblParam0 : Required, Number, The first parameter on the source curve
-        dblParam1 : Required, Number, The second parameter on the source curve
+        Object : Required, String, str
+        Param0 : Required, Number, dbl
+        Param1 : Required, Number, dbl
 
         Returns
 
@@ -327,17 +328,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddSubCrv', None, strObject, dblParam0, dblParam1)
+        return self._ApplyTypes_(681, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddSubCrv', None, object, param0, param1)
 
-    def arc_angle(self, str_object, int_index):
+    def arc_angle(self, object, index):
         """
 
         Returns the angle of an arc curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -346,17 +347,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ArcAngle', None, strObject, intIndex)
+        return self._ApplyTypes_(86, 1, (12, 0), ((12, 0), (12, 0)), u'ArcAngle', None, object, index)
 
-    def arc_center_point(self, str_object, int_index):
+    def arc_center_point(self, object, index):
         """
 
         Returns the center point of an arc curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -364,17 +365,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ArcCenterPoint', None, strObject, intIndex)
+        return self._ApplyTypes_(87, 1, (12, 0), ((12, 0), (12, 0)), u'ArcCenterPoint', None, object, index)
 
-    def arc_mid_point(self, str_object, int_index):
+    def arc_mid_point(self, object, index):
         """
 
         Returns the mid point of an arc curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -382,17 +383,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ArcMidPoint', None, strObject, intIndex)
+        return self._ApplyTypes_(88, 1, (12, 0), ((12, 0), (12, 0)), u'ArcMidPoint', None, object, index)
 
-    def arc_radius(self, str_object, int_index):
+    def arc_radius(self, object, index):
         """
 
         Returns the radius of an arc curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -401,17 +402,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ArcRadius', None, strObject, intIndex)
+        return self._ApplyTypes_(89, 1, (12, 0), ((12, 0), (12, 0)), u'ArcRadius', None, object, index)
 
-    def circle_center_point(self, str_object, int_index):
+    def circle_center_point(self, object, index):
         """
 
         Returns the center point of a circle curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -420,17 +421,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CircleCenterPoint', None, strObject, intIndex)
+        return self._ApplyTypes_(90, 1, (12, 0), ((12, 0), (12, 0)), u'CircleCenterPoint', None, object, index)
 
-    def circle_circumference(self, str_object, int_index):
+    def circle_circumference(self, object, index):
         """
 
         Returns the circumference of a circle curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -439,17 +440,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CircleCircumference', None, strObject, intIndex)
+        return self._ApplyTypes_(91, 1, (12, 0), ((12, 0), (12, 0)), u'CircleCircumference', None, object, index)
 
-    def circle_radius(self, str_object, int_index):
+    def circle_radius(self, object, index):
         """
 
         Returns the radius of a circle curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -458,17 +459,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CircleRadius', None, strObject, intIndex)
+        return self._ApplyTypes_(92, 1, (12, 0), ((12, 0), (12, 0)), u'CircleRadius', None, object, index)
 
-    def close_curve(self, str_object, dbl_tolerance):
+    def close_curve(self, object, tolerance):
         """
 
         Closes an open curve object by making adjustments to the end points so that they meet at a point.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblTolerance : Optional, Number, The maximum allowable distance between start point and end point of the curve
+        Object : Required, String, str
+        Tolerance : Optional, Number, dbl
 
         Returns
 
@@ -477,19 +478,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CloseCurve', None, strObject, dblTolerance)
+        return self._ApplyTypes_(440, 1, (12, 0), ((12, 0), (12, 0)), u'CloseCurve', None, object, tolerance)
 
-    def convert_curve_to_polyline(self, str_object, dbl_angle_tolerance, dbl_tolerance, bln_delete_input):
+    def convert_curve_to_polyline(self, object, angle_tolerance, tolerance, delete_input):
         """
 
         Converts a curve to a polyline curve.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblAngleTolerance : Optional, Number, The maximum angle between curve tangents at line endpoints
-        dblTolerance : Optional, Number, The distance tolerance at segment midpoints
-        blnDeleteInput : Optional, Boolean, Delete the curve object specified by strObject
+        Object : Required, String, str
+        AngleTolerance : Optional, Number, dbl
+        Tolerance : Optional, Number, dbl
+        DeleteInput : Optional, Boolean, bln
 
         Returns
 
@@ -498,18 +499,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ConvertCurveToPolyline', None, strObject, dblAngleTolerance, dblTolerance, blnDeleteInput)
+        return self._ApplyTypes_(377, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ConvertCurveToPolyline', None, object, angle_tolerance, tolerance, delete_input)
 
-    def curve_arc_length_point(self, str_object, dbl_length, bln_from_start):
+    def curve_arc_length_point(self, object, length, from_start):
         """
 
         Returns the point on the curve that is a specified arc length from the start of the curve.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblLength : Required, Number, The arc length from the start of the curve to evaluate
-        blnFromStart : Optional, Boolean, If not specified or True, then the arc length point is calculated from the start of the curve
+        Object : Required, String, str
+        Length : Required, Number, dbl
+        FromStart : Optional, Boolean, bln
 
         Returns
 
@@ -518,8 +519,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveArcLengthPoint', None, strObject, dblLength, blnFromStart)
+        return self._ApplyTypes_(658, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveArcLengthPoint', None, object, length, from_start)
 
+    def curve_area(self, object, objects):
         """
 
 
@@ -530,6 +532,7 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def curve_area_centroid(self, object, objects):
         """
 
 
@@ -540,15 +543,15 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def curve_arrows(self, str_object, int_style):
+    def curve_arrows(self, object, style):
         """
 
         Enables or disabled a curve object's annotation arrows.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intStyle : Optional, Number, The style of annotation arrows to be displayed
+        Object : Required, String, str
+        Style : Optional, Number, int
 
         Returns
 
@@ -558,17 +561,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveArrows', None, strObject, intStyle)
+        return self._ApplyTypes_(578, 1, (12, 0), ((12, 0), (12, 0)), u'CurveArrows', None, object, style)
 
-    def curve_boolean_difference(self, str_curve_a, str_curve_b):
+    def curve_boolean_difference(self, curve_a, curve_b):
         """
 
         Calculates the difference between two closed, planar curves and adds the results to the document. Note, curves must be coplanar.
 
         Parameters
 
-        strCurveA : Required, String, The identifier of the first curve object
-        strCurveB : Required, String, The identifier of the second curve object
+        CurveA : Required, String, str
+        CurveB : Required, String, str
 
         Returns
 
@@ -577,17 +580,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveBooleanDifference', None, strCurveA, strCurveB)
+        return self._ApplyTypes_(811, 1, (12, 0), ((12, 0), (12, 0)), u'CurveBooleanDifference', None, curve_a, curve_b)
 
-    def curve_boolean_intersection(self, str_curve_a, str_curve_b):
+    def curve_boolean_intersection(self, curve_a, curve_b):
         """
 
         Calculates the intersection of two closed, planar curves and adds the results to the document. Note, curves must be coplanar.
 
         Parameters
 
-        strCurveA : Required, String, The identifier of the first curve object
-        strCurveB : Required, String, The identifier of the second curve object
+        CurveA : Required, String, str
+        CurveB : Required, String, str
 
         Returns
 
@@ -596,16 +599,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveBooleanIntersection', None, strCurveA, strCurveB)
+        return self._ApplyTypes_(810, 1, (12, 0), ((12, 0), (12, 0)), u'CurveBooleanIntersection', None, curve_a, curve_b)
 
-    def curve_boolean_union(self, arr_curves):
+    def curve_boolean_union(self, curves):
         """
 
         Calculates the union of two or more closed, planar curves and adds the results to the document. Note, curves must be coplanar.
 
         Parameters
 
-        arrCurves : Required, Array, The identifiers of two or more curve objects
+        Curves : Required, Array, arr
 
         Returns
 
@@ -614,18 +617,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveBooleanUnion', None, arrCurves)
+        return self._ApplyTypes_(809, 1, (12, 0), ((12, 0)), u'CurveBooleanUnion', None, curves)
 
-    def curve_brep_intersect(self, str_curve, str_brep, dbl_tolerance):
+    def curve_brep_intersect(self, curve, brep, tolerance):
         """
 
         Intersects a curve object with a brep object. Note, unlike the CurveSurfaceIntersection function, this function works on trimmed surfaces.
 
         Parameters
 
-        strCurve : Required, String, The curve object's identifier
-        strBrep : Required, String, The brep object's identifier
-        dblTolerance : Optional, Number, The distance tolerance at segment midpoints
+        Curve : Required, String, str
+        Brep : Required, String, str
+        Tolerance : Optional, Number, dbl
 
         Returns
 
@@ -634,8 +637,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveBrepIntersect', None, strCurve, strBrep, dblTolerance)
+        return self._ApplyTypes_(545, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveBrepIntersect', None, curve, brep, tolerance)
 
+    def curve_closest_object(self, curve, object, objects):
         """
 
 
@@ -646,16 +650,16 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def curve_closest_point(self, str_object, arr_point, int_index):
+    def curve_closest_point(self, object, point, index):
         """
 
         Returns the parameter of the point on a curve that is closest to a test point.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        arrPoint : Required, Array, The test, or sampling, point
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Point : Required, Array, arr
+        Index : Optional, Number, int
 
         Returns
 
@@ -664,19 +668,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveClosestPoint', None, strObject, arrPoint, intIndex)
+        return self._ApplyTypes_(93, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveClosestPoint', None, object, point, index)
 
-    def curve_contour_points(self, str_object, arr_start_point, arr_end_point, dbl_interval):
+    def curve_contour_points(self, object, start_point, end_point, interval):
         """
 
         Returns the 3-D point locations calculated by contouring a curve object.
 
         Parameters
 
-        strObject : Required, String, The identifier of a curve object
-        arrStartPoint : Required, Array, The 3-D starting point of a center line
-        arrEndPoint : Required, Array, The 3-D ending point of a center line
-        dblInterval : Optional, Number, The distance between contour curves
+        Object : Required, String, str
+        StartPoint : Required, Array, arr
+        EndPoint : Required, Array, arr
+        Interval : Optional, Number, dbl
 
         Returns
 
@@ -685,17 +689,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveContourPoints', None, strObject, arrStartPoint, arrEndPoint, dblInterval)
+        return self._ApplyTypes_(748, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'CurveContourPoints', None, object, start_point, end_point, interval)
 
-    def curve_curvature(self, str_object, dbl_parameter):
+    def curve_curvature(self, object, parameter):
         """
 
         Returns the curvature of a curve at a parameter.  See the Rhino help file for details on curve curvature.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblParameter : Required, Number, The parameter to evaluate
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
 
         Returns
 
@@ -705,18 +709,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveCurvature', None, strObject, dblParameter)
+        return self._ApplyTypes_(379, 1, (12, 0), ((12, 0), (12, 0)), u'CurveCurvature', None, object, parameter)
 
-    def curve_curve_intersection(self, str_object1, str_object2, dbl_tolerance):
+    def curve_curve_intersection(self, object1, object2, tolerance):
         """
 
         Calculates the intersection of two curve objects.
 
         Parameters
 
-        strObject1 : Required, String, The identifier of the first curve object
-        strObject2 : Optional, String, The identifier of the second curve object
-        dblTolerance : Optional, Number, The absolute tolerance in drawing units
+        Object1 : Required, String, str
+        Object2 : Optional, String, str
+        Tolerance : Optional, Number, dbl
 
         Returns
 
@@ -730,17 +734,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveCurveIntersection', None, strObject1, strObject2, dblTolerance)
+        return self._ApplyTypes_(423, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveCurveIntersection', None, object1, object2, tolerance)
 
-    def curve_degree(self, str_object, int_index):
+    def curve_degree(self, object, index):
         """
 
         Returns the degree of a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -749,17 +753,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveDegree', None, strObject, intIndex)
+        return self._ApplyTypes_(94, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDegree', None, object, index)
 
-    def curve_deviation(self, str_curve_a, str_curve_b):
+    def curve_deviation(self, curve_a, curve_b):
         """
 
         Returns the minimum and maximum deviation between two curve objects. For more information on curve deviation, see the Rhino help file for the CrvDeviation command.
 
         Parameters
 
-        strCurveA : Required, String, The identifier of the first curve object
-        strCurveB : Required, String, The identifier of the second curve object
+        CurveA : Required, String, str
+        CurveB : Required, String, str
 
         Returns
 
@@ -774,17 +778,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveDeviation', None, strCurveA, strCurveB)
+        return self._ApplyTypes_(687, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDeviation', None, curve_a, curve_b)
 
-    def curve_dim(self, str_object, int_index):
+    def curve_dim(self, object, index):
         """
 
         Returns the dimension of a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -793,17 +797,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveDim', None, strObject, intIndex)
+        return self._ApplyTypes_(381, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDim', None, object, index)
 
-    def curve_directions_match(self, str_curve1, str_curve2):
+    def curve_directions_match(self, curve1, curve2):
         """
 
         Tests if two curve objects are generally in the same direction or if they would be more in the same direction if one of them were flipped. When testing curve directions, both curves must be either open or closed - you cannot test one open curve and one closed curve.
 
         Parameters
 
-        strCurve1 : Required, String, The identifier of the first curve to compare
-        strCurve2 : Required, String, The identifier of the second curve to compare
+        Curve1 : Required, String, str
+        Curve2 : Required, String, str
 
         Returns
 
@@ -812,17 +816,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveDirectionsMatch', None, strCurve1, strCurve2)
+        return self._ApplyTypes_(543, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDirectionsMatch', None, curve1, curve2)
 
-    def curve_discontinuity(self, str_object, int_style):
+    def curve_discontinuity(self, object, style):
         """
 
         Search for a derivatitive, tangent, or curvature discontinuity in a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intStyle : Required, Number, The type of continuity to test for
+        Object : Required, String, str
+        Style : Required, Number, int
 
         Returns
 
@@ -831,17 +835,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveDiscontinuity', None, strObject, intStyle)
+        return self._ApplyTypes_(579, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDiscontinuity', None, object, style)
 
-    def curve_domain(self, str_object, int_index):
+    def curve_domain(self, object, index):
         """
 
         Returns the domain of a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -850,18 +854,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveDomain', None, strObject, intIndex)
+        return self._ApplyTypes_(95, 1, (12, 0), ((12, 0), (12, 0)), u'CurveDomain', None, object, index)
 
-    def curve_edit_points(self, str_object, bln_return_parameters, int_index):
+    def curve_edit_points(self, object, return_parameters, index):
         """
 
         Returns the edit, or Greville, points of a curve object.  For each curve control point, there is a corresponding edit point.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        blnReturnParameters : Optional, Boolean, Return the edit points as an array of parameter values
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        ReturnParameters : Optional, Boolean, bln
+        Index : Optional, Number, int
 
         Returns
 
@@ -871,17 +875,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveEditPoints', None, strObject, blnReturnParameters, intIndex)
+        return self._ApplyTypes_(442, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveEditPoints', None, object, return_parameters, index)
 
-    def curve_end_point(self, str_object, int_index):
+    def curve_end_point(self, object, index):
         """
 
         Returns the end point of a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -890,18 +894,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveEndPoint', None, strObject, intIndex)
+        return self._ApplyTypes_(96, 1, (12, 0), ((12, 0), (12, 0)), u'CurveEndPoint', None, object, index)
 
-    def curve_evaluate(self, str_object, dbl_parameter, int_derivative):
+    def curve_evaluate(self, object, parameter, derivative):
         """
 
         A general purpose curve evaluator.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblParameter : Required, Number, The evaluation parameter
-        intDerivative : Required, Number, The number of derivatives to evaluate
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
+        Derivative : Required, Number, int
 
         Returns
 
@@ -914,20 +918,20 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveEvaluate', None, strObject, dblParameter, intDerivative)
+        return self._ApplyTypes_(489, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveEvaluate', None, object, parameter, derivative)
 
-    def curve_fillet_points(self, str_curve0, str_curve1, dbl_radius, arr_base_point0, arr_base_point1):
+    def curve_fillet_points(self, curve0, curve1, radius, base_point0, base_point1):
         """
 
         Of all possible fillet points, this function returns the one which is the closest to the base point arrBasePoint0, arrBasePoint1.  Distance from the base point is measured by the sum of arc lengths along the two curves.
 
         Parameters
 
-        strCurve0 : Required, String, The identifier of the first curve object
-        strCurve1 : Required, String, The identifier of the second curve object
-        dblRadius : Optional, Number, The fillet radius
-        arrBasePoint0 : Optional, Array, The base point on the first curve
-        arrBasePoint1 : Optional, Array, The base point on the second curve
+        Curve0 : Required, String, str
+        Curve1 : Required, String, str
+        Radius : Optional, Number, dbl
+        BasePoint0 : Optional, Array, arr
+        BasePoint1 : Optional, Array, arr
 
         Returns
 
@@ -937,17 +941,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveFilletPoints', None, strCurve0, strCurve1, dblRadius, arrBasePoint0, arrBasePoint1)
+        return self._ApplyTypes_(572, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'CurveFilletPoints', None, curve0, curve1, radius, base_point0, base_point1)
 
-    def curve_frame(self, str_object, dbl_parameter):
+    def curve_frame(self, object, parameter):
         """
 
         Returns the plane at a parameter of a curve. The plane is based on the tangent and curvature vectors at a parameter.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblParameter : Required, Number, The parameter to evaluate
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
 
         Returns
 
@@ -956,8 +960,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveFrame', None, strObject, dblParameter)
+        return self._ApplyTypes_(675, 1, (12, 0), ((12, 0), (12, 0)), u'CurveFrame', None, object, parameter)
 
+    def curve_knot_count(self, object, index):
         """
 
 
@@ -968,6 +973,7 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def curve_knots(self, object, index):
         """
 
 
@@ -978,16 +984,16 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def curve_length(self, str_object, int_index, arr_sub_domain):
+    def curve_length(self, object, index, sub_domain):
         """
 
         Returns the length of a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
-        arrSubDomain : Optional, Array, An array of two numbers identifying the sub-domain of the curve on which the calculation will be performed
+        Object : Required, String, str
+        Index : Optional, Number, int
+        SubDomain : Optional, Array, arr
 
         Returns
 
@@ -996,8 +1002,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveLength', None, strObject, intIndex, arrSubDomain)
+        return self._ApplyTypes_(97, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveLength', None, object, index, sub_domain)
 
+    def curve_mid_point(self, object):
         """
 
 
@@ -1008,14 +1015,14 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def curve_normal(self, str_object):
+    def curve_normal(self, object):
         """
 
         Returns the normal direction of the plane in which a planar curve object lies.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -1024,17 +1031,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveNormal', None, strObject)
+        return self._ApplyTypes_(521, 1, (12, 0), ((12, 0)), u'CurveNormal', None, object)
 
-    def curve_perp_frame(self, str_object, dbl_parameter):
+    def curve_perp_frame(self, object, parameter):
         """
 
         Returns the perpendicular plane at a parameter of a curve.  The result is relatively parallel (zero-twisting) plane.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblParameter : Required, Number, The parameter to evaluate
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
 
         Returns
 
@@ -1043,16 +1050,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurvePerpFrame', None, strObject, dblParameter)
+        return self._ApplyTypes_(676, 1, (12, 0), ((12, 0), (12, 0)), u'CurvePerpFrame', None, object, parameter)
 
-    def curve_plane(self, str_curve):
+    def curve_plane(self, curve):
         """
 
         Returns the plane in which a planar curve lies. Note, this function works only on planar curves.
 
         Parameters
 
-        strCurve : Required, String, The identifier of a planar curve object
+        Curve : Required, String, str
 
         Returns
 
@@ -1061,17 +1068,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurvePlane', None, strCurve)
+        return self._ApplyTypes_(609, 1, (12, 0), ((12, 0)), u'CurvePlane', None, curve)
 
-    def curve_point_count(self, str_object, int_index):
+    def curve_point_count(self, object, index):
         """
 
         Returns the control points count of a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1080,17 +1087,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurvePointCount', None, strObject, intIndex)
+        return self._ApplyTypes_(98, 1, (12, 0), ((12, 0), (12, 0)), u'CurvePointCount', None, object, index)
 
-    def curve_points(self, str_object, int_index):
+    def curve_points(self, object, index):
         """
 
         Returns the control points, or control vertices, of a curve object.  If the curve is a rational NURBS curve, the euclidean control vertices are returned.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1099,18 +1106,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurvePoints', None, strObject, intIndex)
+        return self._ApplyTypes_(308, 1, (12, 0), ((12, 0), (12, 0)), u'CurvePoints', None, object, index)
 
-    def curve_radius(self, str_object, arr_point, int_index):
+    def curve_radius(self, object, point, index):
         """
 
         Returns the radius of curvature at a point on a curve.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        arrPoint : Required, Array, The test, or sampling, point
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Point : Required, Array, arr
+        Index : Optional, Number, int
 
         Returns
 
@@ -1119,17 +1126,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveRadius', None, strObject, arrPoint, intIndex)
+        return self._ApplyTypes_(80, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveRadius', None, object, point, index)
 
-    def curve_seam(self, str_object, dbl_parameter):
+    def curve_seam(self, object, parameter):
         """
 
         Adjusts the seam, or start/end, point of a closed curve.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblParameter : Required, Number, The parameter of the new start/end point
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
 
         Returns
 
@@ -1138,17 +1145,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveSeam', None, strObject, dblParameter)
+        return self._ApplyTypes_(527, 1, (12, 0), ((12, 0), (12, 0)), u'CurveSeam', None, object, parameter)
 
-    def curve_start_point(self, str_object, int_index):
+    def curve_start_point(self, object, index):
         """
 
         Returns the start point of a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1157,19 +1164,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveStartPoint', None, strObject, intIndex)
+        return self._ApplyTypes_(99, 1, (12, 0), ((12, 0), (12, 0)), u'CurveStartPoint', None, object, index)
 
-    def curve_surface_intersection(self, str_curve, str_surface, dbl_tolerance, dbl_angle_tolerance):
+    def curve_surface_intersection(self, curve, surface, tolerance, angle_tolerance):
         """
 
         Calculates the intersection of a curve object with a surface object. Note, this function works on the untrimmed portion of the surface.
 
         Parameters
 
-        strCurve : Required, String, The identifier of a curve object
-        strSurface : Required, String, The identifier of a surface object
-        dblTolerance : Optional, Number, The absolute tolerance in drawing units
-        dblAngleTolerance : Optional, Number, The angle tolerance in degrees
+        Curve : Required, String, str
+        Surface : Required, String, str
+        Tolerance : Optional, Number, dbl
+        AngleTolerance : Optional, Number, dbl
 
         Returns
 
@@ -1185,18 +1192,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveSurfaceIntersection', None, strCurve, strSurface, dblTolerance, dblAngleTolerance)
+        return self._ApplyTypes_(424, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'CurveSurfaceIntersection', None, curve, surface, tolerance, angle_tolerance)
 
-    def curve_tangent(self, str_object, dbl_parameter, int_index):
+    def curve_tangent(self, object, parameter, index):
         """
 
         Returns a 3-D vector that is the tangent to a curve at a parameter.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblParameter : Required, Number, The parameter to evaluate
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
+        Index : Optional, Number, int
 
         Returns
 
@@ -1205,17 +1212,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveTangent', None, strObject, dblParameter, intIndex)
+        return self._ApplyTypes_(363, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'CurveTangent', None, object, parameter, index)
 
-    def curve_weights(self, str_object, int_index):
+    def curve_weights(self, object, index):
         """
 
         Returns an array of weight values that are assigned to the control points of a curve.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1224,19 +1231,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveWeights', None, strObject, intIndex)
+        return self._ApplyTypes_(314, 1, (12, 0), ((12, 0), (12, 0)), u'CurveWeights', None, object, index)
 
-    def divide_curve(self, str_object, lng_segments, bln_create, bln_points):
+    def divide_curve(self, object, segments, create, points):
         """
 
         Divides a curve object into a specified number of segments.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        lngSegments : Required, Number, The number of segments
-        blnCreate : Optional, Boolean, Create the division points
-        blnPoints : Optional, Boolean, Return an array of 3-D points
+        Object : Required, String, str
+        Segments : Required, Number, lng
+        Create : Optional, Boolean, bln
+        Points : Optional, Boolean, bln
 
         Returns
 
@@ -1246,19 +1253,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DivideCurve', None, strObject, lngSegments, blnCreate, blnPoints)
+        return self._ApplyTypes_(78, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'DivideCurve', None, object, segments, create, points)
 
-    def divide_curve_equidistant(self, str_object, dbl_distance, bln_create, bln_points):
+    def divide_curve_equidistant(self, object, distance, create, points):
         """
 
         Unlike the DivideCurve and DivideCurveLength, which divides a curve based on arc length, or the distance along the curve between two points, this function divides a curve based on the linear distance between points.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblDistance : Required, Number, The linear distance between division points
-        blnCreate : Optional, Boolean, Create the division points
-        blnPoints : Optional, Boolean, Return an array of 3-D points
+        Object : Required, String, str
+        Distance : Required, Number, dbl
+        Create : Optional, Boolean, bln
+        Points : Optional, Boolean, bln
 
         Returns
 
@@ -1268,19 +1275,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DivideCurveEquidistant', None, strObject, dblDistance, blnCreate, blnPoints)
+        return self._ApplyTypes_(913, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'DivideCurveEquidistant', None, object, distance, create, points)
 
-    def divide_curve_length(self, str_object, dbl_length, bln_create, bln_points):
+    def divide_curve_length(self, object, length, create, points):
         """
 
         Divides a curve object into segments of a specified length.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblLength : Required, Number, The length of each segment
-        blnCreate : Optional, Boolean, Create the division points
-        blnPoints : Optional, Boolean, Return an array of 3-D points
+        Object : Required, String, str
+        Length : Required, Number, dbl
+        Create : Optional, Boolean, bln
+        Points : Optional, Boolean, bln
 
         Returns
 
@@ -1290,16 +1297,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DivideCurveLength', None, strObject, dblLength, blnCreate, blnPoints)
+        return self._ApplyTypes_(374, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'DivideCurveLength', None, object, length, create, points)
 
-    def ellipse_center_point(self, str_object):
+    def ellipse_center_point(self, object):
         """
 
         Returns the center point of an elliptical-shaped curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -1308,16 +1315,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'EllipseCenterPoint', None, strObject)
+        return self._ApplyTypes_(524, 1, (12, 0), ((12, 0)), u'EllipseCenterPoint', None, object)
 
-    def ellipse_quad_points(self, str_object):
+    def ellipse_quad_points(self, object):
         """
 
         Returns the quadrant points of an elliptical-shaped curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -1326,18 +1333,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'EllipseQuadPoints', None, strObject)
+        return self._ApplyTypes_(525, 1, (12, 0), ((12, 0)), u'EllipseQuadPoints', None, object)
 
-    def evaluate_curve(self, str_object, dbl_parameter, int_index):
+    def evaluate_curve(self, object, parameter, index):
         """
 
         Evaluates a curve at a parameter.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblParameter : Required, Number, The parameter to evaluate
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
+        Index : Optional, Number, int
 
         Returns
 
@@ -1346,8 +1353,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'EvaluateCurve', None, strObject, dblParameter, intIndex)
+        return self._ApplyTypes_(100, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'EvaluateCurve', None, object, parameter, index)
 
+    def explode_curves(self, object, objects, delete):
         """
 
 
@@ -1358,17 +1366,17 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def extend_curve(self, str_object, int_type, int_side, arr_objects):
+    def extend_curve(self, object, type, side, objects):
         """
 
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intType : Required, Number, Type of extension
-        intSide : Required, Number, The size to  extent
-        arrObjects : Required, Array, The identifiers of curve, surface, and polysurface objects that will be used as boundary objects
+        Object : Required, String, str
+        Type : Required, Number, int
+        Side : Required, Number, int
+        Objects : Required, Array, arr
 
         Returns
 
@@ -1377,19 +1385,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ExtendCurve', None, strObject, intType, intSide, arrObjects)
+        return self._ApplyTypes_(438, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ExtendCurve', None, object, type, side, objects)
 
-    def extend_curve_length(self, str_object, int_type, int_side, dbl_length):
+    def extend_curve_length(self, object, type, side, length):
         """
 
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intType : Required, Number, Type of extension
-        intSide : Required, Number, The size to  extent
-        dblLength : Required, Number, The distance to extend the curve
+        Object : Required, String, str
+        Type : Required, Number, int
+        Side : Required, Number, int
+        Length : Required, Number, dbl
 
         Returns
 
@@ -1398,18 +1406,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ExtendCurveLength', None, strObject, intType, intSide, dblLength)
+        return self._ApplyTypes_(436, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ExtendCurveLength', None, object, type, side, length)
 
-    def extend_curve_point(self, str_object, int_side, arr_point):
+    def extend_curve_point(self, object, side, point):
         """
 
         Extends a non-closed curve object by smooth extension to a point.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intSide : Required, Number, The size to  extent
-        arrPoint : Required, Array, The 3-D point
+        Object : Required, String, str
+        Side : Required, Number, int
+        Point : Required, Array, arr
 
         Returns
 
@@ -1418,17 +1426,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ExtendCurvePoint', None, strObject, intSide, arrPoint)
+        return self._ApplyTypes_(437, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ExtendCurvePoint', None, object, side, point)
 
-    def fair_curve(self, str_object, dbl_tolerance):
+    def fair_curve(self, object, tolerance):
         """
 
         Fairs a curve object. Fair works best on degree 3 (cubic) curves. Fair attempts to remove large curvature variations while limiting the geometry changes to be no more than the specified tolerance. Sometimes several applications of this method are necessary to remove nasty curvature problems.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblTolerance : Optional, Number, The fairing tolerance
+        Object : Required, String, str
+        Tolerance : Optional, Number, dbl
 
         Returns
 
@@ -1437,19 +1445,19 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'FairCurve', None, strObject, dblTolerance)
+        return self._ApplyTypes_(599, 1, (12, 0), ((12, 0), (12, 0)), u'FairCurve', None, object, tolerance)
 
-    def fit_curve(self, str_object, int_degree, dbl_tolerance, dbl_angle_tolerance):
+    def fit_curve(self, object, degree, tolerance, angle_tolerance):
         """
 
         Reduces the number of curve control points while maintaining the curve's same general shape.  Use this function for replacing curves with too many control points.  For more information, see the Rhino help file for the FitCrv command.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intDegree : Optional, Number, The curve degree, which must be greater than 1
-        dblTolerance : Optional, Number, The fitting tolerance
-        dblAngleTolerance : Optional, Number, The kink smoothing tolerance in degrees
+        Object : Required, String, str
+        Degree : Optional, Number, int
+        Tolerance : Optional, Number, dbl
+        AngleTolerance : Optional, Number, dbl
 
         Returns
 
@@ -1458,18 +1466,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'FitCurve', None, strObject, intDegree, dblTolerance, dblAngleTolerance)
+        return self._ApplyTypes_(813, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'FitCurve', None, object, degree, tolerance, angle_tolerance)
 
-    def insert_curve_knot(self, str_object, dbl_parameter, bln_symmetrical):
+    def insert_curve_knot(self, object, parameter, symmetrical):
         """
 
         Inserts a knot into a curve object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the curve object
-        dblParameter : Required, Number, The parameter on the curve
-        blnSymmetrical : Optional, Boolean, If blnSymmetrical = True, then knots are added on both sides of the center of the curve
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
+        Symmetrical : Optional, Boolean, bln
 
         Returns
 
@@ -1478,17 +1486,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'InsertCurveKnot', None, strObject, dblParameter, blnSymmetrical)
+        return self._ApplyTypes_(515, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'InsertCurveKnot', None, object, parameter, symmetrical)
 
-    def is_arc(self, str_object, int_index):
+    def is_arc(self, object, index):
         """
 
         Verifies an object is an arc curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1497,17 +1505,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsArc', None, strObject, intIndex)
+        return self._ApplyTypes_(101, 1, (12, 0), ((12, 0), (12, 0)), u'IsArc', None, object, index)
 
-    def is_circle(self, str_object, int_index):
+    def is_circle(self, object, index):
         """
 
         Verifies an object is a circle curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1516,17 +1524,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsCircle', None, strObject, intIndex)
+        return self._ApplyTypes_(102, 1, (12, 0), ((12, 0), (12, 0)), u'IsCircle', None, object, index)
 
-    def is_curve(self, str_object, int_index):
+    def is_curve(self, object, index):
         """
 
         Verifies an object is a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1535,17 +1543,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsCurve', None, strObject, intIndex)
+        return self._ApplyTypes_(103, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurve', None, object, index)
 
-    def is_curve_closable(self, str_object, dbl_tolerance):
+    def is_curve_closable(self, object, tolerance):
         """
 
         Decide if it makes sense to close off the curve by moving  the endpoint to the start based on start-end gap size and length of curve as approximated by chord defined by 6 points.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        dblTolerance : Optional, Number, The maximum allowable distance between start point and end point of the curve
+        Object : Required, String, str
+        Tolerance : Optional, Number, dbl
 
         Returns
 
@@ -1554,17 +1562,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsCurveClosable', None, strObject, dblTolerance)
+        return self._ApplyTypes_(441, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurveClosable', None, object, tolerance)
 
-    def is_curve_closed(self, str_object, int_index):
+    def is_curve_closed(self, object, index):
         """
 
         Verifies an object is a closed curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1573,8 +1581,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsCurveClosed', None, strObject, intIndex)
+        return self._ApplyTypes_(104, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurveClosed', None, object, index)
 
+    def is_curve_in_plane(self, object, plane, ay, ay, ay, ay):
         """
 
 
@@ -1585,15 +1594,15 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def is_curve_linear(self, str_object, int_index):
+    def is_curve_linear(self, object, index):
         """
 
         Verifies an object is a linear curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1602,17 +1611,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsCurveLinear', None, strObject, intIndex)
+        return self._ApplyTypes_(105, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurveLinear', None, object, index)
 
-    def is_curve_periodic(self, str_object, int_index):
+    def is_curve_periodic(self, object, index):
         """
 
         Verifies an object is a periodic curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1621,17 +1630,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsCurvePeriodic', None, strObject, intIndex)
+        return self._ApplyTypes_(106, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurvePeriodic', None, object, index)
 
-    def is_curve_planar(self, str_object, int_index):
+    def is_curve_planar(self, object, index):
         """
 
         Verifies an object is a planar curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1640,17 +1649,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsCurvePlanar', None, strObject, intIndex)
+        return self._ApplyTypes_(107, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurvePlanar', None, object, index)
 
-    def is_curve_rational(self, str_object, int_index):
+    def is_curve_rational(self, object, index):
         """
 
         Verifies an object is a rational NURBS curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1659,16 +1668,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsCurveRational', None, strObject, intIndex)
+        return self._ApplyTypes_(380, 1, (12, 0), ((12, 0), (12, 0)), u'IsCurveRational', None, object, index)
 
-    def is_ellipse(self, str_object):
+    def is_ellipse(self, object):
         """
 
         Verifies an object is an elliptical-shaped curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -1677,17 +1686,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsEllipse', None, strObject)
+        return self._ApplyTypes_(523, 1, (12, 0), ((12, 0)), u'IsEllipse', None, object)
 
-    def is_line(self, str_object, int_index):
+    def is_line(self, object, index):
         """
 
         Verifies an object is a line curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1696,18 +1705,18 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLine', None, strObject, intIndex)
+        return self._ApplyTypes_(108, 1, (12, 0), ((12, 0), (12, 0)), u'IsLine', None, object, index)
 
-    def is_point_on_curve(self, str_object, arr_point, arr_point):
+    def is_point_on_curve(self, object, point, point):
         """
 
         Verifies that a point is on a curve.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        arrPoint : Required, Array, The test, or sampling, point
-        arrPoint : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Point : Required, Array, arr
+        Point : Optional, Number, arr
 
         Returns
 
@@ -1716,17 +1725,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsPointOnCurve', None, strObject, arrPoint, arrPoint)
+        return self._ApplyTypes_(318, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'IsPointOnCurve', None, object, point, point)
 
-    def is_poly_curve(self, str_object, int_index):
+    def is_poly_curve(self, object, index):
         """
 
         Verifies an object is a polycurve object.  A polycurve is a curve that is represented by a sequence of contiguous curve segments.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1735,17 +1744,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsPolyCurve', None, strObject, intIndex)
+        return self._ApplyTypes_(368, 1, (12, 0), ((12, 0), (12, 0)), u'IsPolyCurve', None, object, index)
 
-    def is_polyline(self, str_object, int_index):
+    def is_polyline(self, object, index):
         """
 
         Verifies an object is a polyline curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1754,17 +1763,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsPolyline', None, strObject, intIndex)
+        return self._ApplyTypes_(110, 1, (12, 0), ((12, 0), (12, 0)), u'IsPolyline', None, object, index)
 
-    def join_curves(self, str_object, bln_delete):
+    def join_curves(self, object, delete):
         """
 
         Joins two or more curve object together to form one or more curves or polycurves.
 
         Parameters
 
-        strObject : Required, Array, An array of strings identifying the curve objects to join
-        blnDelete : Optional, Boolean, Delete input objects after joining
+        Object : Required, Array, str
+        Delete : Optional, Boolean, bln
 
         Returns
 
@@ -1773,16 +1782,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'JoinCurves', None, strObject, blnDelete)
+        return self._ApplyTypes_(111, 1, (12, 0), ((12, 0), (12, 0)), u'JoinCurves', None, object, delete)
 
-    def line_fit_from_points(self, str_object):
+    def line_fit_from_points(self, object):
         """
 
         Returns the starting and ending points of a line that was fit through an array of 3-D points.
 
         Parameters
 
-        strObject : Required, Array, An array of 3-D points
+        Object : Required, Array, str
 
         Returns
 
@@ -1791,17 +1800,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LineFitFromPoints', None, strObject)
+        return self._ApplyTypes_(726, 1, (12, 0), ((12, 0)), u'LineFitFromPoints', None, object)
 
-    def make_curve_non_periodic(self, str_object, bln_delete):
+    def make_curve_non_periodic(self, object, delete):
         """
 
         Makes a periodic curve non-periodic.  Non-periodic curves can develop kinks when deformed.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        blnDelete : Optional, Boolean, Delete input curve
+        Object : Required, String, str
+        Delete : Optional, Boolean, bln
 
         Returns
 
@@ -1811,17 +1820,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MakeCurveNonPeriodic', None, strObject, blnDelete)
+        return self._ApplyTypes_(925, 1, (12, 0), ((12, 0), (12, 0)), u'MakeCurveNonPeriodic', None, object, delete)
 
-    def make_curve_periodic(self, str_object, bln_delete):
+    def make_curve_periodic(self, object, delete):
         """
 
         Makes an existing curve a periodic NURBS curve.  A periodic NURBS curve is a closed curve with a simple knot at the seam.  If a joined curve is made periodic, it becomes a single-span curve and can no longer be exploded.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        blnDelete : Optional, Boolean, Delete input curve
+        Object : Required, String, str
+        Delete : Optional, Boolean, bln
 
         Returns
 
@@ -1831,16 +1840,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MakeCurvePeriodic', None, strObject, blnDelete)
+        return self._ApplyTypes_(444, 1, (12, 0), ((12, 0), (12, 0)), u'MakeCurvePeriodic', None, object, delete)
 
-    def mesh_polyline(self, str_polyline):
+    def mesh_polyline(self, polyline):
         """
 
         Creates a polygon mesh object based on a closed polyline curve object. The newly created polygon mesh object is added to the document.
 
         Parameters
 
-        strPolyline : Required, String, The identifier of the polyline curve object
+        Polyline : Required, String, str
 
         Returns
 
@@ -1849,8 +1858,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MeshPolyline', None, strPolyline)
+        return self._ApplyTypes_(546, 1, (12, 0), ((12, 0)), u'MeshPolyline', None, polyline)
 
+    def offset_curve(self, object, direction, normal, style):
         """
 
 
@@ -1861,6 +1871,7 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def offset_curve_on_surface(self, curve, surface):
         """
 
 
@@ -1871,6 +1882,7 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def planar_closed_curve_containment(self, curve1, curve2, plane, ay, ay, ay, ay, tolerance):
         """
 
 
@@ -1881,6 +1893,7 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def planar_curve_collision(self, curve1, curve2, plane, ay, ay, ay, ay, tolerance):
         """
 
 
@@ -1891,6 +1904,7 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def point_in_planar_closed_curve(self, point, curve, plane, ay, ay, ay, ay, tolerance):
         """
 
 
@@ -1901,15 +1915,15 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def poly_curve_count(self, str_object, int_index):
+    def poly_curve_count(self, object, index):
         """
 
         Returns the number of curve segments that make up a polycurve.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1918,17 +1932,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PolyCurveCount', None, strObject, intIndex)
+        return self._ApplyTypes_(369, 1, (12, 0), ((12, 0), (12, 0)), u'PolyCurveCount', None, object, index)
 
-    def polyline_vertices(self, str_object, int_index):
+    def polyline_vertices(self, object, index):
         """
 
         Returns the vertices of a polyline curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intIndex : Optional, Number, If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query
+        Object : Required, String, str
+        Index : Optional, Number, int
 
         Returns
 
@@ -1937,8 +1951,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PolylineVertices', None, strObject, intIndex)
+        return self._ApplyTypes_(112, 1, (12, 0), ((12, 0), (12, 0)), u'PolylineVertices', None, object, index)
 
+    def project_curve_to_mesh(self, curve, curves, mesh, meshes, direction):
         """
 
 
@@ -1949,6 +1964,7 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def project_curve_to_surface(self, curve, curves, surface, surfaces, direction):
         """
 
 
@@ -1959,16 +1975,16 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def rebuild_curve(self, str_object, int_degree, int_point_count):
+    def rebuild_curve(self, object, degree, point_count):
         """
 
         Rebuilds a curve to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        intDegree : Optional, Number, The new degree, which must be greater than 1
-        intPointCount : Optional, Number, The new point count, which must be bigger than the intDegree
+        Object : Required, String, str
+        Degree : Optional, Number, int
+        PointCount : Optional, Number, int
 
         Returns
 
@@ -1977,17 +1993,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RebuildCurve', None, strObject, intDegree, intPointCount)
+        return self._ApplyTypes_(814, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'RebuildCurve', None, object, degree, point_count)
 
-    def remove_curve_knot(self, str_object, dbl_parameter):
+    def remove_curve_knot(self, object, parameter):
         """
 
         Deletes a knot from a curve object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the curve object
-        dblParameter : Required, Number, The parameter on the curve
+        Object : Required, String, str
+        Parameter : Required, Number, dbl
 
         Returns
 
@@ -1996,16 +2012,16 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RemoveCurveKnot', None, strObject, dblParameter)
+        return self._ApplyTypes_(916, 1, (12, 0), ((12, 0), (12, 0)), u'RemoveCurveKnot', None, object, parameter)
 
-    def reverse_curve(self, str_object):
+    def reverse_curve(self, object):
         """
 
         Reverses the direction of a curve object. This feature can also be found in Rhino's Dir command.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
+        Object : Required, String, str
 
         Returns
 
@@ -2014,17 +2030,17 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ReverseCurve', None, strObject)
+        return self._ApplyTypes_(542, 1, (12, 0), ((12, 0)), u'ReverseCurve', None, object)
 
-    def simplify_curve(self, str_object, int_flags):
+    def simplify_curve(self, object, flags):
         """
 
         6.  Segments that meet with G1-continuity have there ends tuned up so that they meet with G1-continuity to within machine precision.
 
         Parameters
 
-        strObject : Required, String, The curve object's identifier
-        intFlags : Optional, Number, The simplification methods to use
+        Object : Required, String, str
+        Flags : Optional, Number, int
 
         Returns
 
@@ -2033,8 +2049,9 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SimplifyCurve', None, strObject, intFlags)
+        return self._ApplyTypes_(573, 1, (12, 0), ((12, 0), (12, 0)), u'SimplifyCurve', None, object, flags)
 
+    def split_curve(self, object, parameter, parameters, delete):
         """
 
 
@@ -2045,16 +2062,16 @@ class Curve(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def trim_curve(self, str_object, arr_interval, bln_delete):
+    def trim_curve(self, object, interval, delete):
         """
 
         Trims a curve by removing portions of the curve outside the specified interval.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        arrInterval : Required, Array, An array of two number identifying the interval to keep
-        blnDelete : Optional, Boolean, Delete the input curve
+        Object : Required, String, str
+        Interval : Required, Array, arr
+        Delete : Optional, Boolean, bln
 
         Returns
 
@@ -2063,5 +2080,5 @@ class Curve(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TrimCurve', None, strObject, arrInterval, blnDelete)
+        return self._ApplyTypes_(505, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'TrimCurve', None, object, interval, delete)
 

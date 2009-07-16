@@ -4,20 +4,21 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class UserInterface(DispatchBaseClass):
 
 
 
-    def browse_for_folder(self, str_folder, str_message, str_title):
+    def browse_for_folder(self, folder, message, title):
         """
 
         Displays the Windows browse-for-folder dialog box allowing the user to select a folder.
 
         Parameters
 
-        strFolder : Optional, String, A default folder
-        strMessage : Optional, String, A prompt or message
-        strTitle : Optional, String, A dialog box title
+        Folder : Optional, String, str
+        Message : Optional, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -26,19 +27,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'BrowseForFolder', None, strFolder, strMessage, strTitle)
+        return self._ApplyTypes_(146, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'BrowseForFolder', None, folder, message, title)
 
-    def check_list_box(self, arr_items, arr_values, str_message, str_title):
+    def check_list_box(self, items, values, message, title):
         """
 
         Displays a list of items in a checkable-style list box dialog.
 
         Parameters
 
-        arrItems : Required, Array, A zero-based, one-dimensional array of string items
-        arrValues : Required, Array, A zero-based, one-dimensional array of boolean values indicating the checked state of each item in the list
-        strMessage : Optional, String, A prompt or message
-        strTitle : Optional, String, A dialog box title
+        Items : Required, Array, arr
+        Values : Required, Array, arr
+        Message : Optional, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -47,18 +48,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CheckListBox', None, arrItems, arrValues, strMessage, strTitle)
+        return self._ApplyTypes_(52, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'CheckListBox', None, items, values, message, title)
 
-    def combo_list_box(self, arr_items, str_message, str_title):
+    def combo_list_box(self, items, message, title):
         """
 
         Displays a list of items in a combo-style list box dialog.
 
         Parameters
 
-        arrItems : Required, Array, A zero-based, one-dimensional array of string items
-        strMessage : Optional, String, A prompt or message
-        strTitle : Optional, String, A dialog box title
+        Items : Required, Array, arr
+        Message : Optional, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -67,18 +68,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ComboListBox', None, arrItems, strMessage, strTitle)
+        return self._ApplyTypes_(53, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ComboListBox', None, items, message, title)
 
-    def edit_box(self, str_string, str_message, str_title):
+    def edit_box(self, string, message, title):
         """
 
         Displays a dialog box prompting the user to enter a string value.  The string value may span multiple lines.
 
         Parameters
 
-        strString : Optional, String, A default string value
-        strMessage : Optional, String, A prompt or message
-        strTitle : Optional, String, A dialog box  title
+        String : Optional, String, str
+        Message : Optional, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -87,19 +88,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'EditBox', None, strString, strMessage, strTitle)
+        return self._ApplyTypes_(54, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'EditBox', None, string, message, title)
 
-    def get_angle(self, arr_point, arr_reference, dbl_angle, str_message):
+    def get_angle(self, point, reference, angle, message):
         """
 
         Pauses for user input of an angle.
 
         Parameters
 
-        arrPoint : Optional, Array, A zero-based, one-dimensional array containing three numbers identifying the starting, or base, point
-        arrReference : Optional, Array, A zero-based, one-dimensional array containing three numbers identifying a reference point
-        dblAngle : Optional, Number, A default angle value specified in degrees
-        strMessage : Optional, String, A prompt or message
+        Point : Optional, Array, arr
+        Reference : Optional, Array, arr
+        Angle : Optional, Number, dbl
+        Message : Optional, String, str
 
         Returns
 
@@ -108,18 +109,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetAngle', None, arrPoint, arrReference, dblAngle, strMessage)
+        return self._ApplyTypes_(277, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'GetAngle', None, point, reference, angle, message)
 
-    def get_boolean(self, str_message, arr_items, arr_defaults):
+    def get_boolean(self, message, items, defaults):
         """
 
         Pauses for user input of one or more boolean values. Boolean values are displayed as click-able command-line option toggles.
 
         Parameters
 
-        strMessage : Required, String, A prompt or message
-        arrItems : Required, Array, An array of strings that describe the boolean items that will appear as command-line option toggles
-        arrDefaults : Required, Array, A array of boolean values to be used as default, or starting values
+        Message : Required, String, str
+        Items : Required, Array, arr
+        Defaults : Required, Array, arr
 
         Returns
 
@@ -128,20 +129,20 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetBoolean', None, strMessage, arrItems, arrDefaults)
+        return self._ApplyTypes_(622, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetBoolean', None, message, items, defaults)
 
-    def get_box(self, int_mode, arr_point, str_prompt1, str_prompt2, str_prompt3):
+    def get_box(self, mode, point, prompt1, prompt2, prompt3):
         """
 
         Pauses for user input of a box.
 
         Parameters
 
-        intMode : Optional, Number, The box selection mode
-        arrPoint : Optional, Array, A 3-D base point
-        strPrompt1 : Optional, String, The first prompt or message
-        strPrompt2 : Optional, String, The second prompt or message
-        strPrompt3 : Optional, String, The third prompt or message
+        Mode : Optional, Number, int
+        Point : Optional, Array, arr
+        Prompt1 : Optional, String, str
+        Prompt2 : Optional, String, str
+        Prompt3 : Optional, String, str
 
         Returns
 
@@ -150,16 +151,16 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetBox', None, intMode, arrPoint, strPrompt1, strPrompt2, strPrompt3)
+        return self._ApplyTypes_(342, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'GetBox', None, mode, point, prompt1, prompt2, prompt3)
 
-    def get_color(self, lng_color):
+    def get_color(self, color):
         """
 
         Displays the Rhino color picker dialog box allowing the user to select an RGB color value.
 
         Parameters
 
-        lngColor : Optional, Number, A default RGB color value
+        Color : Optional, Number, lng
 
         Returns
 
@@ -168,19 +169,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetColor', None, lngColor)
+        return self._ApplyTypes_(65, 1, (12, 0), ((12, 0)), u'GetColor', None, color)
 
-    def get_distance(self, arr_point, dbl_distance, str_message1, str_message2):
+    def get_distance(self, point, distance, message1, message2):
         """
 
         Pauses for user input of a distance.
 
         Parameters
 
-        arrPoint : Optional, Array, A zero-based, one-dimensional array containing three numbers identifying the first distance point
-        dblDistance : Optional, Number, A default distance value
-        strMessage1 : Optional, String, A prompt or message for the first distance point
-        strMessage2 : Optional, String, A prompt or message for the second distance point
+        Point : Optional, Array, arr
+        Distance : Optional, Number, dbl
+        Message1 : Optional, String, str
+        Message2 : Optional, String, str
 
         Returns
 
@@ -189,19 +190,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetDistance', None, arrPoint, dblDistance, strMessage1, strMessage2)
+        return self._ApplyTypes_(66, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'GetDistance', None, point, distance, message1, message2)
 
-    def get_integer(self, str_message, int_number, int_min, int_max):
+    def get_integer(self, message, number, min, max):
         """
 
         Pauses for user input of a whole number.
 
         Parameters
 
-        strMessage : Optional, String, A prompt or message
-        intNumber : Optional, Number, A default whole number value
-        intMin : Optional, Number, A minimum allowable value
-        intMax : Optional, Number, A maximum allowable value
+        Message : Optional, String, str
+        Number : Optional, Number, int
+        Min : Optional, Number, int
+        Max : Optional, Number, int
 
         Returns
 
@@ -210,19 +211,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetInteger', None, strMessage, intNumber, intMin, intMax)
+        return self._ApplyTypes_(64, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'GetInteger', None, message, number, min, max)
 
-    def get_layer(self, str_title, str_layer, bln_show_new_layer, bln_show_set_current):
+    def get_layer(self, title, layer, show_new_layer, show_set_current):
         """
 
         Displays a dialog box prompting the user to select a layer.
 
         Parameters
 
-        strTitle : Optional, String, A dialog box title
-        strLayer : Optional, String, The name of a layer to pre-select
-        blnShowNewLayer : Optional, Boolean, Display the "New" layer button
-        blnShowSetCurrent : Optional, Boolean, Display the "Set layer current" check box
+        Title : Optional, String, str
+        Layer : Optional, String, str
+        ShowNewLayer : Optional, Boolean, bln
+        ShowSetCurrent : Optional, Boolean, bln
 
         Returns
 
@@ -231,16 +232,16 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetLayer', None, strTitle, strLayer, blnShowNewLayer, blnShowSetCurrent)
+        return self._ApplyTypes_(672, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'GetLayer', None, title, layer, show_new_layer, show_set_current)
 
-    def get_linetype(self, str_linetype):
+    def get_linetype(self, linetype):
         """
 
         Displays a dialog box prompting the user to select a linetype.
 
         Parameters
 
-        strLinetype : Optional, String, The name of the linetype to select
+        Linetype : Optional, String, str
 
         Returns
 
@@ -249,19 +250,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetLinetype', None, strLinetype)
+        return self._ApplyTypes_(673, 1, (12, 0), ((12, 0)), u'GetLinetype', None, linetype)
 
-    def get_point(self, str_message, arr_point, dbl_distance, bln_plane):
+    def get_point(self, message, point, distance, plane):
         """
 
         Pauses for user input of a point.
 
         Parameters
 
-        strMessage : Optional, String, A prompt or message
-        arrPoint : Optional, Array, A zero-based, one-dimensional array containing three numbers identifying a starting, or base, point
-        dblDistance : Optional, Number, A constraining distance
-        blnPlane : Optional, Boolean, Constrain the point selection to the active construction plane
+        Message : Optional, String, str
+        Point : Optional, Array, arr
+        Distance : Optional, Number, dbl
+        Plane : Optional, Boolean, bln
 
         Returns
 
@@ -270,17 +271,17 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPoint', None, strMessage, arrPoint, dblDistance, blnPlane)
+        return self._ApplyTypes_(61, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'GetPoint', None, message, point, distance, plane)
 
-    def get_point_on_curve(self, str_object, str_message):
+    def get_point_on_curve(self, object, message):
         """
 
         Pauses for user input of a point constrained to a curve object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strMessage : Optional, String, A prompt or message
+        Object : Required, String, str
+        Message : Optional, String, str
 
         Returns
 
@@ -289,19 +290,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnCurve', None, strObject, strMessage)
+        return self._ApplyTypes_(147, 1, (12, 0), ((12, 0), (12, 0)), u'GetPointOnCurve', None, object, message)
 
-    def get_point_on_line(self, str_message, arr_start, arr_end, bln_track):
+    def get_point_on_line(self, message, start, end, track):
         """
 
         Pauses for user input of a point constrained to an infinite line.
 
         Parameters
 
-        strMessage : Required, String, A prompt or message
-        arrStart : Required, Array, The starting point of the line
-        arrEnd : Required, Array, The ending point of the line
-        blnTrack : Optional, Boolean, Draw a tracking line from arrStart
+        Message : Required, String, str
+        Start : Required, Array, arr
+        End : Required, Array, arr
+        Track : Optional, Boolean, bln
 
         Returns
 
@@ -310,17 +311,17 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnLine', None, strMessage, arrStart, arrEnd, blnTrack)
+        return self._ApplyTypes_(798, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'GetPointOnLine', None, message, start, end, track)
 
-    def get_point_on_mesh(self, str_object, str_message):
+    def get_point_on_mesh(self, object, message):
         """
 
         Pauses for user input of a point constrained to a mesh object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strMessage : Optional, String, A prompt or message
+        Object : Required, String, str
+        Message : Optional, String, str
 
         Returns
 
@@ -329,18 +330,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnMesh', None, strObject, strMessage)
+        return self._ApplyTypes_(401, 1, (12, 0), ((12, 0), (12, 0)), u'GetPointOnMesh', None, object, message)
 
-    def get_point_on_plane(self, str_message, arr_plane, arr_point):
+    def get_point_on_plane(self, message, plane, point):
         """
 
         Pauses for user input of a point constrained to a plane.
 
         Parameters
 
-        strMessage : Optional, String, A prompt or message
-        arrPlane : Optional, Array, The plane to constrain the point to
-        arrPoint : Optional, Array, A 3-D point from with to draw a tracking line
+        Message : Optional, String, str
+        Plane : Optional, Array, arr
+        Point : Optional, Array, arr
 
         Returns
 
@@ -349,17 +350,17 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnPlane', None, strMessage, arrPlane, arrPoint)
+        return self._ApplyTypes_(797, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetPointOnPlane', None, message, plane, point)
 
-    def get_point_on_surface(self, str_object, str_message):
+    def get_point_on_surface(self, object, message):
         """
 
         Pauses for user input of a point constrained to a surface or polysurface object.
 
         Parameters
 
-        strObject : Required, String, The object's identifier
-        strMessage : Optional, String, A prompt or message
+        Object : Required, String, str
+        Message : Optional, String, str
 
         Returns
 
@@ -368,21 +369,21 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPointOnSurface', None, strObject, strMessage)
+        return self._ApplyTypes_(148, 1, (12, 0), ((12, 0), (12, 0)), u'GetPointOnSurface', None, object, message)
 
-    def get_points(self, bln_draw, bln_plane, str_message1, str_message2, int_max_points, arr_base_point):
+    def get_points(self, draw, plane, message1, message2, max_points, base_point):
         """
 
         Pauses for user input of one or more points.
 
         Parameters
 
-        blnDraw : Optional, Boolean, Draw lines between points
-        blnPlane : Optional, Boolean, Constrain the point selection to the active construction plane
-        strMessage1 : Optional, String, A prompt or message for the first point
-        strMessage2 : Optional, String, A prompt or message for the next points
-        intMaxPoints : Optional, Number, The maximum number of points to pick
-        arrBasePoint : Optional, Array, A starting, or base, point
+        Draw : Optional, Boolean, bln
+        Plane : Optional, Boolean, bln
+        Message1 : Optional, String, str
+        Message2 : Optional, String, str
+        MaxPoints : Optional, Number, int
+        BasePoint : Optional, Array, arr
 
         Returns
 
@@ -391,16 +392,16 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPoints', None, blnDraw, blnPlane, strMessage1, strMessage2, intMaxPoints, arrBasePoint)
+        return self._ApplyTypes_(67, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'GetPoints', None, draw, plane, message1, message2, max_points, base_point)
 
-    def get_print_width(self, dbl_print_width):
+    def get_print_width(self, print_width):
         """
 
         Displays a dialog box prompting the user to select a print width.
 
         Parameters
 
-        dblPrintWidth : Optional, Number, The print width to select
+        PrintWidth : Optional, Number, dbl
 
         Returns
 
@@ -409,19 +410,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetPrintWidth', None, dblPrintWidth)
+        return self._ApplyTypes_(674, 1, (12, 0), ((12, 0)), u'GetPrintWidth', None, print_width)
 
-    def get_real(self, str_message, dbl_number, dbl_min, dbl_max):
+    def get_real(self, message, number, min, max):
         """
 
         Pauses for user input of a number.
 
         Parameters
 
-        strMessage : Optional, String, A prompt or message
-        dblNumber : Optional, Number, A default number value
-        dblMin : Optional, Number, A minimum allowable value
-        dblMax : Optional, Number, A maximum allowable value
+        Message : Optional, String, str
+        Number : Optional, Number, dbl
+        Min : Optional, Number, dbl
+        Max : Optional, Number, dbl
 
         Returns
 
@@ -430,8 +431,9 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetReal', None, strMessage, dblNumber, dblMin, dblMax)
+        return self._ApplyTypes_(63, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'GetReal', None, message, number, min, max)
 
+    def get_rectangle(self, mode, point, prompt1, prompt2, prompt3):
         """
 
 
@@ -442,16 +444,16 @@ class UserInterface(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def get_string(self, str_message, str_string, arr_strings):
+    def get_string(self, message, string, strings):
         """
 
         Pauses for user input of string value.
 
         Parameters
 
-        strMessage : Optional, String, A prompt or message
-        strString : Optional, String, A default value
-        arrStrings : Optional, Array, A array of strings to be displayed as click-able command options
+        Message : Optional, String, str
+        String : Optional, String, str
+        Strings : Optional, Array, arr
 
         Returns
 
@@ -460,17 +462,17 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetString', None, strMessage, strString, arrStrings)
+        return self._ApplyTypes_(62, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetString', None, message, string, strings)
 
-    def get_surface_iso_param_point(self, str_object, str_message):
+    def get_surface_iso_param_point(self, object, message):
         """
 
         Pauses for user input of a point constrained to a surface object.
 
         Parameters
 
-        strObject : Required, String, The surface object's identifier
-        strMessage : Optional, String, A prompt or message
+        Object : Required, String, str
+        Message : Optional, String, str
 
         Returns
 
@@ -479,19 +481,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetSurfaceIsoParamPoint', None, strObject, strMessage)
+        return self._ApplyTypes_(775, 1, (12, 0), ((12, 0), (12, 0)), u'GetSurfaceIsoParamPoint', None, object, message)
 
-    def html_box(self, str_file_name, va_arguments, str_options, bln_modal):
+    def html_box(self, file_name, rguments, options, modal):
         """
 
         Displays a custom, modal HTML dialog page. A modal dialog box retains the input focus while open. The user cannot switch windows until the dialog box is closed.
 
         Parameters
 
-        strFileName : Required, String, The filename the HTML dialog page to display
-        vaArguments : Optional, Variant, An argument, or a zero-based, one-dimensional array of arguments, to pass to the HTML-dialog page
-        strOptions : Optional, String, The window ornaments for the dialog box, using one or more of the following semicolon-delimited values:
-        blnModal : Optional, Boolean, If omitted or True, a modal dialog will be displayed
+        FileName : Required, String, str
+        rguments : Optional, Variant, vaA
+        Options : Optional, String, str
+        Modal : Optional, Boolean, bln
 
         Returns
 
@@ -500,18 +502,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'HtmlBox', None, strFileName, vaArguments, strOptions, blnModal)
+        return self._ApplyTypes_(276, 1, (12, 0), ((12, 0), vaA, (12, 0), (12, 0)), u'HtmlBox', None, file_name, rguments, options, modal)
 
-    def integer_box(self, str_message, int_number, str_title):
+    def integer_box(self, message, number, title):
         """
 
         Displays a dialog box prompting the user to enter a whole number.
 
         Parameters
 
-        strMessage : Optional, String, A prompt or message
-        intNumber : Optional, Number, A default whole number
-        strTitle : Optional, String, A dialog box title
+        Message : Optional, String, str
+        Number : Optional, Number, int
+        Title : Optional, String, str
 
         Returns
 
@@ -520,18 +522,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IntegerBox', None, strMessage, intNumber, strTitle)
+        return self._ApplyTypes_(55, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'IntegerBox', None, message, number, title)
 
-    def list_box(self, arr_items, str_message, str_title):
+    def list_box(self, items, message, title):
         """
 
         Displays a list of items in a list box dialog.
 
         Parameters
 
-        arrItems : Required, Array, A zero-based, one-dimensional array of string items
-        strMessage : Optional, String, A prompt or message
-        strTitle : Optional, String, A dialog box title
+        Items : Required, Array, arr
+        Message : Optional, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -540,34 +542,34 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ListBox', None, arrItems, strMessage, strTitle)
+        return self._ApplyTypes_(56, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ListBox', None, items, message, title)
 
-    def message_beep(self, int_beep):
+    def message_beep(self, beep):
         """
 
         Plays a system waveform sound.
 
         Parameters
 
-        intBeep : Optional, Number, A sound type
+        Beep : Optional, Number, int
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MessageBeep', None, intBeep)
+        return self._ApplyTypes_(149, 1, (12, 0), ((12, 0)), u'MessageBeep', None, beep)
 
-    def message_box(self, str_message, int_buttons, str_title):
+    def message_box(self, message, buttons, title):
         """
 
         Displays a Windows message box. A message box contains an application-defined message and title, plus any combination of predefined icons and push buttons.
 
         Parameters
 
-        strMessage : Required, String, A prompt or message
-        intButtons : Optional, Number, The buttons and icon to display
-        strTitle : Optional, String, A dialog box title
+        Message : Required, String, str
+        Buttons : Optional, Number, int
+        Title : Optional, String, str
 
         Returns
 
@@ -575,18 +577,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MessageBox', None, strMessage, intButtons, strTitle)
+        return self._ApplyTypes_(150, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MessageBox', None, message, buttons, title)
 
-    def multi_list_box(self, arr_items, str_message, str_title):
+    def multi_list_box(self, items, message, title):
         """
 
         Displays a list of items in a multiple-selection list box dialog.
 
         Parameters
 
-        arrItems : Required, Array, A zero-based, one-dimensional array of string items
-        strMessage : Optional, String, A prompt or message
-        strTitle : Optional, String, A dialog box title
+        Items : Required, Array, arr
+        Message : Optional, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -595,20 +597,20 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MultiListBox', None, arrItems, strMessage, strTitle)
+        return self._ApplyTypes_(57, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'MultiListBox', None, items, message, title)
 
-    def open_file_name(self, str_title, str_filter, str_folder, str_filename, str_extension):
+    def open_file_name(self, title, filter, folder, filename, extension):
         """
 
         Displays a Windows file open dialog box allowing the user to select a file name. Note, this function does not open the file.
 
         Parameters
 
-        strTitle : Optional, String, A dialog box title
-        strFilter : Optional, String, A filter string
-        strFolder : Optional, String, A default folder
-        strFilename : Optional, String, A default file name
-        strExtension : Optional, String, A default file extension
+        Title : Optional, String, str
+        Filter : Optional, String, str
+        Folder : Optional, String, str
+        Filename : Optional, String, str
+        Extension : Optional, String, str
 
         Returns
 
@@ -617,20 +619,20 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'OpenFileName', None, strTitle, strFilter, strFolder, strFilename, strExtension)
+        return self._ApplyTypes_(151, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'OpenFileName', None, title, filter, folder, filename, extension)
 
-    def open_file_names(self, str_title, str_filter, str_folder, str_filename, str_extension):
+    def open_file_names(self, title, filter, folder, filename, extension):
         """
 
         Displays a Windows file open dialog box allowing the user to select one or more file names. Note, this function does not open files.
 
         Parameters
 
-        strTitle : Optional, String, A dialog box title
-        strFilter : Optional, String, A filter string
-        strFolder : Optional, String, A default folder
-        strFilename : Optional, String, A default file name
-        strExtension : Optional, String, A default file extension
+        Title : Optional, String, str
+        Filter : Optional, String, str
+        Folder : Optional, String, str
+        Filename : Optional, String, str
+        Extension : Optional, String, str
 
         Returns
 
@@ -639,19 +641,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'OpenFileNames', None, strTitle, strFilter, strFolder, strFilename, strExtension)
+        return self._ApplyTypes_(821, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'OpenFileNames', None, title, filter, folder, filename, extension)
 
-    def popup_menu(self, arrr_items, arr_modes, arr_point, str_view):
+    def popup_menu(self, r_items, modes, point, view):
         """
 
         Displays a user-defined, context-style popup menu. The popup menu can appear almost anywhere. And, it can be dismissed by either clicking the left or right mouse buttons.
 
         Parameters
 
-        arrrItems : Required, Array, An array of string representing the menu items
-        arrModes : Optional, Array, A array if numbers identifying the display mode of the corresponding menu items
-        arrPoint : Optional, Array, A 3-D point where the menu item is to appear
-        strView : Optional, String, If arrPoint is specified, the strView is the view in which the menu is to appear
+        rItems : Required, Array, arr
+        Modes : Optional, Array, arr
+        Point : Optional, Array, arr
+        View : Optional, String, str
 
         Returns
 
@@ -661,19 +663,19 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PopupMenu', None, arrrItems, arrModes, arrPoint, strView)
+        return self._ApplyTypes_(595, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'PopupMenu', None, r_items, modes, point, view)
 
-    def property_list_box(self, arr_items, arr_values, str_message, str_title):
+    def property_list_box(self, items, values, message, title):
         """
 
         Displays a list of items and their values in a property-style list box dialog.
 
         Parameters
 
-        arrItems : Required, Array, A zero-based, one-dimensional array of string items
-        arrValues : Required, Array, A zero-based, one-dimensional array of strings indicating the value of each item in the list
-        strMessage : Optional, String, A prompt or message
-        strTitle : Optional, String, A dialog box title
+        Items : Required, Array, arr
+        Values : Required, Array, arr
+        Message : Optional, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -682,18 +684,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PropertyListBox', None, arrItems, arrValues, strMessage, strTitle)
+        return self._ApplyTypes_(58, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'PropertyListBox', None, items, values, message, title)
 
-    def real_box(self, str_message, dbl_number, str_title):
+    def real_box(self, message, number, title):
         """
 
         Displays a dialog box prompting the user to enter a number.
 
         Parameters
 
-        strMessage : Optional, String, A prompt or message
-        dblNumber : Optional, Number, A default number
-        strTitle : Optional, String, A dialog box title
+        Message : Optional, String, str
+        Number : Optional, Number, dbl
+        Title : Optional, String, str
 
         Returns
 
@@ -702,20 +704,20 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RealBox', None, strMessage, dblNumber, strTitle)
+        return self._ApplyTypes_(59, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'RealBox', None, message, number, title)
 
-    def save_file_name(self, str_title, str_filter, str_folder, str_filename, str_extension):
+    def save_file_name(self, title, filter, folder, filename, extension):
         """
 
         Displays a Windows file save dialog box allowing the user to enter a file name. Note, this function does not save the file.
 
         Parameters
 
-        strTitle : Optional, String, A dialog box title
-        strFilter : Optional, String, A filter string
-        strFolder : Optional, String, A default folder
-        strFilename : Optional, String, A default file name
-        strExtension : Optional, String, A default file extension
+        Title : Optional, String, str
+        Filter : Optional, String, str
+        Folder : Optional, String, str
+        Filename : Optional, String, str
+        Extension : Optional, String, str
 
         Returns
 
@@ -724,18 +726,18 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SaveFileName', None, strTitle, strFilter, strFolder, strFilename, strExtension)
+        return self._ApplyTypes_(152, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'SaveFileName', None, title, filter, folder, filename, extension)
 
-    def string_box(self, str_message, str_string, str_title):
+    def string_box(self, message, string, title):
         """
 
         Displays a dialog box prompting the user to enter a string value.
 
         Parameters
 
-        strMessage : Optional, String, A prompt or message
-        strString : Optional, String, A default string value
-        strTitle : Optional, String, A dialog box title
+        Message : Optional, String, str
+        String : Optional, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -744,5 +746,5 @@ class UserInterface(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'StringBox', None, strMessage, strString, strTitle)
+        return self._ApplyTypes_(60, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'StringBox', None, message, string, title)
 

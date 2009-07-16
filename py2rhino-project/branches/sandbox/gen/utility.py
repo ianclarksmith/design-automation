@@ -4,18 +4,19 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class Utility(DispatchBaseClass):
 
 
 
-    def all_procedures(self, bln_all):
+    def all_procedures(self, all):
         """
 
         Returns the names of the  user-defined subroutines and functions resident in RhinoScript's VBScript engine.
 
         Parameters
 
-        blnAll : Optional, Boolean, If True (default) the names of all user-defined subroutines and functions are returned
+        All : Optional, Boolean, bln
 
         Returns
 
@@ -24,16 +25,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AllProcedures', None, blnAll)
+        return self._ApplyTypes_(503, 1, (12, 0), ((12, 0)), u'AllProcedures', None, all)
 
-    def clipboard_text(self, str_text):
+    def clipboard_text(self, text):
         """
 
         Returns or sets a text string to the Windows clipboard.
 
         Parameters
 
-        strText : Optional, String, A text string
+        Text : Optional, String, str
 
         Returns
 
@@ -43,18 +44,18 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ClipboardText', None, strText)
+        return self._ApplyTypes_(245, 1, (12, 0), ((12, 0)), u'ClipboardText', None, text)
 
-    def color_adjust_luma(self, lng_r_g_b, int_luma, b_scale):
+    def color_adjust_luma(self, r_g_b, luma, ale):
         """
 
         Changes the luminance of a red-green-blue (RGB) value. Hue and saturation are not affected.
 
         Parameters
 
-        lngRGB : Required, Number, The initial RGB color value
-        intLuma : Required, Number, The luminance in units of 0
-        bScale : Optional, Boolean, If bScale is set to True, intLuma specifies how much to increment or decrement the current luminance
+        RGB : Required, Number, lng
+        Luma : Required, Number, int
+        ale : Optional, Boolean, bSc
 
         Returns
 
@@ -63,16 +64,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ColorAdjustLuma', None, lngRGB, intLuma, bScale)
+        return self._ApplyTypes_(878, 1, (12, 0), ((12, 0), (12, 0), bSc), u'ColorAdjustLuma', None, r_g_b, luma, ale)
 
-    def color_blue_value(self, lng_r_g_b):
+    def color_blue_value(self, r_g_b):
         """
 
         Retrieves an intensity value for the blue component of a red-green-blue (RGB) value.
 
         Parameters
 
-        lngRGB : Required, Number, The RGB color value
+        RGB : Required, Number, lng
 
         Returns
 
@@ -81,16 +82,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ColorBlueValue', None, lngRGB)
+        return self._ApplyTypes_(882, 1, (12, 0), ((12, 0)), u'ColorBlueValue', None, r_g_b)
 
-    def color_green_value(self, lng_r_g_b):
+    def color_green_value(self, r_g_b):
         """
 
         Retrieves an intensity value for the green component of a red-green-blue (RGB) value.
 
         Parameters
 
-        lngRGB : Required, Number, The RGB color value
+        RGB : Required, Number, lng
 
         Returns
 
@@ -99,8 +100,9 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ColorGreenValue', None, lngRGB)
+        return self._ApplyTypes_(881, 1, (12, 0), ((12, 0)), u'ColorGreenValue', None, r_g_b)
 
+    def color_h_l_s_to_r_g_b(self, r_g_b):
         """
 
 
@@ -111,14 +113,14 @@ class Utility(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def color_r_g_b_to_h_l_s(self, lng_r_g_b):
+    def color_r_g_b_to_h_l_s(self, r_g_b):
         """
 
         Converts colors from red-green-blue (RGB) to hue-luminance-saturation (HLS) format.
 
         Parameters
 
-        lngRGB : Required, Number, The RGB color value
+        RGB : Required, Number, lng
 
         Returns
 
@@ -127,16 +129,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ColorRGBToHLS', None, lngRGB)
+        return self._ApplyTypes_(876, 1, (12, 0), ((12, 0)), u'ColorRGBToHLS', None, r_g_b)
 
-    def color_red_value(self, lng_r_g_b):
+    def color_red_value(self, r_g_b):
         """
 
         Retrieves an intensity value for the red component of a red-green-blue (RGB) value.
 
         Parameters
 
-        lngRGB : Required, Number, The RGB color value
+        RGB : Required, Number, lng
 
         Returns
 
@@ -145,17 +147,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ColorRedValue', None, lngRGB)
+        return self._ApplyTypes_(880, 1, (12, 0), ((12, 0)), u'ColorRedValue', None, r_g_b)
 
-    def cull_duplicate_numbers(self, arr_numbers, dbl_tolerance):
+    def cull_duplicate_numbers(self, numbers, tolerance):
         """
 
         Removes duplicates from an array of numbers.
 
         Parameters
 
-        arrNumbers : Required, Array, An array of numbers
-        dblTolerance : Optional, Number, The minimum distance between numbers
+        Numbers : Required, Array, arr
+        Tolerance : Optional, Number, dbl
 
         Returns
 
@@ -164,17 +166,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CullDuplicateNumbers', None, arrNumbers, dblTolerance)
+        return self._ApplyTypes_(550, 1, (12, 0), ((12, 0), (12, 0)), u'CullDuplicateNumbers', None, numbers, tolerance)
 
-    def cull_duplicate_points(self, arr_points, dbl_tolerance):
+    def cull_duplicate_points(self, points, tolerance):
         """
 
         Removes duplicates from an array of 3-D points.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D points
-        dblTolerance : Optional, Number, The minimum distance between points
+        Points : Required, Array, arr
+        Tolerance : Optional, Number, dbl
 
         Returns
 
@@ -183,17 +185,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CullDuplicatePoints', None, arrPoints, dblTolerance)
+        return self._ApplyTypes_(548, 1, (12, 0), ((12, 0), (12, 0)), u'CullDuplicatePoints', None, points, tolerance)
 
-    def cull_duplicate_strings(self, arr_strings, bln_case_sensitive):
+    def cull_duplicate_strings(self, strings, case_sensitive):
         """
 
         Removes duplicates from an array of strings.
 
         Parameters
 
-        arrStrings : Required, Array, An array of numbers
-        blnCaseSensitive : Optional, Boolean, Use case sensitivity when culling
+        Strings : Required, Array, arr
+        CaseSensitive : Optional, Boolean, bln
 
         Returns
 
@@ -202,16 +204,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CullDuplicateStrings', None, arrStrings, blnCaseSensitive)
+        return self._ApplyTypes_(549, 1, (12, 0), ((12, 0), (12, 0)), u'CullDuplicateStrings', None, strings, case_sensitive)
 
-    def current_printer(self, str_printer):
+    def current_printer(self, printer):
         """
 
         Returns or changes the current Windows printer.
 
         Parameters
 
-        strPrinter : Optional, String, The name of a Windows printer as returned by this method or by the PrinterNames method
+        Printer : Optional, String, str
 
         Returns
 
@@ -221,18 +223,18 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentPrinter', None, strPrinter)
+        return self._ApplyTypes_(358, 1, (12, 0), ((12, 0)), u'CurrentPrinter', None, printer)
 
-    def get_settings(self, str_filename, str_section, str_entry):
+    def get_settings(self, filename, section, entry):
         """
 
         ...
 
         Parameters
 
-        strFilename : Required, String, The name of the initialization file
-        strSection : Optional, String, The section containing the entry
-        strEntry : Optional, String, The entry whose associated string is to be returned
+        Filename : Required, String, str
+        Section : Optional, String, str
+        Entry : Optional, String, str
 
         Returns
 
@@ -243,16 +245,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'GetSettings', None, strFilename, strSection, strEntry)
+        return self._ApplyTypes_(246, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'GetSettings', None, filename, section, entry)
 
-    def is_procedure(self, str_sub_name):
+    def is_procedure(self, sub_name):
         """
 
         Verifies that a user-defined subroutine or function is resident in RhinoScript's VBScript engine.
 
         Parameters
 
-        strSubName : Required, String, The name of a user-defined subroutine of function
+        SubName : Required, String, str
 
         Returns
 
@@ -261,17 +263,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsProcedure', None, strSubName)
+        return self._ApplyTypes_(287, 1, (12, 0), ((12, 0)), u'IsProcedure', None, sub_name)
 
-    def join_arrays(self, arr1, arr2):
+    def join_arrays(self, 1, 2):
         """
 
         Joins two one-dimensional arrays in to a single one-dimensional array.
 
         Parameters
 
-        arr1 : Required, Array, The first one-dimensional array
-        arr2 : Required, Array, The second one-dimensional array
+        1 : Required, Array, arr
+        2 : Required, Array, arr
 
         Returns
 
@@ -280,8 +282,9 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'JoinArrays', None, arr1, arr2)
+        return self._ApplyTypes_(547, 1, (12, 0), ((12, 0), (12, 0)), u'JoinArrays', None, 1, 2)
 
+    def make_array(self, per_bound, riant):
         """
 
 
@@ -306,18 +309,18 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PrinterNames', None, )
+        return self._ApplyTypes_(356, 1, (12, 0), (), u'PrinterNames', None, )
 
-    def pt2_str(self, arr_point, n_precision, bln_space):
+    def pt2_str(self, point, ecision, space):
         """
 
         Converts a 3-D point value to a string.  Useful for display point values as output, or passing point values to Rhino commands.
 
         Parameters
 
-        arrPoint : Required, Array, A 3-D point
-        nPrecision : Optional, Number, The display precision of the point coordinates
-        blnSpace : Optional, Boolean, Append an additional trailing space after the point string
+        Point : Required, Array, arr
+        ecision : Optional, Number, nPr
+        Space : Optional, Boolean, bln
 
         Returns
 
@@ -326,19 +329,19 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'Pt2Str', None, arrPoint, nPrecision, blnSpace)
+        return self._ApplyTypes_(297, 1, (12, 0), ((12, 0), nPr, (12, 0)), u'Pt2Str', None, point, ecision, space)
 
-    def save_settings(self, str_filename, str_section, str_entry, str_string):
+    def save_settings(self, filename, section, entry, string):
         """
 
         ...
 
         Parameters
 
-        strFilename : Required, String, The name of the initialization file
-        strSection : Optional, String, The section to which strString will be copied
-        strEntry : Optional, String, The name of the entry to be associated with strString
-        strString : Optional, String, The string to be written to the file
+        Filename : Required, String, str
+        Section : Optional, String, str
+        Entry : Optional, String, str
+        String : Optional, String, str
 
         Returns
 
@@ -347,16 +350,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SaveSettings', None, strFilename, strSection, strEntry, strString)
+        return self._ApplyTypes_(247, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'SaveSettings', None, filename, section, entry, string)
 
-    def simplify_array(self, arr_points):
+    def simplify_array(self, points):
         """
 
         Flattens an array of 3-D points into a one-dimensional array of real number. For example, if you had an array containing three 3-D points, this method would return a one-dimensional array containing nine real numbers.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D points
+        Points : Required, Array, arr
 
         Returns
 
@@ -365,16 +368,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SimplifyArray', None, arrPoints)
+        return self._ApplyTypes_(597, 1, (12, 0), ((12, 0)), u'SimplifyArray', None, points)
 
-    def sleep(self, lng_milliseconds):
+    def sleep(self, milliseconds):
         """
 
         Suspends the execution of a running script for the specified interval.
 
         Parameters
 
-        lngMilliseconds : Required, Number, The duration in milliseconds
+        Milliseconds : Required, Number, lng
 
         Returns
 
@@ -382,18 +385,18 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'Sleep', None, lngMilliseconds)
+        return self._ApplyTypes_(248, 1, (12, 0), ((12, 0)), u'Sleep', None, milliseconds)
 
-    def sort(self, arr_strings, bln_ascending, bln_no_case):
+    def sort(self, strings, ascending, no_case):
         """
 
         Sorts an array of strings.
 
         Parameters
 
-        arrStrings : Required, Array, An array of string values
-        blnAscending : Optional, Boolean, The sorting mode, either ascending or descending
-        blnNoCase : Optional, Boolean, The case sensitivity mode
+        Strings : Required, Array, arr
+        Ascending : Optional, Boolean, bln
+        NoCase : Optional, Boolean, bln
 
         Returns
 
@@ -402,17 +405,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'Sort', None, arrStrings, blnAscending, blnNoCase)
+        return self._ApplyTypes_(249, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'Sort', None, strings, ascending, no_case)
 
-    def sort_numbers(self, arr_numbers, bln_ascending):
+    def sort_numbers(self, numbers, ascending):
         """
 
         Sorts an array of numbers.
 
         Parameters
 
-        arrNumbers : Required, Array, An array of numeric values
-        blnAscending : Optional, Boolean, The sorting mode, either ascending or descending
+        Numbers : Required, Array, arr
+        Ascending : Optional, Boolean, bln
 
         Returns
 
@@ -421,17 +424,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SortNumbers', None, arrNumbers, blnAscending)
+        return self._ApplyTypes_(552, 1, (12, 0), ((12, 0), (12, 0)), u'SortNumbers', None, numbers, ascending)
 
-    def sort_point_list(self, arr_points, dbl_tolerance):
+    def sort_point_list(self, points, tolerance):
         """
 
         Sorts an array of 3-D points so they will be connected in "reasonable" polyline order.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D points
-        dblTolerance : Optional, Number, The minimum distance between points
+        Points : Required, Array, arr
+        Tolerance : Optional, Number, dbl
 
         Returns
 
@@ -440,18 +443,18 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SortPointList', None, arrPoints, dblTolerance)
+        return self._ApplyTypes_(644, 1, (12, 0), ((12, 0), (12, 0)), u'SortPointList', None, points, tolerance)
 
-    def sort_points(self, arr_points, bln_ascending, bln_order):
+    def sort_points(self, points, ascending, order):
         """
 
         Sorts an array of 3-D points.
 
         Parameters
 
-        arrPoints : Required, Array, An array of 3-D points
-        blnAscending : Optional, Boolean, The sorting mode, either ascending or descending
-        blnOrder : Optional, Number, The component sort order, where:
+        Points : Required, Array, arr
+        Ascending : Optional, Boolean, bln
+        Order : Optional, Number, bln
 
         Returns
 
@@ -460,17 +463,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SortPoints', None, arrPoints, blnAscending, blnOrder)
+        return self._ApplyTypes_(551, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'SortPoints', None, points, ascending, order)
 
-    def spool_to_printer(self, str_file, str_printer):
+    def spool_to_printer(self, file, printer):
         """
 
         Spools, or sends, a text file or a print/plot file to a Windows printer.
 
         Parameters
 
-        strFile : Required, String, The full path to the file to spool
-        strPrinter : Required, String, The name of a Windows printer as returned by either the CurrentPrinter or by the PrinterNames method
+        File : Required, String, str
+        Printer : Required, String, str
 
         Returns
 
@@ -479,16 +482,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SpoolToPrinter', None, strFile, strPrinter)
+        return self._ApplyTypes_(357, 1, (12, 0), ((12, 0), (12, 0)), u'SpoolToPrinter', None, file, printer)
 
-    def str2_pt(self, arr_point):
+    def str2_pt(self, point):
         """
 
         Converts a formatted string value into a 3-D point value.
 
         Parameters
 
-        arrPoint : Required, String, A string that contains a delimited point like "1,2,3"
+        Point : Required, String, arr
 
         Returns
 
@@ -497,16 +500,16 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'Str2Pt', None, arrPoint)
+        return self._ApplyTypes_(409, 1, (12, 0), ((12, 0)), u'Str2Pt', None, point)
 
-    def str2_pt_array(self, str_points):
+    def str2_pt_array(self, points):
         """
 
         Converts a formatted string value into an array of 3-D point value.
 
         Parameters
 
-        strPoints : Required, String, A string that contains an unknown number of space delimited points like "1,2,3 4,5,6 7,8,9"
+        Points : Required, String, str
 
         Returns
 
@@ -515,17 +518,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'Str2PtArray', None, strPoints)
+        return self._ApplyTypes_(410, 1, (12, 0), ((12, 0)), u'Str2PtArray', None, points)
 
-    def strtok(self, str_text, str_delimiters):
+    def strtok(self, text, delimiters):
         """
 
         Returns the tokens in a string.  Use this method as an alternative to the VBScript's Split function.
 
         Parameters
 
-        strText : Required, String, A string containing token(s)
-        strDelimiters : Optional, String, A set of delimiter characters
+        Text : Required, String, str
+        Delimiters : Optional, String, str
 
         Returns
 
@@ -534,17 +537,17 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'Strtok', None, strText, strDelimiters)
+        return self._ApplyTypes_(250, 1, (12, 0), ((12, 0), (12, 0)), u'Strtok', None, text, delimiters)
 
-    def text_out(self, str_text, str_title):
+    def text_out(self, text, title):
         """
 
         Displays a text output window.
 
         Parameters
 
-        strText : Required, String, A text string to display
-        strTitle : Optional, String, A dialog box title
+        Text : Required, String, str
+        Title : Optional, String, str
 
         Returns
 
@@ -552,7 +555,7 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'TextOut', None, strText, strTitle)
+        return self._ApplyTypes_(755, 1, (12, 0), ((12, 0), (12, 0)), u'TextOut', None, text, title)
 
     def version(self):
         """
@@ -567,5 +570,5 @@ class Utility(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'Version', None, )
+        return self._ApplyTypes_(288, 1, (12, 0), (), u'Version', None, )
 

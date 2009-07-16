@@ -4,20 +4,21 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class Object(DispatchBaseClass):
 
 
 
-    def add_object_mesh(self, str_object, int_quality, bln_enable):
+    def add_object_mesh(self, object, quality, enable):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        strObject : Required, Object, The identifier of a meshable object
-        intQuality : Optional, Number, The initial settings of the new custom render mesh parameters
-        blnEnable : Optional, Boolean, Enable the custom render mesh parameters
+        Object : Required, Object, str
+        Quality : Optional, Number, int
+        Enable : Optional, Boolean, bln
 
         Returns
 
@@ -27,8 +28,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddObjectMesh', None, strObject, intQuality, blnEnable)
+        return self._ApplyTypes_(866, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'AddObjectMesh', None, object, quality, enable)
 
+    def box_morph_object(self, object, objects, box_points, copy):
         """
 
 
@@ -39,6 +41,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def copy_object(self, object, start, end, translation):
         """
 
 
@@ -49,6 +52,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def copy_objects(self, objects, start, end, translation):
         """
 
 
@@ -59,14 +63,14 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def delete_object(self, str_object):
+    def delete_object(self, object):
         """
 
         Deletes a single object from the document.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to delete
+        Object : Required, String, str
 
         Returns
 
@@ -75,16 +79,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteObject', None, strObject)
+        return self._ApplyTypes_(185, 1, (12, 0), ((12, 0)), u'DeleteObject', None, object)
 
-    def delete_objects(self, arr_objects):
+    def delete_objects(self, objects):
         """
 
         Deletes one or more objects from the document.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to delete
+        Objects : Required, Array, arr
 
         Returns
 
@@ -93,17 +97,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteObjects', None, arrObjects)
+        return self._ApplyTypes_(186, 1, (12, 0), ((12, 0)), u'DeleteObjects', None, objects)
 
-    def enable_object_mesh(self, arr_objects, bln_enable):
+    def enable_object_mesh(self, objects, enable):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        arrObjects : Required, Object, The identifier of a meshable object
-        blnEnable : Optional, Boolean, Enable the custom render mesh settings
+        Objects : Required, Object, arr
+        Enable : Optional, Boolean, bln
 
         Returns
 
@@ -113,8 +117,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'EnableObjectMesh', None, arrObjects, blnEnable)
+        return self._ApplyTypes_(856, 1, (12, 0), ((12, 0), (12, 0)), u'EnableObjectMesh', None, objects, enable)
 
+    def flash_object(self, object, objects, style):
         """
 
 
@@ -125,14 +130,14 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def hide_object(self, str_object):
+    def hide_object(self, object):
         """
 
         Hides a single object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to hide
+        Object : Required, String, str
 
         Returns
 
@@ -141,16 +146,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'HideObject', None, strObject)
+        return self._ApplyTypes_(187, 1, (12, 0), ((12, 0)), u'HideObject', None, object)
 
-    def hide_objects(self, arr_objects):
+    def hide_objects(self, objects):
         """
 
         Hides one or more objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to hide
+        Objects : Required, Array, arr
 
         Returns
 
@@ -159,16 +164,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'HideObjects', None, arrObjects)
+        return self._ApplyTypes_(303, 1, (12, 0), ((12, 0)), u'HideObjects', None, objects)
 
-    def is_layout_object(self, str_object):
+    def is_layout_object(self, object):
         """
 
         Verifies that an object is in either page layout space or model space.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -176,32 +181,32 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayoutObject', None, strObject)
+        return self._ApplyTypes_(919, 1, (12, 0), ((12, 0)), u'IsLayoutObject', None, object)
 
-    def is_object(self, str_object):
+    def is_object(self, object):
         """
 
         Verifies the existence of an object.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         No returns
 
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObject', None, strObject)
+        return self._ApplyTypes_(46, 1, (12, 0), ((12, 0)), u'IsObject', None, object)
 
-    def is_object_hidden(self, str_object):
+    def is_object_hidden(self, object):
         """
 
         Verifies that an object is hidden.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -209,18 +214,18 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectHidden', None, strObject)
+        return self._ApplyTypes_(47, 1, (12, 0), ((12, 0)), u'IsObjectHidden', None, object)
 
-    def is_object_in_box(self, str_object, arr_box, bln_mode):
+    def is_object_in_box(self, object, box, mode):
         """
 
         Verifies an object's bounding box is inside of another bounding box.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
-        arrBox : Required, Array, The bounding box to test against
-        blnMode : Optional, Boolean, The test mode
+        Object : Required, String, str
+        Box : Required, Array, arr
+        Mode : Optional, Boolean, bln
 
         Returns
 
@@ -228,17 +233,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectInBox', None, strObject, arrBox, blnMode)
+        return self._ApplyTypes_(799, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'IsObjectInBox', None, object, box, mode)
 
-    def is_object_in_group(self, str_object, str_group):
+    def is_object_in_group(self, object, group):
         """
 
         Verifies that an object is a member of a specified group.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
-        strGroup : Optional, String, The name of a group
+        Object : Required, String, str
+        Group : Optional, String, str
 
         Returns
 
@@ -246,16 +251,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectInGroup', None, strObject, strGroup)
+        return self._ApplyTypes_(188, 1, (12, 0), ((12, 0), (12, 0)), u'IsObjectInGroup', None, object, group)
 
-    def is_object_locked(self, str_object):
+    def is_object_locked(self, object):
         """
 
         Verifies that an object is locked.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -263,16 +268,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectLocked', None, strObject)
+        return self._ApplyTypes_(48, 1, (12, 0), ((12, 0)), u'IsObjectLocked', None, object)
 
-    def is_object_normal(self, str_object):
+    def is_object_normal(self, object):
         """
 
         Verifies that an object is normal.  Normal objects are visible, can be snapped to, and can be selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -280,16 +285,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectNormal', None, strObject)
+        return self._ApplyTypes_(49, 1, (12, 0), ((12, 0)), u'IsObjectNormal', None, object)
 
-    def is_object_reference(self, str_object):
+    def is_object_reference(self, object):
         """
 
         Verifies that an object is a reference object.  Reference objects are object that are not part of the current document.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -297,16 +302,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectReference', None, strObject)
+        return self._ApplyTypes_(271, 1, (12, 0), ((12, 0)), u'IsObjectReference', None, object)
 
-    def is_object_selectable(self, str_object):
+    def is_object_selectable(self, object):
         """
 
         Verifies that an object is selectable.  Objects that are locked, hidden, or on locked or hidden layers cannot be selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -314,16 +319,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectSelectable', None, strObject)
+        return self._ApplyTypes_(307, 1, (12, 0), ((12, 0)), u'IsObjectSelectable', None, object)
 
-    def is_object_selected(self, str_object):
+    def is_object_selected(self, object):
         """
 
         Verifies that an object is currently selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -331,16 +336,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectSelected', None, strObject)
+        return self._ApplyTypes_(50, 1, (12, 0), ((12, 0)), u'IsObjectSelected', None, object)
 
-    def is_object_solid(self, str_object):
+    def is_object_solid(self, object):
         """
 
         Verifies that an object is a closed, solid object.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -348,16 +353,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectSolid', None, strObject)
+        return self._ApplyTypes_(189, 1, (12, 0), ((12, 0)), u'IsObjectSolid', None, object)
 
-    def is_object_valid(self, str_object):
+    def is_object_valid(self, object):
         """
 
         Verifies that an object's geometry is valid and without error.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
+        Object : Required, String, str
 
         Returns
 
@@ -365,17 +370,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsObjectValid', None, strObject)
+        return self._ApplyTypes_(522, 1, (12, 0), ((12, 0)), u'IsObjectValid', None, object)
 
-    def is_visible_in_view(self, str_object, str_view):
+    def is_visible_in_view(self, object, view):
         """
 
         Verifies that an object is visible in a view.
 
         Parameters
 
-        strObject : Required, String, The identifier of an object
-        strView : Optional, String, The title of the view
+        Object : Required, String, str
+        View : Optional, String, str
 
         Returns
 
@@ -383,16 +388,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsVisibleInView', None, strObject, strView)
+        return self._ApplyTypes_(727, 1, (12, 0), ((12, 0), (12, 0)), u'IsVisibleInView', None, object, view)
 
-    def lock_object(self, str_object):
+    def lock_object(self, object):
         """
 
         Locks a single object.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to lock
+        Object : Required, String, str
 
         Returns
 
@@ -401,16 +406,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LockObject', None, strObject)
+        return self._ApplyTypes_(190, 1, (12, 0), ((12, 0)), u'LockObject', None, object)
 
-    def lock_objects(self, arr_objects):
+    def lock_objects(self, objects):
         """
 
         Locks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to lock
+        Objects : Required, Array, arr
 
         Returns
 
@@ -419,8 +424,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LockObjects', None, arrObjects)
+        return self._ApplyTypes_(304, 1, (12, 0), ((12, 0)), u'LockObjects', None, objects)
 
+    def match_object_attributes(self, target, targets, source):
         """
 
 
@@ -431,17 +437,17 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def mirror_object(self, str_object, arr_start_pt, arr_end_pt, bln_copy):
+    def mirror_object(self, object, start_pt, end_pt, copy):
         """
 
         Mirrors a single object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to mirror
-        arrStartPt : Required, Array, The start of the mirror plane
-        arrEndPt : Required, Array, The end of the mirror plane
-        blnCopy : Optional, Boolean, Copy the object
+        Object : Required, String, str
+        StartPt : Required, Array, arr
+        EndPt : Required, Array, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -450,19 +456,19 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MirrorObject', None, strObject, arrStartPt, arrEndPt, blnCopy)
+        return self._ApplyTypes_(589, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'MirrorObject', None, object, start_pt, end_pt, copy)
 
-    def mirror_objects(self, arr_objects, arr_start_pt, arr_end_pt, bln_copy):
+    def mirror_objects(self, objects, start_pt, end_pt, copy):
         """
 
         Mirrors one or more objects.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to mirror
-        arrStartPt : Required, Array, The start of the mirror plane
-        arrEndPt : Required, Array, The end of the mirror plane
-        blnCopy : Optional, Boolean, Copy the objects
+        Objects : Required, Array, arr
+        StartPt : Required, Array, arr
+        EndPt : Required, Array, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -471,8 +477,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MirrorObjects', None, arrObjects, arrStartPt, arrEndPt, blnCopy)
+        return self._ApplyTypes_(590, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'MirrorObjects', None, objects, start_pt, end_pt, copy)
 
+    def move_object(self, object, start, end, translation):
         """
 
 
@@ -483,6 +490,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def move_objects(self, objects, start, end, translation):
         """
 
 
@@ -493,6 +501,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def object_color(self, object, objects, color):
         """
 
 
@@ -503,6 +512,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def object_color_source(self, object, objects, source):
         """
 
 
@@ -513,14 +523,14 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def object_description(self, str_object):
+    def object_description(self, object):
         """
 
         Returns a short text description of an object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
+        Object : Required, String, str
 
         Returns
 
@@ -529,17 +539,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectDescription', None, strObject)
+        return self._ApplyTypes_(470, 1, (12, 0), ((12, 0)), u'ObjectDescription', None, object)
 
-    def object_dump(self, str_object, int_type):
+    def object_dump(self, object, type):
         """
 
         Returns a detailed description of an object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        intType : Optional, The type of dump, The acceptable values are as follows:
+        Object : Required, String, str
+        Type : Optional, The type of dump, int
 
         Returns
 
@@ -548,16 +558,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectDump', None, strObject, intType)
+        return self._ApplyTypes_(705, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectDump', None, object, type)
 
-    def object_groups(self, str_object):
+    def object_groups(self, object):
         """
 
         Returns all of the group names that an object is assigned.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
+        Object : Required, String, str
 
         Returns
 
@@ -566,16 +576,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectGroups', None, strObject)
+        return self._ApplyTypes_(193, 1, (12, 0), ((12, 0)), u'ObjectGroups', None, object)
 
-    def object_has_mesh(self, str_object):
+    def object_has_mesh(self, object):
         """
 
         Verifies that an object has custom render mesh parameters.
 
         Parameters
 
-        strObject : Required, Object, The identifier of a meshable object
+        Object : Required, Object, str
 
         Returns
 
@@ -584,8 +594,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectHasMesh', None, strObject)
+        return self._ApplyTypes_(867, 1, (12, 0), ((12, 0)), u'ObjectHasMesh', None, object)
 
+    def object_layer(self, object, objects, layer):
         """
 
 
@@ -596,16 +607,16 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def object_layout(self, str_object, str_layout, bln_return_name):
+    def object_layout(self, object, layout, return_name):
         """
 
         Returns or changes the layout or model space of an object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
-        strLayout : Optional, String, To change, or move, an object from model space to page layout space, or from one page layout to another, then specify the title or identifier of an existing page layout view
-        blnReturnName : Optional, Boolean, If True (default), then the name, or title, of the page layout view is returned
+        Object : Required, String, str
+        Layout : Optional, String, str
+        ReturnName : Optional, Boolean, bln
 
         Returns
 
@@ -615,8 +626,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectLayout', None, strObject, strLayout, blnReturnName)
+        return self._ApplyTypes_(924, 1, (12, 0), ((12, 0), (12, 0), (12, 0)), u'ObjectLayout', None, object, layout, return_name)
 
+    def object_linetype(self, object, objects, layer):
         """
 
 
@@ -627,6 +639,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def object_linetype_source(self, object, objects, source):
         """
 
 
@@ -637,14 +650,14 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def object_material_index(self, str_object):
+    def object_material_index(self, object):
         """
 
         If the return value of ObjectMaterialSource is "material by object", then the return value of this function is the index of the object's rendering material.  A material index of -1 indicates no material has been assigned, and that Rhino's internal default material has been assigned to the object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
+        Object : Required, String, str
 
         Returns
 
@@ -653,8 +666,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMaterialIndex', None, strObject)
+        return self._ApplyTypes_(194, 1, (12, 0), ((12, 0)), u'ObjectMaterialIndex', None, object)
 
+    def object_material_source(self, object, objects, source):
         """
 
 
@@ -665,15 +679,15 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def object_mesh_density(self, str_object, dbl_density):
+    def object_mesh_density(self, object, density):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        dblDensity : Optional, Number, The render mesh density, which is a number between 0
+        Object : Required, Object, str
+        Density : Optional, Number, dbl
 
         Returns
 
@@ -683,17 +697,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshDensity', None, strObject, dblDensity)
+        return self._ApplyTypes_(858, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshDensity', None, object, density)
 
-    def object_mesh_max_angle(self, str_object, dbl_angle):
+    def object_mesh_max_angle(self, object, angle):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        dblAngle : Optional, Number, The render mesh maximum angle in degrees
+        Object : Required, Object, str
+        Angle : Optional, Number, dbl
 
         Returns
 
@@ -703,17 +717,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMaxAngle', None, strObject, dblAngle)
+        return self._ApplyTypes_(859, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMaxAngle', None, object, angle)
 
-    def object_mesh_max_aspect_ratio(self, str_object, dbl_ratio):
+    def object_mesh_max_aspect_ratio(self, object, ratio):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        dblRatio : Optional, Number, The render mesh maximum aspect ratio
+        Object : Required, Object, str
+        Ratio : Optional, Number, dbl
 
         Returns
 
@@ -723,17 +737,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMaxAspectRatio', None, strObject, dblRatio)
+        return self._ApplyTypes_(860, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMaxAspectRatio', None, object, ratio)
 
-    def object_mesh_max_dist_edge_to_srf(self, str_object, dbl_distance):
+    def object_mesh_max_dist_edge_to_srf(self, object, distance):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        dblDistance : Optional, Number, The render mesh maximum distance, edge to surface
+        Object : Required, Object, str
+        Distance : Optional, Number, dbl
 
         Returns
 
@@ -743,17 +757,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMaxDistEdgeToSrf', None, strObject, dblDistance)
+        return self._ApplyTypes_(863, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMaxDistEdgeToSrf', None, object, distance)
 
-    def object_mesh_max_edge_length(self, str_object, dbl_length):
+    def object_mesh_max_edge_length(self, object, length):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        dblLength : Optional, Number, The render mesh maximum edge length
+        Object : Required, Object, str
+        Length : Optional, Number, dbl
 
         Returns
 
@@ -763,17 +777,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMaxEdgeLength', None, strObject, dblLength)
+        return self._ApplyTypes_(862, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMaxEdgeLength', None, object, length)
 
-    def object_mesh_min_edge_length(self, str_object, dbl_length):
+    def object_mesh_min_edge_length(self, object, length):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        dblLength : Optional, Number, The render mesh minimum edge length
+        Object : Required, Object, str
+        Length : Optional, Number, dbl
 
         Returns
 
@@ -783,17 +797,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMinEdgeLength', None, strObject, dblLength)
+        return self._ApplyTypes_(861, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMinEdgeLength', None, object, length)
 
-    def object_mesh_min_initial_grid_quads(self, str_object, int_quads):
+    def object_mesh_min_initial_grid_quads(self, object, quads):
         """
 
         For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        intQuads : Optional, Number, The render mesh minimum initial grid quads
+        Object : Required, Object, str
+        Quads : Optional, Number, int
 
         Returns
 
@@ -803,17 +817,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshMinInitialGridQuads', None, strObject, intQuads)
+        return self._ApplyTypes_(864, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshMinInitialGridQuads', None, object, quads)
 
-    def object_mesh_quality(self, str_object, int_quality):
+    def object_mesh_quality(self, object, quality):
         """
 
         Returns or sets the render mesh quality of an object's custom render mesh parameters.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        intQuality : Optional, Number, The render mesh quality, either:
+        Object : Required, Object, str
+        Quality : Optional, Number, int
 
         Returns
 
@@ -823,17 +837,17 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshQuality', None, strObject, intQuality)
+        return self._ApplyTypes_(857, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshQuality', None, object, quality)
 
-    def object_mesh_settings(self, str_object, int_settings):
+    def object_mesh_settings(self, object, settings):
         """
 
         Returns or sets the render mesh settings of an object's custom render mesh parameters.
 
         Parameters
 
-        strObject : Required, Object, The identifier of an object that has custom render mesh parameters
-        intSettings : Optional, Number, The render mesh settings, which is a bit-coded number that allows or disallows certain features
+        Object : Required, Object, str
+        Settings : Optional, Number, int
 
         Returns
 
@@ -843,8 +857,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectMeshSettings', None, strObject, intSettings)
+        return self._ApplyTypes_(865, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectMeshSettings', None, object, settings)
 
+    def object_name(self, object, objects, name):
         """
 
 
@@ -855,15 +870,15 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def object_names(self, arr_objects, arr_names):
+    def object_names(self, objects, names):
         """
 
         Returns or modifies the user-definable name of one or more objects.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects
-        arrNames : Optional, Array, An array of strings identifying the new user-definable names
+        Objects : Required, Array, arr
+        Names : Optional, Array, arr
 
         Returns
 
@@ -873,8 +888,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectNames', None, arrObjects, arrNames)
+        return self._ApplyTypes_(639, 1, (12, 0), ((12, 0), (12, 0)), u'ObjectNames', None, objects, names)
 
+    def object_print_color(self, object, objects, color):
         """
 
 
@@ -885,6 +901,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def object_print_color_source(self, object, objects, source):
         """
 
 
@@ -895,6 +912,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def object_print_width(self, object, objects, width):
         """
 
 
@@ -905,6 +923,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def object_print_width_source(self, object, objects, source):
         """
 
 
@@ -915,14 +934,14 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def object_top_group(self, str_object):
+    def object_top_group(self, object):
         """
 
         Returns the top most group name that an object is assigned.  This function primarily applies to objects that are members of nested groups.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
+        Object : Required, String, str
 
         Returns
 
@@ -931,16 +950,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectTopGroup', None, strObject)
+        return self._ApplyTypes_(197, 1, (12, 0), ((12, 0)), u'ObjectTopGroup', None, object)
 
-    def object_type(self, str_object):
+    def object_type(self, object):
         """
 
         Returns the object type.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object
+        Object : Required, String, str
 
         Returns
 
@@ -949,8 +968,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ObjectType', None, strObject)
+        return self._ApplyTypes_(198, 1, (12, 0), ((12, 0)), u'ObjectType', None, object)
 
+    def object_u_r_l(self, object, objects, u_r_l):
         """
 
 
@@ -961,17 +981,17 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def orient_object(self, str_object, arr_reference, arr_target, int_flags):
+    def orient_object(self, object, reference, target, flags):
         """
 
         Orients a single object based on input points.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to orient
-        arrReference : Required, Array, An array of 3-D reference points
-        arrTarget : Required, Array, An array of 3-D target points
-        intFlags : Optional, Number, The orient flags
+        Object : Required, String, str
+        Reference : Required, Array, arr
+        Target : Required, Array, arr
+        Flags : Optional, Number, int
 
         Returns
 
@@ -980,19 +1000,19 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'OrientObject', None, strObject, arrReference, arrTarget, intFlags)
+        return self._ApplyTypes_(390, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'OrientObject', None, object, reference, target, flags)
 
-    def orient_objects(self, arr_objects, arr_reference, arr_target, int_flags):
+    def orient_objects(self, objects, reference, target, flags):
         """
 
         Orients one or more objects based on input points.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to orient
-        arrReference : Required, Array, An array of 3-D reference points
-        arrTarget : Required, Array, An array of 3-D target points
-        intFlags : Optional, Number, The orient flags
+        Objects : Required, Array, arr
+        Reference : Required, Array, arr
+        Target : Required, Array, arr
+        Flags : Optional, Number, int
 
         Returns
 
@@ -1001,19 +1021,19 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'OrientObjects', None, arrObjects, arrReference, arrTarget, intFlags)
+        return self._ApplyTypes_(391, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'OrientObjects', None, objects, reference, target, flags)
 
-    def remap_object(self, str_object, arr_src_plane, arr_dst_plane, bln_copy):
+    def remap_object(self, object, src_plane, dst_plane, copy):
         """
 
         Remqps a single object from one plane, or coordinate system, to another.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to remap
-        arrSrcPlane : Required, Array, The source plane to transform from
-        arrDstPlane : Required, Array, The destination plane to transform to
-        blnCopy : Optional, Boolean, Copy the object
+        Object : Required, String, str
+        SrcPlane : Required, Array, arr
+        DstPlane : Required, Array, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -1022,19 +1042,19 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RemapObject', None, strObject, arrSrcPlane, arrDstPlane, blnCopy)
+        return self._ApplyTypes_(655, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'RemapObject', None, object, src_plane, dst_plane, copy)
 
-    def remap_objects(self, arr_object, arr_src_plane, arr_dst_plane, bln_copy):
+    def remap_objects(self, object, src_plane, dst_plane, copy):
         """
 
         Remqps one or more objects from one plane, or coordinate system, to another.
 
         Parameters
 
-        arrObject : Required, Array, The identifiers of the objects to remap
-        arrSrcPlane : Required, Array, The source plane to transform from
-        arrDstPlane : Required, Array, The destination plane to transform to
-        blnCopy : Optional, Boolean, Copy the object
+        Object : Required, Array, arr
+        SrcPlane : Required, Array, arr
+        DstPlane : Required, Array, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -1043,20 +1063,20 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RemapObjects', None, arrObject, arrSrcPlane, arrDstPlane, blnCopy)
+        return self._ApplyTypes_(656, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'RemapObjects', None, object, src_plane, dst_plane, copy)
 
-    def rotate_object(self, str_object, arr_point, dbl_angle, arr_axis, bln_copy):
+    def rotate_object(self, object, point, angle, axis, copy):
         """
 
         Rotates a single object. Rotation is based on the active construction plane.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to rotate
-        arrPoint : Required, Array, The 3-D center point of the rotation
-        dblAngle : Required, Number, The rotation angle in degrees
-        arrAxis : Optional, Array, A 3-D vector that identifies the axis of rotation
-        blnCopy : Optional, Boolean, Copy the object
+        Object : Required, String, str
+        Point : Required, Array, arr
+        Angle : Required, Number, dbl
+        Axis : Optional, Array, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -1065,20 +1085,20 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RotateObject', None, strObject, arrPoint, dblAngle, arrAxis, blnCopy)
+        return self._ApplyTypes_(392, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'RotateObject', None, object, point, angle, axis, copy)
 
-    def rotate_objects(self, arr_objects, arr_point, dbl_angle, arr_axis, bln_copy):
+    def rotate_objects(self, objects, point, angle, axis, copy):
         """
 
         Rotates one or more objects. Rotation is based on the active construction plane.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to rotate
-        arrPoint : Required, Array, The 3-D center point of the rotation
-        dblAngle : Required, Number, The rotation angle in degrees
-        arrAxis : Optional, Array, A 3-D vector that identifies the axis of rotation
-        blnCopy : Optional, Boolean, Copy the object
+        Objects : Required, Array, arr
+        Point : Required, Array, arr
+        Angle : Required, Number, dbl
+        Axis : Optional, Array, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -1087,19 +1107,19 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RotateObjects', None, arrObjects, arrPoint, dblAngle, arrAxis, blnCopy)
+        return self._ApplyTypes_(393, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'RotateObjects', None, objects, point, angle, axis, copy)
 
-    def scale_object(self, str_object, arr_origin, arr_scale, bln_copy):
+    def scale_object(self, object, origin, scale, copy):
         """
 
         Scales a single object. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to scale
-        arrOrigin : Required, Array, The origin of the scale transformation
-        arrScale : Required, Array, An array of three numbers that identify the X axis, Y axis, and Z axis scale factors to apply
-        blnCopy : Optional, Boolean, Copy the object
+        Object : Required, String, str
+        Origin : Required, Array, arr
+        Scale : Required, Array, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -1108,19 +1128,19 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ScaleObject', None, strObject, arrOrigin, arrScale, blnCopy)
+        return self._ApplyTypes_(585, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ScaleObject', None, object, origin, scale, copy)
 
-    def scale_objects(self, arr_objects, arr_origin, arr_scale, bln_copy):
+    def scale_objects(self, objects, origin, scale, copy):
         """
 
         Scales one or more objects. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to scale
-        arrOrigin : Required, Array, The origin of the scale transformation
-        arrScale : Required, Array, An array of three numbers that identify the X axis, Y axis, and Z axis scale factors to apply
-        blnCopy : Optional, Boolean, Copy the objects
+        Objects : Required, Array, arr
+        Origin : Required, Array, arr
+        Scale : Required, Array, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -1129,16 +1149,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ScaleObjects', None, arrObjects, arrOrigin, arrScale, blnCopy)
+        return self._ApplyTypes_(586, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0)), u'ScaleObjects', None, objects, origin, scale, copy)
 
-    def select_object(self, str_object):
+    def select_object(self, object):
         """
 
         Selects a single object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to select
+        Object : Required, String, str
 
         Returns
 
@@ -1147,16 +1167,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObject', None, strObject)
+        return self._ApplyTypes_(200, 1, (12, 0), ((12, 0)), u'SelectObject', None, object)
 
-    def select_objects(self, arr_objects):
+    def select_objects(self, objects):
         """
 
         Selects one or more objects.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to select
+        Objects : Required, Array, arr
 
         Returns
 
@@ -1165,20 +1185,20 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SelectObjects', None, arrObjects)
+        return self._ApplyTypes_(298, 1, (12, 0), ((12, 0)), u'SelectObjects', None, objects)
 
-    def shear_object(self, str_object, arr_origin, arr_ref_pt, arr_scale, bln_copy):
+    def shear_object(self, object, origin, ref_pt, scale, copy):
         """
 
         Performs a shear transformation on a single object. Transformation is based on the active construction plane.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to shear
-        arrOrigin : Required, Array, The origin of the shear transformation
-        arrRefPt : Required, Array, The reference point of the shear transformation
-        arrScale : Required, Number, An angle in degrees of the shear transformation, where -90
-        blnCopy : Optional, Boolean, Copy the object
+        Object : Required, String, str
+        Origin : Required, Array, arr
+        RefPt : Required, Array, arr
+        Scale : Required, Number, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -1187,20 +1207,20 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ShearObject', None, strObject, arrOrigin, arrRefPt, arrScale, blnCopy)
+        return self._ApplyTypes_(587, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'ShearObject', None, object, origin, ref_pt, scale, copy)
 
-    def shear_objects(self, arr_objects, arr_origin, arr_ref_pt, arr_scale, bln_copy):
+    def shear_objects(self, objects, origin, ref_pt, scale, copy):
         """
 
         Performs a shear transformation on one or more objects. Transformation is based on the active construction plane.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to shear
-        arrOrigin : Required, Array, The origin of the shear transformation
-        arrRefPt : Required, Array, The reference point of the shear transformation
-        arrScale : Required, Number, An angle in degrees of the shear transformation, where -90
-        blnCopy : Optional, Boolean, Copy the objects
+        Objects : Required, Array, arr
+        Origin : Required, Array, arr
+        RefPt : Required, Array, arr
+        Scale : Required, Number, arr
+        Copy : Optional, Boolean, bln
 
         Returns
 
@@ -1209,16 +1229,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ShearObjects', None, arrObjects, arrOrigin, arrRefPt, arrScale, blnCopy)
+        return self._ApplyTypes_(588, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'ShearObjects', None, objects, origin, ref_pt, scale, copy)
 
-    def show_object(self, str_object):
+    def show_object(self, object):
         """
 
         Shows a previously hidden object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to show
+        Object : Required, String, str
 
         Returns
 
@@ -1227,16 +1247,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowObject', None, strObject)
+        return self._ApplyTypes_(201, 1, (12, 0), ((12, 0)), u'ShowObject', None, object)
 
-    def show_objects(self, arr_objects):
+    def show_objects(self, objects):
         """
 
         Shows one or more hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to show
+        Objects : Required, Array, arr
 
         Returns
 
@@ -1245,8 +1265,9 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ShowObjects', None, arrObjects)
+        return self._ApplyTypes_(305, 1, (12, 0), ((12, 0)), u'ShowObjects', None, objects)
 
+    def transform_object(self, object, matrix, copy):
         """
 
 
@@ -1257,6 +1278,7 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
+    def transform_objects(self, objects, matrix, copy):
         """
 
 
@@ -1267,14 +1289,14 @@ class Object(DispatchBaseClass):
 
         raise exceptions.NotImplementedError
 
-    def unlock_object(self, str_object):
+    def unlock_object(self, object):
         """
 
         Unlocks a previously locked object.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to unlock
+        Object : Required, String, str
 
         Returns
 
@@ -1283,16 +1305,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'UnlockObject', None, strObject)
+        return self._ApplyTypes_(202, 1, (12, 0), ((12, 0)), u'UnlockObject', None, object)
 
-    def unlock_objects(self, arr_objects):
+    def unlock_objects(self, objects):
         """
 
         Unlocks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to unlock
+        Objects : Required, Array, arr
 
         Returns
 
@@ -1301,16 +1323,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'UnlockObjects', None, arrObjects)
+        return self._ApplyTypes_(306, 1, (12, 0), ((12, 0)), u'UnlockObjects', None, objects)
 
-    def unselect_object(self, str_object):
+    def unselect_object(self, object):
         """
 
         Unselects a single selected object.
 
         Parameters
 
-        strObject : Required, String, The identifier of the object to unselect
+        Object : Required, String, str
 
         Returns
 
@@ -1319,16 +1341,16 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObject', None, strObject)
+        return self._ApplyTypes_(299, 1, (12, 0), ((12, 0)), u'UnselectObject', None, object)
 
-    def unselect_objects(self, arr_objects):
+    def unselect_objects(self, objects):
         """
 
         Unselects one or more selected objects.
 
         Parameters
 
-        arrObjects : Required, Array, An array of strings identifying the objects to unselect
+        Objects : Required, Array, arr
 
         Returns
 
@@ -1337,5 +1359,5 @@ class Object(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'UnselectObjects', None, arrObjects)
+        return self._ApplyTypes_(300, 1, (12, 0), ((12, 0)), u'UnselectObjects', None, objects)
 

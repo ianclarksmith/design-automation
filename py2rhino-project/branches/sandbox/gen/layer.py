@@ -4,22 +4,23 @@ import win32com.client.util
 from pywintypes import IID
 from win32com.client import Dispatch
 from win32com.client import DispatchBaseClass
+import exceptions
 class Layer(DispatchBaseClass):
 
 
 
-    def add_layer(self, str_layer, lng_color, bln_visible, bln_locked, str_parent):
+    def add_layer(self, layer, color, visible, locked, parent):
         """
 
         Adds a new layer to the document.
 
         Parameters
 
-        strLayer : Optional, String, The name of the new layer
-        lngColor : Optional, Number, A Red-Green-Blue color value
-        blnVisible : Optional, Boolean, The layer's visibility
-        blnLocked : Optional, Boolean, The layer's locked state
-        strParent : Optional, String, The name of the new layer's parent layer
+        Layer : Optional, String, str
+        Color : Optional, Number, lng
+        Visible : Optional, Boolean, bln
+        Locked : Optional, Boolean, bln
+        Parent : Optional, String, str
 
         Returns
 
@@ -28,16 +29,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddLayer', None, strLayer, lngColor, blnVisible, blnLocked, strParent)
+        return self._ApplyTypes_(3, 1, (12, 0), ((12, 0), (12, 0), (12, 0), (12, 0), (12, 0)), u'AddLayer', None, layer, color, visible, locked, parent)
 
-    def current_layer(self, str_layer):
+    def current_layer(self, layer):
         """
 
         Returns or changes the current layer.
 
         Parameters
 
-        strLayer : Optional, String, The name of an existing layer to make current
+        Layer : Optional, String, str
 
         Returns
 
@@ -47,16 +48,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentLayer', None, strLayer)
+        return self._ApplyTypes_(5, 1, (12, 0), ((12, 0)), u'CurrentLayer', None, layer)
 
-    def delete_layer(self, str_layer):
+    def delete_layer(self, layer):
         """
 
         Removes an existing layer from the document.  The layer to be removed cannot be the current layer.  Unlike the PurgeLayer method,  the layer must be empty, or contain no objects, before it can be removed. Any layers that are children of the specified layer will also be removed if they are also empty.
 
         Parameters
 
-        strLayer : Required, String, The name of an empty layer
+        Layer : Required, String, str
 
         Returns
 
@@ -65,17 +66,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteLayer', None, strLayer)
+        return self._ApplyTypes_(4, 1, (12, 0), ((12, 0)), u'DeleteLayer', None, layer)
 
-    def expand_layer(self, str_layer, bln_expand):
+    def expand_layer(self, layer, expand):
         """
 
         Expands a layer. Expanded layers can be viewed in Rhino's Layer dialog.
 
         Parameters
 
-        strLayer : Required, String, The name of the layer to expand
-        blnExpand : Required, Boolean, True to expand, False to collapse
+        Layer : Required, String, str
+        Expand : Required, Boolean, bln
 
         Returns
 
@@ -84,16 +85,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ExpandLayer', None, strLayer, blnExpand)
+        return self._ApplyTypes_(690, 1, (12, 0), ((12, 0), (12, 0)), u'ExpandLayer', None, layer, expand)
 
-    def is_layer(self, str_layer):
+    def is_layer(self, layer):
         """
 
         Verifies the existence of a layer in the document.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -101,16 +102,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayer', None, strLayer)
+        return self._ApplyTypes_(6, 1, (12, 0), ((12, 0)), u'IsLayer', None, layer)
 
-    def is_layer_changeable(self, str_layer):
+    def is_layer_changeable(self, layer):
         """
 
         Verifies that the objects on a layer can be changed (normal).
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -118,17 +119,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerChangeable', None, strLayer)
+        return self._ApplyTypes_(18, 1, (12, 0), ((12, 0)), u'IsLayerChangeable', None, layer)
 
-    def is_layer_child_of(self, str_layer, str_test):
+    def is_layer_child_of(self, layer, test):
         """
 
         Verifies that a layer is a child of another layer.
 
         Parameters
 
-        strLayer : Required, String, The name of the layer to test against
-        strTest : Required, String, The name of the layer to test
+        Layer : Required, String, str
+        Test : Required, String, str
 
         Returns
 
@@ -137,16 +138,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerChildOf', None, strLayer, strTest)
+        return self._ApplyTypes_(692, 1, (12, 0), ((12, 0), (12, 0)), u'IsLayerChildOf', None, layer, test)
 
-    def is_layer_current(self, str_layer):
+    def is_layer_current(self, layer):
         """
 
         Verifies that a layer is the current layer.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -154,16 +155,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerCurrent', None, strLayer)
+        return self._ApplyTypes_(313, 1, (12, 0), ((12, 0)), u'IsLayerCurrent', None, layer)
 
-    def is_layer_empty(self, str_layer):
+    def is_layer_empty(self, layer):
         """
 
         Verifies that an existing layer is empty, or contains no objects.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -171,16 +172,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerEmpty', None, strLayer)
+        return self._ApplyTypes_(7, 1, (12, 0), ((12, 0)), u'IsLayerEmpty', None, layer)
 
-    def is_layer_expanded(self, str_layer):
+    def is_layer_expanded(self, layer):
         """
 
         Verifies that a layer is expanded. Expanded layers can be viewed in Rhino's Layer dialog.
 
         Parameters
 
-        strLayer : Required, String, The name of the layer to test
+        Layer : Required, String, str
 
         Returns
 
@@ -189,16 +190,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerExpanded', None, strLayer)
+        return self._ApplyTypes_(689, 1, (12, 0), ((12, 0)), u'IsLayerExpanded', None, layer)
 
-    def is_layer_locked(self, str_layer):
+    def is_layer_locked(self, layer):
         """
 
         Verifies that an existing layer is locked.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -206,16 +207,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerLocked', None, strLayer)
+        return self._ApplyTypes_(8, 1, (12, 0), ((12, 0)), u'IsLayerLocked', None, layer)
 
-    def is_layer_on(self, str_layer):
+    def is_layer_on(self, layer):
         """
 
         Verifies that an existing layer is on.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -223,17 +224,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerOn', None, strLayer)
+        return self._ApplyTypes_(9, 1, (12, 0), ((12, 0)), u'IsLayerOn', None, layer)
 
-    def is_layer_parent_of(self, str_layer, str_test):
+    def is_layer_parent_of(self, layer, test):
         """
 
         Verifies that a layer is a parent of another layer.
 
         Parameters
 
-        strLayer : Required, String, The name of the layer to test against
-        strTest : Required, String, The name of the layer to test
+        Layer : Required, String, str
+        Test : Required, String, str
 
         Returns
 
@@ -242,16 +243,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerParentOf', None, strLayer, strTest)
+        return self._ApplyTypes_(693, 1, (12, 0), ((12, 0), (12, 0)), u'IsLayerParentOf', None, layer, test)
 
-    def is_layer_reference(self, str_layer):
+    def is_layer_reference(self, layer):
         """
 
         Verifies that an existing layer is from a reference file.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -259,16 +260,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerReference', None, strLayer)
+        return self._ApplyTypes_(10, 1, (12, 0), ((12, 0)), u'IsLayerReference', None, layer)
 
-    def is_layer_selectable(self, str_layer):
+    def is_layer_selectable(self, layer):
         """
 
         Verifies that an existing layer is selectable (normal and reference).
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -276,16 +277,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerSelectable', None, strLayer)
+        return self._ApplyTypes_(19, 1, (12, 0), ((12, 0)), u'IsLayerSelectable', None, layer)
 
-    def is_layer_visible(self, str_layer):
+    def is_layer_visible(self, layer):
         """
 
         Verifies that an existing layer is visible (normal, locked,  and reference).
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -293,16 +294,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayerVisible', None, strLayer)
+        return self._ApplyTypes_(20, 1, (12, 0), ((12, 0)), u'IsLayerVisible', None, layer)
 
-    def layer_child_count(self, str_layer):
+    def layer_child_count(self, layer):
         """
 
         Returns the number of immediate child layers of a layer.
 
         Parameters
 
-        strLayer : Required, String, The name of the layer
+        Layer : Required, String, str
 
         Returns
 
@@ -311,16 +312,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerChildCount', None, strLayer)
+        return self._ApplyTypes_(694, 1, (12, 0), ((12, 0)), u'LayerChildCount', None, layer)
 
-    def layer_children(self, str_layer):
+    def layer_children(self, layer):
         """
 
         Returns the immediate child layers of a layer.
 
         Parameters
 
-        strLayer : Required, String, The name of the layer
+        Layer : Required, String, str
 
         Returns
 
@@ -329,17 +330,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerChildren', None, strLayer)
+        return self._ApplyTypes_(691, 1, (12, 0), ((12, 0)), u'LayerChildren', None, layer)
 
-    def layer_color(self, str_layer, lng_color):
+    def layer_color(self, layer, color):
         """
 
         Returns or changes the color of a layer.  Layer colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
-        lngColor : Optional, Number, The new color value
+        Layer : Required, String, str
+        Color : Optional, Number, lng
 
         Returns
 
@@ -349,7 +350,7 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerColor', None, strLayer, lngColor)
+        return self._ApplyTypes_(11, 1, (12, 0), ((12, 0), (12, 0)), u'LayerColor', None, layer, color)
 
     def layer_count(self):
         """
@@ -364,17 +365,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerCount', None, )
+        return self._ApplyTypes_(12, 1, (12, 0), (), u'LayerCount', None, )
 
-    def layer_linetype(self, str_layer, str_linetype):
+    def layer_linetype(self, layer, linetype):
         """
 
         Returns or changes the linetype of a layer.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
-        strLinetype : Optional, String, The name of the new linetype
+        Layer : Required, String, str
+        Linetype : Optional, String, str
 
         Returns
 
@@ -384,17 +385,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerLinetype', None, strLayer, strLinetype)
+        return self._ApplyTypes_(602, 1, (12, 0), ((12, 0), (12, 0)), u'LayerLinetype', None, layer, linetype)
 
-    def layer_locked(self, str_layer, bln_visible):
+    def layer_locked(self, layer, visible):
         """
 
         Returns or changes the locked mode of a layer. This method should be use instead of LayerMode.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
-        blnVisible : Optional, Boolean, The new layer locked mode
+        Layer : Required, String, str
+        Visible : Optional, Boolean, bln
 
         Returns
 
@@ -404,16 +405,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerLocked', None, strLayer, blnVisible)
+        return self._ApplyTypes_(601, 1, (12, 0), ((12, 0), (12, 0)), u'LayerLocked', None, layer, visible)
 
-    def layer_material_index(self, str_layer):
+    def layer_material_index(self, layer):
         """
 
         Returns the material index of a layer.  A material index of -1 indicates that no material has been assigned to the layer.  Thus, the layer will use Rhino's default layer material.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -422,17 +423,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerMaterialIndex', None, strLayer)
+        return self._ApplyTypes_(13, 1, (12, 0), ((12, 0)), u'LayerMaterialIndex', None, layer)
 
-    def layer_mode(self, str_layer, int_mode):
+    def layer_mode(self, layer, mode):
         """
 
         Returns or changes the mode of a layer.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
-        intMode : Optional, Number, The new layer mode
+        Layer : Required, String, str
+        Mode : Optional, Number, int
 
         Returns
 
@@ -442,16 +443,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerMode', None, strLayer, intMode)
+        return self._ApplyTypes_(14, 1, (12, 0), ((12, 0), (12, 0)), u'LayerMode', None, layer, mode)
 
-    def layer_names(self, bln_sort):
+    def layer_names(self, sort):
         """
 
         Returns the names of all layers in the document.
 
         Parameters
 
-        blnSort : Optional, Boolean, Return a sorted list of layer names
+        Sort : Optional, Boolean, bln
 
         Returns
 
@@ -460,16 +461,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerNames', None, blnSort)
+        return self._ApplyTypes_(15, 1, (12, 0), ((12, 0)), u'LayerNames', None, sort)
 
-    def layer_order(self, str_layer):
+    def layer_order(self, layer):
         """
 
         Returns the current display order index of a layer as displayed in Rhino's Layer dialog box.  A display order index of -1 indicates that the current Layer dialog filter does not allow the layer to appear in the layer list.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
+        Layer : Required, String, str
 
         Returns
 
@@ -478,17 +479,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerOrder', None, strLayer)
+        return self._ApplyTypes_(17, 1, (12, 0), ((12, 0)), u'LayerOrder', None, layer)
 
-    def layer_print_color(self, str_layer, lng_color):
+    def layer_print_color(self, layer, color):
         """
 
         Returns or changes the print color of a layer. Layer print colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be printed.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
-        lngColor : Optional, Number, The new print color value
+        Layer : Required, String, str
+        Color : Optional, Number, lng
 
         Returns
 
@@ -498,17 +499,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerPrintColor', None, strLayer, lngColor)
+        return self._ApplyTypes_(603, 1, (12, 0), ((12, 0), (12, 0)), u'LayerPrintColor', None, layer, color)
 
-    def layer_print_width(self, str_layer, dbl_width):
+    def layer_print_width(self, layer, width):
         """
 
         Returns or changes the print width of a layer. Print width is specified in millimeters. A print width of 0.0 denotes the "default" print width.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
-        dblWidth : Optional, Number, The new layer print width in millimeters
+        Layer : Required, String, str
+        Width : Optional, Number, dbl
 
         Returns
 
@@ -518,17 +519,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerPrintWidth', None, strLayer, dblWidth)
+        return self._ApplyTypes_(604, 1, (12, 0), ((12, 0), (12, 0)), u'LayerPrintWidth', None, layer, width)
 
-    def layer_visible(self, str_layer, bln_visible):
+    def layer_visible(self, layer, visible):
         """
 
         Returns or changes the visibility property of a layer. This method should be use instead of LayerMode.
 
         Parameters
 
-        strLayer : Required, String, The name of an existing layer
-        blnVisible : Optional, Boolean, The new layer visibility
+        Layer : Required, String, str
+        Visible : Optional, Boolean, bln
 
         Returns
 
@@ -538,17 +539,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'LayerVisible', None, strLayer, blnVisible)
+        return self._ApplyTypes_(600, 1, (12, 0), ((12, 0), (12, 0)), u'LayerVisible', None, layer, visible)
 
-    def parent_layer(self, str_layer, str_parent):
+    def parent_layer(self, layer, parent):
         """
 
         Returns or modifies the parent layer of a layer.
 
         Parameters
 
-        strLayer : Required, String, The name of the layer
-        strParent : Optional, String, The name of the new parent layer
+        Layer : Required, String, str
+        Parent : Optional, String, str
 
         Returns
 
@@ -558,16 +559,16 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ParentLayer', None, strLayer, strParent)
+        return self._ApplyTypes_(688, 1, (12, 0), ((12, 0), (12, 0)), u'ParentLayer', None, layer, parent)
 
-    def purge_layer(self, str_layer):
+    def purge_layer(self, layer):
         """
 
         Removes an existing layer from the document.  Unlike the DeleteLayer method, PurgeLayer will remove the layer even if contains geometry objects.  The layer to be removed cannot be the current layer.
 
         Parameters
 
-        strLayer : Required, String, The name of the layer to purge
+        Layer : Required, String, str
 
         Returns
 
@@ -576,17 +577,17 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'PurgeLayer', None, strLayer)
+        return self._ApplyTypes_(291, 1, (12, 0), ((12, 0)), u'PurgeLayer', None, layer)
 
-    def rename_layer(self, str_old_name, str_new_name):
+    def rename_layer(self, old_name, new_name):
         """
 
         Renames an existing layer.
 
         Parameters
 
-        strOldName : Required, String, The name of an existing layer
-        strNewName : Required, String, The new layer name
+        OldName : Required, String, str
+        NewName : Required, String, str
 
         Returns
 
@@ -595,5 +596,5 @@ class Layer(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RenameLayer', None, strOldName, strNewName)
+        return self._ApplyTypes_(16, 1, (12, 0), ((12, 0), (12, 0)), u'RenameLayer', None, old_name, new_name)
 
