@@ -8,18 +8,18 @@ class Mesh(DispatchBaseClass):
 
 
 
-    def addmesh(self, arrvertices, arrfacevertices, arrvertexnormals, arrtexturecoordinates, arrvertexcolors):
+    def add_mesh(self, arr_vertices, arr_face_vertices, arr_vertex_normals, arr_texture_coordinates, arr_vertex_colors):
         """
 
         Adds a mesh object to the document.
 
         Parameters
 
-        arrVertices : Required,  Array,   An array of 3-D points defining the vertices of the mesh
-        arrFaceVertices : Required,  Array,   An array containing arrays of four numbers that define the vertex indices for each face of the mesh
-        arrVertexNormals : Optional,  Array,   An array of 3-D vectors defining the vertex normals of the mesh
-        arrTextureCoordinates : Optional,  Array,  An array of 2-D texture coordinates
-        arrVertexColors : Optional,   Array,   An array of RGB color values
+        arrVertices : Required, Array, An array of 3-D points defining the vertices of the mesh
+        arrFaceVertices : Required, Array, An array containing arrays of four numbers that define the vertex indices for each face of the mesh
+        arrVertexNormals : Optional, Array, An array of 3-D vectors defining the vertex normals of the mesh
+        arrTextureCoordinates : Optional, Array, An array of 2-D texture coordinates
+        arrVertexColors : Optional, Array, An array of RGB color values
 
         Returns
 
@@ -30,15 +30,15 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'AddMesh', None, arrVertices, arrFaceVertices, arrVertexNormals, arrTextureCoordinates, arrVertexColors)
 
-    def addplanarmesh(self, strobject, blndelete):
+    def add_planar_mesh(self, str_object, bln_delete):
         """
 
         Creates a planar mesh from a closed, planar curve.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a closed, planar curve object
-        blnDelete : Required,   Boolean,   If True, then the input curve will be deleted
+        strObject : Required, String, The identifier of a closed, planar curve object
+        blnDelete : Required, Boolean, If True, then the input curve will be deleted
 
         Returns
 
@@ -49,16 +49,16 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'AddPlanarMesh', None, strObject, blnDelete)
 
-    def curvemeshintersect(self, strcurve, strmesh, blnreturnfaces):
+    def curve_mesh_intersection(self, str_curve, str_mesh, bln_return_faces):
         """
 
         Calculates the intersection of a curve object and a mesh object.
 
         Parameters
 
-        strCurve : Required,   String,   The identifier of the curve to intersect
-        strMesh : Required,   String,   The identifier of the mesh to intersect
-        blnReturnFaces : Optional,   Boolean,   Return both intersection points and face indices
+        strCurve : Required, String, The identifier of the curve to intersect
+        strMesh : Required, String, The identifier of the mesh to intersect
+        blnReturnFaces : Optional, Boolean, Return both intersection points and face indices
 
         Returns
 
@@ -70,16 +70,16 @@ class Mesh(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveMeshIntersect', None, strCurve, strMesh, blnReturnFaces)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'CurveMeshIntersection', None, strCurve, strMesh, blnReturnFaces)
 
-    def disjointmeshcount(self, strobject):
+    def disjoint_mesh_count(self, str_object):
         """
 
         Returns the number of meshes that could be created by calling SplitDisjointMesh.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -90,14 +90,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'DisjointMeshCount', None, strObject)
 
-    def duplicatemeshborder(self, strobject):
+    def duplicate_mesh_border(self, str_object):
         """
 
         Creates a curve that duplicates a mesh border.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of the mesh object
+        strObject : Required, String, The identifier of the mesh object
 
         Returns
 
@@ -108,34 +108,24 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'DuplicateMeshBorder', None, strObject)
 
-    def explodemeshes(self, strobject, arrobjects, blndelete):
         """
 
-        Explodes a mesh object, or mesh objects,  into submeshes.  A submesh is a collection of mesh faces that are contained within a closed loop of unwelded mesh edges.  Unwelded mesh edges are edges where the mesh faces that share the edge have unique mesh vertices (not mesh topology vertices) at both ends of the edge.
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        strObject : Required,   String,   The identifier of the mesh object to explode
-        arrObjects : Required,   Array,    An array of strings identifying the mesh objects to explode
-        blnDelete : Optional,   Boolean,   Delete input objects after exploding
-
-        Returns
-
-        Array : An array of strings identifying the newly created mesh objects if successful.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ExplodeMeshes', None, strObject, arrObjects, blnDelete)
+        raise exceptions.NotImplementedError
 
-    def ismesh(self, strobject):
+    def is_mesh(self, str_object):
         """
 
         Verifies an object is a mesh object.
 
         Parameters
 
-        strObject : Required,  String,  The object's identifier
+        strObject : Required, String, The object's identifier
 
         Returns
 
@@ -146,14 +136,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsMesh', None, strObject)
 
-    def ismeshclosed(self, strobject):
+    def is_mesh_closed(self, str_object):
         """
 
         Verifies a mesh object is closed.
 
         Parameters
 
-        strObject : Required,   String,   The object's identifier
+        strObject : Required, String, The object's identifier
 
         Returns
 
@@ -164,14 +154,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsMeshClosed', None, strObject)
 
-    def ismeshmanifold(self, strobject):
+    def is_mesh_manifold(self, str_object):
         """
 
         Verifies a mesh object is manifold.  A mesh for which every edge is shared by at most two faces is called a manifold.  If a mesh has at least one edge that is shared by more than two faces, then that mesh is called non-manifold.
 
         Parameters
 
-        strObject : Required,   String,   The object's identifier
+        strObject : Required, String, The object's identifier
 
         Returns
 
@@ -182,36 +172,24 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsMeshManifold', None, strObject)
 
-    def mesharea(self, strobject, arrobjects):
         """
 
-        Returns the approximate area of one or more mesh objects.
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        strObject : Required,   String,   The object's identifier
-        arrObjects : Required,   Array,   An array of object identifier
-
-        Returns
-
-        Array : An array containing three numbers if successful.  The three elements of the array are as follows:
-        Number : The number of meshes used in the area calculation.
-        Number : The total area of all meshes.
-        Number : The error estimate.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MeshArea', None, strObject, arrObjects)
+        raise exceptions.NotImplementedError
 
-    def meshareacentroid(self, strobject):
+    def mesh_area_centroid(self, str_object):
         """
 
         Calculates the area centroid of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -222,16 +200,16 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshAreaCentroid', None, strObject)
 
-    def meshbooleandifference(self, arrinput0, arrinput1, blndelete):
+    def mesh_boolean_difference(self, arr_input0, arr_input1, bln_delete):
         """
 
         Performs a Boolean difference operation on two sets of input meshes. For more details, see the MeshBooleanDifference command in the Rhino help file.
 
         Parameters
 
-        arrInput0 : Required,   Array,   The identifiers of the meshes
-        arrInput1 : Required,   Array,   The identifiers of the meshes
-        blnDelete : Optional,   Boolean,  Delete all input objects
+        arrInput0 : Required, Array, The identifiers of the meshes
+        arrInput1 : Required, Array, The identifiers of the meshes
+        blnDelete : Optional, Boolean, Delete all input objects
 
         Returns
 
@@ -242,16 +220,16 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshBooleanDifference', None, arrInput0, arrInput1, blnDelete)
 
-    def meshbooleanintersection(self, arrinput0, arrinput1, blndelete):
+    def mesh_boolean_intersection(self, arr_input0, arr_input1, bln_delete):
         """
 
         Performs a Boolean intersection operation on two sets of input meshes. For more details, see the MeshBooleanIntersection command in the Rhino help file.
 
         Parameters
 
-        arrInput0 : Required,   Array,   The identifiers of the meshes
-        arrInput1 : Required,   Array,   The identifiers of the meshes
-        blnDelete : Optional,   Boolean,  Delete all input objects
+        arrInput0 : Required, Array, The identifiers of the meshes
+        arrInput1 : Required, Array, The identifiers of the meshes
+        blnDelete : Optional, Boolean, Delete all input objects
 
         Returns
 
@@ -262,16 +240,16 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshBooleanIntersection', None, arrInput0, arrInput1, blnDelete)
 
-    def meshbooleansplit(self, arrinput0, arrinput1, blndelete):
+    def mesh_boolean_split(self, arr_input0, arr_input1, bln_delete):
         """
 
         Performs a Boolean split operation on two sets of input meshes. For more details, see the MeshBooleanSplit command in the Rhino help file.
 
         Parameters
 
-        arrInput0 : Required,   Array,   The identifiers of the meshes
-        arrInput1 : Required,   Array,   The identifiers of the meshes
-        blnDelete : Optional,   Boolean,  Delete all input objects
+        arrInput0 : Required, Array, The identifiers of the meshes
+        arrInput1 : Required, Array, The identifiers of the meshes
+        blnDelete : Optional, Boolean, Delete all input objects
 
         Returns
 
@@ -282,15 +260,15 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshBooleanSplit', None, arrInput0, arrInput1, blnDelete)
 
-    def meshbooleanunion(self, arrinput, blndelete):
+    def mesh_boolean_union(self, arr_input, bln_delete):
         """
 
         Performs a Boolean union operation on a set of input meshes. For more details, see the MeshBooleanUnion command in the Rhino help file.
 
         Parameters
 
-        arrInput : Required,   Array,   The identifiers of the meshes to union
-        blnDelete : Optional,   Boolean,  Delete all input objects
+        arrInput : Required, Array, The identifiers of the meshes to union
+        blnDelete : Optional, Boolean, Delete all input objects
 
         Returns
 
@@ -301,16 +279,16 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshBooleanUnion', None, arrInput, blnDelete)
 
-    def meshclosestpoint(self, strobject, arrpoint, dbltolerance):
+    def mesh_closest_point(self, str_object, arr_point, dbl_tolerance):
         """
 
         Returns the point on a mesh that is closest to a test point.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
-        arrPoint : Required,   Array,   A 3-D point to test
-        dblTolerance : Optional,   Number,   The tolerance
+        strObject : Required, String, The identifier of a mesh object
+        arrPoint : Required, Array, A 3-D point to test
+        dblTolerance : Optional, Number, The tolerance
 
         Returns
 
@@ -323,18 +301,18 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshClosestPoint', None, strObject, arrPoint, dblTolerance)
 
-    def meshcontourpoints(self, strobject, arrstartpoint, arrendpoint, dblinterval, blnremovecoincidentpoints):
+    def mesh_contour_points(self, str_object, arr_start_point, arr_end_point, dbl_interval, bln_remove_coincident_points):
         """
 
         Returns the vertices of the polyline curves generated by contouring a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
-        arrStartPoint : Required,   Array,   The 3-D starting point of a center line
-        arrEndPoint : Required,   Array,   The 3-D ending point of a center line
-        dblInterval : Optional,   Number,   The distance between contour curves
-        blnRemoveCoincidentPoints : Optional,   Boolean,   Remove coincident points
+        strObject : Required, String, The identifier of a mesh object
+        arrStartPoint : Required, Array, The 3-D starting point of a center line
+        arrEndPoint : Required, Array, The 3-D ending point of a center line
+        dblInterval : Optional, Number, The distance between contour curves
+        blnRemoveCoincidentPoints : Optional, Boolean, Remove coincident points
 
         Returns
 
@@ -345,14 +323,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshContourPoints', None, strObject, arrStartPoint, arrEndPoint, dblInterval, blnRemoveCoincidentPoints)
 
-    def meshfacecenters(self, strobject):
+    def mesh_face_centers(self, str_object):
         """
 
         Returns the center point of each face of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -363,14 +341,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaceCenters', None, strObject)
 
-    def meshfacecount(self, strobject):
+    def mesh_face_count(self, str_object):
         """
 
         Returns the total face count of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -381,14 +359,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaceCount', None, strObject)
 
-    def meshfacenormals(self, strobject):
+    def mesh_face_normals(self, str_object):
         """
 
         Returns the face unit normal for each face of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -399,14 +377,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaceNormals', None, strObject)
 
-    def meshfacevertices(self, strobject):
+    def mesh_face_vertices(self, str_object):
         """
 
         Returns the vertex indices of all faces of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -417,15 +395,15 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaceVertices', None, strObject)
 
-    def meshfaces(self, strobject, blnfacetype):
+    def mesh_faces(self, str_object, bln_face_type):
         """
 
         Returns the face vertices of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
-        blnFaceType : Optional,   Boolean,   The face type to be returned
+        strObject : Required, String, The identifier of a mesh object
+        blnFaceType : Optional, Boolean, The face type to be returned
 
         Returns
 
@@ -436,14 +414,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshFaces', None, strObject, blnFaceType)
 
-    def meshhasfacenormals(self, strobject):
+    def mesh_has_face_normals(self, str_object):
         """
 
         Verifies a mesh object has face normals.
 
         Parameters
 
-        strObject : Required,   String,   The object's identifier
+        strObject : Required, String, The object's identifier
 
         Returns
 
@@ -454,14 +432,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshHasFaceNormals', None, strObject)
 
-    def meshhastexturecoordinates(self, strobject):
+    def mesh_has_texture_coordinates(self, str_object):
         """
 
         Verifies a mesh object has texture coordinates.
 
         Parameters
 
-        strObject : Required,   String,   The object's identifier
+        strObject : Required, String, The object's identifier
 
         Returns
 
@@ -472,14 +450,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshHasTextureCoordinates', None, strObject)
 
-    def meshhasvertexcolors(self, strobject):
+    def mesh_has_vertex_colors(self, str_object):
         """
 
         Verifies a mesh object has vertex colors.
 
         Parameters
 
-        strObject : Required,   String,   The object's identifier
+        strObject : Required, String, The object's identifier
 
         Returns
 
@@ -490,14 +468,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshHasVertexColors', None, strObject)
 
-    def meshhasvertexnormals(self, strobject):
+    def mesh_has_vertex_normals(self, str_object):
         """
 
         Verifies a mesh object has vertex normals.
 
         Parameters
 
-        strObject : Required,   String,   The object's identifier
+        strObject : Required, String, The object's identifier
 
         Returns
 
@@ -508,16 +486,16 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshHasVertexNormals', None, strObject)
 
-    def meshmeshintersection(self, strmesh1, strmesh2, dbltolerance):
+    def mesh_mesh_intersection(self, str_mesh1, str_mesh2, dbl_tolerance):
         """
 
         Calculates the intersection of a mesh object with another mesh object.
 
         Parameters
 
-        strMesh1 : Required,   String,   The identifier of the first mesh object
-        strMesh2 : Required,   String,   The identifier of the second mesh object
-        dblTolerance : Optional,   Number,   The intersection tolerance
+        strMesh1 : Required, String, The identifier of the first mesh object
+        strMesh2 : Required, String, The identifier of the second mesh object
+        dblTolerance : Optional, Number, The intersection tolerance
 
         Returns
 
@@ -528,14 +506,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshMeshIntersection', None, strMesh1, strMesh2, dblTolerance)
 
-    def meshnakededgepoints(self, strobject):
+    def mesh_naked_edge_points(self, str_object):
         """
 
         Identifies the naked edge points of a polygon mesh object. This function shows where polygon mesh vertices are not completely surrounded by faces. Joined meshes, such as are made by Mesh Box, have naked mesh edge points where the sub-meshes are joined.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -546,15 +524,15 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshNakedEdgePoints', None, strObject)
 
-    def meshoffset(self, strmesh, dbldistance):
+    def mesh_offset(self, str_mesh, dbl_distance):
         """
 
         Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
 
         Parameters
 
-        strMesh : Required,   String,   The identifier of a mesh object
-        dblDistance : Required,   Number,   The distance to offset
+        strMesh : Required, String, The identifier of a mesh object
+        dblDistance : Required, Number, The distance to offset
 
         Returns
 
@@ -565,14 +543,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshOffset', None, strMesh, dblDistance)
 
-    def meshquadcount(self, strobject):
+    def mesh_quad_count(self, str_object):
         """
 
         Returns the number of quad faces of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -583,14 +561,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshQuadCount', None, strObject)
 
-    def meshquadstotriangles(self, strobject):
+    def mesh_quads_to_triangles(self, str_object):
         """
 
         Converts a mesh object's quad faces to triangles.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -601,14 +579,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshQuadsToTriangles', None, strObject)
 
-    def meshtexturecoordinates(self, strobject):
+    def mesh_texture_coordinates(self, str_object):
         """
 
         Returns the normalized 2-D texture coordinates of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -619,14 +597,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshTextureCoordinates', None, strObject)
 
-    def meshtrianglecount(self, strobject):
+    def mesh_triangle_count(self, str_object):
         """
 
         Returns the number of triangular faces of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -637,35 +615,24 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshTriangleCount', None, strObject)
 
-    def meshvertexcolors(self, strobject, arrvertexcolors, null):
         """
 
-        Returns or modifies the  vertex colors of a mesh object
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        strObject : Required,   String,   The object's identifier
-        arrVertexColors : Optional,   Array,   An array of RGB color values
-        Null : Optional,   Null,   Specifying Null will remove, or purge, any existing vertex colors from the mesh
-
-        Returns
-
-        Array : If arrVertexColors  is not specified,  the current vertex color if successful.
-        Array : If arrVertexColors  is specified, the previous vertex colors if successful.
-        Null : If strObject does not have vertex colors, if not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVertexColors', None, strObject, arrVertexColors, Null)
+        raise exceptions.NotImplementedError
 
-    def meshvertexcount(self, strobject):
+    def mesh_vertex_count(self, str_object):
         """
 
         Returns the vertex count of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -676,14 +643,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVertexCount', None, strObject)
 
-    def meshvertexnormals(self, strobject):
+    def mesh_vertex_normals(self, str_object):
         """
 
         Returns the vertex unit normal for each vertex of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -694,14 +661,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVertexNormals', None, strObject)
 
-    def meshvertices(self, strobject):
+    def mesh_vertices(self, str_object):
         """
 
         Returns the vertices of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -712,36 +679,24 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVertices', None, strObject)
 
-    def meshvolume(self, strobject, arrobjects):
         """
 
-        Returns the approximate volume of one or more closed mesh objects.
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        strObject : Required,   String,   The object's identifier
-        arrObjects : Required,   Array,   An array of object identifier
-
-        Returns
-
-        Array : An array containing three numbers if successful.  The three elements of the array are as follows:
-        Number : The number of meshes used in the volume calculation.
-        Number : The total volume of all meshes.
-        Number : The error estimate.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVolume', None, strObject, arrObjects)
+        raise exceptions.NotImplementedError
 
-    def meshvolumecentroid(self, strobject):
+    def mesh_volume_centroid(self, str_object):
         """
 
         Calculates the volume centroid of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 
@@ -752,15 +707,15 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MeshVolumeCentroid', None, strObject)
 
-    def pullcurvetomesh(self, strmesh, strcurve):
+    def pull_curve_to_mesh(self, str_mesh, str_curve):
         """
 
         Pulls a curve object to a mesh object. The function makes a polyline approximation of the input curve and gets the closest point on the mesh for each point on the mesh.  Then it "connects the points" so  that you have a polyline on the mesh.
 
         Parameters
 
-        strMesh : Required,   String,   The identifier of the mesh object that pulls
-        strCurve : Required,   String,   The identifier of the curve object to pull
+        strMesh : Required, String, The identifier of the mesh object that pulls
+        strCurve : Required, String, The identifier of the curve object to pull
 
         Returns
 
@@ -771,15 +726,15 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PullCurveToMesh', None, strMesh, strCurve)
 
-    def splitdisjointmesh(self, strobject, blndelete):
+    def split_disjoint_mesh(self, str_object, bln_delete):
         """
 
         Splits up a mesh object into its unconnected pieces.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
-        blnDelete : Optional,   Boolean,   Delete the input object
+        strObject : Required, String, The identifier of a mesh object
+        blnDelete : Optional, Boolean, Delete the input object
 
         Returns
 
@@ -790,14 +745,14 @@ class Mesh(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'SplitDisjointMesh', None, strObject, blnDelete)
 
-    def unifymeshnormals(self, strobject):
+    def unify_mesh_normals(self, str_object):
         """
 
         Fixes inconsistencies in the directions of faces of a mesh object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of a mesh object
+        strObject : Required, String, The identifier of a mesh object
 
         Returns
 

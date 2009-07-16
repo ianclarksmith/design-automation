@@ -8,14 +8,14 @@ class Block(DispatchBaseClass):
 
 
 
-    def blockcontainercount(self, strblock):
+    def block_container_count(self, str_block):
         """
 
         Returns the number of block definitions that contain a specified block definition.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -26,14 +26,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockContainerCount', None, strBlock)
 
-    def blockcontainers(self, strblock):
+    def block_containers(self, str_block):
         """
 
         Returns the names of the block definitions that contain a specified block definition.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -44,7 +44,7 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockContainers', None, strBlock)
 
-    def blockcount(self, ):
+    def block_count(self):
         """
 
         Returns the number of block definitions in the document.
@@ -60,15 +60,15 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockCount', None, )
 
-    def blockdescription(self, strblock, strtext):
+    def block_description(self, str_block, str_text):
         """
 
         Returns or sets the description of a block definition.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
-        strText : Optional,   String,   The new description
+        strBlock : Required, String, The name of an existing block definition
+        strText : Optional, String, The new description
 
         Returns
 
@@ -80,14 +80,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockDescription', None, strBlock, strText)
 
-    def blockinstancecount(self, strblock):
+    def block_instance_count(self, str_block):
         """
 
         Counts the number of instances of the block in the document.  Nested instances are not included in the count.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -98,14 +98,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstanceCount', None, strBlock)
 
-    def blockinstanceinsertpoint(self, strobject):
+    def block_instance_insert_point(self, str_object):
         """
 
         Returns the insertion point of a block instance.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of an existing block insertion object
+        strObject : Required, String, The identifier of an existing block insertion object
 
         Returns
 
@@ -116,14 +116,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstanceInsertPoint', None, strObject)
 
-    def blockinstancename(self, strobject):
+    def block_instance_name(self, str_object):
         """
 
         Returns the block name of a block instance.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of an existing block insertion object
+        strObject : Required, String, The identifier of an existing block insertion object
 
         Returns
 
@@ -134,14 +134,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstanceName', None, strObject)
 
-    def blockinstancexform(self, strobject):
+    def block_instance_xform(self, str_object):
         """
 
         Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
 
         Parameters
 
-        strObject : Required,   String,   The identifier of an existing block insertion object
+        strObject : Required, String, The identifier of an existing block insertion object
 
         Returns
 
@@ -152,32 +152,24 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstanceXform', None, strObject)
 
-    def blockinstances(self, strblock):
         """
 
-        Returns the identifiers of the inserted instances of a block.
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        strBlock : Required,   String,   The name of an existing block definition
-
-        Returns
-
-        Array : An array of strings identifying the instances of a block if successful.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'BlockInstances', None, strBlock)
+        raise exceptions.NotImplementedError
 
-    def blocknames(self, blnsort):
+    def block_names(self, bln_sort):
         """
 
         Returns the names of all block definitions in the document.
 
         Parameters
 
-        blnSort : Optional,   Boolean,   Return a sorted array of block definition names
+        blnSort : Optional, Boolean, Return a sorted array of block definition names
 
         Returns
 
@@ -188,14 +180,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockNames', None, blnSort)
 
-    def blockobjectcount(self, strblock):
+    def block_object_count(self, str_block):
         """
 
         Returns the number of objects that make up a block definition.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -206,14 +198,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockObjectCount', None, strBlock)
 
-    def blockobjects(self, strblock):
+    def block_objects(self, str_block):
         """
 
         Returns the identifiers of the objects that make up a block definition.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -224,14 +216,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockObjects', None, strBlock)
 
-    def blockpath(self, strblock):
+    def block_path(self, str_block):
         """
 
         Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -242,15 +234,15 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockPath', None, strBlock)
 
-    def blockurl(self, strblock, strurl):
+    def block_u_r_l(self, str_block, str_u_r_l):
         """
 
         Returns or sets the URL of a block definition.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
-        strURL : Optional,   String,   The new URL
+        strBlock : Required, String, The name of an existing block definition
+        strURL : Optional, String, The new URL
 
         Returns
 
@@ -262,15 +254,15 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockURL', None, strBlock, strURL)
 
-    def blockurltag(self, strblock, strurl):
+    def block_u_r_l_tag(self, str_block, str_u_r_l):
         """
 
         Returns or sets the URL tag, or description, of a block definition.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
-        strURL : Optional,   String,   The new URL tag
+        strBlock : Required, String, The name of an existing block definition
+        strURL : Optional, String, The new URL tag
 
         Returns
 
@@ -282,14 +274,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'BlockURLTag', None, strBlock, strURL)
 
-    def deleteblock(self, strblock):
+    def delete_block(self, str_block):
         """
 
         Deletes a block definition and all of it's inserted instances.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -300,14 +292,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteBlock', None, strBlock)
 
-    def explodeblockinstance(self, strobject):
+    def explode_block_instance(self, str_object):
         """
 
         Explodes a block instance into it's geometric components.  The exploded objects are added to the document.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of an existing block definition
+        strObject : Required, String, The identifier of an existing block definition
 
         Returns
 
@@ -318,37 +310,24 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ExplodeBlockInstance', None, strObject)
 
-    def insertblock(self, strname, arrpoint, arrscale, dblangle, arrnormal, arrxform):
         """
 
-        Inserts a block whose definition already exists in the document.
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        strName : Required,  String,  The name of the block definition to insert
-        arrPoint : Required,  Array,  The 3-D insertion point of the block
-        arrScale : Optional,  Array,  An array of three numbers that identify the x,y,z scale factors
-        dblAngle : Optional,  Number,  The rotation angle in degrees
-        arrNormal : Optional,  Array,  A 3-D vector identifying the axis of rotation
-        arrXform : Required,  Array,  4x4 transformation matrix to apply
-
-        Returns
-
-        String : The identifier of the newly inserted block instance, if successful.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'InsertBlock', None, strName, arrPoint, arrScale, dblAngle, arrNormal, arrXform)
+        raise exceptions.NotImplementedError
 
-    def isblock(self, strblock):
+    def is_block(self, str_block):
         """
 
         Verifies the existence of a block definition in the document.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -359,14 +338,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlock', None, strBlock)
 
-    def isblockembedded(self, strblock):
+    def is_block_embedded(self, str_block):
         """
 
         Verifies that a block definition is embedded, or linked, from an external file.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -377,15 +356,15 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlockEmbedded', None, strBlock)
 
-    def isblockinuse(self, strblock, intwhere):
+    def is_block_in_use(self, str_block, int_where):
         """
 
         Verifies that a block definition is being used by an inserted instance.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
-        intWhere : Optional,   Number,   Where to look, where:
+        strBlock : Required, String, The name of an existing block definition
+        intWhere : Optional, Number, Where to look, where:
 
         Returns
 
@@ -396,14 +375,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlockInUse', None, strBlock, intWhere)
 
-    def isblockinstance(self, strobject):
+    def is_block_instance(self, str_object):
         """
 
         Verifies an object is a block instance.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of an existing block definition
+        strObject : Required, String, The identifier of an existing block definition
 
         Returns
 
@@ -414,14 +393,14 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlockInstance', None, strObject)
 
-    def isblockreference(self, strblock):
+    def is_block_reference(self, str_block):
         """
 
         Verifies that a block definition is from a reference file.
 
         Parameters
 
-        strBlock : Required,   String,   The name of an existing block definition
+        strBlock : Required, String, The name of an existing block definition
 
         Returns
 
@@ -432,15 +411,15 @@ class Block(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsBlockReference', None, strBlock)
 
-    def renameblock(self, stroldblock, strnewblock):
+    def rename_block(self, str_old_block, str_new_block):
         """
 
         Renames an existing block definition.
 
         Parameters
 
-        strOldBlock : Required,   String,   The name of an existing block definition
-        strNewBlock : Required,   String,   The new block definition name
+        strOldBlock : Required, String, The name of an existing block definition
+        strNewBlock : Required, String, The new block definition name
 
         Returns
 

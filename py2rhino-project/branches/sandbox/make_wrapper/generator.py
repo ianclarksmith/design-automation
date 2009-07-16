@@ -3,6 +3,7 @@ import os
 import string
 from ct  import rhinoscript as ct_rs
 from pw32 import  rhinoscript as pw32_rs
+import exceptions
 
 def parse_docs():
     data = {}
@@ -125,20 +126,31 @@ def write_class_header(class_name, f):
     w(f,"class %s(DispatchBaseClass):" % class_name, nle=4)
 
 def write_class_method(file_name, file_data, f):
+    #first check if this is a method with mismatch in parameters
+    if not params_match_ct(file_name, file_data):
+        w(f, '"""', tabs=2, nle=2)
+        w(f, "METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH", tabs=2, nls=1, nle=2)
+        w(f, '"""', tabs=2, nls=1, nle=2)
+        w(f, "raise exceptions.NotImplementedError", tabs=2, nle=2)
+        return
+        
     #get the names into the right format
-    #TODO: underscores in py naming
     vb_method_name = file_name
-    py_method_name = file_name.lower()
+    py_method_name = camel_to_underscore(file_name)
     vb_params = []
     py_params = []
     if file_data["params"]:
         for param in file_data["params"]:
             vb_params.append(param[0])
-            py_params.append(param[0].lower())
+            py_params.append(camel_to_underscore(param[0]))
             
     #create the method signature
-    w(f, ["def ", py_method_name, "(self, ", ", ".join(py_params), "):"], tabs=1, nle=1)
-
+    w(f, ["def ", py_method_name, "(self"], tabs=1, nle=0)
+    if py_params:
+        w(f, [", ", ", ".join(py_params), "):"], tabs=0, nle=1)
+    else:
+        w(f, "):", tabs=0, nle=1)
+        
     #create the method documentation
     #TODO: add syntax example here
     #TODO: use the py_params format in the doc string
@@ -164,22 +176,22 @@ def write_class_method(file_name, file_data, f):
     magic_numbers = "id, 1, (returns), (params)" #for example: 77, 1, (12, 0), ((12, 0), (12, 16))
     w(f, ["return self._ApplyTypes_(", magic_numbers,", u'",vb_method_name,"', None, ", ", ".join(vb_params), ")"], tabs=2, nle=2)
 
-def pretty_print_data(data):
+def pretty_print_data(folder_data):
     space = "    "
-    for folder in sorted(data.keys()):
+    for folder in sorted(folder_data.keys()):
         print folder
-        for file_name in sorted(data[folder].keys()):
+        for file_name in sorted(folder_data[folder].keys()):
             print space, file_name
-            print space, space, "Help = ", data[folder][file_name]["help"]
-            print space, space, "Syntax = ", data[folder][file_name]["syntax"]
+            print space, space, "Help = ", folder_data[folder][file_name]["help"]
+            print space, space, "Syntax = ", folder_data[folder][file_name]["syntax"]
             print space, space, "Parameters : "
             counter = 1
-            for param in data[folder][file_name]["params"]:
+            for param in folder_data[folder][file_name]["params"]:
                 print space, space, "  ", counter, ") ", param[0], " = ", param[1], param[2], param[3]
                 counter += 1
             print space, space, "Returns : "
             counter = 1            
-            for return_val in data[folder][file_name]["returns"]: 
+            for return_val in folder_data[folder][file_name]["returns"]: 
                 print space, space, "  ", counter, ") ", return_val[0], " = ", return_val[1]
                 counter += 1
             
@@ -197,7 +209,10 @@ def w(f, text, tabs = 0, nls=0, nle=1):
         text = text + nle_str
     f.writelines(text)
     
-
+def params_match_ct(file_name, file_data):
+    num_ct_params = get_ct_num_params(file_name)
+    num_doc_params = len(file_data['params'])
+    return num_ct_params == num_doc_params 
     
 def compare_with_ct(folder_data):
     count_mis = 0
@@ -274,13 +289,32 @@ def is_in_ct(name):
         return False
     return True
 
+
+def camel_to_underscore(name):
+    letters = []
+    #get list of letters
+    for i in range(len(name)):
+        if (name[i].isupper()):
+            letters += [("_"), name[i].lower()]
+        else:
+            letters.append(name[i])
+    #join them up to make a word
+    name_us = "".join(letters)
+    #check we are not starting with an underscore
+    if name_us.startswith("_"):
+        name_us = name_us[1:]
+    return name_us
+
+
+#===============================================================================
+# Run
+#===============================================================================
+
 data = parse_docs()
 find_methods_mismatch(data)
 compare_with_ct(data)
-
+write_classes(data)
 
 #pretty_print_data(data) 
-#write_classes(data)
 
-#print methods.get_method_by_id(905)
-#print methods.get_method_by_name("GetRectangle")
+

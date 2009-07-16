@@ -8,15 +8,15 @@ class Light(DispatchBaseClass):
 
 
 
-    def adddirectionallight(self, arrstartpoint, arrendpoint):
+    def add_directional_light(self, arr_start_point, arr_end_point):
         """
 
         Adds a new directional light object  to the document.
 
         Parameters
 
-        arrStartPoint : Required,   Array,  The 3-D starting point of the light
-        arrEndPoint : Required,   Array,   The 3-D ending point and direction of the light
+        arrStartPoint : Required, Array, The 3-D starting point of the light
+        arrEndPoint : Required, Array, The 3-D ending point and direction of the light
 
         Returns
 
@@ -27,16 +27,16 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'AddDirectionalLight', None, arrStartPoint, arrEndPoint)
 
-    def addlinearlight(self, arrstartpoint, arrendpoint, dblwidth):
+    def add_linear_light(self, arr_start_point, arr_end_point, dbl_width):
         """
 
         Adds a new linear light object  to the document.
 
         Parameters
 
-        arrStartPoint : Required,   Array,   The 3-D starting point of the light
-        arrEndPoint : Required,   Array,   The 3-D ending point and direction of the light
-        dblWidth : Optional,   Number,   The width of the light
+        arrStartPoint : Required, Array, The 3-D starting point of the light
+        arrEndPoint : Required, Array, The 3-D ending point and direction of the light
+        dblWidth : Optional, Number, The width of the light
 
         Returns
 
@@ -47,14 +47,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'AddLinearLight', None, arrStartPoint, arrEndPoint, dblWidth)
 
-    def addpointlight(self, arrpoint):
+    def add_point_light(self, arr_point):
         """
 
         Adds a new point light object  to the document.
 
         Parameters
 
-        arrPoint : Required,   Array,   The 3-D location point of the light
+        arrPoint : Required, Array, The 3-D location point of the light
 
         Returns
 
@@ -65,16 +65,16 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'AddPointLight', None, arrPoint)
 
-    def addrectangularlight(self, arrorigin, arrwidth, arrheight):
+    def add_rectangular_light(self, arr_origin, arr_width, arr_height):
         """
 
         Adds a new rectangular light object  to the document.
 
         Parameters
 
-        arrOrigin : Required,   Array,   The 3-D origin point of the light
-        arrWidth : Required,   Array,   The 3-D width and direction point of the light
-        arrHeight : Required,   Array,   The 3-D height and direction point of the light
+        arrOrigin : Required, Array, The 3-D origin point of the light
+        arrWidth : Required, Array, The 3-D width and direction point of the light
+        arrHeight : Required, Array, The 3-D height and direction point of the light
 
         Returns
 
@@ -85,16 +85,16 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'AddRectangularLight', None, arrOrigin, arrWidth, arrHeight)
 
-    def addspotlight(self, arrorigin, dblradius, arrapex):
+    def add_spot_light(self, arr_origin, dbl_radius, arr_apex):
         """
 
         Adds a new spot light object  to the document.
 
         Parameters
 
-        arrOrigin : Required,   Array,   The 3-D origin point of the light
-        dblRadius : Required,   Number,   The radius of the cone
-        arrApex : Required,   Array,   The 3-D apex point of the light
+        arrOrigin : Required, Array, The 3-D origin point of the light
+        dblRadius : Required, Number, The radius of the cone
+        arrApex : Required, Array, The 3-D apex point of the light
 
         Returns
 
@@ -105,15 +105,15 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'AddSpotLight', None, arrOrigin, dblRadius, arrApex)
 
-    def enablelight(self, strobject, blnenable):
+    def enable_light(self, str_object, bln_enable):
         """
 
         Enables or disables a light object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of the light object
-        blnEnable : Optional,   Boolean,   The light's enabled status
+        strObject : Required, String, The identifier of the light object
+        blnEnable : Optional, Boolean, The light's enabled status
 
         Returns
 
@@ -125,14 +125,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'EnableLight', None, strObject, blnEnable)
 
-    def isdirectionallight(self, strobject):
+    def is_directional_light(self, str_object):
         """
 
         Verifies a light object is a directional light.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -143,14 +143,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsDirectionalLight', None, strObject)
 
-    def islight(self, strobject):
+    def is_light(self, str_object):
         """
 
         Verifies an object is a light object.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -161,14 +161,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsLight', None, strObject)
 
-    def islightenabled(self, strobject):
+    def is_light_enabled(self, str_object):
         """
 
         Verifies a light object is enabled.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -179,14 +179,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsLightEnabled', None, strObject)
 
-    def islightreference(self, strobject):
+    def is_light_reference(self, str_object):
         """
 
         Verifies a light object is referenced from another file.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -197,14 +197,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsLightReference', None, strObject)
 
-    def islinearlight(self, strobject):
+    def is_linear_light(self, str_object):
         """
 
         Verifies a light object is a linear light.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -215,14 +215,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsLinearLight', None, strObject)
 
-    def ispointlight(self, strobject):
+    def is_point_light(self, str_object):
         """
 
         Verifies a light object is a point light.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -233,14 +233,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsPointLight', None, strObject)
 
-    def isrectangularlight(self, strobject):
+    def is_rectangular_light(self, str_object):
         """
 
         Verifies a light object is a rectangular light.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -251,14 +251,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsRectangularLight', None, strObject)
 
-    def isspotlight(self, strobject):
+    def is_spot_light(self, str_object):
         """
 
         Verifies a light object is a spot light.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -269,15 +269,15 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsSpotLight', None, strObject)
 
-    def lightcolor(self, strobject, lngcolor):
+    def light_color(self, str_object, lng_color):
         """
 
         Returns or changes the color of a light.  Light colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
-        lngColor : Optional,   Number,   The new color value
+        strObject : Required, String, The light object's identifier
+        lngColor : Optional, Number, The new color value
 
         Returns
 
@@ -289,7 +289,7 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'LightColor', None, strObject, lngColor)
 
-    def lightcount(self, ):
+    def light_count(self):
         """
 
         Returns the number of light objects in the document.
@@ -304,15 +304,15 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'LightCount', None, )
 
-    def lightdirection(self, strobject, arrdirection):
+    def light_direction(self, str_object, arr_direction):
         """
 
         Returns or changes the direction of a light object. This function can be used to return or modify the target of spotlights.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
-        arrDirection : Optional,   Array,   The new end point, or direction
+        strObject : Required, String, The light object's identifier
+        arrDirection : Optional, Array, The new end point, or direction
 
         Returns
 
@@ -324,15 +324,15 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'LightDirection', None, strObject, arrDirection)
 
-    def lightlocation(self, strobject, arrlocation):
+    def light_location(self, str_object, arrlocation):
         """
 
         Returns or changes the location of a light object.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
-        arrlocation : Optional,   Array,   The new start point, or location
+        strObject : Required, String, The light object's identifier
+        arrlocation : Optional, Array, The new start point, or location
 
         Returns
 
@@ -344,15 +344,15 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'LightLocation', None, strObject, arrlocation)
 
-    def lightname(self, strobject, strname):
+    def light_name(self, str_object, str_name):
         """
 
         Returns or modifies the user-definable name of a light object.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of the light object
-        strName : Optional,   String,   The new light name
+        strObject : Required, String, The identifier of the light object
+        strName : Optional, String, The new light name
 
         Returns
 
@@ -364,7 +364,7 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'LightName', None, strObject, strName)
 
-    def lightobjects(self, ):
+    def light_objects(self):
         """
 
         Returns the identifier of light objects in the document.
@@ -380,14 +380,14 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'LightObjects', None, )
 
-    def rectangularlightplane(self, strobject):
+    def rectangular_light_plane(self, str_object):
         """
 
         Returns the plane of a rectangular light object.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
+        strObject : Required, String, The light object's identifier
 
         Returns
 
@@ -402,15 +402,15 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'RectangularLightPlane', None, strObject)
 
-    def spotlighthardness(self, strobject, dblhardness):
+    def spot_light_hardness(self, str_object, dbl_hardness):
         """
 
         Returns or changes the hardness of a spot light.  Spotlight hardness controls the fully illuminated region.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
-        dblHardness : Optional,   Number,   The new hardness value
+        strObject : Required, String, The light object's identifier
+        dblHardness : Optional, Number, The new hardness value
 
         Returns
 
@@ -422,15 +422,15 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'SpotLightHardness', None, strObject, dblHardness)
 
-    def spotlightradius(self, strobject, dblradius):
+    def spot_light_radius(self, str_object, dbl_radius):
         """
 
         Returns or changes the radius of a spot light.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
-        dblRadius : Optional,   Number,   The new radius value
+        strObject : Required, String, The light object's identifier
+        dblRadius : Optional, Number, The new radius value
 
         Returns
 
@@ -442,15 +442,15 @@ class Light(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'SpotLightRadius', None, strObject, dblRadius)
 
-    def spotlightshadowintensity(self, strobject, dblintensity):
+    def spot_light_shadow_intensity(self, str_object, dbl_intensity):
         """
 
         Returns or modifies the shadow intensity of a spot light.
 
         Parameters
 
-        strObject : Required,   String,   The light object's identifier
-        dblIntensity : Optional,   Number,   The new shadow intensity
+        strObject : Required, String, The light object's identifier
+        dblIntensity : Optional, Number, The new shadow intensity
 
         Returns
 

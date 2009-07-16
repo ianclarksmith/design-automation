@@ -8,31 +8,25 @@ class View(DispatchBaseClass):
 
 
 
-    def addnamedcplane(self, ):
         """
 
-        Adds a new named construction plane to the document.
 
-        No parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        Returns
-
-        String : The name of the newly created named construction plane if successful.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'AddNamedCPlane', None, )
+        raise exceptions.NotImplementedError
 
-    def addnamedview(self, strname, strview):
+    def add_named_view(self, str_name, str_view):
         """
 
         Adds a new named view to the document.
 
         Parameters
 
-        strName : Required,   String,   The name of the new named view
-        strView : Optional,   String,   The title or identifier of the view to save
+        strName : Required, String, The name of the new named view
+        strView : Optional, String, The title or identifier of the view to save
 
         Returns
 
@@ -43,38 +37,26 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'AddNamedView', None, strName, strView)
 
-    def backgroundbitmap(self, strview, , arrpoint, dblwidth):
         """
 
-        Returns or sets the background bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        strView : Optional,   String,   The title or identifier of the view
-         : Optional,   String,   The name of the bitmap file to set as the background bitmap
-        arrPoint : Optional,  Array,   A 3-D point the lower left corner of the background bitmap
-        dblWidth : Optional,   Number,   The width of the background bitmap
-
-        Returns
-
-        String : If strFileName is not specified,  then the current background bitmap filename if successful.
-        String : If strFileName is specified,  then the previous background bitmap filename if successful.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'BackgroundBitmap', None, strView, , arrPoint, dblWidth)
+        raise exceptions.NotImplementedError
 
-    def currentdetail(self, strlayout, strdetail, blnreturnnames):
+    def current_detail(self, str_layout, str_detail, bln_return_names):
         """
 
         Returns or changes the current detail view in a page layout view.
 
         Parameters
 
-        strLayout : Required,   String,   The title or identifier of an existing page layout view
-        strDetail : Optional,   String,   The title identifier of the detail view to set current
-        blnReturnNames : Optional,   Boolean,   If True (default), then the name, or title, of the detail view is returned
+        strLayout : Required, String, The title or identifier of an existing page layout view
+        strDetail : Optional, String, The title identifier of the detail view to set current
+        blnReturnNames : Optional, Boolean, If True (default), then the name, or title, of the detail view is returned
 
         Returns
 
@@ -86,15 +68,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentDetail', None, strLayout, strDetail, blnReturnNames)
 
-    def currentview(self, strview, blnreturnname):
+    def current_view(self, str_view, bln_return_name):
         """
 
         Returns or sets the currently active view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view to set current
-        blnReturnName : Optional,   Boolean,   If True (default), then the name, or title, of the view is returned
+        strView : Optional, String, The title or identifier of the view to set current
+        blnReturnName : Optional, Boolean, If True (default), then the name, or title, of the view is returned
 
         Returns
 
@@ -106,47 +88,35 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'CurrentView', None, strView, blnReturnName)
 
-    def deletenamedcplane(self, ):
         """
 
-        Removed a new named construction plane from the document.
 
-        No parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        Returns
-
-        Boolean : True or False indicating success or failure.
-        Null : On error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteNamedCPlane', None, )
-
-    def deletenamedview(self, ):
-        """
-
-        Removed a new named view from  the document.
-
-        No parameters
-
-        Returns
-
-        Boolean : True or False indicating success or failure.
-        Null : On error.
+        raise exceptions.NotImplementedError
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'DeleteNamedView', None, )
 
-    def detailnames(self, strlayout, blnreturnnames):
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+
+
+        """
+
+        raise exceptions.NotImplementedError
+
+    def detail_names(self, str_layout, bln_return_names):
         """
 
         Returns the names, or titles, or identifiers of all detail views in a page layout view.
 
         Parameters
 
-        strLayout : Required,   String,   The title or identifier of an existing page layout view
-        blnReturnNames : Optional,   Boolean,   If True (default), then the names, or titles, of the detail views are returned
+        strLayout : Required, String, The title or identifier of an existing page layout view
+        blnReturnNames : Optional, Boolean, If True (default), then the names, or titles, of the detail views are returned
 
         Returns
 
@@ -157,14 +127,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'DetailNames', None, strLayout, blnReturnNames)
 
-    def isbackgroundbitmap(self, strview):
+    def is_background_bitmap(self, str_view):
         """
 
         Verifies that the specified view contains a background bitmap.
 
         Parameters
 
-        strView : Required,   String,   The title or identifier of the view
+        strView : Required, String, The title or identifier of the view
 
         Returns
 
@@ -175,15 +145,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsBackgroundBitmap', None, strView)
 
-    def isdetail(self, strlayout, strdetail):
+    def is_detail(self, str_layout, str_detail):
         """
 
         Verifies that a detail view exists on a page layout view.
 
         Parameters
 
-        strLayout : Required,   String,   The title or identifier of an existing page layout view
-        strDetail : Required,   String,   The title or identifier of an existing detail view
+        strLayout : Required, String, The title or identifier of an existing page layout view
+        strDetail : Required, String, The title or identifier of an existing detail view
 
         Returns
 
@@ -193,14 +163,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsDetail', None, strLayout, strDetail)
 
-    def islayout(self, strlayout):
+    def is_layout(self, str_layout):
         """
 
         Verifies that a view is a page layout view.
 
         Parameters
 
-        strLayout : Required,   String,   The title or identifier of an existing page layout view
+        strLayout : Required, String, The title or identifier of an existing page layout view
 
         Returns
 
@@ -210,14 +180,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsLayout', None, strLayout)
 
-    def isview(self, strview):
+    def is_view(self, str_view):
         """
 
         Verifies that the specified view exists.
 
         Parameters
 
-        strView : Required,   String,   The title or identifier of the view
+        strView : Required, String, The title or identifier of the view
 
         Returns
 
@@ -228,14 +198,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsView', None, strView)
 
-    def isviewcurrent(self, strview):
+    def is_view_current(self, str_view):
         """
 
         Verifies that the specified view is the current, or active, view.
 
         Parameters
 
-        strView : Required,   String,   The title or identifier of the view
+        strView : Required, String, The title or identifier of the view
 
         Returns
 
@@ -246,14 +216,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewCurrent', None, strView)
 
-    def isviewmaximized(self, strview):
+    def is_view_maximized(self, str_view):
         """
 
         Verifies that the specified view is maximized - enlarged so as to fill the entire Rhino window.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
+        strView : Optional, String, The title or identifier of the view
 
         Returns
 
@@ -264,14 +234,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewMaximized', None, strView)
 
-    def isviewperspective(self, strview):
+    def is_view_perspective(self, str_view):
         """
 
         Verifies that the specified view's projection is set to perspective.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
+        strView : Optional, String, The title or identifier of the view
 
         Returns
 
@@ -282,14 +252,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewPerspective', None, strView)
 
-    def isviewtitlevisible(self, strview):
+    def is_view_title_visible(self, str_view):
         """
 
         Verifies that the specified view's title window is visible.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
+        strView : Optional, String, The title or identifier of the view
 
         Returns
 
@@ -300,14 +270,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsViewTitleVisible', None, strView)
 
-    def iswallpaper(self, strview):
+    def is_wallpaper(self, str_view):
         """
 
         Verifies that the specified view contains a wallpaper bitmap.
 
         Parameters
 
-        strView : Required,   String,   The title or identifier of the view
+        strView : Required, String, The title or identifier of the view
 
         Returns
 
@@ -318,14 +288,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsWallpaper', None, strView)
 
-    def maximizerestoreview(self, strview):
+    def maximize_restore_view(self, str_view):
         """
 
         Toggles a view's maximized/restore window state of the specified view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
+        strView : Optional, String, The title or identifier of the view
 
         No returns
 
@@ -334,14 +304,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'MaximizeRestoreView', None, strView)
 
-    def namedcplane(self, strname):
+    def named_c_plane(self, str_name):
         """
 
         Returns the plane geometry of the specified named construction plane.
 
         Parameters
 
-        strName : Required,   String,   The name of a named construction plane
+        strName : Required, String, The name of a named construction plane
 
         Returns
 
@@ -352,7 +322,7 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'NamedCPlane', None, strName)
 
-    def namedcplanes(self, ):
+    def named_c_planes(self):
         """
 
         Returns the names of all named construction planes in the document.
@@ -368,7 +338,7 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'NamedCPlanes', None, )
 
-    def namedviews(self, ):
+    def named_views(self):
         """
 
         Returns the names of all named views in the document.
@@ -384,15 +354,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'NamedViews', None, )
 
-    def renameview(self, stroldtitle, strnewtitle):
+    def rename_view(self, str_old_title, str_new_title):
         """
 
         Renames, or changes the title, of the specified view..
 
         Parameters
 
-        strOldTitle : Required,   String,   The title or identifier of the view to rename
-        strNewTitle : Required,   String,   The new title of the view
+        strOldTitle : Required, String, The title or identifier of the view to rename
+        strNewTitle : Required, String, The new title of the view
 
         Returns
 
@@ -403,48 +373,36 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'RenameView', None, strOldTitle, strNewTitle)
 
-    def restorenamedcplane(self, ):
         """
 
-        Restores a named construction plane to the specified view.
 
-        No parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        Returns
-
-        String : The name of the restored named construction plane if successful.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreNamedCPlane', None, )
-
-    def restorenamedview(self, ):
-        """
-
-        Restores a named view to the specified view.
-
-        No parameters
-
-        Returns
-
-        String : The name of the restored named view if successful.
-        Null : If not successful, or on error.
+        raise exceptions.NotImplementedError
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'RestoreNamedView', None, )
 
-    def rotatecamera(self, strview, intdirection, dblangle):
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+
+
+        """
+
+        raise exceptions.NotImplementedError
+
+    def rotate_camera(self, str_view, int_direction, dbl_angle):
         """
 
         Rotates a perspective-projected view's camera. See the RotateCamera command in the Rhino help file for more details.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        intDirection : Optional,  Number, The direction to rotate the camera where 0 = right, 1 = left, 2 = down, and 3 = up,  The default is 0 = right
-        dblAngle : Optional,   Number,   The angle to rotate
+        strView : Optional, String, The title or identifier of the view
+        intDirection : Optional, Number, The direction to rotate the camera where 0 = right, 1 = left, 2 = down, and 3 = up, The default is 0 = right
+        dblAngle : Optional, Number, The angle to rotate
 
         Returns
 
@@ -455,16 +413,16 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'RotateCamera', None, strView, intDirection, dblAngle)
 
-    def rotateview(self, strview, intdirection, dblangle):
+    def rotate_view(self, str_view, int_direction, dbl_angle):
         """
 
         Rotates a view. See the RotateView command in the Rhino help file for more information.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        intDirection : Optional,  Number, The direction to rotate the view, where 0 = right, 1 = left, 2 = down, and 3 = up,  The default is 0 = right
-        dblAngle : Optional,   Number,   The angle to rotate
+        strView : Optional, String, The title or identifier of the view
+        intDirection : Optional, Number, The direction to rotate the view, where 0 = right, 1 = left, 2 = down, and 3 = up, The default is 0 = right
+        dblAngle : Optional, Number, The angle to rotate
 
         Returns
 
@@ -475,15 +433,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'RotateView', None, strView, intDirection, dblAngle)
 
-    def showgrid(self, strview, blnshow):
+    def show_grid(self, str_view, bln_show):
         """
 
         Shows or hides a view's construction plane grid.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view to modify
-        blnShow : Optional,   Boolean,   The grid display state to set
+        strView : Optional, String, The title or identifier of the view to modify
+        blnShow : Optional, Boolean, The grid display state to set
 
         Returns
 
@@ -495,15 +453,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGrid', None, strView, blnShow)
 
-    def showgridaxes(self, strview, blnshow):
+    def show_grid_axes(self, str_view, bln_show):
         """
 
         Shows or hides a view's construction plane grid axes.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view to modify
-        blnShow : Optional,   Boolean,   The grid axes display state to set
+        strView : Optional, String, The title or identifier of the view to modify
+        blnShow : Optional, Boolean, The grid axes display state to set
 
         Returns
 
@@ -515,15 +473,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ShowGridAxes', None, strView, blnShow)
 
-    def showviewtitle(self, strview, blnstate):
+    def show_view_title(self, str_view, bln_state):
         """
 
         Shows or hides the title window of a view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        blnState : Optional,   Boolean,   The visible state of the view's title window
+        strView : Optional, String, The title or identifier of the view
+        blnState : Optional, Boolean, The visible state of the view's title window
 
         No returns
 
@@ -532,15 +490,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ShowViewTitle', None, strView, blnState)
 
-    def showworldaxes(self, strview, blnshow):
+    def show_world_axes(self, str_view, bln_show):
         """
 
         Shows or hides a view's world axes icon.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view to modify
-        blnShow : Optional,   Boolean,   The world axes icon display state to set
+        strView : Optional, String, The title or identifier of the view to modify
+        blnShow : Optional, Boolean, The world axes icon display state to set
 
         Returns
 
@@ -552,32 +510,26 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ShowWorldAxes', None, strView, blnShow)
 
-    def synchronizecplanes(self, ):
         """
 
-        The view synchronization only applies to Rhino's standard-named, parallel-projected views (e.g. Back, Bottom, Front, Left, Right, and Top).  All other views (e.g. Perspective, etc) simply have their construction plane synchronized to that of the specified view's construction plane.
 
-        No parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        Returns
-
-        Boolean : True or False indicating success or failure.
-        Null : On error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'SynchronizeCPlanes', None, )
+        raise exceptions.NotImplementedError
 
-    def tiltview(self, strview, intdirection, dblangle):
+    def tilt_view(self, str_view, int_direction, dbl_angle):
         """
 
         Tilts a view by rotating the camera up vector.  See the TiltView command in the Rhino help file for more details.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        intDirection : Optional,  Number, The direction to rotate the camera where 0 = right and 1 = left, 
-        dblAngle : Optional,   Number,   The angle to rotate
+        strView : Optional, String, The title or identifier of the view
+        intDirection : Optional, Number, The direction to rotate the camera where 0 = right and 1 = left, 
+        dblAngle : Optional, Number, The angle to rotate
 
         Returns
 
@@ -588,19 +540,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'TiltView', None, strView, intDirection, dblAngle)
 
-    def viewcplane(self, strview, arrplane, 0, 1, 2, 3):
+    def view_c_plane(self, str_view, arr_plane):
         """
 
         Returns or sets the specified view's construction plane.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        arrPlane : Optional,   Array,  The new construction plane
-        0 : Required,   The construction plane's origin (3-D point), 
-        1 : Required,   The construction plane's X axis direction (3-D vector), 
-        2 : Required,   The construction plane's Y axis direction (3-D vector), 
-        3 : Optional,   The construction plane's Z axis direction (3-D vector), 
+        strView : Optional, String, The title or identifier of the view
+        arrPlane : Optional, Array, The new construction plane
 
         Returns
 
@@ -610,17 +558,17 @@ class View(DispatchBaseClass):
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCPlane', None, strView, arrPlane, 0, 1, 2, 3)
+        return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCPlane', None, strView, arrPlane)
 
-    def viewcamera(self, strview, arrcamera):
+    def view_camera(self, str_view, arr_camera):
         """
 
         Returns or sets the camera location of the specified view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        arrCamera : Optional,   Array,   A 3-D point identifying the new camera location
+        strView : Optional, String, The title or identifier of the view
+        arrCamera : Optional, Array, A 3-D point identifying the new camera location
 
         Returns
 
@@ -632,15 +580,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCamera', None, strView, arrCamera)
 
-    def viewcameralens(self, strview, dbllength):
+    def view_camera_lens(self, str_view, dbl_length):
         """
 
         Returns or sets the 35mm camera lens length of the specified perspective projection view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        dblLength : Optional,   Number,   The new 35mm camera lens length
+        strView : Optional, String, The title or identifier of the view
+        dblLength : Optional, Number, The new 35mm camera lens length
 
         Returns
 
@@ -652,14 +600,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraLens', None, strView, dblLength)
 
-    def viewcameraplane(self, strview):
+    def view_camera_plane(self, str_view):
         """
 
         Returns the orientation of a view's camera.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
+        strView : Optional, String, The title or identifier of the view
 
         Returns
 
@@ -670,16 +618,16 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraPlane', None, strView)
 
-    def viewcameratarget(self, strview, arrcamera, arrtarget):
+    def view_camera_target(self, str_view, arr_camera, arr_target):
         """
 
         Returns or sets the camera and target positions of the specified view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        arrCamera : Optional,   Array,   A 3-D point identifying the new camera location
-        arrTarget : Optional,   Array,   A 3-D point identifying the new target location
+        strView : Optional, String, The title or identifier of the view
+        arrCamera : Optional, Array, A 3-D point identifying the new camera location
+        arrTarget : Optional, Array, A 3-D point identifying the new target location
 
         Returns
 
@@ -691,15 +639,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraTarget', None, strView, arrCamera, arrTarget)
 
-    def viewcameraup(self, strview, arrupvector):
+    def view_camera_up(self, str_view, arr_up_vector):
         """
 
         Returns or sets the camera up direction of specified view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        arrUpVector : Optional,   Array,   A 3-D vector identifying the new camera location
+        strView : Optional, String, The title or identifier of the view
+        arrUpVector : Optional, Array, A 3-D vector identifying the new camera location
 
         Returns
 
@@ -711,15 +659,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewCameraUp', None, strView, arrUpVector)
 
-    def viewdisplaymode(self, strview, intmode):
+    def view_display_mode(self, str_view, int_mode):
         """
 
         Returns or sets a view's display mode.  A view's display mode can be either wireframe, shaded, or render preview.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        intMode : Optional,   Number,   The display mode
+        strView : Optional, String, The title or identifier of the view
+        intMode : Optional, Number, The display mode
 
         Returns
 
@@ -731,16 +679,16 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayMode', None, strView, intMode)
 
-    def viewdisplaymodeex(self, strview, strmode, blnreturnnames):
+    def view_display_mode_ex(self, str_view, str_mode, bln_return_names):
         """
 
         Returns or sets a view's display mode.  Unlike the ViewDisplayMode method, which only allows you to set a view to wireframe, shaded, or render preview, this method allows you to set a view to any display mode including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        strMode : Optional,   String,   The name or identifier of the display mode obtained from the ViewDisplayModes method
-        blnReturnNames : Optional,   Boolean,   If True (default), then the name the display mode is returned
+        strView : Optional, String, The title or identifier of the view
+        strMode : Optional, String, The name or identifier of the display mode obtained from the ViewDisplayModes method
+        blnReturnNames : Optional, Boolean, If True (default), then the name the display mode is returned
 
         Returns
 
@@ -752,14 +700,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModeEx', None, strView, strMode, blnReturnNames)
 
-    def viewdisplaymodename(self, strmode):
+    def view_display_mode_name(self, str_mode):
         """
 
         Returns the name of a display mode given a display mode's identifier.
 
         Parameters
 
-        strMode : Required,   String,   The identifier of the display mode obtained from the ViewDisplayModes method
+        strMode : Required, String, The identifier of the display mode obtained from the ViewDisplayModes method
 
         Returns
 
@@ -770,14 +718,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModeName', None, strMode)
 
-    def viewdisplaymodes(self, blnreturnname):
+    def view_display_modes(self, bln_return_name):
         """
 
         Returns a list of view display modes, including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
 
         Parameters
 
-        blnReturnName : Optional,   Boolean,   If True (default), then the names of the display modes are returned
+        blnReturnName : Optional, Boolean, If True (default), then the names of the display modes are returned
 
         Returns
 
@@ -788,15 +736,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewDisplayModes', None, blnReturnName)
 
-    def viewnames(self, blnreturnnames, inttype):
+    def view_names(self, bln_return_names, int_type):
         """
 
         Returns the names, or titles, or identifiers of all views in the document.
 
         Parameters
 
-        blnReturnNames : Optional,   Boolean,   If True (default), then the names, or titles, of the views are returned
-        intType : Optional,   Number,   The type of view to return, where:
+        blnReturnNames : Optional, Boolean, If True (default), then the names, or titles, of the views are returned
+        intType : Optional, Number, The type of view to return, where:
 
         Returns
 
@@ -807,14 +755,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewNames', None, blnReturnNames, intType)
 
-    def viewnearcorners(self, strview):
+    def view_near_corners(self, str_view):
         """
 
         Returns the 3-D corners points of a view's near clipping plane rectangle. This function can be useful in determining the "real world" size of a parallel-projected view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
+        strView : Optional, String, The title or identifier of the view
 
         Returns
 
@@ -825,15 +773,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewNearCorners', None, strView)
 
-    def viewprojection(self, strview, intmode):
+    def view_projection(self, str_view, int_mode):
         """
 
         Returns or sets a view's projection mode.  A view's projection mode can be either parallel or perspective.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        intMode : Optional,   Number,   The projection mode
+        strView : Optional, String, The title or identifier of the view
+        intMode : Optional, Number, The projection mode
 
         Returns
 
@@ -845,15 +793,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewProjection', None, strView, intMode)
 
-    def viewradius(self, strview, dblradius):
+    def view_radius(self, str_view, dbl_radius):
         """
 
         Returns or sets the radius of the viewing frustum of a parallel-projected view. This function is useful when you need an absolute zoom factor for a parallel-projected view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        dblRadius : Optional,   Number,   The view radius
+        strView : Optional, String, The title or identifier of the view
+        dblRadius : Optional, Number, The view radius
 
         Returns
 
@@ -865,14 +813,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewRadius', None, strView, dblRadius)
 
-    def viewsize(self, strview):
+    def view_size(self, str_view):
         """
 
         Returns the width and height in pixels of the specified view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
+        strView : Optional, String, The title or identifier of the view
 
         Returns
 
@@ -883,15 +831,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewSize', None, strView)
 
-    def viewtarget(self, strview, arrtarget):
+    def view_target(self, str_view, arr_target):
         """
 
         Returns or sets the target location of the specified view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        arrTarget : Optional,   Array,   A 3-D point identifying the new target location
+        strView : Optional, String, The title or identifier of the view
+        arrTarget : Optional, Array, A 3-D point identifying the new target location
 
         Returns
 
@@ -903,14 +851,14 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewTarget', None, strView, arrTarget)
 
-    def viewtitle(self, strmode):
+    def view_title(self, str_mode):
         """
 
         Returns the name, or title, of a view given a view's identifier.
 
         Parameters
 
-        strMode : Required,   String,   The identifier of the display mode obtained from the ViewNames method
+        strMode : Required, String, The identifier of the display mode obtained from the ViewNames method
 
         Returns
 
@@ -921,35 +869,25 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ViewTitle', None, strMode)
 
-    def wallpaper(self, strview, strfilename):
         """
 
-        Returns or sets the wallpaper bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        strView : Optional,   String,   The title or identifier of the view
-        strFileName : Optional,   String,   The name of the bitmap file to set as the wallpaper
-
-        Returns
-
-        String : If strFileName is not specified,  then the current wallpaper bitmap filename if successful.
-        String : If strFileName is specified,  then the previous wallpaper bitmap filename if successful.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'Wallpaper', None, strView, strFileName)
+        raise exceptions.NotImplementedError
 
-    def wallpapergrayscale(self, strview, blngrayscale):
+    def wallpaper_gray_scale(self, str_view, bln_gray_scale):
         """
 
         Returns or sets the grayscale display option of the wallpaper bitmap of the specified view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        blnGrayScale : Optional,   Boolean,   Display the wallpaper bitmap in grayscale (True) or color (False)
+        strView : Optional, String, The title or identifier of the view
+        blnGrayScale : Optional, Boolean, Display the wallpaper bitmap in grayscale (True) or color (False)
 
         Returns
 
@@ -961,15 +899,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'WallpaperGrayScale', None, strView, blnGrayScale)
 
-    def wallpaperhidden(self, strview, blnhidden):
+    def wallpaper_hidden(self, str_view, bln_hidden):
         """
 
         Returns or sets the visibility of the wallpaper bitmap of the specified view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        blnHidden : Optional,   Boolean,   Hide the wallpaper bitmap (True) or show the wallpaper bitmap (False)
+        strView : Optional, String, The title or identifier of the view
+        blnHidden : Optional, Boolean, Hide the wallpaper bitmap (True) or show the wallpaper bitmap (False)
 
         Returns
 
@@ -981,16 +919,16 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'WallpaperHidden', None, strView, blnHidden)
 
-    def zoomboundingbox(self, arrcorners, strview, blnall):
+    def zoom_bounding_box(self, arr_corners, str_view, bln_all):
         """
 
         Zooms to the extents of a specified bounding box in the specified view, or in the active view.
 
         Parameters
 
-        arrCorners : Required,   Array,   An array of eight 3-D points that define the corners of the box
-        strView : Optional,   String,   The title or identifier of the view
-        blnAll : Optional,   Boolean,   Zoom extents in all views
+        arrCorners : Required, Array, An array of eight 3-D points that define the corners of the box
+        strView : Optional, String, The title or identifier of the view
+        blnAll : Optional, Boolean, Zoom extents in all views
 
         No returns
 
@@ -999,15 +937,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ZoomBoundingBox', None, arrCorners, strView, blnAll)
 
-    def zoomextents(self, strview, blnall):
+    def zoom_extents(self, str_view, bln_all):
         """
 
         Zooms to the extents of visible objects in the specified view, or in the active view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        blnAll : Optional,   Boolean,   Zoom extents in all views
+        strView : Optional, String, The title or identifier of the view
+        blnAll : Optional, Boolean, Zoom extents in all views
 
         No returns
 
@@ -1016,15 +954,15 @@ class View(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'ZoomExtents', None, strView, blnAll)
 
-    def zoomselected(self, strview, blnall):
+    def zoom_selected(self, str_view, bln_all):
         """
 
         Zooms to the extents of selected objects in the specified view, or in the active view.
 
         Parameters
 
-        strView : Optional,   String,   The title or identifier of the view
-        blnAll : Optional,   Boolean,   Zoom selected in all views
+        strView : Optional, String, The title or identifier of the view
+        blnAll : Optional, Boolean, Zoom selected in all views
 
         No returns
 

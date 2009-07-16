@@ -8,15 +8,15 @@ class PointAndVector(DispatchBaseClass):
 
 
 
-    def isvectorparallelto(self, arrvector1, arrvector2):
+    def is_vector_parallel_to(self, arr_vector1, arr_vector2):
         """
 
         Compares two vectors to see if they are parallel.
 
         Parameters
 
-        arrVector1 : Required,   Array,   The 3-D vector
-        arrVector2 : Required,   Array,   The 3-D vector to compare to
+        arrVector1 : Required, Array, The 3-D vector
+        arrVector2 : Required, Array, The 3-D vector to compare to
 
         Returns
 
@@ -27,15 +27,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsVectorParallelTo', None, arrVector1, arrVector2)
 
-    def isvectorperpendicularto(self, arrvector1, arrvector2):
+    def is_vector_perpendicular_to(self, arr_vector1, arr_vector2):
         """
 
         Compares two vectors to see if they are perpendicular.
 
         Parameters
 
-        arrVector1 : Required,   Array,   The 3-D vector
-        arrVector2 : Required,   Array,   The 3-D vector to compare to
+        arrVector1 : Required, Array, The 3-D vector
+        arrVector2 : Required, Array, The 3-D vector to compare to
 
         Returns
 
@@ -46,14 +46,14 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsVectorPerpendicularTo', None, arrVector1, arrVector2)
 
-    def isvectortiny(self, arrvector):
+    def is_vector_tiny(self, arr_vector):
         """
 
         Verifies that a vector is very short, or tiny - the x,y,z  elements are less than or equal to 1.0e-12.
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector to test
+        arrVector : Required, Array, The 3-D vector to test
 
         Returns
 
@@ -64,14 +64,14 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsVectorTiny', None, arrVector)
 
-    def isvectorzero(self, arrvector):
+    def is_vector_zero(self, arr_vector):
         """
 
         Verifies that a vector is zero, or tiny - the  x,y,z elements are equal to 0.0.
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector to test
+        arrVector : Required, Array, The 3-D vector to test
 
         Returns
 
@@ -82,15 +82,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'IsVectorZero', None, arrVector)
 
-    def pointadd(self, arrpoint1, arrpoint2):
+    def point_add(self, arr_point1, arr_point2):
         """
 
         Adds a 3-D point or a 3-D vector to a 3-D point.
 
         Parameters
 
-        arrPoint1 : Required,   Array,   The 3-D point to add to
-        arrPoint2 : Required,   Array,   The 3-D point or a 3-D vector to add
+        arrPoint1 : Required, Array, The 3-D point to add to
+        arrPoint2 : Required, Array, The 3-D point or a 3-D vector to add
 
         Returns
 
@@ -101,16 +101,16 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointAdd', None, arrPoint1, arrPoint2)
 
-    def pointarrayboundingbox(self, arrpoints, strview, blnworldcoords):
+    def point_array_bounding_box(self, arr_points, str_view, bln_world_coords):
         """
 
         Returns either a world axis-aligned or a construction plane axis-aligned bounding box of an array of 3-D point locations.
 
         Parameters
 
-        arrPoints : Required,   Array,   An array of 3-D points
-        strView : Optional,   String,   The title of the view that contains the construction plane to which the bounding box should be aligned
-        blnWorldCoords : Optional,   Boolean,   Whether or not to return the bounding box as world coordinates or construction plane coordinates
+        arrPoints : Required, Array, An array of 3-D points
+        strView : Optional, String, The title of the view that contains the construction plane to which the bounding box should be aligned
+        blnWorldCoords : Optional, Boolean, Whether or not to return the bounding box as world coordinates or construction plane coordinates
 
         Returns
 
@@ -121,15 +121,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointArrayBoundingBox', None, arrPoints, strView, blnWorldCoords)
 
-    def pointarrayclosestpoint(self, arrpoints, arrpoint):
+    def point_array_closest_point(self, arr_points, arr_point):
         """
 
         Finds the point in an array of 3-D points that is closest to a test point.
 
         Parameters
 
-        arrPoints : Required,   Array,   An array of 3-D points to test
-        arrPoint : Required,   Array,   The 3-D test point
+        arrPoints : Required, Array, An array of 3-D points to test
+        arrPoint : Required, Array, The 3-D test point
 
         Returns
 
@@ -140,15 +140,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointArrayClosestPoint', None, arrPoints, arrPoint)
 
-    def pointarraytransform(self, arrpoints, arrxform):
+    def point_array_transform(self, arr_points, arr_xform):
         """
 
         Transforms an array of 3-D points.
 
         Parameters
 
-        arrPoints : Required,   Array,   An array of 3-D points to transform
-        arrXform : Required,   Array,   A valid 4x4 transformation matrix
+        arrPoints : Required, Array, An array of 3-D points to transform
+        arrXform : Required, Array, A valid 4x4 transformation matrix
 
         Returns
 
@@ -159,16 +159,16 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointArrayTransform', None, arrPoints, arrXform)
 
-    def pointcompare(self, arrpoint1, arrpoint2, dbltolerance):
+    def point_compare(self, arr_point1, arr_point2, dbl_tolerance):
         """
 
         Compares two 3-D points.
 
         Parameters
 
-        arrPoint1 : Required,   Array,   The first 3-D point to compare
-        arrPoint2 : Required,   Array,   The second 3-D point to compare
-        dblTolerance : Optional,   Number,   The tolerance to use for the comparison
+        arrPoint1 : Required, Array, The first 3-D point to compare
+        arrPoint2 : Required, Array, The second 3-D point to compare
+        dblTolerance : Optional, Number, The tolerance to use for the comparison
 
         Returns
 
@@ -179,15 +179,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointCompare', None, arrPoint1, arrPoint2, dblTolerance)
 
-    def pointdivide(self, arrpoint, dblscale):
+    def point_divide(self, arr_point, dbl_scale):
         """
 
         Divides a 3-D point by a value
 
         Parameters
 
-        arrPoint : Required,   Array,   The 3-D point to divide
-        dblScale : Required,   Number,   The a non-zero value to divide
+        arrPoint : Required, Array, The 3-D point to divide
+        dblScale : Required, Number, The a non-zero value to divide
 
         Returns
 
@@ -198,15 +198,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointDivide', None, arrPoint, dblScale)
 
-    def pointscale(self, arrpoint, dblscale):
+    def point_scale(self, arr_point, dbl_scale):
         """
 
         Scales a 3-D point.
 
         Parameters
 
-        arrPoint : Required,   Array,   The 3-D point to scale
-        dblScale : Required,   Number,   The scale factor to apply
+        arrPoint : Required, Array, The 3-D point to scale
+        dblScale : Required, Number, The scale factor to apply
 
         Returns
 
@@ -217,15 +217,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointScale', None, arrPoint, dblScale)
 
-    def pointsubtract(self, arrpoint1, arrpoint2):
+    def point_subtract(self, arr_point1, arr_point2):
         """
 
         Subtracts a 3-D point or a 3-D vector from a 3-D point.
 
         Parameters
 
-        arrPoint1 : Required,   Array,   The 3-D point to subtract from
-        arrPoint2 : Required,   Array,   The 3-D point or a 3-D vector to subtract
+        arrPoint1 : Required, Array, The 3-D point to subtract from
+        arrPoint2 : Required, Array, The 3-D point or a 3-D vector to subtract
 
         Returns
 
@@ -236,15 +236,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointSubtract', None, arrPoint1, arrPoint2)
 
-    def pointtransform(self, arrpoint, arrxform):
+    def point_transform(self, arr_point, arr_xform):
         """
 
         Transforms a 3-D point.
 
         Parameters
 
-        arrPoint : Required,   Array,   The 3-D point to transform
-        arrXform : Required,   Array,   A valid 4x4 transformation matrix
+        arrPoint : Required, Array, The 3-D point to transform
+        arrXform : Required, Array, A valid 4x4 transformation matrix
 
         Returns
 
@@ -255,15 +255,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointTransform', None, arrPoint, arrXform)
 
-    def pointsarecoplanar(self, arrpoints, dbltolerance):
+    def points_are_coplanar(self, arr_points, dbl_tolerance):
         """
 
         Verifies that an array of 3-D points are co-planar.
 
         Parameters
 
-        arrPoints : Required,   Array,   An array of 3-D points
-        dblTolerance : Optional,  Number,  A tolerance to use when verifying
+        arrPoints : Required, Array, An array of 3-D points
+        dblTolerance : Optional, Number, A tolerance to use when verifying
 
         Returns
 
@@ -274,59 +274,35 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PointsAreCoplanar', None, arrPoints, dblTolerance)
 
-    def projectpointtomesh(self, arrpoints, arrpoints, strmesh, arrmeshes, arrdirection):
         """
 
-        Projects one or more points onto one or more meshes.
 
-        Parameters
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
 
-        arrPoints : Required,   Array,   A 3-D point to project
-        arrPoints : Required,   Array,   An array of 3-D points to project
-        strMesh : Required,   String,   The identifier of the mesh object to project onto
-        arrMeshes : Required,   Array,   The identifiers of the mesh objects to project onto
-        arrDirection : Required,   Array,   The direction (3-D vector) to project the points
-
-        Returns
-
-        Array : An array of 3-D points if successful.
-        Null : If not successful, or on error.
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ProjectPointToMesh', None, arrPoints, arrPoints, strMesh, arrMeshes, arrDirection)
-
-    def projectpointtosurface(self, arrpoints, arrpoints, strsurface, arrsurfaces, arrdirection):
-        """
-
-        Projects one or more points onto one or more surfaces or polysurfaces.
-
-        Parameters
-
-        arrPoints : Required,   Array,   A 3-D point to project
-        arrPoints : Required,   Array,   An array of 3-D points to project
-        strSurface : Required,   String,   The identifier of the surface or polysurface object to project onto
-        arrSurfaces : Required,   Array,   The identifiers of the surface or polysurface objects to project onto
-        arrDirection : Required,   Array,   The direction (3-D vector) to project the points
-
-        Returns
-
-        Array : An array of 3-D points if successful.
-        Null : If not successful, or on error.
+        raise exceptions.NotImplementedError
 
         """
 
-        return self._ApplyTypes_(id, 1, (returns), (params), u'ProjectPointToSurface', None, arrPoints, arrPoints, strSurface, arrSurfaces, arrDirection)
 
-    def pullpoints(self, strobject, arrpoints):
+        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+
+
+        """
+
+        raise exceptions.NotImplementedError
+
+    def pull_points(self, str_object, arr_points):
         """
 
         Pulls an array of points to a surface or mesh object. For more information, see the Rhino help file for information on the Pull command.
 
         Parameters
 
-        strObject : Required,   String,   The identifier of the surface or mesh object that pulls
-        arrPoints : Required,   String,   An array of 3-D points to pull
+        strObject : Required, String, The identifier of the surface or mesh object that pulls
+        arrPoints : Required, String, An array of 3-D points to pull
 
         Returns
 
@@ -337,15 +313,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'PullPoints', None, strObject, arrPoints)
 
-    def vectoradd(self, arrvector1, arrvector2):
+    def vector_add(self, arr_vector1, arr_vector2):
         """
 
         Adds two 3-D vectors.
 
         Parameters
 
-        arrVector1 : Required,   Array,   The 3-D vector to add to
-        arrVector2 : Required,   Array,   The 3-D vector to add
+        arrVector1 : Required, Array, The 3-D vector to add to
+        arrVector2 : Required, Array, The 3-D vector to add
 
         Returns
 
@@ -356,15 +332,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorAdd', None, arrVector1, arrVector2)
 
-    def vectorcompare(self, arrvector1, arrvector2):
+    def vector_compare(self, arr_vector1, arr_vector2):
         """
 
         Compares two 3-D vectors.
 
         Parameters
 
-        arrVector1 : Required,   Array,   The first 3-D vector to compare
-        arrVector2 : Required,   Array,   The second 3-D vector to compare
+        arrVector1 : Required, Array, The first 3-D vector to compare
+        arrVector2 : Required, Array, The second 3-D vector to compare
 
         Returns
 
@@ -374,15 +350,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorCompare', None, arrVector1, arrVector2)
 
-    def vectorcreate(self, arrpoint1, arrpoint2):
+    def vector_create(self, arr_point1, arr_point2):
         """
 
         Creates a vector from two 3-D points.
 
         Parameters
 
-        arrPoint1 : Required,   Array,   The first 3-D point
-        arrPoint2 : Required,   Array,   The second 3-D point
+        arrPoint1 : Required, Array, The first 3-D point
+        arrPoint2 : Required, Array, The second 3-D point
 
         Returns
 
@@ -393,15 +369,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorCreate', None, arrPoint1, arrPoint2)
 
-    def vectorcrossproduct(self, arrvector1, arrvector2):
+    def vector_cross_product(self, arr_vector1, arr_vector2):
         """
 
         Calculates the cross product of two 3-D vectors.
 
         Parameters
 
-        arrVector1 : Required,   Array,   The first 3-D vector
-        arrVector2 : Required,   Array,   The second 3-D vector
+        arrVector1 : Required, Array, The first 3-D vector
+        arrVector2 : Required, Array, The second 3-D vector
 
         Returns
 
@@ -412,15 +388,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorCrossProduct', None, arrVector1, arrVector2)
 
-    def vectordivide(self, arrvector, dbldivide):
+    def vector_divide(self, arr_vector, dbl_divide):
         """
 
         Divides a 3-D vectors by a value
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector to divide
-        dblDivide : Required,   Number,   The a non-zero value to divide
+        arrVector : Required, Array, The 3-D vector to divide
+        dblDivide : Required, Number, The a non-zero value to divide
 
         Returns
 
@@ -431,15 +407,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorDivide', None, arrVector, dblDivide)
 
-    def vectordotproduct(self, arrvector1, arrvector2):
+    def vector_dot_product(self, arr_vector1, arr_vector2):
         """
 
         Calculates the dot product of two 3-D vectors.
 
         Parameters
 
-        arrVector1 : Required,   Array,   The first 3-D vector
-        arrVector2 : Required,   Array,   The second 3-D vector
+        arrVector1 : Required, Array, The first 3-D vector
+        arrVector2 : Required, Array, The second 3-D vector
 
         Returns
 
@@ -449,14 +425,14 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorDotProduct', None, arrVector1, arrVector2)
 
-    def vectorlength(self, arrvector):
+    def vector_length(self, arr_vector):
         """
 
         Returns the length of a 3-D vector.
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector
+        arrVector : Required, Array, The 3-D vector
 
         Returns
 
@@ -466,15 +442,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorLength', None, arrVector)
 
-    def vectormultiply(self, arrvector1, arrvector2):
+    def vector_multiply(self, arr_vector1, arr_vector2):
         """
 
         Multiplies two 3-D vectors.
 
         Parameters
 
-        arrVector1 : Required,   Array,   The first 3-D vector
-        arrVector2 : Required,   Array,   The second 3-D vector
+        arrVector1 : Required, Array, The first 3-D vector
+        arrVector2 : Required, Array, The second 3-D vector
 
         Returns
 
@@ -485,14 +461,14 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorMultiply', None, arrVector1, arrVector2)
 
-    def vectorreverse(self, arrvector):
+    def vector_reverse(self, arr_vector):
         """
 
         Reverses the direction of a 3-D vector.
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector
+        arrVector : Required, Array, The 3-D vector
 
         Returns
 
@@ -503,16 +479,16 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorReverse', None, arrVector)
 
-    def vectorrotate(self, arrvector, dblangle, arraxis):
+    def vector_rotate(self, arr_vector, dbl_angle, arr_axis):
         """
 
         Rotates a 3-D vector.
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector
-        dblAngle : Required,   Number,   The rotation angle in degrees
-        arrAxis : Required,   Array,   A 3-D vector defining the axis of rotation
+        arrVector : Required, Array, The 3-D vector
+        dblAngle : Required, Number, The rotation angle in degrees
+        arrAxis : Required, Array, A 3-D vector defining the axis of rotation
 
         Returns
 
@@ -523,15 +499,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorRotate', None, arrVector, dblAngle, arrAxis)
 
-    def vectorscale(self, arrvector, dblscale):
+    def vector_scale(self, arr_vector, dbl_scale):
         """
 
         Scales a 3-D vector.
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector to scale
-        dblScale : Required,   Number,   The scale factor to apply
+        arrVector : Required, Array, The 3-D vector to scale
+        dblScale : Required, Number, The scale factor to apply
 
         Returns
 
@@ -542,15 +518,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorScale', None, arrVector, dblScale)
 
-    def vectorsubtract(self, arrvector1, arrvector2):
+    def vector_subtract(self, arr_vector1, arr_vector2):
         """
 
         Subtracts two 3-D vectors.
 
         Parameters
 
-        arrVector1 : Required,   Array,   The 3-D vector to subtract from
-        arrVector2 : Required,   Array,   The 3-D vector to subtract
+        arrVector1 : Required, Array, The 3-D vector to subtract from
+        arrVector2 : Required, Array, The 3-D vector to subtract
 
         Returns
 
@@ -561,15 +537,15 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorSubtract', None, arrVector1, arrVector2)
 
-    def vectortransform(self, arrvector, arrxform):
+    def vector_transform(self, arr_vector, arr_xform):
         """
 
         Transforms a 3-D vector.
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector to transform
-        arrXform : Required,   Array,   A valid 4x4 transformation matrix
+        arrVector : Required, Array, The 3-D vector to transform
+        arrXform : Required, Array, A valid 4x4 transformation matrix
 
         Returns
 
@@ -580,14 +556,14 @@ class PointAndVector(DispatchBaseClass):
 
         return self._ApplyTypes_(id, 1, (returns), (params), u'VectorTransform', None, arrVector, arrXform)
 
-    def vectorunitize(self, arrvector):
+    def vector_unitize(self, arr_vector):
         """
 
         Unitizes, or normalizes, a 3-D vector. Note, zero vectors cannot be unitized.
 
         Parameters
 
-        arrVector : Required,   Array,   The 3-D vector to unitize
+        arrVector : Required, Array, The 3-D vector to unitize
 
         Returns
 
