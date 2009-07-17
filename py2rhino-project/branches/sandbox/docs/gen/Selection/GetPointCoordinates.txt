@@ -1,0 +1,39 @@
+[GetPointCoordinates]
+
+    Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.
+
+[Syntax]
+
+    Rhino.GetPointCoordinates ([strMessage [, blnPreSelect]])
+
+[Parameters]
+
+    strMessage
+    Optional.  String.  A prompt or message.
+    blnPreSelect
+    Optional.  Boolean.  Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+
+[Returns]
+
+    Array
+    An array of 3-D points, one for each selected point object, if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoints, arrPt
+    arrPoints = Rhino.GetPointCoordinates
+    If IsArray(arrPoints) Then
+    For Each arrPt in arrPoints
+    Rhino.Print Rhino.Pt2Str(arrPt)
+    Next
+    End If
+
+[Also See]
+
+    GetObject
+    GetObjects
+    GetPoint
+    GetPoints
+    PointCoordinates

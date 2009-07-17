@@ -1,0 +1,35 @@
+[AddRevSrf]
+
+    Create a surface by revolving a curve around an axis.
+
+[Syntax]
+
+    Rhino.AddRevSrf (strCurve, arrAxis [, dblStartAngle [, dblEndAngle]])
+
+[Parameters]
+
+    strProfile
+    Required. String. The identifier of the curve to revolve.
+    arrAxis
+    Required.  Array.  An array of two 3-D points identifying the start point and end point of the rail revolve axis.
+    dblStartAngle
+    Optional. Number. The starting angle. If omitted, an angle of 0.0 is used.
+    dblEndAngle
+    Optional. Number. The ending angle. If omitted, an angle of 360.0 is used.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strCurve
+    strCurve = Rhino.AddLine(Array(5,0,0), Array(10,0,10))
+    Rhino.AddRevSrf strCurve, Array(Array(0,0,0), Array(0,0,1))
+
+[Also See]
+
+    AddRailRevSrf

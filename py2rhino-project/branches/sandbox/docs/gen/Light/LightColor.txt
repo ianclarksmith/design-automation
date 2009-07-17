@@ -1,0 +1,41 @@
+[LightColor]
+
+    Returns or changes the color of a light.  Light colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+
+[Syntax]
+
+    Rhino.LightColor (strObject [, lngColor])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The light object's identifier.
+    lngColor
+    Optional.  Number.  The new color value.  If omitted, the current light color is returned.
+
+[Returns]
+
+    Number
+    If a color value  is not specified,  the current light value if successful.
+    Number
+    If a color value is specified, the previous light value if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectLight = 256
+    Dim strObject
+    strObject = Rhino.GetObject("Select a light", rhObjectLight)
+    If Not IsNull(strObject) Then
+    Rhino.LightColor strObject, RGB(0, 250, 255)
+    End If
+
+[Also See]
+
+    EnableLight
+    IsLight
+    IsLightEnabled
+    LightCount
+    LightName
+    LightObjects

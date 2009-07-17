@@ -1,0 +1,54 @@
+[ObjectMeshMinInitialGridQuads]
+
+    Returns or modifies an object's custom render mesh parameter's minimum initial grid quads property.
+    For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+
+[Syntax]
+
+    Rhino.ObjectMeshMinInitialGridQuads (strObject [, intQuads])
+
+[Parameters]
+
+    strObject
+    Required.  Object.  The identifier of an object that has custom render mesh parameters.
+    intQuads
+    Optional.  Number.  The render mesh minimum initial grid quads.  The suggested range is from 0 to 10000.
+
+[Returns]
+
+    Boolean
+    If intQuads is not specified, the current render mesh minimum initial grid quads if successful.
+    Boolean
+    If intQuads is specified, the previous render mesh minimum initial grid quads if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select object")
+    If Rhino.ObjectHasMesh(strObject) = True Then
+    Rhino.Print "Quality: " & Rhino.ObjectMeshQuality
+    Rhino.Print "Mesh density: " & Rhino.ObjectMeshDensity
+    Rhino.Print "Maximum angle: " & Rhino.ObjectMeshMaxAngle
+    Rhino.Print "Maximum aspect ratio: " & Rhino.ObjectMeshMaxAspectRatio
+    Rhino.Print "Minimun edge length: " & Rhino.ObjectMeshMinEdgeLength
+    Rhino.Print "Maximum edge length: " & Rhino.ObjectMeshMaxEdgeLength
+    Rhino.Print "Maximum distance, edge to surface: " & Rhino.ObjectMeshMaxDistEdgeToSrf
+    Rhino.Print "Minumum initial grid quads: " & Rhino.ObjectMeshMinInitialGridQuads
+    Rhino.Print "Other settings: " & Rhino.ObjectMeshSettings
+    End If
+
+[Also See]
+
+    AddObjectMesh
+    EnableObjectMesh
+    ObjectHasMesh
+    ObjectMeshDensity
+    ObjectMeshMaxAngle
+    ObjectMeshMaxAspectRatio
+    ObjectMeshMaxDistEdgeToSrf
+    ObjectMeshMaxEdgeLength
+    ObjectMeshMinEdgeLength
+    ObjectMeshQuality
+    ObjectMeshSettings

@@ -1,0 +1,42 @@
+[IsObjectSelected]
+
+    Verifies that an object is currently selected.
+
+[Syntax]
+
+    Rhino.IsObjectSelected (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of an object.
+
+[Returns]
+
+    True
+    The object is selected.
+    False
+    The object is not selected.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    'Do something here...
+    If Rhino.IsObjectSelected (strObject) Then
+    Rhino.Print "The object is selected."
+    Else
+    Rhino.Print "The object is not selected."
+    End If
+
+[Also See]
+
+    IsObject
+    IsObjectHidden
+    IsObjectInGroup
+    IsObjectLocked
+    IsObjectNormal
+    IsObjectReference
+    IsObjectSelectable
+    IsObjectSolid

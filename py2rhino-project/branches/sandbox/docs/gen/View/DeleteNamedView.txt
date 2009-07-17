@@ -1,0 +1,38 @@
+[DeleteNamedView]
+
+    Removed a new named view from  the document.
+
+[Syntax]
+
+    Rhino.DeleteNamedView (strName)
+
+[Parameters]
+
+    strName
+    Required.  String.  The name of the named view to remove.
+
+[Returns]
+
+
+[Parameters]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrViews, strView
+    arrViews = Rhino.NamedViews
+    If IsArray(arrViews) Then
+    For Each strView In arrViews
+    Rhino.DeleteNamedView strView
+    Next
+    End If
+
+[Also See]
+
+    AddNamedView
+    NamedViews
+    RestoreNamedView

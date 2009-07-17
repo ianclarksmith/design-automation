@@ -1,0 +1,34 @@
+[IsLeader]
+
+    Verifies an object is a dimension leader object.
+
+[Syntax]
+
+    Rhino.IsLeader (strObject)
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a leader")
+    If Rhino.IsLeader(strObject) Then
+    Rhino.Print "The object is a leader."
+    Else
+    Rhino.Print "The object is not a leader."
+    End If
+
+[Also See]
+
+    AddLeader
+    LeaderText

@@ -1,0 +1,38 @@
+[InvertSelectedObjects]
+
+    Inverts the current object selection.  The identifiers of the newly selected objects are returned.
+
+[Syntax]
+
+    Rhino.InvertSelectedObjects ([blnIncludeLights [, blnIncludeGrips]])
+
+[Parameters]
+
+    blnIncludeLights
+    Optional.  Boolean.  Include light objects.  If omitted, light objects are not returned (False).
+    blnIncludeGrips
+    Optional.  Boolean.  Include grips objects.  If omitted, grips objects are not returned (False).
+
+[Returns]
+
+    Array
+    An array of strings identifying the newly selected objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strObject
+    Rhino.GetObjects "Select some objects", , , , True
+    arrObjects = Rhino.InvertSelectedObjects
+    If IsArray(arrObjects) Then
+    For Each strObject In arrObjects
+    Rhino.Print "Object identifier: " & strObject
+    Next
+    End If
+
+[Also See]
+
+    SelectedObjects
+    UnselectAllObjects
+    UnselectedObjects

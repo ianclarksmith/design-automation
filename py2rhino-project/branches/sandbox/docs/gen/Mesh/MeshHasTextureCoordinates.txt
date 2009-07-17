@@ -1,0 +1,34 @@
+[MeshHasTextureCoordinates]
+
+    Verifies a mesh object has texture coordinates.
+
+[Syntax]
+
+    Rhino.MeshHasTextureCoordinates (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectMesh = 32
+    Dim strObject
+    strObject = Rhino.GetObject("Select a mesh", rhObjectMesh)
+    If Rhino.MeshHasTextureCoordinates(strObject) Then
+    Rhino.Print "The mesh has texture coordinates."
+    Else
+    Rhino.Print "The mesh does not have texture coordinates."
+    End If
+
+[Also See]
+
+    MeshTextureCoordinates

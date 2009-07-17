@@ -1,0 +1,52 @@
+[Angle]
+
+    Measures the angle between two points.
+
+[Syntax]
+
+    Rhino.Angle (arrPoint1, arrPoint2 [, blnWorld])
+
+[Parameters]
+
+    arrPoint1
+    Required.  Array.  The first 3-D point.
+    arrPoint2
+    Required.  Array.  The second 3-D point.
+    blnWorld
+    Optional.  Boolean.  If True, the angle calculation is based on the world coordinate system.  If False, the angle calculation is based on the active construction plane.  The default value is True.
+
+[Returns]
+
+    Array
+    An array containing the following elements if successful.
+    0
+    The X,Y angle in degrees.
+    1
+    The elevation.
+    2
+    The  delta in the X direction.
+    3
+    The  delta in the Y direction.
+    4
+    The  delta in the Z direction.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoint1, arrPoint2, arrAngle
+    arrPoint1 = Rhino.GetPoint("First point")
+    If IsArray(arrPoint1) Then
+    arrPoint2 = Rhino.GetPoint("Second point")
+    If IsArray(arrPoint2) Then
+    arrAngle = Rhino.Angle(arrPoint1, arrPoint2)
+    If IsArray(arrAngle) Then
+    Rhino.Print "Angle: " & CStr(arrAngle(0))
+    End If
+    End If
+    End If
+
+[Also See]
+
+    Angle2
+    Distance

@@ -1,0 +1,36 @@
+[DimensionStyle]
+
+    Returns or modifies the dimension style of a dimension object.
+
+[Syntax]
+
+    Rhino.DimensionStyle (strObject [, strStyle]])
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+    strStyle
+    Optional. String. The name of an existing dimension style.
+
+[Returns]
+
+    String
+    If strStyle is not specified, then the object's current dimension style if successful.
+    String
+    If strStyle is specified, then the object's previous dimension style if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a dimension")
+    If Rhino.IsDimension(strObject) Then
+    Rhino.DimensionStyle strObject, "Default"
+    End If
+
+[Also See]
+
+    DimStyleNames
+    IsDimStyle

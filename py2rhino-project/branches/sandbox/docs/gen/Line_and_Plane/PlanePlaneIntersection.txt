@@ -1,0 +1,35 @@
+[PlanePlaneIntersection]
+
+    Calculates the intersection of two planes.
+
+[Syntax]
+
+    Rhino.PlanePlaneIntersection (arrPlane1, arrPoint2)
+
+[Parameters]
+
+    arrPlane1
+    Required.  Array.  The first plane to intersect.
+    arrPoint2
+    Required.  Array.  The second plane to intersect.
+
+[Returns]
+
+    Array
+    Two 3-D points identifying the starting and ending points of the intersection line.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPlane1 : arrPlane1 = Rhino.WorldXYPlane
+    Dim arrPlane2 : arrPlane2 = Rhino.WorldYZPlane
+    Dim arrLine
+    arrLine = Rhino.PlanePlaneIntersection(arrPlane1, arrPlane2)
+    If IsArray(arrLine) Then Rhino.AddLine arrLine(0), arrLine(1)
+
+[Also See]
+
+    IntersectPlanes
+    LineLineIntersection
+    LinePlaneIntersection

@@ -1,0 +1,40 @@
+[ObjectLinetype]
+
+    Returns or modifies the linetype of an object.
+
+[Syntax]
+
+    Rhino.ObjectLinetype (strObject [, strLinetype])
+    Rhino.ObjectLinetype (arrObjects , strLinetype)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to modify.
+    strLayer
+    Optional.  String.  The name of an existing linetype.  If omitted, the current object linetype is returned.  Note, if arrObjects is specified, strLinetype is required.
+
+[Returns]
+
+    Number
+    If a linetype is not specified,  the object's current linetype if successful.
+    Number
+    If a linetype is specified, the object's previous linetype if successful.
+    Number
+    If arrObjects is specified, then the number of objects modified if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    Rhino.ObjectLinetype strObject, "Continuous"
+    End If
+
+[Also See]
+
+    ObjectLinetypeSource

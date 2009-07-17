@@ -1,0 +1,49 @@
+[TextObjectStyle]
+
+    Returns or modifies the font style of a text object.
+
+[Syntax]
+
+    Rhino.TextObjectStyle (strObject [, intStyle])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    intStyle
+    Optional. Number.  The font style.  If omitted, the current font style is returned.  The font style can be any number of the following flags:
+    Value
+    Description
+    0
+    Normal.
+    1
+    Bold.
+    2
+    Italic.
+
+[Returns]
+
+    Number
+    If a style is not specified,  the current font style if successful.
+    Number
+    If a style is specified,  the previous font style if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select text")
+    If Rhino.IsText(strObject) Then
+    Rhino.TextObjectStyle strObject, 3
+    End If
+
+[Also See]
+
+    AddText
+    IsText
+    TextObjectFont
+    TextObjectHeight
+    TextObjectPlane
+    TextObjectPoint
+    TextObjectText

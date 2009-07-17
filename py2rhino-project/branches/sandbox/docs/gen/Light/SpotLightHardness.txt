@@ -1,0 +1,39 @@
+[SpotLightHardness]
+
+    Returns or changes the hardness of a spot light.  Spotlight hardness controls the fully illuminated region.
+
+[Syntax]
+
+    Rhino.SpotLightHardness (strObject [, dblHardness])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The light object's identifier.
+    dblHardness
+    Optional.  Number.  The new hardness value.  A spot light's hardness values ranges from 0.0 to 1.0.  If omitted, the current hardness value is returned.
+
+[Returns]
+
+    Number
+    If dblHardness is not specified, then  the current hardness value if successful.
+    Number
+    If dblHardness is specified, then the previous hardness value if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectLight = 256
+    Dim strObject
+    strObject = Rhino.GetObject("Select a light", rhObjectLight)
+    If Not IsNull(strObject) Then
+    Rhino.SpotLightHardness strObject, 0.75
+    End If
+
+[Also See]
+
+    AddSpotLight
+    IsSpotLight
+    SpotLightRadius
+    SpotLightShadowIntensity

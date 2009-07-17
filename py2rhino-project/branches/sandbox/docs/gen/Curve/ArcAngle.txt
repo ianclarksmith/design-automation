@@ -1,0 +1,38 @@
+[ArcAngle]
+
+    Returns the angle of an arc curve object.
+
+[Syntax]
+
+    Rhino.ArcAngle (strObject [, intIndex])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intIndex
+    Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+[Returns]
+
+    Number
+    The angle in degrees if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, dblAngle
+    strObject = Rhino.GetObject("Select arc")
+    If Rhino.IsArc(strObject) Then
+    dblAngle = Rhino.ArcAngle(strObject)
+    Rhino.Print "Arc angle: " & CStr(dblAngle)
+    End If
+
+[Also See]
+
+    AddArc3Pt
+    ArcCenterPoint
+    ArcMidPoint
+    ArcRadius
+    IsArc

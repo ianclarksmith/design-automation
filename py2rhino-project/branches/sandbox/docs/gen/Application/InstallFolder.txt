@@ -1,0 +1,29 @@
+[InstallFolder]
+
+    Returns the full path to Rhino's installation folder.
+
+[Syntax]
+
+    Rhino.InstallFolder ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    String
+    Rhino's installation folder if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strFolder
+    strFolder = Rhino.InstallFolder
+    MsgBox strFolder
+
+[Also See]
+
+    ExeFolder
+    RegistryKey

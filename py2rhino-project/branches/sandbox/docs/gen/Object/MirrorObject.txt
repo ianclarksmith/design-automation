@@ -1,0 +1,41 @@
+[MirrorObject]
+
+    Mirrors a single object.
+
+[Syntax]
+
+    Rhino.MirrorObject (strObject, arrStartPt, arrEndPt [, blnCopy])
+
+[Parameters]
+
+    strObject
+    Required. String. The identifier of the object to mirror.
+    arrStartPt
+    Required. Array. The start of the mirror plane.
+    arrEndPt
+    Required. Array. The end of the mirror plane.
+    blnCopy
+    Optional. Boolean. Copy the object. If omitted, the object will not be copied (False).
+
+[Returns]
+
+    String
+    The identifier of the mirrored object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrStartPt, arrEndPt
+    strObject = Rhino.GetObject("Select object to mirror")
+    If Not IsNull(strObject) Then
+    arrStartPt = Rhino.GetPoint("Start of mirror plane")
+    arrEndPt = Rhino.GetPoint("End of mirror plane")
+    If IsArray(arrStartPt) And IsArray(arrEndPt) Then
+    Rhino.MirrorObject strObject, arrStartPt, arrEndPt, True
+    End If
+    End If
+
+[Also See]
+
+    MirrorObjects

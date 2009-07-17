@@ -1,0 +1,31 @@
+[DeleteObjects]
+
+    Deletes one or more objects from the document.
+
+[Syntax]
+
+    Rhino.DeleteObjects (arrObjects)
+
+[Parameters]
+
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to delete.
+
+[Returns]
+
+    Number
+    The number of objects deleted if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects
+    arrObjects = Rhino.GetObjects("Select objects to delete")
+    If IsArray(arrObjects) Then
+    Rhino.DeleteObjects arrObjects
+    End If
+
+[Also See]
+
+    DeleteObject

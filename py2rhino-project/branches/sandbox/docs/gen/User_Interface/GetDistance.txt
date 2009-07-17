@@ -1,0 +1,37 @@
+[GetDistance]
+
+    Pauses for user input of a distance.
+
+[Syntax]
+
+    Rhino.GetDistance ([arrPoint [, dblDistance [, strMessage1 [, strMessage2]]]])
+
+[Parameters]
+
+    arrPoint
+    Optional.  Array.  A zero-based, one-dimensional array containing three numbers identifying the first distance point.
+    dblDistance
+    Optional.  Number.  A default distance value.
+    strMessage1
+    Optional.  String.  A prompt or message for the first distance point.
+    strMessage2
+    Optional.  String.  A prompt or message for the second distance point.
+
+[Returns]
+
+    Number
+    The distance input by the user if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim dblDistance
+    dblDistance = Rhino.GetDistance
+    If Not IsNull(dblDistance) Then
+    Rhino.Print "Distance: " & CStr(dblDistance)
+    End If
+
+[Also See]
+
+    GetAngle

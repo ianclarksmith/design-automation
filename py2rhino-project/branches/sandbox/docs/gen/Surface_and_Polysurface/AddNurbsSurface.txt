@@ -1,0 +1,58 @@
+[AddNurbsSurface]
+
+    Adds a NURBS surface object to the document.
+
+[Syntax]
+
+    Rhino.AddNurbsSurface (arrPointCount, arrPoints, arrKnotU, arrKnotV, arrDegree [, arrWeights])
+
+[Parameters]
+
+    arrPointCount
+    Required.  Array.  The number of control points in the U and V directions.
+    arrPoints
+    Required.  Array.  An array of 3-D control points.
+    arrKnotsU
+    Required.  Array.  The knot values for the surface in the U direction.  The array must contain arrPointCount(0) + arrDegree(0) - 1 elements.
+    arrKnotsV
+    Required.  Array.  The knot values for the surface in the V direction.  The array must contain arrPointCount(1) + arrDegree(1) - 1 elements.
+    arrDegree
+    Required.  Array.  The degree of the surface in the U and V directions.  The degree in each direction must be greater than or equal to one (1).
+    arrWeights
+    Required.  Array.  The weight values for the surface.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim strObject, arrPointCount, arrPoints, arrKnots, arrDegree, arrWeights
+    strObject = Rhino.GetObject("Pick a surface", rhObjectSurface)
+    If Not IsNull(strObject) Then
+    arrPointCount = Rhino.SurfacePointCount(strObject)
+    arrPoints = Rhino.SurfacePoints(strObject)
+    arrKnots = Rhino.SurfaceKnots(strObject)
+    arrDegree = Rhino.SurfaceDegree(strObject)
+    If Rhino.IsSurfaceRational(strObject) Then
+    arrWeights = Rhino.SurfaceWeights(strObject)
+    strObject = Rhino.AddNurbsSurface(arrPointCount, arrPoints, arrKnots(0), arrKnots(1), arrDegree, arrWeights)
+    Else
+    strObject = Rhino.AddNurbsSurface(arrPointCount, arrPoints, arrKnots(0), arrKnots(1), arrDegree)
+    End If
+    If Not IsNull(strObject) Then Rhino.SelectObject(strObject)
+    End If
+
+[Also See]
+
+    IsSurfaceRational
+    SurfaceDegree
+    SurfaceKnotCount
+    SurfaceKnots
+    SurfacePointCount
+    SurfacePoints
+    SurfaceWeights

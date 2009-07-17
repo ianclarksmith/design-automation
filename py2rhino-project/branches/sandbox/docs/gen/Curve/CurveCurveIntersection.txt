@@ -1,0 +1,106 @@
+[CurveCurveIntersection]
+
+    Calculates the intersection of two curve objects.
+
+[Syntax]
+
+    Rhino.CurveCurveIntersection (strObject1 [, strObject2 [, dblTolerance]])
+
+[Parameters]
+
+    strObject1
+    Required.  String.  The identifier of the first curve object.
+    strObject2
+    Optional.  String.  The identifier of the second curve object.  If omitted, the a self-intersection test will be performed on strObject1.
+    dblTolerance
+    Optional.  Number.  The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+
+[Returns]
+
+    Array
+    A two-dimensional array of intersection information if successful.  The array will contain one or more of the following elements:
+    Element
+    Type
+    Description
+    (n, 0)
+    Number
+    The intersection event type, either Point (1) or Overlap (2).
+    (n, 1)
+    
+    Array (3-D Point)
+    If the event type is Point (1), then the intersection point on the first curve.
+    If the event type is Overlap (2), then intersection start point on the first curve.
+    (n, 2)
+    
+    Array (3-D Point)
+    If the event type is Point (1), then the intersection point on the first curve.
+    If the event type is Overlap (2), then intersection end point on the first curve.
+    (n, 3)
+    
+    Array (3-D Point)
+    If the event type is Point (1), then the intersection point on the second curve.
+    If the event type is Overlap (2), then intersection start point on the second curve.
+    (n, 4)
+    
+    Array (3-D Point)
+    If the event type is Point (1), then the intersection point on the second curve.
+    If the event type is Overlap (2), then intersection end point on the second curve.
+    (n, 5)
+    
+    Number
+    If the event type is Point (1), then the first curve parameter.
+    If the event type is Overlap (2), then the start value of the first curve parameter range.
+    (n, 6)
+    
+    Number
+    If the event type is Point (1), then the first curve parameter.
+    If the event type is Overlap (2),  then the end value of the first curve parameter range.
+    (n, 7)
+    
+    Number
+    If the event type is Point (1), then the second curve parameter.
+    If the event type is Overlap (2), then the start value of the second curve parameter range.
+    (n, 8)
+    
+    Number
+    If the event type is Point (1), then the second curve parameter.
+    If the event type is Overlap (2), then the end value of the second curve parameter range.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Sub CCX()
+    Const rhObjectCurve = 4
+    Dim strCurve1, strCurve2, arrCCX, i
+    strCurve1 = Rhino.GetObject("Select first curve", rhObjectCurve)
+    If IsNull(strCurve1) Or Rhino.IsCurve(strCurve1) = False Then Exit Sub
+    strCurve2 = Rhino.GetObject("Select second curve", rhObjectCurve)
+    If IsNull(strCurve2) Or Rhino.IsCurve(strCurve2) = False Then Exit Sub
+    arrCCX = Rhino.CurveCurveIntersection(strCurve1, strCurve2)
+    If Not IsArray(arrCCX) Then
+    Rhino.Print "Selected curves do not intersect."
+    Exit Sub
+    End If
+    For i = 0 To UBound(arrCCX)
+    If arrCCX(i,0) = 1 Then
+    Rhino.Print "Point"
+    Rhino.Print "Intersection point on first curve: " & Rhino.Pt2Str(arrCCX(i,1))
+    Rhino.Print "Intersection point on second curve: " & Rhino.Pt2Str(arrCCX(i,3))
+    Rhino.Print "First curve parameter: " & CStr(arrCCX(i,5))
+    Rhino.Print "Second curve parameter: " & CStr(arrCCX(i,7))
+    Else
+    Rhino.Print "Overlap"
+    Rhino.Print "Intersection start point on first curve: " & Rhino.Pt2Str(arrCCX(i,1))
+    Rhino.Print "Intersection end point on first curve: " & Rhino.Pt2Str(arrCCX(i,2))
+    Rhino.Print "Intersection start point on second curve: " & Rhino.Pt2Str(arrCCX(i,3))
+    Rhino.Print "Intersection end point on second curve: " & Rhino.Pt2Str(arrCCX(i,4))
+    Rhino.Print "First curve parameter range: " & CStr(arrCCX(i,5)) & " to " & CStr(arrCCX(i,6))
+    Rhino.Print "Second curve parameter range: " & CStr(arrCCX(i,7)) & " to " & CStr(arrCCX(i,8))
+    End If
+    Next
+    End Sub
+
+[Also See]
+
+    CurveSurfaceIntersection

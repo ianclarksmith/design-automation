@@ -1,0 +1,33 @@
+[StartupScriptList]
+
+    Returns all of the startup script items in Rhino's startup script list. See "Options RhinoScript" for more details.
+
+[Syntax]
+
+    Rhino.StartupScriptList ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Array
+    An array of strings containing all of the startup script items in RhinoScript's startup script list.
+
+[Example]
+
+    Dim intCount, arrPaths, strPath
+    intCount = Rhino.StartupScriptCount
+    If intCount > 0
+    arrPaths = Rhino.StartupScriptList
+    For Each strPath in arrPaths
+    Rhino.Print strPath
+    Next
+    End If
+
+[Also See]
+
+    AddStartupScript
+    DeleteStartupScript
+    StartupScriptCount

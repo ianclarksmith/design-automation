@@ -1,0 +1,47 @@
+[PopupMenu]
+
+    Displays a user-defined, context-style popup menu. The popup menu can appear almost anywhere. And, it can be dismissed by either clicking the left or right mouse buttons.
+
+[Syntax]
+
+    Rhino.PopupMenu (arrItems, arrModes, arrPoint, strView)
+
+[Parameters]
+
+    arrItems
+    Required.  Array.  An array of string representing the menu items. An empty string, or "", will create a menu separator item.
+    arrModes
+    Optional.  Array.  A array if numbers identifying the display mode of the corresponding menu items. If omitted, all menu items are enabled. Note, display modes are ignored for menu separators. The display modes are a follows:
+    0
+    The menu item is enabled.
+    1
+    The menu item is disabled.
+    2
+    The menu item is checked.
+    3
+    The menu item is disabled and checked.
+    arrPoint
+    Optional.  Array.  A 3-D point where the menu item is to appear. If omitted, the menu item will appear at the current cursor position.
+    strView
+    Optional.  String.  If arrPoint is specified, the strView is the view in which the menu is to appear. If arrPoint is specified but strView is omitted, then the menu will be displayed in the active view.
+
+[Returns]
+
+    Number
+    The index of the menu item that was picked.
+    Number
+    -1 if no menu item is picked.
+    Null
+    On error.
+
+[Example]
+
+    Sub ContextMenu
+    Dim arrItems(3), arrModes(3), intResult
+    arrItems(0) = "Line"   : arrModes(0) = 2 ' checked
+    arrItems(1) = ""       : arrModes(1) = 0 ' separator
+    arrItems(2) = "Circle" : arrModes(2) = 0
+    arrItems(3) = "Arc"    : arrModes(3) = 0
+    intResult = Rhino.PopupMenu(arrItems, arrModes)
+    If (intResult >= 0) Then MsgBox(arrItems(intResult))
+    End Sub

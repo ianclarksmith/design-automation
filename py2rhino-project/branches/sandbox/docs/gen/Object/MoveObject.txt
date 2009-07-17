@@ -1,0 +1,44 @@
+[MoveObject]
+
+    Moves a single object.
+
+[Syntax]
+
+    Rhino.MoveObject (strObject, arrStart, arrEnd)
+    Rhino.MoveObject (strObject, arrTranslation)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object to move.
+    arrStart
+    Required.  Array.  The 3-D starting, or base, point of the move operation.
+    arrEnd
+    Required.  Array.  The 3-D ending point of the move operation.
+    arrTranslation
+    Required.  Array.  The 3-D translation vector.
+
+[Returns]
+
+    Boolean
+    The identifier of the moved object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrStart, arrEnd
+    strObject = Rhino.GetObject("Select object to move")
+    If Not IsNull(strObject) Then
+    arrStart = Rhino.GetPoint("Point to move from")
+    If IsArray(arrStart) Then
+    arrEnd = Rhino.GetPoint("Point to move to")
+    If IsArray(arrStart) Then
+    Rhino.MoveObject strObject, arrStart, arrEnd
+    End If
+    End If
+    End If
+
+[Also See]
+
+    MoveObjects

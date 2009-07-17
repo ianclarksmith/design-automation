@@ -1,0 +1,56 @@
+[PropertyListBox]
+
+    Displays a list of items and their values in a property-style list box dialog.
+
+[Syntax]
+
+    Rhino.PropertyListBox (arrItems, arrValues [, strMessage [, strTitle]])
+
+[Parameters]
+
+    arrItems
+    Required.  Array.  A zero-based, one-dimensional array of string items.
+    arrValues
+    Required.  Array.  A zero-based, one-dimensional array of strings indicating the value of each item in the list.
+    strMessage
+    Optional.  String.  A prompt or message.
+    strTitle
+    Optional.  String.  A dialog box title.
+
+[Returns]
+
+    Array
+    A zero-based, one-dimensional array of strings indicating the new value of each item in the list.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strObj, arrNames(), strName, intCount, arrResults, i
+    intCount = 0
+    arrObjects = Rhino.GetObjects("Select Objects")
+    If IsArray(arrObjects) Then
+    For Each strObj In arrObjects
+    ReDim Preserve arrNames(intCount)
+    strName = Rhino.ObjectName(strObj)
+    If IsNull(strName) Then
+    arrNames(intCount) = ""
+    Else
+    arrNames(intCount) = strName
+    End If
+    intCount = intCount + 1
+    Next
+    arrResults = Rhino.PropertyListBox(arrObjects, arrNames, "Modify object name(s)")
+    If IsArray(arrResults) Then
+    For i = 0 To UBound(arrObjects)
+    Rhino.ObjectName arrObjects(i), arrResults(i)
+    Next
+    End If
+    End If
+
+[Also See]
+
+    CheckListBox
+    ComboListBox
+    ListBox
+    MultiListbox

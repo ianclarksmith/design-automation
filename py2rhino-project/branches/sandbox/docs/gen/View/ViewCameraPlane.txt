@@ -1,0 +1,43 @@
+[ViewCameraPlane]
+
+    Returns the orientation of a view's camera.
+
+[Syntax]
+
+    Rhino.ViewCameraPlane ([strView])
+
+[Parameters]
+
+    strView
+    Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+[Returns]
+
+    Array
+    The view's camera plane if successful.  The elements of a plane array are as follows:
+    Element
+    Description
+    0
+    The plane's origin (3-D point).
+    1
+    The plane's X axis direction (3-D vector).
+    2
+    The plane's Y axis direction (3-D vector).
+    3
+    The plane's Z axis direction (3-D vector).
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strView, arrCamPlane, arrPlane, arrTarget
+    strView = Rhino.CurrentView
+    arrTarget = Rhino.ViewTarget(strView)
+    arrCamPlane = Rhino.ViewCameraPlane(strView)
+    arrPlane = Rhino.MovePlane(arrCamPlane, arrTarget)
+    Rhino.ViewCPlane strView, arrPlane
+
+[Also See]
+
+    ViewCamera
+    ViewTarget

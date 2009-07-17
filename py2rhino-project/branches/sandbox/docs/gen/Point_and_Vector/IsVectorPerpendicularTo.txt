@@ -1,0 +1,34 @@
+[IsVectorPerpendicularTo]
+
+    Compares two vectors to see if they are perpendicular.
+
+[Syntax]
+
+    Rhino.IsVectorPerpendicularTo (arrVector1, arrVector2)
+
+[Parameters]
+
+    arrVector1
+    Required.  Array.  The 3-D vector.
+    arrVector2
+    Required.  Array.  The 3-D vector to compare to.
+
+[Returns]
+
+    Boolean
+    True if the vectors are perpendicular, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrVector1, arrVector2
+    arrVector1 = Array(1,0,0)
+    arrVector2 = Array(0,1,0)
+    MsgBox Rhino.IsVectorPerpendicularTo arrVector1, arrVector2
+
+[Also See]
+
+    IsVectorParallelTo
+    IsVectorTiny
+    IsVectorZero

@@ -1,0 +1,27 @@
+[Floor]
+
+    Returns the largest integer less than or equal to the specified number.
+
+[Syntax]
+
+    Rhino.Floor (dblNumber)
+
+[Parameters]
+
+    dblNumber
+    Required.  Number.  A number.
+
+[Returns]
+
+    Number
+    The floor if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    MsgBox Rhino.Floor(Rhino.PI)
+
+[Also See]
+
+    Ceil

@@ -1,0 +1,74 @@
+[SurfaceEvaluate]
+
+    A general purpose surface evaluator.
+
+[Syntax]
+
+    Rhino.SurfaceEvaluate (strObject, arrParameter, intDerivative)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    arrParameter
+    Required.  Array.  An array containing the U,V parameter to evaluate.
+    intDerivative
+    Required.  Number.  The number of derivatives to evaluate.
+
+[Returns]
+
+    Array
+    An array of length (intDerivative+1)*(intDerivative+2)/2 if successful.  The array elements are as follows:
+    Element
+    Type
+    Description
+    0
+    Array
+    The 3-D point.
+    1
+    Array
+    The first derivative.
+    2
+    Array
+    The first derivative.
+    3
+    Array
+    The second derivative.
+    4
+    Array
+    The second derivative.
+    5
+    Array
+    The second derivative.
+    6
+    Array
+    etc...
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Sub TestSurfaceEvaluate()
+    Dim srf, pt, uv, der, res, msg, i
+    srf = Rhino.GetObject("Select surface to evaluate", 8, True)
+    If IsNull(srf) Then Exit Sub
+    pt = Rhino.GetPointOnSurface(srf, "Point to evaluate")
+    If Not IsArray(pt) Then Exit Sub
+    der = Rhino.GetInteger("Number of derivatives to evaluate", 1, 1)
+    If Not IsNumeric(der) Then Exit Sub
+    uv = Rhino.SurfaceClosestPoint(srf, pt)
+    res = Rhino.SurfaceEvaluate(srf, uv, der)
+    If Not IsArray(res) Then
+    Rhino.Print "Failed to evaluate curve."
+    Exit Sub
+    End If
+    For i = 0 to UBound(res)
+    msg = msg & CStr(i) & " = " & Rhino.Pt2Str(res(i), 6) & vbCrLf
+    Next
+    MsgBox msg, vbOKOnly, "Derivative = " & CStr(der)
+    End Sub
+
+[Also See]
+
+    EvaluateSurface
+    ClosestPoint

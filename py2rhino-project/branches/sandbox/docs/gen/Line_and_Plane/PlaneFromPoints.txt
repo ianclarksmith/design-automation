@@ -1,0 +1,46 @@
+[PlaneFromPoints]
+
+    Creates a plane from three non-colinear points.
+
+[Syntax]
+
+    Rhino.PlaneFromPoints (arrOrigin, arrPointX, arrPointY)
+
+[Parameters]
+
+    arrOrigin
+    Required.  Array.  The first point, or origin, of the plane.
+    arrPointX
+    Required.  Array.  A point on the plane's X axis.
+    arrPointY
+    Required.  Array.  A point on the plane's Y axis.
+
+[Returns]
+
+    Array
+    The plane if successful.  The elements of a plane array are as follows:
+    Element
+    Description
+    0
+    The plane's origin (3-D point).
+    1
+    The plane's X axis direction (3-D vector).
+    2
+    The plane's Y axis direction (3-D vector).
+    3
+    The plane's Z axis direction (3-D vector).
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrCorners
+    arrCorners = Rhino.GetRectangle
+    If IsArray(arrCorners) Then
+    Rhino.ViewCPlane , Rhino.PlaneFromPoints(arrCorners(0), arrCorners(1), arrCorners(3))
+    End If
+
+[Also See]
+
+    PlaneFromFrame
+    PlaneFromNormal

@@ -1,0 +1,33 @@
+[VectorScale]
+
+    Scales a 3-D vector.
+
+[Syntax]
+
+    Rhino.VectorScale (arrVector, dblScale)
+
+[Parameters]
+
+    arrVector
+    Required.  Array.  The 3-D vector to scale.
+    dblScale
+    Required.  Number.  The scale factor to apply.
+
+[Returns]
+
+    Array
+    The resulting 3-D vector if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrVector
+    arrVector = Rhino.VectorScale(Array(1,0,0), 5)
+    Rhino.Print Rhino.Pt2Str(arrVector)
+
+[Also See]
+
+    VectorAdd
+    VectorCreate
+    VectorSubtract

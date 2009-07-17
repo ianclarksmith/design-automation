@@ -1,0 +1,44 @@
+[DimStyleTextGap]
+
+    Returns or changes the text gap used by a dimension style.
+
+[Syntax]
+
+    Rhino.DimStyleTextGap (strDimStyle [, dblGap])
+
+[Parameters]
+
+    strDimStyle
+    Required.  String.  The name of an existing dimension style.
+    dblGap
+    Optional.  Number.  The new text gap.  If omitted, the current text gap is returned.
+
+[Returns]
+
+    Number
+    If a gap is not specified, the current text gap if successful.
+    Number
+    If a gap is specified, the previous text gap if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strDimStyle, dblGap
+    strDimStyle = Rhino.CurrentDimStyle
+    dblGap = Rhino.DimStyleTextGap(strDimStyle)
+    If dblGap > 0.25 Then
+    Rhino.DimStyleTextGap strDimStyle, 0.25
+    End If
+
+[Also See]
+
+    DimStyleAnglePrecision
+    DimStyleArrowSize
+    DimStyleExtension
+    DimStyleFont
+    DimStyleLinearPrecision
+    DimStyleNumberFormat
+    DimStyleOffset
+    DimStyleTextAlignment
+    DimStyleTextHeight

@@ -1,0 +1,36 @@
+[LeaderText]
+
+    Returns or modifies the text string of a dimension leader object.
+
+[Syntax]
+
+    Rhino.LeaderText (strObject [, strText])
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+    strText
+    Optional. String. The new text string value.
+
+[Returns]
+
+    String
+    If strText is not specified, then the current text string if successful.
+    String
+    If strText is specified, then the previous text string if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a leader")
+    If Rhino.IsLeader(strObject) Then
+    Rhino.Print Rhino.LeaderText(strObject)
+    End If
+
+[Also See]
+
+    AddLeader
+    IsLeader

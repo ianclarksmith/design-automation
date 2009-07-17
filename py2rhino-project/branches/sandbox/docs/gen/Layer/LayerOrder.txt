@@ -1,0 +1,34 @@
+[LayerOrder]
+
+    Returns the current display order index of a layer as displayed in Rhino's Layer dialog box.  A display order index of -1 indicates that the current Layer dialog filter does not allow the layer to appear in the layer list.
+
+[Syntax]
+
+    Rhino.LayerOrder (strLayer)
+
+[Parameters]
+
+    strLayer
+    Required.  String.  The name of an existing layer.
+
+[Returns]
+
+    Number
+    A zero-based display order index if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim intIndex
+    intIndex = Rhino.LayerOrder("Default")
+    If IsNumeric(intIndex) Then
+    If intIndex = -1 Then
+    Rhino.Print "The layer does not display in the Layer dialog."
+    Else
+    Rhino.Print "The layer does display in the Layer dialog."
+    End IF
+    End If
+
+[Also See]
+

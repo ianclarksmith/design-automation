@@ -1,0 +1,48 @@
+[IsBlockInUse]
+
+    Verifies that a block definition is being used by an inserted instance.
+
+[Syntax]
+
+    Rhino.IsBlockInUse (strBlock [, intWhere])
+
+[Parameters]
+
+    strBlock
+    Required.  String.  The name of an existing block definition.
+    intWhere
+    Optional.  Number.  Where to look, where:
+    0 (Default)
+    Check for top level references in active document
+    1
+    Check for top level and nested references in active document
+    2
+    Check for references in other instance definitions
+
+[Returns]
+
+    Boolean
+    True or false indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Dim strBlock
+    strBlock = Rhino.GetString("Block name")
+    If Rhino.IsBlock(strBlock) Then
+    If Rhino.IsBlockInUse(strBlock) Then
+    Rhino.Print "The block definition is in use."
+    Else
+    Rhino.Print "The block definition is not in use."
+    End If
+    Else
+    Rhino.Print "The block definition does not exist."
+    End If
+
+[Also See]
+
+    IsBlock
+    IsBlockInstance
+    IsBlockEmbedded
+    IsBlockReference

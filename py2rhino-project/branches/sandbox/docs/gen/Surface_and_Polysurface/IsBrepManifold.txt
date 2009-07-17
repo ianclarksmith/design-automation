@@ -1,0 +1,34 @@
+[IsBrepManifold]
+
+    Verifies a polysurface object is manifold.  A polysurface for which every edge is shared by at most two faces is called a manifold.  If a polysurface has at least one edge that is shared by more than two faces, then that polysurface is called non-manifold.
+
+[Syntax]
+
+    Rhino.IsBrepManifold (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Const rhPolysrf = 16
+    Dim strObject
+    strObject = Rhino.GetObject("Select a polysurface", rhPolysrf)
+    If Rhino.IsBrepManifold(strObject) Then
+    Rhino.Print "The polysurface is manifold."
+    Else
+    Rhino.Print "The polysurface is non-manifold."
+    End If
+
+[Also See]
+
+    IsBrep

@@ -1,0 +1,40 @@
+[ShortPath]
+
+    Creates the shortest possible curve (geodesic) between two points on a surface. For more details, see the ShortPath command in the Rhino help file.
+
+[Syntax]
+
+    Rhino.ShortPath (strSurface, arrStart, arrEnd)
+
+[Parameters]
+
+    strSurface
+    Required.  String.  The identifier of the surface object that pulls.
+    arrStart
+    Required.  Array.  A 3-D surface point identifying the starting point of the short curve.
+    arrEnd
+    Required.  Array.  A 3-D surface point identifying the ending point of the short curve.
+
+[Returns]
+
+    String
+    The identifier of the new curve object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Const rhObjectPolysurface = 16
+    Dim strSurface, arrStart, arrEnd
+    strSurface = Rhino.GetObject("Select surface for short path", rhObjectSurface + rhObjectPolysurface)
+    If Not IsNull(strSurface) Then
+    arrStart = Rhino.GetPointOnSurface(strSurface, "First point")
+    arrEnd = Rhino.GetPointOnSurface(strSurface, "Second point")
+    Rhino.ShortPath strSurface, arrStart, arrEnd
+    End If
+
+[Also See]
+
+    EvaluateSurface
+    SurfaceClosestPoint

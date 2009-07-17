@@ -1,0 +1,40 @@
+[IsParameterOnSurface]
+
+    Verifies that a parameter space point is on a trimmed surface, or not on the trimmed portion of a surface.
+
+[Syntax]
+
+    Rhino.IsParameterOnSurface (strObject, arrParameter)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    arrParameter
+    Required.  Array.  An array containing the U,V parameter to evaluate.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject, arrPoint, arrDomU, arrDomV
+    strObject = Rhino.GetObject("Select a surface")
+    If Rhino.IsSurface(strObject) Then
+    arrDomU = Rhino.surfacedomain(strObject, 0)
+    arrDomV = Rhino.surfacedomain(strObject, 1)
+    If Rhino.IsParameterOnSurface(strObject, Array(arrDomU(0), arrDomV(0))) Then
+    Rhino.Print "The parameter space point is on the surface."
+    Else
+    Rhino.Print "The parameter space point is not on the surface."
+    End If
+    End If
+
+[Also See]
+
+    IsPointInSurface
+    IsPointOnSurface

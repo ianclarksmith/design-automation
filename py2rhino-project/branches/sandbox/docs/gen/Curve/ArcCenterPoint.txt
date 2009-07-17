@@ -1,0 +1,38 @@
+[ArcCenterPoint]
+
+    Returns the center point of an arc curve object.
+
+[Syntax]
+
+    Rhino.ArcCenterPoint (strObject [, intIndex])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intIndex
+    Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+[Returns]
+
+    Array.
+    The 3-D center point of the arc if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrPoint
+    strObject = Rhino.GetObject("Select arc")
+    If Rhino.IsArc(strObject) Then
+    arrPoint = Rhino.ArcCenterPoint(strObject)
+    Rhino.AddPoint arrPoint
+    End If
+
+[Also See]
+
+    AddArc3Pt
+    ArcAngle
+    ArcMidPoint
+    ArcRadius
+    IsArc

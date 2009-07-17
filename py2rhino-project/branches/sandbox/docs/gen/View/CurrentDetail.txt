@@ -1,0 +1,38 @@
+[CurrentDetail]
+
+    Returns or changes the current detail view in a page layout view.
+
+[Syntax]
+
+    Rhino.CurrentDetail (strLayout [, strDetail [, blnReturnNames]])
+
+[Parameters]
+
+    strLayout
+    Required.  String.  The title or identifier of an existing page layout view.
+    strDetail
+    Optional.  String.  The title identifier of the detail view to set current.  If omitted, identifier of the current detail view is returned.  Note, if no detail views are active, then the title or identifier of the page layout view is returned. Also, to set the page layout view current, simply user strLayout as the value you pass to strDetail.
+    blnReturnNames
+    Optional.  Boolean.  If True (default), then the name, or title, of the detail view is returned. If False, then the identifier of the detail view is returned.
+
+[Returns]
+
+    String
+    If strDetail is not specified, the identifier of the current detail view if successful.
+    String
+    If strDetail is specified, the title or identifier of the previous current detail view is successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strLayout
+    strLayout = Rhino.CurrentView(,False)
+    If Rhino.IsLayout(strLayout) Then
+    Rhino.CurrentDetail strLayout, strLayout
+    End If
+
+[Also See]
+
+    IsDetail
+    IsLayout

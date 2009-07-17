@@ -1,0 +1,29 @@
+[DeleteSearchPath]
+
+    Removes an existing path from Rhino's search path list. Search path items can be removed manually by using Rhino's Options command and modifying the contents of the Files tab. See "Options Files settings" in the Rhino help file for more details.
+
+[Syntax]
+
+    Rhino.DeleteSearchPath (strFolder)
+
+[Parameters]
+
+    strFolder
+    Required.  String.  A valid folder, or path, to remove.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Rhino.DeleteSearchPath "C:\My RhinoScripts"
+
+[Also See]
+
+    AddSearchPath
+    SearchPathCount
+    SearchPathList

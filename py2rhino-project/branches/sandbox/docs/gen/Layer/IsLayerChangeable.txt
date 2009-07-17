@@ -1,0 +1,45 @@
+[IsLayerChangeable]
+
+    Verifies that the objects on a layer can be changed (normal).
+
+[Syntax]
+
+    Rhino.IsLayerChangeable (strLayer)
+
+[Parameters]
+
+    strLayer
+    Required.  String.  The name of an existing layer.
+
+[Returns]
+
+    True
+    If successful.
+    False
+    If not successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strLayer
+    strLayer = Rhino.GetString("Layer name")
+    If Rhino.IsLayer(strLayer) Then
+    If Rhino.IsLayerChangeable(strLayer) Then
+    Rhino.Print "The layer is changeable."
+    Else
+    Rhino.Print "The layer is not changeable."
+    End If
+    Else
+    Rhino.Print "The layer does not exist."
+    End If
+
+[Also See]
+
+    IsLayer
+    IsLayerEmpty
+    IsLayerLocked
+    IsLayerOn
+    IsLayerReference
+    IsLayerSelectable
+    IsLayerVisible

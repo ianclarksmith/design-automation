@@ -1,0 +1,39 @@
+[RestoreNamedCPlane]
+
+    Restores a named construction plane to the specified view.
+
+[Syntax]
+
+    Rhino.RestoreNamedCPlane (strName [, strView])
+
+[Parameters]
+
+    strName
+    Required.  String.  The name of the named construction plane to restore.
+    strView
+    Optional.  String.  The title or identifier of the view to restore the construction plane.  If omitted, the current active view is used.
+
+[Returns]
+
+
+[Parameters]
+
+    String
+    The name of the restored named construction plane if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrCPlanes
+    arrCPlanes = Rhino.NamedCplanes
+    If IsArray(arrCPlanes) Then
+    Rhino.RestoreNamedCPlane arrCPLanes(0)
+    End If
+
+[Also See]
+
+    AddNamedCPlane
+    DeleteNamedCPlane
+    NamedCPlane
+    NamedCPlanes

@@ -1,0 +1,31 @@
+[Max]
+
+    Returns the maximum number from an array of numbers.
+
+[Syntax]
+
+    Rhino.Max (arrNumbers)
+
+[Parameters]
+
+    arrNumbers
+    Required.  Array.  An array of numbers to analyze.
+
+[Returns]
+
+    Number
+    The maximum number if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    MsgBox Rhino.Max(Array(1,2,3,4,5,6,7,8,9))
+
+[Also See]
+
+    Deviation
+    Mean
+    Median
+    Min
+    Sum

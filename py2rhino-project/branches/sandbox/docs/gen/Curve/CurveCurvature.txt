@@ -1,0 +1,65 @@
+[CurveCurvature]
+
+    Returns the curvature of a curve at a parameter.  See the Rhino help file for details on curve curvature.
+
+[Syntax]
+
+    Rhino.CurveCurvature (strObject, dblParameter)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    dblParameter
+    Required.  Number.  The parameter to evaluate.
+
+[Returns]
+
+    Array
+    An array of curvature information if successful.  The array will contain the following information:
+    Element
+    Type
+    Description
+    0
+    Array (3-D Point)
+    3-D point at the specified U,V parameter
+    1
+    Array (3-D Point)
+    Tangent vector
+    2
+    Array (3-D Point)
+    Center of radius of curvature
+    3
+    Number
+    Radius of curvature
+    4
+    Array (3-D Point)
+    Curvature vector
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrPoint, dblParam, arrData
+    strObject = Rhino.GetObject("Select a curve")
+    If Rhino.IsCurve(strObject) Then
+    arrPoint = Rhino.GetPointOnCurve(strObject, "Pick a test point")
+    if IsArray(arrPoint) Then
+    dblParam = Rhino.CurveClosestPoint(strObject, arrPoint)
+    If IsNumeric(dblParam) Then
+    arrData = Rhino.CurveCurvature(strObject, dblParam)
+    If IsArray(arrData) Then
+    Rhino.Print "Curve curvature evaluation at parameter " & CStr(dblParam) &":"
+    Rhino.Print "  3-D Point: (" & Rhino.Pt2Str(arrData(0)) & ")"
+    Rhino.Print "  3-D Tangent: (" & Rhino.Pt2Str(arrData(1)) & ")"
+    Rhino.Print "  Center of radius of curvature: (" & Rhino.Pt2Str(arrData(2)) & ")"
+    Rhino.Print "  Radius of curvature: " & CStr(arrData(3))
+    Rhino.Print "  3-D Curvature: (" & Rhino.Pt2Str(arrData(4)) & ")"
+    End If
+    End If
+    End If
+    End If
+
+[Also See]
+
+    SurfaceCurvature

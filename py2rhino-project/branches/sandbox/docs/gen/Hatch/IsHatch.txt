@@ -1,0 +1,37 @@
+[IsHatch]
+
+    Verifies the existence of a hatch object in the document.
+
+[Syntax]
+
+    Rhino.IsHatch (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of an object.
+
+[Returns]
+
+    True
+    If successful.
+    False
+    If not successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select object")
+    If Rhino.IsHatch(strObject) Then
+    Rhino.Print "Object is a hatch."
+    Else
+    Rhino.Print "Object is not a hatch."
+    End If
+
+[Also See]
+
+    HatchPattern
+    HatchRotation
+    HatchScale

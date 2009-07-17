@@ -1,0 +1,31 @@
+[GetColor]
+
+    Displays the Rhino color picker dialog box allowing the user to select an RGB color value.
+
+[Syntax]
+
+    Rhino.GetColor ([lngColor])
+
+[Parameters]
+
+    lngColor
+    Optional.  Number.  A default RGB color value.  If omitted, the default color is black, or RGB(0,0,0).
+
+[Returns]
+
+    Number
+    The RGB color value selected by the user if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim lngColor
+    lngColor = Rhino.LayerColor("Default")
+    lngColor = Rhino.GetColor(lngColor)
+    If Not IsNull(lngColor) Then
+    Rhino.LayerColor "Default", lngColor
+    End If
+
+[Also See]
+

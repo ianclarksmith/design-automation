@@ -1,0 +1,79 @@
+[SurfaceSurfaceIntersection]
+
+    Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
+
+[Syntax]
+
+    Rhino.SurfaceSurfaceIntersection (strSurfaceA, strSurfaceB [, dblTolerance [, blnCreate]])
+
+[Parameters]
+
+    strSurfaceA
+    Required.  String.  The identifier of the first surface object.
+    strSurfaceB
+    Required.  String.  The identifier of the second surface object.
+    dblTolerance
+    Optional.  Number.  The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+    blnCreate
+    Optional.  Boolean.  Create the intersection curves and points.  If omitted, intersection geometry will not be created.
+
+[Returns]
+
+    Array
+    If blnCreate is not specified or is equal to False, an array numbers identifying the intersection event type if successful.  The array will contain one or more of the following intersection event types:
+    Type
+    Description
+    1
+    Transverse surface-surface intersection curve.
+    2
+    Tangent surface-surface intersection curve.
+    3
+    Overlap surface-surface intersection curve.
+    4
+    Transverse surface-surface intersection point.
+    5
+    Tangent surface-surface intersection point.
+    Array
+    If blnCreate is specified and is equal to True, a two-dimensional array of intersection information if successful.  The array will contain one or more of the following elements:
+    Element
+    Type
+    Description
+    (n, 0)
+    Number
+    The intersection event type.  See the above table for details.
+    (n, 1)
+    String
+    The identifier of the intersection curve or point object that was created.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Sub SSX()
+    Const rhObjectSurface = 8
+    Dim strSurfaceA, strSurfaceB, arrSSX
+    strSurfaceA = Rhino.GetObject("Select first surface", rhObjectSurface)
+    If IsNull(strSurfaceA) Or Rhino.IsSurface(strSurfaceA) = False Then Exit Sub
+    strSurfaceB = Rhino.GetObject("Select second surface", rhObjectSurface)
+    If IsNull(strSurfaceB) Or Rhino.IsSurface(strSurfaceB) = False Then Exit Sub
+    arrSSX = Rhino.SurfaceSurfaceIntersection(strSurfaceA, strSurfaceB,, True)
+    If Not IsArray(arrSSX) Then
+    Rhino.Print "Surfaces do not intersect."
+    Exit Sub
+    End If
+    For i = 0 to UBound(arrSSX)
+    Select Case arrSSX(i,0)
+    Case 1 Rhino.Print "Transverse surface-surface intersection curve."
+    Case 2 Rhino.Print "Tangent surface-surface intersection curve."
+    Case 3 Rhino.Print "Overlap surface-surface intersection curve."
+    Case 4 Rhino.Print "Transverse surface-surface intersection point."
+    Case 5 Rhino.Print "Tangent surface-surface intersection point."
+    End Select
+    Rhino.SelectObject arrSSX(i,1)
+    Next
+    End Sub
+
+[Also See]
+
+    CurveCurveIntersection
+    CurveSurfaceIntersection

@@ -1,0 +1,35 @@
+[VectorAdd]
+
+    Adds two 3-D vectors.
+
+[Syntax]
+
+    Rhino.VectorAdd (arrVector1, arrVector2)
+
+[Parameters]
+
+    arrVector1
+    Required.  Array.  The 3-D vector to add to.
+    arrVector2
+    Required.  Array.  The 3-D vector to add.
+
+[Returns]
+
+    Array
+    The resulting 3-D vector if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrVector1, arrVector2, arrVector
+    arrVector1 = Array(1,0,0)
+    arrVector2 = Array(0,1,0)
+    arrVector = Rhino.VectorAdd(arrVector1, arrVector2)
+    Rhino.Print Rhino.Pt2Str(arrVector)
+
+[Also See]
+
+    VectorCreate
+    VectorScale
+    VectorSubtract

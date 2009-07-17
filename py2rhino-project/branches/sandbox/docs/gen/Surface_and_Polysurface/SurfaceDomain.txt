@@ -1,0 +1,38 @@
+[SurfaceDomain]
+
+    Returns the domain of a  surface object in the specified direction.
+
+[Syntax]
+
+    Rhino.SurfaceDomain (strObject, intDirection)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intDirection
+    Required.  Number.  The direction, either 0 = U, or 1 = V.
+
+[Returns]
+
+    Array
+    An array containing the domain interval in the specified direction if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim strObject, arrDomU, arrDomV
+    strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+    If Rhino.IsSurface(strObject) Then
+    arrDomU = Rhino.SurfaceDomain(strObject, 0)
+    arrDomV = Rhino.SurfaceDomain(strObject, 1)
+    Rhino.Print "Domain in U direction: " & CStr(arrDomU(0)) & " to " & CStr(arrDomU(1))
+    Rhino.Print "Domain in V direction: " & CStr(arrDomV(0)) & " to " & CStr(arrDomV(1))
+    End If
+
+[Also See]
+
+    IsSurface
+    SurfaceDegree

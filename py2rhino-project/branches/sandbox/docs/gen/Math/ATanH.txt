@@ -1,0 +1,28 @@
+[ATanH]
+
+    Returns the inverse hyperbolic tangent of a number. Number must be between -1 and 1 (excluding -1 and 1). The inverse hyperbolic tangent is the value whose hyperbolic tangent is number; ATanH(TanH(number)) equals number.
+
+[Syntax]
+
+    Rhino.ATanH (dblNumber)
+
+[Parameters]
+
+    dblNumber
+    Required.  Number.  A number between -1 and 1.
+
+[Returns]
+
+    Number
+    The inverse hyperbolic tangent of a number if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    MsgBox Rhino.ATanH(0.76159416)
+
+[Also See]
+
+    ACosh
+    ASinH

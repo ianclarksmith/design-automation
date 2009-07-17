@@ -1,0 +1,28 @@
+[CosH]
+
+    Returns the hyperbolic cosine of the specified angle.
+
+[Syntax]
+
+    Rhino.CosH (dblAngle)
+
+[Parameters]
+
+    dblAngle
+    Required.  Number.  An angle, measured in radians.
+
+[Returns]
+
+    Number
+    The hyperbolic cosine of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    MsgBox Rhino.CosH(Rhino.PI / 2)
+
+[Also See]
+
+    SinH
+    TanH

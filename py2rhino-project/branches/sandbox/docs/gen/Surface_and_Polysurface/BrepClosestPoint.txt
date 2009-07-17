@@ -1,0 +1,58 @@
+[BrepClosestPoint]
+
+    Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.
+
+[Syntax]
+
+    Rhino.BrepClosestPoint (strObject, arrPoint)
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+    arrPoint
+    Required.  Array.  The test, or sampling, point.
+
+[Returns]
+
+    Array
+    An array of closest point information if successful.  The array will contain the following information:
+    Element
+    Type
+    Description
+    0
+    Array (X, Y, Z)
+    The 3-D point at the parameter value of the closest point.
+    1
+    Array (U, V)
+    Parameter values of closest point.  Note, V is 0 if the component index type is brep_edge or brep_vertex.
+    2
+    Array (type, index)
+    The type and index of the brep component that contains the closest point. Possible types are brep_face, brep_edge or brep_vertex.
+    3
+    Array (X, Y, Z)
+    The normal to the  brep_face, or the tangent to the brep_edge.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim strObject, arrPoint, arrCP
+    strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+    If Rhino.IsSurface(strObject) Then
+    arrPoint = Rhino.GetPoint("Pick a test point")
+    if IsArray(arrPoint) Then
+    arrCP = Rhino.BrepClosestPoint(strObject, arrPoint)
+    If IsArray(arrCP) Then
+    Rhino.AddPoint arrPoint
+    Rhino.AddPoint arrCP(0)
+    End If
+    End If
+    End If
+
+[Also See]
+
+    EvaluateSurface
+    IsSurface
+    SurfaceClosestPoint

@@ -1,0 +1,46 @@
+[ExtendCurvePoint]
+
+    Extends a non-closed curve object by smooth extension to a point.
+
+[Syntax]
+
+    Rhino.ExtendCurvePoint (strObject, intSide, arrPoint)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intSide
+    Required.  Number.  The size to  extent.
+    Value
+    Description
+    0
+    Extend from the start of the curve.
+    1
+    Extend from the end of the curve.
+    arrPoint
+    Required.  Array.  The 3-D point.
+
+[Returns]
+
+    String
+    The identifier of the extended object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Dim strCurve, arrPoint,
+    strCurve = Rhino.GetObject("Select curve to extend", rhObjectCurve)
+    If Not IsNull(strCurve) Then
+    arrPoint = Rhino.GetPoint("Point to extend to")
+    If IsArray(arrPoint) Then
+    Rhino.ExtendCurvePoint strCurve, 1, arrPoint
+    End If
+    End If
+
+[Also See]
+
+    ExtendCurve
+    ExtendCurveLength

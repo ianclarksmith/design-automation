@@ -1,0 +1,38 @@
+[PointCompare]
+
+    Compares two 3-D points.
+
+[Syntax]
+
+    Rhino.PointCompare (arrPoint1, arrPoint2 [, dblTolerance])
+
+[Parameters]
+
+    arrPoint1
+    Required.  Array.  The first 3-D point to compare.
+    arrPoint2
+    Required.  Array.  The second 3-D point to compare.
+    dblTolerance
+    Optional.  Number.  The tolerance to use for the comparison. If omitted, Rhino's internal zero tolerance is used.
+
+[Returns]
+
+    Boolean
+    True or False
+    Null
+    On error.
+
+[Example]
+
+    Dim arrPoint1, arrPoint2
+    arrPoint1 = Array(1,1,1)
+    arrPoint2 = Array(2,2,2)
+    MsgBox Rhino.PointCompare(arrPoint1 , arrPoint2)
+
+[Also See]
+
+    PointAdd
+    PointDivide
+    PointScale
+    PointSubtract
+    PointTransform

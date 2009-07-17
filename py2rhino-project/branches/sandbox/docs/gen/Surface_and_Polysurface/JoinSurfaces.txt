@@ -1,0 +1,38 @@
+[JoinSurfaces]
+
+    Joins two or more surface or polysurface object together to form one polysurface object.
+
+[Syntax]
+
+    Rhino.JoinSurfaces (arrObjects [,blnDelete])
+
+[Parameters]
+
+    strObject
+    Required.  Array.  An ordered array of strings identifying the surfaces or polysurfaces objects to join.
+    blnDelete
+    Optional.  Boolean.  Delete input objects after joining.  The default is not to delete objects (False).
+
+[Returns]
+
+    String
+    The identifier of the newly created polysurface object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim arrObjects
+    arrObjects = Rhino.GetObjects("Select surfaces in order", rhObjectSurface)
+    If UBound(arrObjects) > 0 Then
+    Rhino.JoinSurfaces arrObjects
+    End If
+
+[Also See]
+
+    ExplodePolysurfaces
+    IsPolysurface
+    IsPolysurfaceClosed
+    IsSurface
+    IsSurfaceClosed

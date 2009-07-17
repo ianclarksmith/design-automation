@@ -1,0 +1,41 @@
+[SelectedObjectGrips]
+
+    Returns an array of grip indices identifying an object's selected grips.
+
+[Syntax]
+
+    Rhino.SelectedObjectGrips (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+
+[Returns]
+
+    Array
+    An array of zero-based grip indices identifying the selected grips.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrGrips
+    strObject = Rhino.GetObject("Select curve", 4)
+    If Not IsNull(strObject) Then
+    Rhino.EnableObjectGrips strObject
+    intCount = Rhino.ObjectGripCount(strObject)
+    For i = 0 to intCount Step 2
+    Rhino.SelectObjectGrip strObject, i
+    Next
+    arrGrips = Rhino.SelectedObjectGrips(strObject)
+    If IsArray(arrGrips) Then
+    Rhino.Print CStr(UBound(arrGrips)) & " grips selected."
+    End If
+    End If
+
+[Also See]
+
+    EnableObjectGrips
+    SelectObjectGrip
+    SelectObjectGrips

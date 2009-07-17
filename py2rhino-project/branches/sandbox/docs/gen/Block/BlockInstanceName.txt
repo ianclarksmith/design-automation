@@ -1,0 +1,34 @@
+[BlockInstanceName]
+
+    Returns the block name of a block instance.
+
+[Syntax]
+
+    Rhino.BlockInstanceName (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of an existing block insertion object.
+
+[Returns]
+
+    String
+    The block name if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select block")
+    If Rhino.IsBlockInstance(strObject) Then
+    Rhino.Print Rhino.BlockInstanceName(strObject)
+    End If
+
+[Also See]
+
+    BlockInstanceCount
+    BlockInstances
+    BlockInstanceXform
+    IsBlockInstance

@@ -1,0 +1,34 @@
+[IsMeshClosed]
+
+    Verifies a mesh object is closed.
+
+[Syntax]
+
+    Rhino.IsMeshClosed (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectMesh = 32
+    Dim strObject
+    strObject = Rhino.GetObject("Select a mesh", rhObjectMesh)
+    If Rhino.IsMeshClosed(strObject) Then
+    Rhino.Print "The mesh is closed."
+    Else
+    Rhino.Print "The mesh is not closed."
+    End If
+
+[Also See]
+
+    IsMesh

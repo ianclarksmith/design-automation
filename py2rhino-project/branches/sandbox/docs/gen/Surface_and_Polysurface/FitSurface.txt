@@ -1,0 +1,39 @@
+[FitSurface]
+
+    Reduces the number of surface control points while maintaining the surfaces' same general shape.  Use this function for replacing surface with too many control points.  For more information, see the Rhino help file for the FitSrf command.
+
+[Syntax]
+
+    Rhino.FitSurface (strObject [, arrDegree [, dblTolerance]])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    arrDegree
+    Optional.  Array.  An array of two numbers that identify the surface curve degree in both the U and the V directions. Each degree value must be greater than 1. The default is 3.
+    dblTolerance
+    Optional.  Number.  The fitting tolerance.  If dblTolerance is not specified or <= 0.0, the document absolute tolerance is used.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhSurface = 8
+    Dim strOldSrf, strNewSrf
+    strOldSrf = Rhino.GetObject("Select surface to fit", rhSurface)
+    If Not IsNull(strOldSrf) Then
+    strNewSrf = Rhino.FitSurface(strOldSrf)
+    If Not IsNull(strNewSrf) Then
+    Rhino.DeleteObject strOldSrf
+    End If
+    End If
+
+[Also See]
+
+    FitCurve

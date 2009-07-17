@@ -1,0 +1,65 @@
+[CurveEvaluate]
+
+    A general purpose curve evaluator.
+
+[Syntax]
+
+    Rhino.CurveEvaluate (strObject, dblParameter, intDerivative)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    dblParameter
+    Required.  Number.  The evaluation parameter.
+    intDerivative
+    Required.  Number.  The number of derivatives to evaluate.
+
+[Returns]
+
+    Array
+    An array of length (intDerivative+1) if successful.  The array elements are as follows:
+    Element
+    Type
+    Description
+    0
+    Array
+    The 3-D point
+    1
+    Array
+    The first derivative
+    2
+    Array
+    The second derivative
+    3
+    Array
+    etc...
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Sub TestCurveEvaluate()
+    Dim crv, pt, t, der, res, msg, i
+    crv = Rhino.GetObject("Select curve to evaluate", 4, True)
+    If IsNull(crv) Then Exit Sub
+    pt = Rhino.GetPointOnCurve(crv, "Point to evaluate")
+    If Not IsArray(pt) Then Exit Sub
+    der = Rhino.GetInteger("Number of derivatives to evaluate", 1, 1)
+    If Not IsNumeric(der) Then Exit Sub
+    t = Rhino.CurveClosestPoint(crv, pt)
+    res = Rhino.CurveEvaluate(crv, t, der)
+    If Not IsArray(res) Then
+    Rhino.Print "Failed to evaluate curve."
+    Exit Sub
+    End If
+    For i = 0 to UBound(res)
+    msg = msg & CStr(i) & " = " & Rhino.Pt2Str(res(i), 6) & vbCrLf
+    Next
+    MsgBox msg, vbOKOnly, "Derivative = " & CStr(der)
+    End Sub
+
+[Also See]
+
+    CurveClosestPoint
+    EvaluateCurve

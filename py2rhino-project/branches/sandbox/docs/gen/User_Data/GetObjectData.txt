@@ -1,0 +1,53 @@
+[GetObjectData]
+
+    Returns a RhinoScript user data item from an object's geometry.
+
+[Syntax]
+
+    Rhino.GetObjectData (strObject [, strSection [, strEntry]])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    strSection
+    Optional.  String.  The section name.  If omitted, all section names are returned.
+    strEntry
+    Optional.  String.  The entry name.  If omitted, all entry names for strSection are returned.
+
+[Returns]
+
+    Array
+    A zero-based, one-dimensional array of all section names if strSection is not specified.
+    Array
+    A zero-based, one-dimensional array of all entry names for strSection if strEntry is not specified.
+    String
+    The value of the entry if both strSection and strEntry are specified.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, strValue
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    strValue = Rhino.GetObjectData(strObject, "MySection1", "MyEntry1")
+    If Not IsNull(strValue) Then
+    Rhino.Print strValue
+    End If
+    strValue = Rhino.GetObjectData(strObject, "MySection1", "MyEntry2")
+    If Not IsNull(strValue) Then
+    Rhino.Print strValue
+    End If
+    strValue = Rhino.GetObjectData(strObject, "MySection2", "MyEntry1")
+    If Not IsNull(strValue) Then
+    Rhino.Print strValue
+    End If
+    End If
+
+[Also See]
+
+    DeleteObjectData
+    ObjectDataCount
+    IsObjectData
+    SetObjectData

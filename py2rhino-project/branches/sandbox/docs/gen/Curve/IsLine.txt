@@ -1,0 +1,35 @@
+[IsLine]
+
+    Verifies an object is a line curve object.
+
+[Syntax]
+
+    Rhino.IsLine (strObject [, intIndex])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intIndex
+    Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a line")
+    If Rhino.IsLine(strObject) Then
+    Rhino.Print "The object is a line."
+    Else
+    Rhino.Print "The object is not a line."
+    End If
+
+[Also See]
+
+    AddLine

@@ -1,0 +1,39 @@
+[ExtractIsoCurve]
+
+    Extracts isoparametric curves from a surface.
+
+[Syntax]
+
+    Rhino.ExtractIsoCurve (strObject , arrParameter, intDir)
+
+[Parameters]
+
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    arrParameter
+    Required.  Array.  An array containing the U,V parameter of the surface to evaluate.
+    intDir
+    Required.  Number.  The direction, either 0 = U, 1 = V, or 2 = Both.
+
+[Returns]
+
+    Array
+    An array of strings identifying the newly created curve objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim strObject, arrPoint, arrParameter
+    strObject = Rhino.GetObject("Select surface for isocurve extraction", rhObjectSurface)
+    arrPoint = Rhino.GetPointOnSurface(strObject, "Select location for extraction")
+    arrParameter = Rhino.SurfaceClosestPoint(strObject, arrPoint)
+    Rhino.ExtractIsoCurve strObject, arrParameter , 2
+
+[Also See]
+
+    IsSurface

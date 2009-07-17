@@ -1,0 +1,45 @@
+[IsLayerEmpty]
+
+    Verifies that an existing layer is empty, or contains no objects.
+
+[Syntax]
+
+    Rhino.IsLayerEmpty (strLayer)
+
+[Parameters]
+
+    strLayer
+    Required.  String.  The name of an existing layer.
+
+[Returns]
+
+    True
+    If successful.
+    False
+    If not successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strLayer
+    strLayer = Rhino.GetString("Layer name")
+    If Rhino.IsLayer(strLayer) Then
+    If Rhino.IsLayerEmpty(strLayer) Then
+    Rhino.Print "The layer is empty."
+    Else
+    Rhino.Print "The layer is not empty."
+    End If
+    Else
+    Rhino.Print "The layer does not exist."
+    End If
+
+[Also See]
+
+    IsLayer
+    IsLayerChangeable
+    IsLayerLocked
+    IsLayerOn
+    IsLayerReference
+    IsLayerSelectable
+    IsLayerVisible

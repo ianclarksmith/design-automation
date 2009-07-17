@@ -1,0 +1,48 @@
+[NamedCPlane]
+
+    Returns the plane geometry of the specified named construction plane.
+
+[Syntax]
+
+    Rhino.NamedCPlane (strName)
+
+[Parameters]
+
+    strName
+    Required.  String.  The name of a named construction plane.
+
+[Returns]
+
+    Array
+    An array containing the plane. The elements of a construction plane array are as follows:
+    Element
+    Description
+    0
+    The construction plane's origin (3-D point).
+    1
+    The construction plane's X axis direction (3-D vector).
+    2
+    The construction plane's Y axis direction (3-D vector).
+    3
+    The construction plane's Z axis direction (3-D vector).
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrCPlanes, arrPlane
+    arrCPlanes = Rhino.NamedCPlanes
+    If IsArray(arrCPlanes) Then
+    arrPlane = Rhino.NamedCPlane(arrCPlanes(0))
+    Rhino.Print "CPlane origin: " & Rhino.Pt2Str(arrPlane(0))
+    Rhino.Print "CPlane x-axis: " & Rhino.Pt2Str(arrPlane(1))
+    Rhino.Print "CPlane y-axis: " & Rhino.Pt2Str(arrPlane(2))
+    Rhino.Print "CPlane z-axis: " & Rhino.Pt2Str(arrPlane(3))
+    End If
+
+[Also See]
+
+    AddNamedCPlane
+    DeleteNamedCPlane
+    NamedCPlanes
+    RestoreNamedCPlane

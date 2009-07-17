@@ -1,0 +1,48 @@
+[GetDocumentData]
+
+    Returns a RhinoScript user data item from the current document.
+
+[Syntax]
+
+    Rhino.GetDocumentData ([strSection [, strEntry]])
+
+[Parameters]
+
+    strSection
+    Optional.  String.  The section name.  If omitted, all section names are returned.
+    strEntry
+    Optional.  String.  The entry name.  If omitted, all entry names for strSection are returned.
+
+[Returns]
+
+    Array
+    A zero-based, one-dimensional array of all section names if strSection is not specified.
+    Array
+    A zero-based, one-dimensional array of all entry names for strSection if strEntry is not specified.
+    String
+    The value of the entry if both strSection and strEntry are specified.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strValue
+    strValue = Rhino.GetDocumentData("MySection1", "MyEntry1")
+    If Not IsNull(strValue) Then
+    Rhino.Print strValue
+    End If
+    strValue = Rhino.GetDocumentData("MySection1", "MyEntry2")
+    If Not IsNull(strValue) Then
+    Rhino.Print strValue
+    End If
+    strValue = Rhino.GetDocumentData("MySection2", "MyEntry1")
+    If Not IsNull(strValue) Then
+    Rhino.Print strValue
+    End If
+
+[Also See]
+
+    DeleteDocumentData
+    DocumentDataCount
+    IsDocumentData
+    SetDocumentData

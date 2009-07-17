@@ -1,0 +1,36 @@
+[XformPlanarProjection]
+
+    Returns a transformation matrix that projects to a plane.
+
+[Syntax]
+
+    Rhino.XformPlanarProjection (arrPlane)
+
+[Parameters]
+
+    arrPlane
+    Required.  Array.  The plane to project to.
+
+[Returns]
+
+    Array
+    The 4x4 transformation matrix.
+    Null
+    On error.
+
+[Example]
+
+    arrObjects = Rhino.GetObjects("Select objects to project")
+    If IsArray(arrObjects) Then
+    arrCPlane = Rhino.ViewCPlane
+    arrXform = Rhino.XformPlanarProjection(arrCPlane)
+    Rhino.TransformObjects arrObjects, arrXform, True
+    End If
+
+[Also See]
+
+    XformMirror
+    XformRotation
+    XformScale
+    XformShear
+    XformTranslation

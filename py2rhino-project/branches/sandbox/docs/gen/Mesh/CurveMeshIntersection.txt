@@ -1,0 +1,58 @@
+[CurveMeshIntersection]
+
+    Calculates the intersection of a curve object and a mesh object.
+
+[Syntax]
+
+    Rhino.CurveMeshIntersection (strCurve, strMesh [, blnReturnFaces])
+
+[Parameters]
+
+    strCurve
+    Required.  String.  The identifier of the curve to intersect.
+    strMesh
+    Required.  String.  The identifier of the mesh to intersect.
+    blnReturnFaces
+    Optional.  Boolean.  Return both intersection points and face indices.  If omitted or False, then just the intersection points are returned.
+
+[Returns]
+
+    Array
+    If blnReturnFaces is either omitted or False, then an array intersection points, if successful.
+    Array
+    If blnReturnFaces is True, then a one-dimensional array containing information about each intersection if successful.  Each array element is a one-dimensional array that contains the following two elements:
+    Element
+    Type
+    Description
+    0
+    Array
+    The 3-D intersection point.
+    1
+    Number
+    The mesh face index on which the intersection point lies.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhCurve = 4
+    Const rhMesh = 32
+    Dim strCurve, strMesh, arrCMX, arrEv
+    strCurve = Rhino.GetObject("Select curve to intersect", rhCurve)
+    If Not IsNull(strCurve) Then
+    strMesh = Rhino.GetObject("Select mesh to intersect", rhMesh)
+    If Not IsNull(strMesh) Then
+    arrCMX = Rhino.CurveMeshIntersection(strCurve, strMesh, True)
+    If IsArray(arrCMX) Then
+    For Each arrEv In arrCMX
+    Rhino.Print Rhino.Pt2Str(arrEv(0)) & ", Face index = " & CStr(arrEv(1))
+    Rhino.AddPoint arrEv(0)
+    Next
+    End If
+    End If
+    End If
+
+[Also See]
+
+    MeshClosestPoint
+    MeshMeshIntersection

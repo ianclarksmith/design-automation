@@ -1,0 +1,41 @@
+[MeshMeshIntersection]
+
+    Calculates the intersection of a mesh object with another mesh object.
+
+[Syntax]
+
+    Rhino.MeshMeshIntersection (strMesh1, strMesh2 [, dblTolerance])
+
+[Parameters]
+
+    strMesh1
+    Required.  String.  The identifier of the first mesh object.
+    strMesh2
+    Required.  String.  The identifier of the second mesh object.
+    dblTolerance
+    Optional.  Number.  The intersection tolerance. Of omitted, Rhino's internal zero tolerance is used.
+
+[Returns]
+
+    Array
+    An array of 3-D point arrays that identify the vertices of the intersection curves (polylines) if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhMesh = 32
+    Dim strMesh1, strMesh2, arrResults, arrPoints
+    strMesh1 = Rhino.GetObject("Select first mesh to intersect", rhMesh)
+    strMesh2 = Rhino.GetObject("Select second mesh to intersect", rhMesh)
+    arrResults = Rhino.MeshMeshIntersection(strMesh1, strMesh2)
+    If IsArray(arrResults) Then
+    For Each arrPoints In arrResults
+    Rhino.AddPolyline arrPoints
+    Next
+    End If
+
+[Also See]
+
+    CurveMeshIntersection
+    MeshClosestPoint

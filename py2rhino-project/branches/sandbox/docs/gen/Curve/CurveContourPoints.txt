@@ -1,0 +1,43 @@
+[CurveContourPoints]
+
+    Returns the 3-D point locations calculated by contouring a curve object.
+
+[Syntax]
+
+    Rhino.CurveContourPoints (strObject, arrStartPoint, arrEndPoint [, dblInterval])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a curve object.
+    arrStartPoint
+    Required.  Array.  The 3-D starting point of a center line.
+    arrEndPoint
+    Required.  Array.  The 3-D ending point of a center line.
+    dblInterval
+    Optional.  Number.  The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
+
+[Returns]
+
+    Array
+    An array of 3-D points, one for each contour, if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Dim strObject, arrStartPoint, arrEndPoint, arrContour, arrPoint
+    strObject = Rhino.GetObject("Select curve", rhObjectCurve)
+    arrStartPoint = Rhino.GetPoint("Base point of center line")
+    arrEndPoint = Rhino.GetPoint("Endpoint of center line", arrStartPoint)
+    arrContour = Rhino.CurveContourPoints(strObject, arrStartPoint, arrEndPoint)
+    If IsArray(arrContour) Then
+    Rhino.AddPoints arrContour
+    End If
+
+[Also See]
+
+    AddSrfContourCrvs
+    MeshContourPoints
+    SurfaceContourPoints

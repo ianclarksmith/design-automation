@@ -1,0 +1,38 @@
+[PointCoordinates]
+
+    Returns or modifies the X, Y, and Z coordinates of a point object.
+
+[Syntax]
+
+    Rhino.PointCoordinates (strObject [, arrPoint])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a point object.
+    arrPoint
+    Optional.  Array.  A new 3-D point location.
+
+[Returns]
+
+    Array
+    If arrPoint is not specified, the current 3-D point location if successful.
+    Array
+    If arrPoint is specified, the previous 3-D point location if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectPoint = 1
+    Dim strObject, arrPoint
+    strObject = Rhino.GetObject("Select point", rhObjectPoint)
+    arrPoint = Rhino.PointCoordinates(strObject)
+    If IsArray(arrPoint) Then
+    Rhino.Print Rhino.Pt2Str(arrPoint, 3)
+    End If
+
+[Also See]
+
+    AddPoint
+    IsPoint

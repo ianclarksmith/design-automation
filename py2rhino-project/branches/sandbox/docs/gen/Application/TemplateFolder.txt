@@ -1,0 +1,30 @@
+[TemplateFolder]
+
+    Returns or sets the location of Rhino's template files.
+
+[Syntax]
+
+    Rhino.TemplateFolder ([strFolder])
+
+[Parameters]
+
+    strFolder
+    Optional.  String.  The location of Rhino's template files. Note, the location, or folder, must exist.
+
+[Returns]
+
+    String
+    If strFolder is not specified, then the current template file folder if successful.
+    String
+    If strFolder is specified, then the previous template file folder if successful.
+
+[Example]
+
+    Dim strFolder, strFilename
+    strFolder = Rhino.TemplateFolder
+    strFilename = strFolder & "\Millimeters.3dm"
+    Rhino.TemplateFile strFilename
+
+[Also See]
+
+    TemplateFile

@@ -1,0 +1,38 @@
+[AddLine]
+
+    Adds a line curve to the current model.
+
+[Syntax]
+
+    Rhino.AddLine (arrStart, arrEnd)
+
+[Parameters]
+
+    arrStart
+    Required.  Array.  The starting point of the line.
+    arrEnd
+    Required.  Array.  The ending point of the line.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrStart, arrEnd
+    arrStart = Rhino.GetPoint("Start of line")
+    If IsArray(arrStart) Then
+    arrEnd = Rhino.GetPoint("End of line")
+    If IsArray(arrEnd) Then
+    Rhino.AddLine arrStart, arrEnd
+    End If
+    End If
+
+[Also See]
+
+    CurveEndPoint
+    CurveStartPoint
+    IsLine

@@ -1,0 +1,32 @@
+[PointCloudCount]
+
+    Returns the point count of a point cloud object.
+
+[Syntax]
+
+    Rhino.PointCloudCount (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a point cloud object.
+
+[Returns]
+
+    Number
+    The number of points if successful
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectPointCloud = 2
+    Dim strObject
+    strObject = Rhino.GetObject("Select point cloud", rhObjectPointCloud)
+    Rhino.Print "Point count: " & CStr(Rhino.PointCloudCount(strObject))
+
+[Also See]
+
+    AddPointCloud
+    IsPointCloud
+    PointCloudPoints

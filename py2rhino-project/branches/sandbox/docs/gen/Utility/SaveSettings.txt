@@ -1,0 +1,40 @@
+[SaveSettings]
+
+    Saves a string to a specified section in a Windows-style initialization file.  The initialization file must have the following form:
+    [Section]
+    Entry = String
+    ...
+
+[Syntax]
+
+    Rhino.SaveSettings (strFilename [, strSection [, strEntry [, strString]]])
+
+[Parameters]
+
+    strFilename
+    Required.  String.  The name of the initialization file.  If strFilename does not exist, the file will be created.  The specified directory must already exist.
+    strSection
+    Optional.  String.  The section to which strString will be copied.  If strSection does not exist, it is created.
+    strEntry
+    Optional.  String.  The name of the entry to be associated with strString.  If strEntry does not exist in the specified section, it is created.  If strEntry is nil, the entire section, including all entries within the section, is deleted.
+    strString
+    Optional.  String.  The string to be written to the file.  If omitted, the entry pointed to by strEntry is deleted.
+    Note, parameters are not case sensitive, so strSection and strEntry may be in any combination of uppercase and lowercase characters.  Also, to improve performance, Windows keeps a cached version of the most recently accessed initialization file.  If strFilename is specified and the other parameters are omitted, Windows flushes the cache.  This function always returns False after flushing the cache, regardless of whether the flush succeeds or fails.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Rhino.SaveSettings "MySettings.ini"
+    Rhino.SaveSettings "MySettings.ini", "Section1"
+    Rhino.SaveSettings "MySettings.ini", "Section2", "Entry1"
+    Rhino.SaveSettings "MySettings.ini", "Section3, "Entry2", "String1"
+
+[Also See]
+
+    GetSettings

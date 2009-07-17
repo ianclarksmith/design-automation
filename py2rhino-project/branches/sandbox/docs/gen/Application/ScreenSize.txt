@@ -1,0 +1,27 @@
+[ScreenSize]
+
+    Returns the current width and height, in pixels, of the screen of the primary display monitor.
+
+[Syntax]
+
+    Rhino.ScreenSize ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Array
+    A zero-based, one-dimensional array containing two numbers identifying the width and height if successful
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrSize
+    arrSize = Rhino.ScreenSize
+    If IsArray(arrSize) Then
+    Rhino.Print "Screen Width: " & CStr(arrSize(0)) & " pixels."
+    Rhino.Print "Screen Height: " & CStr(arrSize(1)) & " pixels."
+    End If

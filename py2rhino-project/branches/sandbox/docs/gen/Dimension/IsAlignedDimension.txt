@@ -1,0 +1,38 @@
+[IsAlignedDimension]
+
+    Verifies an object is an aligned dimension object.
+
+[Syntax]
+
+    Rhino.IsAlignedDimension(strObject)
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a dimension")
+    If Rhino.IsAlignedDimension(strObject) Then
+    Rhino.Print "The object is an aligned dimension."
+    Else
+    Rhino.Print "The object is not an aligned dimension."
+    End If
+
+[Also See]
+
+    IsAngularDimension
+    IsDiameterDimension
+    IsDimension
+    IsLinearDimension
+    IsOrdinateDimension
+    IsRadialDimension

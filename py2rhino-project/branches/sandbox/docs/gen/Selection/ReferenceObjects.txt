@@ -1,0 +1,38 @@
+[ReferenceObjects]
+
+    Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
+
+[Syntax]
+
+    Rhino.ReferenceObjects ([blnIncludeLights [, blnIncludeGrips]])
+
+[Parameters]
+
+    blnIncludeLights
+    Optional.  Boolean.  Include light objects.  If omitted, light objects are not returned (False).
+    blnIncludeGrips
+    Optional.  Boolean.  Include grips objects.  If omitted, grips objects are not returned (False).
+
+[Returns]
+
+    Array
+    An array of strings identifying the objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strObject
+    arrObjects = Rhino.ReferenceObjects
+    If IsArray(arrObjects) Then
+    For Each strObject In arrObjects
+    Rhino.Print "Object identifier: " & strObject
+    Next
+    End If
+
+[Also See]
+
+    AllObjects
+    HiddenObjects
+    LockedObjects
+    NormalObjects

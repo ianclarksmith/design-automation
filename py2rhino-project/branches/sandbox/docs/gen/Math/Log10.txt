@@ -1,0 +1,26 @@
+[Log10]
+
+    Returns the base-10 logarithm of a number.
+
+[Syntax]
+
+    Rhino.Log10 (dblNumber)
+
+[Parameters]
+
+    dblNumber
+    Required.  Number.  The positive real number for which you want the base-10 logarithm.
+
+[Returns]
+
+    Number
+    The base-10 logarithm of the number if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    MsgBox Rhino.Log10(86)
+
+[Also See]
+

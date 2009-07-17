@@ -1,0 +1,58 @@
+[XformChangeBasis]
+
+    Returns a change of basis transformation matrix.
+
+[Syntax]
+
+    Rhino.XformChangeBasis (arrPlane1, arrPlane2)
+    Rhino.XformChangeBasis (arrX0, arrY0, arrZ0, arrX1, arrY1, arrZ1)
+
+[Parameters]
+
+    arrPlane1
+    Required.  Array (Plane).  The initial plane.
+    arrPlane2
+    Required.  Array (Plane).  The final plane.
+    arrX0
+    Required.  Array (3-D Vector).  The initial basis X (X0,Y0,Z0 can be any 3-D basis)
+    arrY0
+    Required.  Array (3-D Vector). The  initial basis Y
+    arrZ0
+    Required.  Array (3-D Vector). The  initial basis Z
+    arrX1
+    Required.  Array (3-D Vector).  The final basis X (X1,Y1,Z1 can be any 3-D basis)
+    arrY1
+    Required.  Array (3-D Vector).  The  final basis Y
+    arrZ1
+    Required.  Array (3-D Vector).  The final basis Z
+
+[Returns]
+
+    Array
+    The 4x4 transformation matrix if successful.
+    Null
+    If not successful, or on error.
+    Notes
+    If you have points defined with respect to planes, the version of XformChangeBasis that takes two planes computes the transformation to change coordinates from one plane to another.  The predefined world plane, WorldXYPlane, can be used as an argument.
+    The version of XformChangeBasis that takes six vectors maps (a0, b0, c0) to (a1, b1, c1) where a0*X0 + b0*Y0 + c0*Z0 = a1*X1 + b1*Y1 + c1*Z1.
+    The change of basis transformation is not the same as the rotation transformation that rotates one orthonormal frame to another.  See XformRotation.
+
+[Example]
+
+    arrObjects = Rhino.GetObjects("Select objects to shear")
+    If IsArray(arrObjects) Then
+    arrCPlane = Rhino.ViewCPlane
+    arrPlane = Rhino.PlaneFromNormal(arrCPlane(0), arrCPlane(1))
+    arrCob = Rhino.XformChangeBasis(Rhino.WorldXYPlane, arrPlane)
+    arrShear2d = Rhino.XformIdentity
+    arrShear2d(0,2) = Tan(Rhino.ToRadians(45.0))
+    arrCobInv = Rhino.XformChangeBasis(arrPlane, Rhino.WorldXYPlane)
+    arrTemp = Rhino.XformMultiply(arrShear2d, arrCob)
+    arrXform = Rhino.XformMultiply(arrCobInv, arrTemp)
+    Rhino.TransformObjects arrObjects, arrXform, True
+    End If
+
+[Also See]
+
+    XformCPlaneToWorld
+    XformWorldToCPlane

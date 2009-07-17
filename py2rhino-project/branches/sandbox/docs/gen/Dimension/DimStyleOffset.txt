@@ -1,0 +1,43 @@
+[DimStyleOffset]
+
+    Returns or changes the extension line offset of a dimension style.
+
+[Syntax]
+
+    Rhino.DimStyleOffset (strDimStyle [, dblOffset])
+
+[Parameters]
+
+    strDimStyle
+    Required.  String.  The name of an existing dimension style.
+    dblOffset
+    Optional.  Number.  The new extension line offset.  If omitted, the current extension line offset is returned.
+
+[Returns]
+
+    Number
+    If an offset is not specified, the current extension line offset if successful.
+    Number
+    If an offset is specified, the previous extension line offset if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strDimStyle, dblOffset
+    strDimStyle = Rhino.CurrentDimStyle
+    dblOffset = Rhino.DimStyleOffset(strDimStyle)
+    If dblOffset > 0.5 Then
+    Rhino.DimStyleOffset strDimStyle, 0.5
+    End If
+
+[Also See]
+
+    DimStyleAnglePrecision
+    DimStyleArrowSize
+    DimStyleExtension
+    DimStyleFont
+    DimStyleLinearPrecision
+    DimStyleNumberFormat
+    DimStyleTextAlignment
+    DimStyleTextHeight

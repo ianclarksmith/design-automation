@@ -1,0 +1,22 @@
+[Help]
+
+    Displays a topic in Rhino's Help file.
+
+[Syntax]
+
+    Rhino.Help ([intTopic])
+
+[Parameters]
+
+    intTopic
+    Optional.  Number.  A help topic.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+
+[Example]
+
+    Rhino.Help 24
+    Rhino.Help

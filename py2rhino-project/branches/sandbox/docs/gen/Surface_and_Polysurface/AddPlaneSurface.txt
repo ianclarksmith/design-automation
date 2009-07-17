@@ -1,0 +1,36 @@
+[AddPlaneSurface]
+
+    Creates a plane surface.
+
+[Syntax]
+
+    Rhino.AddPlaneSurface (arrPlane, dblDU, dblDV)
+
+[Parameters]
+
+    arrPlane
+    Required.  Array.  The plane.
+    dblDU
+    Required.  Number.  The magnitude in the U direction.
+    dblDV
+    Required.  Number.  The magnitude in the V direction.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Rhino.AddPlaneSurface Rhino.WorldXYPlane, 5.0, 3.0
+
+[Also See]
+
+    AddCutPlane
+    AddEdgeSrf
+    AddSrfControlPtGrid
+    AddSrfPt
+    AddSrfPtGrid
+    IsPlaneSurface

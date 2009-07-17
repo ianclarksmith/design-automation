@@ -1,0 +1,43 @@
+[SurfaceWeights]
+
+    Returns an array of weight values that are assigned to the control points of a surface.  The number of weights returned will be equal to the number of control points in the U and V directions.
+
+[Syntax]
+
+    Rhino.SurfaceWeights (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Array
+    The weight values of the surface if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrCount, arrWeights, intCount
+    strObject = Rhino.GetObject("Select a surface")
+    If Rhino.IsSurface(strObject) Then
+    arrWeights = Rhino.SurfaceWeights(strObject)
+    If IsArray(arrWeights) Then
+    arrCount = Rhino.SurfacePointCount(strObject)
+    intCount = 0
+    For u = 0 To arrCount(0) - 1
+    For v = 0 To arrCount(1) - 1
+    Rhino.Print "Surface control point weight value: " & arrWeights(intCount)
+    intCount = intCount + 1
+    Next
+    Next
+    End If
+    End If
+
+[Also See]
+
+    IsSurface
+    SurfacePointCount
+    SurfacePoints

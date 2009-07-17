@@ -1,0 +1,72 @@
+[PointInPlanarClosedCurve]
+
+    Determines if a point is inside of a closed curve, on  a closed curve, or outside of a closed curve.
+
+[Syntax]
+
+    Rhino.PointInPlanarClosedCurve (arrPoint, strCurve [, arrPlane [, dblTolerance]])
+
+[Parameters]
+
+    arrPoint
+    Required.  Array.  A 3-D point to test.
+    strCurve
+    Required.  String.  The object identifier of the planar, closed curve.
+    arrPlane
+    Optional.  Array. The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
+    Element
+    Type
+    Description
+    0
+    Array
+    Required.  The construction plane's origin (3-D point).
+    1
+    Array
+    Required.  The construction plane's X axis direction (3-D vector).
+    2
+    Array
+    Required.  The construction plane's Y axis direction (3-D vector).
+    3
+    Array
+    Optional.  The construction plane's Z axis direction (3-D vector).
+    dblTolerance
+    Optional.  Number.  The tolerance.  If omitted, the current document absolute tolerance is used.
+
+[Returns]
+
+    Number
+    A number identifying the result if successful.  The possible values are as follows:
+    Value
+    Description
+    0
+    The point is outside of the closed curve.
+    1
+    The point is inside of the closed curve.
+    2
+    The point is on the closed curve.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Dim strObject, arrPoint, intResult
+    strObject = Rhino.GetObject("Select a planar, closed curve", rhObjectCurve)
+    If Rhino.IsCurveClosed(strObject) And Rhino.IsCurvePlanar(strObject) Then
+    arrPoint = Rhino.GetPoint("Pick a point")
+    If IsArray(arrPoint) Then
+    intResult = Rhino.PointInPlanarClosedCurve(arrPoint, strObject)
+    If (intResult = 0) Then
+    Rhino.Print "The point is outside of the closed curve."
+    ElseIf (intResult = 1) Then
+    Rhino.Print "The point is inside of the closed curve."
+    Else
+    Rhino.Print "The point is on the closed curve."
+    End If
+    End If
+    End If
+
+[Also See]
+
+    PlanarClosedCurveContainment
+    PlanarCurveCollision

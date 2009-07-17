@@ -1,0 +1,34 @@
+[IsLinearLight]
+
+    Verifies a light object is a linear light.
+
+[Syntax]
+
+    Rhino.IsLinearLight (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The light object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectLight = 256
+    Dim strObject
+    strObject = Rhino.GetObject("Select a light", rhObjectLight)
+    If Rhino.IsLinearLight(strObject) Then
+    Rhino.Print "The object is a linear light."
+    Else
+    Rhino.Print "The object is not a linear light."
+    End If
+
+[Also See]
+
+    AddLinearLight

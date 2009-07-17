@@ -1,0 +1,43 @@
+[LineLineIntersection]
+
+    Calculates the intersection of two non-parallel.  Note, the two lines do not have to intersect for an intersection to be found.
+    The default operation of this function assumes that the two lines are co-planar.  Thus, the return value is the intersection point of the two lines.
+    But, two lines in three dimensions generally do not intersect at a point. They may be parallel (no intersections) or they may be coincident (infinite intersections). But, most often only their projection onto a plane intersects. When they do not exactly intersect at a point they can be connected by a line segment, the shortest line segment is unique and is often considered to be their intersection in 3-D.
+
+[Syntax]
+
+    Rhino.LineLineIntersection (arrLineA, arrLineB [, blnPlanar])
+
+[Parameters]
+
+    arrLineA
+    Required.  Array.  Two 3-D points identifying the starting and ending points of the first line.
+    arrLineB
+    Required.  Array.  Two 3-D points identifying the starting and ending points of the second line.
+    blnPlanar
+    Optional.  Boolean.  Assume that the two lines are co-planar. The default value is True.
+
+[Returns]
+
+    Array
+    If blnPlanar is omitted or True, then a single 3-D intersection point if successful.
+    Array
+    If blnPlanar is False, then an array containing a point on the first line and a point on the second line if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrLineA, arrLineB, arrPoint
+    arrLineA = Array(Array(1,1,0), Array(5,0,0))
+    arrLineB = Array(Array(1,3,0), Array(5,5,0))
+    arrPoint = Rhino.LineLineIntersection(arrLineA, arrLineB)
+    If IsArray(arrPoint) Then
+    Rhino.AddPoint arrPoint
+    End If
+
+[Also See]
+
+    IntersectPlanes
+    LinePlaneIntersection
+    PlanePlaneIntersection

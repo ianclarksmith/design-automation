@@ -1,0 +1,36 @@
+[RebuildCurve]
+
+    Rebuilds a curve to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.
+
+[Syntax]
+
+    Rhino.RebuildCurve (strObject [, intDegree [, intPointCount]])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intDegree
+    Optional.  Number.  The new degree, which must be greater than 1. The default is 3.
+    intPointCount
+    Optional.  Number.  The new point count, which must be bigger than the intDegree.  With closed curves, the minimum point count is 3.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Const rhCurve = 4
+    Dim strCurve
+    strCurve = Rhino.GetObject("Select curve to rebuild", rhCurve)
+    If Not IsNull(strCurve) Then
+    Rhino.RebuildCurve strCurve, 3, 10
+    End If
+
+[Also See]
+
+    RebuildSurface

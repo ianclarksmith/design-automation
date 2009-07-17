@@ -1,0 +1,69 @@
+[AddLoftSrf]
+
+    Hello Adds a surface created by lofting curves to the document.
+    * This function will not perform any curve sorting. You must pass in curves in the order you want them lofted.
+    * This function will not adjust the directions of open curves. Use CurveDirectionsMatch and ReverseCurve to adjust the directions of open curves.
+    * This function will not adjust the seams of closed curves. Use CurveSeam to adjust the seam of closed curves.
+
+[Syntax]
+
+    Rhino.AddLoftSrf (arrstrObjects [, arrdblStartPt [, arrdblEndPt [, intType [, intStyle [, nValue [, blnClosed]]]]]])
+
+[Parameters]
+
+    arrstrObjects
+    Required.  Array.  An ordered array of strings identifying the curve objects to loft.
+    arrdblStartPt
+    Optional.  Array.  The starting point of the loft.
+    arrdblEndPt
+    Optional.  Array.  The ending point of the loft.
+    intType
+    Optional.  Number.  The type of loft. The default loft type is Normal (0). The possible loft types are as follows:
+    Value
+    Description
+    0
+    Normal. Uses chord-length parameterization in the loft direction.
+    1
+    Loose. The surface is allowed to move away from the original curves to make a smoother surface. The surface control points are created at the same locations as the control points of the loft input curves.
+    2
+    Straight. The sections between the curves are straight. This is also known as a ruled surface.
+    3
+    Tight. The surface sticks closely to the original curves. Uses square root of chord-length parameterization in the loft direction.
+    4
+    Developable. Creates a separate developable surface or polysurface from each pair of curves.
+    intStyle
+    Optional. Number.  The simplify method of the loft. The default value is None (0). The possible loft simplify methods are as follows:
+    Value
+    Description
+    0
+    None. Does not simplify.
+    1
+    Rebuild. Rebuilds the shape curves before lofting.
+    2
+    Refit. Refits the shape curves to a specified tolerance.
+    nValue
+    Optional. Number. A value based on the specified intStyle. If intStyle=1 (Rebuild), then nValue is the number of control point used to rebuild. If intstyle=1 is specified and this argument is omitted, then curves will be rebuilt using 10 control points. If intStyle=2 (Refit), then nValue is the tolerance used to rebuild. If intstyle=2 is specified and this argument is omitted, then the document's absolute tolerance us used for refitting.
+    blnClosed
+    Optional. Boolean.  Creates a closed surface, continuing the surface past the last curve around to the first curve. Available when you have selected three shape curves. The default value is not to create a closed surface (False).
+
+[Returns]
+
+    Array
+    An array containing the identifiers of the new surface objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Dim arrObjects
+    arrObjects = Rhino.GetObjects("Pick curves to loft", rhObjectCurve )
+    If IsArray(arrObjects) And UBound(arrObjects) > 0 Then
+    Rhino.AddLoftSrf arrObjects
+    End If
+
+[Also See]
+
+    CurveDirectionsMatch
+    CurveSeam
+    ReverseCurve

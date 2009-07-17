@@ -1,0 +1,38 @@
+[LineClosestPoint]
+
+    Finds the point on an infinite line that is closest to a test point.
+
+[Syntax]
+
+    Rhino.LineClosestPoint (arrLine, arrPoint)
+
+[Parameters]
+
+    arrLine
+    Required.  Array.  Two 3-D points identifying the starting and ending points of the line.
+    arrPoint
+    Required.  Array.  The test point.
+
+[Returns]
+
+    Array
+    The point on the line that is closest to the test point is successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrFrom, arrTo, arrPoint, arrResult
+    arrFrom = Array(0, 0, 0)
+    arrTo = Array(5, 5, 0)
+    arrPoint = Array(15, 10, 0)
+    arrResult = Rhino.LineClosestPoint(Array(arrFrom, arrTo), arrPoint)
+    If IsArray(arrResult) Then Rhino.AddPoint(arrResult)
+
+[Also See]
+
+    LineIsFartherThan
+    LineMaxDistanceTo
+    LineMinDistanceTo
+    LinePlane
+    LineTransform

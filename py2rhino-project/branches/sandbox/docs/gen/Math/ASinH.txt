@@ -1,0 +1,28 @@
+[ASinH]
+
+    Returns the inverse hyperbolic sine of a number. The inverse hyperbolic sine is the value whose hyperbolic sine is number, so ASinH(SinH(number)) equals number.
+
+[Syntax]
+
+    Rhino.ASinH (dblNumber)
+
+[Parameters]
+
+    dblNumber
+    Required.  Number.  Any real number.
+
+[Returns]
+
+    Number
+    The inverse hyperbolic sine of a number if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    MsgBox Rhino.ASinH(1.0)
+
+[Also See]
+
+    ACosh
+    ATanH

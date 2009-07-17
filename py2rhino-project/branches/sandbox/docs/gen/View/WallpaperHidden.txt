@@ -1,0 +1,36 @@
+[WallpaperHidden]
+
+    Returns or sets the visibility of the wallpaper bitmap of the specified view.
+
+[Syntax]
+
+    Rhino.WallpaperHidden ([strView [, blnHidden]])
+
+[Parameters]
+
+    strView
+    Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+    blnHidden
+    Optional.  Boolean.  Hide the wallpaper bitmap (True) or show the wallpaper bitmap (False).
+
+[Returns]
+
+    Boolean
+    If blnHidden is not specified,  then the current wallpaper visibility if successful.
+    Boolean
+    If blnHidden is specified,  then the previous wallpaper visibility if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strView
+    strView = Rhino.CurrentView
+    If Rhino.WallpaperHidden(strView) = False Then
+    Rhino.WallpaperHidden strView, True
+    End If
+
+[Also See]
+
+    Wallpaper
+    WallpaperGrayScale

@@ -1,0 +1,26 @@
+[HatchPatternCount]
+
+    Returns the number of hatch patterns in the document.
+
+[Syntax]
+
+    Rhino.HatchPatternCount ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Number
+    The number of hatch patterns in the document.
+
+[Example]
+
+    Dim intCount
+    intCount = Rhino.HatchPatternCount
+    Rhino.Print "There are " & CStr(intCount) & " hatch patterns."
+
+[Also See]
+
+    HatchPatternNames

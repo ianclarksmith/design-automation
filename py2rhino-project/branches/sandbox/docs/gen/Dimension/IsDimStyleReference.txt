@@ -1,0 +1,39 @@
+[IsDimStyleReference]
+
+    Verifies that an existing dimension style is from a reference file.
+
+[Syntax]
+
+    Rhino.IsDimStyleReference (strDimStyle)
+
+[Parameters]
+
+    strDimStyle
+    Required.  String.  The name of an existing dimension style.
+
+[Returns]
+
+    True
+    If successful.
+    False
+    If not successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strDimStyle
+    strDimStyle = Rhino.GetString("Dimension style to test")
+    If Rhino.IsDimStyle(strDimStyle) Then
+    If Rhino.IsDimStyleReference(strDimStyle) Then
+    Rhino.Print "The dimension style is from a reference file."
+    Else
+    Rhino.Print "The dimension style is not from a reference file."
+    End If
+    Else
+    Rhino.Print "The dimension style does not exist."
+    End If
+
+[Also See]
+
+    IsDimStyle

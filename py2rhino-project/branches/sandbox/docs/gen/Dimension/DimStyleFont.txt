@@ -1,0 +1,43 @@
+[DimStyleFont]
+
+    Returns or changes the font used by a dimension style.
+
+[Syntax]
+
+    Rhino.DimStyleFont (strDimStyle [, strFont])
+
+[Parameters]
+
+    strDimStyle
+    Required.  String.  The name of an existing dimension style.
+    strFont
+    Optional.  String.  The new font face name.  If omitted, the current font is returned.
+
+[Returns]
+
+    String
+    If a font is not specified, the current font if successful.
+    String
+    If a font is specified, the previous font if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strDimStyle, strFont
+    strDimStyle = Rhino.CurrentDimStyle
+    strFont = Rhino.DimStyleFont(strDimStyle)
+    If StrComp(strFont, "Arial") <> 0 Then
+    Rhino.DimStyleFont strDimStyle, "Arial"
+    End If
+
+[Also See]
+
+    DimStyleAnglePrecision
+    DimStyleArrowSize
+    DimStyleExtension
+    DimStyleLinearPrecision
+    DimStyleNumberFormat
+    DimStyleOffset
+    DimStyleTextAlignment
+    DimStyleTextHeight

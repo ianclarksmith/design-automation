@@ -1,0 +1,39 @@
+[GetPointOnSurface]
+
+    Pauses for user input of a point constrained to a surface or polysurface object.
+
+[Syntax]
+
+    Rhino.GetPointOnSurface (strObject [, strMessage])
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+    strMessage
+    Optional.  String.  A prompt or message.
+
+[Returns]
+
+    Array
+    The 3-D point selected by the user successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrPoint
+    strObject = Rhino.GetObject("Pick a surface")
+    If Rhino.IsSurface(strObject) Then
+    arrPoint = Rhino.GetPointOnSurface(strObject, "Point on surface")
+    If IsArray(arrPoint) Then
+    Rhino.AddPoint arrPoint
+    End If
+    End If
+
+[Also See]
+
+    GetPoint
+    GetPointOnCurve
+    GetPointOnMesh
+    GetPoints

@@ -1,0 +1,42 @@
+[IsVectorParallelTo]
+
+    Compares two vectors to see if they are parallel.
+
+[Syntax]
+
+    Rhino.IsVectorParallelTo (arrVector1, arrVector2)
+
+[Parameters]
+
+    arrVector1
+    Required.  Array.  The 3-D vector.
+    arrVector2
+    Required.  Array.  The 3-D vector to compare to.
+
+[Returns]
+
+    Number
+    The result of the comparison if successful. The possible results are as follows:
+    Value
+    Description
+    -1
+    The vectors are anti-parallel.
+    0
+    The vectors are not parallel.
+    1
+    The vectors are parallel.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrVector1, arrVector2
+    arrVector1 = Array(1,0,0)
+    arrVector2 = Array(0,1,0)
+    MsgBox Rhino.IsVectorParallelTo arrVector1, arrVector2
+
+[Also See]
+
+    IsVectorPerpendicularTo
+    IsVectorTiny
+    IsVectorZero

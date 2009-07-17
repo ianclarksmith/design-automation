@@ -1,0 +1,37 @@
+[HideObjects]
+
+    Hides one or more objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+
+[Syntax]
+
+    Rhino.HideObjects (arrObjects)
+
+[Parameters]
+
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to hide.
+
+[Returns]
+
+    Number
+    The number of objects hidden if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects
+    arrObjects = Rhino.GetObjects("Select objects to hide")
+    If IsArray(arrObjects) Then
+    Rhino.HideObjects arrObjects
+    End If
+    'Do something here...
+    Rhino.ShowObjects arrObjects
+
+[Also See]
+
+[HideObjects]
+
+    IsObjectHidden
+    ShowObject
+    ShowObjects

@@ -1,0 +1,33 @@
+[MeshAreaCentroid]
+
+    Calculates the area centroid of a mesh object.
+
+[Syntax]
+
+    Rhino.MeshAreaCentroid (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a mesh object.
+
+[Returns]
+
+    Array
+    A 3-D point identifying the area centroid if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectMesh = 32
+    Dim strObject
+    strObject = Rhino.GetObject("Select mesh", rhObjectMesh )
+    Rhino.AddPoint Rhino.MeshAreaCentroid(strObject)
+
+[Also See]
+
+    IsMesh
+    MeshArea
+    MeshVolume
+    MeshVolumeCentroid

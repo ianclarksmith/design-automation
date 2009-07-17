@@ -1,0 +1,44 @@
+[ObjectGripLocation]
+
+    Returns or modifies the location of an object's grip.
+
+[Syntax]
+
+    Rhino.ObjectGripLocation (strObject, intIndex [, arrPoint])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    intIndex
+    Required. Number. The zero-based index of the grip to either query or modify.
+    arrPoint
+    Optional.  Array.  A 3-D point identifying the new location of the grip.
+
+[Returns]
+
+    Array
+    If arrPoint is not specified, the current location of the grip referenced by intIndex if successful.
+    Array
+    If arrPoint is specified, the previous location of the grip referenced by intIndex if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrPoint
+    strObject = Rhino.GetObject("Select curve", 4)
+    If Not IsNull(strObject) Then
+    Rhino.EnableObjectGrips strObject
+    arrPoint = Rhino.ObjectGripLocation(strObject, 0)
+    arrPoint(0) = arrPoint(0) + 1.0
+    arrPoint(1) = arrPoint(2) + 1.0
+    arrPoint(2) = arrPoint(2) + 1.0
+    Rhino.ObjectGripLocation strObject, 0, arrPoint
+    Rhino.EnableObjectGrips strObject, False
+    End If
+
+[Also See]
+
+    EnableObjectGrips
+    ObjectGripLocations

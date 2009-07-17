@@ -1,0 +1,34 @@
+[BlockNames]
+
+    Returns the names of all block definitions in the document.
+
+[Syntax]
+
+    Rhino.BlockNames ([blnSort])
+
+[Parameters]
+
+    blnSort
+    Optional.  Boolean.  Return a sorted array of block definition names.
+
+[Returns]
+
+    Array
+    An array of block definition names if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrBlocks, strBlock
+    arrBlocks = Rhino.BlockNames(True)
+    If IsArray(arrBlocks) Then
+    For Each strBlock In arrBlocks
+    Rhino.Print strBlock
+    Next
+    End If
+
+[Also See]
+
+    BlockCount
+    IsBlock

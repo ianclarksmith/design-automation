@@ -1,0 +1,38 @@
+[IsLinearDimension]
+
+    Verifies an object is a linear dimension object.
+
+[Syntax]
+
+    Rhino.IsLinearDimension (strObject)
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a dimension")
+    If Rhino.IsLinearDimension(strObject) Then
+    Rhino.Print "The object is a linear dimension."
+    Else
+    Rhino.Print "The object is not a linear dimension."
+    End If
+
+[Also See]
+
+    IsAlignedDimension
+    IsAngularDimension
+    IsDiameterDimension
+    IsDimension
+    IsOrdinateDimension
+    IsRadialDimension

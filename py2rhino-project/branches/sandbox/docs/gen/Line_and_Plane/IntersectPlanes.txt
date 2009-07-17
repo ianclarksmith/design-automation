@@ -1,0 +1,40 @@
+[IntersectPlanes]
+
+    Calculates the intersection of three planes.
+
+[Syntax]
+
+    Rhino.IntersectPlanes (arrPlane1, arrPlane2, arrPlane3)
+
+[Parameters]
+
+    arrPlane1
+    Required.  Array.  The first plane to intersect.
+    arrPlane2
+    Required.  Array.  The second plane to intersect.
+    arrPlane3
+    Required.  Array.  The third plane to intersect.
+
+[Returns]
+
+    Array
+    The 3-D point of intersection is successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPlane1 : arrPlane1 = Rhino.WorldXYPlane
+    Dim arrPlane2 : arrPlane2 = Rhino.WorldYZPlane
+    Dim arrPlane3 : arrPlane3 = Rhino.WorldZXPlane
+    Dim arrPoint
+    arrPoint = Rhino.IntersectPlanes(arrPlane1, arrPlane2, arrPlane3)
+    If IsArray(arrPoint) Then Rhino.AddPoint(arrPoint)
+
+[Also See]
+
+[IntersectPlanes]
+
+    LineLineIntersection
+    LinePlaneIntersection
+    PlanePlaneIntersection

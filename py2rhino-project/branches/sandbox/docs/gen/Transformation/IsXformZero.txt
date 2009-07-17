@@ -1,0 +1,47 @@
+[IsXformZero]
+
+    Verifies that a matrix is the zero transformation.
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+
+[Syntax]
+
+    Rhino.IsXformZero (arrXform)
+
+[Parameters]
+
+    arrXform
+    Required.  Array.  A 4x4 transformation matrix.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrXform
+    arrXform = Rhino.XformZero
+    MsgBox Rhino.IsXformZero(arrXform)
+
+[Also See]
+
+    IsXformIdentity
+    IsXformSimilarity
+    XformZero

@@ -1,0 +1,28 @@
+[StatusBarPoint]
+
+    Sets Rhino's status bar point coordinate panes.
+
+[Syntax]
+
+    Rhino.StatusBarPoint ([arrPoint])
+
+[Parameters]
+
+    arrPoint
+    Optional.  Array.  A 3-D point.
+
+[Returns]
+
+    Null.
+
+[Example]
+
+    Dim pt
+    pt = Array(1.1, 2.2, 3.3)
+    Rhino.StatusBarPoint pt
+
+[Also See]
+
+    StatusBarDistance
+    StatusBarMessage
+    StatusBarNumber

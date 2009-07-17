@@ -1,0 +1,31 @@
+[DeleteAlias]
+
+    Deletes an existing command alias from Rhino.
+
+[Syntax]
+
+    Rhino.DeleteAlias (strAlias)
+
+[Parameters]
+
+    strAlias
+    Required.  String.  The name of an existing command alias.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    MsgBox Rhino.DeleteAlias("Hello")
+
+[Also See]
+
+    AddAlias
+    AliasCount
+    AliasMacro
+    AliasNames
+    IsAlias

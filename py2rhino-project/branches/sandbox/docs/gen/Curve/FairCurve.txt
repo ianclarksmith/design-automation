@@ -1,0 +1,32 @@
+[FairCurve]
+
+    Fairs a curve object. Fair works best on degree 3 (cubic) curves. Fair attempts to remove large curvature variations while limiting the geometry changes to be no more than the specified tolerance. Sometimes several applications of this method are necessary to remove nasty curvature problems.
+
+[Syntax]
+
+    Rhino.FairCurve (strObject [, dblTolerance])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    dblTolerance
+    Optional.  Number.  The fairing tolerance. Of omitted, a default value of 1.0 is used.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Dim arrCurves, strCurve
+    arrCurves = Rhino.GetObjects("Select curves to fair", rhObjectCurve)
+    If IsArray(arrCurves) Then
+    For Each strCurve In arrCurves
+    Rhino.FairCurve strCurve
+    Next
+    End If

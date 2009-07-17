@@ -1,0 +1,36 @@
+[PullCurve]
+
+    Pulls a curve object to a surface object. For more information, see the Rhino help file for information on the Pull command.
+
+[Syntax]
+
+    Rhino.PullCurve (strSurface, strCurve [, blnDelete])
+
+[Parameters]
+
+    strSurface
+    Required.  String.  The identifier of the surface object that pulls.
+    strCurve
+    Required.  String.  The identifier of the curve object to pull.
+    blnDelete
+    Optional.  Boolean.  Delete input curve.  If omitted, the input curve will not be deleted (False).
+
+[Returns]
+
+    Array
+    The identifiers of the new curve objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Const rhObjectSurface = 8
+    Dim strSurface, strCurve
+    strCurve = Rhino.GetObject("Select curve to pull", rhObjectCurve )
+    strSurface = Rhino.GetObject("Select surface that pulls", rhObjectSurface )
+    Rhino.PullCurve strSurface, strCurve
+
+[Also See]
+
+    IsSurface

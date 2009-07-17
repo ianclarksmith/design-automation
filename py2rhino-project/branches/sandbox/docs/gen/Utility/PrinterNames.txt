@@ -1,0 +1,35 @@
+[PrinterNames]
+
+    Returns the name of all installed Windows printer.
+
+[Syntax]
+
+    Rhino.PrinterNames ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Array
+    An array of Windows printer names if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPrinters, strPrinter
+    arrPrinters = Rhino.PrinterNames
+    If IsArray(arrPrinters) Then
+    strPrinter = Rhino.CurrentPrinter
+    strPrinter = Rhino.ListBox(arrPrinters, "Current: " & strPrinter, "Set Current Printer")
+    If Not IsNull(strPrinter) Then
+    Rhino.CurrentPrinter strPrinter
+    End If
+    End If
+
+[Also See]
+
+    CurrentPrinter
+    SpoolToPrinter

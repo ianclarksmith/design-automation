@@ -1,0 +1,38 @@
+[ColorAdjustLuma]
+
+    Changes the luminance of a red-green-blue (RGB) value. Hue and saturation are not affected.
+
+[Syntax]
+
+    Rhino.ColorAdjustLuma (lngRGB, intLuma [, bScale])
+
+[Parameters]
+
+    lngRGB
+    Required.  Number.  The initial RGB color value.
+    intLuma
+    Required.  Number.  The luminance in units of 0.1 percent of the total range.  For example, a value of intLuma = 50 corresponds to 5 percent of the maximum luminance.
+    bScale
+    Optional.  Boolean.  If bScale is set to True, intLuma specifies how much to increment or decrement the current luminance.  If bScale is set to FALSE, intLuma specifies the absolute luminance.  The default value is False.
+    If bScale is set to TRUE, intLuma can range from -1000 to +1000.
+    If bScale is set to FALSE, intLuma can range from 0 to 1000. Available luminance values range from 0 to a maximum. If the requested value is negative or exceeds the maximum, the luminance will be set to either zero or the maximum value, respectively.
+
+[Returns]
+
+    Number
+    The modified RGB color value if successful.
+    Null
+    If not successful or on error.
+
+[Example]
+
+    Dim lngRGB
+    lngRGB = Rhino.ColorAdjustLuma(RGB(128, 128, 128), 50)
+    Rhino.Print "Red = " & CStr(lngRGB  \ 256 ^ 0 And 255)
+    Rhino.Print "Green = " & CStr(lngRGB  \ 256 ^ 1 And 255)
+    Rhino.Print "Blue = " & CStr(lngRGB  \ 256 ^ 2 And 255)
+
+[Also See]
+
+    ColorHLSToRGB
+    ColorRGBToHLS

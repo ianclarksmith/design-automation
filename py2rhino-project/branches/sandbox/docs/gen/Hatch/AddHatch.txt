@@ -1,0 +1,41 @@
+[AddHatch]
+
+    Creates a new hatch object from a closed planar curve object.
+
+[Syntax]
+
+    Rhino.AddHatch (strCurve [, strHatch [, dblScale [, dblRotation]]])
+
+[Parameters]
+
+    strCurve
+    Required.  String.  The identifier of the closed planar curve that defines the boundary of the hatch object.
+    strHatch
+    Optional.  String.  The name of the hatch pattern to be used by the hatch object.  If omitted, the current hatch pattern will be used.
+    dblScale
+    Optional.  Number.  The hatch pattern scale factor.  If omitted, a scale factor of 1.0 will be used.
+    dblRotation
+    Optional.  Number.  The hatch pattern rotation angle in degrees.  If omitted, a rotation angle of 0.0 degrees will be used.
+
+[Returns]
+
+    String
+    The identifier of the newly created hatch object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strCircle
+    strCircle = Rhino.AddCircle(Rhino.WorldXYPlane, 10.0)
+    If Rhino.IsHatchPattern("Grid") Then
+    Rhino.AddHatch strCircle, "Grid"
+    Else
+    Rhino.AddHatch strCircle, Rhino.CurrentHatchPattern
+    End If
+
+[Also See]
+
+    AddHatches
+    CurrentHatchPattern
+    HatchPatternNames

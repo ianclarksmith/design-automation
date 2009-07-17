@@ -1,0 +1,40 @@
+[IsSurfacePlanar]
+
+    Verifies a surface object is planar.
+
+[Syntax]
+
+    Rhino.IsSurfacePlanar (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    dblTolerance
+    Optional. Number. A tolerance to use when checking. The default is to use Rhino's current absolute tolerance.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim strObject
+    strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+    If Rhino.IsSurfacePlanar(strObject) Then
+    Rhino.Print "The surface is planar."
+    Else
+    Rhino.Print "The surface is not planar."
+    End If
+
+[Also See]
+
+    IsSurface
+    IsSurfaceClosed
+    IsSurfacePeroidic
+    IsSurfaceSingular
+    IsSurfaceTrimmed

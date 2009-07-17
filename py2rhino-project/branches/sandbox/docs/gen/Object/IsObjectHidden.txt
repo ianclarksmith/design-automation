@@ -1,0 +1,42 @@
+[IsObjectHidden]
+
+    Verifies that an object is hidden.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+
+[Syntax]
+
+    Rhino.IsObjectHidden (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of an object.
+
+[Returns]
+
+    True
+    The object is hidden.
+    False
+    The object is not hidden.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    'Do something here...
+    If Rhino.IsObjectHidden(strObject) Then
+    Rhino.Print "The object is hidden."
+    Else
+    Rhino.Print "The object is not hidden."
+    End If
+
+[Also See]
+
+    IsObject
+    IsObjectInGroup
+    IsObjectLocked
+    IsObjectNormal
+    IsObjectReference
+    IsObjectSelectable
+    IsObjectSelected
+    IsObjectSolid

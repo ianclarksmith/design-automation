@@ -1,0 +1,42 @@
+[MakeSurfaceNonPeriodic]
+
+    Makes a periodic surface non-periodic. Non-periodic surfaces can develop kinks when deformed.
+
+[Syntax]
+
+    Rhino.MakeSurfaceNonPeriodic (strObject, intDirection [, blnDelete])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intDirection
+    Required.  Number.  The direction to make non-periodic, either 0 = U, or 1 = V.
+    blnDelete
+    Optional.  Boolean.  Delete input surface.  If omitted, the input surface will not be deleted (False).
+
+[Returns]
+
+    String
+    If blnDelete is False, the identifier of the new object if successful.
+    String
+    If blnDelete is True, the identifier of the modified object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim strObject
+    strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+    If Rhino.IsSurfacePeriodic(strObject, 0) Then
+    Rhino.MakeSurfaceNonPeriodic strObject, 0
+    End If
+    If Rhino.IsSurfacePeriodic(strObject, 1) Then
+    Rhino.MakeSurfaceNonPeriodic strObject, 1
+    End If
+
+[Also See]
+
+    IsSurfacePeriodic
+    MakeSurfacePeriodic

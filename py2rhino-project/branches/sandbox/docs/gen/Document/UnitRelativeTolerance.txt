@@ -1,0 +1,38 @@
+[UnitRelativeTolerance]
+
+    Returns or sets the document's relative tolerance parameter.  Relative tolerance is measured in percent. See Rhino's DocumentProperties command (Units window) for details.
+
+[Syntax]
+
+    Rhino.UnitRelativeTolerance ([dblRelTol])
+
+[Parameters]
+
+    dblRelTol
+    Optional.  Number.  The relative tolerance in percent.
+
+[Returns]
+
+    Number
+    If dblRelTol is not specified, the current relative tolerance if successful.
+    Number
+    If dblRelTol is specified, the previous relative tolerance if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim dblRelTol
+    dblRelTol = Rhino.UnitRelativeTolerance
+    If dblRelTol < 1.0 Then
+    Rhino.UnitRelativeTolerance 1.0
+    End If
+
+[Also See]
+
+    UnitAbsoluteTolerance
+    UnitAngleTolerance
+    UnitCustomUnitSystem
+    UnitDistanceDisplayMode
+    UnitDistanceDisplayPrecision
+    UnitSystem

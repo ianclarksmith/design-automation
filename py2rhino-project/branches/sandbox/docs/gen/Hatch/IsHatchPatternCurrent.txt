@@ -1,0 +1,40 @@
+[IsHatchPatternCurrent]
+
+    Verifies that a hatch pattern is the current hatch pattern.
+
+[Syntax]
+
+    Rhino.IsHatchPatternCurrent (strHatch)
+
+[Parameters]
+
+    strHatch
+    Required.  String.  The name of an existing hatch pattern.
+
+[Returns]
+
+    True
+    If successful.
+    False
+    If not successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strHatch
+    strHatch = Rhino.GetString("Hatch pattern name")
+    If Rhino.IsHatchPattern(strHatch) Then
+    If Rhino.IsHatchPatternCurrent(strHatch) Then
+    Rhino.Print "The hatch pattern is current."
+    Else
+    Rhino.Print "The hatch pattern is not current."
+    End If
+    Else
+    Rhino.Print "The hatch pattern does not exist."
+    End If
+
+[Also See]
+
+    IsHatchPattern
+    IsHatchPatternReference

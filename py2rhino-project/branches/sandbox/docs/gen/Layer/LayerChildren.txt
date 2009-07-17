@@ -1,0 +1,34 @@
+[LayerChildren]
+
+    Returns the immediate child layers of a layer.
+
+[Syntax]
+
+    Rhino.LayerChildren (strLayer)
+
+[Parameters]
+
+    strLayer
+    Required.  String.  The name of the layer.
+
+[Returns]
+
+    Array
+    An array of strings identifying the layer's children if successful
+    Null
+    If the layer has no children, or on error.
+
+[Example]
+
+    Dim arrChildren, strChild
+    arrChildren = Rhino.LayerChildren("Default")
+    If IsArray(arrChildren) Then
+    For Each strChild In arrChildren
+    Rhino.Print strChild
+    Next
+    End If
+
+[Also See]
+
+    LayerChildCount
+    ParentLayer

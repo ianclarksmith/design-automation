@@ -1,0 +1,36 @@
+[LockObjects]
+
+    Locks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
+
+[Syntax]
+
+    Rhino.LockObjects (arrObjects)
+
+[Parameters]
+
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to lock.
+
+[Returns]
+
+    Number
+    The number of objects locked if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects
+    arrObjects = Rhino.GetObjects("Select objects to lock")
+    If IsArray(arrObjects) Then
+    Rhino.LockObjects arrObjects
+    End If
+    'Do something here...
+    Rhino.UnlockObjects arrObjects
+
+[Also See]
+
+    IsObjectLocked
+    LockObject
+    UnlockObject
+    UnlockObjects

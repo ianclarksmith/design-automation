@@ -1,0 +1,48 @@
+[PlaneFitFromPoints]
+
+    Returns a plane that was fit through an array of 3-D points.
+
+[Syntax]
+
+    Rhino.PlaneFitFromPoints (arrPoints)
+
+[Parameters]
+
+    arrPoints
+    Required.  Array.  An array of 3-D points.
+
+[Returns]
+
+    Array
+    The plane if successful.  The elements of a plane array are as follows:
+    Element
+    Description
+    0
+    The plane's origin (3-D point).
+    1
+    The plane's X axis direction (3-D vector).
+    2
+    The plane's Y axis direction (3-D vector).
+    3
+    The plane's Z axis direction (3-D vector).
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoints, arrPlane, dblDX, dblDY
+    arrPoints = Rhino.GetPoints
+    If IsArray(arrPoints) Then
+    arrPlane = Rhino.PlaneFitFromPoints(arrPoints)
+    If IsArray(arrPlane) Then
+    dblDX = Rhino.VectorLength(arrPlane(1))
+    dblDY = Rhino.VectorLength(arrPlane(2))
+    Rhino.AddPlaneSurface arrPlane, dblDX, dblDY
+    End If
+    End If
+
+[Also See]
+
+    PlaneFromFrame
+    PlaneFromNormal
+    PlaneFromPoints

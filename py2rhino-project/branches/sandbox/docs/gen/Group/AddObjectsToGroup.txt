@@ -1,0 +1,37 @@
+[AddObjectsToGroup]
+
+    Adds one or more objects to an existing group. Neither the objects nor the group can be reference objects.
+
+[Syntax]
+
+    Rhino.AddObjectsToGroup (arrObjects, strGroup)
+
+[Parameters]
+
+    arrObjects
+    Required.  Array.  An array of object identifiers.
+    strGroup
+    Required.  String.  The name of an existing group.
+
+[Returns]
+
+    Number
+    The number of objects added to the group if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strGroup
+    strGroup = "NewGroup"
+    arrObjects = Rhino.GetObjects("Select objects to add to group")
+    If IsArray(arrObjects) Then
+    Rhino.AddObjectsToGroup arrObjects, strGroup
+    End If
+
+[Also See]
+
+    AddObjectToGroup
+    IsGroupEmpty
+    ObjectGroups
+    ObjectsByGroup

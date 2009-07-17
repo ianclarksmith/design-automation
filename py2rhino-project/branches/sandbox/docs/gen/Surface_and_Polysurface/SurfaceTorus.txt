@@ -1,0 +1,46 @@
+[SurfaceTorus]
+
+    Returns the definition of a torus surface.
+
+[Syntax]
+
+    Rhino.SurfaceTorus (strSurface)
+
+[Parameters]
+
+    strSurface
+    Required.  String.  The surface object's identifier.
+
+[Returns]
+
+    Array
+    An array containing the definition of the torus if successful.  The elements of the array are as follows:
+    Element
+    Type
+    Description
+    0
+    Array
+    The base plane of the torus.
+    1
+    Number
+    The major radius of the torus.
+    2
+    Number
+    The minor radius of the torus.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strTorus, arrTorus
+    strTorus = Rhino.AddTorus(Rhino.WorldXYPlane, 6, 2)
+    If Rhino.IsTorus(strTorus) Then
+    arrTorus = Rhino.SurfaceTorus(strTorus)
+    Rhino.AddTorus arrTorus(0), arrTorus(1), arrTorus(2)
+    End If
+
+[Example]
+
+    SurfaceCone
+    SurfaceCylinder
+    SurfaceSphere

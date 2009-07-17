@@ -1,0 +1,55 @@
+[GetSurfaceObject]
+
+    Prompts the user to pick, or select, a single surface object.
+
+[Syntax]
+
+    Rhino.GetSurfaceObject ([strMessage [, blnPreSelect [, blnSelect ]]])
+
+[Parameters]
+
+    strMessage
+    Optional.  String.  A prompt or message.
+    blnPreSelect
+    Optional.  Boolean.  Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+    blnSelect
+    Optional.  Boolean.  Select the picked objects.  If omitted, the objects that are picked are not selected (False).
+
+[Returns]
+
+    Array
+    An array of selection information if successful. The array will contain the following information:
+    Element
+    Description
+    0
+    String. The identifier of the surface object.
+    1
+    Boolean. True if the surface was pre-selected, otherwise False.
+    2
+    Number. The selection method:
+    0: selected by non-mouse method (SelAll, etc.).
+    1: selected by mouse click on the object.
+    2: selected by being inside of a mouse window.
+    3: selected by intersecting a mouse crossing window.
+    3
+    Array. The selection point. This value is valid only if the surface was not pre-selected and it was selected by clicking the mouse on the surface.
+    4
+    Array. The u,v surface parameter of the selection point. This value is valid only if the surface was not pre-selected and it was selected by clicking the mouse on the surface.
+    5
+    String. The name of the view in which the selection was made.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrSelect
+    arrSelect = Rhino.GetSurfaceObject("Select surface")
+    If IsArray(arrSelect) Then
+    Rhino.Print "Surface identifier: " & arrSelect(0)
+    End If
+
+[Also See]
+
+    GetCurveObject
+    GetObject
+    GetObjects

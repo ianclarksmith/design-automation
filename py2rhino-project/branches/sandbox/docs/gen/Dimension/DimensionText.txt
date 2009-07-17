@@ -1,0 +1,33 @@
+[DimensionText]
+
+    Returns the text displayed by a dimension object.
+
+[Syntax]
+
+    Rhino.DimensionText (strObject)
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+
+[Returns]
+
+    String
+    The dimension text if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a dimension")
+    If Rhino.IsDimension(strObject) Then
+    Rhino.Print Rhino.DimensionText(strObject)
+    End If
+
+[Also See]
+
+    DimensionUserText
+    DimensionValue
+    IsDimension

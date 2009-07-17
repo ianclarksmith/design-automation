@@ -1,0 +1,40 @@
+[DeleteAttributeData]
+
+    Removes RhinoScript user data items from an object's attributes.
+
+[Syntax]
+
+    Rhino.DeleteAttributeData (strObject [, strSection [, strEntry]])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    strSection
+    Optional.  String.  The section name.  If omitted, all sections and their corresponding entries are removed.
+    strEntry
+    Optional.  String.  The entry name.  If omitted, all entries for strSection are removed.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    Rhino.DeleteAttributeData strObject, "MySection1", "MyEntry1"
+    Rhino.DeleteAttributeData strObject, "MySection1", "MyEntry2"
+    Rhino.DeleteAttributeData strObject, "MySection2", "MyEntry1"
+    End If
+
+[Also See]
+
+    AttributeDataCount
+    GetAttributeData
+    IsAttributeData
+    SetAttributeData

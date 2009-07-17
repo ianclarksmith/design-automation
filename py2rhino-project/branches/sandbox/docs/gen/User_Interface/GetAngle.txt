@@ -1,0 +1,43 @@
+[GetAngle]
+
+    Pauses for user input of an angle.
+
+[Syntax]
+
+    Rhino.GetAngle (arrPoint, arrReference, dblAngle, strMessage)
+
+[Parameters]
+
+    arrPoint
+    Optional.   Array.  A zero-based, one-dimensional array containing three numbers identifying the starting, or base, point.
+    arrReference
+    Optional.  Array.  A zero-based, one-dimensional array containing three numbers identifying a reference point.  If specified, the reference angle is calculated from it and the base point.
+    dblAngle
+    Optional.  Number.  A default angle value specified in degrees.
+    strMessage
+    Optional.  String.  A prompt or message.
+
+[Returns]
+
+    Number
+    The angle in degrees if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoint, arrReference, dblAngle
+    arrPoint = Rhino.GetPoint("Base point")
+    If IsArray(arrPoint) Then
+    arrReference = Rhino.GetPoint("Reference point", arrPoint)
+    If IsArray(arrReference) Then
+    dblAngle = Rhino.GetAngle(arrPoint, arrReference)
+    If IsNumeric(dblAngle) Then
+    Rhino.Print "Angle: " & CStr(dblAngle)
+    End If
+    End If
+    End If
+
+[Also See]
+
+    GetDistance

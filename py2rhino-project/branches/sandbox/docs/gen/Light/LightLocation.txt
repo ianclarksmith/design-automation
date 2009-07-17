@@ -1,0 +1,37 @@
+[LightLocation]
+
+    Returns or changes the location of a light object.
+
+[Syntax]
+
+    Rhino.LightLocation (strObject [, arrlocation])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The light object's identifier.
+    arrlocation
+    Optional.  Array.  The new start point, or location.  If omitted, the location point is returned.
+
+[Returns]
+
+    Array
+    If a location point is not specified,  the current location if successful.
+    Array
+    If a location point is specified, the previous location point if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectLight = 256
+    Dim strObject
+    strObject = Rhino.GetObject("Select a light", rhObjectLight)
+    If Not IsNull(strObject) Then
+    Rhino.AddPoint Rhino.LightLocation(strObject)
+    End If
+
+[Also See]
+
+    IsLight
+    LightDirection

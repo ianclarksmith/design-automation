@@ -1,0 +1,38 @@
+[GetInteger]
+
+    Pauses for user input of a whole number.
+
+[Syntax]
+
+    Rhino.GetInteger (strMessage [, intNumber [, intMin [, intMax]]])
+
+[Parameters]
+
+    strMessage
+    Optional.  String.  A prompt or message.
+    intNumber
+    Optional.  Number.  A default whole number value.
+    intMin
+    Optional.  Number.  A minimum allowable value.
+    intMax
+    Optional.  Number.  A maximum allowable value.
+
+[Returns]
+
+    Number
+    The whole number input by the user if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim lngColor
+    lngColor = Rhino.LayerColor("Default")
+    lngColor = Rhino.GetInteger("Enter an RGB color value", lngColor, 0)
+    If Not IsNull(lngColor) Then
+    Rhino.LayerColor "Default", lngColor
+    End If
+
+[Also See]
+
+    IntegerBox

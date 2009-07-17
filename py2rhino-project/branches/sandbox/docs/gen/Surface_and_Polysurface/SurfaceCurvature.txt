@@ -1,0 +1,76 @@
+[SurfaceCurvature]
+
+    Returns the curvature of a surface at a U,V parameter.  See the Rhino help file for details on surface curvature.
+
+[Syntax]
+
+    Rhino.SurfaceCurvature (strObject, arrParameter)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    arrParameter
+    Required.  Array.  An array containing the U,V parameter to evaluate.
+
+[Returns]
+
+    Array
+    An array of curvature information if successful.  The array will contain the following information:
+    Element
+    Type
+    Description
+    0
+    Array (3-D Point)
+    3-D point at the specified U,V parameter.
+    1
+    Array (3-D Vector)
+    Normal direction (vector).
+    2
+    Number
+    Maximum principal curvature.
+    3
+    Array (3-D Vector)
+    Maximum principal curvature direction (vector).
+    4
+    Number
+    Minimum principal curvature.
+    5
+    Array (3-D Vector)
+    Minimum principal curvature direction (vector).
+    6
+    Number
+    Gaussian curvature.
+    7
+    Number
+    Mean curvature.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim strObject, arrPoint, arrParam, arrData
+    strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+    If Rhino.IsSurface(strObject) Then
+    arrPoint = Rhino.GetPointOnSurface(strObject, "Pick a test point")
+    if IsArray(arrPoint) Then
+    arrParam = Rhino.SurfaceClosestPoint(strObject, arrPoint)
+    If IsArray(arrParam) Then
+    arrData = Rhino.SurfaceCurvature(strObject, arrParam)
+    If IsArray(arrData) Then
+    Rhino.Print "Surface curvature evaluation at parameter (" & CStr(arrParam(0)) & ", " & CStr(arrParam(1)) &"):"
+    Rhino.Print "  3-D Point: (" & Rhino.Pt2Str(arrData(0)) & ")"
+    Rhino.Print "  3-D Normal: (" & Rhino.Pt2Str(arrData(1)) & ")"
+    Rhino.Print "  Maximum principal curvature: " & CStr(arrData(2)) & " (" & Rhino.Pt2Str(arrData(3)) & ")"
+    Rhino.Print "  Minimum principal curvature: " & CStr(arrData(4)) & " (" & Rhino.Pt2Str(arrData(5)) & ")"
+    Rhino.Print "  Gaussian curvature: " & CStr(arrData(6))
+    Rhino.Print "  Mean curvature: " & CStr(arrData(7))
+    End If
+    End If
+    End If
+    End If
+
+[Also See]
+
+    CurveCurvature

@@ -1,0 +1,34 @@
+[PurgeLayer]
+
+    Removes an existing layer from the document.  Unlike the DeleteLayer method, PurgeLayer will remove the layer even if contains geometry objects.  The layer to be removed cannot be the current layer.
+
+[Syntax]
+
+    Rhino.PurgeLayer (strLayer)
+
+[Parameters]
+
+    strLayer
+    Required.  String.  The name of the layer to purge.
+
+[Returns]
+
+    String
+    The name of the purged layer if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strLayer
+    strLayer = Rhino.GetString("Layer to purge")
+    If Not IsNull(strLayer) Then
+    Rhino.PurgeLayer(strLayer)
+    End If
+
+[Also See]
+
+    AddLayer
+    CurrentLayer
+    DeleteLayer
+    RenameLayer

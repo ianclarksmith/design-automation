@@ -1,0 +1,32 @@
+[AutosaveFile]
+
+    Returns or changes the file name used by Rhino's automatic file saving mechanism.
+
+[Syntax]
+
+    Rhino.AutosaveFile ([strFile])
+
+[Parameters]
+
+    strFile
+    Optional.  String.  The name of the new autosave file.
+
+[Returns]
+
+    String
+    If an autosave file is not specified, the name of the current autosave file if successful.
+    String
+    If an autosave file is specified, the name of the previous autosave file if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strFile
+    strFile = Rhino.AutosaveFile
+    Rhino.Print "The current autosave file is " & strFile
+
+[Also See]
+
+    AutosaveInterval
+    EnableAutosave

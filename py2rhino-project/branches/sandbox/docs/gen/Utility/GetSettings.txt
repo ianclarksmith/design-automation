@@ -1,0 +1,58 @@
+[GetSettings]
+
+    Returns a string from a specified section in a Windows-style initialization file.  The initialization file must have the following form:
+    [Section]
+    Entry = String
+    ...
+
+[Syntax]
+
+    Rhino.GetSettings (strFilename [, strSection [, strEntry]])
+
+[Parameters]
+
+    strFilename
+    Required.  String.  The name of the initialization file.
+    strSection
+    Optional.  String.  The section containing the entry.
+    strEntry
+    Optional.  String.  The entry whose associated string is to be returned.
+    Note, parameters are not case sensitive, so strSection and strEntry may be in any combination of uppercase and lowercase characters.
+
+[Returns]
+
+    Array
+    If strSection is not specified, a zero-based, one-dimensional array containing all section names from strFilename if successful.
+    Array
+    If strEntry is not specified, a zero-based, one-dimensional array containing all entry names within strSection if successful.
+    String
+    If strSection and strEntry are returned, the value of strEntry if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strFilename, arrSections, strSection, arrEntries, strEntry, strValue
+    strFilename = Rhino.OpenFileName("Open", "Initialization Files (*.ini)|*.ini||")
+    If Not IsNull(strFilename) Then
+    arrSections = Rhino.GetSettings(strFilename)
+    If IsArray(arrSections) Then
+    strSection = Rhino.ListBox(arrSections, "Select a section", strFilename)
+    If Not IsNull(strSection) Then
+    arrEntries = Rhino.GetSettings(strFilename, strSection)
+    If IsArray(arrEntries) Then
+    strEntry = Rhino.ListBox(arrEntries, "Select an entry", strSection)
+    If Not IsNull(strEntry) Then
+    strValue = Rhino.GetSettings(strFilename, strSection, strEntry)
+    If Not IsNull(strValue) Then
+    MsgBox strValue, 0, strEntry
+    End If
+    End If
+    End If
+    End If
+    End If
+    End If
+
+[Also See]
+
+    SaveSettings

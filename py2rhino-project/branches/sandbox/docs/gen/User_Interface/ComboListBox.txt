@@ -1,0 +1,42 @@
+[ComboListBox]
+
+    Displays a list of items in a combo-style list box dialog.
+
+[Syntax]
+
+    Rhino.ComboListBox (arrItems [, strMessage [, strTitle]])
+
+[Parameters]
+
+    arrItems
+    Required.  Array.  A zero-based, one-dimensional array of string items.
+    strMessage
+    Optional.  String.  A prompt or message.
+    strTitle
+    Optional.  String.  A dialog box title.
+
+[Returns]
+
+    String
+    The selected item if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrLayers, strLayer
+    arrLayers = Rhino.LayerNames
+    If IsArray(arrLayers) Then
+    strLayer = Rhino.ComboListBox(arrLayers, "Select current layer")
+    If Not IsNull(strLayer) Then
+    Rhino.AddLayer(strLayer)
+    Rhino.CurrentLayer(strLayer)
+    End If
+    End If
+
+[Also See]
+
+    CheckListBox
+    ListBox
+    MultiListbox
+    PropertyListBox

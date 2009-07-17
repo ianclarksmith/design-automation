@@ -1,0 +1,37 @@
+[LightDirection]
+
+    Returns or changes the direction of a light object. This function can be used to return or modify the target of spotlights.
+
+[Syntax]
+
+    Rhino.LightDirection (strObject [, arrDirection])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The light object's identifier.
+    arrDirection
+    Optional.  Array.  The new end point, or direction.  If omitted, the direction point is returned.
+
+[Returns]
+
+    Array
+    If a direction point is not specified,  the current direction if successful.
+    Array
+    If a direction point is specified, the previous direction point if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectLight = 256
+    Dim strObject
+    strObject = Rhino.GetObject("Select a light", rhObjectLight)
+    If Not IsNull(strObject) Then
+    Rhino.AddPoint Rhino.LightDirection(strObject)
+    End If
+
+[Also See]
+
+    IsLight
+    LightLocation

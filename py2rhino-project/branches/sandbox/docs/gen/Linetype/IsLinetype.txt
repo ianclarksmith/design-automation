@@ -1,0 +1,33 @@
+[IsLinetype]
+
+    Verifies the existence of a linetype in the document.
+
+[Syntax]
+
+    Rhino.IsLinetype (strLinetype)
+
+[Parameters]
+
+    strLinetype
+    Required.  String.  The name of an existing linetype.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Dim strLinetype
+    strLinetype = Rhino.GetString("Linetype name")
+    If Rhino.IsLinetype(strLinetype) Then
+    Rhino.Print "The linetype exists."
+    Else
+    Rhino.Print "The linetype does not exist."
+    End If
+
+[Also See]
+
+    IsLinetypeReference

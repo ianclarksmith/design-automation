@@ -1,0 +1,62 @@
+[LocaleID]
+
+    Returns the language used for the Rhino interface.  The current language is returned as a locale ID, or LCID, value.
+
+[Syntax]
+
+    Rhino.LocaleID ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Number
+    Rhino's current locale ID, or LCID.  The languages currently supported by Rhino are as follows:
+    Value
+    Description
+    1029
+    Czech
+    1031
+    German - Germany
+    1033
+    English - United States
+    1034
+    Spanish - Spain
+    1036
+    French - France
+    1040
+    Italian - Italy
+    1041
+    Japanese
+    1042
+    Korean
+    1045
+    Polish
+
+[Example]
+
+    Dim intLCID
+    intLCID = Rhino.LocaleID
+    Select Case intLCID
+    Case 1029
+    'Print message in Czech
+    Case 1031
+    'Print message in German
+    Case 1033
+    'Print message in English
+    Case 1034
+    'Print message in Spanish
+    Case 1036
+    'Print message in Italian
+    Case 1040
+    'Print message in Japanese
+    Case 1042
+    'Print message in Korean
+    Case 1045
+    'Print message in Polish
+    End Select
+
+[Also See]
+

@@ -1,0 +1,35 @@
+[IsPolyCurve]
+
+    Verifies an object is a polycurve object.  A polycurve is a curve that is represented by a sequence of contiguous curve segments.
+
+[Syntax]
+
+    Rhino.IsPolyCurve (strObject [, intIndex])
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+    intIndex
+    Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a polycurve")
+    If Rhino.IsPolyCurve(strObject) Then
+    Rhino.Print "The object is a polycurve."
+    Else
+    Rhino.Print "The object is not a polycurve."
+    End If
+
+[Also See]
+
+    PolyCurveCount

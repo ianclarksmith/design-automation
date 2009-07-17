@@ -1,0 +1,35 @@
+[HatchPatternNames]
+
+    Returns the names of all of the hatch pattern in the document.
+
+[Syntax]
+
+    Rhino.HatchPatternNames ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Array
+    An array of hatch pattern names if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPatterns, strPattern, strDesc
+    arrPatterns = Rhino.HatchPatternNames
+    For Each strPattern In arrPatterns
+    strDesc = Rhino.HatchPatternDescription(strPattern)
+    If IsNull(strDesc) Then
+    Rhino.Print strPattern
+    Else
+    Rhino.Print strPattern & " - " & strDesc
+    End If
+    Next
+
+[Also See]
+
+    HatchPatternCount

@@ -1,0 +1,41 @@
+[SplitCurve]
+
+    Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
+
+[Syntax]
+
+    Rhino.SplitCurve (strObject, dblParameter [, blnDelete])
+    Rhino.SplitCurve (strObject, arrParameters [, blnDelete])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    dblParameter
+    Required.  Number.  The parameter, to split the curve at, that is in the interval returned by CurveDomain.
+    arrParameters
+    Required.  Array.  An array of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+    blnDelete
+    Optional.  Boolean.  Delete the input curve. The default is to delete the input curve (True).
+
+[Returns]
+
+    Array
+    An array containing the identifiers of the two newly created curve objects, if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhCurveObject = 4
+    Dim strObject, arrDomain, dblParameter
+    strObject = Rhino.GetObject("Select a curve to split", rhCurveObject)
+    If Rhino.IsCurve(strObject) Then
+    arrDomain = Rhino.CurveDomain(strObject)
+    dblParameter = arrDomain(1) / 2
+    Rhino.SplitCurve strObject, dblParameter
+    End If
+
+[Also See]
+
+    TrimCurve

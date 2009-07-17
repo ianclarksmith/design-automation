@@ -1,0 +1,35 @@
+[NamedCPlanes]
+
+    Returns the names of all named construction planes in the document.
+
+[Syntax]
+
+    Rhino.NamedCPlanes ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Array
+    A zero-based, one-dimensional array of strings identifying the named construction planes if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrCPlanes, strCPlanes
+    arrCPlanes = Rhino.NamedCPlanes
+    If IsArray(arrCPlanes) Then
+    For Each strCPlane in arrCPlanes
+    Rhino.Print strCPlane
+    Next
+    End If
+
+[Also See]
+
+    AddNamedCPlane
+    DeleteNamedCPlane
+    NamedCPlane
+    RestoreNamedCPlane

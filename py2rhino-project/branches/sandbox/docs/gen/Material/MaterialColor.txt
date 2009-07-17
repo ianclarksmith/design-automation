@@ -1,0 +1,43 @@
+[MaterialColor]
+
+    Returns or modifies a material's diffuse color.  Material colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+
+[Syntax]
+
+    Rhino.MaterialColor (intMaterialIndex [, lngColor])
+
+[Parameters]
+
+    intMaterialIndex
+    Required.  Number.  The zero-based source material index.
+    lngColor
+    Optional.  Number.  The new color value.  If omitted, the current material color is returned.
+
+[Returns]
+
+    Number
+    If lngColor is not specified, the current material color if successful.
+    Number
+    If lngColor is specified, the previous material color if successful.
+    Null
+    It not successful, or on error.
+
+[Example]
+
+    Dim strObject, intIndex
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    intIndex = Rhino.ObjectMaterialIndex(strObject)
+    If (intIndex > -1) Then
+    Rhino.MaterialColor intIndex, RGB(127, 255, 191)
+    End If
+    End If
+
+[Also See]
+
+    MaterialBump
+    MaterialName
+    MaterialReflectiveColor
+    MaterialShine
+    MaterialTexture
+    MaterialTransparency

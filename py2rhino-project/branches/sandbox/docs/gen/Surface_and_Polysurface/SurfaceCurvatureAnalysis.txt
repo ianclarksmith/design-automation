@@ -1,0 +1,76 @@
+[SurfaceCurvatureAnalysis]
+
+    Returns the curvature of a surface.  See the Rhino help file for details on surface curvature analysis.
+
+[Syntax]
+
+    Rhino.SurfaceCurvatureAnalysis (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Array
+    An array of curvature information if successful.  The array will contain the following information:
+    Element
+    Type
+    Description
+    0
+    Array
+    An array containing three values: the min Gaussian curvature, the max Gaussian curvature, and the infinity status.
+    1
+    Array
+    An array containing three values: the min unsigned mean curvature, the max unsigned mean curvature, and the infinity comparison.
+    2
+    Array
+    An array containing three values: the min maximum unsigned radius of curvature, the max maximum unsigned radius of curvature, and the infinity comparison.
+    3
+    Array
+    An array containing three values: the min minimum unsigned radius of curvature, the max minimum unsigned radius of curvature, and the infinity comparison.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Sub TestSurfaceCurvatureAnalysis
+    Const rhObjectSurface = 8
+    Dim strObject, arrAnalysis
+    strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+    If Rhino.IsSurface(strObject) Then
+    arrAnalysis = Rhino.SurfaceCurvatureAnalysis(strObject)
+    If IsArray(arrAnalysis) Then
+    PrintValues "Gaussian curvature: ", arrAnalysis(0)
+    PrintValues "Unsigned mean curvature: ", arrAnalysis(1)
+    PrintValues "Unsigned maximum radius of curvature: ", arrAnalysis(2)
+    PrintValues "Unsigned minimum radius of curvature: ", arrAnalysis(3)
+    End If
+    End If
+    End Sub
+    Sub PrintValues(str, arr)
+    Dim s0, s1
+    CompareValues arr(0), arr(1), arr(2), s0, s1
+    Rhino.Print str & s0 & " to " & s1
+    End Sub
+    Sub CompareValues(ByVal mn, ByVal mx, ByVal infinity, ByRef s0, ByRef s1)
+    If Abs(mn) < infinity Then
+    s0 = CStr(mn)
+    ElseIf mn < 0.0 Then
+    s0 = "-infinity"
+    Else
+    s0 = "+infinity"
+    End If
+    If Abs(mx) < infinity Then
+    s1 = CStr(mx)
+    ElseIf mx < 0.0 Then
+    s1 = "-infinity"
+    Else
+    s1 = "+infinity"
+    End If
+    End Sub
+
+[Also See]
+
+    SurfaceCurvature

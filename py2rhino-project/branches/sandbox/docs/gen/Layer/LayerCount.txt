@@ -1,0 +1,26 @@
+[LayerCount]
+
+    Returns the number of layers in the document.
+
+[Syntax]
+
+    Rhino.LayerCount ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Number
+    The number of layers in the document.
+
+[Example]
+
+    Dim intCount
+    intCount = Rhino.LayerCount
+    Rhino.Print "There are " & CStr(intCount) & " layer."
+
+[Also See]
+
+    LayerNames

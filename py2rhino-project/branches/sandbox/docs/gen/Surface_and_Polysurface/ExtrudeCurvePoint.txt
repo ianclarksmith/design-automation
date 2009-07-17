@@ -1,0 +1,38 @@
+[ExtrudeCurvePoint]
+
+    Creates a surface by extruding a curve to a point.
+
+[Syntax]
+
+    Rhino.ExtrudeCurvePoint (strCurve, arrPoint)
+
+[Parameters]
+
+
+[Parameters]
+
+    strCurve
+    Required.  String.  The identifier of the curve object to extrude.
+    arrPoint
+    Required.  Array.  A 3-D point.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strCurve, arrPoint
+    strCurve = Rhino.AddCircle(Rhino.WorldXYPlane, 5)
+    arrPoint = Array(0,0,10)
+    Rhino.ExtrudeCurvePoint strCurve, arrPoint
+
+[Also See]
+
+    ExtrudeCurve
+    ExtrudeCurveStraight
+    ExtrudeCurveTapered
+    ExtrudeSurface

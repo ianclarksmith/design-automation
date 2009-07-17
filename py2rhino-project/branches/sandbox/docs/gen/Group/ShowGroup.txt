@@ -1,0 +1,35 @@
+[ShowGroup]
+
+    Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
+
+[Syntax]
+
+    Rhino.ShowGroup (strGroup)
+
+[Parameters]
+
+    strGroup
+    Required.  String.  The name of an existing group.
+
+[Returns]
+
+    Number
+    The number of object that were shown if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrGroups, strGroup
+    arrGroups = Rhino.GroupNames
+    If IsArray(arrGroups) Then
+    For Each strGroup In arrGroups
+    Rhino.ShowGroup strGroup
+    Next
+    End If
+
+[Also See]
+
+    HideGroup
+    LockGroup
+    UnlockGroup

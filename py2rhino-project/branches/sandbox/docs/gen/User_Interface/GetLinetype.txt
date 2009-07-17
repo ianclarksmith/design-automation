@@ -1,0 +1,35 @@
+[GetLinetype]
+
+    Displays a dialog box prompting the user to select a linetype.
+
+[Syntax]
+
+    Rhino.GetLinetype ([strLinetype])
+
+[Parameters]
+
+    strLinetype
+    Optional.  String.  The name of the linetype to select.  If omitted, the current linetype will be selected.
+
+[Returns]
+
+    String
+    The name of the selected linetype if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, strLinetype
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    strLinetype = Rhino.GetLinetype( Rhino.ObjectLinetype(strObject) )
+    If Not IsNull(strLinetype) Then
+    Rhino.ObjectLinetype strObject, strLinetype
+    End If
+    End If
+
+[Also See]
+
+    GetLayer
+    GetPrintWidth

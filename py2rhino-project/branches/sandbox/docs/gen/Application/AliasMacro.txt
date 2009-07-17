@@ -1,0 +1,39 @@
+[AliasMacro]
+
+    Returns or modifies the macro of a command alias.
+
+[Syntax]
+
+    Rhino.AliasMacro (strAlias [, strMacro])
+
+[Parameters]
+
+    strAlias
+    Required.  String.  The name of an existing command alias.
+    strMacro
+    Optional.  String.  The new macro to run when the alias is executed.
+
+[Returns]
+
+    String
+    If a new macro is not specified,  the existing macro if successful.
+    String
+    If a new macro is specified, the previous macro if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrAliases, strAlias
+    arrAliases = Rhino.AliasNames
+    For Each strAlias In arrAliases
+    Rhino.Print strAlias & " -> " & Rhino.AliasMacro(strAlias)
+    Next
+
+[Also See]
+
+    AddAlias
+    AliasCount
+    AliasNames
+    DeleteAlias
+    IsAlias

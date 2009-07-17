@@ -1,0 +1,114 @@
+[GetObjectsEx]
+
+    Prompts the user to pick or select one or more objects.
+
+[Syntax]
+
+    Rhino.GetObjectsEx ([strMessage [, intType [, blnGroup [, blnPreSelect [, blnSelect [, arrObjects ]]]]])
+
+[Parameters]
+
+    strMessage
+    Optional.  String.  A prompt or message.
+    intType
+    Optional.  Number.  The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
+    Value
+    Description
+    0
+    All objects (default)
+    1
+    Point
+    2
+    Point cloud
+    4
+    Curve
+    8
+    Surface or single-face brep
+    16
+    Polysurface or multiple-face
+    32
+    Mesh
+    256
+    Light
+    512
+    Annotation
+    4096
+    Instance or block reference
+    8192
+    Text dot object
+    16384
+    Grip object
+    32768
+    Detail
+    65536
+    Hatch
+    131072
+    Morph control
+    134217728
+    Cage
+    268435456
+    Phantom
+    536870912
+    Clipping plane
+    blnGroup
+    Optional.  Boolean.  Honor object grouping.  If omitted and the user picks a group, the entire group will be picked (True). Note, if intType is set to a value other than 0 (All objects), then group selection will be disabled.
+    blnPreSelect
+    Optional.  Boolean.  Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+    blnSelect
+    Optional.  Boolean.  Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
+    arrObjects
+    Optional.  Array.  An array of strings identifying the objects that are allowed to be selected.
+
+[Returns]
+
+    Array
+    An array that contains arrays of selection information if successful. The array of selection information will contain the following:
+    Element
+    Description
+    0
+    String. The identifier of the object.
+    1
+    Boolean. True if the object was pre-selected, otherwise False.
+    2
+    Number. The selection method:
+    0: selected by non-mouse method (SelAll, etc.).
+    1: selected by mouse click on the object.
+    2: selected by being inside of a mouse window.
+    3: selected by intersecting a mouse crossing window.
+    3
+    Array. The selection point. This value is valid only if the object was not pre-selected and it was selected by clicking the mouse on the curve.
+    4
+    String. The name of the view in which the selection was made.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, arrObj
+    arrObjects = Rhino.GetObjectsEx("Select object", 0, True)
+    If IsArray(arrObjects) Then
+    For Each arrObj In arrObjects
+    Rhino.Print "Object id = " & arrObj(0)
+    Rhino.Print "Object was preselected = " & CStr(arrObj(1))
+    Select Case arrObj(2)
+    Case 0
+    Rhino.Print "Selection method = 0 (non-mouse)"
+    Case 1
+    Rhino.Print "Selection method = 1 (mouse)"
+    Rhino.Print "Pick point = " & Rhino.Pt2Str(arrObj(3))
+    Case 2
+    Rhino.Print "Selection method = 1 (window)"
+    Case 3
+    Rhino.Print "Selection method = 1 (crossing)"
+    End Select
+    Rhino.Print "Active view = " & CStr(arrObj(4))
+    Next
+    End If
+
+[Also See]
+
+    GetCurveObject
+    GetObject
+    GetObjectEx
+    GetObjects
+    GetSurfaceObject

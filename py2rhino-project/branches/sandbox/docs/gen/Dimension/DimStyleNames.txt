@@ -1,0 +1,34 @@
+[DimStyleNames]
+
+    Returns the names of all dimension styles in the document.
+
+[Syntax]
+
+    Rhino.DimStyleNames ([blnSort])
+
+[Parameters]
+
+    blnSort
+    Optional.  Boolean.  Return a sorted list of dimension style names. The default is not to return a sorted list (False).
+
+[Returns]
+
+    Array
+    An array of dimension style names if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrDimStyles, strDimStyle
+    arrDimStyles = Rhino.DimStyleNames
+    If IsArray(arrDimStyles) Then
+    For Each strDimStyle In arrDimStyles
+    Rhino.Print strDimStyle
+    Next
+    End If
+
+[Also See]
+
+    DimStyleCount
+    IsDimStyle

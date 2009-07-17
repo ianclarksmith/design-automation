@@ -1,0 +1,43 @@
+[ObjectNames]
+
+    Returns or modifies the user-definable name of one or more objects.
+
+[Syntax]
+
+    Rhino.ObjectNames (arrObjects [, arrNames])
+
+[Parameters]
+
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects.
+    arrNames
+    Optional.  Array.   An array of strings identifying the new user-definable names. This array must have the same upper bounds as arrObjects.  Each element in arrNames will correspond with each element in arrObjects.
+
+[Returns]
+
+    Array
+    If arrNames is not specified,  the current object names if successful. Note, if an object does not have a user-definable name, it's corresponding element will be Null.
+    Array
+    If arrNames is specified,  the previous object names if successful.  Note, if an object does not have a user-definable name, it's corresponding element will be Null.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, arrNames, strName, i
+    arrObjects = Rhino.GetObjects("Select objects")
+    If IsArray(arrObjects) Then
+    arrNames = Rhino.ObjectNames(arrObjects)
+    If IsArray(arrNames) Then
+    For i = 0 to UBound(arrObjects)
+    strName = arrNames(i)
+    If IsNull(strName) Then strName = "<none>"
+    Rhino.Print arrObjects(i) & " = " & strName
+    Next
+    End If
+    End If
+
+[Also See]
+
+    ObjectsByName
+    ObjectName

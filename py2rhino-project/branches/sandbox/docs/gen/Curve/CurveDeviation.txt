@@ -1,0 +1,58 @@
+[CurveDeviation]
+
+    Returns the minimum and maximum deviation between two curve objects. For more information on curve deviation, see the Rhino help file for the CrvDeviation command.
+
+[Syntax]
+
+    Rhino.CurveDeviation (strCurveA, strCurveB)
+
+[Parameters]
+
+    strCurveA
+    Required.  String.  The identifier of the first curve object.
+    strCurveB
+    Required.  String.  The identifier of the second curve object.
+
+[Returns]
+
+    Array
+    An array of numbers identifying the minimum and maximum deviation between the two curves if successful.
+    Element
+    Type
+    Description
+    0
+    Number
+    Curve A parameter at maximum overlap distance point
+    1
+    Number
+    Curve A parameter at maximum overlap distance point
+    2
+    Number
+    Maximum overlap distance
+    3
+    Number
+    Curve A parameter at minimum distance point
+    4
+    Number
+    Curve B parameter at minimum distance point
+    5
+    Number
+    Minimum distance between curves
+    Null
+    On error or if no intervals of overlap were found.
+
+[Example]
+
+    Dim strCurveA, strCurveB, arrDeviation
+    strCurveA = Rhino.GetObject("Select first curve to test", 4)
+    strCurveB = Rhino.GetObject("Select second curve to test", 4)
+    arrDeviation = Rhino.CurveDeviation(strCurveA, strCurveB)
+    If IsArray(arrDeviation) Then
+    Rhino.Print "Minimum deviation = " & CStr(arrDeviation(5))
+    Rhino.Print "Maximum deviation = " & CStr(arrDeviation(2))
+    End If
+
+[Also See]
+
+    CurveArea
+    CurveAreaCentroid

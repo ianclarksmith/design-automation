@@ -1,0 +1,41 @@
+[PointTransform]
+
+    Transforms a 3-D point.
+
+[Syntax]
+
+    Rhino.PointTransform (arrPoint, arrXform)
+
+[Parameters]
+
+    arrPoint
+    Required.  Array.  The 3-D point to transform.
+    arrXform
+    Required.  Array.  A valid 4x4 transformation matrix.
+
+[Returns]
+
+    Array
+    The resulting 3-D point if successful.
+    Null
+    On error.
+
+[Example]
+
+    ' Translate (move) objects by (10,10,0)
+    Dim arrPoint, arrResult, arrMatrix(3,3)
+    arrPoint = Array(5,5,0)
+    arrMatrix(0,0) = 1 : arrMatrix(0,1) = 0 : arrMatrix(0,2) = 0 : arrMatrix(0,3) = 10
+    arrMatrix(1,0) = 0 : arrMatrix(1,1) = 1 : arrMatrix(1,2) = 0 : arrMatrix(1,3) = 10
+    arrMatrix(2,0) = 0 : arrMatrix(2,1) = 0 : arrMatrix(2,2) = 1 : arrMatrix(2,3) = 0
+    arrMatrix(3,0) = 0 : arrMatrix(3,1) = 0 : arrMatrix(3,2) = 0 : arrMatrix(3,3) = 1
+    arrResult = Rhino.PointTransform(arrPoint, arrMatrix)
+    Rhino.Print Rhino.Pt2Str(arrResult)
+
+[Also See]
+
+    PointAdd
+    PointCompare
+    PointDivide
+    PointScale
+    PointSubtract

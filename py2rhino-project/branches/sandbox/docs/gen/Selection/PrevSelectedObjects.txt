@@ -1,0 +1,33 @@
+[PrevSelectedObjects]
+
+    Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
+
+[Syntax]
+
+    Rhino.PrevSelectedObjects ([blnSelect])
+
+[Parameters]
+
+    blnSelect
+    Optional.  Boolean.  Select the object.  If omitted, the object is not selected (False).
+
+[Returns]
+
+    Array
+    An array of strings identifying the previously selected objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strObject
+    arrObjects = Rhino.PrevSelectedObjects
+    If IsArray(arrObjects) Then
+    For Each strObject In arrObjects
+    Rhino.Print "Object identifier: " & strObject
+    Next
+    End If
+
+[Also See]
+
+    LastCreatedObjects

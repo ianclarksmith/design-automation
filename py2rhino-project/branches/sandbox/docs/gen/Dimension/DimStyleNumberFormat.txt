@@ -1,0 +1,51 @@
+[DimStyleNumberFormat]
+
+    Returns or changes the number display format of a dimension style.
+
+[Syntax]
+
+    Rhino.DimStyleNumberFormat (strDimStyle [, intFormat])
+
+[Parameters]
+
+    strDimStyle
+    Required.  String.  The name of an existing dimension style.
+    intFormat
+    Optional.  Number.  The new number display format.  If omitted, the current number display format is returned.  The format values are as follows:
+    Value
+    Description
+    0
+    Decimal
+    1
+    Fractional
+    2
+    Feet & Inches
+
+[Returns]
+
+    Number
+    If a format is not specified, the current number display format if successful.
+    Number
+    If a format is specified, the previous number display format if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strDimStyle, intFormat
+    strDimStyle = Rhino.CurrentDimStyle
+    intFormat = Rhino.DimStyleNumberFormat(strDimStyle)
+    If intFormat > 0 Then
+    Rhino.DimStyleNumberFormat strDimStyle, 0
+    End If
+
+[Also See]
+
+    DimStyleAnglePrecision
+    DimStyleArrowSize
+    DimStyleExtension
+    DimStyleFont
+    DimStyleLinearPrecision
+    DimStyleOffset
+    DimStyleTextAlignment
+    DimStyleTextHeight

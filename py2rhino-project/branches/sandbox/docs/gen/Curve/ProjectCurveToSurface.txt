@@ -1,0 +1,47 @@
+[ProjectCurveToSurface]
+
+    Projects one or more points onto one or more surfaces or polysurfaces.
+
+[Syntax]
+
+    Rhino.ProjectCurveToSurface (strCurve, strSurface, arrDirection)
+    Rhino.ProjectCurveToSurface (strCurve, arrSurfaces, arrDirection)
+    Rhino.ProjectCurveToSurface (arrCurves, strSurface, arrDirection)
+    Rhino.ProjectCurveToSurface (arrCurves, arrSurfaces, arrDirection)
+
+[Parameters]
+
+    strCurve
+    Required.  Array.  The identifier of a curve object to project.
+    arrCurves
+    Required.  Array.  The identifiers of one or more curve objects to project.
+    strSurface
+    Required.  String.  The identifier of the surface or polysurface object to project onto.
+    arrSurfaces
+    Required.  Array.  The identifiers of the surface or polysurface objects to project onto.
+    arrDirection
+    Required.  Array.  The direction (3-D vector) to project the points.
+
+[Returns]
+
+    Array
+    The identifiers of the newly created, projected curve objects, if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Sub TestProjectCurve
+    Dim strCurve, strSurface
+    strSurface = Rhino.GetObject("Select surface to project onto", 8)
+    strCurve= Rhino.GetObject("Select curve to project", 4)
+    ' Project down...
+    Dim arrResults
+    arrResults = Rhino.ProjectCurveToSurface(strCurve, strSurface, Array(0,0,-1))
+    End Sub
+
+[Also See]
+
+    ProjectCurveToMesh
+    ProjectPointToMesh
+    ProjectPointToSurface

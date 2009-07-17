@@ -1,0 +1,36 @@
+[LastCreatedObjects]
+
+    Returns the identifiers of the objects that were most recently created or changed by scripting a Rhino command using the Command function.  It is important to call this function immediately after calling the Command function as only the most recently created or changed object identifiers will be returned.
+
+[Syntax]
+
+    Rhino.LastCreatedObjects ([blnSelect])
+
+[Parameters]
+
+    blnSelect
+    Optional.  Boolean.  Select the object.  If omitted, the object is not selected (False).
+
+[Returns]
+
+    Array
+    An array of strings identifying the most recently created or changed objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strObject
+    Rhino.Command "_-Circle 0,0,0 10"
+    Rhino.Command "_-Circle 10,0,0 10"
+    Rhino.Command "_-Circle 20,0,0 10"
+    arrObjects = Rhino.LastCreatedObjects
+    If IsArray(arrObjects) Then
+    ' Only the last circle will be selected
+    Rhino.SelectObjects arrObjects
+    End If
+
+[Also See]
+
+    Command
+    PrevSelectedObjects

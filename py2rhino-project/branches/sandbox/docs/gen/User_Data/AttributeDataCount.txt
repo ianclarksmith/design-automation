@@ -1,0 +1,35 @@
+[AttributeDataCount]
+
+    Returns the number of RhinoScript user data items on an object's attributes.
+
+[Syntax]
+
+    Rhino.AttributeDataCount (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Number
+    The number of RhinoScript object user data items if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, intCount
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    intCount = Rhino.AttributeDataCount(strObject)
+    Rhino.Print "Object attribute user data count: " & CStr(intCount)
+    End If
+
+[Also See]
+
+    DeleteAttributeData
+    GetAttributeData
+    IsAttributeData
+    SetAttributeData

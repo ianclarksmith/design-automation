@@ -1,0 +1,28 @@
+[LastLoadedScriptFile]
+
+    Return the full path to the last RhinoScript file that was loaded using the LoadScript command..
+
+[Syntax]
+
+    Rhino.LastLoadedScriptFile ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    String
+    The last loaded script file if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strPath
+    strPath = Rhino.LastLoadedScriptFile
+    MsgBox strPath
+
+[Also See]
+
+    IsProcedure

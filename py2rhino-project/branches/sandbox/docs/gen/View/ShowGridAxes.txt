@@ -1,0 +1,36 @@
+[ShowGridAxes]
+
+    Shows or hides a view's construction plane grid axes.
+
+[Syntax]
+
+    Rhino.ShowGridAxes ([strView [, blnShow]])
+
+[Parameters]
+
+    strView
+    Optional.  String.  The title or identifier of the view to modify.  If omitted, the current active view is used.
+    blnShow
+    Optional.  Boolean.  The grid axes display state to set.  If omitted, the current grid axes display state is returned.
+
+[Returns]
+
+    Boolean
+    If blnShow is not specified, then the grid axes display state if successful.
+    Boolean
+    If blnShow is specified, then the previous grid axes display state if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strView
+    strView = Rhino.CurrentView
+    If Rhino.ShowGridAxes(strView) = False Then
+    Rhino.ShowGridAxes strView, True
+    End If
+
+[Also See]
+
+    ShowGrid
+    ShowWorldAxes

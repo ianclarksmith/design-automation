@@ -1,0 +1,33 @@
+[CurvePlane]
+
+    Returns the plane in which a planar curve lies. Note, this function works only on planar curves.
+
+[Syntax]
+
+    Rhino.CurvePlane (strCurve)
+
+[Parameters]
+
+    strCurve
+    Required.  String.  The identifier of a planar curve object
+
+[Returns]
+
+    Array
+    The plane in which the curve lies if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim strCurve, arrPlane
+    strCurve = Rhino.GetObject("Select a curve", 4)
+    If Rhino.IsCurvePlanar(strCurve) Then
+    arrPlane = Rhino.CurvePlane(strCurve)
+    Rhino.ViewCPlane , arrPlane
+    End If
+
+[Also See]
+
+    IsCurve
+    IsCurvePlanar

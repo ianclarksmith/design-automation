@@ -1,0 +1,78 @@
+[SurfaceVolumeMoments]
+
+    Calculates the volume moments of inertia of closed surface or polysurface objects.  For more information, see the Rhino help file for "Mass Properties Calculation Details."
+
+[Syntax]
+
+    Rhino.SurfaceVolumeMoments (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Array
+    An array of volume moments of inertia information if successful.  The array will contain the following information:
+    0
+    Array (X,Y,Z)
+    First Moments.
+    1
+    Array (X,Y,Z)
+    The absolute (+/-) error bound for the First Moments.
+    2
+    Array (X,Y,Z)
+    Second Moments.
+    3
+    Array (X,Y,Z)
+    The absolute (+/-) error bound for the Second Moments.
+    4
+    Array (X,Y,Z)
+    Product Moments.
+    5
+    Array (X,Y,Z)
+    The absolute (+/-) error bound for the Product Moments.
+    6
+    Array (X,Y,Z)
+    Volume Moments of Inertia about the World Coordinate Axes.
+    7
+    Array (X,Y,Z)
+    The absolute (+/-) error bound for the Volume Moments of Inertia about World Coordinate Axes.
+    8
+    Array (X,Y,Z)
+    Volume Radii of Gyration about the World Coordinate Axes.
+    9
+    Array (X,Y,Z)
+    The absolute (+/-) error bound for the Volume Radii of Gyration about World Coordinate Axes.
+    10
+    Array (X,Y,Z)
+    Volume Moments of Inertia about the Centroid Coordinate Axes.
+    11
+    Array (X,Y,Z)
+    The absolute (+/-) error bound for the Volume Moments of Inertia about the Centroid Coordinate Axes.
+    12
+    Array (X,Y,Z)
+    Volume Radii of Gyration about the Centroid Coordinate Axes.
+    13
+    Array (X,Y,Z)
+    The absolute (+/-) error bound for the Volume Radii of Gyration about the Centroid Coordinate Axes.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectPolySurface = 16
+    Dim strObject, arrMP
+    strObject = Rhino.GetObject("Select a surface", rhObjectPolySurface)
+    If Rhino.IsPolySurfaceClosed(strObject) Then
+    arrMP = Rhino.SurfaceVolumeMoments(strObject)
+    If IsArray(arrMP) Then
+    Rhino.Print "Volume Moments of Inertia about the World Coordinate Axes: " & Rhino.Pt2Str(arrMP(6), 4)
+    End If
+    End If
+
+[Also See]
+
+    SurfaceVolume
+    SurfaceVolumeCentroid

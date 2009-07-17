@@ -1,0 +1,38 @@
+[UnitCustomUnitSystem]
+
+    Sets the document's units system to a user-defined system.  This overrides the units system set using the UnitSystem method.  See Rhino's DocumentProperties command (Units window) for details.
+
+[Syntax]
+
+    Rhino.UnitCustomUnitSystem (dblUnits [, blnScale [, strName]])
+
+[Parameters]
+
+    dblUnits
+    Required.  Number.  The number of units per meter.
+    blnScale
+    Optional.  Boolean.  Scale existing geometry based on the new unit system.  If not specified, any existing geometry is not scaled (False).
+    strName
+    Optional.  String.  The name of the new unit system.  If not specified, the name "Custom" will be assigned.
+
+[Returns]
+
+    Number
+    The previous units system if successful.  See UnitSystem for details.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim dblUnits, intUnitSystem
+    dblUnits = 10.0
+    intUnitSystem = Rhino.UnitCustomUnitSystem(dblUnits, False, "Decimeter")
+
+[Also See]
+
+    UnitAbsoluteTolerance
+    UnitAngleTolerance
+    UnitDistanceDisplayMode
+    UnitDistanceDisplayPrecision
+    UnitRelativeTolerance
+    UnitSystem

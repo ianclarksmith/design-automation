@@ -1,0 +1,42 @@
+[BlockURL]
+
+    Returns or sets the URL of a block definition.
+
+[Syntax]
+
+    Rhino.BlockURL (strBlock [, strURL])
+
+[Parameters]
+
+    strBlock
+    Required.  String.  The name of an existing block definition.
+    strURL
+    Optional.  String.  The new URL.  If omitted, the current URL is returned.
+
+[Returns]
+
+    String
+    If a URL is not specified,  the current URL if successful.
+    String
+    If a URL is specified, the previous URL if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strBlock, strUrl
+    strBlock = Rhino.GetString("Block name to list URL")
+    If Rhino.IsBlock(strBlock) Then
+    strUrl = Rhino.BlockURL(strBlock)
+    If IsNull(strUrl) Then
+    Rhino.Print "No URL"
+    Else
+    Rhino.Print strUrl
+    End If
+    End If
+
+[Also See]
+
+    BlockDescription
+    BlockURLTag
+    IsBlock

@@ -1,0 +1,44 @@
+[ObjectMaterialIndex]
+
+    Returns the material index of an object.
+    Rendering materials are stored in Rhino's rendering material table.  This table is conceptually an array.  Render materials associated with objects and layers are specified by zero based indices into this array.
+    If the return value of ObjectMaterialSource is "material by object", then the return value of this function is the index of the object's rendering material.  A material index of -1 indicates no material has been assigned, and that Rhino's internal default material has been assigned to the object.
+
+[Syntax]
+
+    Rhino.ObjectMaterialIndex (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+
+[Returns]
+
+    Number
+    The rendering material index if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, intSource, intIndex
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    intSource = Rhino.ObjectMaterialSource(strObject)
+    If (intSource = 0) Then
+    Rhino.Print "The material source is by layer"
+    Else
+    Rhino.Print "The material source is by object"
+    intIndex = Rhino.ObjectMaterialIndex(strObject)
+    If (intIndex = -1) Then
+    Rhino.Print "The material is default."
+    Else
+    Rhino.Print "The material is custom."
+    End If
+    End If
+    End If
+
+[Also See]
+
+    ObjectMaterialSource

@@ -1,0 +1,41 @@
+[AddLayer]
+
+    Adds a new layer to the document.
+
+[Syntax]
+
+    Rhino.AddLayer ([strLayer [, lngColor [, blnVisible [, blnLocked [,strParent]]]]])
+
+[Parameters]
+
+    strLayer
+    Optional.  String.  The name of the new layer.  If omitted, Rhino automatically generates the layer name.
+    lngColor
+    Optional.  Number.  A Red-Green-Blue color value.  If omitted, the color Black is assigned.
+    blnVisible
+    Optional.  Boolean.  The layer's visibility. The default is visible (True).
+    blnLocked
+    Optional.  Boolean.  The layer's locked state. The default is not locked (False).
+    strParent
+    Optional.  String.  The name of the new layer's parent layer. If omitted, the new layer will have not parent layer.
+
+[Returns]
+
+    String
+    The name of the new layer if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Rhino.Print "New layer: " & Rhino.AddLayer
+    Rhino.Print "New layer: " & Rhino.AddLayer("MyLayer1")
+    Rhino.Print "New layer: " & Rhino.AddLayer("MyLayer2", RGB(128, 128, 128))
+    Rhino.Print "New layer: " & Rhino.AddLayer("MyLayer3", RGB(255, 0, 255))
+    Rhino.Print "New layer: " & Rhino.AddLayer("MyLayer4",,,,"MyLayer3")
+
+[Also See]
+
+    CurrentLayer
+    DeleteLayer
+    RenameLayer

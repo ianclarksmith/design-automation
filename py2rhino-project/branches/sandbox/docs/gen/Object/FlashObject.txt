@@ -1,0 +1,36 @@
+[FlashObject]
+
+    Causes the selection state of one or more objects to change momentarily so the object appears to flash on the screen.
+
+[Syntax]
+
+    Rhino.FlashObject (strObject [, blnStyle])
+    Rhino.FlashObject (arrObjects [, blnStyle])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object to flash.
+    arrObjects
+    Required.  Array.  The identifiers of the objects to flash.
+    blnStyle
+    Optional.  Boolean.  The flash style.  If True (default), then the objects will flash between their object color and Rhino's selected object color.  If false, then the objects will flash between invisible and visible.
+
+[Returns]
+
+    Null.
+
+[Example]
+
+    Dim arrObjects
+    arrObjects = Rhino.ObjectsByLayer("Default")
+    If IsArray(arrObjects) Then
+    Rhino.FlashObject arrObjects
+    End If
+
+[Also See]
+
+    HideObjects
+    SelectObjects
+    ShowObjects
+    UnselectObjects

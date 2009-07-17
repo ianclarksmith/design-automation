@@ -1,0 +1,53 @@
+[DimStyleTextAlignment]
+
+    Returns or changes the text alignment mode of a dimension style.
+
+[Syntax]
+
+    Rhino.DimStyleTextAlignment (strDimStyle [, intAlignment])
+
+[Parameters]
+
+    strDimStyle
+    Required.  String.  The name of an existing dimension style.
+    intAlignment
+    Optional.  Number.  The new text alignment.  If omitted, the current text alignment is returned.  The text alignment values are as follows:
+    Value
+    Description
+    0
+    Normal (same as 2)
+    1
+    Horizontal to view
+    2
+    Above the dimension line
+    3
+    In the dimension line
+
+[Returns]
+
+    Number
+    If a mode is not specified, the current text alignment mode  if successful.
+    Number
+    If a mode is specified, the previous text alignment mode if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strDimStyle, intAlignment
+    strDimStyle = Rhino.CurrentDimStyle
+    intAlignment = Rhino.DimStyleTextAlignment(strDimStyle)
+    If intPrecision <> 2 Then
+    Rhino.DimStyleTextAlignment strDimStyle, 2
+    End If
+
+[Also See]
+
+    DimStyleAnglePrecision
+    DimStyleArrowSize
+    DimStyleExtension
+    DimStyleFont
+    DimStyleLinearPrecision
+    DimStyleNumberFormat
+    DimStyleOffset
+    DimStyleTextHeight

@@ -1,0 +1,41 @@
+[ObjectGripLocations]
+
+    Returns or modifies the location of all grips owned by an object. The locations of the grips are returned in an array of 3-D points with each position in the array corresponding to that grip's index. To modify the locations of grips, you must provide an array of 3-D points that contains the same number of points at grips.
+
+[Syntax]
+
+    Rhino.ObjectGripLocations (strObject [, arrPoints])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    arrPoints
+    Optional.  Array.  An array of 3-D points identifying the new locations of the grips.
+
+[Returns]
+
+    Array
+    If arrPoints is not specified, the current location of all grips if successful.
+    Array
+    If arrPoints is specified, the previous location of all grips if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrPoints, arrPt
+    strObject = Rhino.GetObject("Select curve", 4)
+    If Not IsNull(strObject) Then
+    Rhino.EnableObjectGrips strObject
+    arrPoints = Rhino.ObjectGripLocations(strObject)
+    For Each arrPt in arrPoints
+    Rhino.Print Rhino.Pt2Str(arrPt)
+    Next
+    End If
+
+[Also See]
+
+    EnableObjectGrips
+    ObjectGripCount
+    ObjectGripLocation

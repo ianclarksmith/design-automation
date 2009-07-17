@@ -1,0 +1,23 @@
+[Redraw]
+
+    Redraws all views.
+
+[Syntax]
+
+    Rhino.Redraw ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Null.
+
+[Example]
+
+    Rhino.Redraw
+
+[Also See]
+
+    EnableRedraw

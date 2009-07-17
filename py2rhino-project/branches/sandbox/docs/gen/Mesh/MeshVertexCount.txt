@@ -1,0 +1,34 @@
+[MeshVertexCount]
+
+    Returns the vertex count of a mesh object.
+
+[Syntax]
+
+    Rhino.MeshVertexCount (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a mesh object.
+
+[Returns]
+
+    Number
+    The number of mesh vertices if successful
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectMesh = 32
+    Dim strObject
+    strObject = Rhino.GetObject("Select mesh", rhObjectMesh )
+    Rhino.Print "Vertex count: " & CStr(Rhino.MeshVertexCount(strObject))
+
+[Also See]
+
+    IsMesh
+    MeshContourPoints
+    MeshFaceCount
+    MeshFaces
+    MeshVertices

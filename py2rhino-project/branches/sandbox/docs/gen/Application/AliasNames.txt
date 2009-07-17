@@ -1,0 +1,32 @@
+[AliasNames]
+
+    Returns a list of command alias names.
+
+[Syntax]
+
+    Rhino.AliasNames ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Array
+    An array of string identifying the command alias names.
+
+[Example]
+
+    Dim arrAliases, strAlias
+    arrAliases = Rhino.AliasNames
+    For Each strAlias In arrAliases
+    Rhino.Print strAlias
+    Next
+
+[Also See]
+
+    AddAlias
+    AliasCount
+    AliasMacro
+    DeleteAlias
+    IsAlias

@@ -1,0 +1,36 @@
+[IsVectorTiny]
+
+    Verifies that a vector is very short, or tiny - the x,y,z  elements are less than or equal to 1.0e-12.
+
+[Syntax]
+
+    Rhino.IsVectorTiny (arrVector)
+
+[Parameters]
+
+    arrVector
+    Required.  Array.  The 3-D vector to test.
+
+[Returns]
+
+    Boolean
+    True if the vector is tiny, otherwise False, if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrPt1, arrPt2, arrVector
+    arrPt1 = Rhino.GetPoint("First point")
+    arrPt2 = Rhino.GetPoint("Next point")
+    arrVector = Rhino.VectorCreate(arrPt2, arrPt1)
+    If Rhino.IsVectorTiny(arrVector) Then
+    Rhino.Print "The vector is tiny."
+    Else
+    Rhino.Print "The vector is not tiny."
+    End If
+
+[Also See]
+
+    IsVectorZero
+    VectorCreate

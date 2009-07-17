@@ -1,0 +1,31 @@
+[MeshQuadsToTriangles]
+
+    Converts a mesh object's quad faces to triangles.
+
+[Syntax]
+
+    Rhino.MeshQuadsToTriangles (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a mesh object.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectMesh = 32
+    Dim strObject
+    strObject = Rhino.GetObject("Select mesh", rhObjectMesh )
+    If (Rhino.MeshQuadCount(strObject) > 0) Then
+    Rhino.MeshQuadsToTriangles strObject
+    End If
+
+[Also See]
+

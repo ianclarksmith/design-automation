@@ -1,0 +1,32 @@
+[ColorHLSToRGB]
+
+    Converts colors from hue-luminance-saturation (HLS) to red-green-blue format.
+
+[Syntax]
+
+    Rhino.ColorHLSToRGB (lngRGB)
+
+[Parameters]
+
+    lngRGB
+    Required.  Array.  The HLS color value.
+
+[Returns]
+
+    Number
+    The RGB color value if successful.
+    Null
+    If not successful or on error.
+
+[Example]
+
+    Dim lngRGB
+    lngRGB = Rhino.ColorHLSToRGB( Array(160, 120, 0) )
+    Rhino.Print "Red = " & CStr(lngRGB  \ 256 ^ 0 And 255)
+    Rhino.Print "Green = " & CStr(lngRGB  \ 256 ^ 1 And 255)
+    Rhino.Print "Blue = " & CStr(lngRGB  \ 256 ^ 2 And 255)
+
+[Also See]
+
+    ColorAdjustLuma
+    ColorRGBToHLS

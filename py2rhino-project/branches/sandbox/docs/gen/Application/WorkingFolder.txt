@@ -1,0 +1,34 @@
+[WorkingFolder]
+
+    Returns or sets Rhino's working directory, or folder.  The working folder is the default folder for all file operations.
+
+[Syntax]
+
+    Rhino.WorkingFolder ([strFolder])
+
+[Parameters]
+
+    blnEnable
+    Optional.  String.  The new working folder.
+
+[Returns]
+
+    String
+    If strFolder is not specified, then the current working folder if successful.
+    String
+    If strFolder is specified, then the previous working folder if successful.
+    Nil
+    On error.
+
+[Example]
+
+    Dim strFolder
+    strFolder = Rhino.WorkingFolder
+    strFolder = Rhino.BrowseForFolder(strFolder, "Directory", "Select Directory")
+    If Not IsNull(strFolder) Then
+    Rhino.WorkingFolder strFolder
+    End If
+
+[Also See]
+
+    BrowseForFolder

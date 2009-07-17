@@ -1,0 +1,38 @@
+[IsSurfaceRational]
+
+    Verifies a surface object is rational.
+
+[Syntax]
+
+    Rhino.IsSurfaceRational (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Dim strObject
+    strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+    If Rhino.IsSurfaceRational(strObject) Then
+    Rhino.Print "The surface is rational."
+    Else
+    Rhino.Print "The surface is not rational."
+    End If
+
+[Also See]
+
+    IsSurface
+    IsSurfaceClosed
+    IsSurfacePeroidic
+    IsSurfacePlanar
+    IsSurfaceTrimmed

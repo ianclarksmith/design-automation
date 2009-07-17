@@ -1,0 +1,34 @@
+[DuplicateSurfaceBorder]
+
+    Creates a curve that duplicates a surface or polysurface border.
+
+[Syntax]
+
+    Rhino.DuplicateSurfaceBorder (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the surface or polysurface object.
+
+[Returns]
+
+    Array
+    An array of strings identifying the new curve objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhSurface = 8
+    Const rhPolysrf = 16
+    Dim strObject
+    strObject = Rhino.GetObject("Select surface or polysurface", rhSurface + rhPolysrf)
+    If Not IsNull(strObject) Then
+    Rhino.DuplicateSurfaceBorder strObject
+    End If
+
+[Also See]
+
+    DuplicateEdgeCurves
+    DuplicateMeshBorder

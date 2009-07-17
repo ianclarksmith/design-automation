@@ -1,0 +1,43 @@
+[ReverseSurface]
+
+    Reverses the U and V directions of a surface object. This feature can also be found in Rhino's Dir command.
+    To reverse the normal direction of a surface, use the FlipSurface method.
+
+[Syntax]
+
+    Rhino.ReverseSurface (strObject, intDirection)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intDirection
+    Required.  Number.  The direction to reverse. Values can be added together so as to reverse more than one direction.
+    Value
+    Description
+    1
+    Reverse the surface in the U direction.
+    2
+    Reverse the surface in the V direction.
+    4
+    Swap, or transpose, the U and V directions of the surface.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a surface to reverse")
+    If Rhino.IsSurface(strObject) Then
+    Rhino.ReverseSurface strObject, 1
+    End If
+
+[Also See]
+
+    FlipSurface
+    IsSurface

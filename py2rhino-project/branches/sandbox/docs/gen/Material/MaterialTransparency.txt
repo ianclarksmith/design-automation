@@ -1,0 +1,43 @@
+[MaterialTransparency]
+
+    Returns or modifies a material's transparency value.
+
+[Syntax]
+
+    Rhino.MaterialTransparency (intMaterialIndex [, dblTransparency])
+
+[Parameters]
+
+    intMaterialIndex
+    Required.  Number.  The zero-based source material index.
+    dblTransparency
+    Optional.  Number.  The new transparency value.  A material's transparency value ranges from 0.0 to 1.0, with 0.0 being opaque and 1.0 being transparent.  If omitted, the current transparency value is returned.
+
+[Returns]
+
+    Number
+    If dblTransparency is not specified, the current transparency value if successful.
+    Number
+    If dblTransparency is specified, the previous transparency value if successful.
+    Null
+    It not successful, or on error.
+
+[Example]
+
+    Dim strObject, intIndex
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    intIndex = Rhino.ObjectMaterialIndex(strObject)
+    If (intIndex > -1) Then
+    Rhino.MaterialTransparency intIndex, 0.50
+    End If
+    End If
+
+[Also See]
+
+    MaterialBump
+    MaterialColor
+    MaterialName
+    MaterialReflectiveColor
+    MaterialShine
+    MaterialTexture

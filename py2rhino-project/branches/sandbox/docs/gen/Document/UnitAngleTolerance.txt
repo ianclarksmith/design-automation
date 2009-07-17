@@ -1,0 +1,38 @@
+[UnitAngleTolerance]
+
+    Returns or sets the document's angle tolerance parameter.  Angle tolerance is measured degrees.  See Rhino's DocumentProperties command (Units window) for details.
+
+[Syntax]
+
+    Rhino.UnitAngleTolerance ([dblAngleTol])
+
+[Parameters]
+
+    dblAngleTol
+    Optional.  Number.  The angle tolerance in degrees.
+
+[Returns]
+
+    Number
+    If dblAngleTol is not specified, the current angle tolerance if successful.
+    Number
+    If dblAngleTol is specified, the previous angle tolerance if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim dblAngleTol
+    dblAngleTol = Rhino.UnitAngleTolerance
+    If dblAngleTol < 3.0 Then
+    Rhino.UnitAngleTolerance 3.0
+    End If
+
+[Also See]
+
+    UnitAbsoluteTolerance
+    UnitCustomUnitSystem
+    UnitDistanceDisplayMode
+    UnitDistanceDisplayPrecision
+    UnitRelativeTolerance
+    UnitSystem

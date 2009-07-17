@@ -1,0 +1,56 @@
+[ObjectColorSource]
+
+    Returns or modifies the color source of an object.   The color used to display objects is specified in one of four ways:
+    1. Color from layer.  The object's layer determines the object's color.
+    2. Color from object.  The object's color is set by the object itself.
+    3. Color from material.  The object's diffuse material color determines the object's color.
+    4. Color from parent. For objects with parents, like objects in block instances, use parent's color source. If no parent, treats as color from layer.
+
+[Syntax]
+
+    Rhino.ObjectColorSource (strObject [, intSource])
+    Rhino.ObjectColorSource (arrObjects, intSource)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to modify.
+    intSource
+    Optional.  Number.  The new color source.  If omitted, the current color source is returned.  Note, if arrObjects is specified, intSource is required.
+    Value
+    Description
+    0
+    Color from layer
+    1
+    Color from object
+    2
+    Color from material
+    3
+    Color from parent
+
+[Returns]
+
+    Number
+    If a color source is not specified,  the current color source if successful.
+    Number
+    If a color source is specified, the previous color source if successful.
+    Number
+    If arrObjects is specified, then the number of objects modified if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strObject
+    arrObjects = Rhino.GetObjects("Select objects to reset color source")
+    If IsArray(arrObjects) Then
+    For Each strObject In arrObjects
+    Rhino.ObjectColorSource strObject, 0
+    Next
+    End If
+
+[Also See]
+
+    ObjectColor

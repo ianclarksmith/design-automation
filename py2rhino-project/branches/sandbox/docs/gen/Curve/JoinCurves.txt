@@ -1,0 +1,36 @@
+[JoinCurves]
+
+    Joins two or more curve object together to form one or more curves or polycurves.
+
+[Syntax]
+
+    Rhino.JoinCurves (arrObjects [,blnDelete])
+
+[Parameters]
+
+    strObject
+    Required.  Array.  An array of strings identifying the curve objects to join.
+    blnDelete
+    Optional.  Boolean.  Delete input objects after joining.  The default is not to delete objects (False).
+
+[Returns]
+
+    Array
+    An array of strings identifying the newly created curve objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Dim arrObjects
+    arrObjects = Rhino.GetObjects("Select curves to join", rhObjectCurve)
+    If UBound(arrObjects) > 0 Then
+    Rhino.JoinCurves arrObjects
+    End If
+
+[Also See]
+
+    ExplodeCurves
+    IsCurve
+    IsCurveClosed

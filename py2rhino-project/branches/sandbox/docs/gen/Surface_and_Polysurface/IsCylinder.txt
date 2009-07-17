@@ -1,0 +1,38 @@
+[IsCylinder]
+
+    Determines if a surface is a portion of a cylinder.
+
+[Syntax]
+
+    Rhino.IsCylinder (strSurface)
+
+[Parameters]
+
+    strSurface
+    Required.  String.  The surface object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strSurface
+    strSurface = Rhino.GetObject("Select a surface", 8)
+    If Not IsNull(strSurface) Then
+    If Rhino.IsCylinder(strSurface) Then
+    Rhino.Print "The surface is a portion of a cylinder."
+    Else
+    Rhino.Print "The surface is not a portion of a cylinder."
+    End If
+    End If
+
+[Also See]
+
+    IsCone
+    IsSphere
+    IsSurface
+    IsTorus

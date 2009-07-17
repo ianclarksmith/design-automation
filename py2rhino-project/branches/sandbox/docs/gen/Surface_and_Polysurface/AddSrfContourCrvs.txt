@@ -1,0 +1,44 @@
+[AddSrfContourCrvs]
+
+    Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.
+
+[Syntax]
+
+    Rhino.AddSrfContourCrvs (strObject, arrStartPoint, arrEndPoint [, dblInterval])
+    Rhino.AddSrfContourCrvs (strObject, arrPlane [, dblInterval])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a surface or polysurface object.
+    arrStartPoint
+    Required.  Array.  The 3-D starting point of a center line.
+    arrEndPoint
+    Required.  Array.  The 3-D ending point of a center line.
+    arrPlane
+    Required.  Array.  A plane that defines the cutting plane.
+    dblInterval
+    Optional.  Number.  The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
+
+[Returns]
+
+    Array
+    An array of strings identifying the newly created contour curves if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectSurface = 8
+    Const rhObjectPolysurface = 16
+    Dim strObject, arrStartPoint, arrEndPoint
+    strObject = Rhino.GetObject("Select object", rhObjectSurface + rhObjectPolysurface)
+    arrStartPoint = Rhino.GetPoint("Base point of center line")
+    arrEndPoint = Rhino.GetPoint("Endpoint of center line", arrStartPoint)
+    Rhino.AddSrfContourCrvs strObject, arrStartPoint, arrEndPoint
+
+[Also See]
+
+    CurveContourPoints
+    MeshContourPoints
+    SurfaceContourPoints

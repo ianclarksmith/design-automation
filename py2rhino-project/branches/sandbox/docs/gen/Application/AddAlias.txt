@@ -1,0 +1,36 @@
+[AddAlias]
+
+    Adds a new command alias to Rhino. Command aliases can be added manually by using Rhino's Options command and modifying the contents of the Aliases tab. See "Options Aliases" in the Rhino help file for more details.
+
+[Syntax]
+
+    Rhino.AddAlias (strAlias, strMacro)
+
+[Parameters]
+
+    strAlias
+    Required.  String.  The name of the new command alias. The name cannot match command names or existing aliases.
+    strMacro
+    Required.  String.  The macro to run when the alias is executed.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Sub Hello
+    MsgBox "Hello Rhino!"
+    End Sub
+    Rhino.AddAlias "Hello", "_-RunScript (Hello)"
+
+[Also See]
+
+    AliasCount
+    AliasMacro
+    AliasNames
+    DeleteAlias
+    IsAlias

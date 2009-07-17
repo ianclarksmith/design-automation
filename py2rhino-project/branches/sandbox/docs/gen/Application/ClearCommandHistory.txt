@@ -1,0 +1,23 @@
+[ClearCommandHistory]
+
+    Clears the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
+
+[Syntax]
+
+    Rhino.ClearCommandHistory ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Null.
+
+[Example]
+
+    Rhino.ClearCommandHistory
+
+[Also See]
+
+    CommandHistory

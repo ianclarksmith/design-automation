@@ -1,0 +1,34 @@
+[IsEllipse]
+
+    Verifies an object is an elliptical-shaped curve object.
+
+[Syntax]
+
+    Rhino.IsEllipse (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select an ellipse")
+    If Rhino.IsEllipse(strObject) Then
+    Rhino.Print "The object is an ellipse."
+    Else
+    Rhino.Print "The object is not an ellipse."
+    End If
+
+[Also See]
+
+    EllipseCenterPoint
+    EllipseQuadPoints

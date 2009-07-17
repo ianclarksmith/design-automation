@@ -1,0 +1,39 @@
+[IsLightEnabled]
+
+    Verifies a light object is enabled.
+
+[Syntax]
+
+    Rhino.IsLightEnabled (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The light object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectLight = 256
+    Dim strObject
+    strObject = Rhino.GetObject("Select a light", rhObjectLight)
+    If Rhino.IsLightEnabled(strObject) Then
+    Rhino.Print "The light is enabled (on)."
+    Else
+    Rhino.Print "The light is disabled (off)."
+    End If
+
+[Also See]
+
+    EnableLight
+    IsLight
+    LightColor
+    LightCount
+    LightName
+    LightObjects

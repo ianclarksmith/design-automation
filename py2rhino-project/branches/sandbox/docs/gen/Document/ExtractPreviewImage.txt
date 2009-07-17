@@ -1,0 +1,47 @@
+[ExtractPreviewImage]
+
+    Extracts the bitmap preview image from the specified model (.3dm).
+
+[Syntax]
+
+    Rhino.ExtractPreviewImage (strFileName [, strModelName])
+
+[Parameters]
+
+    strFileName
+    Required.  String.  The name of the bitmap file to create.  The extension of the filename controls the format of the bitmap file created.
+    Type
+    Description
+    bmp
+    Windows Bitmap
+    tga
+    Truevision Targa
+    jpg, jpeg
+    JPEG Compliant
+    pcx
+    Zsoft Paintbrush
+    png
+    Portable Network Graphics
+    tif, tiff
+    Tagged Image File Format
+    strModelName
+    Optional.  String.  The model (.3dm) from which to extract the preview image.  If omitted, the currently loaded model is used.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+
+[Example]
+
+    Dim blnResult
+    blnResult = Rhino.ExtractPreviewImage("test.jpg")
+    If blnResult = True Then
+    Rhino.Print "Test.jpg created successfully."
+    Else
+    Rhino.Print "Unable to extract preview image."
+    End If
+
+[Also See]
+
+    CreatePreviewImage

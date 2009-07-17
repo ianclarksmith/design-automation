@@ -1,0 +1,35 @@
+[BlockInstanceCount]
+
+    Counts the number of instances of the block in the document.  Nested instances are not included in the count.
+
+[Syntax]
+
+    Rhino.BlockInstanceCount (strBlock)
+
+[Parameters]
+
+    strBlock
+    Required.  String.  The name of an existing block definition.
+
+[Returns]
+
+    Number
+    The number of instances of the block in the document if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strBlock, intCount
+    strBlock = Rhino.GetString("Block to count")
+    If Rhino.IsBlock(strBlock) Then
+    intCount = Rhino.BlockInstanceCount(strBlock)
+    Rhino.Print CStr(intCount) & " block(s) found."
+    End If
+
+[Also See]
+
+    BlockInstanceInsertPoint
+    BlockInstances
+    BlockInstanceXform
+    IsBlockInstance

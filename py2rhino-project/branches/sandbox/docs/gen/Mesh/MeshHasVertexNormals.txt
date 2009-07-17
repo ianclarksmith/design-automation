@@ -1,0 +1,34 @@
+[MeshHasVertexNormals]
+
+    Verifies a mesh object has vertex normals.
+
+[Syntax]
+
+    Rhino.MeshHasVertexNormals (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Const rhObjectMesh = 32
+    Dim strObject
+    strObject = Rhino.GetObject("Select a mesh", rhObjectMesh)
+    If Rhino.MeshHasVertexNormals(strObject) Then
+    Rhino.Print "The mesh has vertex normals."
+    Else
+    Rhino.Print "The mesh does not have vertex normals."
+    End If
+
+[Also See]
+
+    MeshVertexNormals

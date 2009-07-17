@@ -1,0 +1,35 @@
+[VectorTransform]
+
+    Transforms a 3-D vector.
+
+[Syntax]
+
+    Rhino.VectorTransform (arrVector, arrXform)
+
+[Parameters]
+
+    arrVector
+    Required.  Array.  The 3-D vector to transform.
+    arrXform
+    Required.  Array.  A valid 4x4 transformation matrix.
+
+[Returns]
+
+    Array
+    The resulting 3-D vector if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrVector, arrXform
+    arrVector = Array(1,0,0) 'world x-axis
+    arrXform = Rhino.XformRotation(90.0, Array(0,0,1), Array(0,0,0))
+    arrVector = Rhino.VectorTransform(arrVector, arrXform)
+    Rhino.Print Rhino.Pt2Str(arrVector)
+
+[Also See]
+
+    IsVectorZero
+    VectorCreate
+    VectorUnitize

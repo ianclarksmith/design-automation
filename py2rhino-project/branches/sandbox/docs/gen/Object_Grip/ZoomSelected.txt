@@ -1,0 +1,9 @@
+[ObjectGripLocations]
+
+    
+[Syntax]
+
+    Rhino.ObjectGripLocations (strObject [, arrPoints])
+[Parameters]
+
+    Object

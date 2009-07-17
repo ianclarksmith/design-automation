@@ -1,0 +1,55 @@
+[ObjectLinetypeSource]
+
+    Returns or modifies the linetype source of an object.   The linetype used to display objects is specified in one of three ways:
+    1. Linetype from layer.  The object's layer determines the object's linetype.
+    2. Linetype from object. The object's linetype is set by the object itself.
+    3. Linetype from parent.  For objects with parents, like objects in block instances, use parent's linetype. If no parent, treats as linetype from layer.
+
+[Syntax]
+
+    Rhino.ObjectLinetypeSource (strObject [, intSource])
+    Rhino.ObjectLinetypeSource (arrObjects, intSource)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to modify.
+    intSource
+    Optional.  Number.  The new linetype source.  If omitted, the current linetype source is returned.  Note, if arrObjects is specified, intSource is required.
+    Value
+    Description
+    0
+    Layer.  Use the object's layer linetype.
+    1
+    Object.  Use the object's linetype.
+    2
+    <unused>
+    3
+    Parent.  Use the parent object's linetype.
+
+[Returns]
+
+    Number
+    If a linetype source is not specified,  the current linetype source if successful.
+    Number
+    If a linetype source is specified, the previous linetype source if successful.
+    Number
+    If arrObjects is specified, then the number of objects modified if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strObject, lngColor
+    arrObjects = Rhino.GetObjects("Select objects to reset linetype source")
+    If IsArray(arrObjects) Then
+    For Each strObject In arrObjects
+    Rhino.ObjectLinetypeSource strObject, 0
+    Next
+    End If
+
+[Also See]
+
+    ObjectLinetype

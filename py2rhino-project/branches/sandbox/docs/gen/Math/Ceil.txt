@@ -1,0 +1,27 @@
+[Ceil]
+
+    Returns the smallest integer greater than or equal to the specified number.
+
+[Syntax]
+
+    Rhino.Ceil (dblNumber)
+
+[Parameters]
+
+    dblNumber
+    Required.  Number.  A number.
+
+[Returns]
+
+    Number
+    The ceiling if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    MsgBox Rhino.Ceil(Rhino.PI)
+
+[Also See]
+
+    Floor

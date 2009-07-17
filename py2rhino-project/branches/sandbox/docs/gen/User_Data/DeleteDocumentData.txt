@@ -1,0 +1,34 @@
+[DeleteDocumentData]
+
+    Removes RhinoScript user data items from the current document.
+
+[Syntax]
+
+    Rhino.DeleteDocumentData ([strSection [, strEntry]])
+
+[Parameters]
+
+    strSection
+    Optional.  String.  The section name.  If omitted, all sections and their corresponding entries are removed.
+    strEntry
+    Optional.  String.  The entry name.  If omitted, all entries for strSection are removed.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Rhino.DeleteDocumentData "MySection1", "MyEntry1"
+    Rhino.DeleteDocumentData "MySection1", "MyEntry2"
+    Rhino.DeleteDocumentData "MySection2", "MyEntry1"
+
+[Also See]
+
+    DocumentDataCount
+    GetDocumentData
+    IsDocumentData
+    SetDocumentData

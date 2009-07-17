@@ -1,0 +1,33 @@
+[SelectObjectGrips]
+
+    Selects an object's grips. If the object's grips are not turned on, they will not be selected.
+
+[Syntax]
+
+    Rhino.SelectObjectGrips (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+
+[Returns]
+
+    Number
+    The number of grips selected if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select object")
+    If Rhino.ObjectGripsSelected(strObject) = False Then
+    Rhino.SelectObjectGrips strObject
+    End If
+
+[Also See]
+
+    EnableObjectGrips
+    ObjectGripCount
+    SelectObjectGrip

@@ -1,0 +1,39 @@
+[ViewCameraLens]
+
+    Returns or sets the 35mm camera lens length of the specified perspective projection view.
+
+[Syntax]
+
+    Rhino.ViewCameraLens ([strView [, dblLength]])
+
+[Parameters]
+
+    strView
+    Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+    dblLength
+    Optional.  Number.  The new 35mm camera lens length.  If omitted, the previous 35mm camera lens length is returned.
+
+[Returns]
+
+    Number
+    If a lens length is not specified, the current lens length if successful.
+    Number
+    If a lens length is specified, the previous lens length is successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strView, dblLength
+    strView = Rhino.CurrentView
+    If Rhino.IsViewPerspective(strView) Then
+    dblLength = Rhino.ViewCameraLens(strView, 100)
+    End If
+
+[Also See]
+
+    ViewCameraTarget
+    ViewCPlane
+    ViewDisplayModes
+    ViewProjection
+    ViewSize

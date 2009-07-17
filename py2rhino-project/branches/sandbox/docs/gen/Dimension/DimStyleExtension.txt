@@ -1,0 +1,43 @@
+[DimStyleExtension]
+
+    Returns or changes the extension line extension of a dimension style.
+
+[Syntax]
+
+    Rhino.DimStyleExtension (strDimStyle [, dblExtension])
+
+[Parameters]
+
+    strDimStyle
+    Required.  String.  The name of an existing dimension style.
+    dblExtension
+    Optional.  Number.  The new extension line extension.  If omitted, the current extension line extension is returned.
+
+[Returns]
+
+    Number
+    If an extension is not specified, the current extension line extension if successful.
+    Number
+    If an extension is specified, the previous extension line extension if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strDimStyle, dblExtension
+    strDimStyle = Rhino.CurrentDimStyle
+    dblExtension = Rhino.DimStyleExtension(strDimStyle)
+    If dblExtension > 0.5 Then
+    Rhino.DimStyleExtension strDimStyle, 0.5
+    End If
+
+[Also See]
+
+    DimStyleAnglePrecision
+    DimStyleArrowSize
+    DimStyleFont
+    DimStyleLinearPrecision
+    DimStyleNumberFormat
+    DimStyleOffset
+    DimStyleTextAlignment
+    DimStyleTextHeight

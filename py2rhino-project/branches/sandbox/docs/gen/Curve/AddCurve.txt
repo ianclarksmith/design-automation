@@ -1,0 +1,34 @@
+[AddCurve]
+
+    Adds a control points curve object to the document.
+
+[Syntax]
+
+    Rhino.AddCurve (arrPoints [, intDegree])
+
+[Parameters]
+
+    arrPoints
+    Required.  Array.  An array of 3-D points.
+    intDegree
+    Optional.  Number.  The degree of the curve.  If omitted, a degree 3 curve is created.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoints
+    arrPoints = Rhino.GetPoints(True,,"Pick curve point")
+    If IsArray(arrPoints) Then
+    Rhino.AddCurve arrPoints
+    End If
+
+[Also See]
+
+    AddInterpCurve
+    IsCurve

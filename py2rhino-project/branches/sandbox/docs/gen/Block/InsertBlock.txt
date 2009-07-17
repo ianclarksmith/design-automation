@@ -1,0 +1,43 @@
+[InsertBlock]
+
+    Inserts a block whose definition already exists in the document.
+
+[Syntax]
+
+    Rhino.InsertBlock (strName, arrPoint [, arrScale [, dblAngle [, arrNormal]]])
+    Rhino.InsertBlock (strName, arrXform)
+
+[Parameters]
+
+    strName
+    Required. String. The name of the block definition to insert.
+    arrPoint
+    Required. Array. The 3-D insertion point of the block.
+    arrScale
+    Optional. Array. An array of three numbers that identify the x,y,z scale factors. If omitted, the block is not scaled.
+    dblAngle
+    Optional. Number. The rotation angle in degrees. If omitted, the block is not rotated.
+    arrNormal
+    Optional. Array. A 3-D vector identifying the axis of rotation. If omitted and dblAngle is specified, the world Z axis is used.
+    arrXform
+    Required. Array. 4x4 transformation matrix to apply.
+
+[Returns]
+
+    String
+    The identifier of the newly inserted block instance, if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    strName = Rhino.GetString("Name of block to insert")
+    If Rhino.IsBlock(strName) Then
+    Rhino.InsertBlock strName, Array(0,0,0), Array(2,2,2), 45.0
+    End If
+
+[Also See]
+
+    BlockNames
+    IsBlock

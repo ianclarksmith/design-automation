@@ -1,0 +1,40 @@
+[CurveClosestPoint]
+
+    Returns the parameter of the point on a curve that is closest to a test point.
+
+[Syntax]
+
+    Rhino.CurveClosestPoint (strObject, arrPoint [, intIndex])
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+    arrPoint
+    Required.  Array.  The test, or sampling, point.
+    intIndex
+    Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+[Returns]
+
+    Number
+    The parameter of the closest point on the curve if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrPoint, dblParam
+    strObject = Rhino.GetObject("Select a curve")
+    If Rhino.IsCurve(strObject) Then
+    arrPoint = Rhino.GetPointOnCurve(strObject, "Pick a test point")
+    if IsArray(arrPoint) Then
+    dblParam = Rhino.CurveClosestPoint(strObject, arrPoint)
+    Rhino.Print "Curve parameter: " & CStr(dblParam)
+    End If
+    End If
+
+[Also See]
+
+    EvaluateCurve
+    IsCurve

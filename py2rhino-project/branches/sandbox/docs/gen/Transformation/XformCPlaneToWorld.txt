@@ -1,0 +1,45 @@
+[XformCPlaneToWorld]
+
+    Transforms a point from construction plane coordinates to world coordinates.
+
+[Syntax]
+
+    Rhino.XformCPlaneToWorld (arrPoint, arrPlane)
+
+[Parameters]
+
+    arrPoint
+    Required.  Array.  A 3-D point in construction plane coordinates.
+    arrPlane
+    Required.  Array. The construction plane.  The elements of a plane array are as follows:
+    Elemenet
+    Description
+    0
+    Required.  The construction plane's origin (3-D point).
+    1
+    Required.  The construction plane's X axis direction (3-D vector).
+    2
+    Required.  The construction plane's Y axis direction (3-D vector).
+    3
+    Optional.  The construction plane's Z axis direction (3-D vector).
+
+[Returns]
+
+    Array
+    A 3-D point in world coordinates if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPlanePt, arrPlane, arrPoint
+    arrPlanePt = Array(0.0, 0.0, 0.0)
+    arrPlane = Rhino.ViewCPlane
+    arrPoint = Rhino.XFormCPlaneToWorld(arrPlanePt, arrPlane)
+    If IsArray(arrPoint) Then
+    Rhino.Print "World point: " & Rhino.Pt2Str(arrPoint, 3)
+    End If
+
+[Also See]
+
+    XformWorldToCPlane

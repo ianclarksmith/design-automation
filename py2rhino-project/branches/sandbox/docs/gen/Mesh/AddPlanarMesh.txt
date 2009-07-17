@@ -1,0 +1,35 @@
+[AddPlanarMesh]
+
+    Creates a planar mesh from a closed, planar curve.
+
+[Syntax]
+
+    Rhino.AddPlanarMesh (strObject [, blnDelete])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a closed, planar curve object.
+    blnDelete
+    Required.  Boolean.  If True, then the input curve will be deleted. If not specified or False (default), then the input curve will not be deleted.
+
+[Returns]
+
+    String
+    An string identifying the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Dim strObject
+    strObject = Rhino.GetObject("Select planar curves to build mesh", rhObjectCurve)
+    If Not IsNull(strObject) Then
+    Rhino.AddPlanarMesh strObject
+    End If
+
+[Also See]
+
+    IsCurveClosed
+    IsCurvePlanar

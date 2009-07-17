@@ -1,0 +1,38 @@
+[RenameLayer]
+
+    Renames an existing layer.
+
+[Syntax]
+
+    Rhino.RenameLayer (strOldName, strNewName)
+
+[Parameters]
+
+    strOldName
+    Required.  String.  The name of an existing layer.
+    strNewName
+    Required.  String.  The new layer name.
+
+[Returns]
+
+    String
+    The new layer name if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strOldName, strNewName
+    strOldName = Rhino.GetString("Old layer name")
+    If Not IsNull(strOldName) Then
+    strNewName = Rhino.GetString("New layer name")
+    If Not IsNull(strNewName) Then
+    Rhino.RenameLayer strOldName, strNewName
+    End If
+    End If
+
+[Also See]
+
+    AddLayer
+    CurrentLayer
+    DeleteLayer

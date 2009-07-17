@@ -1,0 +1,31 @@
+[ShowViewTitle]
+
+    Shows or hides the title window of a view.
+
+[Syntax]
+
+    Rhino.ShowViewTitle ([strView [, blnState]])
+
+[Parameters]
+
+    strView
+    Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+    blnState
+    Optional.  Boolean.  The visible state of the view's title window.  If omitted, the title will be shown (True).
+
+[Returns]
+
+    Null.
+
+[Example]
+
+    Dim blnResult, strTitle
+    strTitle = Rhino.CurrentView
+    blnResult = Rhino.IsViewTitleVisible(strTitle)
+    If blnResult = False Then
+    Rhino.ShowViewTitle strTitle, True
+    End If
+
+[Also See]
+
+    IsViewTitleVisible

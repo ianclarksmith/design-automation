@@ -1,0 +1,43 @@
+[AddSrfControlPtGrid]
+
+    Creates a surface from a grid of control points.
+
+[Syntax]
+
+    Rhino.AddSrfControlPtGrid (arrCount, arrPoints [, arrDegree])
+
+[Parameters]
+
+    arrCount
+    Required.  Array.  The number of control points in the U and V directions.
+    arrPoints
+    Required.  Array.  An array of 3-D control points.
+    arrDegree
+    Optional.  Array.  The degree of the surface in the U and V directions.  If omitted, the degree of the new surface in the U and V directions will be 3.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrCount(1), arrPoints(24), nCount, i, j
+    arrCount(0) = 5
+    arrCount(1) = 5
+    nCount = 0
+    For i = 0 to arrCount(0) - 1
+    For j = 0 to arrCount(1) - 1
+    arrPoints(nCount) = Array(i*2, j*4, 0)
+    nCount = nCount + 1
+    Next
+    Next
+    Rhino.AddSrfControlPtGrid arrCount, arrPoints
+
+[Also See]
+
+    AddEdgeSrf
+    AddSrfPt
+    AddSrfPtGrid

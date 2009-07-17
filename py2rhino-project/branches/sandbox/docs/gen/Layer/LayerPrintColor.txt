@@ -1,0 +1,40 @@
+[LayerPrintColor]
+
+    Returns or changes the print color of a layer. Layer print colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be printed.
+
+[Syntax]
+
+    Rhino.LayerPrintColor (strLayer [, lngColor])
+
+[Parameters]
+
+    strLayer
+    Required. String. The name of an existing layer.
+    lngColor
+    Optional. Number. The new print color value.  If omitted, the current layer print color is returned.
+
+[Returns]
+
+    Number
+    If a layer print color is not specified,  the current layer print color if successful.
+    Number
+    If a layer print color is specified, the previous layer print color if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrLayers, strLayer
+    arrLayers = Rhino.LayerNames
+    If IsArray(arrLayers) Then
+    For Each strLayer In arrLayers
+    If Rhino.LayerPrintColor(strLayer) <> RGB(0,0,0) Then
+    Rhino.LayerPrintColor strLayer, RGB(0,0,0)
+    End If
+    Next
+    End If
+
+[Also See]
+
+    LayerLinetype
+    LayerPrintWidth

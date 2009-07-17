@@ -1,0 +1,36 @@
+[AddLeader]
+
+    Adds an annotation leader to the document. Leader objects are planar. The array of 3-D points passed to this member should be co-planar.
+
+[Syntax]
+
+    Rhino.AddLeader (arrPoints [, strView [, [strText]])
+
+[Parameters]
+
+    arrPoints
+    Required.  Array.  An array of 3-D points.  The array must contain at least two points.
+    strView
+    Optional.  String.  The title of the view.  If a view title is specified,  arrPoints will be constrained to the view's construction plane. If a view title is not specified, arrPoints will be constrained to a plane fit through the array of points.
+    strText
+    Optional.  String.  The leader's text string.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoints
+    arrPoints = Rhino.GetPoints(True, False, "Select leader points")
+    If IsArray(arrPoints) Then
+    Rhino.AddLeader arrPoints
+    End If
+
+[Also See]
+
+    IsLeader
+    LeaderText

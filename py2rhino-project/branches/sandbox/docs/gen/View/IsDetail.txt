@@ -1,0 +1,41 @@
+[IsDetail]
+
+    Verifies that a detail view exists on a page layout view.
+
+[Syntax]
+
+    Rhino.IsDetail (strLayout, strDetail)
+
+[Parameters]
+
+    strLayout
+    Required.  String.  The title or identifier of an existing page layout view.
+    strDetail
+    Required.  String.  The title or identifier of an existing detail view.
+
+[Returns]
+
+    True
+    If strDetail is a detail view.
+    False
+    If strDetail is not a detail view.
+    Null
+    On error.
+
+[Example]
+
+    Dim strView, blnDetail
+    strView = Rhino.CurrentView()
+    If Rhino.IsLayout(strView) Then
+    blnDetail = Rhino.IsDetail(strView, "Top")
+    If blnDetail = True Then
+    Rhino.Print "Top is a detail view."
+    ElseIf blnLayout = False Then
+    Rhino.Print "Top is not a detail view."
+    End If
+    End If
+
+[Also See]
+
+    IsLayout
+    CurrentDetail

@@ -1,0 +1,40 @@
+[ViewCameraTarget]
+
+    Returns or sets the camera and target positions of the specified view.
+
+[Syntax]
+
+    Rhino.ViewCameraTarget ([strView [, arrCamera [, arrTarget]]])
+
+[Parameters]
+
+    strView
+    Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+    arrCamera
+    Optional.  Array.  A 3-D point identifying the new camera location.  If both arrCamera and arrTarget are not specified, the current camera and target locations are returned.
+    arrTarget
+    Optional.  Array.  A 3-D point identifying the new target location.  If both arrCamera and arrTarget are not specified, the current camera and target locations are returned.
+
+[Returns]
+
+    Array
+    If both arrCamera and arrTarget are not specified,  then an array of 3-D point containing the current camera and target locations is returned.
+    Array
+    If either arrCamera or arrTarget are specified,  then an array of 3-D point containing the previous camera and target locations is returned.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strView, arrCamera, arrTarget
+    strView = Rhino.CurrentView
+    arrCamera = Rhino.GetPoint("Select new camera location")
+    arrTarget = Rhino.GetPoint("Select new target location")
+    If IsArray(arrCamera) And IsArray(arrTarget) Then
+    Rhino.ViewCameraTarget strView, arrCamera, arrTarget
+    End If
+
+[Also See]
+
+    ViewCamera
+    ViewTarget

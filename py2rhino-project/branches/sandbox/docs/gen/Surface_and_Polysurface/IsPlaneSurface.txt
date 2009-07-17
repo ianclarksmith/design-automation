@@ -1,0 +1,36 @@
+[IsPlaneSurface]
+
+    Verifies an object is a plane surface. Plane surfaces can be created by the Plane command. Note, a plane surface is not a planar NURBS surface.
+
+[Syntax]
+
+    Rhino.IsPlaneSurface (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object to verify.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Dim strSurface, strCutter
+    strSurface = Rhino.GetObject("Select surface to trim", 8)
+    If Not IsNull(strSurface) And Rhino.IsPlaneSurface(strSurface) Then
+    strCutter = Rhino.GetObject("Select cutting curve", 4)
+    If Not IsNull(strCutter) Then
+    Rhino.TrimPlaneSurface strSurface, strCutter
+    End If
+    End If
+
+[Also See]
+
+    IsBrep
+    IsPolysurface
+    IsSurface

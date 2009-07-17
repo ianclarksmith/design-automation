@@ -1,0 +1,48 @@
+[ObjectName]
+
+    Returns or modifies the user-definable name of an object.
+
+[Syntax]
+
+    Rhino.ObjectName (strObject [, strName])
+    Rhino.ObjectName (arrObjects , strName)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to modify.
+    strName
+    Optional.  String.  The new object name.  If omitted, the current object name is returned.  Note, if arrObjects is specified, strName is required.
+
+[Returns]
+
+    String
+    If an object name is not specified,  the current object name if successful.
+    String
+    If an object name is specified,  the previous object name if successful.
+    Number
+    If arrObjects is specified, then the number of objects modified if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoints, arrPoint, strObject, intCount
+    arrPoints = Rhino.GetPoints(, ,"Pick some points")
+    If IsArray(arrPoints) Then
+    intCount = 0
+    For Each arrPoint in arrPoints
+    strObject = Rhino.AddPoint(arrPoint)
+    If Not IsNull(strObject) Then
+    Rhino.ObjectName strObject, "Point" & CStr(intCount)
+    intCount = intCount + 1
+    End If
+    Next
+    End If
+
+[Also See]
+
+    ObjectsByName
+    ObjectNames

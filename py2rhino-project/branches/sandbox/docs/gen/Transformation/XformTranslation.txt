@@ -1,0 +1,37 @@
+[XformTranslation]
+
+    Creates a translation transformation matrix.
+
+[Syntax]
+
+    Rhino.XformTranslation (arrVector)
+
+[Parameters]
+
+    arrVector
+    Required.  Array.  A 3-D translation vector.
+
+[Returns]
+
+    Array
+    The 4x4 transformation matrix is successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, arrVector, arrXform
+    arrObjects = Rhino.GetObjects("Select objects to copy")
+    If IsArray(arrObjects) Then
+    arrVector = Rhino.VectorCreate(Array(1,0,0), Array(0,0,0))
+    arrXform = Rhino.XformTranslation(arrVector)
+    Rhino.TransformObjects arrObjects, arrXform, True
+    End If
+
+[Also See]
+
+    XformMirror
+    XformPlanarProjection
+    XformRotation
+    XformScale
+    XformShear

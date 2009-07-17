@@ -1,0 +1,55 @@
+[GetCurveObject]
+
+    Prompts the user to pick, or select, a single curve object.
+
+[Syntax]
+
+    Rhino.GetCurveObject ([strMessage [, blnPreSelect [, blnSelect ]]])
+
+[Parameters]
+
+    strMessage
+    Optional.  String.  A prompt or message.
+    blnPreSelect
+    Optional.  Boolean.  Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
+    blnSelect
+    Optional.  Boolean.  Select the picked objects.  If omitted, the objects that are picked are not selected (False).
+
+[Returns]
+
+    Array
+    An array of selection information if successful. The array will contain the following information:
+    Element
+    Description
+    0
+    String. The identifier of the curve object.
+    1
+    Boolean. True if the curve was pre-selected, otherwise False.
+    2
+    Number. The selection method:
+    0: selected by non-mouse method (SelAll, etc.).
+    1: selected by mouse click on the object.
+    2: selected by being inside of a mouse window.
+    3: selected by intersecting a mouse crossing window.
+    3
+    Array. The selection point. This value is valid only if the curve was not pre-selected and it was selected by clicking the mouse on the curve.
+    4
+    Number. The curve parameter of the selection point. This value is valid only if the curve was not pre-selected and it was selected by clicking the mouse on the curve.
+    5
+    String. The name of the view in which the selection was made.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrSelect
+    arrSelect = Rhino.GetCurveObject("Select curve")
+    If IsArray(arrSelect) Then
+    Rhino.Print "Curve identifier: " & arrSelect(0)
+    End If
+
+[Also See]
+
+    GetObject
+    GetObjects
+    GetSurfaceObject

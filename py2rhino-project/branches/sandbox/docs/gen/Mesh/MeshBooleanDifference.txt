@@ -1,0 +1,41 @@
+[MeshBooleanDifference]
+
+    Performs a Boolean difference operation on two sets of input meshes. For more details, see the MeshBooleanDifference command in the Rhino help file.
+
+[Syntax]
+
+    Rhino.MeshBooleanDifference (arrInput0, arrInput1 [, blnDelete])
+
+[Parameters]
+
+    arrInput0
+    Required.  Array.  The identifiers of the meshes.
+    arrInput1
+    Required.  Array.  The identifiers of the meshes.
+    blnDelete
+    Optional.  Boolean. Delete all input objects. The default is to delete all input objects (True).
+
+[Returns]
+
+    Array
+    An array containing the identifiers of the newly created objects, if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhMesh = 32
+    Dim arrInput0, arrInput1
+    arrInput0 = Rhino.GetObjects("Select first set of meshes", rhMesh)
+    If IsArray(arrInput0) Then
+    arrInput1 = Rhino.GetObjects("Select second set of meshes", rhMesh)
+    If IsArray(arrInput1) Then
+    Rhino.MeshBooleanDifference arrInput0, arrInput1
+    End If
+    End If
+
+[Also See]
+
+    MeshBooleanIntersection
+    MeshBooleanSplit
+    MeshBooleanUnion

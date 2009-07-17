@@ -1,0 +1,34 @@
+[CurveMidPoint]
+
+    Returns the mid point of a curve object.
+
+[Syntax]
+
+    Rhino.CurveMidPoint (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+
+[Returns]
+
+    Array
+    The 3-D mid point of the curve if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrPoint
+    strObject = Rhino.GetObject("Select a curve")
+    If Rhino.IsCurve(strObject) Then
+    arrPoint = Rhino.CurveMidPoint(strObject)
+    Rhino.AddPoint arrPoint
+    End If
+
+[Also See]
+
+    CurveEndPoint
+    CurveStartPoint
+    IsCurve

@@ -1,0 +1,28 @@
+[WorldZXPlane]
+
+    Returns Rhino's world ZX plane. This plane could also be created as follows:
+    Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,0.0,1.0), Array(1.0,0.0,0.0)
+
+[Syntax]
+
+    Rhino.WorldZXPlane ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Array
+    Rhino's world ZX plane.
+
+[Example]
+
+    Dim strView
+    strView = Rhino.CurrentView
+    Rhino.ViewCPlane strView, Rhino.WorldZXPlane
+
+[Also See]
+
+    WorldXYPlane
+    WorldYZPlane

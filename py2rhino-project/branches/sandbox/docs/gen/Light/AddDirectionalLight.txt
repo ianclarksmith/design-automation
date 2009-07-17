@@ -1,0 +1,36 @@
+[AddDirectionalLight]
+
+    Adds a new directional light object  to the document.
+
+[Syntax]
+
+    Rhino.AddDirectionalLight (arrStartPoint, arrEndPoint)
+
+[Parameters]
+
+    arrStartPoint
+    Required.  Array. The 3-D starting point of the light.
+    arrEndPoint
+    Required.  Array.  The 3-D ending point and direction of the light.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrStart, arrEnd
+    arrEnd = Rhino.GetPoint("End of light vector direction")
+    If IsArray(arrEnd) Then
+    arrStart = Rhino.GetPoint("Start of light vector direction", arrEnd)
+    If IsArray(arrStart) Then
+    Rhino.AddDirectionalLight arrStart, arrEnd
+    End If
+    End If
+
+[Also See]
+
+    IsDirectionalLight

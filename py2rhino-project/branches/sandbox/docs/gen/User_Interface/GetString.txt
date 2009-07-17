@@ -1,0 +1,45 @@
+[GetString]
+
+    Pauses for user input of string value.
+
+[Syntax]
+
+    Rhino.GetString ([strMessage [, strString [, arrStrings]]])
+
+[Parameters]
+
+    strMessage
+    Optional.  String.  A prompt or message.
+    strString
+    Optional.  String.  A default value.
+    arrStrings
+    Optional.  Array.  A array of strings to be displayed as click-able command options. Note, strings cannot begin with a numeric character.
+
+[Returns]
+
+    String
+    The string either input or selected by the user if successful.  If the user presses the Enter key without typing in a string, an empty string "" is returned.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strLayer
+    strLayer = Rhino.CurrentLayer
+    strLayer = Rhino.GetString("Layer to set current", strLayer)
+    If Not IsNull(strLayer) Then
+    Rhino.CurrentLayer strLayer
+    End If
+    Dim arrNames(2), strName
+    arrNames(0) = "RedLayer"
+    arrNames(1) = "GreenLayer"
+    arrNames(2) = "BlueLayer"
+    strName = Rhino.GetString("New layer name", , arrNames)
+    If Not IsNull(strColor) Then
+    Rhino.AddLayer strName
+    End If
+
+[Also See]
+
+    GetBoolean
+    StringBox

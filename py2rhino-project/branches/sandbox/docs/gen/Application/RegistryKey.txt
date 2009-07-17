@@ -1,0 +1,29 @@
+[RegistryKey]
+
+    Returns Rhino's Windows Registry key.
+
+[Syntax]
+
+    Rhino.RegistryKey ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    String
+    Rhino's Windows Registry key if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strKey
+    strKey = Rhino.RegistryKey
+    MsgBox strKey
+
+[Also See]
+
+    ExeFolder
+    InstallFolder

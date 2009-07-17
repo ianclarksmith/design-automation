@@ -1,0 +1,31 @@
+[FindFile]
+
+    Searches for a file using Rhino's search path. Rhino will look for a file in the following locations:
+    1. The current document's folder.
+    2. Folder's specified in Options dialog, File tab.
+    3. Rhino's System folders.
+
+[Syntax]
+
+    Rhino.FindFile (strFilename)
+
+[Parameters]
+
+    strFilename
+    Required.  String.  A valid filename.
+
+[Returns]
+
+    String
+    A qualified path to the specified filename if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strPath
+    strPath = Rhino.FindFile("Rhino.exe")
+    MsgBox strPath
+
+[Also See]
+

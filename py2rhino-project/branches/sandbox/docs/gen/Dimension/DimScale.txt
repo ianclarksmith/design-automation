@@ -1,0 +1,35 @@
+[DimScale]
+
+    Returns or changes the document's global dimension scale.
+
+[Syntax]
+
+    Rhino.DimScale ([dblScale])
+
+[Parameters]
+
+    dblScale
+    Optional.  Number.  The new global dimension scale value.  If omitted, the current dimension scale will be returned.
+
+[Returns]
+
+    Number
+    If a dimension scale is not specified, the current dimension scale if successful.
+    Number
+    If a dimension scale is specified, the previous dimension scale if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim dblScale
+    dblScale = Rhino.DimScale
+    If dblScale <> 1.0 Then
+    Rhino.DimScale 1.0
+    End If
+
+[Also See]
+
+    AddDimStyle
+    DeleteDimStyle
+    IsDimStyle

@@ -1,0 +1,29 @@
+[DeleteStartupScript]
+
+    Removes an existing startup script from RhinoScript's startup script list. Startup script items can be removed manually by using Rhino's Options command and modifying the contents of the RhinoScript tab.
+
+[Syntax]
+
+    Rhino.DeleteStartupScript (strScriptFile)
+
+[Parameters]
+
+    strScriptFile
+    Required.  String.  An existing script file path to remove.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Rhino.DeleteStartupScript "c:\scripts\myscripttools.rvb"
+
+[Also See]
+
+    AddStartupScript
+    StartupScriptCount
+    StartupScriptList

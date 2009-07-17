@@ -1,0 +1,36 @@
+[LastObject]
+
+    Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
+
+[Syntax]
+
+    Rhino.LastObject ([blnSelect [, blnIncludeLights [, blnIncludeGrips]]])
+
+[Parameters]
+
+    blnSelect
+    Optional.  Boolean.  Select the object.  If omitted, the object is not selected (False).
+    blnIncludeLights
+    Optional.  Boolean.  Include light objects.  If omitted, light objects are not returned (False).
+    blnIncludeGrips
+    Optional.  Boolean.  Include grips objects.  If omitted, grips objects are not returned (False).
+
+[Returns]
+
+    String
+    The identifier of the object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    Rhino.AddLine Array(0,0,0), Array(5,5,0)
+    Rhino.AddCircle Array(0,0,0), 5
+    strObject = Rhino.LastObject
+    Rhino.Print "Object identifier: " & strObject
+
+[Also See]
+
+    FirstObject
+    NextObject

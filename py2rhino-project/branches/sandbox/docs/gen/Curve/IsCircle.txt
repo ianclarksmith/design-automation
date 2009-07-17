@@ -1,0 +1,39 @@
+[IsCircle]
+
+    Verifies an object is a circle curve object.
+
+[Syntax]
+
+    Rhino.IsCircle (strObject [, intIndex])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    intIndex
+    Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a circle")
+    If Rhino.IsCircle(strObject) Then
+    Rhino.Print "The object is a circle."
+    Else
+    Rhino.Print "The object is not a circle."
+    End If
+
+[Also See]
+
+    AddCircle
+    AddCircle3Pt
+    CircleCenterPoint
+    CircleCircumference
+    CircleRadius

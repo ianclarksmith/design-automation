@@ -1,0 +1,31 @@
+[RenameView]
+
+    Renames, or changes the title, of the specified view..
+
+[Syntax]
+
+    Rhino.RenameView (strOldTitle, strNewTitle)
+
+[Parameters]
+
+    strOldTitle
+    Required.  String.  The title or identifier of the view to rename.
+    strNewTitle
+    Required.  String.  The new title of the view.
+
+[Returns]
+
+    String
+    The view's previous title is successful.
+    Null
+    if not successful, or on error.
+
+[Example]
+
+    Dim strOldTitle, strNewTitle
+    strOldTitle = Rhino.CurrentView
+    Rhino.RenameView(strOldTitle, "Current")
+
+[Also See]
+
+    ViewNames

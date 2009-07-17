@@ -1,0 +1,40 @@
+[IsObject]
+
+    Verifies the existence of an object.
+
+[Syntax]
+
+    Rhino.IsObject (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of an object.
+
+[Returns]
+
+    True
+    The object exists.
+    False
+    The object does not exist.
+
+[Example]
+
+    Dim strObject
+    'Do something here...
+    If Rhino.IsObject(strObject) Then
+    Rhino.Print "The object exists."
+    Else
+    Rhino.Print "The object does not exist."
+    End If
+
+[Also See]
+
+    IsObjectHidden
+    IsObjectInGroup
+    IsObjectLocked
+    IsObjectNormal
+    IsObjectReference
+    IsObjectSelectable
+    IsObjectSelected
+    IsObjectSolid

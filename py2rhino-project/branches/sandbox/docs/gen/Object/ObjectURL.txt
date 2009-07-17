@@ -1,0 +1,45 @@
+[ObjectURL]
+
+    Returns or modifies the user-definable URL of an object.
+
+[Syntax]
+
+    Rhino.ObjectURL (strObject [, strURL])
+    Rhino.ObjectURL (arrObjects, strURL)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to modify.
+    strURL
+    Optional.  String.  The new object URL.  If omitted, the current object URL is returned.  Note, if arrObjects is specified, strURL is required.
+
+[Returns]
+
+    String
+    If an object URL is not specified,  the current object URL if successful.
+    String
+    If an object URL is specified,  the previous object URL if successful.
+    Number
+    If arrObjects is specified, then the number of objects modified if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, strURL, objShell
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    strURL = Rhino.ObjectURL(strObject)
+    If Not IsNull(strURL) Then
+    Set objShell = CreateObject("WScript.Shell")
+    objShell.Run strURL
+    Set objShell = Nothing
+    End If
+    End If
+
+[Also See]
+
+    ObjectType

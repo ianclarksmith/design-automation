@@ -1,0 +1,37 @@
+[DeleteGroup]
+
+    Removes an existing group from the document. Reference groups cannot be removed. Deleting a group does not delete the member objects.
+
+[Syntax]
+
+    Rhino.DeleteGroup (strGroup)
+
+[Parameters]
+
+    strGroup
+    Required.  String.  The name of an existing group.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrGroups, strGroup
+    arrGroups = Rhino.GroupNames
+    If IsArray(arrGroups) Then
+    For Each strGroup in arrGroups
+    Rhino.DeleteGroup strGroup
+    Next
+    End If
+
+[Also See]
+
+    AddGroup
+    GroupCount
+    GroupNames
+    IsGroup
+    RenameGroup

@@ -1,0 +1,39 @@
+[AddHatchPatterns]
+
+    Adds hatch pattens to the document by importing hatch pattern definitions from a pattern file. For more information on hatch pattern files, see the Rhino help file for the Hatch command.
+
+[Syntax]
+
+    Rhino.AddHatchPatterns (strFileName [, blnReplace])
+
+[Parameters]
+
+    strFileName
+    Required.  String.  The name of the hatch pattern file to import.
+    blnReplace
+    Optional.  Boolean.  If hatch pattern names already in the document match hatch pattern names in the pattern definition file, then the existing hatch patterns will be redefined.  If omitted, existing hatch patterns will not be redefined (False).
+
+[Returns]
+
+    Array
+    The names of the newly added hatch patterns if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strFileName, arrPatterns, strPattern
+    strFileName = Rhino.OpenFileName("Import", "Pattern Files (*.pat)|*.pat||")
+    If Not IsNull(strFileName) Then
+    arrPatterns = Rhino.AddHatchPatterns(strFileName)
+    If IsArray(arrPatterns) Then
+    For Each strPattern In arrPatterns
+    Rhino.Print strPattern
+    Next
+    End If
+    End If
+
+[Also See]
+
+    HatchPatternCount
+    HatchPatternNames

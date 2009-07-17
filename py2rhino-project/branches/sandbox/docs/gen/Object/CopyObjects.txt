@@ -1,0 +1,45 @@
+[CopyObjects]
+
+    Copies one or more objects from one location to another, or in-place.
+
+[Syntax]
+
+    Rhino.CopyObjects (arrObjects [, arrStart , arrEnd])
+    Rhino.CopyObjects (strObject [, arrTranslation])
+
+[Parameters]
+
+    arrObjects
+    Required.  Array.  An array of strings identifying the objects to copy.
+    arrStart
+    Optional.  Array.  The 3-D starting, or base, point of the copy operation.  If omitted, the objects are copied in-place.
+    arrEnd
+    Optional.  Array.  The 3-D ending point of the copy operation.
+    arrTranslation
+    Optional.  Array.  The 3-D translation vector.
+
+[Returns]
+
+    Array
+    An array of strings identifying the copied objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, arrStart, arrEnd, arrTranslation
+    arrObjects = Rhino.GetObjects("Select objects to copy")
+    If IsArray(arrObjects) Then
+    arrStart = Rhino.GetPoint("Point to copy from")
+    If IsArray(arrStart) Then
+    arrEnd = Rhino.GetPoint("Point to copy to", arrStart)
+    If IsArray(arrStart) Then
+    arrTranslation = Rhino.VectorCreate(end, start)
+    Rhino.CopyObjects arrObjects, arrTranslation
+    End If
+    End If
+    End If
+
+[Also See]
+
+    CopyObject

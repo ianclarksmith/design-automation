@@ -1,0 +1,40 @@
+[IsGroupEmpty]
+
+    Verifies that an existing group is empty, or contains no object members.
+
+[Syntax]
+
+    Rhino.IsGroupEmpty (strGroup)
+
+[Parameters]
+
+    strGroup
+    Required.  String.  The name of an existing group.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrGroups, strGroup
+    arrGroups = Rhino.GroupNames
+    If IsArray(arrGroups) Then
+    For Each strGroup in arrGroups
+    If Rhino.IsGroupEmpty(strGroup) Then
+    Rhino.DeleteGroup strGroup
+    End If
+    Next
+    End If
+
+[Also See]
+
+    AddObjectsToGroup
+    AddObjectToGroup
+    RemoveObjectFromAllGroups
+    RemoveObjectFromGroup
+    RemoveObjectFromTopGroup
+    RemoveObjectsFromGroup

@@ -1,0 +1,38 @@
+[GetReal]
+
+    Pauses for user input of a number.
+
+[Syntax]
+
+    Rhino.GetReal (strMessage [, dblNumber [, dblMin [, dblMax]]])
+
+[Parameters]
+
+    strMessage
+    Optional.  String.  A prompt or message.
+    dblNumber
+    Optional.  Number.  A default number value.
+    dblMin
+    Optional.  Number.  A minimum allowable value.
+    dblMax
+    Optional.  Number.  A maximum allowable value.
+
+[Returns]
+
+    Number
+    The number input by the user if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim dblRadius, arrPoint
+    dblRadius = Rhino.GetReal("Radius of new circle", 3.14, 1.0)
+    If Not IsNull(dblRadius) Then
+    arrPoint = Array(0,0,0)
+    Rhino.AddCircle arrPoint, dblRadius
+    End If
+
+[Also See]
+
+    RealBox

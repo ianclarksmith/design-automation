@@ -1,0 +1,37 @@
+[CurveDirectionsMatch]
+
+    Tests if two curve objects are generally in the same direction or if they would be more in the same direction if one of them were flipped. When testing curve directions, both curves must be either open or closed - you cannot test one open curve and one closed curve.
+
+[Syntax]
+
+    Rhino.CurveDirectionsMatch (strCurve1, strCurve2)
+
+[Parameters]
+
+    strCurve1
+    Required. String. The identifier of the first curve to compare.
+    strCurve2
+    Required. String. The identifier of the second curve to compare.
+
+[Returns]
+
+    Boolean
+    True if the curve directions match, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strCurve1, strCurve2, blnCompare
+    strCurve1 = Rhino.GetObject("Select first curve to compare", 4)
+    strCurve2 = Rhino.GetObject("Select second curve to compare", 4)
+    blnCompare = Rhino.CurveDirectionsMatch(strCurve1, strCurve2)
+    If blnCompare = True Then
+    Rhino.Print "Curves are in the same direction"
+    Else
+    Rhino.Print "Curve are not in the same direction"
+    End If
+
+[Also See]
+
+    ReverseCurve

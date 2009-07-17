@@ -1,0 +1,28 @@
+[SendKeystrokes]
+
+    Sends a string of printable characters, including spaces, to Rhino's command line.
+
+[Syntax]
+
+    Rhino.SendKeystrokes ([strKeys [, blnAddReturn]])
+
+[Parameters]
+
+    strKeys
+    Optional.  String.  A string to characters to send to the command line.
+    blnAddReturn
+    Optional.  String.  Append a return character to the end of the string. The default is to append a return character (True).
+
+[Returns]
+
+    Null.
+
+[Example]
+
+    Rhino.SendKeystrokes "Hello Rhino!"
+    Rhino.SendKeystrokes 25/4
+
+[Also See]
+
+    Command
+    Print

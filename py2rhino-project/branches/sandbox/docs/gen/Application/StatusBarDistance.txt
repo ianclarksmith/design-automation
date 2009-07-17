@@ -1,0 +1,26 @@
+[StatusBarDistance]
+
+    Sets Rhino's status bar distance pane.
+
+[Syntax]
+
+    Rhino.StatusBarDistance ([dblDistance])
+
+[Parameters]
+
+    dblDistance
+    Optional.  Number.  The distance to display.
+
+[Returns]
+
+    Null.
+
+[Example]
+
+    Rhino.StatusBarDistance 3.14159
+
+[Also See]
+
+    StatusBarMessage
+    StatusBarNumber
+    StatusBarPoint

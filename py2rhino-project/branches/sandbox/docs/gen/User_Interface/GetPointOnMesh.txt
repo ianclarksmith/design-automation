@@ -1,0 +1,39 @@
+[GetPointOnMesh]
+
+    Pauses for user input of a point constrained to a mesh object.
+
+[Syntax]
+
+    Rhino.GetPointOnMesh (strObject [, strMessage])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The object's identifier.
+    strMessage
+    Optional.  String.  A prompt or message.
+
+[Returns]
+
+    Array
+    The 3-D point selected by the user successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject, arrPoint
+    strObject = Rhino.GetObject("Pick a mesh")
+    If Rhino.IsCurve(strObject) Then
+    arrPoint = Rhino.GetPointOnMesh(strObject, "Point on mesh")
+    If IsArray(arrPoint) Then
+    Rhino.AddPoint arrPoint
+    End If
+    End If
+
+[Also See]
+
+    GetPoint
+    GetPointOnCurve
+    GetPointOnSurface
+    GetPoints

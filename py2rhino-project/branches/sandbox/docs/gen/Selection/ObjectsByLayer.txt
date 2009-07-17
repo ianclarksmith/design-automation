@@ -1,0 +1,33 @@
+[ObjectsByLayer]
+
+    Returns the identifiers of all objects based on the objects' layer.
+
+[Syntax]
+
+    Rhino.ObjectsByLayer (strLayer [, blnSelect])
+
+[Parameters]
+
+    strLayer
+    Required.  String.  The name of a layer.
+    blnSelect
+    Optional.  Boolean.  Select the objects.  If omitted, the objects are not selected (False).
+
+[Returns]
+
+    Array
+    An array of strings identifying the objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrObjects, strObject, strLayer
+    strObject = Rhino.GetObject("Pick any object")
+    If Not IsNull(strObject) Then
+    strLayer = Rhino.ObjectLayer(strObject)
+    arrObjects = Rhino.ObjectsByLayer(strLayer, True)
+    End If
+
+[Also See]
+

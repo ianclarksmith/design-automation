@@ -1,0 +1,35 @@
+[AddEdgeSrf]
+
+    Creates a surface from 2, 3, or 4 edge curves.
+
+[Syntax]
+
+    Rhino.AddEdgeSrf (arrObjects)
+
+[Parameters]
+
+    arrObjects
+    Required.  Array.  An array of 2, 3, or 4 curve object identifiers.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Dim arrObjects
+    arrObjects = Rhino.GetObjects("Select 2, 3, or 4 curves", rhObjectCurve)
+    If IsArray(arrObjects) Then
+    Rhino.AddEdgeSrf arrObjects
+    End If
+
+[Also See]
+
+    AddPlanarSrf
+    AddSrfControlPtGrid
+    AddSrfPt
+    AddSrfPtGrid

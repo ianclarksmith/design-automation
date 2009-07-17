@@ -1,0 +1,34 @@
+[IsView]
+
+    Verifies that the specified view exists.
+
+[Syntax]
+
+    Rhino.IsView (strView)
+
+[Parameters]
+
+    strView
+    Required.  String.  The title or identifier of the view.
+
+[Returns]
+
+    Boolean
+    True or False indicating success or failure.
+    Null
+    On error.
+
+[Example]
+
+    Dim blnResult, strTitle
+    strTitle = "Perspective"
+    blnResult = Rhino.IsView(strTitle)
+    If blnResult = True Then
+    Rhino.Print "The " & strTitle & " view exists."
+    Else
+    Rhino.Print "The " & strTitle & " view does not exist."
+    End If
+
+[Also See]
+
+    ViewNames

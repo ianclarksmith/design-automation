@@ -1,0 +1,45 @@
+[Distance]
+
+    Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.
+
+[Syntax]
+
+    Rhino.Distance (arrPoint1, arrPoint2)
+    Rhino.Distance (arrPoint1, arrPointArray)
+
+[Parameters]
+
+    arrPoint1
+    Required.  Array.  The first 3-D point.
+    arrPoint2
+    Required.  Array.  The second 3-D point.
+    arrPointArray
+    Required.  Array.  An array of 3-D points.
+
+[Returns]
+
+    Number
+    If arrPoint1 and arrPoint2 are specified, then the distance is successful.
+    Array
+    If arrPoint1 and arrPointArray are specified, then an array of distances if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoint1, arrPoint2, dblDistance
+    arrPoint1 = Rhino.GetPoint("First point")
+    If IsArray(arrPoint1) Then
+    arrPoint2 = Rhino.GetPoint("Second point")
+    If IsArray(arrPoint2) Then
+    dblDistance = Rhino.Distance(arrPoint1, arrPoint2)
+    If Not IsNull(dblDistance) Then
+    Rhino.Print "Distance: " & CStr(dblDistance)
+    End If
+    End If
+    End If
+
+[Also See]
+
+    Angle
+    Angle2

@@ -1,0 +1,38 @@
+[RenderColor]
+
+    Returns or sets the render ambient light or background color. Render colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed. See Rhino's DocumentProperties command (Rhino Render window) for details.
+
+[Syntax]
+
+    Rhino.RenderColor (intItem, [lngColor])
+
+[Parameters]
+
+    intItem
+    Required. Number. The item you wish to either query or change.
+    0
+    Ambient light color.
+    1
+    Background color.
+    lngColor
+    Optional. Number. The new color value. If omitted, the curreng intItem color is returned.
+
+[Returns]
+
+    Number
+    If lngColor is not specified, the current intItem color if successful.
+    Number
+    If lngColor is specified, the previous intItem color if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhRenderBackgroundColor = 1
+    Rhino.RenderColor rhBackgroundColor , vbBlue
+
+[Also See]
+
+    RenderAntialias
+    RenderResolution
+    RenderSettings

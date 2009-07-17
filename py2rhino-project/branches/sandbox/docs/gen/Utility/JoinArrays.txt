@@ -1,0 +1,31 @@
+[JoinArrays]
+
+    Joins two one-dimensional arrays in to a single one-dimensional array.
+
+[Syntax]
+
+    Rhino.JoinArrays (arr1, arr2)
+
+[Parameters]
+
+    arr1
+    Required. Array. The first one-dimensional array.
+    arr2
+    Required. Array. The second one-dimensional array.
+
+[Returns]
+
+    Array
+    A one-dimensional array containing the elements of both input arrays if successful.
+    Null
+    If not successful or on error.
+
+[Example]
+
+    Dim arr, arr1, arr2, n
+    arr1 = Array(1,1,2,2,3,3,4,4,5,5)
+    arr2 = Array("Rhino", "Rhino", "Rhino", "Rhino")
+    arr = Rhino.JoinArrays(arr1, arr2)
+    For Each n in arr
+    Rhino.Print n
+    Next

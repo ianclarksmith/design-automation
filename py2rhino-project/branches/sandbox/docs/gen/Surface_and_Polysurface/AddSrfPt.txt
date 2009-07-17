@@ -1,0 +1,33 @@
+[AddSrfPt]
+
+    Creates a new surface from either 3 or 4 corner points.
+
+[Syntax]
+
+    Rhino.AddSrfPt (arrPoints)
+
+[Parameters]
+
+    arrPoints
+    Required.  Array.  An array of either 3 or 4 corner points.
+
+[Returns]
+
+    String
+    The identifier of the new object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrPoints
+    arrPoints = Rhino.GetPoints(True,,"Pick 3 or 4 corner points")
+    If IsArray(arrPoints) Then
+    Rhino.AddSrfPt arrPoints
+    End If
+
+[Also See]
+
+    AddEdgeSrf
+    AddSrfControlPtGrid
+    AddSrfPtGrid

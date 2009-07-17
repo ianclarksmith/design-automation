@@ -1,0 +1,44 @@
+[MaterialShine]
+
+    Returns or modifies a material's shine value.
+
+[Syntax]
+
+    Rhino.MaterialShine (intMaterialIndex [, dblShine])
+
+[Parameters]
+
+    intMaterialIndex
+    Required.  Number.  The zero-based source material index.
+    dblShine
+    Optional.  Number.  The new shine value.  A material's shine value ranges from 0.0 to 255.0, with 0.0 being matte and 255.0 being glossy.  If omitted, the current shine value is returned.
+
+[Returns]
+
+    Number
+    If dblShine is not specified, the current shine value if successful.
+    Number
+    If dblShine is specified, the previous shine value if successful.
+    Null
+    It not successful, or on error.
+
+[Example]
+
+    Const MAX_SHINE = 255.0
+    Dim strObject, intIndex
+    strObject = Rhino.GetObject("Select object")
+    If Not IsNull(strObject) Then
+    intIndex = Rhino.ObjectMaterialIndex(strObject)
+    If (intIndex > -1) Then
+    Rhino.MaterialShine intIndex, MAX_SHINE/2
+    End If
+    End If
+
+[Also See]
+
+    MaterialBump
+    MaterialColor
+    MaterialName
+    MaterialReflectiveColor
+    MaterialTexture
+    MaterialTransparency

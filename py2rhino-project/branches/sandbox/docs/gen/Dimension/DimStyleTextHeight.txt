@@ -1,0 +1,43 @@
+[DimStyleTextHeight]
+
+    Returns or changes the text height used by a dimension style.
+
+[Syntax]
+
+    Rhino.DimStyleTextHeight (strDimStyle [, dblHeight])
+
+[Parameters]
+
+    strDimStyle
+    Required.  String.  The name of an existing dimension style.
+    dblHeight
+    Optional.  Number.  The new text height.  If omitted, the current text height is returned.
+
+[Returns]
+
+    Number
+    If a height is not specified, the current text height if successful.
+    Number
+    If a height is specified, the previous text height if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strDimStyle, dblHeight
+    strDimStyle = Rhino.CurrentDimStyle
+    dblHeight = Rhino.DimStyleTextHeight(strDimStyle)
+    If dblOffset > 1.0 Then
+    Rhino.DimStyleTextHeight strDimStyle, 1.0
+    End If
+
+[Also See]
+
+    DimStyleAnglePrecision
+    DimStyleArrowSize
+    DimStyleExtension
+    DimStyleFont
+    DimStyleLinearPrecision
+    DimStyleNumberFormat
+    DimStyleOffset
+    DimStyleTextAlignment

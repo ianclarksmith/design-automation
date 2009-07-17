@@ -1,0 +1,33 @@
+[DuplicateMeshBorder]
+
+    Creates a curve that duplicates a mesh border.
+
+[Syntax]
+
+    Rhino.DuplicateMeshBorder (strObject)
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the mesh object.
+
+[Returns]
+
+    Array
+    An array of strings identifying the new curve objects if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhMesh = 32
+    Dim strObject
+    strObject = Rhino.GetObject("Select mesh", rhMesh)
+    If Not IsNull(strObject) Then
+    Rhino.DuplicateMeshBorder strObject
+    End If
+
+[Also See]
+
+    DuplicateEdgeCurves
+    DuplicateSurfaceBorder

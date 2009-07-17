@@ -1,0 +1,36 @@
+[LightObjects]
+
+    Returns the identifier of light objects in the document.
+
+[Syntax]
+
+    Rhino.LightObjects ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    Array
+    The identifiers of all lights in the document if successful
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrLights
+    arrLights = Rhino.LightObjects
+    If IsArray(arrLights) Then
+    Rhino.AddLayer "Lights"
+    Rhino.ObjectLayer arrLights, "Lights"
+    End If
+
+[Also See]
+
+    EnableLight
+    IsLight
+    IsLightEnabled
+    LightColor
+    LightCount
+    LightName

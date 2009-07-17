@@ -1,0 +1,38 @@
+[IsRadialDimension]
+
+    Verifies an object is a radial dimension object.
+
+[Syntax]
+
+    Rhino.IsRadialDimension (strObject)
+
+[Parameters]
+
+    strObject
+    Required. String. The object's identifier.
+
+[Returns]
+
+    Boolean
+    True if successful, otherwise False.
+    Null
+    On error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select a dimension")
+    If Rhino.IsRadialDimension(strObject) Then
+    Rhino.Print "The object is a radial dimension."
+    Else
+    Rhino.Print "The object is not a radial dimension."
+    End If
+
+[Also See]
+
+    IsAlignedDimension
+    IsAngularDimension
+    IsDiameterDimension
+    IsDimension
+    IsLinearDimension
+    IsOrdinateDimension

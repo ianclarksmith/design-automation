@@ -1,0 +1,37 @@
+[RenderResolution]
+
+    Returns or sets the render resolution. Resolution is measured in pixels. See Rhino's DocumentProperties command (Rhino Render window) for details. Note, if the render resolution is set to "viewport", then the size of the active viewt is returned.
+
+[Syntax]
+
+    Rhino.RenderResolution ([arrResolution])
+
+[Parameters]
+
+    arrResolution
+    Required. Array.  An array containing two numbers identifying the resolution width and height in pixels.
+
+[Returns]
+
+    Array
+    If arrResolution is not specified, an array containing two numbers identifying the current resolution width and height in pixels if successful.
+    Array
+    If arrResolution is specified, an array containing two numbers identifying the previous resolution width and height in pixels if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim arrSize, arrResolution(1)
+    arrSize = Rhino.ViewSize
+    If IsArray(arrSize) Then
+    arrResolution(0) = arrSize(0)/2
+    arrResolution(1) = arrSize(1)/2
+    Rhino.RenderResolution arrResolution
+    End If
+
+[Also See]
+
+    RenderAntialias
+    RenderColor
+    RenderSettings

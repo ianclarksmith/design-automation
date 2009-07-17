@@ -1,0 +1,43 @@
+[HatchRotation]
+
+    Returns or modifies the rotation applied to the hatch pattern when it is mapped to the hatch's plane.
+
+[Syntax]
+
+    Rhino.HatchRotation (strObject [, dblRotation])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of a hatch object.
+    dblRotation
+    Optional.  Number.  The rotation angle in degrees.
+
+[Returns]
+
+    Number
+    If a rotation angle is not specified, the current rotation angle if successful.
+    Number
+    If a rotation angle is specified, the previous rotation angle if successful.
+    Null
+    On error.
+
+[Example]
+
+    Dim arrObjects, strObject
+    arrObjects = Rhino.NormalObjects
+    If IsArray(arrObjects) Then
+    For Each strObject in arrObjects
+    If Rhino.IsHatch(strObject) And Rhino.HatchRotation(strObject) > 0 Then
+    Rhino.HatchRotation strObject, 0
+    End If
+    Next
+    End If
+
+[Also See]
+
+    AddHatch
+    AddHatches
+    HatchPattern
+    HatchScale
+    IsHatch

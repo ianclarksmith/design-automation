@@ -1,0 +1,41 @@
+[TextObjectHeight]
+
+    Returns or modifies the height of a text object.
+
+[Syntax]
+
+    Rhino.TextObjectHeight (strObject [, dblHeight])
+
+[Parameters]
+
+    strObject
+    Required.  String.  The identifier of the object.
+    dblHeight
+    Optional.  Number.  The new text height.  If omitted, the current text height is returned.
+
+[Returns]
+
+    String
+    If a height is not specified, the current text height if successful.
+    String
+    If a height is specified, the previous text height if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select text")
+    If Rhino.IsText(strObject) Then
+    Rhino.TextObjectHeight strObject, 1.0
+    End If
+
+[Also See]
+
+    AddText
+    IsText
+    TextObjectFont
+    TextObjectPlane
+    TextObjectPoint
+    TextObjectStyle
+    TextObjectText

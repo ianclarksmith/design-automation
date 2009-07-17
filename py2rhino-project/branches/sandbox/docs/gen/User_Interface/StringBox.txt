@@ -1,0 +1,35 @@
+[StringBox]
+
+    Displays a dialog box prompting the user to enter a string value.
+
+[Syntax]
+
+    Rhino.StringBox ([strMessage [, strString [, strTitle]]])
+
+[Parameters]
+
+    strMessage
+    Optional.  String.  A prompt or message.
+    strString
+    Optional.  String.  A default string value.
+    strTitle
+    Optional.  String.  A dialog box title.
+
+[Returns]
+
+    String
+    The string value if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strLayer
+    strLayer = Rhino.StringBox("New layer name" )
+    If Not IsNull(strLayer) Then
+    Rhino.AddLayer(strLayer)
+    End If
+
+[Also See]
+
+    GetString

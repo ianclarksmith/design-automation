@@ -1,0 +1,54 @@
+[ObjectMeshDensity]
+
+    Returns or modifies an object's custom render mesh parameter's mesh density property.
+    For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+
+[Syntax]
+
+    Rhino.ObjectMeshDensity (strObject [, dblDensity])
+
+[Parameters]
+
+    strObject
+    Required.  Object.  The identifier of an object that has custom render mesh parameters.
+    dblDensity
+    Optional.  Number.  The render mesh density, which is a number between 0.0 and 1.0.
+
+[Returns]
+
+    Boolean
+    If dblDensity is not specified, the current render mesh density if successful.
+    Boolean
+    If dblDensity is specified, the previous render mesh density if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Dim strObject
+    strObject = Rhino.GetObject("Select object")
+    If Rhino.ObjectHasMesh(strObject) = True Then
+    Rhino.Print "Quality: " & Rhino.ObjectMeshQuality
+    Rhino.Print "Mesh density: " & Rhino.ObjectMeshDensity
+    Rhino.Print "Maximum angle: " & Rhino.ObjectMeshMaxAngle
+    Rhino.Print "Maximum aspect ratio: " & Rhino.ObjectMeshMaxAspectRatio
+    Rhino.Print "Minimun edge length: " & Rhino.ObjectMeshMinEdgeLength
+    Rhino.Print "Maximum edge length: " & Rhino.ObjectMeshMaxEdgeLength
+    Rhino.Print "Maximum distance, edge to surface: " & Rhino.ObjectMeshMaxDistEdgeToSrf
+    Rhino.Print "Minumum initial grid quads: " & Rhino.ObjectMeshMinInitialGridQuads
+    Rhino.Print "Other settings: " & Rhino.ObjectMeshSettings
+    End If
+
+[Also See]
+
+    AddObjectMesh
+    EnableObjectMesh
+    ObjectHasMesh
+    ObjectMeshMaxAngle
+    ObjectMeshMaxAspectRatio
+    ObjectMeshMaxDistEdgeToSrf
+    ObjectMeshMaxEdgeLength
+    ObjectMeshMinEdgeLength
+    ObjectMeshMinInitialGridQuads
+    ObjectMeshQuality
+    ObjectMeshSettings

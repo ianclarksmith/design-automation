@@ -1,0 +1,34 @@
+[PullCurveToMesh]
+
+    Pulls a curve object to a mesh object. The function makes a polyline approximation of the input curve and gets the closest point on the mesh for each point on the mesh.  Then it "connects the points" so  that you have a polyline on the mesh.
+
+[Syntax]
+
+    Rhino.PullCurveToMesh (strMesh, strCurve)
+
+[Parameters]
+
+    strMesh
+    Required.  String.  The identifier of the mesh object that pulls.
+    strCurve
+    Required.  String.  The identifier of the curve object to pull.
+
+[Returns]
+
+    String
+    The identifier of the new curve object if successful.
+    Null
+    If not successful, or on error.
+
+[Example]
+
+    Const rhObjectCurve = 4
+    Const rhObjectMesh = 32
+    Dim strMesh, strCurve
+    strMesh = Rhino.GetObject("Select mesh that pulls", rhObjectMesh)
+    strCurve = Rhino.GetObject("Select curve to pull", rhObjectCurve)
+    Rhino.PullCurveToMesh strMesh, strCurve
+
+[Also See]
+
+    IsMesh

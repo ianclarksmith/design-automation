@@ -1,0 +1,19 @@
+[Exit]
+
+    Closes the Rhino application.
+
+[Syntax]
+
+    Rhino.Exit ()
+
+[Parameters]
+
+    None.
+
+[Returns]
+
+    None.
+
+[Example]
+
+    Rhino.Exit
