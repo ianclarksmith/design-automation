@@ -16,6 +16,7 @@ def parse_docs():
             folders.append(folder)
     #now process all non svn folders
     for folder in folders:
+        
         data[folder]  = {}
         #get all the files
         all_files = os.listdir("..\\docs\\RhinoScript\\" + folder)
@@ -29,9 +30,14 @@ def parse_docs():
             #print file, " in ", folder
             file_name = file[:-4]
             if file_name != folder:
+                
+                
+                #get all the lines in the file, ignoring the first line and any subsequent empty lines
                 contents = linecache.getlines('..\\docs\\RhinoScript\\%s\\%s' % (folder, file))
+                contents = contents[1:]
                 contents = filter(lambda i: len(i)>1, contents)
                 contents = map(lambda i: i.strip(string.whitespace), contents)
+                
                 #set some things to None so we can do some checks later
                 line_num_syntax = None
                 line_num_params = None
@@ -40,6 +46,7 @@ def parse_docs():
                 
                 count = 0
                 for line in contents:
+                    if line==file_name: line_num_help = count
                     if line=="Syntax": line_num_syntax = count
                     if line=="Parameters": line_num_params = count
                     if line=="Returns": line_num_returns = count
@@ -48,17 +55,27 @@ def parse_docs():
                     count += 1
                 
                 #do some checks
+                assert line_num_help != None
                 assert line_num_syntax != None
                 assert line_num_params != None
                 assert line_num_returns != None
                 assert line_num_example != None
+                assert contents[line_num_help] == file_name
                 assert contents[line_num_syntax] == "Syntax"
                 assert contents[line_num_params] == "Parameters"
                 assert contents[line_num_returns] == "Returns"
                 assert contents[line_num_example] == "Example"
                 
-                #get the simple stuff
-                content_help = contents[line_num_syntax - 1]
+
+                #get the help
+                content_help = []
+                if (line_num_syntax - line_num_help) > 2:
+                    for line_num in range(line_num_help+1, line_num_syntax):
+                        content_help.append(contents[line_num])
+                content_help = "\n\t\t".join(content_help)
+
+                #get the first line of the syntax
+                #TO DO: get all syntax lines
                 content_syntax = contents[line_num_syntax + 1]
                 
                 #now get the parameters
@@ -111,10 +128,19 @@ def parse_docs():
                                 param_name = param_name[1:]
                                 param_prefix = "n"
                                 param_type_name = "Integer"
+                            elif param_name.startswith("arrdbl"): 
+                                param_name = param_name[6:]
+                                param_type_name = "Array of Doubles"
+                                found_array_param = True
+                            elif param_name.startswith("arrstr"): 
+                                param_name = param_name[6:]
+                                param_type_name = "Array of Strings"
+                                found_array_param = True                                
                             elif param_name.startswith("arr"): 
                                 param_name = param_name[3:]
                                 param_type_name = "Array of ?"
                                 found_array_param = True
+                                #Try to guess array type - warning... this is very error prone
                                 if next_line_rest.lower().startswith("an array of string"):
                                     param_prefix = "arrstr"
                                     print "found string array..."
@@ -155,8 +181,30 @@ def parse_docs():
                     "params": content_params,
                     "returns": content_returns
                 }
+                
             if found_array_param:
-                print "FOUND ARRAY IN ", file_name, " in ", folder
+                print "FOUND ARRAY IN ", file_name, " in ", folder                
+    
+    #write a new help file      
+    for folder in data:
+        for file in data[folder]:
+                f = open("..\\docs\\gen\\" + folder[:-8] + "\\" + file_name + ".txt", mode='w')
+                #write help
+                w(f, ["[", file,"]"], nls = 0, nle=2)
+                w(f, data[folder][file]['help'], tabs = 1, nle=1)
+                
+                #write syntax
+                w(f, ["[Syntax]"], nls = 0, nle=2)
+                w(f, data[folder][file]['syntax'], tabs = 1, nle=1)
+                
+                #write parameters
+                w(f, ["[Parameters]"], nls = 0, nle=2)
+                for param in data[folder][file]['params']:
+                    w(f, param[0], tabs = 1, nle=1)
+                    print param
+                    w(f, param, tabs = 1, nle=1)
+                    
+                f.close()
     return data
 
 def write_classes(folders):
@@ -178,7 +226,7 @@ def write_class(folder_name, folder_data):
 def write_class_header(class_name, f):
     w(f,"# Auto-generated wrapper for Rhino4 RhinoScript functions", nle=2)
     w(f,"import exceptions")
-    w(f,"import _utils")
+    w(f,"from _utils import *")
     w(f,"from _rhinoscript import IRhinoScript", nle=2)
     w(f,"class %s(IRhinoScript):" % class_name, nle=4)
 
@@ -198,6 +246,15 @@ def write_class_method(file_name, file_data, f):
             if keyword.iskeyword(py_param):
                 py_param += "_param"
             py_params.append(py_param)
+        
+    #first check if this is a method with mismatch in parameters
+    if not params_match_ct(file_name, file_data):
+        w(f, ["def ", py_method_name, "(self):"], tabs=1, nle=1)
+        w(f, '"""', tabs=2, nle=2)
+        w(f, "METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH", tabs=2, nls=1, nle=2)
+        w(f, '"""', tabs=2, nls=1, nle=2)
+        w(f, "raise exceptions.NotImplementedError", tabs=2, nle=2)
+        return
             
     #create the method signature
     w(f, ["def ", py_method_name, "(self"], tabs=1, nle=0)
@@ -205,16 +262,7 @@ def write_class_method(file_name, file_data, f):
         w(f, [", ", ", ".join(py_params), "):"], tabs=0, nle=1)
     else:
         w(f, "):", tabs=0, nle=1)
-        
-    #first check if this is a method with mismatch in parameters
-    if not params_match_ct(file_name, file_data):
-        w(f, '"""', tabs=2, nle=2)
-        w(f, "METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH", tabs=2, nls=1, nle=2)
-        w(f, '"""', tabs=2, nls=1, nle=2)
-        w(f, "raise exceptions.NotImplementedError", tabs=2, nle=2)
-        return
-        
-        
+
     #create the method documentation
     #TODO: add syntax example here
     #TODO: use the py_params format in the doc string
@@ -223,7 +271,7 @@ def write_class_method(file_name, file_data, f):
     if file_data["params"]:
         w(f, "Parameters", tabs=2, nle=2)
         for param in file_data["params"]:
-            w(f, [param[0], " : ", param[1],", ", param[2], ", ", param[3], ", ", param[4]], tabs=2, nle=1)
+            w(f, [param[0], " : ", param[1],", ", param[2], ", ", param[3], ", ", param[-1]], tabs=2, nle=1)
     else:
         w(f, "No parameters", tabs=2, nle=1)
     if file_data["returns"]:
@@ -239,28 +287,17 @@ def write_class_method(file_name, file_data, f):
     #VT_I2 = 2 = signed short
     #VT_I4 = 3 = signed long
     #VT_R4 = 4 = signed float
-    #VT_R8 = 5 = signed double
-    #VT_CY = 6
-    #VT_DATE = 7
-    #VT_BSTR = 8
-    #VT_DISPATCH = 9
-    #VT_ERROR = 10
-    #VT_BOOL = 11
-    #VT_VARIANT = 12
-    #VT_UNKNOWN = 13
-    #VT_DECIMAL = 14
-    #VT_I1 = 16
-    #VT_ARRAY = 8192    
+    #VT_R8 = 5 = signed double  
     type_map = {
-        "bln":"(11, 0)",
-        "int":"(2, 0)",        
-        "lng":"(3, 0)",
-        "dbl":"(5, 0)",
-        "str":"(8, 0)",        
-        "arrdbl":"(8197, 0)",#array of doubles
-        "arrstr":"(8200, 0)",#array of doubles        
-        "va":"(12, 0)",
-        "n":"(2, 0)"
+        "bln":"VT_BOOL",
+        "int":"VT_I2",        
+        "lng":"VT_I4",
+        "dbl":"VT_R8",
+        "str":"VT_BSTR",        
+        "arrdbl":"VT_ARRAY + VT_R8",
+        "arrstr":"VT_ARRAY + VT_BSTR",       
+        "va":"VT_VARIANT",
+        "n":"VT_I2"
     }
     
     #figure out the params, adding in flatten for all arrays
@@ -271,17 +308,17 @@ def write_class_method(file_name, file_data, f):
             if keyword.iskeyword(py_param):
                 py_param += "_param"
             if param[3].startswith("arr"):
-                py_param = "_utils.flatten(" + py_param + ")"
+                py_param = "flatten(" + py_param + ")"
             py_params_flattened.append(py_param)
     py_params_flattened = ", ".join(py_params_flattened)
 
     #figure out the magic numbers
     magic_id = get_ct_id_by_name(vb_method_name)
-    magic_returns = "(12, 0)"
+    magic_returns = "(VT_VARIANT, 0)"
     magic_params = []
     for i in file_data["params"]:
         if i[3] in type_map.keys():
-            param = type_map[i[3]]
+            param = "(" + str(type_map[i[3]]) + ", 1)"
         else:
             param = i[3]
             print "ERROR FINDING TYPE: ", i[3], file_name
