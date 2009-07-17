@@ -1,8 +1,8 @@
-IsPolysurface
+IsPolySurface
 
 
 
-IsPolysurface
+IsPolySurface
 
 
 Verifies an object is a polysurface.  Polysurfaces consists of two or more surfaces joined together. If the polysurface fully encloses a volume, it is considered a solid. In some other 3-D programs, this is called a "quilt."
@@ -11,7 +11,7 @@ Verifies an object is a polysurface.  Polysurfaces consists of two or more surfa
 Syntax
 
 
-Rhino.IsPolysurface (strObject)
+Rhino.IsPolySurface (strObject)
 
 
 Parameters

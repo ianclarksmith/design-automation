@@ -1,8 +1,8 @@
-Print
+PrintCmdWindow
 
 
 
-Print
+PrintCmdWindow
 
 
 Prints a string to Rhino's command window.  Note, this method cannot be called from Visual Basic.  If you are using Visual Basic, use the PrintEx method.

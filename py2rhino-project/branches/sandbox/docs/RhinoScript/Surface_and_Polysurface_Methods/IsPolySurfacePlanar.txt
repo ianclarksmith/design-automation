@@ -1,8 +1,8 @@
-IsPolysurfacePlanar
+IsPolySurfacePlanar
 
 
 
-IsPolysurfacePlanar
+IsPolySurfacePlanar
 
 
 Verifies a polysurface object is planar.
@@ -11,7 +11,7 @@ Verifies a polysurface object is planar.
 Syntax
 
 
-Rhino.IsPolysurfacePlanar (strObject)
+Rhino.IsPolySurfacePlanar (strObject)
 
 
 Parameters
