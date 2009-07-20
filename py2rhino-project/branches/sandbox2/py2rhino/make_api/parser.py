@@ -156,6 +156,22 @@ def parse_docs():
                         param_req = line2_word1
                         param_vb_type = line2_word2
                         content_params.append((param_name, param_req, param_vb_type, param_prefix, content_param_help))
+                        
+                """
+                #now check for duplicate parameters, e.g strObject and arrObjects
+                list_of_param_names = map(lambda i: i[0], content_params)
+                dups_to_be_removed = []
+                counter = 0
+                for param in content_params:
+                    if (param[0] + 's') in list_of_param_names:
+                        dups_to_be_removed.append(counter)
+                        print "found dup"
+                        print file_name, folder_name
+                    counter += 1
+                if dups_to_be_removed:
+                    for i in dups_to_be_removed:
+                        content_params.pop(i)               
+                """
                 
                 #now get the returns
                 content_returns = []
@@ -306,7 +322,6 @@ def write_modules(data):
             w(f, '"params_com": {', tabs = 1, nls = 2, nle=0)
             counter = 0
             com_params = get_com_params(file_name)
-            print file_name
             for param in com_params:
                 #check if param is required              
                 w(f, (str(counter), ": {"), tabs = 2, nls=1, nle=1)
@@ -335,3 +350,4 @@ def write_modules(data):
 if __name__ == '__main__':
     data = parse_docs()
     write_modules(data)
+    print "done"
