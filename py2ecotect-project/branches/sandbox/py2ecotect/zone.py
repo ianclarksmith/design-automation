@@ -26,10 +26,9 @@ class Zone(object):
         that the operation failed. 
         
         """
-        #arg_str = string_util._convert_args_to_string("add.zone", name)
-        #val = py2ecotect.conversation.Request(arg_str)
-        #self._id = string_util._convert_str_to_type(val, int)
-        self._id = 15
+        arg_str = string_util._convert_args_to_string("add.zone", name)
+        val = py2ecotect.conversation.Request(arg_str)
+        self._id = string_util._convert_str_to_type(val, int)
  
     #===========================================================================
     # Commands
@@ -1248,7 +1247,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_relhumidity(self):
+    def get_rel_humidity(self):
         """
         
         Retrieves the specified zone's current value for the design internal 
@@ -1272,7 +1271,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_relhumidity(self, value):
+    def set_rel_humidity(self, value):
         """
         
         Sets the specified zone's current value for the design internal relative 
@@ -2051,7 +2050,7 @@ class Zone(object):
     range = property(fget = get_range, doc = "The minimum, maximum and average"
                      " temperature of the zone for the last calculated day")
     
-    relhumidity = property(fget = get_relhumidity, fset = set_relhumidity, 
+    rel_humidity = property(fget = get_rel_humidity, fset = set_rel_humidity, 
                         doc = "The specified zone's current value for the"
                         " design internal relative humidity (%)")
     
