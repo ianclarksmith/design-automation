@@ -158,7 +158,7 @@ class Zone(object):
                                                       azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotateaxis(self, rx, ry, rz):
+    def rotate_axis(self, rx, ry, rz):
         """
         
         Rotates all objects in the specified zone about the Transformation 
@@ -185,7 +185,7 @@ class Zone(object):
                                                       self._id, rx, ry, rz)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotatereverse(self, azi, alt):
+    def rotate_reverse(self, azi, alt):
         """
         
         Rotates all objects in the specified zone about the Transformation 
@@ -413,7 +413,7 @@ class Zone(object):
         py2ecotect.conversation.Exec(arg_str)
 
 
-    def get_airspeed(self):
+    def get_air_speed(self):
         """
         
         Retrieves the specified zone's current value for the designed internal 
@@ -434,7 +434,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_airspeed(self, value):
+    def set_air_speed(self, value):
         """
         
         Sets the specified zone's value for the designed internal air-speed (m/s). 
@@ -450,7 +450,7 @@ class Zone(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)        
     
-    def get_applianceenergy(self):
+    def get_appliance_energy(self):
         """
         
         Retrieves the specified zone's current value for the total energy gain 
@@ -471,7 +471,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
     
-    def set_applianceenergy(self, value):
+    def set_appliance_energy(self, value):
        """
        
        Sets the specified zone's current value for the total energy gain from 
@@ -737,7 +737,7 @@ class Zone(object):
                                                      self.id, value)
         py2ecotect.conversation.Exec(arg_str)
         
-    def get_equatorarea(self):
+    def get_equator_area(self):
         """
         
         Retrieves the specified zone's current value for the total exposed 
@@ -761,7 +761,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
     
-    def set_equatorarea(self, value):
+    def set_equator_area(self, value):
         """
         
         Sets the specified zone's current value for the total exposed WINDOW 
@@ -779,7 +779,7 @@ class Zone(object):
                                                      self.id, value)
         py2ecotect.conversation.Exec(arg_str)
     
-    def get_exposedarea(self):
+    def get_exposed_area(self):
         """
         
         Retrieves the specified zone's current value for the total surface area 
@@ -803,7 +803,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_exposedarea(self, value):
+    def set_exposed_area(self, value):
         """
         
         Sets the specified zone's current value for the total surface area 
@@ -1114,7 +1114,7 @@ class Zone(object):
                                                      wkendon, wkendoff)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_peakcooling(self):
+    def get_peak_cooling(self):
         """
         
         Retrieves the specified zone's current value for the peak cooling load 
@@ -1138,7 +1138,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_peakcooling(self, value):
+    def set_peak_cooling(self, value):
         """
         
         Sets the specified zone's current value for the peak cooling load (W). 
@@ -1157,7 +1157,7 @@ class Zone(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_peakheating(self):
+    def get_peak_heating(self):
         """
         
         Retrieves the specified zone's current value for the peak heating 
@@ -1181,7 +1181,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_peakheating(self, value):
+    def set_peak_heating(self, value):
         """
         
         Sets the specified zone's current value for the peak heating load (W). 
@@ -1200,7 +1200,7 @@ class Zone(object):
                                                      self.id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def set_randomcolour(self):
+    def set_random_colour(self):
         """
         
         Sets the display colour of the specified zone to a random colour based 
@@ -1291,7 +1291,7 @@ class Zone(object):
                                                      self.id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_responsefactor(self):
+    def get_response_factor(self):
         """
         
         Retrieves the specified zone's current value for the total zone response 
@@ -1315,7 +1315,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_responsefactor(self, value):
+    def set_response_factor(self, value):
         """
         
         Sets the specified zone's current value for the total zone response 
@@ -1335,7 +1335,7 @@ class Zone(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_reverbtime(self, octave):
+    def get_reverb_time(self, octave):
         """
         
         Retrieves the reverberation time for the given zone at the specified 
@@ -1469,7 +1469,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
-    def get_sensiblegains(self):
+    def get_sensible_gains(self):
         """
         
         Retrieves the specified zone's current value for the sensible internal 
@@ -1493,7 +1493,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_sensiblegains(self, value):
+    def set_sensible_gains(self, value):
         """
         
         Sets the specified zone's current value for the sensible internal heat 
@@ -1513,7 +1513,7 @@ class Zone(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_solargains(self):
+    def get_solar_gains(self):
         """
         
         Retrieves the specified zone's current value for the total direct solar 
@@ -1537,7 +1537,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
         
-    def set_solargains(self, value):
+    def set_solar_gains(self, value):
         """
         
         Sets the specified zone's current value for the total direct solar gains 
@@ -1558,7 +1558,7 @@ class Zone(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_surfacearea(self):
+    def get_surface_area(self):
         """
         
         Retrieves the specified zone's current value for the total zone internal 
@@ -1582,7 +1582,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_surfacearea(self, value):
+    def set_surface_area(self, value):
         """
         
         Sets the specified zone's current value for the total zone internal 
@@ -1741,7 +1741,7 @@ class Zone(object):
                                                      self.id, state)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_upperband(self):
+    def get_upper_band(self):
         """
         
         Retrieves the specified zone's current value for the upper comfort band 
@@ -1765,7 +1765,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_upperband(self, value):
+    def set_upper_band(self, value):
         """
         
         Sets the specified zone's current value for the upper comfort band 
@@ -1830,7 +1830,7 @@ class Zone(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_ventilationrate(self):
+    def get_ventilation_rate(self):
         """
         
         Retrieves the specified zone's current value for the wind-driven 
@@ -1854,7 +1854,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_ventilationrate(self, value):
+    def set_ventilation_rate(self, value):
         """
         
         Sets the specified zone's current value for the wind-driven ventilation 
@@ -1918,7 +1918,7 @@ class Zone(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)
  
-    def get_windowarea(self):
+    def get_window_area(self):
         """
         
         Retrieves the specified zone's current value for the total exposed 
@@ -1942,7 +1942,7 @@ class Zone(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
  
-    def set_windowarea(self, value):
+    def set_window_area(self, value):
         """
         
         Sets the specified zone's current value for the total exposed WINDOW 
@@ -1973,10 +1973,10 @@ class Zone(object):
                         doc = "The specified zone's current value for the total"
                         " zone admittance (W/m^K)")
     
-    airspeed = property(fget = get_airspeed, fset = set_airspeed, 
+    air_speed = property(fget = get_air_speed, fset = set_air_speed, 
                         doc="Internal air-speed (m/s)")
     
-    applianceenergy = property(fget = get_applianceenergy, fset = set_applianceenergy, 
+    appliance_energy = property(fget = get_appliance_energy, fset = set_appliance_energy, 
                         doc = "The specified zone's current value for the total" 
                         " energy gain from APPLIANCE objects")
     
@@ -1986,64 +1986,38 @@ class Zone(object):
     
     colour = property(fget = get_colour, fset = set_colour, 
                         doc = "The colour of the specified zone")
-     
-    comfort = property(fget = get_comfort, doc = "The number of hours the"
-                       " specified zone spent at the given temperature. This"
-                       " value is only valid after a Temperature Distribution"
-                       " calculation has been performed")
-
-    cooling = property(fget = get_cooling, doc = "The total monthly cooling"
-                       " load for the zone during the given month")
     
     current = property(fget = get_current, fset = set_current, 
                         doc = "The specified zone is the current zone. To get"
                         " the actual index of the current zone, use the"
                         " model.currentzone property")
     
-    distribution = property(fget = get_distribution, doc = "The number of hours"
-                            " the specified zone spent at the given temperature."
-                            " This value is only valid after a Temperature"
-                            " Distribution calculation has been performed")
-    
     efficiency = property(fget = get_efficiency, fset = set_efficiency, 
                         doc = "The specified zone's current value for the HVAC"
                         " system efficiency (%)")
     
-    equatorarea = property(fget = get_equatorarea, fset = set_equatorarea, 
+    equator_area = property(fget = get_equator_area, fset = set_equator_area, 
                         doc = "The specified zone's current value for the total"
                         " exposed WINDOW area facing the equator (m^2)")
     
-    exposedarea = property(fget = get_exposedarea, fset = set_exposedarea, 
+    exposed_area = property(fget = get_exposed_area, fset = set_exposed_area, 
                         doc = "The specified zone's current value for the total"
                         " surface area exposed to outside conditions (m^2)")
-    
-    flag = property(fget = get_flag, fset = set_flag, 
-                        doc = "In ECOTECT, zone have a range of boolean flags"
-                        " associated with them that are used at various times."
-                        " This property gets and sets the nominated flag"
-                        " settings for the specified zone")
-    
-    occupancy = property(fget = get_occupancy, fset = set_occupancy, 
-                        doc = "The number of people within the specified zone")
     
     off = property(fget = get_off, fset = set_off, 
                         doc = "The current off state of the specified zone. Off"
                         " zones are effectively removed from the mode and are"
                         " not displayed or involved in any calculations")
     
-    operation = property(fget = get_operation, fset = set_operation, 
-                        doc = "The current hourly on/off times for the"
-                        " occupancy or HVAC system in the specified zone")
-    
-    peakcooling = property(fget = get_peakcooling, fset = set_peakcooling, 
+    peak_cooling = property(fget = get_peak_cooling, fset = set_peak_cooling, 
                         doc = "The specified zone's current value for the peak"
                         " cooling load (W)")
     
-    peakheating = property(fget = get_peakheating, fset = set_peakheating, 
+    peak_heating = property(fget = get_peak_heating, fset = set_peak_heating, 
                         doc = "The specified zone's current value for the peak"
                         " heating load (W)")
     
-    randomcolour = property(fset = set_randomcolour, doc = "The display colour"
+    random_colour = property(fset = set_random_colour, doc = "The display colour"
                             " of the specified zone to a random colour based on"
                             " the current background")
     
@@ -2054,39 +2028,24 @@ class Zone(object):
                         doc = "The specified zone's current value for the"
                         " design internal relative humidity (%)")
     
-    responsefactor = property(fget = get_responsefactor, fset = set_responsefactor, 
+    response_factor = property(fget = get_response_factor, fset = set_response_factor, 
                         doc = "")
     
-    reverbtime = property(fget = get_reverbtime, doc = "The reverberation time"
-                          " for the given zone at the specified octave. This"
-                          " value is only valid after a Statistical"
-                          " Reverberation Time calculation has been performed")
-    
-    schedules = property(fget = get_schedules, fset = set_schedules, 
-                        doc = "The control schedule indexes for zone occupancy,"
-                        " ventilation and internal gain")
-    
-    selected = property(fset = set_selected, doc = "Selects or deselects all"
-                        " objects in the specified zone")
-    
-    sensiblegains = property(fget = get_sensiblegains, fset = set_sensiblegains, 
+    sensible_gains = property(fget = get_sensible_gains, fset = set_sensible_gains, 
                         doc = "The specified zone's current value for the"
                         " sensible internal heat gains (W/m^2)")
     
-    solargains = property(fget = get_solargains, fset = set_solargains, 
+    solar_gains = property(fget = get_solar_gains, fset = set_solar_gains, 
                         doc = "The specified zone's current value for the total"
                         " direct solar gains through WINDOWS and transparent"
                         " appertures")
     
-    surfacearea = property(fget = get_surfacearea, fset = set_surfacearea, 
+    surface_area = property(fget = get_surface_area, fset = set_surface_area, 
                         doc = "The specified zone's current value for the total"
                         " zone internal surface area (m^2)")
     
     system = property(fget = get_system, fset = set_system, 
                         doc = "The HVAC system type for the specified zone")
-    
-    temperature = property(fget = get_temperature, doc = "The temperature of"
-                           " the zone at the specified hour")
     
     thermal = property(fget = get_thermal, fset = set_thermal, 
                         doc = "The current thermal state of the specified zone."
@@ -2094,7 +2053,7 @@ class Zone(object):
                         " rooms for which volume, temperature and acoustic data"
                         " is calculated")
     
-    upperband = property(fget = get_upperband, fset = set_upperband, 
+    upper_band = property(fget = get_upper_band, fset = set_upper_band, 
                         doc = "The specified zone's current value for the upper"
                         " comfort band (deg celsius).")
     
@@ -2103,7 +2062,7 @@ class Zone(object):
                         " U-Value of exposed surface area"
                         " (Heat loss rate W/mK). ")
     
-    ventilationrate = property(fget = get_ventilationrate, fset = set_ventilationrate, 
+    ventilation_rate = property(fget = get_ventilation_rate, fset = set_ventilation_rate, 
                         doc = "The specified zone's current value for the"
                         " wind-driven ventilation rate (ac/h)")
     
@@ -2111,7 +2070,7 @@ class Zone(object):
                         doc = "The specified zone's current value for the"
                         " internal zone volume (m^3). ") 
     
-    windowarea = property(fget = get_windowarea, fset = set_windowarea, 
+    window_area = property(fget = get_window_area, fset = set_window_area, 
                         doc = "The specified zone's current value for the total"
                         " exposed WINDOW area (m^2). ") 
      

@@ -598,6 +598,18 @@ class Node(object):
 
 
     id = property(fget = get_id, doc = "Id of the Node object")
+    
+    flags = property(fget = get_flags, doc = "A value representing the total of"
+                     " all the node's flags")
+    
+    link = property(fget = get_link, fset = set_link, 
+                        doc = "The node or object this node is linked to")
+    
+    modifier = property(fget = get_modifier, fset = set_modifier, 
+                        doc = "The node modifier value")
+    
+    selected = property(fget = get_selected, fset = set_selected, 
+                        doc = "The selection state of the specified node")
 
 if __name__ == "__main__":
     #x = Node(255, 3, 1000, 2000, 0)

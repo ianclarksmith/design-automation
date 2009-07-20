@@ -673,7 +673,7 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
         
-    def get_attr1(self):
+    def get_attr_1(self):
         """
         
         Retrieves the calculated value stored as Attribute Number 1 for the 
@@ -697,7 +697,7 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_attr1(self, value):
+    def set_attr_1(self, value):
         """
         
         Sets the calculated value stored as Attribute Number 1 for the specified object. 
@@ -716,7 +716,7 @@ class Object(object):
         py2ecotect.conversation.Exec(arg_str)
  
  
-    def get_attr2(self):
+    def get_attr_2(self):
         """
         
         Retrieves the calculated value stored as Attribute Number 2 for the 
@@ -740,7 +740,7 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_attr2(self, value):
+    def set_attr_2(self, value):
         """
         
         Sets the calculated value stored as Attribute Number 2 for the specified object. 
@@ -758,7 +758,7 @@ class Object(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)       
 
-    def get_attr3(self):
+    def get_attr_3(self):
         """
         
         Retrieves the calculated value stored as Attribute Number 3 for the 
@@ -782,7 +782,7 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_attr3(self, value):
+    def set_attr_3(self, value):
         """
         
         Sets the calculated value stored as Attribute Number 3 for the specified object. 
@@ -2389,6 +2389,25 @@ class Object(object):
         py2ecotect.conversation.Exec(arg_str)
         
     id = property(fget = get_id, doc = "Id of the object")
+    
+    alternate= property(fget = get_alternate, fset = set_alternate, 
+                        doc = "The index of the alternate material to the"
+                        " specified object")
+    
+    area = property(fget = get_area, doc = "The surface area for the specified"
+                    " object, measured in square metres")
+    
+    attr_1 = property(fget = get_attr_1, fset = set_attr_1, 
+                        doc = "The calculated value stored as Attribute Number"
+                        " 1 for the specified object")
+    
+    attr_2 = property(fget = get_attr_2, fset = set_attr_2, 
+                        doc = "The calculated value stored as Attribute Number"
+                        " 3 for the specified object")
+    
+    attr_3 = property(fget = get_attr_3, fset = set_attr_3, 
+                        doc = "The calculated value stored as Attribute Number"
+                        " 3 for the specified object")
     
     current = property(fset = set_current, doc = "Several actions within"
                        " ECOTECT act on the current object (sun-path diagrams,"

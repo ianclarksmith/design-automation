@@ -450,7 +450,7 @@ class Selection(object):
         val = py2ecotect.conversation.Request("get.selection.area")
         return string_util._convert_str_to_type(val, float)
     
-    def get_attr1(self):
+    def get_attr_1(self):
         """
         
         Retrieves the value for the attr1 slot of the current selection set. 
@@ -468,7 +468,7 @@ class Selection(object):
         val = py2ecotect.conversation.Request("get.selection.attr1")
         return string_util._convert_str_to_type(val, float)
     
-    def set_attr1(self, value):
+    def set_attr_1(self, value):
         """
         
         Sets the value for the attr1 slot of the current selection set. 
@@ -484,7 +484,7 @@ class Selection(object):
                                                      value)
         py2ecotect.conversation.Exec(arg_str)
     
-    def get_attr2(self):
+    def get_attr_2(self):
         """
         
         Retrieves the value for the attr2 slot of the current selection set. 
@@ -502,7 +502,7 @@ class Selection(object):
         val = py2ecotect.conversation.Request("get.selection.attr2")
         return string_util._convert_str_to_type(val, float)
     
-    def set_attr2(self, value):
+    def set_attr_2(self, value):
         """
         
         Sets the value for the attr2 slot of the current selection set. 
@@ -518,7 +518,7 @@ class Selection(object):
                                                      value)
         py2ecotect.conversation.Exec(arg_str)
     
-    def get_attr3(self):
+    def get_attr_3(self):
         """
         
         Retrieves the value for the attr3 slot of the current selection set. 
@@ -536,7 +536,7 @@ class Selection(object):
         val = py2ecotect.conversation.Request("get.selection.attr3")
         return string_util._convert_str_to_type(val, float)
     
-    def set_attr3(self, value):
+    def set_attr_3(self, value):
         """
         
         Sets the value for the attr3 slot of the current selection set. 
@@ -847,15 +847,15 @@ class Selection(object):
     area = property(fget = get_area, doc = "The surface area (in m^2) of the"
                     " current selection set, if planar")
     
-    attr1 = property(fget = get_attr1, fset = set_attr1, 
+    attr_1 = property(fget = get_attr_1, fset = set_attr_1, 
                         doc = "The value for the attr1 slot of the current"
                         " selection set.")
     
-    attr2 = property(fget = get_attr2, fset = set_attr2, 
+    attr_2 = property(fget = get_attr_2, fset = set_attr_2, 
                         doc = "The value for the attr2 slot of the current"
                         " selection set")
     
-    attr3 = property(fget = get_attr3, fset = set_attr3, 
+    attr_3 = property(fget = get_attr_3, fset = set_attr_3, 
                         doc = "The value for the attr3 slot of the current"
                         " selection set. ")
     
