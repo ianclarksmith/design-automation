@@ -8,7 +8,7 @@ class Document(IRhinoScript):
 
 
 
-    def create_preview_image(self, file, view, size, flags, wireframe):
+    def create_preview_image(self, file, view=None, size=None, flags=None, wireframe=None):
         """        
         Creates a bitmap preview image of the current model.
     
@@ -58,9 +58,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(388, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1), (VT_BOOL, 1)), u"CreatePreviewImage", None, file, view, flatten(size), flags, wireframe)
+        params = [file, view, size, flags, wireframe]
+        params_opt_or_req = [Required, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1), (VT_BOOL, 1)]
+        params_flattened = [file, view, flatten(size), flags, wireframe]
 
-    def document_modified(self, modified):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(388, 1, (VT_VARIANT, 0), params_magic_numbers, u"CreatePreviewImage", None, *params_flattened)
+
+    def document_modified(self, modified=None):
         """        
         Returns or sets the document's modified flag. The modified flag indicates whether or not any changes to the current document have been made.
 		Note, setting the document modified flag to false will prevent the "Do you want to save this file..." from displaying when you close Rhino.
@@ -82,9 +92,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(323, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"DocumentModified", None, modified)
+        params = [modified]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [modified]
 
-    def document_name(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(323, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentModified", None, *params_flattened)
+
+    def document_name):
         """        
         Returns the name of the currently loaded Rhino document (3DM file).
     
@@ -101,9 +121,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(113, 1, (VT_VARIANT, 0), (), u"DocumentName", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def document_path(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(113, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentName", None, *params_flattened)
+
+    def document_path):
         """        
         Returns the path of the currently loaded Rhino document (3DM file).
     
@@ -120,9 +150,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(301, 1, (VT_VARIANT, 0), (), u"DocumentPath", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def document_u_r_l(self, u_r_l):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(301, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentPath", None, *params_flattened)
+
+    def document_u_r_l(self, u_r_l=None):
         """        
         Returns or sets the uniform resource locator (URL) of the currently loaded Rhino document (3DM file).
     
@@ -146,9 +186,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(275, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DocumentURL", None, u_r_l)
+        params = [u_r_l]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [u_r_l]
 
-    def enable_redraw(self, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(275, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentURL", None, *params_flattened)
+
+    def enable_redraw(self, select=None):
         """        
         Enables or disables screen redrawing.
     
@@ -166,9 +216,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(317, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"EnableRedraw", None, select)
+        params = [select]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [select]
 
-    def extract_preview_image(self, file_name, model_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(317, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableRedraw", None, *params_flattened)
+
+    def extract_preview_image(self, file_name, model_name=None):
         """        
         Extracts the bitmap preview image from the specified model (.3dm).
     
@@ -202,9 +262,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(389, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"ExtractPreviewImage", None, file_name, model_name)
+        params = [file_name, model_name]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [file_name, model_name]
 
-    def is_document_modified(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(389, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtractPreviewImage", None, *params_flattened)
+
+    def is_document_modified):
         """        
         Verifies that the current document has been modified in some way.
     
@@ -218,9 +288,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(273, 1, (VT_VARIANT, 0), (), u"IsDocumentModified", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def notes(self, notes):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(273, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDocumentModified", None, *params_flattened)
+
+    def notes(self, notes=None):
         """        
         Returns or sets the document's notes.  Notes are generally created by using Rhino's Notes command.
     
@@ -244,9 +324,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(274, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"Notes", None, notes)
+        params = [notes]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [notes]
 
-    def read_file_version(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(274, 1, (VT_VARIANT, 0), params_magic_numbers, u"Notes", None, *params_flattened)
+
+    def read_file_version):
         """        
         Returns the file version of the current document.  Use this function to determine which version of Rhino last saved the document. Note, this function will not return values from referenced or merged files.
     
@@ -263,9 +353,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(737, 1, (VT_VARIANT, 0), (), u"ReadFileVersion", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def redraw(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(737, 1, (VT_VARIANT, 0), params_magic_numbers, u"ReadFileVersion", None, *params_flattened)
+
+    def redraw):
         """        
         Redraws all views.
     
@@ -276,9 +376,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(114, 1, (VT_VARIANT, 0), (), u"Redraw", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def render_antialias(self, style):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(114, 1, (VT_VARIANT, 0), params_magic_numbers, u"Redraw", None, *params_flattened)
+
+    def render_antialias(self, style=None):
         """        
         Returns or sets render antialiasing style.  Antialiasing is a process where more than one ray is shot per pixel in an attempt to better resolve the value of the
 		pixel.  Increasing the antialiasing level can add considerable time to the overall rendering.  See Rhino's DocumentProperties command (Rhino Render window) for details.
@@ -310,9 +420,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(333, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"RenderAntialias", None, style)
+        params = [style]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [style]
 
-    def render_color(self, item, color):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(333, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderAntialias", None, *params_flattened)
+
+    def render_color(self, item, color=None):
         """        
         Returns or sets the render ambient light or background color. Render colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed. See Rhino's DocumentProperties command (Rhino Render window) for details.
     
@@ -342,9 +462,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(331, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_I4, 1)), u"RenderColor", None, item, color)
+        params = [item, color]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_I4, 1)]
+        params_flattened = [item, color]
 
-    def render_mesh_density(self, density):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(331, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderColor", None, *params_flattened)
+
+    def render_mesh_density(self, density=None):
         """        
         Returns or sets the render mesh density property of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -369,9 +499,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(844, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"RenderMeshDensity", None, density)
+        params = [density]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [density]
 
-    def render_mesh_max_angle(self, angle):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(844, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshDensity", None, *params_flattened)
+
+    def render_mesh_max_angle(self, angle=None):
         """        
         Returns or sets the render mesh maximum angle property of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -396,9 +536,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(845, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"RenderMeshMaxAngle", None, angle)
+        params = [angle]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [angle]
 
-    def render_mesh_max_aspect_ratio(self, ratio):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(845, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMaxAngle", None, *params_flattened)
+
+    def render_mesh_max_aspect_ratio(self, ratio=None):
         """        
         Returns or sets the render mesh maximum aspect ratio property of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -423,9 +573,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(846, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"RenderMeshMaxAspectRatio", None, ratio)
+        params = [ratio]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [ratio]
 
-    def render_mesh_max_dist_edge_to_srf(self, distance):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(846, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMaxAspectRatio", None, *params_flattened)
+
+    def render_mesh_max_dist_edge_to_srf(self, distance=None):
         """        
         Returns or sets the render mesh maximum distance, edge to surface parameter of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -450,9 +610,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(849, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"RenderMeshMaxDistEdgeToSrf", None, distance)
+        params = [distance]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [distance]
 
-    def render_mesh_max_edge_length(self, length):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(849, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMaxDistEdgeToSrf", None, *params_flattened)
+
+    def render_mesh_max_edge_length(self, length=None):
         """        
         Returns or sets the render mesh maximum edge length parameter of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -477,9 +647,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(848, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"RenderMeshMaxEdgeLength", None, length)
+        params = [length]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [length]
 
-    def render_mesh_min_edge_length(self, length):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(848, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMaxEdgeLength", None, *params_flattened)
+
+    def render_mesh_min_edge_length(self, length=None):
         """        
         Returns or sets the render mesh minimum edge length parameter of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -504,9 +684,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(847, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"RenderMeshMinEdgeLength", None, length)
+        params = [length]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [length]
 
-    def render_mesh_min_initial_grid_quads(self, quads):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(847, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMinEdgeLength", None, *params_flattened)
+
+    def render_mesh_min_initial_grid_quads(self, quads=None):
         """        
         Returns or sets the render mesh minimum initial grid quads parameter of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -531,9 +721,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(850, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"RenderMeshMinInitialGridQuads", None, quads)
+        params = [quads]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [quads]
 
-    def render_mesh_quality(self, quality):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(850, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMinInitialGridQuads", None, *params_flattened)
+
+    def render_mesh_quality(self, quality=None):
         """        
         Returns or sets the render mesh quality of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -565,9 +765,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(843, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"RenderMeshQuality", None, quality)
+        params = [quality]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [quality]
 
-    def render_mesh_settings(self, settings):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(843, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshQuality", None, *params_flattened)
+
+    def render_mesh_settings(self, settings=None):
         """        
         Returns or sets the render mesh settings of the active document.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -601,7 +811,17 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(851, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"RenderMeshSettings", None, settings)
+        params = [settings]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [settings]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(851, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshSettings", None, *params_flattened)
 
     def render_resolution(self, resolution):
         """        
@@ -627,9 +847,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(332, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"RenderResolution", None, flatten(resolution))
+        params = [resolution]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(resolution)]
 
-    def render_settings(self, settings):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(332, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderResolution", None, *params_flattened)
+
+    def render_settings(self, settings=None):
         """        
         Returns or sets render settings.  See Rhino's DocumentProperties command (Rhino Render window) for details.
     
@@ -664,9 +894,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(334, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"RenderSettings", None, settings)
+        params = [settings]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [settings]
 
-    def unit_absolute_tolerance(self, abs_tol):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(334, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderSettings", None, *params_flattened)
+
+    def unit_absolute_tolerance(self, abs_tol=None):
         """        
         Returns or sets the document's absolute tolerance parameter.  Absolute tolerance is measured in drawing units. See Rhino's DocumentProperties command (Units window) for details.
     
@@ -690,9 +930,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(324, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"UnitAbsoluteTolerance", None, abs_tol)
+        params = [abs_tol]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [abs_tol]
 
-    def unit_angle_tolerance(self, angle_tol):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(324, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitAbsoluteTolerance", None, *params_flattened)
+
+    def unit_angle_tolerance(self, angle_tol=None):
         """        
         Returns or sets the document's angle tolerance parameter.  Angle tolerance is measured degrees.  See Rhino's DocumentProperties command (Units window) for details.
     
@@ -716,9 +966,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(325, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"UnitAngleTolerance", None, angle_tol)
+        params = [angle_tol]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [angle_tol]
 
-    def unit_custom_unit_system(self, units, scale, name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(325, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitAngleTolerance", None, *params_flattened)
+
+    def unit_custom_unit_system(self, units, scale=None, name=None):
         """        
         Sets the document's units system to a user-defined system.  This overrides the units system set using the UnitSystem method.  See Rhino's DocumentProperties command (Units window) for details.
     
@@ -745,9 +1005,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(326, 1, (VT_VARIANT, 0), ((VT_R8, 1), (VT_BOOL, 1), (VT_BSTR, 1)), u"UnitCustomUnitSystem", None, units, scale, name)
+        params = [units, scale, name]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_R8, 1), (VT_BOOL, 1), (VT_BSTR, 1)]
+        params_flattened = [units, scale, name]
 
-    def unit_distance_display_mode(self, mode):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(326, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitCustomUnitSystem", None, *params_flattened)
+
+    def unit_distance_display_mode(self, mode=None):
         """        
         Returns or sets the document's distance display mode parameter.  See Rhino's DocumentProperties command (Units window) for details.
     
@@ -778,9 +1048,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(327, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"UnitDistanceDisplayMode", None, mode)
+        params = [mode]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [mode]
 
-    def unit_distance_display_precision(self, precision):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(327, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitDistanceDisplayMode", None, *params_flattened)
+
+    def unit_distance_display_precision(self, precision=None):
         """        
         Returns or sets the document's distance display precision parameter.  See Rhino's DocumentProperties command (Units window) for details.
     
@@ -804,9 +1084,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(328, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"UnitDistanceDisplayPrecision", None, precision)
+        params = [precision]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [precision]
 
-    def unit_relative_tolerance(self, rel_tol):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(328, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitDistanceDisplayPrecision", None, *params_flattened)
+
+    def unit_relative_tolerance(self, rel_tol=None):
         """        
         Returns or sets the document's relative tolerance parameter.  Relative tolerance is measured in percent. See Rhino's DocumentProperties command (Units window) for details.
     
@@ -830,9 +1120,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(329, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"UnitRelativeTolerance", None, rel_tol)
+        params = [rel_tol]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [rel_tol]
 
-    def unit_scale(self, to_system, from_system):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(329, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitRelativeTolerance", None, *params_flattened)
+
+    def unit_scale(self, to_system, from_system=None):
         """        
         Returns the scale factor for changing between unit systems.
     
@@ -909,9 +1209,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(868, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_I2, 1)), u"UnitScale", None, to_system, from_system)
+        params = [to_system, from_system]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_I2, 1)]
+        params_flattened = [to_system, from_system]
 
-    def unit_system(self, system, scale):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(868, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitScale", None, *params_flattened)
+
+    def unit_system(self, system=None, scale=None):
         """        
         Returns or sets the document's units system.  See Rhino's DocumentProperties command (Units window) for details.
     
@@ -988,9 +1298,19 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(330, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BOOL, 1)), u"UnitSystem", None, system, scale)
+        params = [system, scale]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_BOOL, 1)]
+        params_flattened = [system, scale]
 
-    def unit_system_name(self, capitalize, singular, abbreviate):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(330, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitSystem", None, *params_flattened)
+
+    def unit_system_name(self, capitalize=None, singular=None, abbreviate=None):
         """        
         Returns the name of the current unit system.
     
@@ -1014,5 +1334,15 @@ class Document(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(492, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"UnitSystemName", None, capitalize, singular, abbreviate)
+        params = [capitalize, singular, abbreviate]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [capitalize, singular, abbreviate]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(492, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitSystemName", None, *params_flattened)
 

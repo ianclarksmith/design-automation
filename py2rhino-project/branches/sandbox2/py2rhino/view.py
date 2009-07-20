@@ -8,7 +8,7 @@ class View(IRhinoScript):
 
 
 
-    def add_named_c_plane(self, name, view):
+    def add_named_c_plane(self, name, view=None):
         """        
         Adds a new named construction plane to the document.
     
@@ -32,9 +32,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(280, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"AddNamedCPlane", None, name, view)
+        params = [name, view]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [name, view]
 
-    def add_named_view(self, name, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(280, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddNamedCPlane", None, *params_flattened)
+
+    def add_named_view(self, name, view=None):
         """        
         Adds a new named view to the document.
     
@@ -58,9 +68,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(281, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"AddNamedView", None, name, view)
+        params = [name, view]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [name, view]
 
-    def background_bitmap(self, view, file_name, point, width):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(281, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddNamedView", None, *params_flattened)
+
+    def background_bitmap(self, view=None, file_name=None, point=None, width=None):
         """        
         Returns or sets the background bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
     
@@ -106,9 +126,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(780, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)), u"BackgroundBitmap", None, view, file_name, flatten(point), width)
+        params = [view, file_name, point, width]
+        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
+        params_flattened = [view, file_name, flatten(point), width]
 
-    def current_detail(self, layout, detail, return_names):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(780, 1, (VT_VARIANT, 0), params_magic_numbers, u"BackgroundBitmap", None, *params_flattened)
+
+    def current_detail(self, layout, detail=None, return_names=None):
         """        
         Returns or changes the current detail view in a page layout view.
     
@@ -138,9 +168,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(923, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"CurrentDetail", None, layout, detail, return_names)
+        params = [layout, detail, return_names]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [layout, detail, return_names]
 
-    def current_view(self, view, return_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(923, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurrentDetail", None, *params_flattened)
+
+    def current_view(self, view=None, return_name=None):
         """        
         Returns or sets the currently active view.
     
@@ -167,7 +207,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(251, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"CurrentView", None, view, return_name)
+        params = [view, return_name]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, return_name]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(251, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurrentView", None, *params_flattened)
 
     def delete_named_c_plane(self, name):
         """        
@@ -190,7 +240,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(284, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteNamedCPlane", None, name)
+        params = [name]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [name]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(284, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteNamedCPlane", None, *params_flattened)
 
     def delete_named_view(self, name):
         """        
@@ -213,9 +273,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(285, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteNamedView", None, name)
+        params = [name]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [name]
 
-    def detail_names(self, layout, return_names):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(285, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteNamedView", None, *params_flattened)
+
+    def detail_names(self, layout, return_names=None):
         """        
         Returns the names, or titles, or identifiers of all detail views in a page layout view.
     
@@ -239,7 +309,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(922, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"DetailNames", None, layout, return_names)
+        params = [layout, return_names]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [layout, return_names]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(922, 1, (VT_VARIANT, 0), params_magic_numbers, u"DetailNames", None, *params_flattened)
 
     def is_background_bitmap(self, view):
         """        
@@ -262,7 +342,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(779, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsBackgroundBitmap", None, view)
+        params = [view]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(779, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBackgroundBitmap", None, *params_flattened)
 
     def is_detail(self, layout, detail):
         """        
@@ -285,7 +375,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(921, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"IsDetail", None, layout, detail)
+        params = [layout, detail]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [layout, detail]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(921, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDetail", None, *params_flattened)
 
     def is_layout(self, layout):
         """        
@@ -305,7 +405,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(920, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsLayout", None, layout)
+        params = [layout]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [layout]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(920, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayout", None, *params_flattened)
 
     def is_view(self, view):
         """        
@@ -328,7 +438,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(252, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsView", None, view)
+        params = [view]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(252, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsView", None, *params_flattened)
 
     def is_view_current(self, view):
         """        
@@ -351,9 +471,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(253, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsViewCurrent", None, view)
+        params = [view]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
 
-    def is_view_maximized(self, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(253, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsViewCurrent", None, *params_flattened)
+
+    def is_view_maximized(self, view=None):
         """        
         Verifies that the specified view is maximized - enlarged so as to fill the entire Rhino window.
     
@@ -374,9 +504,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(254, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsViewMaximized", None, view)
+        params = [view]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
 
-    def is_view_perspective(self, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(254, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsViewMaximized", None, *params_flattened)
+
+    def is_view_perspective(self, view=None):
         """        
         Verifies that the specified view's projection is set to perspective.
     
@@ -397,9 +537,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(255, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsViewPerspective", None, view)
+        params = [view]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
 
-    def is_view_title_visible(self, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(255, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsViewPerspective", None, *params_flattened)
+
+    def is_view_title_visible(self, view=None):
         """        
         Verifies that the specified view's title window is visible.
     
@@ -420,7 +570,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(256, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsViewTitleVisible", None, view)
+        params = [view]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(256, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsViewTitleVisible", None, *params_flattened)
 
     def is_wallpaper(self, view):
         """        
@@ -443,9 +603,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(531, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsWallpaper", None, view)
+        params = [view]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
 
-    def maximize_restore_view(self, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(531, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsWallpaper", None, *params_flattened)
+
+    def maximize_restore_view(self, view=None):
         """        
         Toggles a view's maximized/restore window state of the specified view.
     
@@ -460,7 +630,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(257, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MaximizeRestoreView", None, view)
+        params = [view]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(257, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaximizeRestoreView", None, *params_flattened)
 
     def named_c_plane(self, name):
         """        
@@ -483,9 +663,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(286, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"NamedCPlane", None, name)
+        params = [name]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [name]
 
-    def named_c_planes(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(286, 1, (VT_VARIANT, 0), params_magic_numbers, u"NamedCPlane", None, *params_flattened)
+
+    def named_c_planes):
         """        
         Returns the names of all named construction planes in the document.
     
@@ -502,9 +692,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(258, 1, (VT_VARIANT, 0), (), u"NamedCPlanes", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def named_views(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(258, 1, (VT_VARIANT, 0), params_magic_numbers, u"NamedCPlanes", None, *params_flattened)
+
+    def named_views):
         """        
         Returns the names of all named views in the document.
     
@@ -521,7 +721,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(259, 1, (VT_VARIANT, 0), (), u"NamedViews", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(259, 1, (VT_VARIANT, 0), params_magic_numbers, u"NamedViews", None, *params_flattened)
 
     def rename_view(self, old_title, new_title):
         """        
@@ -547,9 +757,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(260, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"RenameView", None, old_title, new_title)
+        params = [old_title, new_title]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [old_title, new_title]
 
-    def restore_named_c_plane(self, name, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(260, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenameView", None, *params_flattened)
+
+    def restore_named_c_plane(self, name, view=None):
         """        
         Restores a named construction plane to the specified view.
     
@@ -573,9 +793,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(282, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"RestoreNamedCPlane", None, name, view)
+        params = [name, view]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [name, view]
 
-    def restore_named_view(self, name, view, restore_bitmap):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(282, 1, (VT_VARIANT, 0), params_magic_numbers, u"RestoreNamedCPlane", None, *params_flattened)
+
+    def restore_named_view(self, name, view=None, restore_bitmap=None):
         """        
         Restores a named view to the specified view.
     
@@ -602,9 +832,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(283, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"RestoreNamedView", None, name, view, restore_bitmap)
+        params = [name, view, restore_bitmap]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [name, view, restore_bitmap]
 
-    def rotate_camera(self, view, direction, angle):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(283, 1, (VT_VARIANT, 0), params_magic_numbers, u"RestoreNamedView", None, *params_flattened)
+
+    def rotate_camera(self, view=None, direction=None, angle=None):
         """        
         Rotates a perspective-projected view's camera. See the RotateCamera command in the Rhino help file for more details.
     
@@ -631,9 +871,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(519, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1)), u"RotateCamera", None, view, direction, angle)
+        params = [view, direction, angle]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1)]
+        params_flattened = [view, direction, angle]
 
-    def rotate_view(self, view, direction, angle):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(519, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotateCamera", None, *params_flattened)
+
+    def rotate_view(self, view=None, direction=None, angle=None):
         """        
         Rotates a view. See the RotateView command in the Rhino help file for more information.
     
@@ -660,9 +910,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(650, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1)), u"RotateView", None, view, direction, angle)
+        params = [view, direction, angle]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1)]
+        params_flattened = [view, direction, angle]
 
-    def show_grid(self, view, show):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(650, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotateView", None, *params_flattened)
+
+    def show_grid(self, view=None, show=None):
         """        
         Shows or hides a view's construction plane grid.
     
@@ -689,9 +949,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(738, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ShowGrid", None, view, show)
+        params = [view, show]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, show]
 
-    def show_grid_axes(self, view, show):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(738, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowGrid", None, *params_flattened)
+
+    def show_grid_axes(self, view=None, show=None):
         """        
         Shows or hides a view's construction plane grid axes.
     
@@ -718,9 +988,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(739, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ShowGridAxes", None, view, show)
+        params = [view, show]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, show]
 
-    def show_view_title(self, view, state):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(739, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowGridAxes", None, *params_flattened)
+
+    def show_view_title(self, view=None, state=None):
         """        
         Shows or hides the title window of a view.
     
@@ -738,9 +1018,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(261, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ShowViewTitle", None, view, state)
+        params = [view, state]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, state]
 
-    def show_world_axes(self, view, show):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(261, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowViewTitle", None, *params_flattened)
+
+    def show_world_axes(self, view=None, show=None):
         """        
         Shows or hides a view's world axes icon.
     
@@ -767,9 +1057,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(740, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ShowWorldAxes", None, view, show)
+        params = [view, show]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, show]
 
-    def synchronize_c_planes(self, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(740, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowWorldAxes", None, *params_flattened)
+
+    def synchronize_c_planes(self, view=None):
         """        
         Synchronizes all views and their construction plane to that of a specified view's construction plane.
 		Normally, changing a view's construction plane is unique to that view.  This method changes the construction planes and normal views of all views to be of a right-angle orientation based on a specified view's construction plane.  This save the effort of changing all views independently, and maintains a standard right-angle view arrangement.
@@ -792,9 +1092,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(289, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"SynchronizeCPlanes", None, view)
+        params = [view]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
 
-    def tilt_view(self, view, direction, angle):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(289, 1, (VT_VARIANT, 0), params_magic_numbers, u"SynchronizeCPlanes", None, *params_flattened)
+
+    def tilt_view(self, view=None, direction=None, angle=None):
         """        
         Tilts a view by rotating the camera up vector.  See the TiltView command in the Rhino help file for more details.
     
@@ -821,9 +1131,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(518, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1)), u"TiltView", None, view, direction, angle)
+        params = [view, direction, angle]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1)]
+        params_flattened = [view, direction, angle]
 
-    def view_c_plane(self, view, plane):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(518, 1, (VT_VARIANT, 0), params_magic_numbers, u"TiltView", None, *params_flattened)
+
+    def view_c_plane(self, view=None, plane=None):
         """        
         Returns or sets the specified view's construction plane.
     
@@ -859,9 +1179,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(264, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"ViewCPlane", None, view, flatten(plane))
+        params = [view, plane]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [view, flatten(plane)]
 
-    def view_camera(self, view, camera):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(264, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewCPlane", None, *params_flattened)
+
+    def view_camera(self, view=None, camera=None):
         """        
         Returns or sets the camera location of the specified view.
     
@@ -888,9 +1218,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(394, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"ViewCamera", None, view, flatten(camera))
+        params = [view, camera]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [view, flatten(camera)]
 
-    def view_camera_lens(self, view, length):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(394, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewCamera", None, *params_flattened)
+
+    def view_camera_lens(self, view=None, length=None):
         """        
         Returns or sets the 35mm camera lens length of the specified perspective projection view.
     
@@ -917,9 +1257,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(262, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"ViewCameraLens", None, view, length)
+        params = [view, length]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [view, length]
 
-    def view_camera_plane(self, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(262, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewCameraLens", None, *params_flattened)
+
+    def view_camera_plane(self, view=None):
         """        
         Returns the orientation of a view's camera.
     
@@ -940,9 +1290,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(778, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ViewCameraPlane", None, view)
+        params = [view]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
 
-    def view_camera_target(self, view, camera, target):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(778, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewCameraPlane", None, *params_flattened)
+
+    def view_camera_target(self, view=None, camera=None, target=None):
         """        
         Returns or sets the camera and target positions of the specified view.
     
@@ -972,9 +1332,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(263, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"ViewCameraTarget", None, view, flatten(camera), flatten(target))
+        params = [view, camera, target]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [view, flatten(camera), flatten(target)]
 
-    def view_camera_up(self, view, up_vector):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(263, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewCameraTarget", None, *params_flattened)
+
+    def view_camera_up(self, view=None, up_vector=None):
         """        
         Returns or sets the camera up direction of specified view.
     
@@ -1001,9 +1371,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(517, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"ViewCameraUp", None, view, flatten(up_vector))
+        params = [view, up_vector]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [view, flatten(up_vector)]
 
-    def view_display_mode(self, view, mode):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(517, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewCameraUp", None, *params_flattened)
+
+    def view_display_mode(self, view=None, mode=None):
         """        
         Returns or sets a view's display mode.  A view's display mode can be either wireframe, shaded, or render preview.
     
@@ -1037,9 +1417,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(290, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"ViewDisplayMode", None, view, mode)
+        params = [view, mode]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [view, mode]
 
-    def view_display_mode_ex(self, view, mode, return_names):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(290, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewDisplayMode", None, *params_flattened)
+
+    def view_display_mode_ex(self, view=None, mode=None, return_names=None):
         """        
         Returns or sets a view's display mode.  Unlike the ViewDisplayMode method, which only allows you to set a view to wireframe, shaded, or render preview, this method allows you to set a view to any display mode including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
     
@@ -1069,7 +1459,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(910, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"ViewDisplayModeEx", None, view, mode, return_names)
+        params = [view, mode, return_names]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, mode, return_names]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(910, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewDisplayModeEx", None, *params_flattened)
 
     def view_display_mode_name(self, mode):
         """        
@@ -1092,9 +1492,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(909, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ViewDisplayModeName", None, mode)
+        params = [mode]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [mode]
 
-    def view_display_modes(self, return_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(909, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewDisplayModeName", None, *params_flattened)
+
+    def view_display_modes(self, return_name=None):
         """        
         Returns a list of view display modes, including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
     
@@ -1115,9 +1525,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(908, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"ViewDisplayModes", None, return_name)
+        params = [return_name]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [return_name]
 
-    def view_names(self, return_names, type):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(908, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewDisplayModes", None, *params_flattened)
+
+    def view_names(self, return_names=None, type=None):
         """        
         Returns the names, or titles, or identifiers of all views in the document.
     
@@ -1148,9 +1568,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(265, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_I2, 1)), u"ViewNames", None, return_names, type)
+        params = [return_names, type]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_I2, 1)]
+        params_flattened = [return_names, type]
 
-    def view_near_corners(self, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(265, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewNames", None, *params_flattened)
+
+    def view_near_corners(self, view=None):
         """        
         Returns the 3-D corners points of a view's near clipping plane rectangle. This function can be useful in determining the "real world" size of a parallel-projected view.
     
@@ -1171,9 +1601,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(823, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ViewNearCorners", None, view)
+        params = [view]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
 
-    def view_projection(self, view, mode):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(823, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewNearCorners", None, *params_flattened)
+
+    def view_projection(self, view=None, mode=None):
         """        
         Returns or sets a view's projection mode.  A view's projection mode can be either parallel or perspective.
     
@@ -1205,9 +1645,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(266, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"ViewProjection", None, view, mode)
+        params = [view, mode]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [view, mode]
 
-    def view_radius(self, view, radius):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(266, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewProjection", None, *params_flattened)
+
+    def view_radius(self, view=None, radius=None):
         """        
         Returns or sets the radius of the viewing frustum of a parallel-projected view. This function is useful when you need an absolute zoom factor for a parallel-projected view.
     
@@ -1234,9 +1684,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(824, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"ViewRadius", None, view, radius)
+        params = [view, radius]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [view, radius]
 
-    def view_size(self, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(824, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewRadius", None, *params_flattened)
+
+    def view_size(self, view=None):
         """        
         Returns the width and height in pixels of the specified view.
     
@@ -1257,9 +1717,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(267, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ViewSize", None, view)
+        params = [view]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [view]
 
-    def view_target(self, view, target):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(267, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewSize", None, *params_flattened)
+
+    def view_target(self, view=None, target=None):
         """        
         Returns or sets the target location of the specified view.
     
@@ -1286,7 +1756,17 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(395, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"ViewTarget", None, view, flatten(target))
+        params = [view, target]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [view, flatten(target)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(395, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewTarget", None, *params_flattened)
 
     def view_title(self, mode):
         """        
@@ -1309,9 +1789,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(907, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ViewTitle", None, mode)
+        params = [mode]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [mode]
 
-    def wallpaper(self, view, file_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(907, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewTitle", None, *params_flattened)
+
+    def wallpaper(self, view=None, file_name=None):
         """        
         Returns or sets the wallpaper bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
     
@@ -1349,9 +1839,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(532, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"Wallpaper", None, view, file_name)
+        params = [view, file_name]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [view, file_name]
 
-    def wallpaper_gray_scale(self, view, gray_scale):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(532, 1, (VT_VARIANT, 0), params_magic_numbers, u"Wallpaper", None, *params_flattened)
+
+    def wallpaper_gray_scale(self, view=None, gray_scale=None):
         """        
         Returns or sets the grayscale display option of the wallpaper bitmap of the specified view.
     
@@ -1378,9 +1878,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(534, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"WallpaperGrayScale", None, view, gray_scale)
+        params = [view, gray_scale]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, gray_scale]
 
-    def wallpaper_hidden(self, view, hidden):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(534, 1, (VT_VARIANT, 0), params_magic_numbers, u"WallpaperGrayScale", None, *params_flattened)
+
+    def wallpaper_hidden(self, view=None, hidden=None):
         """        
         Returns or sets the visibility of the wallpaper bitmap of the specified view.
     
@@ -1407,9 +1917,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(533, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"WallpaperHidden", None, view, hidden)
+        params = [view, hidden]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, hidden]
 
-    def zoom_bounding_box(self, corners, view, all):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(533, 1, (VT_VARIANT, 0), params_magic_numbers, u"WallpaperHidden", None, *params_flattened)
+
+    def zoom_bounding_box(self, corners, view=None, all=None):
         """        
         Zooms to the extents of a specified bounding box in the specified view, or in the active view.
     
@@ -1430,9 +1950,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(479, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"ZoomBoundingBox", None, flatten(corners), view, all)
+        params = [corners, view, all]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(corners), view, all]
 
-    def zoom_extents(self, view, all):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(479, 1, (VT_VARIANT, 0), params_magic_numbers, u"ZoomBoundingBox", None, *params_flattened)
+
+    def zoom_extents(self, view=None, all=None):
         """        
         Zooms to the extents of visible objects in the specified view, or in the active view.
     
@@ -1450,9 +1980,19 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(375, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ZoomExtents", None, view, all)
+        params = [view, all]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, all]
 
-    def zoom_selected(self, view, all):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(375, 1, (VT_VARIANT, 0), params_magic_numbers, u"ZoomExtents", None, *params_flattened)
+
+    def zoom_selected(self, view=None, all=None):
         """        
         Zooms to the extents of selected objects in the specified view, or in the active view.
     
@@ -1470,5 +2010,15 @@ class View(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(376, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ZoomSelected", None, view, all)
+        params = [view, all]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [view, all]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(376, 1, (VT_VARIANT, 0), params_magic_numbers, u"ZoomSelected", None, *params_flattened)
 

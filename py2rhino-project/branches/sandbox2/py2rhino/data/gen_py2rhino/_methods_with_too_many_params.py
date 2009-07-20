@@ -10,40 +10,45 @@ block = {
     	# 2: vaScale, Optional
     	# 3: vaAngle, Optional
     	# 4: vaRotate, Optional
+        
         "Name": 	("Required", "str"),
         "Point": 	("Required", "arr_of_???"),
         "Scale": 	("Optional", "arr_of_???"),
         "Angle": 	("Optional", "dbl"),
         "Normal": 	("Optional", "arr_of_???"),
-        "Xform": 	("Required", "arr_of_???"),
+        #"Xform": 	("Required", "arr_of_???"),
     },
 },
 curve = {
     "curve_area": {
     	# The COM object lists the following parameters
     	# 0: vaObject, Required
-        "Object": 	("Required", "str"),
-        "Objects": 	("Required", "arr_of_???"),
+        
+        #"Object": 	("Required", "str"),#this works with a single id
+        "Objects": 	("Required", "arr_of_???"),#this works with VT_VARIANT - both lists and single items work
     },
     "curve_area_centroid": {
     	# The COM object lists the following parameters
     	# 0: vaObject, Required
-        "Object": 	("Required", "str"),
+        
+        #"Object": 	("Required", "str"),
         "Objects": 	("Required", "arr_of_???"),
     },
     "curve_closest_object": {
     	# The COM object lists the following parameters
     	# 0: vaCurve, Required
     	# 1: vaObjects, Required
+        
         "Curve": 	("Required", "str"),
-        "Object": 	("Required", "str"),
+        #"Object": 	("Required", "str"),
         "Objects": 	("Required", "arr_of_???"),
     },
     "curve_knot_count": {
     	# The COM object lists the following parameters
     	# 0: vaObject, Required
-        "Object": 	("Required", "str"),
-        "Index": 	("Optional", "int"),
+        
+        "Object": 	("Required", "str"),#this works fine
+        "Index": 	("Optional", "int"),#this works fine, but we need to deal with optional arg
     },
     "curve_knots": {
     	# The COM object lists the following parameters

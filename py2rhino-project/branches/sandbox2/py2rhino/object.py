@@ -8,7 +8,7 @@ class Object(IRhinoScript):
 
 
 
-    def add_object_mesh(self, object, quality, enable):
+    def add_object_mesh(self, object, quality=None, enable=None):
         """        
         Adds custom render mesh parameters to a meshable object, such as a surface or a polysurface.  If an object has custom render mesh parameters and they are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -46,9 +46,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(866, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1)), u"AddObjectMesh", None, object, quality, enable)
+        params = [object, quality, enable]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1)]
+        params_flattened = [object, quality, enable]
 
-    def box_morph_object(self, object, objects, box_points, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(866, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddObjectMesh", None, *params_flattened)
+
+    def box_morph_object(self, object, objects, box_points, copy=None):
         """        
         Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
     
@@ -81,9 +91,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(918, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"BoxMorphObject", None, object, flatten(objects), flatten(box_points), copy)
+        params = [object, objects, box_points, copy]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(objects), flatten(box_points), copy]
 
-    def copy_object(self, object, start, end, translation):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(918, 1, (VT_VARIANT, 0), params_magic_numbers, u"BoxMorphObject", None, *params_flattened)
+
+    def copy_object(self, object, start=None, end=None, translation=None):
         """        
         Copies a single object from one location to another, or in-place.
     
@@ -113,9 +133,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(184, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"CopyObject", None, object, flatten(start), flatten(end), flatten(translation))
+        params = [object, start, end, translation]
+        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [object, flatten(start), flatten(end), flatten(translation)]
 
-    def copy_objects(self, objects, start, end, translation):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(184, 1, (VT_VARIANT, 0), params_magic_numbers, u"CopyObject", None, *params_flattened)
+
+    def copy_objects(self, objects, start=None, end=None, translation=None):
         """        
         Copies one or more objects from one location to another, or in-place.
     
@@ -145,7 +175,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(295, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"CopyObjects", None, flatten(objects), flatten(start), flatten(end), flatten(translation))
+        params = [objects, start, end, translation]
+        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(objects), flatten(start), flatten(end), flatten(translation)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(295, 1, (VT_VARIANT, 0), params_magic_numbers, u"CopyObjects", None, *params_flattened)
 
     def delete_object(self, object):
         """        
@@ -168,7 +208,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(185, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(185, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteObject", None, *params_flattened)
 
     def delete_objects(self, objects):
         """        
@@ -191,9 +241,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(186, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"DeleteObjects", None, flatten(objects))
+        params = [objects]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
 
-    def enable_object_mesh(self, objects, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(186, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteObjects", None, *params_flattened)
+
+    def enable_object_mesh(self, objects, enable=None):
         """        
         Enables or disables an object's custom render mesh parameters. If an object's custom render mesh parameters are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -221,9 +281,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(856, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BOOL, 1)), u"EnableObjectMesh", None, flatten(objects), enable)
+        params = [objects, enable]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), enable]
 
-    def flash_object(self, object, objects, style):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(856, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableObjectMesh", None, *params_flattened)
+
+    def flash_object(self, object, objects, style=None):
         """        
         Causes the selection state of one or more objects to change momentarily so the object appears to flash on the screen.
     
@@ -244,7 +314,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(869, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"FlashObject", None, object, flatten(objects), style)
+        params = [object, objects, style]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(objects), style]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(869, 1, (VT_VARIANT, 0), params_magic_numbers, u"FlashObject", None, *params_flattened)
 
     def hide_object(self, object):
         """        
@@ -267,7 +347,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(187, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"HideObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(187, 1, (VT_VARIANT, 0), params_magic_numbers, u"HideObject", None, *params_flattened)
 
     def hide_objects(self, objects):
         """        
@@ -290,7 +380,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(303, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"HideObjects", None, flatten(objects))
+        params = [objects]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(303, 1, (VT_VARIANT, 0), params_magic_numbers, u"HideObjects", None, *params_flattened)
 
     def is_layout_object(self, object):
         """        
@@ -310,7 +410,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(919, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsLayoutObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(919, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayoutObject", None, *params_flattened)
 
     def is_object(self, object):
         """        
@@ -327,7 +437,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(46, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(46, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObject", None, *params_flattened)
 
     def is_object_hidden(self, object):
         """        
@@ -347,9 +467,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(47, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObjectHidden", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def is_object_in_box(self, object, box, mode):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(47, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectHidden", None, *params_flattened)
+
+    def is_object_in_box(self, object, box, mode=None):
         """        
         Verifies an object's bounding box is inside of another bounding box.
     
@@ -378,9 +508,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(799, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"IsObjectInBox", None, object, flatten(box), mode)
+        params = [object, box, mode]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(box), mode]
 
-    def is_object_in_group(self, object, group):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(799, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectInBox", None, *params_flattened)
+
+    def is_object_in_group(self, object, group=None):
         """        
         Verifies that an object is a member of a specified group.
     
@@ -401,7 +541,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(188, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"IsObjectInGroup", None, object, group)
+        params = [object, group]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(188, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectInGroup", None, *params_flattened)
 
     def is_object_locked(self, object):
         """        
@@ -421,7 +571,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(48, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObjectLocked", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(48, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectLocked", None, *params_flattened)
 
     def is_object_normal(self, object):
         """        
@@ -441,7 +601,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(49, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObjectNormal", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(49, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectNormal", None, *params_flattened)
 
     def is_object_reference(self, object):
         """        
@@ -461,7 +631,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(271, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObjectReference", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(271, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectReference", None, *params_flattened)
 
     def is_object_selectable(self, object):
         """        
@@ -481,7 +661,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(307, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObjectSelectable", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(307, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectSelectable", None, *params_flattened)
 
     def is_object_selected(self, object):
         """        
@@ -501,7 +691,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(50, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObjectSelected", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(50, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectSelected", None, *params_flattened)
 
     def is_object_solid(self, object):
         """        
@@ -521,7 +721,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(189, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObjectSolid", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(189, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectSolid", None, *params_flattened)
 
     def is_object_valid(self, object):
         """        
@@ -541,9 +751,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(522, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsObjectValid", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def is_visible_in_view(self, object, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(522, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectValid", None, *params_flattened)
+
+    def is_visible_in_view(self, object, view=None):
         """        
         Verifies that an object is visible in a view.
     
@@ -564,7 +784,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(727, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"IsVisibleInView", None, object, view)
+        params = [object, view]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, view]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(727, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVisibleInView", None, *params_flattened)
 
     def lock_object(self, object):
         """        
@@ -587,7 +817,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(190, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"LockObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(190, 1, (VT_VARIANT, 0), params_magic_numbers, u"LockObject", None, *params_flattened)
 
     def lock_objects(self, objects):
         """        
@@ -610,9 +850,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(304, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"LockObjects", None, flatten(objects))
+        params = [objects]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
 
-    def match_object_attributes(self, target, targets, source):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(304, 1, (VT_VARIANT, 0), params_magic_numbers, u"LockObjects", None, *params_flattened)
+
+    def match_object_attributes(self, target, targets, source=None):
         """        
         Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
     
@@ -639,9 +889,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(781, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"MatchObjectAttributes", None, target, flatten(targets), source)
+        params = [target, targets, source]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
+        params_flattened = [target, flatten(targets), source]
 
-    def mirror_object(self, object, start_pt, end_pt, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(781, 1, (VT_VARIANT, 0), params_magic_numbers, u"MatchObjectAttributes", None, *params_flattened)
+
+    def mirror_object(self, object, start_pt, end_pt, copy=None):
         """        
         Mirrors a single object.
     
@@ -671,9 +931,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(589, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"MirrorObject", None, object, flatten(start_pt), flatten(end_pt), copy)
+        params = [object, start_pt, end_pt, copy]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(start_pt), flatten(end_pt), copy]
 
-    def mirror_objects(self, objects, start_pt, end_pt, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(589, 1, (VT_VARIANT, 0), params_magic_numbers, u"MirrorObject", None, *params_flattened)
+
+    def mirror_objects(self, objects, start_pt, end_pt, copy=None):
         """        
         Mirrors one or more objects.
     
@@ -703,7 +973,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(590, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"MirrorObjects", None, flatten(objects), flatten(start_pt), flatten(end_pt), copy)
+        params = [objects, start_pt, end_pt, copy]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), flatten(start_pt), flatten(end_pt), copy]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(590, 1, (VT_VARIANT, 0), params_magic_numbers, u"MirrorObjects", None, *params_flattened)
 
     def move_object(self, object, start, end, translation):
         """        
@@ -735,7 +1015,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(270, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"MoveObject", None, object, flatten(start), flatten(end), flatten(translation))
+        params = [object, start, end, translation]
+        params_opt_or_req = [Required, Required, Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [object, flatten(start), flatten(end), flatten(translation)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(270, 1, (VT_VARIANT, 0), params_magic_numbers, u"MoveObject", None, *params_flattened)
 
     def move_objects(self, objects, start, end, translation):
         """        
@@ -767,9 +1057,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(296, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"MoveObjects", None, flatten(objects), flatten(start), flatten(end), flatten(translation))
+        params = [objects, start, end, translation]
+        params_opt_or_req = [Required, Required, Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(objects), flatten(start), flatten(end), flatten(translation)]
 
-    def object_color(self, object, objects, color):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(296, 1, (VT_VARIANT, 0), params_magic_numbers, u"MoveObjects", None, *params_flattened)
+
+    def object_color(self, object, objects, color=None):
         """        
         Returns or modifies the color of an object.  Object colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     
@@ -802,9 +1102,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(191, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I4, 1)), u"ObjectColor", None, object, flatten(objects), color)
+        params = [object, objects, color]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I4, 1)]
+        params_flattened = [object, flatten(objects), color]
 
-    def object_color_source(self, object, objects, source):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(191, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectColor", None, *params_flattened)
+
+    def object_color_source(self, object, objects, source=None):
         """        
         Returns or modifies the color source of an object.   The color used to display objects is specified in one of four ways:
 		1. Color from layer.  The object's layer determines the object's color.
@@ -850,7 +1160,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(192, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectColorSource", None, object, flatten(objects), source)
+        params = [object, objects, source]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        params_flattened = [object, flatten(objects), source]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(192, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectColorSource", None, *params_flattened)
 
     def object_description(self, object):
         """        
@@ -873,9 +1193,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(470, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectDescription", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def object_dump(self, object, type):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(470, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectDescription", None, *params_flattened)
+
+    def object_dump(self, object, type=None):
         """        
         Returns a detailed description of an object.
     
@@ -908,7 +1238,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(705, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"ObjectDump", None, object, type)
+        params = [object, type]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [object, type]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(705, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectDump", None, *params_flattened)
 
     def object_groups(self, object):
         """        
@@ -931,7 +1271,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(193, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectGroups", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(193, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGroups", None, *params_flattened)
 
     def object_has_mesh(self, object):
         """        
@@ -954,9 +1304,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(867, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectHasMesh", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def object_layer(self, object, objects, layer):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(867, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectHasMesh", None, *params_flattened)
+
+    def object_layer(self, object, objects, layer=None):
         """        
         Returns or modifies the layer of an object.
     
@@ -989,9 +1349,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(51, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"ObjectLayer", None, object, flatten(objects), layer)
+        params = [object, objects, layer]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
+        params_flattened = [object, flatten(objects), layer]
 
-    def object_layout(self, object, layout, return_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(51, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectLayer", None, *params_flattened)
+
+    def object_layout(self, object, layout=None, return_name=None):
         """        
         Returns or changes the layout or model space of an object.
     
@@ -1021,9 +1391,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(924, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"ObjectLayout", None, object, layout, return_name)
+        params = [object, layout, return_name]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [object, layout, return_name]
 
-    def object_linetype(self, object, objects, layer):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(924, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectLayout", None, *params_flattened)
+
+    def object_linetype(self, object, objects, layer=None):
         """        
         Returns or modifies the linetype of an object.
     
@@ -1056,9 +1436,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(646, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"ObjectLinetype", None, object, flatten(objects), layer)
+        params = [object, objects, layer]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
+        params_flattened = [object, flatten(objects), layer]
 
-    def object_linetype_source(self, object, objects, source):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(646, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectLinetype", None, *params_flattened)
+
+    def object_linetype_source(self, object, objects, source=None):
         """        
         Returns or modifies the linetype source of an object.   The linetype used to display objects is specified in one of three ways:
 		1. Linetype from layer.  The object's layer determines the object's linetype.
@@ -1103,7 +1493,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(647, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectLinetypeSource", None, object, flatten(objects), source)
+        params = [object, objects, source]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        params_flattened = [object, flatten(objects), source]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(647, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectLinetypeSource", None, *params_flattened)
 
     def object_material_index(self, object):
         """        
@@ -1128,9 +1528,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(194, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectMaterialIndex", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def object_material_source(self, object, objects, source):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(194, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMaterialIndex", None, *params_flattened)
+
+    def object_material_source(self, object, objects, source=None):
         """        
         Returns or modifies the rendering material source of an object.
 		Rendering materials are stored in Rhino's rendering material table.  This table is conceptually an array.  Render materials associated with objects and layers are specified by zero based indices into this array.
@@ -1178,9 +1588,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(195, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectMaterialSource", None, object, flatten(objects), source)
+        params = [object, objects, source]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        params_flattened = [object, flatten(objects), source]
 
-    def object_mesh_density(self, object, density):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(195, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMaterialSource", None, *params_flattened)
+
+    def object_mesh_density(self, object, density=None):
         """        
         Returns or modifies an object's custom render mesh parameter's mesh density property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -1208,9 +1628,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(858, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"ObjectMeshDensity", None, object, density)
+        params = [object, density]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [object, density]
 
-    def object_mesh_max_angle(self, object, angle):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(858, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshDensity", None, *params_flattened)
+
+    def object_mesh_max_angle(self, object, angle=None):
         """        
         Returns or modifies an object's custom render mesh parameter's maximum angle property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -1238,9 +1668,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(859, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"ObjectMeshMaxAngle", None, object, angle)
+        params = [object, angle]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [object, angle]
 
-    def object_mesh_max_aspect_ratio(self, object, ratio):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(859, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMaxAngle", None, *params_flattened)
+
+    def object_mesh_max_aspect_ratio(self, object, ratio=None):
         """        
         Returns or modifies an object's custom render mesh parameter's maximum aspect ratio property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -1268,9 +1708,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(860, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"ObjectMeshMaxAspectRatio", None, object, ratio)
+        params = [object, ratio]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [object, ratio]
 
-    def object_mesh_max_dist_edge_to_srf(self, object, distance):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(860, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMaxAspectRatio", None, *params_flattened)
+
+    def object_mesh_max_dist_edge_to_srf(self, object, distance=None):
         """        
         Returns or modifies an object's custom render mesh parameter's maximum distance, edge to surface property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -1298,9 +1748,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(863, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"ObjectMeshMaxDistEdgeToSrf", None, object, distance)
+        params = [object, distance]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [object, distance]
 
-    def object_mesh_max_edge_length(self, object, length):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(863, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMaxDistEdgeToSrf", None, *params_flattened)
+
+    def object_mesh_max_edge_length(self, object, length=None):
         """        
         Returns or modifies an object's custom render mesh parameter's maximum edge length property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -1328,9 +1788,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(862, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"ObjectMeshMaxEdgeLength", None, object, length)
+        params = [object, length]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [object, length]
 
-    def object_mesh_min_edge_length(self, object, length):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(862, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMaxEdgeLength", None, *params_flattened)
+
+    def object_mesh_min_edge_length(self, object, length=None):
         """        
         Returns or modifies an object's custom render mesh parameter's minimum edge length property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -1358,9 +1828,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(861, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"ObjectMeshMinEdgeLength", None, object, length)
+        params = [object, length]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [object, length]
 
-    def object_mesh_min_initial_grid_quads(self, object, quads):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(861, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMinEdgeLength", None, *params_flattened)
+
+    def object_mesh_min_initial_grid_quads(self, object, quads=None):
         """        
         Returns or modifies an object's custom render mesh parameter's minimum initial grid quads property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -1388,9 +1868,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(864, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"ObjectMeshMinInitialGridQuads", None, object, quads)
+        params = [object, quads]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [object, quads]
 
-    def object_mesh_quality(self, object, quality):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(864, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMinInitialGridQuads", None, *params_flattened)
+
+    def object_mesh_quality(self, object, quality=None):
         """        
         Returns or sets the render mesh quality of an object's custom render mesh parameters.
     
@@ -1424,9 +1914,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(857, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"ObjectMeshQuality", None, object, quality)
+        params = [object, quality]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [object, quality]
 
-    def object_mesh_settings(self, object, settings):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(857, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshQuality", None, *params_flattened)
+
+    def object_mesh_settings(self, object, settings=None):
         """        
         Returns or sets the render mesh settings of an object's custom render mesh parameters.
     
@@ -1464,9 +1964,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(865, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"ObjectMeshSettings", None, object, settings)
+        params = [object, settings]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [object, settings]
 
-    def object_name(self, object, objects, name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(865, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshSettings", None, *params_flattened)
+
+    def object_name(self, object, objects, name=None):
         """        
         Returns or modifies the user-definable name of an object.
     
@@ -1499,9 +2009,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(196, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"ObjectName", None, object, flatten(objects), name)
+        params = [object, objects, name]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
+        params_flattened = [object, flatten(objects), name]
 
-    def object_names(self, objects, names):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(196, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectName", None, *params_flattened)
+
+    def object_names(self, objects, names=None):
         """        
         Returns or modifies the user-definable name of one or more objects.
     
@@ -1528,9 +2048,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(639, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"ObjectNames", None, flatten(objects), flatten(names))
+        params = [objects, names]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(objects), flatten(names)]
 
-    def object_print_color(self, object, objects, color):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(639, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectNames", None, *params_flattened)
+
+    def object_print_color(self, object, objects, color=None):
         """        
         Returns or modifies the print color of an object.  Object print colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     
@@ -1563,9 +2093,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(805, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I4, 1)), u"ObjectPrintColor", None, object, flatten(objects), color)
+        params = [object, objects, color]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I4, 1)]
+        params_flattened = [object, flatten(objects), color]
 
-    def object_print_color_source(self, object, objects, source):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(805, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectPrintColor", None, *params_flattened)
+
+    def object_print_color_source(self, object, objects, source=None):
         """        
         Returns or modifies the print color source of an object.  The color used to print objects is specified in one of four ways:
 		1. Print color from layer.  Use the print color assigned to the object's layer.
@@ -1611,9 +2151,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(806, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectPrintColorSource", None, object, flatten(objects), source)
+        params = [object, objects, source]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        params_flattened = [object, flatten(objects), source]
 
-    def object_print_width(self, object, objects, width):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(806, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectPrintColorSource", None, *params_flattened)
+
+    def object_print_width(self, object, objects, width=None):
         """        
         Returns or modifies the print width of an object.  Object print widths are measured in millimeters (mm).
     
@@ -1646,9 +2196,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(807, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)), u"ObjectPrintWidth", None, object, flatten(objects), width)
+        params = [object, objects, width]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
+        params_flattened = [object, flatten(objects), width]
 
-    def object_print_width_source(self, object, objects, source):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(807, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectPrintWidth", None, *params_flattened)
+
+    def object_print_width_source(self, object, objects, source=None):
         """        
         Returns or modifies the print width source of an object.  The width used to print objects is specified in one of three ways:
 		1. Print width from layer.  Use the print width assigned to the object's layer.
@@ -1693,7 +2253,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(808, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectPrintWidthSource", None, object, flatten(objects), source)
+        params = [object, objects, source]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        params_flattened = [object, flatten(objects), source]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(808, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectPrintWidthSource", None, *params_flattened)
 
     def object_top_group(self, object):
         """        
@@ -1716,7 +2286,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(197, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectTopGroup", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(197, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectTopGroup", None, *params_flattened)
 
     def object_type(self, object):
         """        
@@ -1739,9 +2319,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(198, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectType", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def object_u_r_l(self, object, objects, u_r_l):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(198, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectType", None, *params_flattened)
+
+    def object_u_r_l(self, object, objects, u_r_l=None):
         """        
         Returns or modifies the user-definable URL of an object.
     
@@ -1774,9 +2364,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(199, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"ObjectURL", None, object, flatten(objects), u_r_l)
+        params = [object, objects, u_r_l]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
+        params_flattened = [object, flatten(objects), u_r_l]
 
-    def orient_object(self, object, reference, target, flags):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(199, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectURL", None, *params_flattened)
+
+    def orient_object(self, object, reference, target, flags=None):
         """        
         Orients a single object based on input points.
     
@@ -1811,9 +2411,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(390, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"OrientObject", None, object, flatten(reference), flatten(target), flags)
+        params = [object, reference, target, flags]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        params_flattened = [object, flatten(reference), flatten(target), flags]
 
-    def orient_objects(self, objects, reference, target, flags):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(390, 1, (VT_VARIANT, 0), params_magic_numbers, u"OrientObject", None, *params_flattened)
+
+    def orient_objects(self, objects, reference, target, flags=None):
         """        
         Orients one or more objects based on input points.
     
@@ -1848,9 +2458,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(391, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"OrientObjects", None, flatten(objects), flatten(reference), flatten(target), flags)
+        params = [objects, reference, target, flags]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        params_flattened = [flatten(objects), flatten(reference), flatten(target), flags]
 
-    def remap_object(self, object, src_plane, dst_plane, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(391, 1, (VT_VARIANT, 0), params_magic_numbers, u"OrientObjects", None, *params_flattened)
+
+    def remap_object(self, object, src_plane, dst_plane, copy=None):
         """        
         Remqps a single object from one plane, or coordinate system, to another.
     
@@ -1880,9 +2500,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(655, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"RemapObject", None, object, flatten(src_plane), flatten(dst_plane), copy)
+        params = [object, src_plane, dst_plane, copy]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(src_plane), flatten(dst_plane), copy]
 
-    def remap_objects(self, object, src_plane, dst_plane, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(655, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemapObject", None, *params_flattened)
+
+    def remap_objects(self, object, src_plane, dst_plane, copy=None):
         """        
         Remqps one or more objects from one plane, or coordinate system, to another.
     
@@ -1912,9 +2542,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(656, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"RemapObjects", None, flatten(object), flatten(src_plane), flatten(dst_plane), copy)
+        params = [object, src_plane, dst_plane, copy]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(object), flatten(src_plane), flatten(dst_plane), copy]
 
-    def rotate_object(self, object, point, angle, axis, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(656, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemapObjects", None, *params_flattened)
+
+    def rotate_object(self, object, point, angle, axis=None, copy=None):
         """        
         Rotates a single object. Rotation is based on the active construction plane.
     
@@ -1947,9 +2587,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(392, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"RotateObject", None, object, flatten(point), angle, flatten(axis), copy)
+        params = [object, point, angle, axis, copy]
+        params_opt_or_req = [Required, Required, Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(point), angle, flatten(axis), copy]
 
-    def rotate_objects(self, objects, point, angle, axis, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(392, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotateObject", None, *params_flattened)
+
+    def rotate_objects(self, objects, point, angle, axis=None, copy=None):
         """        
         Rotates one or more objects. Rotation is based on the active construction plane.
     
@@ -1982,9 +2632,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(393, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"RotateObjects", None, flatten(objects), flatten(point), angle, flatten(axis), copy)
+        params = [objects, point, angle, axis, copy]
+        params_opt_or_req = [Required, Required, Required, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), flatten(point), angle, flatten(axis), copy]
 
-    def scale_object(self, object, origin, scale, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(393, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotateObjects", None, *params_flattened)
+
+    def scale_object(self, object, origin, scale, copy=None):
         """        
         Scales a single object. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
     
@@ -2014,9 +2674,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(585, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"ScaleObject", None, object, flatten(origin), flatten(scale), copy)
+        params = [object, origin, scale, copy]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(origin), flatten(scale), copy]
 
-    def scale_objects(self, objects, origin, scale, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(585, 1, (VT_VARIANT, 0), params_magic_numbers, u"ScaleObject", None, *params_flattened)
+
+    def scale_objects(self, objects, origin, scale, copy=None):
         """        
         Scales one or more objects. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
     
@@ -2046,7 +2716,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(586, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"ScaleObjects", None, flatten(objects), flatten(origin), flatten(scale), copy)
+        params = [objects, origin, scale, copy]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), flatten(origin), flatten(scale), copy]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(586, 1, (VT_VARIANT, 0), params_magic_numbers, u"ScaleObjects", None, *params_flattened)
 
     def select_object(self, object):
         """        
@@ -2069,7 +2749,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(200, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"SelectObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(200, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObject", None, *params_flattened)
 
     def select_objects(self, objects):
         """        
@@ -2092,9 +2782,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(298, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"SelectObjects", None, flatten(objects))
+        params = [objects]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
 
-    def shear_object(self, object, origin, ref_pt, scale, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(298, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObjects", None, *params_flattened)
+
+    def shear_object(self, object, origin, ref_pt, scale, copy=None):
         """        
         Performs a shear transformation on a single object. Transformation is based on the active construction plane.
     
@@ -2127,9 +2827,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(587, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"ShearObject", None, object, flatten(origin), flatten(ref_pt), flatten(scale), copy)
+        params = [object, origin, ref_pt, scale, copy]
+        params_opt_or_req = [Required, Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(origin), flatten(ref_pt), flatten(scale), copy]
 
-    def shear_objects(self, objects, origin, ref_pt, scale, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(587, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShearObject", None, *params_flattened)
+
+    def shear_objects(self, objects, origin, ref_pt, scale, copy=None):
         """        
         Performs a shear transformation on one or more objects. Transformation is based on the active construction plane.
     
@@ -2162,7 +2872,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(588, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"ShearObjects", None, flatten(objects), flatten(origin), flatten(ref_pt), flatten(scale), copy)
+        params = [objects, origin, ref_pt, scale, copy]
+        params_opt_or_req = [Required, Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), flatten(origin), flatten(ref_pt), flatten(scale), copy]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(588, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShearObjects", None, *params_flattened)
 
     def show_object(self, object):
         """        
@@ -2185,7 +2905,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(201, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ShowObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(201, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowObject", None, *params_flattened)
 
     def show_objects(self, objects):
         """        
@@ -2208,9 +2938,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(305, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"ShowObjects", None, flatten(objects))
+        params = [objects]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
 
-    def transform_object(self, object, matrix, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(305, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowObjects", None, *params_flattened)
+
+    def transform_object(self, object, matrix, copy=None):
         """        
         Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
 		1
@@ -2253,9 +2993,19 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(272, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"TransformObject", None, object, flatten(matrix), copy)
+        params = [object, matrix, copy]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(matrix), copy]
 
-    def transform_objects(self, objects, matrix, copy):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(272, 1, (VT_VARIANT, 0), params_magic_numbers, u"TransformObject", None, *params_flattened)
+
+    def transform_objects(self, objects, matrix, copy=None):
         """        
         Moves, scales, or rotates one or more objects given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
 		1
@@ -2298,7 +3048,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(302, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"TransformObjects", None, flatten(objects), flatten(matrix), copy)
+        params = [objects, matrix, copy]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), flatten(matrix), copy]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(302, 1, (VT_VARIANT, 0), params_magic_numbers, u"TransformObjects", None, *params_flattened)
 
     def unlock_object(self, object):
         """        
@@ -2321,7 +3081,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(202, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"UnlockObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(202, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnlockObject", None, *params_flattened)
 
     def unlock_objects(self, objects):
         """        
@@ -2344,7 +3114,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(306, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"UnlockObjects", None, flatten(objects))
+        params = [objects]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(306, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnlockObjects", None, *params_flattened)
 
     def unselect_object(self, object):
         """        
@@ -2367,7 +3147,17 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(299, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"UnselectObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(299, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObject", None, *params_flattened)
 
     def unselect_objects(self, objects):
         """        
@@ -2390,5 +3180,15 @@ class Object(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(300, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"UnselectObjects", None, flatten(objects))
+        params = [objects]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(300, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObjects", None, *params_flattened)
 

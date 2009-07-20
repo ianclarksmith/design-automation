@@ -57,7 +57,9 @@ VT_TYPEMASK = 4095
 
 def flatten(arrIn):
     """helper method to flatten any arrays into one-dimensional arrays compatible with RhinoScript"""
-    if isinstance(arrIn, (list, tuple)):
+    if arrIn == None:
+        return None
+    elif isinstance(arrIn, (list, tuple)):
         arrOut = []
         for val in arrIn:
             if isinstance(val, tuple):
@@ -77,4 +79,5 @@ if __name__ == '__main__':
     print flatten([[1,[2,3]],[4,5,6]])
     print flatten(((1,(2,3)),(4,5,6)))
     print flatten((4,5,6))
+    print flatten(None)
 

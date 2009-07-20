@@ -8,7 +8,7 @@ class UserInterface(IRhinoScript):
 
 
 
-    def browse_for_folder(self, folder, message, title):
+    def browse_for_folder(self, folder=None, message=None, title=None):
         """        
         Displays the Windows browse-for-folder dialog box allowing the user to select a folder.
     
@@ -35,9 +35,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(146, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"BrowseForFolder", None, folder, message, title)
+        params = [folder, message, title]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [folder, message, title]
 
-    def check_list_box(self, items, values, message, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(146, 1, (VT_VARIANT, 0), params_magic_numbers, u"BrowseForFolder", None, *params_flattened)
+
+    def check_list_box(self, items, values, message=None, title=None):
         """        
         Displays a list of items in a checkable-style list box dialog.
     
@@ -67,9 +77,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(52, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"CheckListBox", None, flatten(items), flatten(values), message, title)
+        params = [items, values, message, title]
+        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(items), flatten(values), message, title]
 
-    def combo_list_box(self, items, message, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(52, 1, (VT_VARIANT, 0), params_magic_numbers, u"CheckListBox", None, *params_flattened)
+
+    def combo_list_box(self, items, message=None, title=None):
         """        
         Displays a list of items in a combo-style list box dialog.
     
@@ -96,9 +116,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(53, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"ComboListBox", None, flatten(items), message, title)
+        params = [items, message, title]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(items), message, title]
 
-    def edit_box(self, string, message, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(53, 1, (VT_VARIANT, 0), params_magic_numbers, u"ComboListBox", None, *params_flattened)
+
+    def edit_box(self, string=None, message=None, title=None):
         """        
         Displays a dialog box prompting the user to enter a string value.  The string value may span multiple lines.
     
@@ -125,9 +155,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(54, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"EditBox", None, string, message, title)
+        params = [string, message, title]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [string, message, title]
 
-    def get_angle(self, point, reference, angle, message):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(54, 1, (VT_VARIANT, 0), params_magic_numbers, u"EditBox", None, *params_flattened)
+
+    def get_angle(self, point=None, reference=None, angle=None, message=None):
         """        
         Pauses for user input of an angle.
     
@@ -157,7 +197,17 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(277, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1)), u"GetAngle", None, flatten(point), flatten(reference), angle, message)
+        params = [point, reference, angle, message]
+        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(point), flatten(reference), angle, message]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(277, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetAngle", None, *params_flattened)
 
     def get_boolean(self, message, items, defaults):
         """        
@@ -193,9 +243,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(622, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"GetBoolean", None, message, flatten(items), flatten(defaults))
+        params = [message, items, defaults]
+        params_opt_or_req = [Required, Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [message, flatten(items), flatten(defaults)]
 
-    def get_box(self, mode, point, prompt1, prompt2, prompt3):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(622, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetBoolean", None, *params_flattened)
+
+    def get_box(self, mode=None, point=None, prompt1=None, prompt2=None, prompt3=None):
         """        
         Pauses for user input of a box.
     
@@ -239,9 +299,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(342, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"GetBox", None, mode, flatten(point), prompt1, prompt2, prompt3)
+        params = [mode, point, prompt1, prompt2, prompt3]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [mode, flatten(point), prompt1, prompt2, prompt3]
 
-    def get_color(self, color):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(342, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetBox", None, *params_flattened)
+
+    def get_color(self, color=None):
         """        
         Displays the Rhino color picker dialog box allowing the user to select an RGB color value.
     
@@ -262,9 +332,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(65, 1, (VT_VARIANT, 0), ((VT_I4, 1),), u"GetColor", None, color)
+        params = [color]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I4, 1),]
+        params_flattened = [color]
 
-    def get_distance(self, point, distance, message1, message2):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(65, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetColor", None, *params_flattened)
+
+    def get_distance(self, point=None, distance=None, message1=None, message2=None):
         """        
         Pauses for user input of a distance.
     
@@ -294,9 +374,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(66, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"GetDistance", None, flatten(point), distance, message1, message2)
+        params = [point, distance, message1, message2]
+        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(point), distance, message1, message2]
 
-    def get_integer(self, message, number, min, max):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(66, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetDistance", None, *params_flattened)
+
+    def get_integer(self, message=None, number=None, min=None, max=None):
         """        
         Pauses for user input of a whole number.
     
@@ -326,9 +416,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(64, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_I2, 1)), u"GetInteger", None, message, number, min, max)
+        params = [message, number, min, max]
+        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_I2, 1)]
+        params_flattened = [message, number, min, max]
 
-    def get_layer(self, title, layer, show_new_layer, show_set_current):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(64, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetInteger", None, *params_flattened)
+
+    def get_layer(self, title=None, layer=None, show_new_layer=None, show_set_current=None):
         """        
         Displays a dialog box prompting the user to select a layer.
     
@@ -358,9 +458,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(672, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"GetLayer", None, title, layer, show_new_layer, show_set_current)
+        params = [title, layer, show_new_layer, show_set_current]
+        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [title, layer, show_new_layer, show_set_current]
 
-    def get_linetype(self, linetype):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(672, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetLayer", None, *params_flattened)
+
+    def get_linetype(self, linetype=None):
         """        
         Displays a dialog box prompting the user to select a linetype.
     
@@ -381,9 +491,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(673, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"GetLinetype", None, linetype)
+        params = [linetype]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [linetype]
 
-    def get_point(self, message, point, distance, plane):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(673, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetLinetype", None, *params_flattened)
+
+    def get_point(self, message=None, point=None, distance=None, plane=None):
         """        
         Pauses for user input of a point.
     
@@ -413,9 +533,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(61, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BOOL, 1)), u"GetPoint", None, message, flatten(point), distance, plane)
+        params = [message, point, distance, plane]
+        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        params_flattened = [message, flatten(point), distance, plane]
 
-    def get_point_on_curve(self, object, message):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(61, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPoint", None, *params_flattened)
+
+    def get_point_on_curve(self, object, message=None):
         """        
         Pauses for user input of a point constrained to a curve object.
     
@@ -439,9 +569,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(147, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"GetPointOnCurve", None, object, message)
+        params = [object, message]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, message]
 
-    def get_point_on_line(self, message, start, end, track):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(147, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnCurve", None, *params_flattened)
+
+    def get_point_on_line(self, message, start, end, track=None):
         """        
         Pauses for user input of a point constrained to an infinite line.
     
@@ -471,9 +611,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(798, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"GetPointOnLine", None, message, flatten(start), flatten(end), track)
+        params = [message, start, end, track]
+        params_opt_or_req = [Required, Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [message, flatten(start), flatten(end), track]
 
-    def get_point_on_mesh(self, object, message):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(798, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnLine", None, *params_flattened)
+
+    def get_point_on_mesh(self, object, message=None):
         """        
         Pauses for user input of a point constrained to a mesh object.
     
@@ -497,9 +647,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(401, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"GetPointOnMesh", None, object, message)
+        params = [object, message]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, message]
 
-    def get_point_on_plane(self, message, plane, point):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(401, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnMesh", None, *params_flattened)
+
+    def get_point_on_plane(self, message=None, plane=None, point=None):
         """        
         Pauses for user input of a point constrained to a plane.
     
@@ -526,9 +686,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(797, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"GetPointOnPlane", None, message, flatten(plane), flatten(point))
+        params = [message, plane, point]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [message, flatten(plane), flatten(point)]
 
-    def get_point_on_surface(self, object, message):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(797, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnPlane", None, *params_flattened)
+
+    def get_point_on_surface(self, object, message=None):
         """        
         Pauses for user input of a point constrained to a surface or polysurface object.
     
@@ -552,9 +722,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(148, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"GetPointOnSurface", None, object, message)
+        params = [object, message]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, message]
 
-    def get_points(self, draw, plane, message1, message2, max_points, base_point):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(148, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnSurface", None, *params_flattened)
+
+    def get_points(self, draw=None, plane=None, message1=None, message2=None, max_points=None, base_point=None):
         """        
         Pauses for user input of one or more points.
     
@@ -590,9 +770,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(67, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)), u"GetPoints", None, draw, plane, message1, message2, max_points, flatten(base_point))
+        params = [draw, plane, message1, message2, max_points, base_point]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
+        params_flattened = [draw, plane, message1, message2, max_points, flatten(base_point)]
 
-    def get_print_width(self, print_width):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(67, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPoints", None, *params_flattened)
+
+    def get_print_width(self, print_width=None):
         """        
         Displays a dialog box prompting the user to select a print width.
     
@@ -613,9 +803,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(674, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"GetPrintWidth", None, print_width)
+        params = [print_width]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [print_width]
 
-    def get_real(self, message, number, min, max):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(674, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPrintWidth", None, *params_flattened)
+
+    def get_real(self, message=None, number=None, min=None, max=None):
         """        
         Pauses for user input of a number.
     
@@ -645,9 +845,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(63, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)), u"GetReal", None, message, number, min, max)
+        params = [message, number, min, max]
+        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
+        params_flattened = [message, number, min, max]
 
-    def get_rectangle(self, mode, point, prompt1, prompt2, prompt3):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(63, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetReal", None, *params_flattened)
+
+    def get_rectangle(self, mode=None, point=None, prompt1=None, prompt2=None, prompt3=None):
         """        
         Pauses for user input of a rectangle.
     
@@ -691,9 +901,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(341, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"GetRectangle", None, mode, flatten(point), prompt1, prompt2, prompt3)
+        params = [mode, point, prompt1, prompt2, prompt3]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [mode, flatten(point), prompt1, prompt2, prompt3]
 
-    def get_string(self, message, string, strings):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(341, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetRectangle", None, *params_flattened)
+
+    def get_string(self, message=None, string=None, strings=None):
         """        
         Pauses for user input of string value.
     
@@ -720,9 +940,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(62, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)), u"GetString", None, message, string, flatten(strings))
+        params = [message, string, strings]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [message, string, flatten(strings)]
 
-    def get_surface_iso_param_point(self, object, message):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(62, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetString", None, *params_flattened)
+
+    def get_surface_iso_param_point(self, object, message=None):
         """        
         Pauses for user input of a point constrained to a surface object.
     
@@ -746,9 +976,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(775, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"GetSurfaceIsoParamPoint", None, object, message)
+        params = [object, message]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, message]
 
-    def html_box(self, file_name, arguments, options, modal):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(775, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetSurfaceIsoParamPoint", None, *params_flattened)
+
+    def html_box(self, file_name, arguments=None, options=None, modal=None):
         """        
         Displays a custom, modal HTML dialog page. A modal dialog box retains the input focus while open. The user cannot switch windows until the dialog box is closed.
     
@@ -803,9 +1043,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(276, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"HtmlBox", None, file_name, arguments, options, modal)
+        params = [file_name, arguments, options, modal]
+        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [file_name, arguments, options, modal]
 
-    def integer_box(self, message, number, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(276, 1, (VT_VARIANT, 0), params_magic_numbers, u"HtmlBox", None, *params_flattened)
+
+    def integer_box(self, message=None, number=None, title=None):
         """        
         Displays a dialog box prompting the user to enter a whole number.
     
@@ -832,9 +1082,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(55, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)), u"IntegerBox", None, message, number, title)
+        params = [message, number, title]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)]
+        params_flattened = [message, number, title]
 
-    def list_box(self, items, message, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(55, 1, (VT_VARIANT, 0), params_magic_numbers, u"IntegerBox", None, *params_flattened)
+
+    def list_box(self, items, message=None, title=None):
         """        
         Displays a list of items in a list box dialog.
     
@@ -861,9 +1121,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(56, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"ListBox", None, flatten(items), message, title)
+        params = [items, message, title]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(items), message, title]
 
-    def message_beep(self, beep):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(56, 1, (VT_VARIANT, 0), params_magic_numbers, u"ListBox", None, *params_flattened)
+
+    def message_beep(self, beep=None):
         """        
         Plays a system waveform sound.
     
@@ -891,9 +1161,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(149, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"MessageBeep", None, beep)
+        params = [beep]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [beep]
 
-    def message_box(self, message, buttons, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(149, 1, (VT_VARIANT, 0), params_magic_numbers, u"MessageBeep", None, *params_flattened)
+
+    def message_box(self, message, buttons=None, title=None):
         """        
         Displays a Windows message box. A message box contains an application-defined message and title, plus any combination of predefined icons and push buttons.
     
@@ -950,9 +1230,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(150, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)), u"MessageBox", None, message, buttons, title)
+        params = [message, buttons, title]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)]
+        params_flattened = [message, buttons, title]
 
-    def multi_list_box(self, items, message, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(150, 1, (VT_VARIANT, 0), params_magic_numbers, u"MessageBox", None, *params_flattened)
+
+    def multi_list_box(self, items, message=None, title=None):
         """        
         Displays a list of items in a multiple-selection list box dialog.
     
@@ -979,9 +1269,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(57, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"MultiListBox", None, flatten(items), message, title)
+        params = [items, message, title]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(items), message, title]
 
-    def open_file_name(self, title, filter, folder, filename, extension):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(57, 1, (VT_VARIANT, 0), params_magic_numbers, u"MultiListBox", None, *params_flattened)
+
+    def open_file_name(self, title=None, filter=None, folder=None, filename=None, extension=None):
         """        
         Displays a Windows file open dialog box allowing the user to select a file name. Note, this function does not open the file.
     
@@ -1014,9 +1314,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(151, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"OpenFileName", None, title, filter, folder, filename, extension)
+        params = [title, filter, folder, filename, extension]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [title, filter, folder, filename, extension]
 
-    def open_file_names(self, title, filter, folder, filename, extension):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(151, 1, (VT_VARIANT, 0), params_magic_numbers, u"OpenFileName", None, *params_flattened)
+
+    def open_file_names(self, title=None, filter=None, folder=None, filename=None, extension=None):
         """        
         Displays a Windows file open dialog box allowing the user to select one or more file names. Note, this function does not open files.
     
@@ -1049,9 +1359,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(821, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"OpenFileNames", None, title, filter, folder, filename, extension)
+        params = [title, filter, folder, filename, extension]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [title, filter, folder, filename, extension]
 
-    def popup_menu(self, items, modes, point, view):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(821, 1, (VT_VARIANT, 0), params_magic_numbers, u"OpenFileNames", None, *params_flattened)
+
+    def popup_menu(self, items, modes=None, point=None, view=None):
         """        
         Displays a user-defined, context-style popup menu. The popup menu can appear almost anywhere. And, it can be dismissed by either clicking the left or right mouse buttons.
     
@@ -1091,9 +1411,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(595, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"PopupMenu", None, flatten(items), flatten(modes), flatten(point), view)
+        params = [items, modes, point, view]
+        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(items), flatten(modes), flatten(point), view]
 
-    def property_list_box(self, items, values, message, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(595, 1, (VT_VARIANT, 0), params_magic_numbers, u"PopupMenu", None, *params_flattened)
+
+    def property_list_box(self, items, values, message=None, title=None):
         """        
         Displays a list of items and their values in a property-style list box dialog.
     
@@ -1123,9 +1453,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(58, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"PropertyListBox", None, flatten(items), flatten(values), message, title)
+        params = [items, values, message, title]
+        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(items), flatten(values), message, title]
 
-    def real_box(self, message, number, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(58, 1, (VT_VARIANT, 0), params_magic_numbers, u"PropertyListBox", None, *params_flattened)
+
+    def real_box(self, message=None, number=None, title=None):
         """        
         Displays a dialog box prompting the user to enter a number.
     
@@ -1152,9 +1492,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(59, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1), (VT_BSTR, 1)), u"RealBox", None, message, number, title)
+        params = [message, number, title]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BSTR, 1)]
+        params_flattened = [message, number, title]
 
-    def save_file_name(self, title, filter, folder, filename, extension):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(59, 1, (VT_VARIANT, 0), params_magic_numbers, u"RealBox", None, *params_flattened)
+
+    def save_file_name(self, title=None, filter=None, folder=None, filename=None, extension=None):
         """        
         Displays a Windows file save dialog box allowing the user to enter a file name. Note, this function does not save the file.
     
@@ -1187,9 +1537,19 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(152, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"SaveFileName", None, title, filter, folder, filename, extension)
+        params = [title, filter, folder, filename, extension]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [title, filter, folder, filename, extension]
 
-    def string_box(self, message, string, title):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(152, 1, (VT_VARIANT, 0), params_magic_numbers, u"SaveFileName", None, *params_flattened)
+
+    def string_box(self, message=None, string=None, title=None):
         """        
         Displays a dialog box prompting the user to enter a string value.
     
@@ -1216,5 +1576,15 @@ class UserInterface(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(60, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"StringBox", None, message, string, title)
+        params = [message, string, title]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [message, string, title]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(60, 1, (VT_VARIANT, 0), params_magic_numbers, u"StringBox", None, *params_flattened)
 

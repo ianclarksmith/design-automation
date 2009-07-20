@@ -29,7 +29,17 @@ class Linetype(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(607, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsLinetype", None, linetype)
+        params = [linetype]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [linetype]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(607, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLinetype", None, *params_flattened)
 
     def is_linetype_reference(self, linetype):
         """        
@@ -52,9 +62,19 @@ class Linetype(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(608, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsLinetypeReference", None, linetype)
+        params = [linetype]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [linetype]
 
-    def linetype_count(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(608, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLinetypeReference", None, *params_flattened)
+
+    def linetype_count):
         """        
         Returns the number of linetypes in the document.
     
@@ -68,9 +88,19 @@ class Linetype(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(605, 1, (VT_VARIANT, 0), (), u"LinetypeCount", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def linetype_names(self, sort):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(605, 1, (VT_VARIANT, 0), params_magic_numbers, u"LinetypeCount", None, *params_flattened)
+
+    def linetype_names(self, sort=None):
         """        
         Returns the names of all linetypes in the document.
     
@@ -91,5 +121,15 @@ class Linetype(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(606, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"LinetypeNames", None, sort)
+        params = [sort]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [sort]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(606, 1, (VT_VARIANT, 0), params_magic_numbers, u"LinetypeNames", None, *params_flattened)
 

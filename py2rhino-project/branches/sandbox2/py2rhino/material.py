@@ -29,7 +29,17 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(173, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"AddMaterialToLayer", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(173, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddMaterialToLayer", None, *params_flattened)
 
     def add_material_to_object(self, object):
         """        
@@ -52,7 +62,17 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(174, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"AddMaterialToObject", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(174, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddMaterialToObject", None, *params_flattened)
 
     def copy_material(self, src_index, dst_index):
         """        
@@ -78,7 +98,17 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(812, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_I2, 1)), u"CopyMaterial", None, src_index, dst_index)
+        params = [src_index, dst_index]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_I2, 1), (VT_I2, 1)]
+        params_flattened = [src_index, dst_index]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(812, 1, (VT_VARIANT, 0), params_magic_numbers, u"CopyMaterial", None, *params_flattened)
 
     def is_material_default(self, material_index):
         """        
@@ -98,7 +128,17 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(175, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"IsMaterialDefault", None, material_index)
+        params = [material_index]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [material_index]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(175, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMaterialDefault", None, *params_flattened)
 
     def is_material_reference(self, material_index):
         """        
@@ -121,7 +161,17 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(176, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"IsMaterialReference", None, material_index)
+        params = [material_index]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [material_index]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(176, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMaterialReference", None, *params_flattened)
 
     def match_material(self, src_material_index, src_object, dest_object, dest_objects):
         """        
@@ -153,9 +203,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(322, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)), u"MatchMaterial", None, src_material_index, src_object, dest_object, flatten(dest_objects))
+        params = [src_material_index, src_object, dest_object, dest_objects]
+        params_opt_or_req = [Required, Required, Required, Required]
+        params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [src_material_index, src_object, dest_object, flatten(dest_objects)]
 
-    def material_bump(self, material_index, file_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(322, 1, (VT_VARIANT, 0), params_magic_numbers, u"MatchMaterial", None, *params_flattened)
+
+    def material_bump(self, material_index, file_name=None):
         """        
         Returns or modifies a material's bump bitmap filename.
     
@@ -182,9 +242,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(177, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BSTR, 1)), u"MaterialBump", None, material_index, file_name)
+        params = [material_index, file_name]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
+        params_flattened = [material_index, file_name]
 
-    def material_color(self, material_index, color):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(177, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialBump", None, *params_flattened)
+
+    def material_color(self, material_index, color=None):
         """        
         Returns or modifies a material's diffuse color.  Material colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     
@@ -211,9 +281,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(178, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_I4, 1)), u"MaterialColor", None, material_index, color)
+        params = [material_index, color]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_I4, 1)]
+        params_flattened = [material_index, color]
 
-    def material_environment_map(self, material_index, file_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(178, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialColor", None, *params_flattened)
+
+    def material_environment_map(self, material_index, file_name=None):
         """        
         Returns or modifies a material's environment bitmap filename.
     
@@ -240,9 +320,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(754, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BSTR, 1)), u"MaterialEnvironmentMap", None, material_index, file_name)
+        params = [material_index, file_name]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
+        params_flattened = [material_index, file_name]
 
-    def material_name(self, material_index, name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(754, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialEnvironmentMap", None, *params_flattened)
+
+    def material_name(self, material_index, name=None):
         """        
         Returns or modifies a material's user-definable name.
     
@@ -269,9 +359,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(179, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BSTR, 1)), u"MaterialName", None, material_index, name)
+        params = [material_index, name]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
+        params_flattened = [material_index, name]
 
-    def material_reflective_color(self, material_index, color):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(179, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialName", None, *params_flattened)
+
+    def material_reflective_color(self, material_index, color=None):
         """        
         Returns or modifies a material's reflective color.  Reflective colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     
@@ -298,9 +398,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(180, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_I4, 1)), u"MaterialReflectiveColor", None, material_index, color)
+        params = [material_index, color]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_I4, 1)]
+        params_flattened = [material_index, color]
 
-    def material_shine(self, material_index, shine):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(180, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialReflectiveColor", None, *params_flattened)
+
+    def material_shine(self, material_index, shine=None):
         """        
         Returns or modifies a material's shine value.
     
@@ -327,9 +437,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(181, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_R8, 1)), u"MaterialShine", None, material_index, shine)
+        params = [material_index, shine]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_R8, 1)]
+        params_flattened = [material_index, shine]
 
-    def material_texture(self, material_index, file_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(181, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialShine", None, *params_flattened)
+
+    def material_texture(self, material_index, file_name=None):
         """        
         Returns or modifies a material's texture bitmap filename.
     
@@ -356,9 +476,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(182, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BSTR, 1)), u"MaterialTexture", None, material_index, file_name)
+        params = [material_index, file_name]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
+        params_flattened = [material_index, file_name]
 
-    def material_transparency(self, material_index, transparency):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(182, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialTexture", None, *params_flattened)
+
+    def material_transparency(self, material_index, transparency=None):
         """        
         Returns or modifies a material's transparency value.
     
@@ -385,9 +515,19 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(183, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_R8, 1)), u"MaterialTransparency", None, material_index, transparency)
+        params = [material_index, transparency]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_R8, 1)]
+        params_flattened = [material_index, transparency]
 
-    def material_transparency_map(self, material_index, file_name):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(183, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialTransparency", None, *params_flattened)
+
+    def material_transparency_map(self, material_index, file_name=None):
         """        
         Returns or modifies a material's transparency bitmap filename.
     
@@ -414,5 +554,15 @@ class Material(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(753, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BSTR, 1)), u"MaterialTransparencyMap", None, material_index, file_name)
+        params = [material_index, file_name]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
+        params_flattened = [material_index, file_name]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(753, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialTransparencyMap", None, *params_flattened)
 

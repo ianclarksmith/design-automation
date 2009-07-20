@@ -32,9 +32,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(709, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"AddAlias", None, alias, macro)
+        params = [alias, macro]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [alias, macro]
 
-    def add_search_path(self, folder, index):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(709, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddAlias", None, *params_flattened)
+
+    def add_search_path(self, folder, index=None):
         """        
         Adds a new path to Rhino's search path list. Search path items can be added manually by using Rhino's Options command and modifying the contents of the Files tab. See "Options Files settings" in the Rhino help file for more details.
     
@@ -58,9 +68,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(511, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"AddSearchPath", None, folder, index)
+        params = [folder, index]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [folder, index]
 
-    def add_startup_script(self, script_file, index):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(511, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSearchPath", None, *params_flattened)
+
+    def add_startup_script(self, script_file, index=None):
         """        
         Adds a new startup script to RhinoScript's startup script list. Startup script  items can be added manually by using Rhino's Options command and modifying the contents of the RhinoScript tab.
     
@@ -84,9 +104,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(714, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"AddStartupScript", None, script_file, index)
+        params = [script_file, index]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [script_file, index]
 
-    def alias_count(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(714, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddStartupScript", None, *params_flattened)
+
+    def alias_count):
         """        
         Returns the number of command alias in Rhino.
     
@@ -100,9 +130,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(706, 1, (VT_VARIANT, 0), (), u"AliasCount", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def alias_macro(self, alias, macro):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(706, 1, (VT_VARIANT, 0), params_magic_numbers, u"AliasCount", None, *params_flattened)
+
+    def alias_macro(self, alias, macro=None):
         """        
         Returns or modifies the macro of a command alias.
     
@@ -129,9 +169,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(708, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"AliasMacro", None, alias, macro)
+        params = [alias, macro]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [alias, macro]
 
-    def alias_names(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(708, 1, (VT_VARIANT, 0), params_magic_numbers, u"AliasMacro", None, *params_flattened)
+
+    def alias_names):
         """        
         Returns a list of command alias names.
     
@@ -145,9 +195,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(707, 1, (VT_VARIANT, 0), (), u"AliasNames", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def appearance_color(self, item, color):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(707, 1, (VT_VARIANT, 0), params_magic_numbers, u"AliasNames", None, *params_flattened)
+
+    def appearance_color(self, item, color=None):
         """        
         Returns or modifies an application interface item's color.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     
@@ -203,9 +263,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(335, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_I4, 1)), u"AppearanceColor", None, item, color)
+        params = [item, color]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_I4, 1)]
+        params_flattened = [item, color]
 
-    def appearance_display(self, item, show):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(335, 1, (VT_VARIANT, 0), params_magic_numbers, u"AppearanceColor", None, *params_flattened)
+
+    def appearance_display(self, item, show=None):
         """        
         Returns or modifies an application interface item's visibility.
     
@@ -247,9 +317,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(752, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BOOL, 1)), u"AppearanceDisplay", None, item, show)
+        params = [item, show]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_BOOL, 1)]
+        params_flattened = [item, show]
 
-    def autosave_file(self, file):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(752, 1, (VT_VARIANT, 0), params_magic_numbers, u"AppearanceDisplay", None, *params_flattened)
+
+    def autosave_file(self, file=None):
         """        
         Returns or changes the file name used by Rhino's automatic file saving mechanism.
     
@@ -273,9 +353,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(428, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"AutosaveFile", None, file)
+        params = [file]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [file]
 
-    def autosave_interval(self, minutes):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(428, 1, (VT_VARIANT, 0), params_magic_numbers, u"AutosaveFile", None, *params_flattened)
+
+    def autosave_interval(self, minutes=None):
         """        
         Returns or changes how often the document will be saved when Rhino's automatic file saving mechanism is enabled.
     
@@ -299,9 +389,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(429, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"AutosaveInterval", None, minutes)
+        params = [minutes]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [minutes]
 
-    def build_date(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(429, 1, (VT_VARIANT, 0), params_magic_numbers, u"AutosaveInterval", None, *params_flattened)
+
+    def build_date):
         """        
         Returns the build date of Rhino.  The build date is a number in the form of YYYYMMDD.
     
@@ -318,9 +418,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(360, 1, (VT_VARIANT, 0), (), u"BuildDate", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def clear_command_history(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(360, 1, (VT_VARIANT, 0), params_magic_numbers, u"BuildDate", None, *params_flattened)
+
+    def clear_command_history):
         """        
         Clears the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
     
@@ -331,9 +441,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(592, 1, (VT_VARIANT, 0), (), u"ClearCommandHistory", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def command(self, command, echo):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(592, 1, (VT_VARIANT, 0), params_magic_numbers, u"ClearCommandHistory", None, *params_flattened)
+
+    def command(self, command, echo=None):
         """        
         Runs a Rhino command script.  All Rhino commands can be used in command scripts.  The command can be a build-in Rhino command or a command that is provided by a 3rd party plug-in.
 		Write command scripts just as you would type the command sequence at the command line. A space between characters or a new line act like pressing <Enter> at the command line.  For more information on writing command scripts, see "Scripting" in the Rhino help file.
@@ -371,9 +491,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(1, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"Command", None, command, echo)
+        params = [command, echo]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [command, echo]
 
-    def command_history(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(1, 1, (VT_VARIANT, 0), params_magic_numbers, u"Command", None, *params_flattened)
+
+    def command_history):
         """        
         Returns the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
     
@@ -390,9 +520,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(591, 1, (VT_VARIANT, 0), (), u"CommandHistory", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def default_renderer(self, renderer):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(591, 1, (VT_VARIANT, 0), params_magic_numbers, u"CommandHistory", None, *params_flattened)
+
+    def default_renderer(self, renderer=None):
         """        
         Returns or changes Rhino's current, or default, render plug-in.  Use the PlugIns method to get a list of available render plug-ins.
     
@@ -416,7 +556,17 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(316, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DefaultRenderer", None, renderer)
+        params = [renderer]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [renderer]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(316, 1, (VT_VARIANT, 0), params_magic_numbers, u"DefaultRenderer", None, *params_flattened)
 
     def delete_alias(self, alias):
         """        
@@ -439,7 +589,17 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(710, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteAlias", None, alias)
+        params = [alias]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [alias]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(710, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteAlias", None, *params_flattened)
 
     def delete_search_path(self, folder):
         """        
@@ -462,7 +622,17 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(512, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteSearchPath", None, folder)
+        params = [folder]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [folder]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(512, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteSearchPath", None, *params_flattened)
 
     def delete_startup_script(self, script_file):
         """        
@@ -485,7 +655,17 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(715, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteStartupScript", None, script_file)
+        params = [script_file]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [script_file]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(715, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteStartupScript", None, *params_flattened)
 
     def display_ole_alerts(self, display):
         """        
@@ -508,9 +688,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(896, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"DisplayOleAlerts", None, display)
+        params = [display]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [display]
 
-    def edge_analysis_color(self, color):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(896, 1, (VT_VARIANT, 0), params_magic_numbers, u"DisplayOleAlerts", None, *params_flattened)
+
+    def edge_analysis_color(self, color=None):
         """        
         Returns or modifies edge analysis color displayed by the ShowEdges command.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     
@@ -534,9 +724,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(449, 1, (VT_VARIANT, 0), ((VT_I4, 1),), u"EdgeAnalysisColor", None, color)
+        params = [color]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I4, 1),]
+        params_flattened = [color]
 
-    def edge_analysis_mode(self, mode):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(449, 1, (VT_VARIANT, 0), params_magic_numbers, u"EdgeAnalysisColor", None, *params_flattened)
+
+    def edge_analysis_mode(self, mode=None):
         """        
         Returns or modifies edge analysis mode displayed by the ShowEdges command.
     
@@ -563,9 +763,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(448, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"EdgeAnalysisMode", None, mode)
+        params = [mode]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [mode]
 
-    def enable_autosave(self, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(448, 1, (VT_VARIANT, 0), params_magic_numbers, u"EdgeAnalysisMode", None, *params_flattened)
+
+    def enable_autosave(self, enable=None):
         """        
         Enables or disables Rhino's automatic file saving mechanism.
     
@@ -583,9 +793,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(430, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"EnableAutosave", None, enable)
+        params = [enable]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [enable]
 
-    def enable_history_recording(self, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(430, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableAutosave", None, *params_flattened)
+
+    def enable_history_recording(self, enable=None):
         """        
         Enables or disables Rhino's command history recording. For more information, see the Rhino help file for the History command.
     
@@ -606,9 +826,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(735, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"EnableHistoryRecording", None, enable)
+        params = [enable]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [enable]
 
-    def exe_folder(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(735, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableHistoryRecording", None, *params_flattened)
+
+    def exe_folder):
         """        
         Returns the full path to Rhino's executable folder.
     
@@ -625,9 +855,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(21, 1, (VT_VARIANT, 0), (), u"ExeFolder", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def exit(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(21, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExeFolder", None, *params_flattened)
+
+    def exit):
         """        
         Closes the Rhino application.
     
@@ -638,7 +878,17 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(537, 1, (VT_VARIANT, 0), (), u"Exit", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(537, 1, (VT_VARIANT, 0), params_magic_numbers, u"Exit", None, *params_flattened)
 
     def find_file(self, filename):
         """        
@@ -664,7 +914,17 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(81, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"FindFile", None, filename)
+        params = [filename]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [filename]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(81, 1, (VT_VARIANT, 0), params_magic_numbers, u"FindFile", None, *params_flattened)
 
     def get_plug_in_object(self, plug_in):
         """        
@@ -684,9 +944,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(636, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"GetPlugInObject", None, plug_in)
+        params = [plug_in]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [plug_in]
 
-    def help(self, topic):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(636, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPlugInObject", None, *params_flattened)
+
+    def help(self, topic=None):
         """        
         Displays a topic in Rhino's Help file.
     
@@ -704,9 +974,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(22, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"Help", None, topic)
+        params = [topic]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [topic]
 
-    def in_command(self, ignore_runners):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(22, 1, (VT_VARIANT, 0), params_magic_numbers, u"Help", None, *params_flattened)
+
+    def in_command(self, ignore_runners=None):
         """        
         Determines if Rhino is currently running a command. Because Rhino allow for transparent commands (commands that can be run from inside of other commands), this method returns the total number of active commands.
     
@@ -724,9 +1004,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(596, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"InCommand", None, ignore_runners)
+        params = [ignore_runners]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [ignore_runners]
 
-    def install_folder(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(596, 1, (VT_VARIANT, 0), params_magic_numbers, u"InCommand", None, *params_flattened)
+
+    def install_folder):
         """        
         Returns the full path to Rhino's installation folder.
     
@@ -743,7 +1033,17 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(23, 1, (VT_VARIANT, 0), (), u"InstallFolder", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(23, 1, (VT_VARIANT, 0), params_magic_numbers, u"InstallFolder", None, *params_flattened)
 
     def is_alias(self, alias):
         """        
@@ -766,7 +1066,17 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(711, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsAlias", None, alias)
+        params = [alias]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [alias]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(711, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsAlias", None, *params_flattened)
 
     def is_command(self, command_name):
         """        
@@ -789,9 +1099,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(530, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsCommand", None, command_name)
+        params = [command_name]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [command_name]
 
-    def last_command_name(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(530, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCommand", None, *params_flattened)
+
+    def last_command_name):
         """        
         Returns the name of the last executed command.
     
@@ -805,9 +1125,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(594, 1, (VT_VARIANT, 0), (), u"LastCommandName", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def last_command_result(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(594, 1, (VT_VARIANT, 0), params_magic_numbers, u"LastCommandName", None, *params_flattened)
+
+    def last_command_result):
         """        
         Returns the result code for the last executed command.
     
@@ -821,9 +1151,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(292, 1, (VT_VARIANT, 0), (), u"LastCommandResult", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def last_loaded_script_file(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(292, 1, (VT_VARIANT, 0), params_magic_numbers, u"LastCommandResult", None, *params_flattened)
+
+    def last_loaded_script_file):
         """        
         Return the full path to the last RhinoScript file that was loaded using the LoadScript command..
     
@@ -840,9 +1180,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(373, 1, (VT_VARIANT, 0), (), u"LastLoadedScriptFile", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def locale_i_d(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(373, 1, (VT_VARIANT, 0), params_magic_numbers, u"LastLoadedScriptFile", None, *params_flattened)
+
+    def locale_i_d):
         """        
         Returns the language used for the Rhino interface.  The current language is returned as a locale ID, or LCID, value.
     
@@ -856,9 +1206,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(450, 1, (VT_VARIANT, 0), (), u"LocaleID", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def ortho(self, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(450, 1, (VT_VARIANT, 0), params_magic_numbers, u"LocaleID", None, *params_flattened)
+
+    def ortho(self, enable=None):
         """        
         Enables or disables Rhino's ortho modeling aid.
     
@@ -879,9 +1239,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(345, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"Ortho", None, enable)
+        params = [enable]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [enable]
 
-    def osnap(self, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(345, 1, (VT_VARIANT, 0), params_magic_numbers, u"Ortho", None, *params_flattened)
+
+    def osnap(self, enable=None):
         """        
         Enables or disables Rhino's object snap modeling aid.  Object snaps are tools for specifying points on existing objects.
     
@@ -902,9 +1272,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(347, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"Osnap", None, enable)
+        params = [enable]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [enable]
 
-    def osnap_dialog(self, visible):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(347, 1, (VT_VARIANT, 0), params_magic_numbers, u"Osnap", None, *params_flattened)
+
+    def osnap_dialog(self, visible=None):
         """        
         Shows or hides Rhino's dockable object snap bar.
     
@@ -925,9 +1305,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(349, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"OsnapDialog", None, visible)
+        params = [visible]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [visible]
 
-    def osnap_mode(self, mode):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(349, 1, (VT_VARIANT, 0), params_magic_numbers, u"OsnapDialog", None, *params_flattened)
+
+    def osnap_mode(self, mode=None):
         """        
         Returns or sets the object snap mode. Object snaps are tools for specifying points on existing objects.
     
@@ -976,9 +1366,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(343, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"OsnapMode", None, mode)
+        params = [mode]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_I2, 1),]
+        params_flattened = [mode]
 
-    def planar(self, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(343, 1, (VT_VARIANT, 0), params_magic_numbers, u"OsnapMode", None, *params_flattened)
+
+    def planar(self, enable=None):
         """        
         Enables or disables Rhino's planar modeling aid.
     
@@ -999,9 +1399,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(346, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"Planar", None, enable)
+        params = [enable]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [enable]
 
-    def plug_ins(self, types, status):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(346, 1, (VT_VARIANT, 0), params_magic_numbers, u"Planar", None, *params_flattened)
+
+    def plug_ins(self, types=None, status=None):
         """        
         Returns an array of registered Rhino plug-ins.
     
@@ -1045,9 +1455,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(315, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_I2, 1)), u"PlugIns", None, types, status)
+        params = [types, status]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_I2, 1)]
+        params_flattened = [types, status]
 
-    def print_(self, message):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(315, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlugIns", None, *params_flattened)
+
+    def print_(self, message=None):
         """        
         Prints a string to Rhino's command window.  Note, this method cannot be called from Visual Basic.  If you are using Visual Basic, use the PrintEx method.
     
@@ -1062,9 +1482,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(2, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"Print", None, message)
+        params = [message]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [message]
 
-    def print_ex(self, message):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(2, 1, (VT_VARIANT, 0), params_magic_numbers, u"Print", None, *params_flattened)
+
+    def print_ex(self, message=None):
         """        
         Prints a string to Rhino's command window.  Use this method, instead of the Print method, if you are using Visual Basic.
     
@@ -1079,9 +1509,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(370, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"PrintEx", None, message)
+        params = [message]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [message]
 
-    def project_osnaps(self, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(370, 1, (VT_VARIANT, 0), params_magic_numbers, u"PrintEx", None, *params_flattened)
+
+    def project_osnaps(self, enable=None):
         """        
         Enables or disables object snap projection.
     
@@ -1102,9 +1542,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(348, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"ProjectOsnaps", None, enable)
+        params = [enable]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [enable]
 
-    def prompt(self, prompt):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(348, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectOsnaps", None, *params_flattened)
+
+    def prompt(self, prompt=None):
         """        
         Changes Rhino's command window prompt.
     
@@ -1119,9 +1569,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(24, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"Prompt", None, prompt)
+        params = [prompt]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [prompt]
 
-    def registry_key(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(24, 1, (VT_VARIANT, 0), params_magic_numbers, u"Prompt", None, *params_flattened)
+
+    def registry_key):
         """        
         Returns Rhino's Windows Registry key.
     
@@ -1138,9 +1598,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(25, 1, (VT_VARIANT, 0), (), u"RegistryKey", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def screen_size(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(25, 1, (VT_VARIANT, 0), params_magic_numbers, u"RegistryKey", None, *params_flattened)
+
+    def screen_size):
         """        
         Returns the current width and height, in pixels, of the screen of the primary display monitor.
     
@@ -1157,9 +1627,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(553, 1, (VT_VARIANT, 0), (), u"ScreenSize", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def sdk_version(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(553, 1, (VT_VARIANT, 0), params_magic_numbers, u"ScreenSize", None, *params_flattened)
+
+    def sdk_version):
         """        
         Returns the version of the Rhino SDK supported by the running version of Rhino.  Rhino SDK versions are 9 digit numbers in the form of YYYYMMDDn.
     
@@ -1176,9 +1656,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(359, 1, (VT_VARIANT, 0), (), u"SdkVersion", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def search_path_count(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(359, 1, (VT_VARIANT, 0), params_magic_numbers, u"SdkVersion", None, *params_flattened)
+
+    def search_path_count):
         """        
         Returns the number of path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.
     
@@ -1192,9 +1682,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(509, 1, (VT_VARIANT, 0), (), u"SearchPathCount", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def search_path_list(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(509, 1, (VT_VARIANT, 0), params_magic_numbers, u"SearchPathCount", None, *params_flattened)
+
+    def search_path_list):
         """        
         Returns all of the path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.
     
@@ -1208,9 +1708,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(510, 1, (VT_VARIANT, 0), (), u"SearchPathList", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def send_keystrokes(self, keys, add_return):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(510, 1, (VT_VARIANT, 0), params_magic_numbers, u"SearchPathList", None, *params_flattened)
+
+    def send_keystrokes(self, keys=None, add_return=None):
         """        
         Sends a string of printable characters, including spaces, to Rhino's command line.
     
@@ -1228,9 +1738,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(496, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"SendKeystrokes", None, keys, add_return)
+        params = [keys, add_return]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [keys, add_return]
 
-    def snap(self, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(496, 1, (VT_VARIANT, 0), params_magic_numbers, u"SendKeystrokes", None, *params_flattened)
+
+    def snap(self, enable=None):
         """        
         Enables or disables Rhino's grid snap modeling aid.
     
@@ -1251,9 +1771,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(344, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"Snap", None, enable)
+        params = [enable]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [enable]
 
-    def startup_script_count(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(344, 1, (VT_VARIANT, 0), params_magic_numbers, u"Snap", None, *params_flattened)
+
+    def startup_script_count):
         """        
         Returns the number of startup script items in RhinoScript's startup script list. See "Options RhinoScript" for more details.
     
@@ -1267,9 +1797,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(712, 1, (VT_VARIANT, 0), (), u"StartupScriptCount", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def startup_script_list(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(712, 1, (VT_VARIANT, 0), params_magic_numbers, u"StartupScriptCount", None, *params_flattened)
+
+    def startup_script_list):
         """        
         Returns all of the startup script items in Rhino's startup script list. See "Options RhinoScript" for more details.
     
@@ -1283,9 +1823,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(713, 1, (VT_VARIANT, 0), (), u"StartupScriptList", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def status_bar_distance(self, distance):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(713, 1, (VT_VARIANT, 0), params_magic_numbers, u"StartupScriptList", None, *params_flattened)
+
+    def status_bar_distance(self, distance=None):
         """        
         Sets Rhino's status bar distance pane.
     
@@ -1300,9 +1850,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(26, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"StatusBarDistance", None, distance)
+        params = [distance]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [distance]
 
-    def status_bar_message(self, message):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(26, 1, (VT_VARIANT, 0), params_magic_numbers, u"StatusBarDistance", None, *params_flattened)
+
+    def status_bar_message(self, message=None):
         """        
         Sets Rhino's status bar message pane.
     
@@ -1317,9 +1877,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(28, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"StatusBarMessage", None, message)
+        params = [message]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [message]
 
-    def status_bar_number(self, number):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(28, 1, (VT_VARIANT, 0), params_magic_numbers, u"StatusBarMessage", None, *params_flattened)
+
+    def status_bar_number(self, number=None):
         """        
         Sets Rhino's status bar number pane.
     
@@ -1334,9 +1904,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(312, 1, (VT_VARIANT, 0), ((VT_R8, 1),), u"StatusBarNumber", None, number)
+        params = [number]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_R8, 1),]
+        params_flattened = [number]
 
-    def status_bar_point(self, point):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(312, 1, (VT_VARIANT, 0), params_magic_numbers, u"StatusBarNumber", None, *params_flattened)
+
+    def status_bar_point(self, point=None):
         """        
         Sets Rhino's status bar point coordinate panes.
     
@@ -1351,9 +1931,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(27, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"StatusBarPoint", None, flatten(point))
+        params = [point]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(point)]
 
-    def template_file(self, filename):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(27, 1, (VT_VARIANT, 0), params_magic_numbers, u"StatusBarPoint", None, *params_flattened)
+
+    def template_file(self, filename=None):
         """        
         Returns or sets Rhino's default template file. The default template file is the template file used when Rhino starts.
     
@@ -1374,9 +1964,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(529, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"TemplateFile", None, filename)
+        params = [filename]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [filename]
 
-    def template_folder(self, folder):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(529, 1, (VT_VARIANT, 0), params_magic_numbers, u"TemplateFile", None, *params_flattened)
+
+    def template_folder(self, folder=None):
         """        
         Returns or sets the location of Rhino's template files.
     
@@ -1397,9 +1997,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(528, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"TemplateFolder", None, folder)
+        params = [folder]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [folder]
 
-    def window_handle(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(528, 1, (VT_VARIANT, 0), params_magic_numbers, u"TemplateFolder", None, *params_flattened)
+
+    def window_handle):
         """        
         Returns the Windows handle of Rhino's main window.
     
@@ -1413,9 +2023,19 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(29, 1, (VT_VARIANT, 0), (), u"WindowHandle", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def working_folder(self, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(29, 1, (VT_VARIANT, 0), params_magic_numbers, u"WindowHandle", None, *params_flattened)
+
+    def working_folder(self, enable=None):
         """        
         Returns or sets Rhino's working directory, or folder.  The working folder is the default folder for all file operations.
     
@@ -1436,5 +2056,15 @@ class Application(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(439, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"WorkingFolder", None, enable)
+        params = [enable]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [enable]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(439, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorkingFolder", None, *params_flattened)
 

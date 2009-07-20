@@ -8,7 +8,7 @@ class Selection(IRhinoScript):
 
 
 
-    def all_objects(self, select, include_lights, include_grips):
+    def all_objects(self, select=None, include_lights=None, include_grips=None):
         """        
         Returns the identifiers of all objects in the document.
     
@@ -35,9 +35,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(30, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"AllObjects", None, select, include_lights, include_grips)
+        params = [select, include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [select, include_lights, include_grips]
 
-    def first_object(self, select, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(30, 1, (VT_VARIANT, 0), params_magic_numbers, u"AllObjects", None, *params_flattened)
+
+    def first_object(self, select=None, include_lights=None, include_grips=None):
         """        
         Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.
     
@@ -64,9 +74,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(31, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"FirstObject", None, select, include_lights, include_grips)
+        params = [select, include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [select, include_lights, include_grips]
 
-    def get_curve_object(self, message, pre_select, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(31, 1, (VT_VARIANT, 0), params_magic_numbers, u"FirstObject", None, *params_flattened)
+
+    def get_curve_object(self, message=None, pre_select=None, select=None):
         """        
         Prompts the user to pick, or select, a single curve object.
     
@@ -93,9 +113,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(575, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"GetCurveObject", None, message, pre_select, select)
+        params = [message, pre_select, select]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [message, pre_select, select]
 
-    def get_object(self, message, type, pre_select, select, objects):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(575, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetCurveObject", None, *params_flattened)
+
+    def get_object(self, message=None, type=None, pre_select=None, select=None, objects=None):
         """        
         Prompts the user to pick, or select, a single object.
     
@@ -165,9 +195,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(32, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1)), u"GetObject", None, message, type, pre_select, select, flatten(objects))
+        params = [message, type, pre_select, select, objects]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1)]
+        params_flattened = [message, type, pre_select, select, flatten(objects)]
 
-    def get_object_ex(self, message, type, pre_select, select, objects):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(32, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObject", None, *params_flattened)
+
+    def get_object_ex(self, message=None, type=None, pre_select=None, select=None, objects=None):
         """        
         Prompts the user to pick, or select, a single object.
     
@@ -237,9 +277,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(819, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1)), u"GetObjectEx", None, message, type, pre_select, select, flatten(objects))
+        params = [message, type, pre_select, select, objects]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1)]
+        params_flattened = [message, type, pre_select, select, flatten(objects)]
 
-    def get_objects(self, message, type, group, pre_select, select, objects):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(819, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjectEx", None, *params_flattened)
+
+    def get_objects(self, message=None, type=None, group=None, pre_select=None, select=None, objects=None):
         """        
         Prompts the user to pick or select one or more objects.
     
@@ -312,9 +362,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(33, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1)), u"GetObjects", None, message, type, group, pre_select, select, flatten(objects))
+        params = [message, type, group, pre_select, select, objects]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1)]
+        params_flattened = [message, type, group, pre_select, select, flatten(objects)]
 
-    def get_objects_ex(self, message, type, group, pre_select, select, objects):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(33, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjects", None, *params_flattened)
+
+    def get_objects_ex(self, message=None, type=None, group=None, pre_select=None, select=None, objects=None):
         """        
         Prompts the user to pick or select one or more objects.
     
@@ -387,9 +447,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(820, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1)), u"GetObjectsEx", None, message, type, group, pre_select, select, flatten(objects))
+        params = [message, type, group, pre_select, select, objects]
+        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1)]
+        params_flattened = [message, type, group, pre_select, select, flatten(objects)]
 
-    def get_point_coordinates(self, message, pre_select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(820, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjectsEx", None, *params_flattened)
+
+    def get_point_coordinates(self, message=None, pre_select=None):
         """        
         Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.
     
@@ -413,9 +483,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(645, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"GetPointCoordinates", None, message, pre_select)
+        params = [message, pre_select]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [message, pre_select]
 
-    def get_surface_object(self, message, pre_select, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(645, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointCoordinates", None, *params_flattened)
+
+    def get_surface_object(self, message=None, pre_select=None, select=None):
         """        
         Prompts the user to pick, or select, a single surface object.
     
@@ -442,9 +522,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(576, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"GetSurfaceObject", None, message, pre_select, select)
+        params = [message, pre_select, select]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [message, pre_select, select]
 
-    def hidden_objects(self, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(576, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetSurfaceObject", None, *params_flattened)
+
+    def hidden_objects(self, include_lights=None, include_grips=None):
         """        
         Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
     
@@ -468,9 +558,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(366, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1)), u"HiddenObjects", None, include_lights, include_grips)
+        params = [include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [include_lights, include_grips]
 
-    def invert_selected_objects(self, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(366, 1, (VT_VARIANT, 0), params_magic_numbers, u"HiddenObjects", None, *params_flattened)
+
+    def invert_selected_objects(self, include_lights=None, include_grips=None):
         """        
         Inverts the current object selection.  The identifiers of the newly selected objects are returned.
     
@@ -494,9 +594,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(34, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1)), u"InvertSelectedObjects", None, include_lights, include_grips)
+        params = [include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [include_lights, include_grips]
 
-    def last_created_objects(self, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(34, 1, (VT_VARIANT, 0), params_magic_numbers, u"InvertSelectedObjects", None, *params_flattened)
+
+    def last_created_objects(self, select=None):
         """        
         Returns the identifiers of the objects that were most recently created or changed by scripting a Rhino command using the Command function.  It is important to call this function immediately after calling the Command function as only the most recently created or changed object identifiers will be returned.
     
@@ -517,9 +627,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(485, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"LastCreatedObjects", None, select)
+        params = [select]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [select]
 
-    def last_object(self, select, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(485, 1, (VT_VARIANT, 0), params_magic_numbers, u"LastCreatedObjects", None, *params_flattened)
+
+    def last_object(self, select=None, include_lights=None, include_grips=None):
         """        
         Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
     
@@ -546,9 +666,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(35, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"LastObject", None, select, include_lights, include_grips)
+        params = [select, include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [select, include_lights, include_grips]
 
-    def locked_objects(self, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(35, 1, (VT_VARIANT, 0), params_magic_numbers, u"LastObject", None, *params_flattened)
+
+    def locked_objects(self, include_lights=None, include_grips=None):
         """        
         Returns the identifiers of all locked objects in the document.  Visible objects are visible and can be snapped to, but they cannot be selected.
     
@@ -572,9 +702,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(365, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1)), u"LockedObjects", None, include_lights, include_grips)
+        params = [include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [include_lights, include_grips]
 
-    def next_object(self, object, select, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(365, 1, (VT_VARIANT, 0), params_magic_numbers, u"LockedObjects", None, *params_flattened)
+
+    def next_object(self, object, select=None, include_lights=None, include_grips=None):
         """        
         Returns the identifier of the next object in the document.
     
@@ -604,9 +744,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(36, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"NextObject", None, object, select, include_lights, include_grips)
+        params = [object, select, include_lights, include_grips]
+        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [object, select, include_lights, include_grips]
 
-    def normal_objects(self, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(36, 1, (VT_VARIANT, 0), params_magic_numbers, u"NextObject", None, *params_flattened)
+
+    def normal_objects(self, include_lights=None, include_grips=None):
         """        
         Returns the identifiers of all normal objects in the document.  Normal objects are visible, can be snapped to, and are independent of selection state.
     
@@ -630,9 +780,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(364, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1)), u"NormalObjects", None, include_lights, include_grips)
+        params = [include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [include_lights, include_grips]
 
-    def objects_by_color(self, color, select, include_lights):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(364, 1, (VT_VARIANT, 0), params_magic_numbers, u"NormalObjects", None, *params_flattened)
+
+    def objects_by_color(self, color, select=None, include_lights=None):
         """        
         Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     
@@ -659,9 +819,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(37, 1, (VT_VARIANT, 0), ((VT_I4, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"ObjectsByColor", None, color, select, include_lights)
+        params = [color, select, include_lights]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_I4, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [color, select, include_lights]
 
-    def objects_by_group(self, group, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(37, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectsByColor", None, *params_flattened)
+
+    def objects_by_group(self, group, select=None):
         """        
         Returns the identifiers of all objects based on the objects' group name.
     
@@ -685,9 +855,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(38, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ObjectsByGroup", None, group, select)
+        params = [group, select]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [group, select]
 
-    def objects_by_layer(self, layer, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(38, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectsByGroup", None, *params_flattened)
+
+    def objects_by_layer(self, layer, select=None):
         """        
         Returns the identifiers of all objects based on the objects' layer.
     
@@ -711,9 +891,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(39, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ObjectsByLayer", None, layer, select)
+        params = [layer, select]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [layer, select]
 
-    def objects_by_name(self, name, select, include_lights):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(39, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectsByLayer", None, *params_flattened)
+
+    def objects_by_name(self, name, select=None, include_lights=None):
         """        
         Returns the identifiers of all objects based on the objects' user-assigned name.
     
@@ -740,9 +930,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(40, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"ObjectsByName", None, name, select, include_lights)
+        params = [name, select, include_lights]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [name, select, include_lights]
 
-    def objects_by_type(self, type, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(40, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectsByName", None, *params_flattened)
+
+    def objects_by_type(self, type, select=None):
         """        
         Returns the identifiers of all objects based on the objects' geometry type.
     
@@ -803,9 +1003,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(41, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BOOL, 1)), u"ObjectsByType", None, type, select)
+        params = [type, select]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_I2, 1), (VT_BOOL, 1)]
+        params_flattened = [type, select]
 
-    def objects_by_u_r_l(self, u_r_l, select, include_lights):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(41, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectsByType", None, *params_flattened)
+
+    def objects_by_u_r_l(self, u_r_l, select=None, include_lights=None):
         """        
         Returns the identifiers of all objects based on the objects' user-assigned URL.
     
@@ -832,9 +1042,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(42, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"ObjectsByURL", None, u_r_l, select, include_lights)
+        params = [u_r_l, select, include_lights]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [u_r_l, select, include_lights]
 
-    def prev_selected_objects(self, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(42, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectsByURL", None, *params_flattened)
+
+    def prev_selected_objects(self, select=None):
         """        
         Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
     
@@ -855,9 +1075,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(486, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"PrevSelectedObjects", None, select)
+        params = [select]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [select]
 
-    def reference_objects(self, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(486, 1, (VT_VARIANT, 0), params_magic_numbers, u"PrevSelectedObjects", None, *params_flattened)
+
+    def reference_objects(self, include_lights=None, include_grips=None):
         """        
         Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
     
@@ -881,9 +1111,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(367, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1)), u"ReferenceObjects", None, include_lights, include_grips)
+        params = [include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [include_lights, include_grips]
 
-    def selected_objects(self, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(367, 1, (VT_VARIANT, 0), params_magic_numbers, u"ReferenceObjects", None, *params_flattened)
+
+    def selected_objects(self, include_lights=None, include_grips=None):
         """        
         Returns the identifiers of all objects that are currently selected.
     
@@ -907,9 +1147,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(43, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1)), u"SelectedObjects", None, include_lights, include_grips)
+        params = [include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [include_lights, include_grips]
 
-    def unselect_all_objects(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(43, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectedObjects", None, *params_flattened)
+
+    def unselect_all_objects):
         """        
         Unselects all objects in the document.
     
@@ -923,9 +1173,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(44, 1, (VT_VARIANT, 0), (), u"UnselectAllObjects", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def unselected_objects(self, select, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(44, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectAllObjects", None, *params_flattened)
+
+    def unselected_objects(self, select=None, include_lights=None, include_grips=None):
         """        
         Returns the identifiers of all objects that are currently unselected.
     
@@ -952,9 +1212,19 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(45, 1, (VT_VARIANT, 0), ((VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"UnselectedObjects", None, select, include_lights, include_grips)
+        params = [select, include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [select, include_lights, include_grips]
 
-    def visible_objects(self, view, select, include_lights, include_grips):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(45, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectedObjects", None, *params_flattened)
+
+    def visible_objects(self, view=None, select=None, include_lights=None, include_grips=None):
         """        
         Returns the identifiers of all objects that are visible in a specified view.
     
@@ -984,5 +1254,15 @@ class Selection(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(825, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"VisibleObjects", None, view, select, include_lights, include_grips)
+        params = [view, select, include_lights, include_grips]
+        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [view, select, include_lights, include_grips]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(825, 1, (VT_VARIANT, 0), params_magic_numbers, u"VisibleObjects", None, *params_flattened)
 

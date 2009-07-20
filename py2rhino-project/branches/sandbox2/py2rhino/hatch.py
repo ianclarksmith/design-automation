@@ -8,7 +8,7 @@ class Hatch(IRhinoScript):
 
 
 
-    def add_hatch(self, curve, hatch, scale, rotation):
+    def add_hatch(self, curve, hatch=None, scale=None, rotation=None):
         """        
         Creates a new hatch object from a closed planar curve object.
     
@@ -38,9 +38,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(835, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)), u"AddHatch", None, curve, hatch, scale, rotation)
+        params = [curve, hatch, scale, rotation]
+        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
+        params_flattened = [curve, hatch, scale, rotation]
 
-    def add_hatch_patterns(self, file_name, replace):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(835, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddHatch", None, *params_flattened)
+
+    def add_hatch_patterns(self, file_name, replace=None):
         """        
         Adds hatch pattens to the document by importing hatch pattern definitions from a pattern file. For more information on hatch pattern files, see the Rhino help file for the Hatch command.
     
@@ -64,9 +74,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(826, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"AddHatchPatterns", None, file_name, replace)
+        params = [file_name, replace]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [file_name, replace]
 
-    def add_hatches(self, curves, hatch, scale, rotation):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(826, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddHatchPatterns", None, *params_flattened)
+
+    def add_hatches(self, curves, hatch=None, scale=None, rotation=None):
         """        
         Creates one or more new hatch objects from an array of closed planar curve objects.
     
@@ -96,9 +116,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(836, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)), u"AddHatches", None, flatten(curves), hatch, scale, rotation)
+        params = [curves, hatch, scale, rotation]
+        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
+        params_flattened = [flatten(curves), hatch, scale, rotation]
 
-    def current_hatch_pattern(self, hatch):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(836, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddHatches", None, *params_flattened)
+
+    def current_hatch_pattern(self, hatch=None):
         """        
         Returns or sets the current hatch pattern file.
     
@@ -122,9 +152,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(827, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"CurrentHatchPattern", None, hatch)
+        params = [hatch]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [hatch]
 
-    def explode_hatch(self, hatch, delete):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(827, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurrentHatchPattern", None, *params_flattened)
+
+    def explode_hatch(self, hatch, delete=None):
         """        
         Explodes a hatch object into its component objects. The exploded objects will be added to the document. If the hatch object uses a solid pattern, then planar face Brep objects will be created. Otherwise, line curve objects will be created.
     
@@ -148,9 +188,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(841, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ExplodeHatch", None, hatch, delete)
+        params = [hatch, delete]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [hatch, delete]
 
-    def hatch_pattern(self, object, hatch):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(841, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExplodeHatch", None, *params_flattened)
+
+    def hatch_pattern(self, object, hatch=None):
         """        
         Returns or changes a hatch object's hatch pattern.
     
@@ -177,9 +227,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(837, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"HatchPattern", None, object, hatch)
+        params = [object, hatch]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, hatch]
 
-    def hatch_pattern_count(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(837, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPattern", None, *params_flattened)
+
+    def hatch_pattern_count):
         """        
         Returns the number of hatch patterns in the document.
     
@@ -193,7 +253,17 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(828, 1, (VT_VARIANT, 0), (), u"HatchPatternCount", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(828, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPatternCount", None, *params_flattened)
 
     def hatch_pattern_description(self, hatch):
         """        
@@ -216,7 +286,17 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(829, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"HatchPatternDescription", None, hatch)
+        params = [hatch]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [hatch]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(829, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPatternDescription", None, *params_flattened)
 
     def hatch_pattern_fill_type(self, hatch):
         """        
@@ -247,9 +327,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(831, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"HatchPatternFillType", None, hatch)
+        params = [hatch]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [hatch]
 
-    def hatch_pattern_names(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(831, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPatternFillType", None, *params_flattened)
+
+    def hatch_pattern_names):
         """        
         Returns the names of all of the hatch pattern in the document.
     
@@ -266,9 +356,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(830, 1, (VT_VARIANT, 0), (), u"HatchPatternNames", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def hatch_rotation(self, object, rotation):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(830, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPatternNames", None, *params_flattened)
+
+    def hatch_rotation(self, object, rotation=None):
         """        
         Returns or modifies the rotation applied to the hatch pattern when it is mapped to the hatch's plane.
     
@@ -295,9 +395,19 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(839, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"HatchRotation", None, object, rotation)
+        params = [object, rotation]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [object, rotation]
 
-    def hatch_scale(self, object, scale):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(839, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchRotation", None, *params_flattened)
+
+    def hatch_scale(self, object, scale=None):
         """        
         Returns or modifies the scale applied to the hatch pattern when it is mapped to the hatch's plane.
     
@@ -324,7 +434,17 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(838, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"HatchScale", None, object, scale)
+        params = [object, scale]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [object, scale]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(838, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchScale", None, *params_flattened)
 
     def is_hatch(self, object):
         """        
@@ -344,7 +464,17 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(840, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsHatch", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(840, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsHatch", None, *params_flattened)
 
     def is_hatch_pattern(self, hatch):
         """        
@@ -364,7 +494,17 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(832, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsHatchPattern", None, hatch)
+        params = [hatch]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [hatch]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(832, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsHatchPattern", None, *params_flattened)
 
     def is_hatch_pattern_current(self, hatch):
         """        
@@ -384,7 +524,17 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(833, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsHatchPatternCurrent", None, hatch)
+        params = [hatch]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [hatch]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(833, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsHatchPatternCurrent", None, *params_flattened)
 
     def is_hatch_pattern_reference(self, hatch):
         """        
@@ -404,5 +554,15 @@ class Hatch(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(834, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsHatchPatternReference", None, hatch)
+        params = [hatch]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [hatch]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(834, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsHatchPatternReference", None, *params_flattened)
 

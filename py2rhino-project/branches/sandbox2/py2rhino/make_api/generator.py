@@ -57,7 +57,6 @@ def write_class_method(method_dict, f):
     
     """
     
-    
     #first check if this is a method with mismatch in parameters
     if len(method_dict['params_html']) != len(method_dict['params_com']):
         w(f, ['def ', py_method_name, '(self):'], tabs=1, nle=1)
@@ -135,9 +134,16 @@ def write_class_method(method_dict, f):
             params_magic_numbers.append( '(' + str(string_to_magic_map[param_dict['type_string']]) + ', 1)')
             
     #create the method signature
-    w(f, ['def ', py_method_name, '(self'], tabs=1, nle=0)
-    if params_name:
-        w(f, [', ', ', '.join(params_name), '):'], tabs=0, nle=1)
+    w(f, ('def ', py_method_name), tabs=1, nle=0)
+    if num_params > 0:
+        param_list = ''
+        for i in range(num_params):
+            param_list = param_list + params_name[i]
+            if params_opt_or_req[i] == 'Optional':
+                param_list = param_list + '=None'
+            param_list = param_list + ', '
+        param_list = param_list[:-2]
+        w(f, ('(self, ', param_list, '):'), tabs=0, nle=1)
     else:
         w(f, '):', tabs=0, nle=1)
 
@@ -167,8 +173,7 @@ def write_class_method(method_dict, f):
             w(f, returns_doc, tabs=2, nls=0, nle=1)
     else:
         w(f, 'No returns', tabs=2, nls=1, nle=2)        
-    w(f, '"""', tabs=2, nls=1, nle=2)
-    #w(f, "pass", tabs=2, nle=2)
+    w(f, '"""', tabs=2, nls=1, nle=1)
 
     #figure out the magic numbers
     magic_id = method_dict['id_com']
@@ -178,9 +183,20 @@ def write_class_method(method_dict, f):
         params_magic_numbers = params_magic_numbers + ','
     params_flattened = ', '.join(params_flattened)
     
+    w(f, ('params = [', ', '.join(params_name), ']'), tabs=2, nls=1, nle=0)
+    w(f, ('params_opt_or_req = [', ', '.join(params_opt_or_req), ']'), tabs=2, nls=1, nle=0)
+    w(f, ('params_magic_numbers = [', params_magic_numbers, ']'), tabs=2, nls=1, nle=0)
+    w(f, ('params_flattened = [', params_flattened, ']'), tabs=2, nls=1, nle=1)
+    
+    w(f, ('for i in range(len(params)):'), tabs=2, nls=1, nle=0)
+    w(f, ('if (params[i] == None) and (params_opt_or_req[i] = "Optional"):'), tabs=3, nls=1, nle=0)
+    w(f, ('params_magic_numbers.pop(i)'), tabs=4, nls=1, nle=0)
+    w(f, ('params_flattened.pop(i)'), tabs=4, nls=1, nle=1)    
+    
+    
     #now write the function    
-    magic = str(magic_id) + ', 1, '+returns_magic_numbers+', ('+params_magic_numbers+')'
-    w(f, ['return self._ApplyTypes_(', magic,', u"', vb_method_name,'", None, ', params_flattened, ')'], tabs=2, nle=2)
+    magic = str(magic_id) + ', 1, '+returns_magic_numbers+', params_magic_numbers'
+    w(f, ['return self._ApplyTypes_(', magic,', u"', vb_method_name,'", None, *params_flattened)'], tabs=2, nls=1, nle=2)
 
 
 

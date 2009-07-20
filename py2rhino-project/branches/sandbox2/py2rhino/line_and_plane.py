@@ -41,7 +41,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(628, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"DistanceToPlane", None, flatten(plane), flatten(point))
+        params = [plane, point]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(plane), flatten(point)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(628, 1, (VT_VARIANT, 0), params_magic_numbers, u"DistanceToPlane", None, *params_flattened)
 
     def evaluate_plane(self, plane, parameter):
         """        
@@ -76,7 +86,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(751, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"EvaluatePlane", None, flatten(plane), flatten(parameter))
+        params = [plane, parameter]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(plane), flatten(parameter)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(751, 1, (VT_VARIANT, 0), params_magic_numbers, u"EvaluatePlane", None, *params_flattened)
 
     def intersect_planes(self, plane1, plane2, plane3):
         """        
@@ -105,7 +125,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(745, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"IntersectPlanes", None, flatten(plane1), flatten(plane2), flatten(plane3))
+        params = [plane1, plane2, plane3]
+        params_opt_or_req = [Required, Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(plane1), flatten(plane2), flatten(plane3)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(745, 1, (VT_VARIANT, 0), params_magic_numbers, u"IntersectPlanes", None, *params_flattened)
 
     def line_closest_point(self, line, point):
         """        
@@ -131,7 +161,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(899, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineClosestPoint", None, flatten(line), flatten(point))
+        params = [line, point]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(line), flatten(point)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(899, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineClosestPoint", None, *params_flattened)
 
     def line_is_farther_than(self, line, distance, point, line2):
         """        
@@ -163,9 +203,19 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(902, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineIsFartherThan", None, flatten(line), distance, flatten(point), flatten(line2))
+        params = [line, distance, point, line2]
+        params_opt_or_req = [Required, Required, Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(line), distance, flatten(point), flatten(line2)]
 
-    def line_line_intersection(self, line_a, line_b, planar):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(902, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineIsFartherThan", None, *params_flattened)
+
+    def line_line_intersection(self, line_a, line_b, planar=None):
         """        
         Calculates the intersection of two non-parallel.  Note, the two lines do not have to intersect for an intersection to be found.
 		The default operation of this function assumes that the two lines are co-planar.  Thus, the return value is the intersection point of the two lines.
@@ -197,7 +247,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(736, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"LineLineIntersection", None, flatten(line_a), flatten(line_b), planar)
+        params = [line_a, line_b, planar]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(line_a), flatten(line_b), planar]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(736, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineLineIntersection", None, *params_flattened)
 
     def line_max_distance_to(self, line, point, line2):
         """        
@@ -226,7 +286,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(901, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineMaxDistanceTo", None, flatten(line), flatten(point), flatten(line2))
+        params = [line, point, line2]
+        params_opt_or_req = [Required, Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(line), flatten(point), flatten(line2)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(901, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineMaxDistanceTo", None, *params_flattened)
 
     def line_min_distance_to(self, line, point, line2):
         """        
@@ -255,7 +325,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(900, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineMinDistanceTo", None, flatten(line), flatten(point), flatten(line2))
+        params = [line, point, line2]
+        params_opt_or_req = [Required, Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(line), flatten(point), flatten(line2)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(900, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineMinDistanceTo", None, *params_flattened)
 
     def line_plane(self, line):
         """        
@@ -278,7 +358,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(898, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"LinePlane", None, flatten(line))
+        params = [line]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(line)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(898, 1, (VT_VARIANT, 0), params_magic_numbers, u"LinePlane", None, *params_flattened)
 
     def line_plane_intersection(self, line, point):
         """        
@@ -304,7 +394,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(743, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"LinePlaneIntersection", None, flatten(line), flatten(point))
+        params = [line, point]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(line), flatten(point)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(743, 1, (VT_VARIANT, 0), params_magic_numbers, u"LinePlaneIntersection", None, *params_flattened)
 
     def line_transform(self, line, xform):
         """        
@@ -330,7 +430,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(897, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineTransform", None, flatten(line), flatten(xform))
+        params = [line, xform]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(line), flatten(xform)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(897, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineTransform", None, *params_flattened)
 
     def move_plane(self, plane, origin):
         """        
@@ -365,9 +475,19 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(631, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"MovePlane", None, flatten(plane), flatten(origin))
+        params = [plane, origin]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(plane), flatten(origin)]
 
-    def plane_closest_point(self, plane, point, return_point):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(631, 1, (VT_VARIANT, 0), params_magic_numbers, u"MovePlane", None, *params_flattened)
+
+    def plane_closest_point(self, plane, point, return_point=None):
         """        
         Returns the point on a plane that is closest to a test point.
     
@@ -403,7 +523,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(629, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"PlaneClosestPoint", None, flatten(plane), flatten(point), return_point)
+        params = [plane, point, return_point]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(plane), flatten(point), return_point]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(629, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneClosestPoint", None, *params_flattened)
 
     def plane_equation(self, plane):
         """        
@@ -436,7 +566,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(642, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"PlaneEquation", None, flatten(plane))
+        params = [plane]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(plane)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(642, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneEquation", None, *params_flattened)
 
     def plane_fit_from_points(self, points):
         """        
@@ -459,7 +599,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(725, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"PlaneFitFromPoints", None, flatten(points))
+        params = [points]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(points)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(725, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFitFromPoints", None, *params_flattened)
 
     def plane_from_frame(self, origin, xaxis, yaxis):
         """        
@@ -488,7 +638,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(627, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"PlaneFromFrame", None, flatten(origin), flatten(xaxis), flatten(yaxis))
+        params = [origin, xaxis, yaxis]
+        params_opt_or_req = [Required, Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(origin), flatten(xaxis), flatten(yaxis)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(627, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromFrame", None, *params_flattened)
 
     def plane_from_normal(self, origin, normal):
         """        
@@ -514,7 +674,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(626, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"PlaneFromNormal", None, flatten(origin), flatten(normal))
+        params = [origin, normal]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(origin), flatten(normal)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(626, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromNormal", None, *params_flattened)
 
     def plane_from_points(self, origin, point_x, point_y):
         """        
@@ -543,7 +713,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(649, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"PlaneFromPoints", None, flatten(origin), flatten(point_x), flatten(point_y))
+        params = [origin, point_x, point_y]
+        params_opt_or_req = [Required, Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(origin), flatten(point_x), flatten(point_y)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(649, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromPoints", None, *params_flattened)
 
     def plane_plane_intersection(self, plane1, point2):
         """        
@@ -569,7 +749,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(744, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"PlanePlaneIntersection", None, flatten(plane1), flatten(point2))
+        params = [plane1, point2]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(plane1), flatten(point2)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(744, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlanePlaneIntersection", None, *params_flattened)
 
     def plane_transform(self, plane, xform):
         """        
@@ -595,7 +785,17 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(801, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"PlaneTransform", None, flatten(plane), flatten(xform))
+        params = [plane, xform]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(plane), flatten(xform)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(801, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneTransform", None, *params_flattened)
 
     def rotate_plane(self, plane, angle, axis):
         """        
@@ -633,9 +833,19 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(630, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)), u"RotatePlane", None, flatten(plane), angle, flatten(axis))
+        params = [plane, angle, axis]
+        params_opt_or_req = [Required, Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(plane), angle, flatten(axis)]
 
-    def world_x_y_plane(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(630, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotatePlane", None, *params_flattened)
+
+    def world_x_y_plane):
         """        
         Returns Rhino's world XY plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(1.0,0.0,0.0), Array(0.0,1.0,0.0)
@@ -650,9 +860,19 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(652, 1, (VT_VARIANT, 0), (), u"WorldXYPlane", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def world_y_z_plane(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(652, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldXYPlane", None, *params_flattened)
+
+    def world_y_z_plane):
         """        
         Returns Rhino's world YZ plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,1.0,0.0), Array(0.0,0.0,1.0)
@@ -667,9 +887,19 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(653, 1, (VT_VARIANT, 0), (), u"WorldYZPlane", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def world_z_x_plane(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(653, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldYZPlane", None, *params_flattened)
+
+    def world_z_x_plane):
         """        
         Returns Rhino's world ZX plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,0.0,1.0), Array(1.0,0.0,0.0)
@@ -684,5 +914,15 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(654, 1, (VT_VARIANT, 0), (), u"WorldZXPlane", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(654, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldZXPlane", None, *params_flattened)
 

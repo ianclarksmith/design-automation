@@ -8,7 +8,7 @@ class ObjectGrip(IRhinoScript):
 
 
 
-    def enable_object_grips(self, object, enable):
+    def enable_object_grips(self, object, enable=None):
         """        
         Enables or disables an object's grips. For curves and surfaces, these are also called control points.
     
@@ -32,9 +32,19 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(499, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"EnableObjectGrips", None, object, enable)
+        params = [object, enable]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [object, enable]
 
-    def get_object_grip(self, message, pre_select, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(499, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableObjectGrips", None, *params_flattened)
+
+    def get_object_grip(self, message=None, pre_select=None, select=None):
         """        
         Prompts the user to pick or select a single object grip.
     
@@ -70,9 +80,19 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(561, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"GetObjectGrip", None, message, pre_select, select)
+        params = [message, pre_select, select]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [message, pre_select, select]
 
-    def get_object_grips(self, message, pre_select, select):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(561, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjectGrip", None, *params_flattened)
+
+    def get_object_grips(self, message=None, pre_select=None, select=None):
         """        
         Prompts the user to pick or select one or more object grips from one or more objects.
     
@@ -108,9 +128,19 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(562, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)), u"GetObjectGrips", None, message, pre_select, select)
+        params = [message, pre_select, select]
+        params_opt_or_req = [Optional, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        params_flattened = [message, pre_select, select]
 
-    def next_object_grip(self, object, index, direction, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(562, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjectGrips", None, *params_flattened)
+
+    def next_object_grip(self, object, index, direction=None, enable=None):
         """        
         Returns the next grip index from a specified grip index of an object.
     
@@ -140,7 +170,17 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(558, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1)), u"NextObjectGrip", None, object, index, direction, enable)
+        params = [object, index, direction, enable]
+        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1)]
+        params_flattened = [object, index, direction, enable]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(558, 1, (VT_VARIANT, 0), params_magic_numbers, u"NextObjectGrip", None, *params_flattened)
 
     def object_grip_count(self, object):
         """        
@@ -163,9 +203,19 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(500, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectGripCount", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def object_grip_location(self, object, index, point):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(500, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripCount", None, *params_flattened)
+
+    def object_grip_location(self, object, index, point=None):
         """        
         Returns or modifies the location of an object's grip.
     
@@ -195,9 +245,19 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(556, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)), u"ObjectGripLocation", None, object, index, flatten(point))
+        params = [object, index, point]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
+        params_flattened = [object, index, flatten(point)]
 
-    def object_grip_locations(self, object, points):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(556, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripLocation", None, *params_flattened)
+
+    def object_grip_locations(self, object, points=None):
         """        
         Returns or modifies the location of all grips owned by an object. The locations of the grips are returned in an array of 3-D points with each position in the array corresponding to that grip's index. To modify the locations of grips, you must provide an array of 3-D points that contains the same number of points at grips.
     
@@ -224,7 +284,17 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(557, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"ObjectGripLocations", None, object, flatten(points))
+        params = [object, points]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [object, flatten(points)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(557, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripLocations", None, *params_flattened)
 
     def object_grips_on(self, object):
         """        
@@ -247,7 +317,17 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(497, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectGripsOn", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(497, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripsOn", None, *params_flattened)
 
     def object_grips_selected(self, object):
         """        
@@ -270,9 +350,19 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(498, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectGripsSelected", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def prev_object_grip(self, object, index, direction, enable):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(498, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripsSelected", None, *params_flattened)
+
+    def prev_object_grip(self, object, index, direction=None, enable=None):
         """        
         Returns the previous grip index from a specified grip index of an object.
     
@@ -302,7 +392,17 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(559, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1)), u"PrevObjectGrip", None, object, index, direction, enable)
+        params = [object, index, direction, enable]
+        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1)]
+        params_flattened = [object, index, direction, enable]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(559, 1, (VT_VARIANT, 0), params_magic_numbers, u"PrevObjectGrip", None, *params_flattened)
 
     def select_object_grip(self, object, index):
         """        
@@ -328,7 +428,17 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(554, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"SelectObjectGrip", None, object, index)
+        params = [object, index]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [object, index]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(554, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObjectGrip", None, *params_flattened)
 
     def select_object_grips(self, object):
         """        
@@ -351,7 +461,17 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(501, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"SelectObjectGrips", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(501, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObjectGrips", None, *params_flattened)
 
     def selected_object_grips(self, object):
         """        
@@ -374,7 +494,17 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(560, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"SelectedObjectGrips", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(560, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectedObjectGrips", None, *params_flattened)
 
     def unselect_object_grip(self, object, index):
         """        
@@ -400,7 +530,17 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(555, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"UnselectObjectGrip", None, object, index)
+        params = [object, index]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [object, index]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(555, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObjectGrip", None, *params_flattened)
 
     def unselect_object_grips(self, object):
         """        
@@ -423,5 +563,15 @@ class ObjectGrip(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(502, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"UnselectObjectGrips", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(502, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObjectGrips", None, *params_flattened)
 

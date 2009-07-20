@@ -29,7 +29,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(411, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockContainerCount", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(411, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockContainerCount", None, *params_flattened)
 
     def block_containers(self, block):
         """        
@@ -52,9 +62,19 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(412, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockContainers", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
 
-    def block_count(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(412, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockContainers", None, *params_flattened)
+
+    def block_count):
         """        
         Returns the number of block definitions in the document.
     
@@ -71,9 +91,19 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(397, 1, (VT_VARIANT, 0), (), u"BlockCount", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def block_description(self, block, text):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(397, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockCount", None, *params_flattened)
+
+    def block_description(self, block, text=None):
         """        
         Returns or sets the description of a block definition.
     
@@ -100,7 +130,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(400, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"BlockDescription", None, block, text)
+        params = [block, text]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [block, text]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(400, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockDescription", None, *params_flattened)
 
     def block_instance_count(self, block):
         """        
@@ -123,7 +163,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(404, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockInstanceCount", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(404, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstanceCount", None, *params_flattened)
 
     def block_instance_insert_point(self, object):
         """        
@@ -146,7 +196,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(413, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockInstanceInsertPoint", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(413, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstanceInsertPoint", None, *params_flattened)
 
     def block_instance_name(self, object):
         """        
@@ -169,7 +229,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(571, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockInstanceName", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(571, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstanceName", None, *params_flattened)
 
     def block_instance_xform(self, object):
         """        
@@ -192,7 +262,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(415, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockInstanceXform", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(415, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstanceXform", None, *params_flattened)
 
     def block_instances(self, block):
         """        
@@ -215,9 +295,19 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(414, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockInstances", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
 
-    def block_names(self, sort):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(414, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstances", None, *params_flattened)
+
+    def block_names(self, sort=None):
         """        
         Returns the names of all block definitions in the document.
     
@@ -238,7 +328,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(396, 1, (VT_VARIANT, 0), ((VT_BOOL, 1),), u"BlockNames", None, sort)
+        params = [sort]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BOOL, 1),]
+        params_flattened = [sort]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(396, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockNames", None, *params_flattened)
 
     def block_object_count(self, block):
         """        
@@ -261,7 +361,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(416, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockObjectCount", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(416, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockObjectCount", None, *params_flattened)
 
     def block_objects(self, block):
         """        
@@ -284,7 +394,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(417, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockObjects", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(417, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockObjects", None, *params_flattened)
 
     def block_path(self, block):
         """        
@@ -307,9 +427,19 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(408, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockPath", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
 
-    def block_u_r_l(self, block, u_r_l):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(408, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockPath", None, *params_flattened)
+
+    def block_u_r_l(self, block, u_r_l=None):
         """        
         Returns or sets the URL of a block definition.
     
@@ -336,9 +466,19 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(402, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"BlockURL", None, block, u_r_l)
+        params = [block, u_r_l]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [block, u_r_l]
 
-    def block_u_r_l_tag(self, block, u_r_l):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(402, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockURL", None, *params_flattened)
+
+    def block_u_r_l_tag(self, block, u_r_l=None):
         """        
         Returns or sets the URL tag, or description, of a block definition.
     
@@ -365,7 +505,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(403, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"BlockURLTag", None, block, u_r_l)
+        params = [block, u_r_l]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [block, u_r_l]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(403, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockURLTag", None, *params_flattened)
 
     def delete_block(self, block):
         """        
@@ -388,7 +538,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(418, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteBlock", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(418, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteBlock", None, *params_flattened)
 
     def explode_block_instance(self, object):
         """        
@@ -411,9 +571,19 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(419, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ExplodeBlockInstance", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def insert_block(self, name, point, scale, angle, normal, xform):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(419, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExplodeBlockInstance", None, *params_flattened)
+
+    def insert_block(self, name, point, scale=None, angle=None, normal=None, xform):
         """        
         Inserts a block whose definition already exists in the document.
     
@@ -449,7 +619,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(633, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"InsertBlock", None, name, flatten(point), flatten(scale), angle, flatten(normal), flatten(xform))
+        params = [name, point, scale, angle, normal, xform]
+        params_opt_or_req = [Required, Required, Optional, Optional, Optional, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [name, flatten(point), flatten(scale), angle, flatten(normal), flatten(xform)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(633, 1, (VT_VARIANT, 0), params_magic_numbers, u"InsertBlock", None, *params_flattened)
 
     def is_block(self, block):
         """        
@@ -472,7 +652,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(398, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsBlock", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(398, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlock", None, *params_flattened)
 
     def is_block_embedded(self, block):
         """        
@@ -495,9 +685,19 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(405, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsBlockEmbedded", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
 
-    def is_block_in_use(self, block, where):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(405, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlockEmbedded", None, *params_flattened)
+
+    def is_block_in_use(self, block, where=None):
         """        
         Verifies that a block definition is being used by an inserted instance.
     
@@ -526,7 +726,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(406, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"IsBlockInUse", None, block, where)
+        params = [block, where]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
+        params_flattened = [block, where]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(406, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlockInUse", None, *params_flattened)
 
     def is_block_instance(self, object):
         """        
@@ -549,7 +759,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(420, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsBlockInstance", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(420, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlockInstance", None, *params_flattened)
 
     def is_block_reference(self, block):
         """        
@@ -572,7 +792,17 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(407, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsBlockReference", None, block)
+        params = [block]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [block]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(407, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlockReference", None, *params_flattened)
 
     def rename_block(self, old_block, new_block):
         """        
@@ -598,5 +828,15 @@ class Block(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(399, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"RenameBlock", None, old_block, new_block)
+        params = [old_block, new_block]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [old_block, new_block]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(399, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenameBlock", None, *params_flattened)
 

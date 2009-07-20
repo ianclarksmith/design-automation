@@ -8,7 +8,7 @@ class Mesh(IRhinoScript):
 
 
 
-    def add_mesh(self, vertices, face_vertices, vertex_normals, texture_coordinates, vertex_colors):
+    def add_mesh(self, vertices, face_vertices, vertex_normals=None, texture_coordinates=None, vertex_colors=None):
         """        
         Adds a mesh object to the document.
     
@@ -41,7 +41,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(494, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"AddMesh", None, flatten(vertices), flatten(face_vertices), flatten(vertex_normals), flatten(texture_coordinates), flatten(vertex_colors))
+        params = [vertices, face_vertices, vertex_normals, texture_coordinates, vertex_colors]
+        params_opt_or_req = [Required, Required, Optional, Optional, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(vertices), flatten(face_vertices), flatten(vertex_normals), flatten(texture_coordinates), flatten(vertex_colors)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(494, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddMesh", None, *params_flattened)
 
     def add_planar_mesh(self, object, delete):
         """        
@@ -67,9 +77,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(915, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"AddPlanarMesh", None, object, delete)
+        params = [object, delete]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [object, delete]
 
-    def curve_mesh_intersection(self, curve, mesh, return_faces):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(915, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPlanarMesh", None, *params_flattened)
+
+    def curve_mesh_intersection(self, curve, mesh, return_faces=None):
         """        
         Calculates the intersection of a curve object and a mesh object.
     
@@ -105,7 +125,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(842, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"CurveMeshIntersection", None, curve, mesh, return_faces)
+        params = [curve, mesh, return_faces]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [curve, mesh, return_faces]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(842, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveMeshIntersection", None, *params_flattened)
 
     def disjoint_mesh_count(self, object):
         """        
@@ -128,7 +158,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(721, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DisjointMeshCount", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(721, 1, (VT_VARIANT, 0), params_magic_numbers, u"DisjointMeshCount", None, *params_flattened)
 
     def duplicate_mesh_border(self, object):
         """        
@@ -151,9 +191,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(853, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DuplicateMeshBorder", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def explode_meshes(self, object, objects, delete):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(853, 1, (VT_VARIANT, 0), params_magic_numbers, u"DuplicateMeshBorder", None, *params_flattened)
+
+    def explode_meshes(self, object, objects, delete=None):
         """        
         Explodes a mesh object, or mesh objects,  into submeshes.  A submesh is a collection of mesh faces that are contained within a closed loop of unwelded mesh edges.  Unwelded mesh edges are edges where the mesh faces that share the edge have unique mesh vertices (not mesh topology vertices) at both ends of the edge.
     
@@ -180,7 +230,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(903, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"ExplodeMeshes", None, object, flatten(objects), delete)
+        params = [object, objects, delete]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(objects), delete]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(903, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExplodeMeshes", None, *params_flattened)
 
     def is_mesh(self, object):
         """        
@@ -203,7 +263,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(119, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsMesh", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(119, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMesh", None, *params_flattened)
 
     def is_mesh_closed(self, object):
         """        
@@ -226,7 +296,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(355, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsMeshClosed", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(355, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMeshClosed", None, *params_flattened)
 
     def is_mesh_manifold(self, object):
         """        
@@ -249,7 +329,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(855, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsMeshManifold", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(855, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMeshManifold", None, *params_flattened)
 
     def mesh_area(self, object, objects):
         """        
@@ -284,7 +374,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(353, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"MeshArea", None, object, flatten(objects))
+        params = [object, objects]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [object, flatten(objects)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(353, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshArea", None, *params_flattened)
 
     def mesh_area_centroid(self, object):
         """        
@@ -307,9 +407,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(477, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshAreaCentroid", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def mesh_boolean_difference(self, input0, input1, delete):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(477, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshAreaCentroid", None, *params_flattened)
+
+    def mesh_boolean_difference(self, input0, input1, delete=None):
         """        
         Performs a Boolean difference operation on two sets of input meshes. For more details, see the MeshBooleanDifference command in the Rhino help file.
     
@@ -336,9 +446,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(732, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"MeshBooleanDifference", None, flatten(input0), flatten(input1), delete)
+        params = [input0, input1, delete]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(input0), flatten(input1), delete]
 
-    def mesh_boolean_intersection(self, input0, input1, delete):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(732, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshBooleanDifference", None, *params_flattened)
+
+    def mesh_boolean_intersection(self, input0, input1, delete=None):
         """        
         Performs a Boolean intersection operation on two sets of input meshes. For more details, see the MeshBooleanIntersection command in the Rhino help file.
     
@@ -365,9 +485,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(733, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"MeshBooleanIntersection", None, flatten(input0), flatten(input1), delete)
+        params = [input0, input1, delete]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(input0), flatten(input1), delete]
 
-    def mesh_boolean_split(self, input0, input1, delete):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(733, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshBooleanIntersection", None, *params_flattened)
+
+    def mesh_boolean_split(self, input0, input1, delete=None):
         """        
         Performs a Boolean split operation on two sets of input meshes. For more details, see the MeshBooleanSplit command in the Rhino help file.
     
@@ -394,9 +524,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(734, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"MeshBooleanSplit", None, flatten(input0), flatten(input1), delete)
+        params = [input0, input1, delete]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(input0), flatten(input1), delete]
 
-    def mesh_boolean_union(self, input, delete):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(734, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshBooleanSplit", None, *params_flattened)
+
+    def mesh_boolean_union(self, input, delete=None):
         """        
         Performs a Boolean union operation on a set of input meshes. For more details, see the MeshBooleanUnion command in the Rhino help file.
     
@@ -420,9 +560,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(731, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BOOL, 1)), u"MeshBooleanUnion", None, flatten(input), delete)
+        params = [input, delete]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(input), delete]
 
-    def mesh_closest_point(self, object, point, tolerance):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(731, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshBooleanUnion", None, *params_flattened)
+
+    def mesh_closest_point(self, object, point, tolerance=None):
         """        
         Returns the point on a mesh that is closest to a test point.
     
@@ -455,9 +605,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(750, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)), u"MeshClosestPoint", None, object, flatten(point), tolerance)
+        params = [object, point, tolerance]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
+        params_flattened = [object, flatten(point), tolerance]
 
-    def mesh_contour_points(self, object, start_point, end_point, interval, remove_coincident_points):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(750, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshClosestPoint", None, *params_flattened)
+
+    def mesh_contour_points(self, object, start_point, end_point, interval=None, remove_coincident_points=None):
         """        
         Returns the vertices of the polyline curves generated by contouring a mesh object.
     
@@ -490,7 +650,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(123, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BOOL, 1)), u"MeshContourPoints", None, object, flatten(start_point), flatten(end_point), interval, remove_coincident_points)
+        params = [object, start_point, end_point, interval, remove_coincident_points]
+        params_opt_or_req = [Required, Required, Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(start_point), flatten(end_point), interval, remove_coincident_points]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(123, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshContourPoints", None, *params_flattened)
 
     def mesh_face_centers(self, object):
         """        
@@ -513,7 +683,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(570, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshFaceCenters", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(570, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshFaceCenters", None, *params_flattened)
 
     def mesh_face_count(self, object):
         """        
@@ -536,7 +716,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(124, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshFaceCount", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(124, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshFaceCount", None, *params_flattened)
 
     def mesh_face_normals(self, object):
         """        
@@ -559,7 +749,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(569, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshFaceNormals", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(569, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshFaceNormals", None, *params_flattened)
 
     def mesh_face_vertices(self, object):
         """        
@@ -582,9 +782,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(495, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshFaceVertices", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def mesh_faces(self, object, face_type):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(495, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshFaceVertices", None, *params_flattened)
+
+    def mesh_faces(self, object, face_type=None):
         """        
         Returns the face vertices of a mesh object.
     
@@ -613,7 +823,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(125, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"MeshFaces", None, object, face_type)
+        params = [object, face_type]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [object, face_type]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(125, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshFaces", None, *params_flattened)
 
     def mesh_has_face_normals(self, object):
         """        
@@ -636,7 +856,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(696, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshHasFaceNormals", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(696, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshHasFaceNormals", None, *params_flattened)
 
     def mesh_has_texture_coordinates(self, object):
         """        
@@ -659,7 +889,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(697, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshHasTextureCoordinates", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(697, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshHasTextureCoordinates", None, *params_flattened)
 
     def mesh_has_vertex_colors(self, object):
         """        
@@ -682,7 +922,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(698, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshHasVertexColors", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(698, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshHasVertexColors", None, *params_flattened)
 
     def mesh_has_vertex_normals(self, object):
         """        
@@ -705,9 +955,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(695, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshHasVertexNormals", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def mesh_mesh_intersection(self, mesh1, mesh2, tolerance):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(695, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshHasVertexNormals", None, *params_flattened)
+
+    def mesh_mesh_intersection(self, mesh1, mesh2, tolerance=None):
         """        
         Calculates the intersection of a mesh object with another mesh object.
     
@@ -734,7 +994,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(749, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)), u"MeshMeshIntersection", None, mesh1, mesh2, tolerance)
+        params = [mesh1, mesh2, tolerance]
+        params_opt_or_req = [Required, Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [mesh1, mesh2, tolerance]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(749, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshMeshIntersection", None, *params_flattened)
 
     def mesh_naked_edge_points(self, object):
         """        
@@ -757,7 +1027,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(580, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshNakedEdgePoints", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(580, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshNakedEdgePoints", None, *params_flattened)
 
     def mesh_offset(self, mesh, distance):
         """        
@@ -783,7 +1063,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(720, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"MeshOffset", None, mesh, distance)
+        params = [mesh, distance]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
+        params_flattened = [mesh, distance]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(720, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshOffset", None, *params_flattened)
 
     def mesh_quad_count(self, object):
         """        
@@ -806,7 +1096,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(350, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshQuadCount", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(350, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshQuadCount", None, *params_flattened)
 
     def mesh_quads_to_triangles(self, object):
         """        
@@ -829,7 +1129,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(352, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshQuadsToTriangles", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(352, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshQuadsToTriangles", None, *params_flattened)
 
     def mesh_texture_coordinates(self, object):
         """        
@@ -852,7 +1162,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(425, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshTextureCoordinates", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(425, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshTextureCoordinates", None, *params_flattened)
 
     def mesh_triangle_count(self, object):
         """        
@@ -875,9 +1195,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(351, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshTriangleCount", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
 
-    def mesh_vertex_colors(self, object, vertex_colors, null):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(351, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshTriangleCount", None, *params_flattened)
+
+    def mesh_vertex_colors(self, object, vertex_colors=None, null=None):
         """        
         Returns or modifies the  vertex colors of a mesh object
     
@@ -907,7 +1237,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(699, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"MeshVertexColors", None, object, flatten(vertex_colors), flatten(null))
+        params = [object, vertex_colors, null]
+        params_opt_or_req = [Required, Optional, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        params_flattened = [object, flatten(vertex_colors), flatten(null)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(699, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshVertexColors", None, *params_flattened)
 
     def mesh_vertex_count(self, object):
         """        
@@ -930,7 +1270,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(126, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshVertexCount", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(126, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshVertexCount", None, *params_flattened)
 
     def mesh_vertex_normals(self, object):
         """        
@@ -953,7 +1303,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(426, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshVertexNormals", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(426, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshVertexNormals", None, *params_flattened)
 
     def mesh_vertices(self, object):
         """        
@@ -976,7 +1336,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(127, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshVertices", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(127, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshVertices", None, *params_flattened)
 
     def mesh_volume(self, object, objects):
         """        
@@ -1011,7 +1381,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(354, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"MeshVolume", None, object, flatten(objects))
+        params = [object, objects]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [object, flatten(objects)]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(354, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshVolume", None, *params_flattened)
 
     def mesh_volume_centroid(self, object):
         """        
@@ -1034,7 +1414,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(478, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshVolumeCentroid", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(478, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshVolumeCentroid", None, *params_flattened)
 
     def pull_curve_to_mesh(self, mesh, curve):
         """        
@@ -1060,9 +1450,19 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(719, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"PullCurveToMesh", None, mesh, curve)
+        params = [mesh, curve]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [mesh, curve]
 
-    def split_disjoint_mesh(self, object, delete):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(719, 1, (VT_VARIANT, 0), params_magic_numbers, u"PullCurveToMesh", None, *params_flattened)
+
+    def split_disjoint_mesh(self, object, delete=None):
         """        
         Splits up a mesh object into its unconnected pieces.
     
@@ -1086,7 +1486,17 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(722, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"SplitDisjointMesh", None, object, delete)
+        params = [object, delete]
+        params_opt_or_req = [Required, Optional]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [object, delete]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(722, 1, (VT_VARIANT, 0), params_magic_numbers, u"SplitDisjointMesh", None, *params_flattened)
 
     def unify_mesh_normals(self, object):
         """        
@@ -1109,5 +1519,15 @@ class Mesh(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(723, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"UnifyMeshNormals", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(723, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnifyMeshNormals", None, *params_flattened)
 

@@ -8,7 +8,7 @@ class Group(IRhinoScript):
 
 
 
-    def add_group(self, group):
+    def add_group(self, group=None):
         """        
         Adds a new empty group to the document.
     
@@ -29,7 +29,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(133, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"AddGroup", None, group)
+        params = [group]
+        params_opt_or_req = [Optional]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(133, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddGroup", None, *params_flattened)
 
     def add_object_to_group(self, object, group):
         """        
@@ -55,7 +65,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(134, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"AddObjectToGroup", None, object, group)
+        params = [object, group]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(134, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddObjectToGroup", None, *params_flattened)
 
     def add_objects_to_group(self, objects, group):
         """        
@@ -81,7 +101,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(135, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BSTR, 1)), u"AddObjectsToGroup", None, flatten(objects), group)
+        params = [objects, group]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(objects), group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(135, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddObjectsToGroup", None, *params_flattened)
 
     def delete_group(self, group):
         """        
@@ -104,9 +134,19 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(136, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteGroup", None, group)
+        params = [group]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [group]
 
-    def group_count(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(136, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteGroup", None, *params_flattened)
+
+    def group_count):
         """        
         Returns the number of groups in the document.
     
@@ -123,9 +163,19 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(137, 1, (VT_VARIANT, 0), (), u"GroupCount", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
 
-    def group_names(self):
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(137, 1, (VT_VARIANT, 0), params_magic_numbers, u"GroupCount", None, *params_flattened)
+
+    def group_names):
         """        
         Returns the name of all the groups in the document.
     
@@ -142,7 +192,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(138, 1, (VT_VARIANT, 0), (), u"GroupNames", None, )
+        params = []
+        params_opt_or_req = []
+        params_magic_numbers = []
+        params_flattened = []
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(138, 1, (VT_VARIANT, 0), params_magic_numbers, u"GroupNames", None, *params_flattened)
 
     def hide_group(self, group):
         """        
@@ -165,7 +225,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(871, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"HideGroup", None, group)
+        params = [group]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(871, 1, (VT_VARIANT, 0), params_magic_numbers, u"HideGroup", None, *params_flattened)
 
     def is_group(self, group):
         """        
@@ -188,7 +258,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(139, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsGroup", None, group)
+        params = [group]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(139, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsGroup", None, *params_flattened)
 
     def is_group_empty(self, group):
         """        
@@ -211,7 +291,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(140, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsGroupEmpty", None, group)
+        params = [group]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(140, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsGroupEmpty", None, *params_flattened)
 
     def lock_group(self, group):
         """        
@@ -234,7 +324,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(873, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"LockGroup", None, group)
+        params = [group]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(873, 1, (VT_VARIANT, 0), params_magic_numbers, u"LockGroup", None, *params_flattened)
 
     def remove_object_from_all_groups(self, object):
         """        
@@ -257,7 +357,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(141, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"RemoveObjectFromAllGroups", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(141, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemoveObjectFromAllGroups", None, *params_flattened)
 
     def remove_object_from_group(self, object, group):
         """        
@@ -283,7 +393,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(142, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"RemoveObjectFromGroup", None, object, group)
+        params = [object, group]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [object, group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(142, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemoveObjectFromGroup", None, *params_flattened)
 
     def remove_object_from_top_group(self, object):
         """        
@@ -306,7 +426,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(143, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"RemoveObjectFromTopGroup", None, object)
+        params = [object]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [object]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(143, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemoveObjectFromTopGroup", None, *params_flattened)
 
     def remove_objects_from_group(self, objects, group):
         """        
@@ -332,7 +462,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(144, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BSTR, 1)), u"RemoveObjectsFromGroup", None, flatten(objects), group)
+        params = [objects, group]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1)]
+        params_flattened = [flatten(objects), group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(144, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemoveObjectsFromGroup", None, *params_flattened)
 
     def rename_group(self, old_group, new_group):
         """        
@@ -358,7 +498,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(145, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"RenameGroup", None, old_group, new_group)
+        params = [old_group, new_group]
+        params_opt_or_req = [Required, Required]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        params_flattened = [old_group, new_group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(145, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenameGroup", None, *params_flattened)
 
     def show_group(self, group):
         """        
@@ -381,7 +531,17 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(872, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ShowGroup", None, group)
+        params = [group]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(872, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowGroup", None, *params_flattened)
 
     def unlock_group(self, group):
         """        
@@ -404,5 +564,15 @@ class Group(IRhinoScript):
 
         """
 
-        return self._ApplyTypes_(874, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"UnlockGroup", None, group)
+        params = [group]
+        params_opt_or_req = [Required]
+        params_magic_numbers = [(VT_BSTR, 1),]
+        params_flattened = [group]
+
+        for i in range(len(params)):
+            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+                params_magic_numbers.pop(i)
+                params_flattened.pop(i)
+
+        return self._ApplyTypes_(874, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnlockGroup", None, *params_flattened)
 
