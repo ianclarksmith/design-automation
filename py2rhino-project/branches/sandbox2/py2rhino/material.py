@@ -123,16 +123,37 @@ class Material(IRhinoScript):
 
         return self._ApplyTypes_(176, 1, (VT_VARIANT, 0), ((VT_I2, 1),), u"IsMaterialReference", None, material_index)
 
-    def match_material(self):
+    def match_material(self, src_material_index, src_object, dest_object, dest_objects):
+        """        
+        Copies the material definition from one material to one or more objects.
+    
+        Parameters
+        ==========
+
+        src_material_index, Integer, Required        
+        The zero-based source material index.
+            
+        src_object, String, Required        
+        The identifier of the source object.  The object must have a material assigned.
+            
+        dest_object, String, Required        
+        The identifier of the destination object.  If the object's material source is set to "By Layer", it will be changed to "By Object."
+            
+        dest_objects, Array of ????, Required        
+        An array of destination object identifiers.  If the objects' material sources are set to "By Layer", they will be changed to "By Object."
+            
+        Returns
+        =======
+
+        number
+        The number of object that were modified if successful.
+
+        null
+        It not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(322, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)), u"MatchMaterial", None, src_material_index, src_object, dest_object, flatten(dest_objects))
 
     def material_bump(self, material_index, file_name):
         """        

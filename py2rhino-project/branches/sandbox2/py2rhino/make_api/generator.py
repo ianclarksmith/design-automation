@@ -54,14 +54,20 @@ def write_class_method(method_dict, f):
     if keyword.iskeyword(py_method_name):
         py_method_name += '_'    
     
+    
+    """
+    
+    
     #first check if this is a method with mismatch in parameters
     if len(method_dict['params_html']) != len(method_dict['params_com']):
         w(f, ['def ', py_method_name, '(self):'], tabs=1, nle=1)
-        w(f, '"""', tabs=2, nle=2)
+        w(f, '" ""', tabs=2, nle=2)
         w(f, 'METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH', tabs=2, nls=1, nle=2)
-        w(f, '"""', tabs=2, nls=1, nle=2)
+        w(f, '" ""', tabs=2, nls=1, nle=2)
         w(f, 'raise exceptions.NotImplementedError', tabs=2, nle=2)
         return
+    
+    """
     
     #type map for params
     string_to_type_map = {
@@ -184,7 +190,6 @@ def write_class_method(method_dict, f):
 #===============================================================================
 if __name__ == '__main__':
     data_dict = get_data_dictionary()
-    write_array_type_strings(data_dict)
     write_classes(data_dict)
     print "done"
 

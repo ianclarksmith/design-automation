@@ -8,16 +8,40 @@ class Geometry(IRhinoScript):
 
 
 
-    def add_clipping_plane(self):
+    def add_clipping_plane(self, plane, d_u, d_v, view, views):
+        """        
+        Creates a clipping plane. A clipping plane is a plane for visibly clipping away geometry in a specific view. Note, clipping planes are infinite.
+    
+        Parameters
+        ==========
+
+        plane, Array of ????, Required        
+        The plane.
+            
+        d_u, Double, Required        
+        The magnitude in the U direction.
+            
+        d_v, Double, Required        
+        The magnitude in the V direction.
+            
+        view, String, Optional        
+        The title of the view to clip.  If omitted, the current active view is used.
+            
+        views, Array of ????, Optional        
+        The titles of the views to clip.  If omitted, the current active view is used.
+            
+        Returns
+        =======
+
+        string
+        The identifier of the new object if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(904, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_VARIANT, 1)), u"AddClippingPlane", None, flatten(plane), d_u, d_v, view, flatten(views))
 
     def add_point(self, point):
         """        
@@ -88,16 +112,50 @@ class Geometry(IRhinoScript):
 
         return self._ApplyTypes_(526, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"AddPoints", None, flatten(points))
 
-    def add_text(self):
+    def add_text(self, text, point, plane, height, font, style):
+        """        
+        Adds a text string to the document.
+    
+        Parameters
+        ==========
+
+        text, String, Required        
+        The text to display.
+            
+        point, Array of ????, Required        
+        A 3-D point.
+            
+        plane, Array of ????, Required        
+        The plane on which the text will lie.  The origin of the plane will be the origin point of the text.
+            
+        height, Double, Optional        
+        The text height.  If omitted, a height of 1.0 units is used.
+            
+        font, String, Optional        
+        The text font.  If omitted, the Arial font is used.
+            
+        style, Integer, Optional        
+        The font style.  If omitted, a normal font style (0) is used.  The font style can be any number of the following flags:
+		Value
+		Description
+		0
+		Normal
+		1
+		Bold
+		2
+            
+        Returns
+        =======
+
+        string
+        The identifier of the new object if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(76, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_I2, 1)), u"AddText", None, text, flatten(point), flatten(plane), height, font, style)
 
     def add_text_dot(self, test, point):
         """        
@@ -125,16 +183,37 @@ class Geometry(IRhinoScript):
 
         return self._ApplyTypes_(320, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"AddTextDot", None, test, flatten(point))
 
-    def bounding_box(self):
+    def bounding_box(self, object, objects, view, world_coords):
+        """        
+        Returns either a world axis-aligned or a construction plane axis-aligned bounding box of an object or of several objects.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects.
+            
+        view, String, Optional        
+        The title of the view that contains the construction plane to which the bounding box should be aligned.  If omitted, a world axis-aligned bounding box will be calculated.
+            
+        world_coords, Boolean, Optional        
+        Whether or not to return the bounding box as world coordinates or construction plane coordinates.  The default is to return world coordinates (True).  Note, this option does not apply to world axis-aligned bounding boxes.
+            
+        Returns
+        =======
+
+        array
+        An array of eight 3-D points that define the bounding box if successful.  Points are returned in counter-clockwise order starting with the bottom rectangle of the box.  See the image below for details.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(117, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"BoundingBox", None, object, flatten(objects), view, world_coords)
 
     def compare_geometry(self, object1, object2):
         """        

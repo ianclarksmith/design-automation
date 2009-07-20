@@ -647,16 +647,51 @@ class UserInterface(IRhinoScript):
 
         return self._ApplyTypes_(63, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)), u"GetReal", None, message, number, min, max)
 
-    def get_rectangle(self):
+    def get_rectangle(self, mode, point, prompt1, prompt2, prompt3):
+        """        
+        Pauses for user input of a rectangle.
+    
+        Parameters
+        ==========
+
+        mode, Integer, Optional        
+        The rectangle selection mode.  If not specified, all modes (0) are available.  The rectangle selection modes are as follows:
+		Value
+		Description
+		0
+		All modes.
+		1
+		Corner.  A rectangle is created by picking two corner points.
+		2
+		3-Point.  A rectangle is created by picking three points
+		3
+		Vertical.  A vertical rectangle is created by picking three points.
+		4
+            
+        point, Array of ????, Optional        
+        A 3-D base point.
+            
+        prompt1, String, Optional        
+        The first prompt or message.
+            
+        prompt2, String, Optional        
+        The second prompt or message.
+            
+        prompt3, String, Optional        
+        The third prompt or message.  The third prompt used only with 3Point and Vertical modes.
+            
+        Returns
+        =======
+
+        array
+        An array of four 3-D points that define the corners of the rectangle if successful.  Points are returned in counter-clockwise order.  See the image below for details.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(341, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)), u"GetRectangle", None, mode, flatten(point), prompt1, prompt2, prompt3)
 
     def get_string(self, message, string, strings):
         """        

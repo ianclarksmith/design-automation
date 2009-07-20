@@ -144,16 +144,49 @@ class Transformation(IRhinoScript):
 
         return self._ApplyTypes_(131, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"XformCPlaneToWorld", None, flatten(point), flatten(plane))
 
-    def xform_change_basis(self):
+    def xform_change_basis(self, plane1, plane2, x0, y0, z0, x1, y1, z1):
+        """        
+        Returns a change of basis transformation matrix.
+    
+        Parameters
+        ==========
+
+        plane1, Array of ????, Required        
+        The initial plane.
+            
+        plane2, Array of ????, Required        
+        The final plane.
+            
+        x0, Array of ????, Required        
+        The initial basis X (X0,Y0,Z0 can be any 3-D basis)
+            
+        y0, Array of ????, Required        
+        The  initial basis Y
+            
+        z0, Array of ????, Required        
+        The  initial basis Z
+            
+        x1, Array of ????, Required        
+        The final basis X (X1,Y1,Z1 can be any 3-D basis)
+            
+        y1, Array of ????, Required        
+        The  final basis Y
+            
+        z1, Array of ????, Required        
+        The final basis Z
+            
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(796, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"XformChangeBasis", None, flatten(plane1), flatten(plane2), flatten(x0), flatten(y0), flatten(z0), flatten(x1), flatten(y1), flatten(z1))
 
     def xform_compare(self, xform1, xform2):
         """        
@@ -370,27 +403,105 @@ class Transformation(IRhinoScript):
 
         return self._ApplyTypes_(793, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"XformPlanarProjection", None, flatten(plane))
 
-    def xform_rotation(self):
+    def xform_rotation(self, plane1, plane2, angle, axis, start_dir, end_dir, point, x0, y0, z0, x1, y1, z1):
+        """        
+        Returns a rotation transformation matrix. The XformRotation provides several ways to compute a rotation transformation.  A positive rotation angle indicates a counter-clockwise (right hand rule) rotation about the axis of rotation.
+    
+        Parameters
+        ==========
+
+        plane1, Array of ????, Required        
+        The starting plane.
+            
+        plane2, Array of ????, Required        
+        The ending plane.
+            
+        angle, Double, Required        
+        The rotation angle in degrees.
+            
+        axis, Array of ????, Required        
+        The rotation axis.
+            
+        start_dir, Array of ????, Required        
+        The starting direction.
+            
+        end_dir, Array of ????, Required        
+        The ending direction.
+            
+        point, Array of ????, Required        
+        The rotation center point.
+            
+        x0, Array of ????, Required        
+        The initial frame X
+            
+        y0, Array of ????, Required        
+        The initial frame Y.
+            
+        z0, Array of ????, Required        
+        The initial frame Z.
+            
+        x1, Array of ????, Required        
+        The final frame X.
+            
+        y1, Array of ????, Required        
+        The final frame Y.
+            
+        z1, Array of ????, Required        
+        The final frame Z.
+            
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix.
+
+        null
+        On error.
+
         """
 
+        return self._ApplyTypes_(794, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"XformRotation", None, flatten(plane1), flatten(plane2), angle, flatten(axis), flatten(start_dir), flatten(end_dir), flatten(point), flatten(x0), flatten(y0), flatten(z0), flatten(x1), flatten(y1), flatten(z1))
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def xform_scale(self, plane, x_scale, y_scale, z_scale, vector, point, scale):
+        """        
+        Returns a scale transformation matrix.
+    
+        Parameters
+        ==========
 
+        plane, Array of ????, Required        
+        The starting plane.
+            
+        x_scale, Double, Required        
+        The scale factor in the x-axis direction.
+            
+        y_scale, Double, Required        
+        The scale factor in the y-axis direction.
+            
+        z_scale, Double, Required        
+        The scale factor in the z-axis direction.
+            
+        vector, Array of ????, Required        
+        The ending direction.
+            
+        point, Array of ????, Required        
+        The rotation center point.
+            
+        scale, Double, Required        
+        The initial frame X
+            
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix.
+
+        null
+        On error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def xform_scale(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(790, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)), u"XformScale", None, flatten(plane), x_scale, y_scale, z_scale, flatten(vector), flatten(point), scale)
 
     def xform_screen_to_world(self, point, view, convert):
         """        

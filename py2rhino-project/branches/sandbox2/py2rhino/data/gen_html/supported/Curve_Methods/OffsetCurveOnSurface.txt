@@ -30,11 +30,11 @@ Required.  String.  The surface object's identifier.
 
 dblDistance 
 
-Requried.  Number.  The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+Required.  Number.  The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
 
 arrParameter 
 
-Requried.  Array.  An array containing the surface U,V parameter that the curve will be offset through.
+Required.  Array.  An array containing the surface U,V parameter that the curve will be offset through.
 
 
 Returns

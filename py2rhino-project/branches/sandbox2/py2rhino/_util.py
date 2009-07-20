@@ -2,7 +2,6 @@
 # Copied from comtypes\automation.py
 # VARIANT, in all it's glory.
 
-VARENUM = c_int # enum
 VT_EMPTY = 0
 VT_NULL = 1
 VT_I2 = 2
@@ -57,21 +56,25 @@ VT_ILLEGALMASKED = 4095
 VT_TYPEMASK = 4095
 
 def flatten(arrIn):
-        """helper method to flatten any arrays into one-dimensional arrays compatible with RhinoScript"""
-        if isinstance(arrIn, (list, tuple)):
-                arrOut = []
-                for val in arrIn:
-                        arrOut += (flatten_once(val))
-                return arrOut
-        else:
-                return [arrIn]
+    """helper method to flatten any arrays into one-dimensional arrays compatible with RhinoScript"""
+    if isinstance(arrIn, (list, tuple)):
+        arrOut = []
+        for val in arrIn:
+            if isinstance(val, tuple):
+                arrOut += val
+            elif isinstance(val, list):
+                arrOut += tuple(val)
+            else:
+                arrOut += [val]
+        return arrOut
+    else:
+        return [arrIn,]
 
-def flatten_once(arrIn):
-        """helper method to flatten 2-dim arrays into one-dimensional arrays compatible with RhinoScript"""
-        if isinstance(arrIn, (list, tuple)):
-                arrOut = []
-                for val in arrIn:
-                        arrOut += val
-                return arrOut
-        else:
-                return [arrIn]
+#===============================================================================
+# Run some test
+#===============================================================================
+if __name__ == '__main__':
+    print flatten([[1,[2,3]],[4,5,6]])
+    print flatten(((1,(2,3)),(4,5,6)))
+    print flatten((4,5,6))
+

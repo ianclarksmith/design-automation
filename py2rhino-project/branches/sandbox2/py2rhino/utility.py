@@ -133,16 +133,28 @@ class Utility(IRhinoScript):
 
         return self._ApplyTypes_(881, 1, (VT_VARIANT, 0), ((VT_I4, 1),), u"ColorGreenValue", None, r_g_b)
 
-    def color_h_l_s_to_r_g_b(self):
+    def color_h_l_s_to_r_g_b(self, r_g_b):
+        """        
+        Converts colors from hue-luminance-saturation (HLS) to red-green-blue format.
+    
+        Parameters
+        ==========
+
+        r_g_b, Integer, Required        
+        The HLS color value.
+            
+        Returns
+        =======
+
+        number
+        The RGB color value if successful.
+
+        null
+        If not successful or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(877, 1, (VT_VARIANT, 0), ((VT_I4, 1),), u"ColorHLSToRGB", None, r_g_b)
 
     def color_r_g_b_to_h_l_s(self, r_g_b):
         """        
@@ -381,16 +393,31 @@ class Utility(IRhinoScript):
 
         return self._ApplyTypes_(547, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"JoinArrays", None, flatten(1), flatten(2))
 
-    def make_array(self):
+    def make_array(self, upper_bound, v_variant):
+        """        
+        Creates a new, initialized one-dimensional array of a user-specified bounds.
+    
+        Parameters
+        ==========
+
+        upper_bound, Integer, Required        
+        The upper bounds of the new array.
+            
+        v_variant, Integer, Optional        
+        The value to initialize every array element.  If omitted, every array element will be initialized as Empty.  Note, the Empty VBScript keyword is used to indicate an uninitialized variable value.  This is not the same thing as Null.
+            
+        Returns
+        =======
+
+        array
+        The one-dimensional array if successful.
+
+        null
+        If not successful or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(875, 1, (VT_VARIANT, 0), ((VT_I2, 1), (VT_I2, 1)), u"MakeArray", None, upper_bound, v_variant)
 
     def printer_names(self):
         """        

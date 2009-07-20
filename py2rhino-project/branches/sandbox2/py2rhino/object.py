@@ -10,7 +10,8 @@ class Object(IRhinoScript):
 
     def add_object_mesh(self, object, quality, enable):
         """        
-        
+        Adds custom render mesh parameters to a meshable object, such as a surface or a polysurface.  If an object has custom render mesh parameters and they are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.
+		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     
         Parameters
         ==========
@@ -47,38 +48,104 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(866, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1)), u"AddObjectMesh", None, object, quality, enable)
 
-    def box_morph_object(self):
+    def box_morph_object(self, object, objects, box_points, copy):
+        """        
+        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object to morph.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to morph.
+            
+        box_points, Array of ????, Required        
+        An array of eight 3-D points that contain the modified bounding box points.
+            
+        copy, Boolean, Optional        
+        Copy the object. If omitted, the object will not be copied (False).
+            
+        Returns
+        =======
+
+        string
+        The identifier of the morphed object if successful.
+
+        array
+        An array of strings identifying the morphed objects if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(918, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"BoxMorphObject", None, object, flatten(objects), flatten(box_points), copy)
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def copy_object(self, object, start, end, translation):
+        """        
+        Copies a single object from one location to another, or in-place.
+    
+        Parameters
+        ==========
 
+        object, String, Required        
+        The identifier of the object to copy.
+            
+        start, Array of ????, Optional        
+        The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+            
+        end, Array of ????, Optional        
+        The 3-D ending point of the copy operation.
+            
+        translation, Array of ????, Optional        
+        The 3-D translation vector.
+            
+        Returns
+        =======
+
+        string
+        The identifier of the copied object if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(184, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"CopyObject", None, object, flatten(start), flatten(end), flatten(translation))
 
-    def copy_object(self):
+    def copy_objects(self, objects, start, end, translation):
+        """        
+        Copies one or more objects from one location to another, or in-place.
+    
+        Parameters
+        ==========
+
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to copy.
+            
+        start, Array of ????, Optional        
+        The 3-D starting, or base, point of the copy operation.  If omitted, the objects are copied in-place.
+            
+        end, Array of ????, Optional        
+        The 3-D ending point of the copy operation.
+            
+        translation, Array of ????, Optional        
+        The 3-D translation vector.
+            
+        Returns
+        =======
+
+        array
+        An array of strings identifying the copied objects if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
-
-    def copy_objects(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(295, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"CopyObjects", None, flatten(objects), flatten(start), flatten(end), flatten(translation))
 
     def delete_object(self, object):
         """        
@@ -156,16 +223,28 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(856, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_BOOL, 1)), u"EnableObjectMesh", None, flatten(objects), enable)
 
-    def flash_object(self):
+    def flash_object(self, object, objects, style):
+        """        
+        Causes the selection state of one or more objects to change momentarily so the object appears to flash on the screen.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object to flash.
+            
+        objects, Array of ????, Required        
+        The identifiers of the objects to flash.
+            
+        style, Boolean, Optional        
+        The flash style.  If True (default), then the objects will flash between their object color and Rhino's selected object color.  If false, then the objects will flash between invisible and visible.
+            
+        No returns
+
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(869, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"FlashObject", None, object, flatten(objects), style)
 
     def hide_object(self, object):
         """        
@@ -192,7 +271,7 @@ class Object(IRhinoScript):
 
     def hide_objects(self, objects):
         """        
-        
+        Hides one or more objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
     
         Parameters
         ==========
@@ -533,16 +612,34 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(304, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"LockObjects", None, flatten(objects))
 
-    def match_object_attributes(self):
+    def match_object_attributes(self, target, targets, source):
+        """        
+        Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
+    
+        Parameters
+        ==========
+
+        target, String, Required        
+        The identifier of the target object.
+            
+        targets, Array of ????, Required        
+        An array of strings identifying the target objects.
+            
+        source, String, Optional        
+        The identifier of the source object.  If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
+            
+        Returns
+        =======
+
+        number
+        The number of objects whose attributes were modified if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(781, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"MatchObjectAttributes", None, target, flatten(targets), source)
 
     def mirror_object(self, object, start_pt, end_pt, copy):
         """        
@@ -608,49 +705,152 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(590, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"MirrorObjects", None, flatten(objects), flatten(start_pt), flatten(end_pt), copy)
 
-    def move_object(self):
-        """
+    def move_object(self, object, start, end, translation):
+        """        
+        Moves a single object.
+    
+        Parameters
+        ==========
 
+        object, String, Required        
+        The identifier of the object to move.
+            
+        start, Array of ????, Required        
+        The 3-D starting, or base, point of the move operation.
+            
+        end, Array of ????, Required        
+        The 3-D ending point of the move operation.
+            
+        translation, Array of ????, Required        
+        The 3-D translation vector.
+            
+        Returns
+        =======
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+        boolean
+        The identifier of the moved object if successful.
 
-
-        """
-
-        raise exceptions.NotImplementedError
-
-    def move_objects(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
-
-    def object_color(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
-
-    def object_color_source(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(270, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"MoveObject", None, object, flatten(start), flatten(end), flatten(translation))
+
+    def move_objects(self, objects, start, end, translation):
+        """        
+        Copies one or more objects.
+    
+        Parameters
+        ==========
+
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to move.
+            
+        start, Array of ????, Required        
+        The 3-D starting, or base, point of the move operation.
+            
+        end, Array of ????, Required        
+        The 3-D ending point of the move operation.
+            
+        translation, Array of ????, Required        
+        The 3-D translation vector.
+            
+        Returns
+        =======
+
+        number
+        An array of strings identifying the moved objects if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        return self._ApplyTypes_(296, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"MoveObjects", None, flatten(objects), flatten(start), flatten(end), flatten(translation))
+
+    def object_color(self, object, objects, color):
+        """        
+        Returns or modifies the color of an object.  Object colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        color, Integer, Optional        
+        The new color value.  If omitted, the current object color is returned.  Note, if arrObjects is specified, lngColor is required.
+            
+        Returns
+        =======
+
+        number
+        If a color value is not specified,  the current color value if successful.
+
+        number
+        If a color value is specified, the previous color value if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        return self._ApplyTypes_(191, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I4, 1)), u"ObjectColor", None, object, flatten(objects), color)
+
+    def object_color_source(self, object, objects, source):
+        """        
+        Returns or modifies the color source of an object.   The color used to display objects is specified in one of four ways:
+		1. Color from layer.  The object's layer determines the object's color.
+		2. Color from object.  The object's color is set by the object itself.
+		3. Color from material.  The object's diffuse material color determines the object's color.
+		4. Color from parent. For objects with parents, like objects in block instances, use parent's color source. If no parent, treats as color from layer.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        source, Integer, Optional        
+        The new color source.  If omitted, the current color source is returned.  Note, if arrObjects is specified, intSource is required.
+		Value
+		Description
+		0
+		Color from layer
+		1
+		Color from object
+		2
+		Color from material
+		3
+            
+        Returns
+        =======
+
+        number
+        If a color source is not specified,  the current color source if successful.
+
+        number
+        If a color source is specified, the previous color source if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        return self._ApplyTypes_(192, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectColorSource", None, object, flatten(objects), source)
 
     def object_description(self, object):
         """        
@@ -756,16 +956,40 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(867, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectHasMesh", None, object)
 
-    def object_layer(self):
+    def object_layer(self, object, objects, layer):
+        """        
+        Returns or modifies the layer of an object.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        layer, String, Optional        
+        The name of an existing layer.  If omitted, the current object layer is returned.  Note, if arrObjects is specified, strLayer is required.
+            
+        Returns
+        =======
+
+        number
+        If a layer is not specified,  the object's current layer if successful.
+
+        number
+        If a layer is specified, the object's previous layer if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(51, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"ObjectLayer", None, object, flatten(objects), layer)
 
     def object_layout(self, object, layout, return_name):
         """        
@@ -799,27 +1023,87 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(924, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"ObjectLayout", None, object, layout, return_name)
 
-    def object_linetype(self):
+    def object_linetype(self, object, objects, layer):
+        """        
+        Returns or modifies the linetype of an object.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        layer, String, Optional        
+        The name of an existing linetype.  If omitted, the current object linetype is returned.  Note, if arrObjects is specified, strLinetype is required.
+            
+        Returns
+        =======
+
+        number
+        If a linetype is not specified,  the object's current linetype if successful.
+
+        number
+        If a linetype is specified, the object's previous linetype if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(646, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"ObjectLinetype", None, object, flatten(objects), layer)
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def object_linetype_source(self, object, objects, source):
+        """        
+        Returns or modifies the linetype source of an object.   The linetype used to display objects is specified in one of three ways:
+		1. Linetype from layer.  The object's layer determines the object's linetype.
+		2. Linetype from object. The object's linetype is set by the object itself.
+		3. Linetype from parent.  For objects with parents, like objects in block instances, use parent's linetype. If no parent, treats as linetype from layer.
+    
+        Parameters
+        ==========
 
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        source, Integer, Optional        
+        The new linetype source.  If omitted, the current linetype source is returned.  Note, if arrObjects is specified, intSource is required.
+		Value
+		Description
+		0
+		Layer.  Use the object's layer linetype.
+		1
+		Object.  Use the object's linetype.
+		2
+		<unused>
+		3
+            
+        Returns
+        =======
+
+        number
+        If a linetype source is not specified,  the current linetype source if successful.
+
+        number
+        If a linetype source is specified, the previous linetype source if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def object_linetype_source(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(647, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectLinetypeSource", None, object, flatten(objects), source)
 
     def object_material_index(self, object):
         """        
@@ -846,16 +1130,55 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(194, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectMaterialIndex", None, object)
 
-    def object_material_source(self):
+    def object_material_source(self, object, objects, source):
+        """        
+        Returns or modifies the rendering material source of an object.
+		Rendering materials are stored in Rhino's rendering material table.  This table is conceptually an array.  Render materials associated with objects and layers are specified by zero based indices into this array.
+		The index of the render material used to render an object is specified in one of three ways:
+		1. Material from layer.  The rendering material assigned to the layer is used.
+		2. Material from object.  The rendering material assigned to the object is used.
+		3. Material from parent.  For objects with parents, like objects in block instances, use parent's material. If no parent, treats as material from layer.
+		The default rendering material source for new objects is "material by layer."
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        source, Integer, Optional        
+        The new rendering material source.  If omitted, the current material source is returned.  Note, if arrObjects is specified, intSource is required.
+		Value
+		Description
+		0
+		Material from layer
+		1
+		Material from object
+		2
+		<unused>
+		3
+            
+        Returns
+        =======
+
+        number
+        If a rendering material source is not specified,  the current rendering material source if successful.
+
+        number
+        If a rendering material source is specified, the previous rendering material source if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(195, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectMaterialSource", None, object, flatten(objects), source)
 
     def object_mesh_density(self, object, density):
         """        
@@ -1143,16 +1466,40 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(865, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"ObjectMeshSettings", None, object, settings)
 
-    def object_name(self):
+    def object_name(self, object, objects, name):
+        """        
+        Returns or modifies the user-definable name of an object.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        name, String, Optional        
+        The new object name.  If omitted, the current object name is returned.  Note, if arrObjects is specified, strName is required.
+            
+        Returns
+        =======
+
+        string
+        If an object name is not specified,  the current object name if successful.
+
+        string
+        If an object name is specified,  the previous object name if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(196, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"ObjectName", None, object, flatten(objects), name)
 
     def object_names(self, objects, names):
         """        
@@ -1183,49 +1530,170 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(639, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"ObjectNames", None, flatten(objects), flatten(names))
 
-    def object_print_color(self):
-        """
+    def object_print_color(self, object, objects, color):
+        """        
+        Returns or modifies the print color of an object.  Object print colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+    
+        Parameters
+        ==========
 
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        color, Integer, Optional        
+        The new print color value.  If omitted, the current object color is returned.  Note, if arrObjects is specified, lngColor is required.
+            
+        Returns
+        =======
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+        number
+        If a print color value is not specified,  the current print color value if successful.
 
+        number
+        If a print color value is specified, the previous print color value if successful.
 
-        """
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
 
-        raise exceptions.NotImplementedError
-
-    def object_print_color_source(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
-
-    def object_print_width(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
-
-    def object_print_width_source(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(805, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I4, 1)), u"ObjectPrintColor", None, object, flatten(objects), color)
+
+    def object_print_color_source(self, object, objects, source):
+        """        
+        Returns or modifies the print color source of an object.  The color used to print objects is specified in one of four ways:
+		1. Print color from layer.  Use the print color assigned to the object's layer.
+		2. Print color from object.  Use the print color that is assigned to the object.
+		3. Print color from display.  Use the object's display color.
+		4. Print color from parent.  For objects with parents, like objects in block instances, use parent's print color.  If no parent, treats as print color from layer.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        source, Integer, Optional        
+        The new print color source.  If omitted, the current print color source is returned.  Note, if arrObjects is specified, intSource is required.
+		Value
+		Description
+		0
+		Print color by layer.
+		1
+		Print color by object.
+		2
+		Print color by display.
+		3
+            
+        Returns
+        =======
+
+        number
+        If a print color source is not specified,  the current color source if successful.
+
+        number
+        If a print color source is specified, the previous color source if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        return self._ApplyTypes_(806, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectPrintColorSource", None, object, flatten(objects), source)
+
+    def object_print_width(self, object, objects, width):
+        """        
+        Returns or modifies the print width of an object.  Object print widths are measured in millimeters (mm).
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        width, Double, Optional        
+        The new print width value in millimeters, where dblWidth = 0.0 means use the default width, and dblWidth < 0.0 means do not print (visible for screen display, but does not show on print).  If omitted, the current object print width is returned.  Note, if arrObjects is specified, dblWidth is required.
+            
+        Returns
+        =======
+
+        number
+        If a print width value is not specified,  the current print width value if successful.
+
+        number
+        If a print width value is specified, the previous print width value if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        return self._ApplyTypes_(807, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)), u"ObjectPrintWidth", None, object, flatten(objects), width)
+
+    def object_print_width_source(self, object, objects, source):
+        """        
+        Returns or modifies the print width source of an object.  The width used to print objects is specified in one of three ways:
+		1. Print width from layer.  Use the print width assigned to the object's layer.
+		2. Print width from object.  Use the print width that is assigned to the object.
+		3. Print width from parent.  For objects with parents, like objects in block instances, use parent's print width.  If no parent, treats as print width from layer.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        source, Integer, Optional        
+        The new print width source.  If omitted, the current print width source is returned.  Note, if arrObjects is specified, intSource is required.
+		Value
+		Description
+		0
+		Print width by layer.
+		1
+		Print width by object.
+		2
+		<unused>
+		3
+            
+        Returns
+        =======
+
+        number
+        If a print width source is not specified,  the current width source if successful.
+
+        number
+        If a print width source is specified, the previous width source if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        return self._ApplyTypes_(808, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"ObjectPrintWidthSource", None, object, flatten(objects), source)
 
     def object_top_group(self, object):
         """        
@@ -1273,16 +1741,40 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(198, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ObjectType", None, object)
 
-    def object_u_r_l(self):
+    def object_u_r_l(self, object, objects, u_r_l):
+        """        
+        Returns or modifies the user-definable URL of an object.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to modify.
+            
+        u_r_l, String, Optional        
+        The new object URL.  If omitted, the current object URL is returned.  Note, if arrObjects is specified, strURL is required.
+            
+        Returns
+        =======
+
+        string
+        If an object URL is not specified,  the current object URL if successful.
+
+        string
+        If an object URL is specified,  the previous object URL if successful.
+
+        number
+        If arrObjects is specified, then the number of objects modified if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(199, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)), u"ObjectURL", None, object, flatten(objects), u_r_l)
 
     def orient_object(self, object, reference, target, flags):
         """        
@@ -1718,27 +2210,95 @@ class Object(IRhinoScript):
 
         return self._ApplyTypes_(305, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"ShowObjects", None, flatten(objects))
 
-    def transform_object(self):
+    def transform_object(self, object, matrix, copy):
+        """        
+        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+		1
+		0
+		0
+		dX
+		0
+		1
+		0
+		dY
+		0
+		0
+		1
+		dZ
+		0
+		0
+		0
+		1
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the object.
+            
+        matrix, Array of ????, Required        
+        The transformation matrix (4x4 array of numbers).
+            
+        copy, Boolean, Optional        
+        Copy the object. If omitted, the object will not be copied (False).
+            
+        Returns
+        =======
+
+        boolean
+        The identifier of the transformed object if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(272, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"TransformObject", None, object, flatten(matrix), copy)
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def transform_objects(self, objects, matrix, copy):
+        """        
+        Moves, scales, or rotates one or more objects given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+		1
+		0
+		0
+		dX
+		0
+		1
+		0
+		dY
+		0
+		0
+		1
+		dZ
+		0
+		0
+		0
+		1
+    
+        Parameters
+        ==========
 
+        objects, Array of ????, Required        
+        An array of strings identifying the objects to transform.
+            
+        matrix, Array of ????, Required        
+        The transformation matrix (4x4 array of numbers).
+            
+        copy, Boolean, Optional        
+        Copy the objects. If omitted, the objects will not be copied (False).
+            
+        Returns
+        =======
+
+        array
+        An array of strings identifying the newly transformed objects if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def transform_objects(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(302, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"TransformObjects", None, flatten(objects), flatten(matrix), copy)
 
     def unlock_object(self, object):
         """        

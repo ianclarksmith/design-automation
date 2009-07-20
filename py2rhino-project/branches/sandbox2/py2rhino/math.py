@@ -273,16 +273,37 @@ class Math(IRhinoScript):
 
         return self._ApplyTypes_(773, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"Deviation", None, flatten(numbers))
 
-    def distance(self):
+    def distance(self, point1, point2, point_array):
+        """        
+        Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.
+    
+        Parameters
+        ==========
+
+        point1, Array of ????, Required        
+        The first 3-D point.
+            
+        point2, Array of ????, Required        
+        The second 3-D point.
+            
+        point_array, Array of ????, Required        
+        An array of 3-D points.
+            
+        Returns
+        =======
+
+        number
+        If arrPoint1 and arrPoint2 are specified, then the distance is successful.
+
+        array
+        If arrPoint1 and arrPointArray are specified, then an array of distances if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(118, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"Distance", None, flatten(point1), flatten(point2), flatten(point_array))
 
     def e(self):
         """        

@@ -80,7 +80,7 @@ class LineAndPlane(IRhinoScript):
 
     def intersect_planes(self, plane1, plane2, plane3):
         """        
-        
+        Calculates the intersection of three planes.
     
         Parameters
         ==========
@@ -133,16 +133,37 @@ class LineAndPlane(IRhinoScript):
 
         return self._ApplyTypes_(899, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineClosestPoint", None, flatten(line), flatten(point))
 
-    def line_is_farther_than(self):
+    def line_is_farther_than(self, line, distance, point, line2):
+        """        
+        Determines if the shortest distance from a line to a point or another line is greater than a specified distance.
+    
+        Parameters
+        ==========
+
+        line, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the line.
+            
+        distance, Double, Required        
+        The distance.
+            
+        point, Array of ????, Required        
+        The test point.
+            
+        line2, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the test line.
+            
+        Returns
+        =======
+
+        boolean
+        True if the shortest distance from the line to the other object is greater than dblDistance, False otherwise.
+
+        null
+        On error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(902, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineIsFartherThan", None, flatten(line), distance, flatten(point), flatten(line2))
 
     def line_line_intersection(self, line_a, line_b, planar):
         """        
@@ -178,27 +199,63 @@ class LineAndPlane(IRhinoScript):
 
         return self._ApplyTypes_(736, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"LineLineIntersection", None, flatten(line_a), flatten(line_b), planar)
 
-    def line_max_distance_to(self):
+    def line_max_distance_to(self, line, point, line2):
+        """        
+        Finds the longest distance between the line, as a finite chord, and a point or another line.
+    
+        Parameters
+        ==========
+
+        line, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the line.
+            
+        point, Array of ????, Required        
+        The test point.
+            
+        line2, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the test line (another finite chord).
+            
+        Returns
+        =======
+
+        boolean
+        A distance (D) such that if Q is any point on the line and P is any point on the other object, then D >= Rhino.Distance(Q, P).
+
+        null
+        On error.
+
         """
 
+        return self._ApplyTypes_(901, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineMaxDistanceTo", None, flatten(line), flatten(point), flatten(line2))
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def line_min_distance_to(self, line, point, line2):
+        """        
+        Finds the shortest distance between the line, as a finite chord, and a point or another line.
+    
+        Parameters
+        ==========
 
+        line, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the line.
+            
+        point, Array of ????, Required        
+        The test point.
+            
+        line2, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the test line (another finite chord).
+            
+        Returns
+        =======
+
+        boolean
+        A distance (D) such that if Q is any point on the line and P is any point on the other object, then D <= Rhino.Distance(Q, P).
+
+        null
+        On error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def line_min_distance_to(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(900, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"LineMinDistanceTo", None, flatten(line), flatten(point), flatten(line2))
 
     def line_plane(self, line):
         """        

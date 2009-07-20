@@ -372,27 +372,75 @@ class PointAndVector(IRhinoScript):
 
         return self._ApplyTypes_(593, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_R8, 1)), u"PointsAreCoplanar", None, flatten(points), tolerance)
 
-    def project_point_to_mesh(self):
+    def project_point_to_mesh(self, points, points, mesh, meshes, direction):
+        """        
+        Projects one or more points onto one or more meshes.
+    
+        Parameters
+        ==========
+
+        points, Array of ????, Required        
+        A 3-D point to project.
+            
+        points, Array of ????, Required        
+        An array of 3-D points to project.
+            
+        mesh, String, Required        
+        The identifier of the mesh object to project onto.
+            
+        meshes, Array of ????, Required        
+        The identifiers of the mesh objects to project onto.
+            
+        direction, Array of ????, Required        
+        The direction (3-D vector) to project the points.
+            
+        Returns
+        =======
+
+        array
+        An array of 3-D points if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(912, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"ProjectPointToMesh", None, flatten(points), flatten(points), mesh, flatten(meshes), flatten(direction))
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def project_point_to_surface(self, points, points, surface, surfaces, direction):
+        """        
+        Projects one or more points onto one or more surfaces or polysurfaces.
+    
+        Parameters
+        ==========
 
+        points, Array of ????, Required        
+        A 3-D point to project.
+            
+        points, Array of ????, Required        
+        An array of 3-D points to project.
+            
+        surface, String, Required        
+        The identifier of the surface or polysurface object to project onto.
+            
+        surfaces, Array of ????, Required        
+        The identifiers of the surface or polysurface objects to project onto.
+            
+        direction, Array of ????, Required        
+        The direction (3-D vector) to project the points.
+            
+        Returns
+        =======
+
+        array
+        An array of 3-D points if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def project_point_to_surface(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(892, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"ProjectPointToSurface", None, flatten(points), flatten(points), surface, flatten(surfaces), flatten(direction))
 
     def pull_points(self, object, points):
         """        

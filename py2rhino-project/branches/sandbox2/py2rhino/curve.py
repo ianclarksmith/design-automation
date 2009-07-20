@@ -758,27 +758,63 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(658, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1)), u"CurveArcLengthPoint", None, object, length, from_start)
 
-    def curve_area(self):
+    def curve_area(self, object, objects):
+        """        
+        Returns that area of closed planar curves. The results are based on the current drawing units.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of a closed, planar curve object.
+            
+        objects, Array of ????, Required        
+        An array of strings containing the identifiers of one or more closed, planar curve objects.
+            
+        Returns
+        =======
+
+        array
+        An array of area information if successful.  The array will contain the following information:
+
+        number
+        The area. If more than one curve was specified, the value will be the cumulative area.
+
+        number
+        The absolute (+/-) error bound for the area.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(643, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"CurveArea", None, object, flatten(objects))
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def curve_area_centroid(self, object, objects):
+        """        
+        Returns that area centroid of closed, planar curves. The results are based on the current drawing units.
+    
+        Parameters
+        ==========
 
+        object, String, Required        
+        The identifier of a closed, planar curve object.
+            
+        objects, Array of ????, Required        
+        An array of strings containing the identifiers of one or more closed, planar curve objects.
+            
+        Returns
+        =======
+
+        array
+        An array of area centroid information if successful.  The array will contain the following information:
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def curve_area_centroid(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(677, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"CurveAreaCentroid", None, object, flatten(objects))
 
     def curve_arrows(self, object, style):
         """        
@@ -922,16 +958,43 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(545, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)), u"CurveBrepIntersect", None, curve, brep, tolerance)
 
-    def curve_closest_object(self):
+    def curve_closest_object(self, curve, object, objects):
+        """        
+        Returns the 3-D point locations on two objects where they are closest to each other.  Note, this function provides similar functionality to that of Rhino's ClosestPt command when used with the Object option.
+    
+        Parameters
+        ==========
+
+        curve, String, Required        
+        The identifier of the curve object to test.
+            
+        object, String, Required        
+        The identifier of a point cloud, curve, surface, or polysurface to test against.
+            
+        objects, Array of ????, Required        
+        The identifiers of one or more point cloud, curve, surface, or polysurface to test against.
+            
+        Returns
+        =======
+
+        array
+        An array containing the results of the closest point calculation if successful.  The elements of the array are as follows:
+
+        string
+        The identifier of the closest object.
+
+        array
+        The 3-D point that is closest to the closest object.
+
+        array
+        The 3-D point that is closest to the test curve.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(870, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)), u"CurveClosestObject", None, curve, object, flatten(objects))
 
     def curve_closest_point(self, object, point, index):
         """        
@@ -1416,27 +1479,57 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(675, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1)), u"CurveFrame", None, object, parameter)
 
-    def curve_knot_count(self):
+    def curve_knot_count(self, object, index):
+        """        
+        Returns the knot count of a curve object.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The object's identifier.
+            
+        index, Integer, Optional        
+        If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+            
+        Returns
+        =======
+
+        number
+        The number of knots if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(310, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"CurveKnotCount", None, object, index)
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def curve_knots(self, object, index):
+        """        
+        Returns the knots, or knot vector, of a curve object.
+    
+        Parameters
+        ==========
 
+        object, String, Required        
+        The object's identifier.
+            
+        index, Integer, Optional        
+        If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+            
+        Returns
+        =======
+
+        array
+        The knot values of the curve  if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def curve_knots(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(311, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"CurveKnots", None, object, index)
 
     def curve_length(self, object, index, sub_domain):
         """        
@@ -1467,16 +1560,28 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(97, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)), u"CurveLength", None, object, index, flatten(sub_domain))
 
-    def curve_mid_point(self):
+    def curve_mid_point(self, object):
+        """        
+        Returns the mid point of a curve object.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The object's identifier.
+            
+        Returns
+        =======
+
+        array
+        The 3-D mid point of the curve if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(577, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"CurveMidPoint", None, object)
 
     def curve_normal(self, object):
         """        
@@ -1972,16 +2077,35 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(100, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)), u"EvaluateCurve", None, object, parameter, index)
 
-    def explode_curves(self):
+    def explode_curves(self, object, objects, delete):
+        """        
+        Explodes, or un-joins,  one more curve objects.  Polycurves will be exploded into curve segments.  Polylines will be exploded into line segments.  ExplodeCurves will return the curves in
+		topological order.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the curve object to explode.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the curve objects to explode.
+            
+        delete, Boolean, Optional        
+        Delete input objects after exploding.  The default is not to delete objects (False).
+            
+        Returns
+        =======
+
+        array
+        An array of strings identifying the newly created curve objects if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(446, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"ExplodeCurves", None, object, flatten(objects), delete)
 
     def extend_curve(self, object, type, side, objects):
         """        
@@ -2574,7 +2698,7 @@ class Curve(IRhinoScript):
 
     def is_polyline(self, object, index):
         """        
-        
+        Verifies an object is a polyline curve object.
     
         Parameters
         ==========
@@ -2728,27 +2852,78 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(546, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshPolyline", None, polyline)
 
-    def offset_curve(self):
+    def offset_curve(self, object, direction, normal, style):
+        """        
+        Offsets a curve by a distance. The offset curve will be added to Rhino.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The object's identifier.
+            
+        direction, Array of ????, Required        
+        The 3-D point that indicates the direction of the offset.
+		dblDistance
+            
+        normal, Array of ????, Optional        
+        A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+            
+        style, Integer, Optional        
+        The corner style.  Of omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+            
+        Returns
+        =======
+
+        array
+        An array containing the identifiers of the new objects if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(634, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)), u"OffsetCurve", None, object, flatten(direction), flatten(normal), style)
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def offset_curve_on_surface(self, curve, surface):
+        """        
+        Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
+    
+        Parameters
+        ==========
 
+        curve, String, Required        
+        The curve object's identifier. Note, the curve must lie on the surface.
+            
+        surface, String, Required        
+        The surface object's identifier.
+		dblDistance
+		Requried.  Number.  The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+		arrParameter
+            
+        Returns
+        =======
+
+        array
+        An array containing the identifiers of the new curve objects if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def offset_curve_on_surface(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(906, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"OffsetCurveOnSurface", None, curve, surface)
 
     def planar_closed_curve_containment(self, curve1, curve2, plane, tolerance):
         """        
@@ -2937,27 +3112,75 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(112, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"PolylineVertices", None, object, index)
 
-    def project_curve_to_mesh(self):
+    def project_curve_to_mesh(self, curve, curves, mesh, meshes, direction):
+        """        
+        Projects one or more points onto one or more meshes.
+    
+        Parameters
+        ==========
+
+        curve, String, Required        
+        The identifier of a curve object to project.
+            
+        curves, Array of ????, Required        
+        The identifiers of one or more curve objects to project.
+            
+        mesh, String, Required        
+        The identifier of the mesh object to project onto.
+            
+        meshes, Array of ????, Required        
+        The identifiers of the mesh objects to project onto.
+            
+        direction, Array of ????, Required        
+        The direction (3-D vector) to project the points.
+            
+        Returns
+        =======
+
+        array
+        The identifiers of the newly created, projected curve objects, if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(911, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"ProjectCurveToMesh", None, curve, flatten(curves), mesh, flatten(meshes), flatten(direction))
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def project_curve_to_surface(self, curve, curves, surface, surfaces, direction):
+        """        
+        Projects one or more points onto one or more surfaces or polysurfaces.
+    
+        Parameters
+        ==========
 
+        curve, String, Required        
+        The identifier of a curve object to project.
+            
+        curves, Array of ????, Required        
+        The identifiers of one or more curve objects to project.
+            
+        surface, String, Required        
+        The identifier of the surface or polysurface object to project onto.
+            
+        surfaces, Array of ????, Required        
+        The identifiers of the surface or polysurface objects to project onto.
+            
+        direction, Array of ????, Required        
+        The direction (3-D vector) to project the points.
+            
+        Returns
+        =======
+
+        array
+        The identifiers of the newly created, projected curve objects, if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def project_curve_to_surface(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(891, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"ProjectCurveToSurface", None, curve, flatten(curves), surface, flatten(surfaces), flatten(direction))
 
     def rebuild_curve(self, object, degree, point_count):
         """        
@@ -3084,16 +3307,37 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(573, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_I2, 1)), u"SimplifyCurve", None, object, flags)
 
-    def split_curve(self):
+    def split_curve(self, object, parameter, parameters, delete):
+        """        
+        Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The object's identifier.
+            
+        parameter, Double, Required        
+        The parameter, to split the curve at, that is in the interval returned by CurveDomain.
+            
+        parameters, Array of ????, Required        
+        An array of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+            
+        delete, Boolean, Optional        
+        Delete the input curve. The default is to delete the input curve (True).
+            
+        Returns
+        =======
+
+        array
+        An array containing the identifiers of the two newly created curve objects, if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(504, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"SplitCurve", None, object, parameter, flatten(parameters), delete)
 
     def trim_curve(self, object, interval, delete):
         """        

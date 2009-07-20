@@ -153,16 +153,34 @@ class Mesh(IRhinoScript):
 
         return self._ApplyTypes_(853, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DuplicateMeshBorder", None, object)
 
-    def explode_meshes(self):
+    def explode_meshes(self, object, objects, delete):
+        """        
+        Explodes a mesh object, or mesh objects,  into submeshes.  A submesh is a collection of mesh faces that are contained within a closed loop of unwelded mesh edges.  Unwelded mesh edges are edges where the mesh faces that share the edge have unique mesh vertices (not mesh topology vertices) at both ends of the edge.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the mesh object to explode.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the mesh objects to explode.
+            
+        delete, Boolean, Optional        
+        Delete input objects after exploding.  The default is not to delete objects (False).
+            
+        Returns
+        =======
+
+        array
+        An array of strings identifying the newly created mesh objects if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(903, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"ExplodeMeshes", None, object, flatten(objects), delete)
 
     def is_mesh(self, object):
         """        
@@ -233,16 +251,40 @@ class Mesh(IRhinoScript):
 
         return self._ApplyTypes_(855, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"IsMeshManifold", None, object)
 
-    def mesh_area(self):
+    def mesh_area(self, object, objects):
+        """        
+        Returns the approximate area of one or more mesh objects.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The object's identifier.
+            
+        objects, Array of ????, Required        
+        An array of object identifier.
+            
+        Returns
+        =======
+
+        array
+        An array containing three numbers if successful.  The three elements of the array are as follows:
+
+        number
+        The number of meshes used in the area calculation.
+
+        number
+        The total area of all meshes.
+
+        number
+        The error estimate.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(353, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"MeshArea", None, object, flatten(objects))
 
     def mesh_area_centroid(self, object):
         """        
@@ -745,7 +787,7 @@ class Mesh(IRhinoScript):
 
     def mesh_quad_count(self, object):
         """        
-        
+        Returns the number of quad faces of a mesh object.
     
         Parameters
         ==========
@@ -835,16 +877,37 @@ class Mesh(IRhinoScript):
 
         return self._ApplyTypes_(351, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshTriangleCount", None, object)
 
-    def mesh_vertex_colors(self):
+    def mesh_vertex_colors(self, object, vertex_colors, null):
+        """        
+        Returns or modifies the  vertex colors of a mesh object
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The object's identifier.
+            
+        vertex_colors, Array of ????, Optional        
+        An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
+            
+        null, Array of ????, Optional        
+        Specifying Null will remove, or purge, any existing vertex colors from the mesh.
+            
+        Returns
+        =======
+
+        array
+        If arrVertexColors  is not specified,  the current vertex color if successful.
+
+        array
+        If arrVertexColors  is specified, the previous vertex colors if successful.
+
+        null
+        If strObject does not have vertex colors, if not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(699, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"MeshVertexColors", None, object, flatten(vertex_colors), flatten(null))
 
     def mesh_vertex_count(self, object):
         """        
@@ -915,16 +978,40 @@ class Mesh(IRhinoScript):
 
         return self._ApplyTypes_(127, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"MeshVertices", None, object)
 
-    def mesh_volume(self):
+    def mesh_volume(self, object, objects):
+        """        
+        Returns the approximate volume of one or more closed mesh objects.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The object's identifier.
+            
+        objects, Array of ????, Required        
+        An array of object identifier.
+            
+        Returns
+        =======
+
+        array
+        An array containing three numbers if successful.  The three elements of the array are as follows:
+
+        number
+        The number of meshes used in the volume calculation.
+
+        number
+        The total volume of all meshes.
+
+        number
+        The error estimate.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(354, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"MeshVolume", None, object, flatten(objects))
 
     def mesh_volume_centroid(self, object):
         """        

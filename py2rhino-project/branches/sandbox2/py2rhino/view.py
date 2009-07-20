@@ -8,16 +8,31 @@ class View(IRhinoScript):
 
 
 
-    def add_named_c_plane(self):
+    def add_named_c_plane(self, name, view):
+        """        
+        Adds a new named construction plane to the document.
+    
+        Parameters
+        ==========
+
+        name, String, Required        
+        The name of the new named construction plane.
+            
+        view, String, Optional        
+        The title or identifier of the view from which to save the construction plane.  If omitted, the current active view is used.
+            
+        Returns
+        =======
+
+        string
+        The name of the newly created named construction plane if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(280, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"AddNamedCPlane", None, name, view)
 
     def add_named_view(self, name, view):
         """        
@@ -45,16 +60,53 @@ class View(IRhinoScript):
 
         return self._ApplyTypes_(281, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"AddNamedView", None, name, view)
 
-    def background_bitmap(self):
+    def background_bitmap(self, view, file_name, point, width):
+        """        
+        Returns or sets the background bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
+    
+        Parameters
+        ==========
+
+        view, String, Optional        
+        The title or identifier of the view.  If omitted, the current active view is used.
+            
+        file_name, String, Optional        
+        The name of the bitmap file to set as the background bitmap.  The supported bitmap file formats are as follows:
+		Type
+		Description
+		bmp
+		Windows Bitmap
+		tga
+		Truevision Targa
+		jpg, jpeg
+		JPEG Compliant
+		pcx
+		Zsoft Paintbrush
+		png
+		Portable Network Graphics
+		tif, tiff
+            
+        point, Array of ????, Optional        
+        A 3-D point the lower left corner of the background bitmap. If omitted, the background bitmap's lower left corner will be located at the world origin, or (0,0,0).
+            
+        width, Double, Optional        
+        The width of the background bitmap. If omitted, the actual width of the bitmap will be used.
+            
+        Returns
+        =======
+
+        string
+        If strFileName is not specified,  then the current background bitmap filename if successful.
+
+        string
+        If strFileName is specified,  then the previous background bitmap filename if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(780, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)), u"BackgroundBitmap", None, view, file_name, flatten(point), width)
 
     def current_detail(self, layout, detail, return_names):
         """        
@@ -117,27 +169,51 @@ class View(IRhinoScript):
 
         return self._ApplyTypes_(251, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"CurrentView", None, view, return_name)
 
-    def delete_named_c_plane(self):
+    def delete_named_c_plane(self, name):
+        """        
+        Removed a new named construction plane from the document.
+    
+        Parameters
+        ==========
+
+        name, String, Required        
+        The name of the named construction plane to remove.
+            
+        Returns
+        =======
+
+        boolean
+        True or False indicating success or failure.
+
+        null
+        On error.
+
         """
 
+        return self._ApplyTypes_(284, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteNamedCPlane", None, name)
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def delete_named_view(self, name):
+        """        
+        Removed a new named view from  the document.
+    
+        Parameters
+        ==========
 
+        name, String, Required        
+        The name of the named view to remove.
+            
+        Returns
+        =======
+
+        boolean
+        True or False indicating success or failure.
+
+        null
+        On error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def delete_named_view(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(285, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"DeleteNamedView", None, name)
 
     def detail_names(self, layout, return_names):
         """        
@@ -213,7 +289,7 @@ class View(IRhinoScript):
 
     def is_layout(self, layout):
         """        
-        
+        Verifies that a view is a page layout view.
     
         Parameters
         ==========
@@ -473,27 +549,60 @@ class View(IRhinoScript):
 
         return self._ApplyTypes_(260, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"RenameView", None, old_title, new_title)
 
-    def restore_named_c_plane(self):
+    def restore_named_c_plane(self, name, view):
+        """        
+        Restores a named construction plane to the specified view.
+    
+        Parameters
+        ==========
+
+        name, String, Required        
+        The name of the named construction plane to restore.
+            
+        view, String, Optional        
+        The title or identifier of the view to restore the construction plane.  If omitted, the current active view is used.
+            
+        Returns
+        =======
+
+        string
+        The name of the restored named construction plane if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(282, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"RestoreNamedCPlane", None, name, view)
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def restore_named_view(self, name, view, restore_bitmap):
+        """        
+        Restores a named view to the specified view.
+    
+        Parameters
+        ==========
 
+        name, String, Required        
+        The name of the named view to restore.
+            
+        view, String, Optional        
+        The title or identifier of the view to restore the view.  If omitted, the current active view is used.
+            
+        restore_bitmap, Boolean, Optional        
+        Restore the named view's background bitmap. If omitted, the named view's background bitmap is not restored (false).
+            
+        Returns
+        =======
+
+        string
+        The name of the restored named view if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def restore_named_view(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(283, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)), u"RestoreNamedView", None, name, view, restore_bitmap)
 
     def rotate_camera(self, view, direction, angle):
         """        
@@ -660,16 +769,30 @@ class View(IRhinoScript):
 
         return self._ApplyTypes_(740, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BOOL, 1)), u"ShowWorldAxes", None, view, show)
 
-    def synchronize_c_planes(self):
+    def synchronize_c_planes(self, view):
+        """        
+        Synchronizes all views and their construction plane to that of a specified view's construction plane.
+		Normally, changing a view's construction plane is unique to that view.  This method changes the construction planes and normal views of all views to be of a right-angle orientation based on a specified view's construction plane.  This save the effort of changing all views independently, and maintains a standard right-angle view arrangement.
+		The view synchronization only applies to Rhino's standard-named, parallel-projected views (e.g. Back, Bottom, Front, Left, Right, and Top).  All other views (e.g. Perspective, etc) simply have their construction plane synchronized to that of the specified view's construction plane.
+    
+        Parameters
+        ==========
+
+        view, String, Optional        
+        The title or identifier of the view from which to synchronize.  If omitted, the current active view is used.
+            
+        Returns
+        =======
+
+        boolean
+        True or False indicating success or failure.
+
+        null
+        On error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(289, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"SynchronizeCPlanes", None, view)
 
     def tilt_view(self, view, direction, angle):
         """        
@@ -1188,16 +1311,45 @@ class View(IRhinoScript):
 
         return self._ApplyTypes_(907, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ViewTitle", None, mode)
 
-    def wallpaper(self):
+    def wallpaper(self, view, file_name):
+        """        
+        Returns or sets the wallpaper bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
+    
+        Parameters
+        ==========
+
+        view, String, Optional        
+        The title or identifier of the view.  If omitted, the current active view is used.
+            
+        file_name, String, Optional        
+        The name of the bitmap file to set as the wallpaper.  The supported bitmap file formats are as follows:
+		.bmp
+		Windows Bitmap
+		.tga
+		Truevision Targa
+		.jpg, .jpeg
+		JPEG Compliant
+		.pcx
+		Zsoft Paintbrush
+		.png
+		Portable Network Graphics
+		.tif, .tiff
+            
+        Returns
+        =======
+
+        string
+        If strFileName is not specified,  then the current wallpaper bitmap filename if successful.
+
+        string
+        If strFileName is specified,  then the previous wallpaper bitmap filename if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(532, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_BSTR, 1)), u"Wallpaper", None, view, file_name)
 
     def wallpaper_gray_scale(self, view, gray_scale):
         """        

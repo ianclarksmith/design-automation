@@ -31,16 +31,43 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         return self._ApplyTypes_(72, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1),), u"AddBox", None, flatten(corners))
 
-    def add_cone(self):
+    def add_cone(self, base, plane, height, height, radius, cap):
+        """        
+        Adds a cone-shaped polysurface to the document.
+    
+        Parameters
+        ==========
+
+        base, Array of ????, Required        
+        The 3-D origin point of the cone.
+            
+        plane, Array of ????, Required        
+        The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
+            
+        height, Array of ????, Required        
+        The 3-D height point of the cone.  The height point defines the height and direction of the cone.
+            
+        height, Double, Required        
+        The height of the cone.  If arrPlane is specified, then the center of the arrPlane is height * the plane's z-axis.
+            
+        radius, Double, Required        
+        The radius at the base of the cone.  Note, tan(cone_angle) = dblRadius/ dblHeight.
+            
+        cap, Boolean, Optional        
+        Cap the base of the cone.  The default is to cap the cone (True).
+            
+        Returns
+        =======
+
+        string
+        The identifier of the new object if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(75, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)), u"AddCone", None, flatten(base), flatten(plane), flatten(height), height, radius, cap)
 
     def add_cut_plane(self, objects, start_point, end_point, normal):
         """        
@@ -74,16 +101,43 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         return self._ApplyTypes_(822, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"AddCutPlane", None, flatten(objects), flatten(start_point), flatten(end_point), flatten(normal))
 
-    def add_cylinder(self):
+    def add_cylinder(self, base, plane, height, height, radius, cap):
+        """        
+        Adds a cylinder-shaped polysurface to the document.
+    
+        Parameters
+        ==========
+
+        base, Array of ????, Required        
+        The 3-D base point of the cylinder.
+            
+        plane, Array of ????, Required        
+        The base plane of the cylinder.
+            
+        height, Array of ????, Required        
+        The 3-D height point of the cylinder.  The height point defines the height and direction of the cylinder.
+            
+        height, Double, Required        
+        The height of the cylinder.
+            
+        radius, Double, Required        
+        The radius of the cylinder.
+            
+        cap, Boolean, Optional        
+        Cap the ends of the cylinder.  If omitted, the ends of the cylinder will be capped (True).
+            
+        Returns
+        =======
+
+        string
+        The identifier of the new object if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(73, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)), u"AddCylinder", None, flatten(base), flatten(plane), flatten(height), height, radius, cap)
 
     def add_edge_srf(self, objects):
         """        
@@ -321,27 +375,69 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         return self._ApplyTypes_(535, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)), u"AddRevSrf", None, profile, flatten(axis), start_angle, end_angle)
 
-    def add_sphere(self):
+    def add_sphere(self, center, plane, radius):
+        """        
+        Adds a spherical surface to the document.
+    
+        Parameters
+        ==========
+
+        center, Array of ????, Required        
+        The center point of the sphere.
+            
+        plane, Array of ????, Required        
+        An equatorial plane.  The origin of the plane will be the center point of the sphere.
+            
+        radius, Double, Required        
+        The radius of the sphere in current model units.
+            
+        Returns
+        =======
+
+        string
+        The identifier of the new object if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
+        return self._ApplyTypes_(71, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)), u"AddSphere", None, flatten(center), flatten(plane), radius)
 
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
+    def add_srf_contour_crvs(self, object, start_point, end_point, plane, interval):
+        """        
+        Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.
+    
+        Parameters
+        ==========
 
+        object, String, Required        
+        The identifier of a surface or polysurface object.
+            
+        start_point, Array of ????, Required        
+        The 3-D starting point of a center line.
+            
+        end_point, Array of ????, Required        
+        The 3-D ending point of a center line.
+            
+        plane, Array of ????, Required        
+        A plane that defines the cutting plane.
+            
+        interval, Double, Optional        
+        The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
+            
+        Returns
+        =======
+
+        array
+        An array of strings identifying the newly created contour curves if successful.
+
+        null
+        If not successful, or on error.
 
         """
 
-        raise exceptions.NotImplementedError
-
-    def add_srf_contour_crvs(self):
-        """
-
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(747, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)), u"AddSrfContourCrvs", None, object, flatten(start_point), flatten(end_point), flatten(plane), interval)
 
     def add_srf_control_pt_grid(self, count, points, degree):
         """        
@@ -558,16 +654,40 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         return self._ApplyTypes_(894, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_I2, 1), (VT_VARIANT, 1)), u"AddSweep2", None, flatten(rails), flatten(shapes), flatten(start_pt), flatten(end_pt), closed, simple_sweep, maintain_height, simplify, simplify_arg)
 
-    def add_torus(self):
+    def add_torus(self, base, plane, major_radius, minor_radius, direction):
+        """        
+        Adds a torus-shaped revolved surface to the document.
+    
+        Parameters
+        ==========
+
+        base, Array of ????, Required        
+        The 3-D origin point of the torus.
+            
+        plane, Array of ????, Required        
+        The base plane of the torus.
+            
+        major_radius, Double, Required        
+        The major radius of the torus.  The major radius must be larger than the minor radius.
+            
+        minor_radius, Double, Required        
+        The minor radius of the torus.  The minor radius must be greater than zero.
+            
+        direction, Array of ????, Optional        
+        A point that defines the direction of the torus.  If omitted, a torus that is parallel to the world XY plane is created.
+            
+        Returns
+        =======
+
+        string
+        The identifier of the new object if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(74, 1, (VT_VARIANT, 0), ((VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1)), u"AddTorus", None, flatten(base), flatten(plane), major_radius, minor_radius, flatten(direction))
 
     def boolean_difference(self, input0, input1, delete):
         """        
@@ -629,7 +749,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
     def boolean_union(self, input, delete):
         """        
-        
+        Performs a Boolean union operation on a set of input surfaces and polysurfaces. For more details, see the BooleanUnion command in the Rhino help file.
     
         Parameters
         ==========
@@ -777,16 +897,34 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         return self._ApplyTypes_(205, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1)), u"EvaluateSurface", None, object, flatten(parameter))
 
-    def explode_polysurfaces(self):
+    def explode_polysurfaces(self, object, objects, delete):
+        """        
+        Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.
+    
+        Parameters
+        ==========
+
+        object, String, Required        
+        The identifier of the polysurface object to explode.
+            
+        objects, Array of ????, Required        
+        An array of strings identifying the polysurface objects to explode.
+            
+        delete, Boolean, Optional        
+        Delete input objects after exploding.  The default is not to delete objects (False).
+            
+        Returns
+        =======
+
+        array
+        An array of strings identifying the newly created surface objects if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(447, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)), u"ExplodePolysurfaces", None, object, flatten(objects), delete)
 
     def extract_iso_curve(self, object, parameter, dir):
         """        
@@ -1997,7 +2135,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
     def surface_cone(self, surface):
         """        
-        
+        Returns the definition of a cone surface.
     
         Parameters
         ==========
@@ -2648,7 +2786,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
     def surface_volume(self, object):
         """        
-        
+        Calculates the volume of closed surface or polysurface objects.
     
         Parameters
         ==========

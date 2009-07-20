@@ -194,16 +194,28 @@ class Block(IRhinoScript):
 
         return self._ApplyTypes_(415, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockInstanceXform", None, object)
 
-    def block_instances(self):
+    def block_instances(self, block):
+        """        
+        Returns the identifiers of the inserted instances of a block.
+    
+        Parameters
+        ==========
+
+        block, String, Required        
+        The name of an existing block definition.
+            
+        Returns
+        =======
+
+        array
+        An array of strings identifying the instances of a block if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(414, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"BlockInstances", None, block)
 
     def block_names(self, sort):
         """        
@@ -401,16 +413,43 @@ class Block(IRhinoScript):
 
         return self._ApplyTypes_(419, 1, (VT_VARIANT, 0), ((VT_BSTR, 1),), u"ExplodeBlockInstance", None, object)
 
-    def insert_block(self):
+    def insert_block(self, name, point, scale, angle, normal, xform):
+        """        
+        Inserts a block whose definition already exists in the document.
+    
+        Parameters
+        ==========
+
+        name, String, Required        
+        The name of the block definition to insert.
+            
+        point, Array of ????, Required        
+        The 3-D insertion point of the block.
+            
+        scale, Array of ????, Optional        
+        An array of three numbers that identify the x,y,z scale factors. If omitted, the block is not scaled.
+            
+        angle, Double, Optional        
+        The rotation angle in degrees. If omitted, the block is not rotated.
+            
+        normal, Array of ????, Optional        
+        A 3-D vector identifying the axis of rotation. If omitted and dblAngle is specified, the world Z axis is used.
+            
+        xform, Array of ????, Required        
+        4x4 transformation matrix to apply.
+            
+        Returns
+        =======
+
+        string
+        The identifier of the newly inserted block instance, if successful.
+
+        null
+        If not successful, or on error.
+
         """
 
-
-        METHOD NOT IMPLEMENTED DUE TO PARAMETER MISMATCH
-
-
-        """
-
-        raise exceptions.NotImplementedError
+        return self._ApplyTypes_(633, 1, (VT_VARIANT, 0), ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)), u"InsertBlock", None, name, flatten(point), flatten(scale), angle, flatten(normal), flatten(xform))
 
     def is_block(self, block):
         """        
