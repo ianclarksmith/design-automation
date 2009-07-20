@@ -73,10 +73,6 @@ class Node(object):
         Parameter(s)
         This command takes the following parameters.
         
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
         x, y, z 
         These parameters specify the move distance and direction in each of the 
         major X, Y and Z axis.
@@ -93,9 +89,6 @@ class Node(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created object. 
         
         dir 
         The nudge direction, according to the table below. 
@@ -123,10 +116,6 @@ class Node(object):
         Parameter(s)
         This command takes the following parameters.
         
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
         azi 
         The azimuth angle of rotation, in decimal degrees. 
         
@@ -148,10 +137,6 @@ class Node(object):
         Parameter(s)
         This command takes the following parameters.
         
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
         x, y, z 
         These parameters specify the amount of rotation in decimal degrees for 
         each required axis, in a positive anti-clockwise direction. Use a value 
@@ -172,10 +157,6 @@ class Node(object):
         Parameter(s)
         This command takes the following parameters.
         
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
         azi 
         The azimuth angle of rotation, in decimal degrees. 
         
@@ -195,10 +176,6 @@ class Node(object):
         Parameter(s)
         This command takes the following parameters.
         
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
-        
         dx, dy, dz 
         These parameters specifies the scale factor to apply in each of the 
         major X, Y and Z axis.
@@ -216,10 +193,6 @@ class Node(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be adjusted, within the last created 
-        object. 
         
         trans 
         The generic tranformation to apply, according to the Transform Types 
@@ -269,8 +242,8 @@ class Node(object):
         Parameter(s)
         This property takes the following parameters.
         
-        node 
-        The zero-based index of the node to be checked. 
+        flag 
+        Refer to the table below. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -281,7 +254,12 @@ class Node(object):
         available node flag. 
         
         Relevant Data Table(s)
-        table_NodeFlags.txt
+        
+        Available Attribute Flags 
+        Token Value Description 
+        text 1 Display object attribute as a text value 
+        vectors 2 Display object attribute as a vector. 
+        colours 4 Display object attribute as a fill colous. 
 
         """
         arg_str = string_util._convert_args_to_string("get.node.flag", self._id, 
@@ -297,9 +275,6 @@ class Node(object):
         Parameter(s)
         This property takes the following parameters.
         
-        node 
-        The zero-based index of the node to be set. 
-        
         flag 
         This parameter specifies the bitwise flag to be set or cleared. 
         
@@ -309,7 +284,12 @@ class Node(object):
         false the negative. If not included, it defaults to true. 
         
         Relevant Data Table(s)
-        table_NodeFlags.txt
+        
+        Available Attribute Flags 
+        Token Value Description 
+        text 1 Display object attribute as a text value 
+        vectors 2 Display object attribute as a vector. 
+        colours 4 Display object attribute as a fill colous. 
 
         """
         arg_str = string_util._convert_args_to_string("set.node.flag", self._id,
@@ -322,10 +302,7 @@ class Node(object):
         Retrieves a value representing the total of all the node's flags. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be checked. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -348,15 +325,14 @@ class Node(object):
         Gets the node or object this node is linked to. 
 
         Parameter(s)
-        This property takes the following parameters.
+        There are no parameters for this property.
         
-        node 
-        The zero-based index of the node to be checked. 
         Return Value(s)
         Getting this property returns the following value(s).
         
         link 
-        The zero-based index of the object or node to which the specified node is linked.
+        The zero-based index of the object or node to which the specified node 
+        is linked.
         
         """
         arg_str = string_util._convert_args_to_string("get.node.link", self._id)
@@ -370,9 +346,6 @@ class Node(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be set. 
         
         link 
         The zero-based index of the object or node to which the specified node 
@@ -392,10 +365,8 @@ class Node(object):
         you are free to use it for anything you wish. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be checked. 
+        There are no parameters for this property.
+         
         Return Value(s)
         Getting this property returns the following value(s).
         
@@ -418,10 +389,7 @@ class Node(object):
         you are free to use it for anything you wish. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be set. 
+        There are no parameters for this property.
         
         mod 
         The new decimal value of the node modifier.
@@ -438,10 +406,7 @@ class Node(object):
         of the major axes. Three coordinate values are returned. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be checked. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -464,9 +429,6 @@ class Node(object):
         Parameter(s)
         This property takes the following parameters.
         
-        node 
-        The zero-based index of the node to be set. 
-        
         x, y, z 
         Represents the absolute position in the X, Y and Z axis of the node in 3 
         dimensional model space.
@@ -482,10 +444,8 @@ class Node(object):
         Retrieves the selection state of the specified node. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be checked. 
+        There are no parameters for this property.
+         
         Return Value(s)
         Getting this property returns the following value(s).
         
@@ -506,9 +466,6 @@ class Node(object):
         Parameter(s)
         This property takes the following parameters.
         
-        node 
-        The zero-based index of the node to be set. 
-        
         [state] 
         Determines whether to select or deselect the specified node. This can be 
         given as either the words true or false or also as boolean integers 1 or 
@@ -526,10 +483,7 @@ class Node(object):
         object, according to the following Node Types table. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be checked. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -563,9 +517,6 @@ class Node(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        node 
-        The zero-based index of the node to be set. 
         
         type 
         Sets the type of node, according to the following Node Types table. 

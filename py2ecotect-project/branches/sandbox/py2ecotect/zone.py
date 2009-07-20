@@ -41,10 +41,7 @@ class Zone(object):
         contains. 
 
         Parameter(s)
-        This command takes the following parameters.
-        
-        zone 
-        The zero-based index of the zone to delete.
+        There are no parameters for this command.
         
         """
         arg_str = string_util._convert_args_to_string("zone.delete", self._id)
@@ -58,9 +55,6 @@ class Zone(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
         
         dx, dy, dz 
         A value representing the offset distance in each of the X, Y and Z axis, 
@@ -79,9 +73,6 @@ class Zone(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        zone 
-        The zero-based index of the zone to isolate. 
 
         """
         arg_str = string_util._convert_args_to_string("zone.isolate", self._id)
@@ -95,9 +86,6 @@ class Zone(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
         
         dx, dy, dz 
         A value representing the offset distance in each of the X, Y and Z axis, 
@@ -115,9 +103,6 @@ class Zone(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
         
         dir 
         An integer value corresponding to the Nudge Direction table below. 
@@ -144,9 +129,6 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         azi 
         The azimuth value in degrees. 
         
@@ -167,9 +149,6 @@ class Zone(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
         
         rx 
         The degrees of rotation in the X-Axis. 
@@ -195,9 +174,6 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         azi 
         The azimuth value in degrees. 
         
@@ -218,9 +194,6 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         sx, sy, sz 
         A value representing the scaling factor in each of the X, Y and Z axis.
         
@@ -236,9 +209,6 @@ class Zone(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
         
         trans 
         The transformation to use, given as a token corresponding to the 
@@ -476,12 +446,12 @@ class Zone(object):
        
        Sets the specified zone's current value for the total energy gain from 
        APPLIANCE objects. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        value 
-        A value representing the total energy gain from APPLIANCE objects.
+       
+       Parameter(s)
+       This property takes the following parameters.
+       
+       value 
+       A value representing the total energy gain from APPLIANCE objects.
        
        """
        arg_str = string_util._convert_args_to_string("set.zone.applianceenergy", 
@@ -703,10 +673,7 @@ class Zone(object):
         efficiency (%). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -744,11 +711,8 @@ class Zone(object):
         WINDOW area facing the equator (m^). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
-        
+        There are no parameters for this property.
+
         Return Value(s)
         Getting this property returns the following value(s).
         
@@ -786,11 +750,8 @@ class Zone(object):
         exposed to outside conditions (m^2). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
-        
+        There are no parameters for this property.
+    
         Return Value(s)
         Getting this property returns the following value(s).
         
@@ -830,9 +791,6 @@ class Zone(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        zone 
-        The zero-based index of the specified zone. 
         
         flag 
         An integer value representing a binary bit as shown in the Zone Flag 
@@ -895,9 +853,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index of the specified zone. 
-        
         flag 
         An integer value representing a binary bit, as shown in the Zone Flag 
         Codes table. To set multiple flags at once, simply add their values 
@@ -945,10 +900,7 @@ class Zone(object):
         Retrieves the number of people within the specified zone. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -989,7 +941,8 @@ class Zone(object):
         A value representing the number of people. 
         
         [percentagefull] 
-        This optional parameter specifies the percentage of the zone that is occupied. 
+        This optional parameter specifies the percentage of the zone that is 
+        occupied. 
         
         [seatingtype] 
         This optional parameter specifies the seating type and corresponds to 
@@ -1018,10 +971,7 @@ class Zone(object):
         any calculations. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1061,10 +1011,7 @@ class Zone(object):
         system in the specified zone. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1121,10 +1068,7 @@ class Zone(object):
         (W). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1146,9 +1090,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the peak cooling load (W). 
         
@@ -1164,10 +1105,7 @@ class Zone(object):
         load (W). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1188,10 +1126,7 @@ class Zone(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
-        
+
         value 
         A value representing the peak heating load (W). 
         
@@ -1207,10 +1142,7 @@ class Zone(object):
         on the current background. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone.
+        There are no parameters for this property.
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.randomcolour", 
@@ -1224,10 +1156,7 @@ class Zone(object):
         the last calculated day. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1254,10 +1183,7 @@ class Zone(object):
         relative humidity (%). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1280,9 +1206,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the design internal relative humidity (%). 
         
@@ -1298,10 +1221,7 @@ class Zone(object):
         factor. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1322,10 +1242,7 @@ class Zone(object):
         factor. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         value 
         A value representing the total zone response factor.
@@ -1344,9 +1261,6 @@ class Zone(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
         
         octave 
         An integer value ranging from 0 to 8, where 0 is 63Hz, 1 is 125Hz, 2 is 
@@ -1386,10 +1300,7 @@ class Zone(object):
         and internal gain. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1418,10 +1329,7 @@ class Zone(object):
         get.schedule.index command. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        This property takes the following parameters. 
         
         occIndex 
         A value corresponding to the zero-based index of a schedule.This index 
@@ -1450,9 +1358,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         [state] 
         This optional parameter specifies whether to select (true) or deselect 
         (false) objects on the zone. It defaults to true. 
@@ -1476,10 +1381,7 @@ class Zone(object):
         heat gains (W/m^2). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1502,9 +1404,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the sensible internal heat gains (W/m^2).
         
@@ -1520,10 +1419,7 @@ class Zone(object):
         gains through WINDOWS and transparent appertures. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1546,9 +1442,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the total direct solar gains through WINDOWS and 
         transparent appertures.
@@ -1565,10 +1458,7 @@ class Zone(object):
         surface area (m^2). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1591,9 +1481,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the total zone internal surface area (m^2). 
         
@@ -1608,10 +1495,7 @@ class Zone(object):
         Retrieves the HVAC system type for the specified zone. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1645,9 +1529,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         type 
         An integer value or token corresponding to the following Zone HVAC 
         System Codes table. 
@@ -1676,9 +1557,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         hour 
         An integer value between 0 and 23 specifying the hour. 
         
@@ -1702,10 +1580,7 @@ class Zone(object):
         temperature and acoustic data is calculated. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1729,9 +1604,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         [state] 
         This optional parameter will set (true) or reset (false) the specified 
         state. Defaulting to true if not given.
@@ -1748,10 +1620,7 @@ class Zone(object):
         (deg celsius). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1774,9 +1643,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the upper comfort band (deg celsius). 
         
@@ -1792,10 +1658,7 @@ class Zone(object):
         exposed surface area (Heat loss rate W/m K). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1818,9 +1681,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the total U-Value of exposed surface area (Heat 
         loss rate W/m K). 
@@ -1837,10 +1697,7 @@ class Zone(object):
         ventilation rate (ac/h). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1863,9 +1720,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the wind-driven ventilation rate (ac/h).
         
@@ -1881,10 +1735,7 @@ class Zone(object):
         volume (m^3). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1907,9 +1758,6 @@ class Zone(object):
         Parameter(s)
         This property takes the following parameters.
         
-        zone 
-        The zero-based index value of the zone. 
-        
         value 
         A value representing the internal zone volume (m^3).
         
@@ -1925,10 +1773,7 @@ class Zone(object):
         WINDOW area (m^2). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1950,9 +1795,6 @@ class Zone(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
         
         value 
         A value representing the total exposed WINDOW area (m^2). 

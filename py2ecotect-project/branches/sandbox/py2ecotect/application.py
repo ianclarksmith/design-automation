@@ -847,8 +847,32 @@ class Application(object):
         """
         arg_str = string_util._convert_args_to_string("get.app.menu.tool", index)
         val = py2ecotect.conversation.Request(arg_str)
+        print val
         return string_util._convert_str_to_list(val, str)  
     
+    def set_menu_tool(self, index, name_path):
+        """
+        
+        Set the user-defined tool data at the specified position within the 
+        Tools submenu. Use this command to add a new tool to the menu or edit 
+        an existing item. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        index 
+        An integer value between 1 and 9 representing the index of the user 
+        tool required. 
+        
+        name|path 
+        A text string beginning with the name of the menu item followed by the 
+        full pathname of the associated executable file, separated by the '|' 
+        character.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.app.menu.tool", index,
+                                                      name_path)
+        py2ecotect.conversation.Exec(arg_str)
     
     def get_menu_wizard(self, index):
         """
@@ -878,6 +902,34 @@ class Application(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, str)  
     
+    def set_menu_wizard(self, index, name_path):
+        """
+        
+        Set the user-defined wizard at the specified position within the Draw > 
+        Geometry Wizards submenu. Use this command to add a new wizard to the 
+        menu or edit an existing one. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        index 
+        An integer value between 1 and 9 representing the index of the wizard 
+        required. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        name|path 
+        A text string beginning with the name of the menu item followed by the 
+        full pathname of the associated script file, separated by the '|' 
+        character.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.app.menu.wizard", 
+                                                      index, name_path)
+        py2ecotect.conversation.Exec(arg_str)
+        
+        
     def get_page(self):
         """
         
@@ -1569,6 +1621,10 @@ if __name__ == "__main__":
     #set_window(50, 25, 640, 480)
     #print x.computer
     #print x.username
+    #print x.get_menu_tool(9)
+    #x.set_menu_tool(9, "Therm 6.0|C:\\Tools\\Therm6.exe")
+    #print x.get_menu_wizard(7)
+    #x.set_menu_wizard(7, "My Zone Wizard|C:\\Temp\\MyZoneWizard.scr")
     
     print "Tests completed"
         
