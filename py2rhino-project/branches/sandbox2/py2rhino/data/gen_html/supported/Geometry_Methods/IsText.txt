@@ -1,0 +1,63 @@
+IsText
+
+
+
+IsText
+
+
+Verifies an object is a text object.
+
+
+Syntax
+
+
+Rhino.IsText (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a text object")
+
+If Rhino.IsText(strObject) Then
+
+Rhino.Print "The object is a text object."
+
+Else
+
+Rhino.Print "The object is not a text object."
+
+End If
+
+
+Also See
+
+
+AddText
+
+
+

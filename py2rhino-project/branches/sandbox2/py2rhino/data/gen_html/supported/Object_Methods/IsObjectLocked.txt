@@ -1,0 +1,79 @@
+IsObjectLocked
+
+
+
+IsObjectLocked
+
+
+Verifies that an object is locked.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
+
+
+Syntax
+
+
+Rhino.IsObjectLocked (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of an object.
+
+
+Returns
+
+
+
+True 
+
+The object is locked.
+
+False 
+
+The object is not locked.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+'Do something here...
+
+If Rhino.IsObjectLocked(strObject) Then
+
+Rhino.Print "The object is locked."
+
+Else
+
+Rhino.Print "The object is not locked."
+
+End If
+
+
+Also See
+
+
+IsObject
+
+IsObjectHidden
+
+IsObjectInGroup
+
+IsObjectNormal
+
+IsObjectReference
+
+IsObjectSelectable
+
+IsObjectSelected
+
+IsObjectSolid
+

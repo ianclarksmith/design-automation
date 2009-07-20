@@ -1,0 +1,83 @@
+AddHatches
+
+
+
+AddHatches
+
+
+
+Creates one or more new hatch objects from an array of closed planar curve objects.
+
+
+
+Syntax
+
+
+Rhino.AddHatches (arrCurves [, strHatch [, dblScale [, dblRotation]]])
+
+
+Parameters
+
+
+
+arrCurves 
+
+Required.  Array.  An array of strings that identify one or more closed planar curves that defines the boundaries of the hatch objects.
+
+strHatch 
+
+Optional.  String.  The name of the hatch pattern to be used by the hatch object.  If omitted, the current hatch pattern will be used.
+
+dblScale 
+
+Optional.  Number.  The hatch pattern scale factor.  If omitted, a scale factor of 1.0 will be used.
+
+dblRotation 
+
+Optional.  Number.  The hatch pattern rotation angle in degrees.  If omitted, a rotation angle of 0.0 degrees will be used.
+
+
+Returns
+
+
+
+Array 
+
+The identifiers of the newly created hatch objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrCurves
+
+arrCurves = Rhino.GetObjects("Select closed planar curves", 4)
+
+If IsArray(arrCurves) Then
+
+  If Rhino.IsHatchPattern("Grid") Then
+
+    Rhino.AddHatches arrCurves, "Grid"
+
+  Else
+
+    Rhino.AddHatches arrCurves, Rhino.CurrentHatchPattern
+
+  End If
+
+End If
+
+
+Also See
+
+
+AddHatch
+
+CurrentHatchPattern
+
+HatchPatternNames
+

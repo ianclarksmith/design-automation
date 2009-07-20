@@ -1,0 +1,67 @@
+ImportLayerStates
+
+
+
+ImportLayerStates
+
+
+Imports layer states from a previously exported layer state file.
+
+
+Syntax
+
+
+Rhino.ImportLayerStates (strFilename)
+
+
+Parameters
+
+
+
+strFilename 
+
+Required.  String.  The name of an existing layer state file to import
+
+
+Returns
+
+
+
+Number 
+
+The number of layer states imported if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Sub TestImportLayerStates
+
+  Dim objPlugIn
+
+  On Error Resume Next
+
+  Set objPlugIn = Rhino.GetPluginObject("Rhino Bonus Tools")
+
+  If Err Then
+
+    MsgBox Err.Description
+
+    Exit Sub
+
+  End If
+
+  Call objPlugIn.ImportLayerStates("C:\LayerStates.lay")
+
+End Sub
+
+
+Also See
+
+
+ImportLayerStates
+

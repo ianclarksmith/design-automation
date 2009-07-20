@@ -1,0 +1,44 @@
+Prompt
+
+
+
+Prompt
+
+
+Changes Rhino's command window prompt.
+
+
+Syntax
+
+
+Rhino.Prompt ([strPrompt])
+
+
+Parameters
+
+
+
+strPrompt 
+
+Optional.  String.  A prompt.
+
+
+Returns
+
+
+Null.
+
+
+Example
+
+
+Rhino.Prompt "Hello Rhino!"
+
+
+Also See
+
+
+Command
+
+Print
+

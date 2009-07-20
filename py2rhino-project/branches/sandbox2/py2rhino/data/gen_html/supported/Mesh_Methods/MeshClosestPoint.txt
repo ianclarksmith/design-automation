@@ -1,0 +1,95 @@
+MeshClosestPoint
+
+
+
+MeshClosestPoint
+
+
+Returns the point on a mesh that is closest to a test point.
+
+
+Syntax
+
+
+Rhino.MeshClosestPoint (strObject, arrPoint [, dblTolerance])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of a mesh object.
+
+arrPoint 
+
+Required.  Array.  A 3-D point to test.
+
+dblTolerance 
+
+Optional.  Number.  The tolerance. Of omitted, a default tolerance of 0.0 is used.
+
+
+Returns
+
+
+
+Array 
+
+An array containing the results of the calculation, if successful. The array elements are as follows:
+
+
+Element 
+
+Type 
+
+Description
+
+0 
+
+Array 
+
+The 3-D point on the mesh object.
+
+1 
+
+Number 
+
+The index of the mesh face on which the 3-D point lies.
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhMesh = 32
+
+Dim strObject, arrPoint, arrIntersect
+
+strObject = Rhino.GetObject("Select mesh", rhMesh)
+
+arrPoint = Rhino.GetPoint("Pick test point")
+
+arrIntersect = Rhino.MeshClosestPoint(strObject, arrPoint)
+
+If IsArray(arrIntersect) Then
+
+  Rhino.AddPoint arrIntersect(0)
+
+End If
+
+
+Also See
+
+
+MeshFaceCount
+
+MeshFaces
+
+
+

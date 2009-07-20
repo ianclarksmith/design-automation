@@ -1,0 +1,73 @@
+SelectObject
+
+
+
+SelectObject
+
+
+Selects a single object.
+
+
+Syntax
+
+
+Rhino.SelectObject (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object to select.
+
+
+Returns
+
+
+
+Boolean 
+
+True or false indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+Rhino.Command "Line 0,0,0 5,5,0"
+
+strObject = Rhino.FirstObject
+
+If Not IsNull(strObject) Then
+
+Rhino.SelectObject strObject
+
+End If
+
+'Do something here...
+
+Rhino.UnselectObject strObject
+
+
+Also See
+
+
+IsObjectSelectable
+
+IsObjectSelected
+
+SelectObjects
+
+UnselectObject
+
+UnselectObjects
+
+
+

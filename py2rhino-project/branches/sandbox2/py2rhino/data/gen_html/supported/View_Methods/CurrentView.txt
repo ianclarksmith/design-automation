@@ -1,0 +1,69 @@
+CurrentView
+
+
+
+CurrentView
+
+
+Returns or sets the currently active view.
+
+
+Syntax
+
+
+Rhino.CurrentView ([strView [, bReturnName]])
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view to set current.  If omitted, only the title or identifier of the current view is returned.
+
+blnReturnName 
+
+Optional.  Boolean.  If True (default), then the name, or title, of the view is returned. If False, then the identifier of the view is returned.
+
+
+Returns
+
+
+
+String 
+
+If the title is not specified, the title or identifier of the current view if successful.
+
+String 
+
+If the title is specified, the title or identifier of the previous current view is successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strView, strViewId
+
+strView = Rhino.CurrentView("Perspective")
+
+Rhino.Print "The previous current view was " & strView
+
+strViewId = Rhino.CurrentView(, False)
+
+Rhino.Print "The identifier of the current view is " & strViewId
+
+
+Also See
+
+
+IsViewCurrent
+
+ViewNames
+
+
+

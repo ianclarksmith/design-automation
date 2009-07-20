@@ -1,0 +1,59 @@
+Snap
+
+
+
+Snap
+
+
+Enables or disables Rhino's grid snap modeling aid.
+
+
+Syntax
+
+
+Rhino.Snap ([blnEnable])
+
+
+Parameters
+
+
+
+blnEnable 
+
+Optional.  Boolean.  The new enabled status, either True or False
+
+
+Returns
+
+
+
+Boolean 
+
+If blnEnable is not specified, then the current grid snap status if successful.
+
+Boolean 
+
+If blnEnable is specified, then the previous grid snap status if successful.
+
+
+Example
+
+
+If Not Rhino.Snap Then
+
+Rhino.Snap True
+
+End If
+
+
+Also See
+
+
+Ortho
+
+Osnap
+
+Planar
+
+
+

@@ -1,0 +1,63 @@
+DeleteBlock
+
+
+
+DeleteBlock
+
+
+Deletes a block definition and all of it's inserted instances.
+
+
+Syntax
+
+
+Rhino.DeleteBlock (strBlock)
+
+
+Parameters
+
+
+
+strBlock 
+
+Required.  String.  The name of an existing block definition.
+
+
+Returns
+
+
+
+Boolean 
+
+True or false indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strBlock
+
+strBlock = Rhino.GetString("Block name to delete")
+
+If Rhino.IsBlock(strBlock) Then
+
+Rhino.DeleteBlock strBlock
+
+End If
+
+
+Also See
+
+
+BlockNames
+
+ExplodeBlockInstance
+
+IsBlock
+
+
+

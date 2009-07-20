@@ -1,0 +1,50 @@
+block_path = {
+    "module_name": "block",
+    "class_name": "Block",
+    "method_name": "block_path",
+
+    "doc_html": """
+        Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.
+    """,
+
+    "syntax_html": """
+        Rhino.BlockPath (strBlock)
+    """,
+
+    "params_html": {
+        0: {
+            "name": "Block",
+            "opt_or_req": "Required",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The name of an existing block definition.
+            """
+        },
+    },
+
+    "returns_html": {
+        0: {
+            "type": "string",
+            "doc": "The path to the linked block file is successful."
+        },
+        1: {
+            "type": "null",
+            "doc": "If not successful, or on error."
+        },
+    },
+
+    "id_com": 408,
+
+    "params_com": {
+        0: {
+            "name": "vaName",
+            "opt_or_req": "Required",
+            "type": "tagVARIANT",
+        },
+    },
+
+    "returns_com": "tagVARIANT",
+
+}
+

@@ -1,0 +1,73 @@
+IsObjectData
+
+
+
+IsObjectData
+
+
+Verifies that an object's geometry contains RhinoScript user data.
+
+
+Syntax
+
+
+Rhino.IsObjectData (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating whether or not the object's geometry contains any RhinoScript user data if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, blnResult
+
+strObject = Rhino.GetObject("Select object")
+
+If Not IsNull(strObject) Then
+
+blnResult = Rhino.IsObjectData(strObject)
+
+If blnResult = True Then
+
+Rhino.Print "This object's geometry contains RhinoScript user data"
+
+Else
+
+Rhino.Print "This object's geometry contains no RhinoScript user data"
+
+End If
+
+End If
+
+
+Also See
+
+
+DeleteObjectData
+
+GetObjectData
+
+ObjectDataCount
+
+SetObjectData
+

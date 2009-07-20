@@ -1,0 +1,79 @@
+SetObjectData
+
+
+
+SetObjectData
+
+
+Adds or sets a RhinoScript user data item to an object's geometry.
+
+
+Syntax
+
+
+Rhino.SetObjectData (strObject, strSection, strEntry, strValue)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+strSection 
+
+Required.  String.  The application name.
+
+strEntry 
+
+Required.  String.  The key name.
+
+strValue 
+
+Required.  String.  The string value.
+
+
+Returns
+
+
+
+String 
+
+The previous value if successful.
+
+Null 
+
+If no previous value exits, if not successful, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Not IsNull(strObject) Then
+
+Rhino.SetObjectData strObject, "MySection1", "MyEntry1", "MyValue1"
+
+Rhino.SetObjectData strObject, "MySection1", "MyEntry2", "MyValue2"
+
+Rhino.SetObjectData strObject, "MySection2", "MyEntry1", "MyValue1"
+
+End If
+
+
+Also See
+
+
+DeleteObjectData
+
+GetObjectData
+
+IsObjectData
+
+ObjectDataCount
+

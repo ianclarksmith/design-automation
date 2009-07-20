@@ -1,0 +1,65 @@
+ObjectGripCount
+
+
+
+ObjectGripCount
+
+
+Returns the number of grips owned by an object.
+
+
+Syntax
+
+
+Rhino.ObjectGripCount (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+
+Returns
+
+
+
+Number 
+
+The number of grips if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Rhino.ObjectGripsOn(strObject) = True Then
+
+Rhino.Print "Grip count = " & CStr(Rhino.ObjectGripCount(strObject))
+
+End If
+
+
+Also See
+
+
+EnableObjectGrips
+
+ObjectGripsOn
+
+ObjectGripsSelected
+
+SelectObjectGrips
+
+UnselectObjectGrips
+

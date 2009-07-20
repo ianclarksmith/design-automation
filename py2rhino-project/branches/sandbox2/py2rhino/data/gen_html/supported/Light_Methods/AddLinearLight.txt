@@ -1,0 +1,71 @@
+AddLinearLight
+
+
+
+AddLinearLight
+
+
+Adds a new linear light object  to the document.
+
+
+Syntax
+
+
+Rhino.AddLinearLight (arrStartPoint, arrEndPoint [, dblWidth])
+
+
+Parameters
+
+
+
+arrStartPoint 
+
+Required.  Array.  The 3-D starting point of the light.
+
+arrEndPoint 
+
+Required.  Array.  The 3-D ending point and direction of the light.
+
+dblWidth 
+
+Optional.  Number.  The width of the light.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrStart, arrEnd
+
+arrStart = Rhino.GetPoint("Light origin")
+
+If IsArray(arrStart) Then
+
+arrEnd = Rhino.GetPoint("Light length and direction", arrStart)
+
+If IsArray(arrEnd) Then
+
+Rhino.AddLinearLight arrStart, arrEnd
+
+End If
+
+End If
+
+
+Also See
+
+
+IsLinearLight
+

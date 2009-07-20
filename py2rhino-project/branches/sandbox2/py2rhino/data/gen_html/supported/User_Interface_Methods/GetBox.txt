@@ -1,0 +1,115 @@
+GetBox
+
+
+
+GetBox
+
+
+Pauses for user input of a box.
+
+
+Syntax
+
+
+Rhino.GetBox ([intMode [, arrPoint [, strPrompt1 [, strPrompt2 [, strPrompt3]]]]])
+
+
+Parameters
+
+
+
+intMode 
+
+Optional.  Number.  The box selection mode.  If not specified, all modes (0) are available.  The box selection modes are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+All modes.
+
+1 
+
+Corner.  The base rectangle is created by picking two corner points.
+
+2 
+
+3-Point.  The base rectangle is created by picking three points
+
+3 
+
+Vertical.  The base vertical rectangle is created by picking three points.
+
+4 
+
+Center.  The base rectangle is created by picking a center point and a corner point.
+
+
+arrPoint 
+
+Optional.  Array.  A 3-D base point.
+
+strPrompt1 
+
+Optional.  String.  The first prompt or message.
+
+strPrompt2 
+
+Optional.  String.  The second prompt or message.
+
+strPrompt3 
+
+Optional.  String.  The third prompt or message.  The third prompt used only with 3Point and Vertical modes.
+
+
+Returns
+
+
+
+Array 
+
+An array of eight 3-D points that define the corners of the box if successful.  Points are returned in counter-clockwise order starting with the bottom rectangle of the box.  See the image below for details.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrBox
+
+arrBox = Rhino.GetBox
+
+If IsArray(arrBox) Then
+
+Rhino.AddTextDot "0", arrBox(0)
+
+Rhino.AddTextDot "1", arrBox(1)
+
+Rhino.AddTextDot "2", arrBox(2)
+
+Rhino.AddTextDot "3", arrBox(3)
+
+Rhino.AddTextDot "4", arrBox(4)
+
+Rhino.AddTextDot "5", arrBox(5)
+
+Rhino.AddTextDot "6", arrBox(6)
+
+Rhino.AddTextDot "7", arrBox(7)
+
+End If
+
+
+
+
+Also See
+
+
+GetRectangle
+

@@ -1,0 +1,113 @@
+RestoreLayerState
+
+
+
+RestoreLayerState
+
+
+Restores a previously saved layer state.
+
+
+Syntax
+
+
+Rhino.RestoreLayerState (strState [, intMode])
+
+
+Parameters
+
+
+
+strState 
+
+Required.  String.  The name of an existing layer state.
+
+intMode 
+
+Required.  Number.  The layer properties you want restored. Values can be added together in order to restore any number of properties at a time. If omitted, all layer properties will be restored.
+
+
+Value 
+
+Description
+
+0 (Default) 
+
+All layer properties.
+
+1 
+
+Current layer.
+
+2 
+
+Visible/hidden status
+
+4 
+
+Locked/unlocked status.
+
+8 
+
+Layer color.
+
+16 
+
+Layer linetype
+
+32 
+
+Layer print color
+
+64 
+
+Layer print width.
+
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success of failure.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Sub TestRestoreLayerState
+
+  Dim objPlugIn
+
+  On Error Resume Next
+
+  Set objPlugIn = Rhino.GetPluginObject("Rhino Bonus Tools")
+
+  If Err Then
+
+    MsgBox Err.Description
+
+    Exit Sub
+
+  End If
+
+  Call objPlugIn.RestoreLayerState("MyLayerState", 8)
+
+End Sub
+
+
+Also See
+
+
+LayerState
+
+RenameLayerState
+
+SaveLayerState
+

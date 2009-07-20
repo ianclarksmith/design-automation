@@ -1,0 +1,274 @@
+HtmlBox
+
+
+
+HtmlBox
+
+
+Displays a custom, modal HTML dialog page. A modal dialog box retains the input focus while open. The user cannot switch windows until the dialog box is closed.
+
+
+Syntax
+
+
+Rhino.HtmlBox (strFileName [, arrArguments [, strOptions [, blnModal]]])
+
+
+Parameters
+
+
+
+strFileName 
+
+Required.  String.  The filename the HTML dialog page to display.
+
+vaArguments 
+
+Optional.  Variant.  An argument, or a zero-based, one-dimensional array of arguments, to pass to the HTML-dialog page.
+
+strOptions 
+
+Optional.  String.  The window ornaments for the dialog box, using one or more of the following semicolon-delimited values:
+
+
+Value 
+
+Description
+
+dialogHeight:sHeight 
+
+Sets the height of the dialog window.
+
+dialogLeft:sXPos 
+
+Sets the left position of the dialog window relative to the upper-left corner of the desktop.
+
+dialogTop:sYPos 
+
+Sets the top position of the dialog window relative to the upper-left corner of the desktop.
+
+dialogWidth:sWidth 
+
+Sets the width of the dialog window.
+
+center:{ yes | no | 1 | 0 | on | off } 
+
+Specifies whether to center the dialog window within the desktop. The default is yes.
+
+dialogHide:{ yes | no | 1 | 0 | on | off } 
+
+Specifies whether the dialog window is hidden when printing or using print preview. This feature is only available when a dialog box is opened from a trusted application. The default is no.
+
+edge:{ sunken | raised } 
+
+Specifies the edge style of the dialog window. The default is raised.
+
+help:{ yes | no | 1 | 0 | on | off } 
+
+Specifies whether the dialog window displays the context-sensitive Help icon. The default is yes.
+
+resizable:{ yes | no | 1 | 0 | on | off } 
+
+Specifies whether the dialog window has fixed dimensions. The default is no.
+
+scroll:{ yes | no | 1 | 0 | on | off } 
+
+Specifies whether the dialog window displays scrollbars. The default is yes.
+
+status:{ yes | no | 1 | 0 | on | off } 
+
+Specifies whether the dialog window displays a status bar. The default is yes for untrusted dialog windows and no for trusted dialog windows.
+
+unadorned:{ yes | no | 1 | 0 | on | off } 
+
+Specifies whether the dialog window displays the border window chrome. This feature is only available when a dialog box is opened from a trusted application. The default is no.
+
+
+blnModal 
+
+Optional.  Boolean.  If omitted or True, a modal dialog will be displayed.  If False, a modeless dialog box will be displayed.
+
+
+Returns
+
+
+
+Variant 
+
+If blnModal is not specified or is False, then if successful, the return value of the method will be dependant on the developer's implementation of the custom HTML dialog page.
+
+Boolean 
+
+If blnModal is specified and is True, then True or False indicating success or failure.
+
+Null 
+
+If not successful, or on error.
+
+
+Notes
+
+
+* You can also eliminate scroll bars on dialog boxes by setting the SCROLL attribute to false in the body element for the dialog window, or call the modal dialog box from a trusted application.
+
+* You can set the default font settings the same way you set Cascading Style Sheets (CSS) attributes (for example, "font:3;font-size:4"). To define multiple font values, use multiple font attributes.
+
+* The default unit of measure for dialogHeight and dialogWidth in Internet Explorer 4.0 is the pixel; in Internet Explorer 5 it is the em. The value can be an integer or floating-point number, followed by an absolute units designator (cm, mm, in, pt, or pc) or a relative units designator (em, ex, or px). For consistent results, specify the dialogHeight and dialogWidth in pixels when designing modal dialog boxes.
+
+* Although a user can manually adjust the height of a dialog box to a smaller value - provided the dialog box is resizable - the minimum dialogHeight you can specify is 100 pixels.
+
+* To override center, even though the default for center is yes, you can specify either dialogLeft and/or dialogTop.
+
+* Unlike a modal dialog, where the script code is halted until the dialog is dismissed, when a modeless dialog is displayed, the script code will continue.
+
+* It is possible to pass the RhinoScript object to a dialog, as vaArguments, using the GetPlugInObject method.
+
+* It is possible for HTML dialogs to use JScript. But, JScript cannot return arrays back to RhinoScript.
+
+
+
+Example
+
+
+Dim strLayer, strName
+
+strLayer = Rhino.CurrentLayer
+
+strName = Rhino.HtmlBox("RenameCurrentLayer.htm", strLayer, "center:yes")
+
+If Not IsNull(strName) Then
+
+Rhino.RenameLayer strLayer, strName
+
+End If
+
+
+
+
+
+
+RenameCurrentLayer.htm
+
+
+<HTML id=RenameLayerDialog style="width: 22em; height: 12em">
+
+  <HEAD>
+
+    <TITLE>Rename Layer</TITLE>
+
+    <SCRIPT LANGUAGE="VBScript">
+
+      <!--
+
+        Sub OnInitDialog()
+
+          window.returnValue = Null
+
+          Dim sArgs
+
+          sArgs = window.dialogArguments
+
+          If Not IsNull(sArgs) Then
+
+            txtOldName.value = CStr(sArgs)
+
+          End If
+
+        End Sub
+
+        Sub OnOk()
+
+          Dim sResult
+
+          sResult = txtNewName.value
+
+          window.returnValue = sResult
+
+          window.close
+
+        End Sub
+
+        Sub OnCancel()
+
+          window.returnValue = Null
+
+          window.close
+
+        End Sub
+
+      -->
+
+    </SCRIPT>
+
+  </HEAD>
+
+  <BODY ONLOAD="OnInitDialog()" STYLE="font-family: Arial, sans-serif">
+
+    <H3><FONT FACE="Verdana,Arial,Times New I2">Enter new layer name</FONT></H3>
+
+    <P>
+
+    <TABLE CELLPADDING="1" CELLSPACING="2" BORDER="0">
+
+      <TR>
+
+        <TD VALIGN=CENTER>
+
+        <P>
+
+        <FONT FACE="Verdana,Arial,Times New I2">Old layer name:</FONT></TD>
+
+        <TD VALIGN=CENTER>
+
+        <P>
+
+        <INPUT TYPE=TEXT NAME="txtOldName" SIZE="25" MAXLENGTH="256"></TD>
+
+      </TR>
+
+      <TR>
+
+        <TD VALIGN=CENTER>
+
+        <P>
+
+        <FONT FACE="Verdana,Arial,Times New I2">New layer name:</FONT></TD>
+
+        <TD VALIGN=CENTER>
+
+        <P>
+
+        <INPUT TYPE=TEXT NAME="txtNewName" SIZE="25" MAXLENGTH="256"></TD>
+
+      </TR>
+
+      <TR>
+
+        <TD VALIGN=CENTER><DIV ALIGN=RIGHT>
+
+        <P ALIGN=RIGHT>
+
+        <INPUT TYPE=SUBMIT VALUE="OK" ID="cmdOK" ONCLICK="OnOk()" STYLE="width: 5em; left; border: thin solid THREEDSHADOW"></TD>
+
+        <TD VALIGN=CENTER><CENTER>
+
+        <P ALIGN=CENTER>
+
+        <INPUT TYPE=SUBMIT VALUE="Cancel" ID="cmdCancel" CLASS="button" ONCLICK="OnCancel()" STYLE="width: 5em; left; border: thin solid THREEDSHADOW"></TD>
+
+      </TR>
+
+    </TABLE>
+
+    </P>
+
+  </BODY>
+
+</HTML>
+
+
+Also See
+
+
+GetPlugInObject
+

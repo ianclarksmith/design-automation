@@ -1,0 +1,77 @@
+RenameGroup
+
+
+
+RenameGroup
+
+
+Renames an existing group.
+
+
+Syntax
+
+
+Rhino.RenameGroup (strOldGroup, strNewGroup)
+
+
+Parameters
+
+
+
+strOldGroup 
+
+Required.  String.  The name of an existing group.
+
+strNewGroup 
+
+Required.  String.  The new group name.
+
+
+Returns
+
+
+
+String 
+
+The new group name if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strOldGroup, strNewGroup
+
+strOldGroup = Rhino.GetString("Old group name")
+
+If Not IsNull(strOldGroup) Then
+
+strNewGroup = Rhino.GetString("New group name")
+
+If Not IsNull(strNewGroup) Then
+
+Rhino.RenameGroup strOldGroup, strNewGroup
+
+End If
+
+End If
+
+
+Also See
+
+
+AddGroup
+
+DeleteGroup
+
+GroupCount
+
+GroupNames
+
+IsGroup
+
+
+

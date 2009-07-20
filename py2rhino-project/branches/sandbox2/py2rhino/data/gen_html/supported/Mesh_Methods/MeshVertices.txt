@@ -1,0 +1,71 @@
+MeshVertices
+
+
+
+MeshVertices
+
+
+Returns the vertices of a mesh object.
+
+
+Syntax
+
+
+Rhino.MeshVertices (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of a mesh object.
+
+
+Returns
+
+
+
+Array 
+
+An array of 3-D points that define the vertices of the mesh if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strObject, arrVertices
+
+strObject = Rhino.GetObject("Select mesh", rhObjectMesh)
+
+arrVertices = Rhino.MeshVertices(strObject)
+
+If IsArray(arrVertices) Then
+
+Rhino.AddPointCloud arrVertices
+
+End If
+
+
+Also See
+
+
+IsMesh
+
+MeshContourPoints
+
+MeshFaceCount
+
+MeshFaces
+
+MeshVertexCount
+
+
+

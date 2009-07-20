@@ -1,0 +1,92 @@
+add_srf_pt_grid = {
+    "module_name": "surface_and_polysurface",
+    "class_name": "SurfaceAndPolysurface",
+    "method_name": "add_srf_pt_grid",
+
+    "doc_html": """
+        Creates a surface from a grid of points.
+    """,
+
+    "syntax_html": """
+        Rhino.AddSrfPtGrid (arrCount, arrPoints [, arrDegree [, arrClosed]])
+    """,
+
+    "params_html": {
+        0: {
+            "name": "Count",
+            "opt_or_req": "Required",
+            "type": "Array",
+            "type_string": "arr",
+            "doc": """
+        The number of points in the U and V directions.
+            """
+        },
+        1: {
+            "name": "Points",
+            "opt_or_req": "Required",
+            "type": "Array",
+            "type_string": "arr",
+            "doc": """
+        An array of 3-D points.
+            """
+        },
+        2: {
+            "name": "Degree",
+            "opt_or_req": "Optional",
+            "type": "Array",
+            "type_string": "arr",
+            "doc": """
+        The degree of the surface in the U and V directions.  If omitted, the degree of the new surface in the U and V directions will be 3.
+            """
+        },
+        3: {
+            "name": "Closed",
+            "opt_or_req": "Optional",
+            "type": "Array",
+            "type_string": "arr",
+            "doc": """
+        Whether or not the surface is closed in the U and V directions.  If omitted, the new surface will not be closed in either the U or V directions.
+            """
+        },
+    },
+
+    "returns_html": {
+        0: {
+            "type": "string",
+            "doc": "The identifier of the new object if successful."
+        },
+        1: {
+            "type": "null",
+            "doc": "If not successful, or on error."
+        },
+    },
+
+    "id_com": 293,
+
+    "params_com": {
+        0: {
+            "name": "vaCount",
+            "opt_or_req": "Required",
+            "type": "tagVARIANT",
+        },
+        1: {
+            "name": "vaPoint",
+            "opt_or_req": "Required",
+            "type": "tagVARIANT",
+        },
+        2: {
+            "name": "vaDegree",
+            "opt_or_req": "Optional",
+            "type": "tagVARIANT",
+        },
+        3: {
+            "name": "vaClosed",
+            "opt_or_req": "Optional",
+            "type": "tagVARIANT",
+        },
+    },
+
+    "returns_com": "tagVARIANT",
+
+}
+

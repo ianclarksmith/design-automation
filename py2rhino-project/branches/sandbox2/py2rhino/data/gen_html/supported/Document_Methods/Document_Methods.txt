@@ -1,0 +1,152 @@
+Document Methods
+
+
+
+Document Methods
+
+
+The following methods are available for querying or manipulating the currently active 3DM document.
+
+
+
+
+Method 
+
+Description
+
+CreatePreviewImage 
+
+Creates a preview image from the current model.
+
+DocumentModified 
+
+Returns or sets the document's modified flag.
+
+DocumentName 
+
+Returns or sets the current document name.
+
+DocumentPath 
+
+Returns the path of the currently loaded document.
+
+DocumentURL 
+
+Returns the URL assigned to the current document.
+
+EnableRedraw 
+
+Enables or disables screen redrawing.
+
+ExtractPreviewImage 
+
+Extracts a preview image from a specified model.
+
+IsDocumentModified 
+
+Verifies that the current document has been modified
+
+Notes 
+
+Returns or sets the document's notes.
+
+ReadFileVersion 
+
+Return file version of the current document.
+
+Redraw 
+
+Redraws all views.
+
+RenderAntialias 
+
+Returns or sets the antialiasing style.
+
+RenderColor 
+
+Returns or sets render colors.
+
+RenderMeshDensity 
+
+Returns or modifies the active document's render mesh density parameter.
+
+RenderMeshMaxAngle 
+
+Returns or modifies the active document's render mesh maximum angle parameter.
+
+RenderMeshMaxAspectRatio 
+
+Returns or modifies the active document's render mesh maximum aspect ratio parameter.
+
+RenderMeshDistEdgeToSrf 
+
+Returns or modifies the active document's render mesh distance edge to surface parameter.
+
+RenderMeshMaxEdgeLength 
+
+Returns or modifies the active document's render mesh maximum edge length parameter.
+
+RenderMeshMinEdgeLength 
+
+Returns or modifies the active document's render mesh minimum edge length parameter.
+
+RenderMeshMinInitialGridQuads 
+
+Returns or modifies the active document's render mesh minimum initial grid quads parameter.
+
+RenderMeshQuality 
+
+Returns or modifies the active document's render mesh quality parameter.
+
+RenderMeshSettings 
+
+Returns or modifies the active document's render mesh settings.
+
+RenderResolution 
+
+Returns or set the render resolution.
+
+RenderSettings 
+
+Returns or sets render settings.
+
+UnitAbsoluteTolerance 
+
+Returns or sets the absolute tolerance.
+
+UnitAngleTolerance 
+
+Returns or sets the angle tolerance.
+
+UnitCustomUnitSystem 
+
+Sets a custom unit system.
+
+UnitDistanceDisplayMode 
+
+Returns or sets the distance display mode.
+
+UnitDistanceDisplayPrecision 
+
+Returns or sets the distance display precision.
+
+UnitRelativeTolerance 
+
+Returns or sets the relative tolerance.
+
+UnitScale 
+
+Returns the scale factor for changing unit systems.
+
+UnitSystem 
+
+Returns or sets the unit system.
+
+UnitSystemName 
+
+Returns the name of the current unit system.
+
+
+
+
+

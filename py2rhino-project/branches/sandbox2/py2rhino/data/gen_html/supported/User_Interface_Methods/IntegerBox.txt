@@ -1,0 +1,77 @@
+IntegerBox
+
+
+
+IntegerBox
+
+
+Displays a dialog box prompting the user to enter a whole number.
+
+
+Syntax
+
+
+Rhino.IntegerBox ([strMessage [, intNumber [, strTitle]]])
+
+
+Parameters
+
+
+
+strMessage 
+
+Optional.  String.  A prompt or message.
+
+intNumber 
+
+Optional.  Number.  A default whole number.
+
+strTitle 
+
+Optional.  String.  A dialog box title.
+
+
+Returns
+
+
+
+Number 
+
+The whole number if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim lngColor
+
+lngColor = Rhino.LayerColor("Default")
+
+lngColor = Rhino.IntegerBox("Enter an RGB color value", lngColor )
+
+If Not IsNull(lngColor) Then
+
+Rhino.LayerColor "Default", lngColor
+
+End If
+
+
+
+
+
+
+
+
+Also See
+
+
+GetInteger
+
+
+
+
+

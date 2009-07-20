@@ -1,0 +1,50 @@
+duplicate_surface_border = {
+    "module_name": "surface_and_polysurface",
+    "class_name": "SurfaceAndPolysurface",
+    "method_name": "duplicate_surface_border",
+
+    "doc_html": """
+        Creates a curve that duplicates a surface or polysurface border.
+    """,
+
+    "syntax_html": """
+        Rhino.DuplicateSurfaceBorder (strObject)
+    """,
+
+    "params_html": {
+        0: {
+            "name": "Object",
+            "opt_or_req": "Required",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The identifier of the surface or polysurface object.
+            """
+        },
+    },
+
+    "returns_html": {
+        0: {
+            "type": "array",
+            "doc": "An array of strings identifying the new curve objects if successful."
+        },
+        1: {
+            "type": "null",
+            "doc": "If not successful, or on error."
+        },
+    },
+
+    "id_com": 852,
+
+    "params_com": {
+        0: {
+            "name": "vaSurface",
+            "opt_or_req": "Required",
+            "type": "tagVARIANT",
+        },
+    },
+
+    "returns_com": "tagVARIANT",
+
+}
+

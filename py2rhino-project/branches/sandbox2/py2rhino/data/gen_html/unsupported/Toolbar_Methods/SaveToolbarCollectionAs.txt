@@ -1,0 +1,59 @@
+SaveToolbarCollectionAs
+
+
+
+SaveToolbarCollectionAs
+
+
+Saves an open toolbar collection to a different disk file.
+
+
+Syntax
+
+
+Rhino.SaveToolbarCollectionAs (strName)
+
+
+Parameters
+
+
+
+strName 
+
+Required.  String.  The name of a currently open toolbar collection.
+
+strFile 
+
+Required.  String.  The full path to the toolbar collection file to create.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success or failure.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strFile, strName
+
+strName = "Default"
+
+strFile = "D:\NewDefault.tb"
+
+Rhino.SaveToolbarCollectionAs strName, strFile
+
+
+Also See
+
+
+SaveToolbarCollection
+

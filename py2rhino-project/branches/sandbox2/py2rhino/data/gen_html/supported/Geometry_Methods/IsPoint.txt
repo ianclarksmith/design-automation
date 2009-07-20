@@ -1,0 +1,65 @@
+IsPoint
+
+
+
+IsPoint
+
+
+Verifies an object is a point object.
+
+
+Syntax
+
+
+Rhino.IsPoint (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a point")
+
+If Rhino.IsPoint(strObject) Then
+
+Rhino.Print "The object is a point."
+
+Else
+
+Rhino.Print "The object is not a point."
+
+End If
+
+
+Also See
+
+
+AddPoint
+
+PointCoordinates
+
+
+

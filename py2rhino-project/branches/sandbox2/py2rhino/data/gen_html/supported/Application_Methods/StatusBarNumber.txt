@@ -1,0 +1,46 @@
+StatusBarNumber
+
+
+
+StatusBarNumber
+
+
+Sets Rhino's status bar number pane.
+
+
+Syntax
+
+
+Rhino.StatusBarNumber ([dblNumber])
+
+
+Parameters
+
+
+
+dblNumber 
+
+Optional.  Number.  The number to display.
+
+
+Returns
+
+
+Null.
+
+
+Example
+
+
+Rhino.StatusBarNumber 3.14159
+
+
+Also See
+
+
+StatusBarDistance
+
+StatusBarMessage
+
+StatusBarPoint
+

@@ -1,0 +1,51 @@
+EnableAutosave
+
+
+
+EnableAutosave
+
+
+Enables or disables Rhino's automatic file saving mechanism.
+
+
+Syntax
+
+
+Rhino.EnableAutosave ([blnEnable])
+
+
+Parameters
+
+
+
+blnEnable 
+
+Optional. Boolean. The autosave state.  If omitted, automatic saving is enabled (True).
+
+
+Returns
+
+
+
+Boolean 
+
+The previous autosave state.
+
+
+Example
+
+
+Dim blnEnable
+
+blnRedraw = Rhino.EnableAutosave(True)
+
+
+Also See
+
+
+AutosaveFile
+
+AutosaveInterval
+
+
+

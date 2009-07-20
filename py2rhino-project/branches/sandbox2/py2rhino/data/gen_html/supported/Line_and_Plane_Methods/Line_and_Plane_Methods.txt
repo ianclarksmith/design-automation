@@ -1,0 +1,122 @@
+Line and Plane Methods
+
+
+
+Plane Methods
+
+
+The following methods are available for creating and manipulating lines and planes.
+
+Lines are represented as zero-based, one-dimensional arrays containing two elements: the start point (3-D point) and the end point (3-D point).
+
+Planes are represented as zero-based, one-dimensional arrays containing four elements: the plane's origin (3-D point), the plane's x-axis direction (3-D vector), the plane's y-axis direction (3-D vector), and the plane's z-axis direction (3-D vector).
+
+For more information, see RhinoScript Fundamentals.
+
+
+
+
+Method 
+
+Description
+
+DistanceToPlane 
+
+Returns the distance from a plane to a point.
+
+EvaluatePlane 
+
+Evaluates a point on a plane.
+
+IntersectPlanes 
+
+Returns the point calculated by intersecting three planes.
+
+LineClosestPoint 
+
+Finds the point on an infinite line that is closest to a test point.
+
+LineIsFartherThan 
+
+Determines if the shortest distance from a line to a point or another line is greater than a specified distance.
+
+LineLineIntersection 
+
+Returns the point calculated by intersecting two lines.
+
+LineMaxDistanceTo 
+
+Finds the longest distance between the line, as a finite chord, and a point or another line.
+
+LineMinDistanceTo 
+
+Finds the shortest distance between the line, as a finite chord, and a point or another line.
+
+LinePlane 
+
+Returns a plane that contains the line.
+
+LinePlaneIntersection 
+
+Returns the point calculated by intersecting a line with a plane.
+
+LineTransform 
+
+Transforms a line.
+
+MovePlane 
+
+Moves the origin of a plane.
+
+PlaneClosestPoint 
+
+Returns the closest point on a plane from a point.
+
+PlaneEquation 
+
+Returns the equation of a plane.
+
+PlaneFitFromPoints 
+
+Returns a plane through an array of points.
+
+PlaneFromFrame 
+
+Creates a plane from an origin point, X axis direction, and Y axis direction.
+
+PlaneFromNormal 
+
+Creates a plane from an origin point, and a normal direction.
+
+PlaneFromPoints 
+
+Creates a plane from three non-colinear points.
+
+PlanePlaneIntersection 
+
+Returns the line calculated by intersecting two planes.
+
+PlaneTransform 
+
+Transforms a plane.
+
+RotatePlane 
+
+Rotates a plane.
+
+WorldXYPlane 
+
+Returns Rhino's world XY plane.
+
+WorldYZPlane 
+
+Returns Rhino's world YZ plane.
+
+WorldZXPlane 
+
+Returns Rhino's world ZX plane.
+
+
+
+
+

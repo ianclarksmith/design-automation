@@ -1,0 +1,77 @@
+EnableLight
+
+
+
+EnableLight
+
+
+Enables or disables a light object.
+
+
+Syntax
+
+
+Rhino.EnableLight (strObject [, blnEnable])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the light object
+
+blnEnable 
+
+Optional.  Boolean.  The light's enabled status.
+
+
+Returns
+
+
+
+Boolean 
+
+If blnEnable is not specified, then the current enabled status if successful.
+
+Boolean 
+
+If blnEnable is specified, then the previous enabled status if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectLight = 256
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select light", rhObjectLight)
+
+If Not IsNull(strObject) Then
+
+Rhino.EnableLight strObject, False
+
+End If
+
+
+Also See
+
+
+IsLight
+
+IsLightEnabled
+
+LightColor
+
+LightCount
+
+LightName
+
+LightObjects
+

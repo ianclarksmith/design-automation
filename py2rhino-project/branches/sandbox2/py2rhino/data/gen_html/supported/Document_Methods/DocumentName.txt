@@ -1,0 +1,52 @@
+DocumentName
+
+
+
+DocumentName
+
+
+Returns the name of the currently loaded Rhino document (3DM file).
+
+
+Syntax
+
+
+Rhino.DocumentName ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+String 
+
+The current document name if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strName
+
+strName = Rhino.DocumentName
+
+MsgBox strName
+
+
+Also See
+
+
+DocumentPath
+
+DocumentURL
+

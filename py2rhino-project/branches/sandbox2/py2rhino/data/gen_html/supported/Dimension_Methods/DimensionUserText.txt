@@ -1,0 +1,71 @@
+DimensionUserText
+
+
+
+DimensionUserText
+
+
+Returns or modifies the user text string of a dimension object. The user text is the string that gets printed when the dimension is drawn. If it contains the token "<>", then the token is replaced with the measured value of the dimension, formatted according to the dimension style settings. Note,  "<>" is the default user text string for linear dimensions.
+
+
+Syntax
+
+
+Rhino.DimensionUserText (strObject [, strUserText])
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+strUserText 
+
+Optional. String. The new user text string value. To reset the use text string, use the string "<>".
+
+
+Returns
+
+
+
+String 
+
+If strUserText is not specified, then the current user text string if successful.
+
+String 
+
+If strUserText is specified, then the previous user text string if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject, strUserText
+
+strObject = Rhino.GetObject("Select a dimension")
+
+If Rhino.IsDimension(strObject) Then
+
+strUserText =  "<> " & Chr(177) & CStr(Rhino.UnitAbsoluteTolerance)
+
+Rhino.DimensionUserText strObject, strUserText
+
+End If
+
+
+Also See
+
+
+DimensionText
+
+DimensionValue
+
+IsDimension
+

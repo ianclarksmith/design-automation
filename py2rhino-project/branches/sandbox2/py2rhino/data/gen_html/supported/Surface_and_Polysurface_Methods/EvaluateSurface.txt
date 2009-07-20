@@ -1,0 +1,73 @@
+EvaluateSurface
+
+
+
+EvaluateSurface
+
+
+Evaluates a surface at a U,V parameter.
+
+
+Syntax
+
+
+Rhino.EvaluateSurface (strObject, arrParameter)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+arrParameter 
+
+Required.  Array.  An array containing the U,V parameter to evaluate.
+
+
+Returns
+
+
+
+Array 
+
+A 3-D point if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrDomainU, arrDomainV, arrParam(1), arrPoint
+
+strObject = Rhino.GetObject("Select a surface")
+
+If Rhino.IsSurface(strObject) Then
+
+arrDomainU = Rhino.SurfaceDomain(strObject, 0)
+
+arrDomainV = Rhino.SurfaceDomain(strObject, 1)
+
+arrParam(0) = arrDomainU(1)/2
+
+arrParam(1) = arrDomainV(1)/2
+
+arrPoint = Rhino.EvaluateSurface(strObject, arrParam)
+
+Rhino.AddPoint arrPoint
+
+End If
+
+
+Also See
+
+
+IsSurface
+
+SurfaceClosestPoint
+

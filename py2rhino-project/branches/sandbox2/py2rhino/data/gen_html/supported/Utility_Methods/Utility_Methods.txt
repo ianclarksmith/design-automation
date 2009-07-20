@@ -1,0 +1,144 @@
+Utility Methods
+
+
+
+Utility Methods
+
+
+RhinoScript contains several utility methods to assist in creating scripts.
+
+
+
+
+Method 
+
+Description
+
+AllProcedures 
+
+Returns the user-defined procedures in RhinoScript.
+
+ClipboardText 
+
+Returns text from or sets text to the Windows Clipboard.
+
+ColorAdjustLuma 
+
+Changes the luminance of an RGB value.
+
+ColorBlueValue 
+
+Retrieves an intensity value for the blue component of a red-green-blue (RGB) value.
+
+ColorGreenValue 
+
+Retrieves an intensity value for the green component of a red-green-blue (RGB) value.
+
+ColorHLSToRGB 
+
+Converts colors from hue-luminance-saturation (HLS) to RGB format.
+
+ColorRedValue 
+
+Retrieves an intensity value for the red component of a red-green-blue (RGB) value.
+
+ColorRGBToHLS 
+
+Converts colors from RGB to hue-luminance-saturation (HLS) format.
+
+CullDuplicateNumbers 
+
+Remove duplicates from an array of numbers.
+
+CullDuplicatePoints 
+
+Remove duplicates from an array of 3-D points.
+
+CullDuplicateStrings 
+
+Remove duplicates from an array of strings.
+
+CurrentPrinter 
+
+Returns or sets the current Windows printer.
+
+GetSettings 
+
+Returns a string from a Windows INI-style file.
+
+IsProcedure 
+
+Verifies that a user-defined procedure is resident in RhinoScript.
+
+JoinArrays 
+
+Joins two one-dimensional arrays into one.
+
+MakeArray 
+
+Creates a new, initialized array of a user-specified bounds.
+
+PrinterNames 
+
+Returns the name of all installed Windows printers.
+
+Pt2Str 
+
+Converts a 3-D point value to a string.
+
+SaveSettings 
+
+Saves a string value to a Windows INI-style file.
+
+SimplyArray 
+
+Converts an array of 3-D ponts into a single-dimensional array.
+
+Sleep 
+
+Suspends the execution of the script for the specified interval.
+
+SortNumbers 
+
+Sorts an array of numbers.
+
+SortPointList 
+
+Sort an array of points so they will be connected in "reasonable" polyline order.
+
+SortPoints 
+
+Sorts an array of 3-D points.
+
+SortStrings 
+
+Sorts an array of strings.
+
+SpooltoPrinter 
+
+Spools a raw file to a Windows printer.
+
+Str2Pt 
+
+Converts a formatted string to a 3-D point value.
+
+Str2PtArray 
+
+Converts a formatted string to an array of 3-D point value.
+
+Strtok 
+
+Returns the tokens in a string.
+
+TextOut 
+
+Displays a text output window.
+
+Version 
+
+Returns the version of RhinoScript.
+
+
+
+
+

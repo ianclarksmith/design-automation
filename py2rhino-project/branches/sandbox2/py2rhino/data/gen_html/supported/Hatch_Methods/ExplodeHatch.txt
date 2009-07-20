@@ -1,0 +1,71 @@
+ExplodeHatch
+
+
+
+ExplodeHatch
+
+
+
+Explodes a hatch object into its component objects. The exploded objects will be added to the document. If the hatch object uses a solid pattern, then planar face Brep objects will be created. Otherwise, line curve objects will be created.
+
+
+
+Syntax
+
+
+Rhino.ExplodeHatch (strObject [, blnDelete])
+
+
+Parameters
+
+
+
+strHatch 
+
+Required.  String.  The identifier of an object.
+
+blnDelete 
+
+Optional.  Boolean.  Delete the hatch object. The default is to not delete the hatch object (False).
+
+
+Returns
+
+
+
+Array 
+
+An array of strings identifying the newly created objects if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Rhino.IsHatch(strObject) Then
+
+  Rhino.ExplodeHatch strObject, True
+
+End If
+
+
+Also See
+
+
+IsHatch
+
+HatchPattern
+
+HatchRotation
+
+HatchScale
+
+
+

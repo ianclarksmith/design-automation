@@ -1,0 +1,101 @@
+ViewCPlane
+
+
+
+ViewCPlane
+
+
+Returns or sets the specified view's construction plane.
+
+
+Syntax
+
+
+Rhino.ViewCPlane ([strView [, arrPlane]])
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+arrPlane 
+
+Optional.  Array. The new construction plane.  The elements of a plane array are as follows:
+
+
+Element 
+
+Description
+
+0 
+
+Required.  The construction plane's origin (3-D point).
+
+1 
+
+Required.  The construction plane's X axis direction (3-D vector).
+
+2 
+
+Required.  The construction plane's Y axis direction (3-D vector).
+
+3 
+
+Optional.  The construction plane's Z axis direction (3-D vector).
+
+
+
+Returns
+
+
+
+Array 
+
+If a construction plane is not specified, the current construction plane if successful.
+
+Array 
+
+If a construction plane is specified, the previous construction plane if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPlane(3)
+
+arrPlane(0) = Array(0,0,0)
+
+arrPlane(1) = Array(1,0,0)
+
+arrPlane(2) = Array(0,1,0)
+
+arrPlane(3) = Array(0,0,1)
+
+strView = Rhino.CurrentView
+
+Rhino.ViewCPlane strView, arrPlane
+
+
+Also See
+
+
+ViewCameraLens
+
+ViewCameraTarget
+
+ViewDisplayModes
+
+ViewProjection
+
+ViewSize
+
+
+

@@ -1,0 +1,61 @@
+IsClippingPlane
+
+
+
+IsClippingPlane
+
+
+Verifies that an object is a clipping plane object.
+
+
+Syntax
+
+
+Rhino.IsClippingPlane (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a clipping plane")
+
+If Rhino.IsClippingPlane(strObject) Then
+
+Rhino.Print "The object is a clipping plane."
+
+Else
+
+Rhino.Print "The object is not a clipping plane."
+
+End If
+
+
+Also See
+
+
+AddClippingPlane
+

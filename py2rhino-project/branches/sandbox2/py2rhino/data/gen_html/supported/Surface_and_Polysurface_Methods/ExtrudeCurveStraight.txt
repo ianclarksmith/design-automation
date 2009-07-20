@@ -1,0 +1,71 @@
+ExtrudeCurveStraight
+
+
+
+ExtrudeCurveStraight
+
+
+Creates a surface by extruding a curve straight along two points that define a line.
+
+
+Syntax
+
+
+Rhino.ExtrudeCurveStraight (strCurve, arrStartPoint, arrEndPoint)
+
+
+Parameters
+
+
+
+Parameters
+
+
+
+strCurve 
+
+Required.  String.  The identifier of the curve object to extrude.
+
+arrStartPoint 
+
+Required.  Array.  A starting point.
+
+arrEndPoint 
+
+Required.  Array.  A ending point.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strCurve
+
+strCurve = Rhino.AddCircle(Rhino.WorldXYPlane, 5)
+
+Rhino.ExtrudeCurveStraight strCurve, Array(0,0,0), Array(0, 10, 10)
+
+
+Also See
+
+
+ExtrudeCurve
+
+ExtrudeCurvePoint
+
+ExtrudeCurveTapered
+
+ExtrudeSurface
+

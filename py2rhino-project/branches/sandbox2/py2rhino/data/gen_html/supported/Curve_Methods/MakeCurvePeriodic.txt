@@ -1,0 +1,69 @@
+MakeCurvePeriodic
+
+
+
+MakeCurvePeriodic
+
+
+Makes an existing curve a periodic NURBS curve.  A periodic NURBS curve is a closed curve with a simple knot at the seam.  If a joined curve is made periodic, it becomes a single-span curve and can no longer be exploded.
+
+
+Syntax
+
+
+Rhino.MakeCurvePeriodic (strObject [, blnDelete])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+blnDelete 
+
+Optional.  Boolean.  Delete input curve.  If omitted, the input curve will not be deleted (False).
+
+
+Returns
+
+
+
+String 
+
+If blnDelete is False, the identifier of the new object if successful.
+
+String 
+
+If blnDelete is True, the identifier of the modified object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectCurve = 4
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a curve", rhObjectCurve)
+
+If Not Rhino.IsCurvePeriodic(strObject) Then
+
+Rhino.MakeCurvePeriodic strObject
+
+End If
+
+
+Also See
+
+
+IsCurvePeriodic
+
+MakeCurveNonPeriodic
+

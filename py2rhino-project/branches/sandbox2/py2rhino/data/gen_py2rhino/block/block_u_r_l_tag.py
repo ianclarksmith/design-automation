@@ -1,0 +1,68 @@
+block_u_r_l_tag = {
+    "module_name": "block",
+    "class_name": "Block",
+    "method_name": "block_u_r_l_tag",
+
+    "doc_html": """
+        Returns or sets the URL tag, or description, of a block definition.
+    """,
+
+    "syntax_html": """
+        Rhino.BlockURLTag (strBlock [, strURLTag])
+    """,
+
+    "params_html": {
+        0: {
+            "name": "Block",
+            "opt_or_req": "Required",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The name of an existing block definition.
+            """
+        },
+        1: {
+            "name": "URL",
+            "opt_or_req": "Optional",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The new URL tag.  If omitted, the current URL tag is returned.
+            """
+        },
+    },
+
+    "returns_html": {
+        0: {
+            "type": "string",
+            "doc": "If a URL tag is not specified,  the current URL tag if successful."
+        },
+        1: {
+            "type": "string",
+            "doc": "If a URL tag is specified, the previous URL tag if successful."
+        },
+        2: {
+            "type": "null",
+            "doc": "If not successful, or on error."
+        },
+    },
+
+    "id_com": 403,
+
+    "params_com": {
+        0: {
+            "name": "vaName",
+            "opt_or_req": "Required",
+            "type": "tagVARIANT",
+        },
+        1: {
+            "name": "vaNew",
+            "opt_or_req": "Optional",
+            "type": "tagVARIANT",
+        },
+    },
+
+    "returns_com": "tagVARIANT",
+
+}
+

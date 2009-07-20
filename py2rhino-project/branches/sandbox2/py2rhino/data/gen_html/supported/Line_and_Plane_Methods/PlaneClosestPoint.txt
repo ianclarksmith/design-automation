@@ -1,0 +1,95 @@
+PlaneClosestPoint
+
+
+
+PlaneClosestPoint
+
+
+Returns the point on a plane that is closest to a test point.
+
+
+Syntax
+
+
+Rhino.PlaneClosestPoint (arrPlane, arrPoint [, blnReturnPoint])
+
+
+Parameters
+
+
+
+arrPlane 
+
+Required.  Array.  The plane. The elements of a plane array are as follows:
+
+
+Element 
+
+Description
+
+0 
+
+Required.  The plane's origin (3-D point).
+
+1 
+
+Required.  The plane's X axis direction (3-D vector).
+
+2 
+
+Required.  The plane's Y axis direction (3-D vector).
+
+3 
+
+Optional.  The plane's Z axis direction (3-D vector).
+
+
+arrPoint 
+
+Required.  Array.  The 3-D point to test.
+
+blnReturnPoint 
+
+Optional.  Boolean.  If omitted or True, then the point on the plane that is closest to the test point is returned. If False, then the parameter of the point on the plane that is closest to the test point is returned.
+
+
+Returns
+
+
+
+Array 
+
+If blnReturnPoint is omitted or True, then the 3-D point if successful. If blnReturnPoint is False, then an array containing the U,V parameters of the point if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPlane, arrPoint
+
+arrPoint = Rhino.GetPoint("Point to test")
+
+If IsArray(arrPoint) Then
+
+  arrPlane = Rhino.ViewCPlane
+
+  If IsArray(arrPlane) Then
+
+    MsgBox Rhino.Pt2Str(Rhino.PlaneClosestPoint(arrPlane, arrPoint))
+
+  End If
+
+End If
+
+
+Also See
+
+
+DistanceToPlane
+
+EvaluatePlane
+

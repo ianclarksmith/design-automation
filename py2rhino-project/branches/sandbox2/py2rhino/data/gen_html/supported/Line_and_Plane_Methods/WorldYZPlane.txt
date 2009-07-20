@@ -1,0 +1,50 @@
+WorldYZPlane
+
+
+
+WorldYZPlane
+
+
+Returns Rhino's world YZ plane. This plane could also be created as follows:
+
+Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,1.0,0.0), Array(0.0,0.0,1.0)
+
+
+Syntax
+
+
+Rhino.WorldYZPlane ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Array 
+
+Rhino's world YZ plane.
+
+
+Example
+
+
+Dim strView
+
+strView = Rhino.CurrentView
+
+Rhino.ViewCPlane strView, Rhino.WorldYZPlane
+
+
+Also See
+
+
+WorldXYPlane
+
+WorldZXPlane
+

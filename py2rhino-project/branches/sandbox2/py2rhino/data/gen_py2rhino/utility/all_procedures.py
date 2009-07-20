@@ -1,0 +1,50 @@
+all_procedures = {
+    "module_name": "utility",
+    "class_name": "Utility",
+    "method_name": "all_procedures",
+
+    "doc_html": """
+        Returns the names of the  user-defined subroutines and functions resident in RhinoScript's VBScript engine.
+    """,
+
+    "syntax_html": """
+        Rhino.AllProcedures ([blnAll])
+    """,
+
+    "params_html": {
+        0: {
+            "name": "All",
+            "opt_or_req": "Optional",
+            "type": "Boolean",
+            "type_string": "bln",
+            "doc": """
+        If True (default) the names of all user-defined subroutines and functions are returned. If False, only top-level subroutines are returned. Top level subroutines are subroutines that can be passed to the RunScript command.
+            """
+        },
+    },
+
+    "returns_html": {
+        0: {
+            "type": "array",
+            "doc": "An array of string identifying the names of user-defined procedures."
+        },
+        1: {
+            "type": "null",
+            "doc": "If no user-defined procedures are found."
+        },
+    },
+
+    "id_com": 503,
+
+    "params_com": {
+        0: {
+            "name": "vaAll",
+            "opt_or_req": "Optional",
+            "type": "tagVARIANT",
+        },
+    },
+
+    "returns_com": "tagVARIANT",
+
+}
+

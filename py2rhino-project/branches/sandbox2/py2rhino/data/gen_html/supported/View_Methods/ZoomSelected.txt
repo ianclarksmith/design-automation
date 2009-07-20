@@ -1,0 +1,58 @@
+ZoomSelected
+
+
+
+ZoomSelected
+
+
+Zooms to the extents of selected objects in the specified view, or in the active view.
+
+
+Syntax
+
+
+Rhino.ZoomSelected ([strView [, blnAll]])
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+blnAll 
+
+Optional.  Boolean.  Zoom selected in all views.  If omitted, only the specified view is zoomed (False).
+
+
+Returns
+
+
+Null.
+
+
+Example
+
+
+Dim strObject, arrSize
+
+strObject = Rhino.GetObject("Select object", , , True)
+
+If Not IsNull(strObject) Then
+
+strView = Rhino.CurrentView
+
+Rhino.ZoomSelected strView
+
+End If
+
+
+Also See
+
+
+ZoomBoundingBox
+
+ZoomExtents
+

@@ -1,0 +1,67 @@
+ToolBarCount
+
+
+
+ToolbarCount
+
+
+Returns the number of toolbars found in a currently open toolbar collection file.
+
+
+Syntax
+
+
+Rhino.ToolbarCount (strName)
+
+
+Parameters
+
+
+
+strName 
+
+Required.  String.  The name of a currently open toolbar collection.
+
+
+Returns
+
+
+
+Number 
+
+The number of toolbars in the toolbar collection if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrNames, intCount
+
+arrNames = Rhino.ToolbarCollectionNames
+
+If IsArray(arrNames) Then
+
+intCount = Rhino.ToolbarCount(arrNames(0))
+
+Rhino.Print "The " & arrNames(0) & " collection contains " & CStr(intCount) & " toolbars."
+
+End If
+
+
+Also See
+
+
+HideToolbar
+
+IsToolbar
+
+IsToolbarVisible
+
+ShowToolbar
+
+ToolbarNames
+

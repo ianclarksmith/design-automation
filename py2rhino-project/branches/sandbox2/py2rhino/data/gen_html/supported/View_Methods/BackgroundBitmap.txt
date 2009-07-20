@@ -1,0 +1,105 @@
+BackgroundBitmap
+
+
+
+BackgroundBitmap
+
+
+Returns or sets the background bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
+
+
+Syntax
+
+
+Rhino.BackgroundBitmap ([strView [, strFileName [, arrPoint [, dblWidth]]]])
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+  
+
+Optional.  String.  The name of the bitmap file to set as the background bitmap.  The supported bitmap file formats are as follows:
+
+
+Type 
+
+Description
+
+bmp 
+
+Windows Bitmap
+
+tga 
+
+Truevision Targa
+
+jpg, jpeg 
+
+JPEG Compliant
+
+pcx 
+
+Zsoft Paintbrush
+
+png 
+
+Portable Network Graphics
+
+tif, tiff 
+
+Tagged Image File Format
+
+
+arrPoint 
+
+Optional. Array.  A 3-D point the lower left corner of the background bitmap. If omitted, the background bitmap's lower left corner will be located at the world origin, or (0,0,0).
+
+dblWidth 
+
+Optional.  Number.  The width of the background bitmap. If omitted, the actual width of the bitmap will be used.
+
+
+Returns
+
+
+
+String 
+
+If strFileName is not specified,  then the current background bitmap filename if successful.
+
+String 
+
+If strFileName is specified,  then the previous background bitmap filename if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strView
+
+strView = Rhino.CurrentView
+
+If Not Rhino.IsBackgroundBitmap(strView) Then
+
+  Rhino.BackgroundBitmap strView, "C:\Windows\Coffee Bean.bmp", Array(0,0,0), 25
+
+End If
+
+
+Also See
+
+
+IsBackgroundBitmap
+
+Wallpaper
+

@@ -1,0 +1,95 @@
+OrientObject
+
+
+
+OrientObject
+
+
+Orients a single object based on input points.
+
+
+Syntax
+
+
+Rhino.OrientObject (strObject, arrReference, arrTarget [, intFlags])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object to orient.
+
+arrReference 
+
+Required.  Array.  An array of 3-D reference points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
+
+arrTarget 
+
+Required.  Array.  An array of 3-D target points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
+
+intFlags 
+
+Optional.  Number.  The orient flags.  Values can be added together to specify multiple options.
+
+
+Value 
+
+Description
+
+1 
+
+Copy object.  The default is not to copy the object.
+
+2 
+
+Scale object.  The default is not to scale the object.  Note, the scale option only applies if both arrReference and arrTarget contain only two 3-D points.
+
+
+
+Returns
+
+
+
+String 
+
+The identifier of the oriented object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrReference, arrTarget
+
+strObject = Rhino.GetObject("Select object to orient")
+
+If Not IsNull(strObject) Then
+
+arrReference = Rhino.GetPoints(,,"First reference point")
+
+If IsArray(arrReference) And (UBound(arrReference) > 0) Then
+
+arrTarget = Rhino.GetPoints(,,"First target point")
+
+If IsArray(arrTarget) And (UBound(arrTarget) > 0) Then
+
+Rhino.OrientObject strObject, arrReference, arrTarget
+
+End If
+
+End If
+
+End If
+
+
+Also See
+
+
+OrientObjects
+

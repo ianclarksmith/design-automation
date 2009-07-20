@@ -1,0 +1,109 @@
+IsCurveInPlane
+
+
+
+IsCurveInPlane
+
+
+Test a curve to see if it lies in a specific plane.
+
+
+Syntax
+
+
+Rhino.IsCurveInPlane (strObject [, arrPlane])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+arrPlane 
+
+Optional.  Array. The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
+
+
+Element 
+
+Type 
+
+Description
+
+0 
+
+Array 
+
+Required.  The construction plane's origin (3-D point).
+
+1 
+
+Array 
+
+Required.  The construction plane's X axis direction (3-D vector).
+
+2 
+
+Array 
+
+Required.  The construction plane's Y axis direction (3-D vector).
+
+3 
+
+Array 
+
+Optional.  The construction plane's Z axis direction (3-D vector).
+
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) And Rhino.IsCurvePlanar(strObjec) Then
+
+If Rhino.IsCurveInPlane(strObject) Then
+
+Rhino.Print "The curve lies in the current cplane."
+
+Else
+
+Rhino.Print "The curve does not lie in the current cplane."
+
+End If
+
+Else
+
+Rhino.Print "The object is not a planar curve."
+
+End If
+
+
+Also See
+
+
+IsCurve
+
+IsCurvePlanar
+
+
+

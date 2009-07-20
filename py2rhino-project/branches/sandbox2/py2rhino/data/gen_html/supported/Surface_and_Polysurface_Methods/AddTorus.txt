@@ -1,0 +1,91 @@
+AddTorus
+
+
+
+AddTorus
+
+
+Adds a torus-shaped revolved surface to the document.
+
+
+Syntax
+
+
+Rhino.AddTorus (arrBase, dblMajorRadius, dblMinorRadius [, arrDirection])
+
+Rhino.AddTorus (arrPlane, dblMajorRadius, dblMinorRadius)
+
+
+Parameters
+
+
+
+arrBase 
+
+Required.  Array.  The 3-D origin point of the torus.
+
+arrPlane 
+
+Required.  Array.  The base plane of the torus.
+
+dblMajorRadius 
+
+Required.  Number.  The major radius of the torus.  The major radius must be larger than the minor radius.
+
+dblMinorRadius 
+
+Required.  Number.  The minor radius of the torus.  The minor radius must be greater than zero.
+
+arrDirection 
+
+Optional.  Array.  A point that defines the direction of the torus.  If omitted, a torus that is parallel to the world XY plane is created.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrBase, arrDirection, dblMajorRadius, dblMinorRadius
+
+dblMajorRadius = 5.0
+
+dblMinorRadius = dblMajorRadius - 2.0
+
+arrBase = Rhino.GetPoint("Base of torus")
+
+If IsArray(arrBase) Then
+
+arrDirection = Rhino.GetPoint("Direction of torus", arrBase)
+
+If IsArray(arrDirection) Then
+
+Rhino.AddTorus arrBase, dblMajorRadius, dblMinorRadius, arrDirection
+
+End If
+
+End If
+
+
+Also See
+
+
+AddBox
+
+AddCone
+
+AddCylinder
+
+AddSphere
+

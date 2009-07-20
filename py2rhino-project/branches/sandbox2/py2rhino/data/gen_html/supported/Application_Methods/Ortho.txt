@@ -1,0 +1,57 @@
+Ortho
+
+
+
+Ortho
+
+
+Enables or disables Rhino's ortho modeling aid.
+
+
+Syntax
+
+
+Rhino.Ortho ([blnEnable])
+
+
+Parameters
+
+
+
+blnEnable 
+
+Optional.  Boolean.  The new enabled status, either True or False.
+
+
+Returns
+
+
+
+Boolean 
+
+If blnEnable is not specified, then the current ortho status if successful.
+
+Boolean 
+
+If blnEnable is specified, then the previous ortho status if successful.
+
+
+Example
+
+
+If Not Rhino.Ortho Then
+
+Rhino.Ortho True
+
+End If
+
+
+Also See
+
+
+Osnap
+
+Planar
+
+Snap
+

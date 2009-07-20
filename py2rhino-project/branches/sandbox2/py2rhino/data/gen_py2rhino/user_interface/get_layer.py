@@ -1,0 +1,92 @@
+get_layer = {
+    "module_name": "user_interface",
+    "class_name": "UserInterface",
+    "method_name": "get_layer",
+
+    "doc_html": """
+        Displays a dialog box prompting the user to select a layer.
+    """,
+
+    "syntax_html": """
+        Rhino.GetLayer ([strTitle [, strLayer [, blnShowNewLayer [, blnShowSetCurrent]]]])
+    """,
+
+    "params_html": {
+        0: {
+            "name": "Title",
+            "opt_or_req": "Optional",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        A dialog box title.
+            """
+        },
+        1: {
+            "name": "Layer",
+            "opt_or_req": "Optional",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The name of a layer to pre-select. If omitted, the current layer will be pre-selected.
+            """
+        },
+        2: {
+            "name": "ShowNewLayer",
+            "opt_or_req": "Optional",
+            "type": "Boolean",
+            "type_string": "bln",
+            "doc": """
+        Display the "New" layer button. If omitted, the button is not displayed.
+            """
+        },
+        3: {
+            "name": "ShowSetCurrent",
+            "opt_or_req": "Optional",
+            "type": "Boolean",
+            "type_string": "bln",
+            "doc": """
+        Display the "Set layer current" check box.  If omitted, the check box is not displayed.
+            """
+        },
+    },
+
+    "returns_html": {
+        0: {
+            "type": "string",
+            "doc": "The name of the selected layer if successful."
+        },
+        1: {
+            "type": "null",
+            "doc": "If not successful, or on error."
+        },
+    },
+
+    "id_com": 672,
+
+    "params_com": {
+        0: {
+            "name": "vaPrompt",
+            "opt_or_req": "Optional",
+            "type": "tagVARIANT",
+        },
+        1: {
+            "name": "vaLayer",
+            "opt_or_req": "Optional",
+            "type": "tagVARIANT",
+        },
+        2: {
+            "name": "vaNewButton",
+            "opt_or_req": "Optional",
+            "type": "tagVARIANT",
+        },
+        3: {
+            "name": "vaCurrentButton",
+            "opt_or_req": "Optional",
+            "type": "tagVARIANT",
+        },
+    },
+
+    "returns_com": "tagVARIANT",
+
+}
+

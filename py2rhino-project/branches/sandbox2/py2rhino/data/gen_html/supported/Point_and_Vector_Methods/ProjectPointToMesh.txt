@@ -1,0 +1,115 @@
+ProjectPointToMesh
+
+
+
+ProjectPointToMesh
+
+
+Projects one or more points onto one or more meshes.
+
+
+Syntax
+
+
+Rhino.ProjectPointToMesh (arrPoint, strMesh, arrDirection)
+
+Rhino.ProjectPointToMesh (arrPoint, arrMeshes, arrDirection)
+
+Rhino.ProjectPointToMesh (arrPoints, strMesh, arrDirection)
+
+Rhino.ProjectPointToMesh (arrPoints, arrMeshes, arrDirection)
+
+
+Parameters
+
+
+
+arrPoints 
+
+Required.  Array.  A 3-D point to project.
+
+arrPoints 
+
+Required.  Array.  An array of 3-D points to project.
+
+strMesh 
+
+Required.  String.  The identifier of the mesh object to project onto.
+
+arrMeshes 
+
+Required.  Array.  The identifiers of the mesh objects to project onto.
+
+arrDirection 
+
+Required.  Array.  The direction (3-D vector) to project the points.
+
+
+Returns
+
+
+
+Array 
+
+An array of 3-D points if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Sub TestProjectPoints
+
+  Dim arrObjects, strMesh
+
+  strMesh = Rhino.GetObject("Select mesh to project onto", 32)
+
+  arrObjects = Rhino.GetObjects("Select points to project", 1)
+
+ 
+
+  Dim nBound, arrPoints
+
+  nBound = UBound(arrObjects)
+
+  ReDim arrPoints( nBound )
+
+
+
+  Dim i 
+
+  For i = 0 To nBound
+
+    arrPoints(i) = Rhino.PointCoordinates( arrObjects(i) )
+
+  Next
+
+ 
+
+  ' Project down...
+
+  Dim arrResults
+
+  arrResults = Rhino.ProjectPointToMesh(arrPoints, strMesh, Array(0,0,-1))
+
+  Rhino.AddPoints arrResults
+
+ 
+
+End Sub
+
+
+Also See
+
+
+ProjectCurveToMesh
+
+ProjectCurveToSurface
+
+ProjectPointToSurface
+
+
+

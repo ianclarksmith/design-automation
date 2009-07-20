@@ -1,0 +1,80 @@
+Hatch Methods
+
+
+
+Hatch Methods
+
+
+The following methods are available for adding, querying or manipulating hatch patterns and hatch objects.
+
+
+
+
+Method 
+
+Description
+
+AddHatch 
+
+Creates a new hatch object from a closed, planar curve.
+
+AddHatches 
+
+Creates one or more hatch objects from closed, planar curves.
+
+AddHatchPatterns 
+
+Imports hatch pattern from a pattern file.
+
+CurrentHatchPattern 
+
+Returns the name of the current hatch pattern.
+
+ExplodeHatch 
+
+Explodes a hatch object into its component objects.
+
+HatchPattern 
+
+Returns the hatch pattern name from a hatch object.
+
+HatchPatternCount 
+
+Returns the number of hatch patterns in the current document.
+
+HatchPatternDescription 
+
+Returns the description of a hatch pattern.
+
+HatchPatternFillType 
+
+Returns the fill type of a hatch pattern.
+
+HatchPatternNames 
+
+Returns the names of the hatch patterns in the current document.
+
+HatchRotation 
+
+Returns or modifies the hatch pattern rotation of a hatch object.
+
+HatchScale 
+
+Returns or modifies the hatch pattern scale of a hatch object.
+
+IsHatch 
+
+Verifies that an object is a hatch object.
+
+IsHatchPattern 
+
+Verifies that a hatch pattern exists in the current document.
+
+IsHatchPatternCurrent 
+
+Verifies that a hatch pattern is the current hatch pattern.
+
+IsHatchPatternReference 
+
+Verifies that a hatch pattern is from a reference file.
+

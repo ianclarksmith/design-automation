@@ -1,0 +1,81 @@
+CurveEditPoints
+
+
+
+CurveEditPoints
+
+
+Returns the edit, or Greville, points of a curve object.  For each curve control point, there is a corresponding edit point.
+
+
+Syntax
+
+
+Rhino.CurveEditPoints (strObject [, blnReturnParameters [, intIndex]])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+blnReturnParameters 
+
+Optional.  Boolean.  Return the edit points as an array of parameter values.  If omitted, the edit points are returned as an array of 3-D points.
+
+intIndex 
+
+Optional. Number.  If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Array 
+
+If blnReturnParameters is omitted or False, then an array of 3-D edit points if successful.
+
+Array 
+
+If blnReturnParameters is True, then an array of parameter values if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrPoints
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+arrPoints = Rhino.CurveEditPoints(strObject)
+
+If IsArray(arrPoints) Then
+
+Rhino.AddPointCloud arrPoints
+
+End If
+
+End If
+
+
+Also See
+
+
+IsCurve
+
+CurvePointCount
+
+CurvePoints
+
+
+

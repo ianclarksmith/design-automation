@@ -1,0 +1,63 @@
+SplitBrep
+
+
+
+SplitBrep
+
+
+Splits a brep.  A brep can be either a surface with a single face or a polysurface.
+
+
+Syntax
+
+
+Rhino.SplitBrep (strBrep, strCutter [, blnDelete])
+
+
+Parameters
+
+
+
+strBrep 
+
+Required.  String.  The identifier of the brep object to split.
+
+strCutter 
+
+Required.  String.  The identifier of the brep object to split with.
+
+blnDelete 
+
+Optional.  Boolean.  Delete input brep.  If omitted, the input brep will not be deleted (False).
+
+
+Returns
+
+
+
+Array 
+
+The identifiers of the new brep objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strBrep, strCutter
+
+strBrep = Rhino.GetObject("Select brep to split", 24)
+
+strCutter = Rhino.GetObject("Select cutting brep", 24)
+
+Rhino.SplitBrep strBrep, strCutter
+
+
+Also See
+
+
+IsBrep
+

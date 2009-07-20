@@ -1,0 +1,110 @@
+Geometry Methods
+
+
+
+Geometry Methods
+
+
+The following methods are available for creating, querying or manipulating miscellaneous geometric objects.  For methods relating to curve objects, see Curve Methods.  For methods relating to surface and polysurface objects, see Surface and Polysurface Methods.  For methods relating to mesh objects, see Mesh Methods.
+
+
+
+
+Method 
+
+Description
+
+AddClippingPlane 
+
+Adds a clipping plane.
+
+AddPoint 
+
+Adds a point object.
+
+AddPointCloud 
+
+Adds a point cloud object.
+
+AddPoints 
+
+Adds one or more point objects.
+
+AddText 
+
+Adds a text object.
+
+AddTextDot 
+
+Adds an annotation text dot object
+
+BoundingBox 
+
+Returns the bounding box of objects.
+
+CompareGeometry 
+
+Determines if two objects are geometrically identical.
+
+IsClippingPlane 
+
+Verifies an object is a clipping plane.
+
+IsPoint 
+
+Verifies an object is a point object.
+
+IsPointCloud 
+
+Verifies an object is a point cloud object.
+
+IsText 
+
+Verifies an object is a text object.
+
+IsTextDot 
+
+Verifies an object is a text dot object.
+
+PointCloudCount 
+
+Returns the number of points in a point cloud.
+
+PointCloudPoints 
+
+Returns the points of a point cloud.
+
+TextDotPoint 
+
+Returns or modifies the location of an annotation text dot object.
+
+TextDotText 
+
+Returns or modifies the text string of an annotation text dot object.
+
+TextObjectFont 
+
+Returns or modifies the font of a text object.
+
+TextObjectHeight 
+
+Returns or modifies the text height of a text object.
+
+TextObjectPlane 
+
+Returns or modifies the plane of a text object.
+
+TextObjectPoint 
+
+Returns or modifies the location of a text object.
+
+TextObjectStyle 
+
+Returns or modifies the font style of a text object.
+
+TextObjectText 
+
+Returns or modifies the text string of a text object.
+
+
+

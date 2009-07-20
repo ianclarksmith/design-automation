@@ -1,0 +1,117 @@
+ExtendCurve
+
+
+
+ExtendCurve
+
+
+Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+
+Syntax
+
+
+Rhino.ExtendCurve (strObject, intType, intSide, arrObjects)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intType 
+
+Required.  Number.  Type of extension.
+
+
+Value 
+
+Description
+
+0 
+
+Line - Creates an line extension tangent to the original curve.
+
+1 
+
+Arc - Creates an arc extension tangent to the original curve.
+
+2 
+
+Smooth - Creates a smooth curve extension curvature continuous with the original curve.
+
+
+intSide 
+
+Required.  Number.  The size to  extent.
+
+
+Value 
+
+Description
+
+0 
+
+Extend from the start of the curve.
+
+1 
+
+Extend from the end of the curve.
+
+
+arrObjects 
+
+Required.  Array.  The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the extended object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectCurve = 4
+
+Const rhObjectSurface = 8
+
+Const rhObjectPolySurface = 16
+
+Dim arrObjects, strCurve, intObjType
+
+intObjType = rhObjectCurve + rhObjectSurface + rhObjectPolysurface
+
+arrObjects = Rhino.GetObjects("Select boundary objects", intObjType)
+
+If IsArray(arrObjects) Then
+
+strCurve = Rhino.GetObject("Select curve to extend", rhObjectCurve)
+
+If Not IsNull(strCurve) Then
+
+Rhino.ExtendCurve strCurve, 2, 1, arrObjects
+
+End If
+
+End If
+
+
+Also See
+
+
+ExtendCurveLength
+
+ExtendCurvePoint
+

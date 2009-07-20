@@ -1,0 +1,97 @@
+AddText
+
+
+
+AddText
+
+
+Adds a text string to the document.
+
+
+Syntax
+
+
+Rhino.AddText (strText, arrPoint [, dblHeight [, strFont [, intStyle]]])
+
+Rhino.AddText (strText, arrPlane [, dblHeight [, strFont [, intStyle]]])
+
+
+Parameters
+
+
+
+strText 
+
+Required. String.  The text to display.
+
+arrPoint 
+
+Required.  Array.  A 3-D point.
+
+arrPlane 
+
+Required.  Array.  The plane on which the text will lie.  The origin of the plane will be the origin point of the text.
+
+dblHeight 
+
+Optional.  Number.  The text height.  If omitted, a height of 1.0 units is used.
+
+strFont 
+
+Optional.  String.  The text font.  If omitted, the Arial font is used.
+
+intStyle 
+
+Optional. Number.  The font style.  If omitted, a normal font style (0) is used.  The font style can be any number of the following flags:
+
+
+Value 
+
+Description
+
+0 
+
+Normal
+
+1 
+
+Bold
+
+2 
+
+Italic
+
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPoint
+
+arrPoint = Rhino.GetPoint("Pick point")
+
+If IsArray(arrPoint) Then
+
+Rhino.AddText "Hello Rhino!", arrPoint
+
+End If
+
+
+Also See
+
+
+IsText
+

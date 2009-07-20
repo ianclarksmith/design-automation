@@ -1,0 +1,59 @@
+MeshOffset
+
+
+
+MeshOffset
+
+
+Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
+
+
+Syntax
+
+
+Rhino.MeshOffset (strMesh, dblDistance)
+
+
+Parameters
+
+
+
+strMesh 
+
+Required.  String.  The identifier of a mesh object.
+
+dblDistance 
+
+Required.  Number.  The distance to offset.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the offset mesh object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strMesh
+
+strMesh = Rhino.GetObject("Select mesh to offset", rhObjectMesh)
+
+Rhino.MeshOffset strMesh, 10.0
+
+
+Also See
+
+
+IsMesh
+

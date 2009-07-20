@@ -1,0 +1,71 @@
+CurveEndPoint
+
+
+
+CurveEndPoint
+
+
+Returns the end point of a curve object.
+
+
+Syntax
+
+
+Rhino.CurveEndPoint (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Array 
+
+The 3-D end point of the curve if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrPoint
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+arrPoint = Rhino.CurveEndPoint(strObject)
+
+Rhino.AddPoint arrPoint
+
+End If
+
+
+Also See
+
+
+CurveMidPoint
+
+CurveStartPoint
+
+IsCurve
+
+
+
+
+

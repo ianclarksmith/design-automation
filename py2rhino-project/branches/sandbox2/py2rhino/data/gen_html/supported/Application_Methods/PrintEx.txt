@@ -1,0 +1,46 @@
+PrintEx
+
+
+
+PrintEx
+
+
+Prints a string to Rhino's command window.  Use this method, instead of the Print method, if you are using Visual Basic.
+
+
+Syntax
+
+
+Rhino.PrintEx ([strMessage])
+
+
+Parameters
+
+
+
+strMessage 
+
+Optional.  String.  A prompt, message, or value.
+
+
+Returns
+
+
+Null.
+
+
+Example
+
+
+Rhino.PrintEx "Hello Rhino!"
+
+Rhino.PrintEx
+
+Rhino.PrintEx "Hello Again!"
+
+
+Also See
+
+
+Print
+

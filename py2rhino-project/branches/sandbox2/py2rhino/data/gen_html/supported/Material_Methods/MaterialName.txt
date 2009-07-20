@@ -1,0 +1,83 @@
+MaterialName
+
+
+
+MaterialName
+
+
+Returns or modifies a material's user-definable name.
+
+
+Syntax
+
+
+Rhino.MaterialName (intMaterialIndex [, strName])
+
+
+Parameters
+
+
+
+intMaterialIndex 
+
+Required.  Number.  The zero-based source material index.
+
+strName 
+
+Optional.  String.  The new name.  If omitted, the current name is returned.
+
+
+Returns
+
+
+
+String 
+
+If strName is not specified, the current material name if successful.
+
+String 
+
+If strName is specified, the previous material name if successful.
+
+Null 
+
+It not successful, or on error.
+
+
+Example
+
+
+Dim strObject, intIndex
+
+strObject = Rhino.GetObject("Select object")
+
+If Not IsNull(strObject) Then
+
+intIndex = Rhino.ObjectMaterialIndex(strObject)
+
+If (intIndex > -1) Then
+
+Rhino.MaterialName intIndex, "Fancy_Material"
+
+End If
+
+End If
+
+
+Also See
+
+
+MaterialBump
+
+MaterialColor
+
+MaterialReflectiveColor
+
+MaterialShine
+
+MaterialTexture
+
+MaterialTransparency
+
+
+

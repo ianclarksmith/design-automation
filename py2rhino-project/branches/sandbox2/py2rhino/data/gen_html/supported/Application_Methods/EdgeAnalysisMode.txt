@@ -1,0 +1,65 @@
+EdgeAnalysisMode
+
+
+
+EdgeAnalysisMode
+
+
+Returns or modifies edge analysis mode displayed by the ShowEdges command.
+
+
+Syntax
+
+
+Rhino.EdgeAnalysisMode ([intMode])
+
+
+Parameters
+
+
+
+intMode 
+
+Optional.  Number.  The new display mode.  If omitted, the current display mode is returned.  The available mores are as follows:
+
+
+0 
+
+Display all edges.
+
+1 
+
+Display naked edges.
+
+
+
+Returns
+
+
+
+Number 
+
+If a intMode is not specified, the current edge analysis display mode if successful.
+
+Number 
+
+If a intMode is specified, the previous edge analysis display mode if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim intPreviousMode
+
+intPreviousMode = Rhino.EdgeAnalysisMode(1)
+
+
+Also See
+
+
+EdgeAnalysisColor
+

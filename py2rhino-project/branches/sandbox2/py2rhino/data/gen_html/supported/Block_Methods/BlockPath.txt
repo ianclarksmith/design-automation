@@ -1,0 +1,61 @@
+BlockPath
+
+
+
+BlockPath
+
+
+Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.
+
+
+Syntax
+
+
+Rhino.BlockPath (strBlock)
+
+
+Parameters
+
+
+
+strBlock 
+
+Required.  String.  The name of an existing block definition.
+
+
+Returns
+
+
+
+String 
+
+The path to the linked block file is successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strBlock
+
+strBlock = Rhino.GetString("Block name to list path")
+
+If Rhino.IsBlockEmbedded(strBlock) Then
+
+Rhino.Print Rhino.BlockPath(strBlock)
+
+End If
+
+
+Also See
+
+
+IsBlock
+
+IsBlockEmbedded
+
+
+

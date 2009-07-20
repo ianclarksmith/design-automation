@@ -1,0 +1,71 @@
+IsSphere
+
+
+
+IsSphere
+
+
+Determines if a surface is a portion of a sphere.
+
+
+Syntax
+
+
+Rhino.IsSphere (strSurface)
+
+
+Parameters
+
+
+
+strSurface 
+
+Required.  String.  The surface object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strSurface
+
+strSurface = Rhino.GetObject("Select a surface", 8)
+
+If Not IsNull(strSurface) Then
+
+  If Rhino.IsSphere(strSurface) Then
+
+    Rhino.Print "The surface is a portion of a sphere."
+
+  Else
+
+    Rhino.Print "The surface is not a portion of a sphere."
+
+  End If
+
+End If
+
+
+Also See
+
+
+IsCone
+
+IsCylinder
+
+IsSurface
+
+IsTorus
+

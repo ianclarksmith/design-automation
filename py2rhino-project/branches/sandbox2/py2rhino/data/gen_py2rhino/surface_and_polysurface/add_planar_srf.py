@@ -1,0 +1,50 @@
+add_planar_srf = {
+    "module_name": "surface_and_polysurface",
+    "class_name": "SurfaceAndPolysurface",
+    "method_name": "add_planar_srf",
+
+    "doc_html": """
+        Creates one or more surfaces from planar curves.
+    """,
+
+    "syntax_html": """
+        Rhino.AddPlanarSrf (arrObjects)
+    """,
+
+    "params_html": {
+        0: {
+            "name": "Objects",
+            "opt_or_req": "Required",
+            "type": "Array",
+            "type_string": "arr",
+            "doc": """
+        An array of curve object identifiers.
+            """
+        },
+    },
+
+    "returns_html": {
+        0: {
+            "type": "array",
+            "doc": "An array of strings identifying the new objects if successful."
+        },
+        1: {
+            "type": "null",
+            "doc": "If not successful, or on error."
+        },
+    },
+
+    "id_com": 371,
+
+    "params_com": {
+        0: {
+            "name": "vaObjects",
+            "opt_or_req": "Required",
+            "type": "tagVARIANT",
+        },
+    },
+
+    "returns_com": "tagVARIANT",
+
+}
+

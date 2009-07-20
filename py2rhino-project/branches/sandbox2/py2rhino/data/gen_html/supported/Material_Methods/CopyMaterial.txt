@@ -1,0 +1,65 @@
+CopyMaterial
+
+
+
+CopyMaterial
+
+
+Copies the definition of a source material to a destination material.
+
+
+Syntax
+
+
+Rhino.CopyMaterial (intSrcIndex, intDstIndex)
+
+
+Parameters
+
+
+
+intSrcIndex 
+
+Required.  Number.  The index of the source material.
+
+intDstIndex 
+
+Required.  Number.  The index of the destination material.
+
+
+Returns
+
+
+
+Boolean 
+
+True or false indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim intSrcIndex, intDstIndex
+
+intSrcIndex = Rhino.LayerMaterialIndex("Default")
+
+intDstIndex = Rhino.LayerMaterialIndex(Rhino.CurrentLayer)
+
+If (intSrcIndex >= 0) And (intDstIndex >= 0) And (intSrcIndex <> intDstIndex) Then
+
+  Rhino.CopyMaterial intSrcIndex, intDstIndex
+
+End If
+
+
+Also See
+
+
+LayerMaterialIndex
+
+ObjectMaterialIndex
+

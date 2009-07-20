@@ -1,0 +1,67 @@
+AddMaterialToObject
+
+
+
+AddMaterialToObject
+
+
+Adds a material to an object and returns the new material's index.  Note, adding a material to an object modifies the object's material source from "By Layer" to "By Object."  See ObjectMaterialSource for details.  If the object already has a material, then the object's current material index is returned.
+
+
+Syntax
+
+
+Rhino.AddMaterialToObject (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+
+Returns
+
+
+
+Number 
+
+The zero-based material index of the object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, intIndex
+
+strObject = Rhino.GetObject
+
+If Not IsNull(strObject) Then
+
+intIndex = Rhino.ObjectMaterialIndex(strObject)
+
+If (intIndex = -1) Then
+
+intIndex = Rhino.AddMaterialToObject(strObject)
+
+End If
+
+End If
+
+
+Also See
+
+
+IsMaterialDefault
+
+ObjectMaterialIndex
+
+ObjectMaterialSource
+

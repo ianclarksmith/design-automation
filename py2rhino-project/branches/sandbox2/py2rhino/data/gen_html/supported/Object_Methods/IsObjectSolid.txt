@@ -1,0 +1,79 @@
+IsObjectSolid
+
+
+
+IsObjectSolid
+
+
+Verifies that an object is a closed, solid object.
+
+
+Syntax
+
+
+Rhino.IsObjectSolid (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of an object.
+
+
+Returns
+
+
+
+True 
+
+The object is solid.
+
+False 
+
+The object is not solid.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Rhino.IsObjectSolid (strObject) Then
+
+Rhino.Print "The object is solid."
+
+Else
+
+Rhino.Print "The object is not solid."
+
+End If
+
+
+Also See
+
+
+IsObject
+
+IsObjectHidden
+
+IsObjectInGroup
+
+IsObjectLocked
+
+IsObjectNormal
+
+IsObjectReference
+
+IsObjectSelectable
+
+IsObjectSelected
+

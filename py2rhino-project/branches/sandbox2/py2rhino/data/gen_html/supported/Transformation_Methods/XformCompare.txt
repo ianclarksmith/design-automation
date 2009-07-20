@@ -1,0 +1,71 @@
+XformCompare
+
+
+
+XformCompare
+
+
+Compares two transformation matrices.
+
+
+Syntax
+
+
+Rhino.XformCompare (arrXform1, arrXform2)
+
+
+Parameters
+
+
+
+arrXform1 
+
+Required.  Array.  The first 4x4 transformation matrix to compare.
+
+arrXform2 
+
+Required.  Array.  The second 4x4 transformation matrix to compare.
+
+
+Returns
+
+
+
+-1 
+
+If arrXform1 is less than arrXform2.
+
+0 
+
+If arrXform1 is equal to arrXform2.
+
+1 
+
+If arrXform1 is greater than arrXform2.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim arrXform1
+
+arrXform = Rhino.XformZero
+
+MsgBox Rhino.IsXformZero(arrXform)
+
+
+Also See
+
+
+IsXformIdentity
+
+IsXformSimilarity
+
+IsXformZero
+
+
+

@@ -1,0 +1,50 @@
+IsDocumentModified
+
+
+
+IsDocumentModified
+
+
+Verifies that the current document has been modified in some way.
+
+
+Syntax
+
+
+Rhino.IsDocumentModified ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating either modified or not modified.
+
+
+Example
+
+
+Dim blnModified
+
+blnModified = Rhino.IsDocumentModified
+
+If blnModified = False Then
+
+Rhino.DocumentModified True
+
+End If
+
+
+Also See
+
+
+DocumentModified
+

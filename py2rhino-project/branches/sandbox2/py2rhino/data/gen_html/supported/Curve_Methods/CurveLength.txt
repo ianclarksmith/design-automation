@@ -1,0 +1,71 @@
+CurveLength
+
+
+
+CurveLength
+
+
+Returns the length of a curve object.
+
+
+Syntax
+
+
+Rhino.CurveLength (strObject [, intIndex [, arrSubDomain]])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional.  Number.  If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+arrSubDomain 
+
+Optional.  Array.  An array of two numbers identifying the sub-domain of the curve on which the calculation will be performed.  The two parameters (sub-domain) must be non-decreasing.  If omitted, the length of the entire curve is returned.
+
+
+Returns
+
+
+
+Number 
+
+The length of the curve if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, dblLength
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+dblLength = Rhino.CurveLength(strObject)
+
+Rhino.Print "Curve length: " & CStr(dblLength)
+
+End If
+
+
+Also See
+
+
+CurveDomain
+
+IsCurve
+
+
+

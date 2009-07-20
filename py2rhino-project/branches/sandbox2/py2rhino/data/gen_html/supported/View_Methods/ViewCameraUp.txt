@@ -1,0 +1,65 @@
+ViewCameraUp
+
+
+
+ViewCameraUp
+
+
+Returns or sets the camera up direction of specified view.
+
+
+Syntax
+
+
+Rhino.ViewCameraUp ([strView [, arrUpVector]])
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+arrUpVector 
+
+Optional.  Array.  A 3-D vector identifying the new camera location.
+
+
+Returns
+
+
+
+Array 
+
+If arrUpVector is not specified,  then a 3-D vector identifying the current camera up direction if successful.
+
+Array 
+
+If arrUpVector is specified,  then a 3-D vector identifying the previous camera up direction if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strView, arrUpVector
+
+strView = Rhino.CurrentView
+
+arrUpVector = Rhino.ViewCameraup(strView)
+
+Rhino.Print Rhino.Pt2Str(arrUpVector)
+
+
+Also See
+
+
+ViewCamera
+
+ViewTarget
+
