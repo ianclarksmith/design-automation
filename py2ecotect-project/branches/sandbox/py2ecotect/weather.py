@@ -557,6 +557,8 @@ if __name__ == "__main__":
     #x.set_speed(300, 17, 45.7)
     #print x.get_temperature(300, 17)
     #x.set_temperature(300, 17, 45.9)
+    
+    print x.file
 
     
 
