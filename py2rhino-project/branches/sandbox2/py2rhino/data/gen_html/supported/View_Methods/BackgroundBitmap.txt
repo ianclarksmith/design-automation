@@ -22,7 +22,7 @@ strView
 
 Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
 
-  
+strFileName
 
 Optional.  String.  The name of the bitmap file to set as the background bitmap.  The supported bitmap file formats are as follows:
 
