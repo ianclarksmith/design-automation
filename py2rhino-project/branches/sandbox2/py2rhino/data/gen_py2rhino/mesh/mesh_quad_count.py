@@ -5,7 +5,7 @@ mesh_quad_count = {
     "output_module_name": "mesh_quad_count",
 
     "doc_html": """
-        
+        Returns the number of quad faces of a mesh object.
     """,
 
     "syntax_html": """

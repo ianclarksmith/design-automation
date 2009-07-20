@@ -5,7 +5,7 @@ surface_volume = {
     "output_module_name": "surface_volume",
 
     "doc_html": """
-        
+        Calculates the volume of closed surface or polysurface objects.
     """,
 
     "syntax_html": """

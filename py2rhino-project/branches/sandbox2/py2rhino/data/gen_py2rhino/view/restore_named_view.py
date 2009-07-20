@@ -13,6 +13,33 @@ restore_named_view = {
     """,
 
     "params_html": {
+        0: {
+            "name": "Name",
+            "opt_or_req": "Required",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The name of the named view to restore.
+            """
+        },
+        1: {
+            "name": "View",
+            "opt_or_req": "Optional",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The title or identifier of the view to restore the view.  If omitted, the current active view is used.
+            """
+        },
+        2: {
+            "name": "RestoreBitmap",
+            "opt_or_req": "Optional",
+            "type": "Boolean",
+            "type_string": "bln",
+            "doc": """
+        Restore the named view's background bitmap. If omitted, the named view's background bitmap is not restored (false).
+            """
+        },
     },
 
     "returns_html": {

@@ -5,7 +5,7 @@ is_layout = {
     "output_module_name": "is_layout",
 
     "doc_html": """
-        
+        Verifies that a view is a page layout view.
     """,
 
     "syntax_html": """

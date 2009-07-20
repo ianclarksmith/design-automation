@@ -15,6 +15,15 @@ synchronize_c_planes = {
     """,
 
     "params_html": {
+        0: {
+            "name": "View",
+            "opt_or_req": "Optional",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The title or identifier of the view from which to synchronize.  If omitted, the current active view is used.
+            """
+        },
     },
 
     "returns_html": {

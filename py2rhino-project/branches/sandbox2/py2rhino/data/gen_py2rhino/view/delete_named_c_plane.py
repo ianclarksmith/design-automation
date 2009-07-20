@@ -13,6 +13,15 @@ delete_named_c_plane = {
     """,
 
     "params_html": {
+        0: {
+            "name": "Name",
+            "opt_or_req": "Required",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The name of the named construction plane to remove.
+            """
+        },
     },
 
     "returns_html": {

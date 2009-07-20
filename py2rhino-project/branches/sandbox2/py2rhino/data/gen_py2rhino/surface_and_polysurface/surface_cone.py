@@ -5,7 +5,7 @@ surface_cone = {
     "output_module_name": "surface_cone",
 
     "doc_html": """
-        
+        Returns the definition of a cone surface.
     """,
 
     "syntax_html": """

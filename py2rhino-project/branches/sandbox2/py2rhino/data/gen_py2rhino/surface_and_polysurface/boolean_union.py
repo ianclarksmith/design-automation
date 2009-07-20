@@ -5,7 +5,7 @@ boolean_union = {
     "output_module_name": "boolean_union",
 
     "doc_html": """
-        
+        Performs a Boolean union operation on a set of input surfaces and polysurfaces. For more details, see the BooleanUnion command in the Rhino help file.
     """,
 
     "syntax_html": """

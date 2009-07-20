@@ -5,7 +5,7 @@ intersect_planes = {
     "output_module_name": "intersect_planes",
 
     "doc_html": """
-        
+        Calculates the intersection of three planes.
     """,
 
     "syntax_html": """

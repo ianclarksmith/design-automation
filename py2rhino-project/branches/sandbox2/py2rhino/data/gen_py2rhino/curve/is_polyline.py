@@ -5,7 +5,7 @@ is_polyline = {
     "output_module_name": "is_polyline",
 
     "doc_html": """
-        
+        Verifies an object is a polyline curve object.
     """,
 
     "syntax_html": """

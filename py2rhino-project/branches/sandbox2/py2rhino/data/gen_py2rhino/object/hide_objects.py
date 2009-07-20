@@ -5,7 +5,7 @@ hide_objects = {
     "output_module_name": "hide_objects",
 
     "doc_html": """
-        
+        Hides one or more objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
     """,
 
     "syntax_html": """

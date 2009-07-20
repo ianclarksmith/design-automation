@@ -13,6 +13,24 @@ add_named_c_plane = {
     """,
 
     "params_html": {
+        0: {
+            "name": "Name",
+            "opt_or_req": "Required",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The name of the new named construction plane.
+            """
+        },
+        1: {
+            "name": "View",
+            "opt_or_req": "Optional",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The title or identifier of the view from which to save the construction plane.  If omitted, the current active view is used.
+            """
+        },
     },
 
     "returns_html": {

@@ -5,7 +5,8 @@ add_object_mesh = {
     "output_module_name": "add_object_mesh",
 
     "doc_html": """
-        
+        Adds custom render mesh parameters to a meshable object, such as a surface or a polysurface.  If an object has custom render mesh parameters and they are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.
+		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
     "syntax_html": """

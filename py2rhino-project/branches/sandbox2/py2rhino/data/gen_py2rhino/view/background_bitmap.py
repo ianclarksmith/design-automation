@@ -20,8 +20,15 @@ background_bitmap = {
             "type_string": "str",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
-		
-		Optional.  String.  The name of the bitmap file to set as the background bitmap.  The supported bitmap file formats are as follows:
+            """
+        },
+        1: {
+            "name": "FileName",
+            "opt_or_req": "Optional",
+            "type": "String",
+            "type_string": "str",
+            "doc": """
+        The name of the bitmap file to set as the background bitmap.  The supported bitmap file formats are as follows:
 		Type
 		Description
 		bmp
@@ -37,7 +44,7 @@ background_bitmap = {
 		tif, tiff
             """
         },
-        1: {
+        2: {
             "name": "Point",
             "opt_or_req": "Optional",
             "type": "Array",
@@ -46,7 +53,7 @@ background_bitmap = {
         A 3-D point the lower left corner of the background bitmap. If omitted, the background bitmap's lower left corner will be located at the world origin, or (0,0,0).
             """
         },
-        2: {
+        3: {
             "name": "Width",
             "opt_or_req": "Optional",
             "type": "Number",
