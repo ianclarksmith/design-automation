@@ -2414,6 +2414,103 @@ class Object(object):
                        " etc). Set this property of an object to ensure that it"
                        " is the current object before invoking a command")
 
+    equation = property(fget = get_equation, fset = set_equation, 
+                        doc = "This property returns the values used to"
+                        " calculate the plane equation for the specified object")
+    
+    exposure = property(fget = get_exposure, doc = "This command retrieves the"
+                        " surface area of an object that is exposed to outside"
+                        " conditions")
+    
+    extents = property(fget = get_extents, doc = "The overall size for the"
+                       " specified object, measured in millimetres")
+    
+    extents_max = property(fget = get_extents_max, doc = "The 3D coordinates"
+                           " for the maximum extent of the selected object")
+    
+    extents_min = property(fget = get_extents_min, doc = "The coordinates for"
+                           " the minimum extent of the selected object")
+    
+    first_node = property(fget = get_first_node, doc = "The zero-based absolute"
+                          " index of this object's first node")
+    
+    last_node = property(fget = get_last_node, doc = "The zero-based absolute"
+                         " index of its last node")
+    
+    length = property(fget = get_length, doc = "The length value for the"
+                      " specified object, measured in millimetres")
+    
+    link = property(fget = get_link, doc = "The absolute index of the object to"
+                    " which the specified object is linked")
+    
+    mask = property(fget = get_mask, fset = set_mask, 
+                        doc = "the index of the object's shading mask")
+    
+    material = property(fget = get_material, fset = set_material, 
+                        doc = "The index of the object's primary material")
+    
+    nodes = property(fget = get_nodes, doc = "The number of nodes in the"
+                     " specified object")
+    
+    normal = property(fget = get_normal, doc = "The values corresponding to the"
+                      " x, y and z axis components for the normal of the"
+                      " specified object")
+    
+    panel_area = property(fget = get_panel_area, doc = "the surface area value"
+                          " overlapping with a WINDOW or DOOR object in an"
+                          " adjacent zone, measured in square metres")
+    
+    pt_even = property(fget = get_pt_even, doc = "Retrieves information about"
+                       " how sample points are evenly distributed across an object")
+    
+    pt_random = property(fget = get_pt_random, doc = "Retrieves information"
+                         " about how sample points are randomly distributed"
+                         " across an object")
+    
+    resolution = property(fget = get_resolution, fset = set_resolution, 
+                        doc = "The current curve resolution to use for virtual"
+                        " polylines, for the specified object")
+    
+    schedule = property(fget = get_schedule, fset = set_schedule, 
+                        doc = "The index value for the specified object's"
+                        " activation schedule")
+    
+    selected = property(fget = get_selected, fset = set_selected, 
+                        doc = "The selection state of the specified object")
+    
+    sun_angles = property(fget = get_sun_angles, doc = "The objects vertical"
+                          " shadow angle (VSA, always assuming it as a vertical"
+                          " surface) and horizontal shadow angle (HSA), given"
+                          " in decimal degrees")
+    
+    type = property(fget = get_type, fset = set_type, 
+                        doc = "The element type of the specified object,"
+                        " according to the values in the Element Types table")
+    
+    underground = property(fget = get_underground, doc = "The surface area that"
+                           " is underground")
+    
+    zone = property(fget = get_zone, fset = set_zone, 
+                        doc = "The zone index of the specified object")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     x = Object(15, 2444, True, 4)
