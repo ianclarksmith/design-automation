@@ -9,6 +9,9 @@ from util import *
 in_folder = "..\\data\\gen_html\\supported\\"
 out_folder = "..\\data\\gen_py2rhino\\"
 
+#in_folder = "..\\data\\gen_html\\test\\in\\"
+#out_folder = "..\\data\\gen_html\\test\\out\\"
+
 #===============================================================================
 # The main function to parse txt files generated from html
 #===============================================================================
@@ -46,20 +49,29 @@ def parse_docs():
                 contents = filter(lambda i: len(i)>1, contents)
                 contents = map(lambda i: i.strip(string.whitespace), contents)
                 
+                #debug 
+                """
+                ct = 0
+                for i in contents:
+                    print ct, " ", i
+                    ct += 1 """
+                
                 #set some things to None so we can do some checks later
+                line_num_help = None
                 line_num_syntax = None
                 line_num_params = None
                 line_num_returns = None
-                line_num_example = None            
+                line_num_example = None
+                line_num_see = None   
                 
                 count = 0
                 for line in contents:
-                    if line==file_name: line_num_help = count
-                    if line=="Syntax": line_num_syntax = count
-                    if line=="Parameters": line_num_params = count
-                    if line=="Returns": line_num_returns = count
-                    if line=="Example": line_num_example = count
-                    if line=="Also See": line_num_see = count
+                    if (line_num_help == None) and line==file_name: line_num_help = count
+                    if (line_num_syntax == None) and line=="Syntax": line_num_syntax = count
+                    if (line_num_params == None) and line=="Parameters": line_num_params = count
+                    if (line_num_returns == None) and line=="Returns": line_num_returns = count
+                    if (line_num_example == None) and line=="Example": line_num_example = count
+                    if (line_num_see == None) and line=="Also See": line_num_see = count
                     count += 1
                 
                 #do some checks
@@ -73,6 +85,12 @@ def parse_docs():
                 assert contents[line_num_params] == "Parameters"
                 assert contents[line_num_returns] == "Returns"
                 assert contents[line_num_example] == "Example"
+                assert line_num_help < line_num_syntax
+                assert line_num_syntax < line_num_params
+                assert line_num_params < line_num_returns                                
+                assert line_num_returns < line_num_example              
+                
+                
                 
                 #get the help
                 content_help = []

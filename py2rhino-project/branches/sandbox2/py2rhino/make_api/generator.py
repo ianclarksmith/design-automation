@@ -1,6 +1,5 @@
 import keyword
 from util import *
-
 from py2rhino.data import gen_py2rhino as p2r 
 in_folder = "..\\data\\gen_py2rhino\\"
 out_folder = "..\\"
@@ -24,37 +23,7 @@ def get_data_dictionary():
     
     return data_dict
 
-def write_array_type_strings(data_dict):
-    counter = 0
-    f = open(in_folder + "_array_type_strings.py", mode='w')
-    w(f, '#Replace in the ??? with either "bln", "int", "dbl", or "str"', tabs=0, nls=0, nle=2)
 
-    for module_name in sorted(data_dict.keys()):
-        w(f, (module_name, ' = {'), tabs=0, nls=0, nle=1)
-        for method_name in sorted(data_dict[module_name].keys()):
-            has_array = False
-            has_mismatch = False
-            param_html_dict = data_dict[module_name][method_name]['params_html']
-            param_com_dict = data_dict[module_name][method_name]['params_com']
-            if len(param_html_dict) != len(param_com_dict):
-                has_mismatch = True            
-            for param_num in param_html_dict.keys():
-                type_string = param_html_dict[param_num]['type_string']
-                if type_string.startswith('arr'):
-                    has_array = True
-                    counter += 1
-            if has_array and not has_mismatch:
-                w(f, ('"', method_name, '": {'), tabs=1, nls=0, nle=1)
-                for param_num in data_dict[module_name][method_name]['params_html'].keys():
-                    name = param_html_dict[param_num]['name']
-                    type_string = param_html_dict[param_num]['type_string']
-                    if type_string == 'arr':
-                        type_string += '_of_???'
-                    w(f, ('"', name, '": "', type_string, '",'), tabs=2, nls=0, nle=1)
-                w(f, '},', tabs=1, nls=0, nle=1)
-        w(f, '},', tabs=0, nls=0, nle=1)
-    f.close()
-    print counter
 #===============================================================================
 # Run
 #===============================================================================
