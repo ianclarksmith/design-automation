@@ -497,10 +497,6 @@ class Movie(object):
                         doc = "The current movie playback speed, measured in"
                         " frames per second")
     
-    size = property(fget = get_size, fset = set_size, 
-                        doc = "The size of the screen currently being used to"
-                        " record the animation")
-    
     source = property(fget = get_source, fset = set_source, 
                         doc = "Controls what appears inside the animation or"
                         " each frame of the recording")

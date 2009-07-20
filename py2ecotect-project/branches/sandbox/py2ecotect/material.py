@@ -169,7 +169,7 @@ class Material(object):
                                                      material, internal, external)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_costperunit(self, material):
+    def get_cost_per_unit(self, material):
         """
         
         Retrieves the Cost Per Unit value for the specified material. 
@@ -193,7 +193,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_costperunit(self, material, value):
+    def set_cost_per_unit(self, material, value):
         """
         
         Sets the Cost Per Unit value for the specified material. 
@@ -215,7 +215,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_costtype(self, material):
+    def get_cost_type(self, material):
         """
         
         Retrieves the way costs are calculated for the specified material. 
@@ -251,7 +251,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
-    def set_costtype(self, material, costType):
+    def set_cost_type(self, material, costType):
         """
         
         Sets the way how costs are calculated for the specified material. 
@@ -513,7 +513,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, str)
 
-    def get_embodiedenergy(self, material):
+    def get_embodied_energy(self, material):
         """
         
         Retrieves the Initial Embodied Energy value for the specified material. 
@@ -537,7 +537,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_embodiedenergy(self, material, value):
+    def set_embodied_energy(self, material, value):
         """
         
         Sets the Initial Embodied Energy value for the specified material. 
@@ -558,7 +558,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_energymaintenance(self, material):
+    def get_energy_maintenance(self, material):
         """
         
         Retrieves the Annual Maintenance Energy value for the specified material. 
@@ -582,7 +582,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_energymaintenance(self, material, value):
+    def set_energy_maintenance(self, material, value):
         """
         
         Sets the Annual Maintenance Energy value for the specified material. 
@@ -603,7 +603,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_extemissivity(self, material):
+    def get_ext_emissivity(self, material):
         """
         
         Retrieves the External Emissivity value for the specified material. The 
@@ -628,7 +628,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_extemissivity(self, material, value):
+    def set_ext_emissivity(self, material, value):
         """
         
         Sets the External Emissivity value for the specified material. 
@@ -649,7 +649,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_extroughness(self, material):
+    def get_ext_roughness(self, material):
         """
         
         Retrieves the External Roughness value for the specified material. 
@@ -673,7 +673,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_extroughness(self, material, value):
+    def set_ext_roughness(self, material, value):
         """
         
         Sets the External Roughness value for the specified material. 
@@ -694,7 +694,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_extspecularity(self, material):
+    def get_ext_specularity(self, material):
         """
         
         Retrieves the External Specularity value for the specified material. 
@@ -718,7 +718,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_extspecularity(self, material, value):
+    def set_ext_specularity(self, material, value):
         """
         
         Sets the External Specularity value for the specified material. 
@@ -739,7 +739,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_greenhousegas(self, material):
+    def get_greenhouse_gas(self, material):
         """
         
         Retrieves the Greenhouse Gas Emission value for the specified material. 
@@ -763,7 +763,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_greenhousegas(self, material, value):
+    def set_greenhouse_gas(self, material, value):
         """
         
         Sets the Greenhouse Gas Emission value for the specified material. 
@@ -808,7 +808,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
-    def get_intemissivity(self, material):
+    def get_int_emissivity(self, material):
         """
         
         Retrieves the Internal Emissivity value for the specified material. 
@@ -832,7 +832,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_intemissivity(self, material, value):
+    def set_int_emissivity(self, material, value):
         """
         
         Sets the Internal Emissivity value for the specified material. 
@@ -853,7 +853,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_introughness(self, material):
+    def get_int_roughness(self, material):
         """
         
         Retrieves the Internal Roughness value for the specified material. 
@@ -877,7 +877,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_introughness(self, material, value):
+    def set_int_roughness(self, material, value):
         """
         
         Sets the Internal Roughness value for the specified material. 
@@ -898,7 +898,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_intspecularity(self, material):
+    def get_int_specularity(self, material):
         """
         
         Retrieves the Internal Specularity value for the specified material. 
@@ -922,7 +922,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_intspecularity(self, material, value):
+    def set_int_specularity(self, material, value):
         """
         
         Sets the Internal Specularity value for the specified material. 
@@ -1402,7 +1402,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_lifespan(self, material):
+    def get_life_span(self, material):
         """
         
         Retrieves the Expected Life value for the specified material. 
@@ -1426,7 +1426,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_lifespan(self, material, value):
+    def set_life_span(self, material, value):
         """
         
         Sets the lifespanid Reference value for the specified material. 
@@ -1447,7 +1447,7 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_maintenancecost(self, material):
+    def get_maintenance_cost(self, material):
         """
         
         Retrieves the Annual Maintenance Costs value for the specified material. 
@@ -1471,7 +1471,7 @@ class Material(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
-    def set_maintenancecost(self, material, value):
+    def set_maintenance_cost(self, material, value):
         """
         
         Sets the Annual Maintenance Costs value for the specified material. 
@@ -1988,7 +1988,10 @@ class Material(object):
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
 
-
+    default = property(fset = set_default, doc = "Set this property to make the"
+                       " specified material the default for all new objects of"
+                       " the same element type")
+    
 
 if __name__ == "__main__":
     x = Material()

@@ -1030,7 +1030,8 @@ class Grid(object):
         Getting this property returns the following value(s).
         
         zone 
-        The zero-based index of the zone within which the specified grid cell is most likely located. 
+        The zero-based index of the zone within which the specified grid cell 
+        is most likely located. 
         
         Relevant Data Table(s)
         
@@ -1046,14 +1047,36 @@ class Grid(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
-
-
-
-
-
-
-
-
+    average = property(fget = get_average, doc = "This property returns three"
+                       " values - the average value of all enabled grid nodes,"
+                       " the number of enabled grid nodes, and the fraction of"
+                       " enabled nodes above the clipping threshold"
+                       " (the minimum scale value)")
+    
+    axis = property(fget = get_axis, fset = set_axis, 
+                        doc = "The grid axis, being the axis within which the"
+                        " 2D slice has been drawn")
+    
+    data = property(fget = get_data, fset = set_data, 
+                        doc = "Each grid cell of the analysis grid can store up"
+                        " to 5 different values, as displayed within the"
+                        " selection list in the DATA & SCALE section of the"
+                        " Analysis Grid Panel")
+    
+    fraction = property(fset = set_fraction, doc = "This property is a shortcut"
+                        " for setting the grid base offset when animating"
+                        " through 3D data")
+    
+    offset = property(fget = get_offset, fset = set_offset, 
+                        doc = "The grid base value, the offset distance of the"
+                        " 2D grid section from the base of the 3D grid")
+    
+    range = property(fget = get_range, doc = "Getting this property returns the"
+                     " minimum and maximum base offsets in the current axis")
+    
+    title = property(fget = get_title, fset = set_title, 
+                        doc = "The title of the current analysis grid")
+    
 
 
 if __name__ == "__main__":
@@ -1100,6 +1123,8 @@ if __name__ == "__main__":
     #print x.get_vector(5, 10)
     #x.set_vector(5, 10, 0, 245, 100)
     #print x.get_zone(5, 3, True)
+    #print x.title
+    #x.title = "TEST"
     
     print "Tests completed"
     

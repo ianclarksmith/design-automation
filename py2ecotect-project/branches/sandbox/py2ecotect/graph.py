@@ -320,7 +320,7 @@ class Graph(object):
         arg_str = string_util._convert_args_to_string("graph.draw.text2d", x, y, string)
         py2ecotect.conversation.Exec(arg_str)
     
-    def mouseevent(self, action, x, y):
+    def mouse_event(self, action, x, y):
         """
         
         Parameter(s)
@@ -360,7 +360,7 @@ class Graph(object):
         arg_str = string_util._convert_args_to_string("graph.mouseevent", action, x, y)
         py2ecotect.conversation.Exec(arg_str)
     
-    def pandown(self, shift = True):
+    def pan_down(self, shift = True):
         """
         
         Pans the current results graph in the down direction by an increment of 10 deg. 
@@ -376,7 +376,7 @@ class Graph(object):
         arg_str = string_util._convert_args_to_string("graph.pandown", shift)
         py2ecotect.conversation.Exec(arg_str)
     
-    def panleft(self, shift = True):
+    def pan_left(self, shift = True):
         """
         
         Pans the current results graph in the left direction by an increment of 10 deg. 
@@ -392,7 +392,7 @@ class Graph(object):
         arg_str = string_util._convert_args_to_string("graph.panleft", shift)
         py2ecotect.conversation.Exec(arg_str)
     
-    def panright(self, shift = True):
+    def pan_right(self, shift = True):
         """
         
         Pans the current results graph in the right direction by an increment of 10 deg. 
@@ -408,7 +408,7 @@ class Graph(object):
         arg_str = string_util._convert_args_to_string("graph.panright", shift)
         py2ecotect.conversation.Exec(arg_str)
     
-    def panup(self, shift = True):
+    def pan_up(self, shift = True):
         """
         
         Pans the current results graph in the up direction by an increment of 10 deg. 
@@ -512,7 +512,7 @@ class Graph(object):
         """
         py2ecotect.conversation.Exec("graph.show")
     
-    def zoomin(self, shift = True):
+    def zoom_in(self, shift = True):
         """
         
         Zooms in on the current graph by an increment of 10 deg. 
@@ -528,7 +528,7 @@ class Graph(object):
         arg_str = string_util._convert_args_to_string("graph.zoomin", shift)
         py2ecotect.conversation.Exec(arg_str)
     
-    def zoomout(self, shift = True):
+    def zoom_out(self, shift = True):
         """
         
         Zooms out from the current graph by an increment of 10 deg. 
@@ -809,6 +809,10 @@ class Graph(object):
         arg_str = string_util._convert_args_to_string("set.graph.tab", index)
         py2ecotect.conversation.Exec(arg_str)
 
+    tab = property(fget = get_tab, fset = set_tab, 
+                        doc = "The currently selected tab within the Analysis"
+                        " Page in the main application window")
+
 
 if __name__ == "__main__":
     
@@ -846,6 +850,9 @@ if __name__ == "__main__":
     #set_size(500,250)
     #print x.get_tab()
     #set_tab(0)
+    
+    #print x.tab
+    #x.tab = 3
     
     print "Tests completed"
     

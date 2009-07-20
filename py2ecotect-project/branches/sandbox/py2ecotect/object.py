@@ -100,7 +100,7 @@ class Object(object):
         arg_str = string_util._convert_args_to_string("object.delete", self._id)
         py2ecotect.conversation.Exec(arg_str)
         
-    def delnode(self, node):
+    def del_node(self, node):
         """
         
         The delnode command removes the specified node from the specified object. 
@@ -356,7 +356,7 @@ class Object(object):
                                                      azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotateaxis(self, rx, ry, rz):
+    def rotate_axis(self, rx, ry, rz):
         """
         
         Rotates the specified object about the Transformation Origin (see set.
@@ -378,7 +378,7 @@ class Object(object):
                                                       self._id, rx, ry, rz)
         py2ecotect.conversation.Exec(arg_str)
         
-    def rotatereverse(self, azi, alt):
+    def rotate_reverse(self, azi, alt):
         """
         
         Similar to object.rotate, this command rotates the specified object 
@@ -984,7 +984,7 @@ class Object(object):
                                                      self._id)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_distanceto(self, x, y, z):
+    def get_distance_to(self, x, y, z):
         """
         
         Returns a single floating point value, being the distance between the 
@@ -1190,7 +1190,7 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_firstnode(self):
+    def get_first_node(self):
         """
         
         Returns the zero-based absolute index of its first node. 
@@ -1432,7 +1432,7 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_lastnode(self):
+    def get_last_node(self):
         """
         
         Returns the zero-based absolute index of its last node. 
@@ -1708,7 +1708,7 @@ class Object(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_panelarea(self):
+    def get_panel_area(self):
         """
         
         Retrieves the surface area value overlapping with a WINDOW or DOOR 
@@ -1935,7 +1935,7 @@ class Object(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_sameside(self, x1, y1, z1, x2, y2, z2):
+    def get_same_side(self, x1, y1, z1, x2, y2, z2):
         """
         
         Returns a single integer value, either 0 (false) or 1 (true), depending 
@@ -2080,7 +2080,7 @@ class Object(object):
                                                      self._id, state)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_sunangles(self):
+    def get_sun_angles(self):
         """
         
         Returns the objects vertical shadow angle (VSA, always assuming it as a 
@@ -2390,197 +2390,10 @@ class Object(object):
         
     id = property(fget = get_id, doc = "Id of the object")
     
-    activation = property(fget = get_activation, doc = "The fractional"
-                          " activation value of the specified object for the"
-                          " given day and hour. This will be a value between"
-                          " 0 - 1, where 0 is off and 1 is on")
-    
-    alternate = property(fget = get_alternate, fset = set_alternate, 
-                        doc = "The index of the alternate material to the"
-                        " specified object")
-    
-    angle = property(fget = get_angle, doc = "The angle, in degrees, of the"
-                     " surface normal of a planar object")
-    
-    area = property(fget = get_area, doc = "The surface area for the specified"
-                    " object, measured in square metres")
-    
-    attr1 = property(fget = get_attr1, fset = set_attr1, 
-                        doc = "The calculated value stored as Attribute Number"
-                        " 1 for the specified object")
-    
-    attr2 = property(fget = get_attr2, fset = set_attr2, 
-                        doc = "The calculated value stored as Attribute Number"
-                        " 2 for the specified object")
-    
-    attr3 = property(fget = get_attr3, fset = set_attr3, 
-                        doc = "The calculated value stored as Attribute Number"
-                        " 3 for the specified object")
-    
-    center = property(fget = get_center, fset = set_center, 
-                        doc = "The values of the object centre are given in"
-                        " absolute world coordinates")
-    
-    child_extents= property(fget = get_child_extents, fset = set_child_extents, 
-                        doc = "The size and location of a child object within"
-                        " a parent object")
-    
-    coplanar = property(fget = get_coplanar, doc = "Determines if a point is"
-                        " co-planar with the specified object. Onviously this"
-                        " only works with objects that are closed planar"
-                        " surfaces")
-    
     current = property(fset = set_current, doc = "Several actions within"
                        " ECOTECT act on the current object (sun-path diagrams,"
                        " etc). Set this property of an object to ensure that it"
                        " is the current object before invoking a command")
-    
-    distanceto = property(fget = get_distanceto, doc = "Returns a single"
-                          " floating point value, being the distance between"
-                          " the specified object and the specified 3D point. If"
-                          " this is a POINT object, the distance is the"
-                          " point-to-point distance. If the object is planar,"
-                          " it is the distance of the specified point in line"
-                          " with the plane of the object, even if this point is"
-                          " outside the object's boundaries")
-    
-    equation = property(fget = get_equation, fset = set_equation, 
-                        doc = "Values used to calculate the plane equation for"
-                        " the specified object")
-
-    exposure = property(fget = get_exposure, doc = "The surface area"
-                        " of an object that is exposed to outside conditions."
-                        " Only works for planar objects.")
-    
-    extents = property(fget = get_extents, doc = "The overall size for the"
-                       " specified object, measured in millimetres")
-    
-    extents_2dpt= property(fget = get_extents_2dpt, doc = "Coordinates for the"
-                           " nominated point on the face of the specified"
-                           " object. Note that this command only works for"
-                           " planar objects")
-    
-    extents_max= property(fget = get_extents_max, doc = "The 3D coordinates for"
-                          " the maximum extent of the selected object")
-    
-    extents_min= property(fget = get_extents_min, doc = "The coordinates for"
-                          " the minimum extent of the selected object")
-    
-    firstnode = property(fget = get_firstnode, doc = "The zero-based absolute"
-                         " index of its first node")
-    
-    flag = property(fget = get_flag, fset = set_flag, 
-                        doc = "In ECOTECT, objects have a range of boolean"
-                        " flags associated with them that are used at various"
-                        " times")
-    
-    incidence = property(fget = get_incidence, doc = "The angle in degrees"
-                         " between the surface normal of the specified object"
-                         " and the nominated 3D point. This is effectively the"
-                         " incidence angle of a ray fired towards the geometric"
-                         " centre of the object from the nominated point. If"
-                         " the object is not planar, the angle value returned"
-                         " will be in relation to the positive x axis")
-    
-    inside = property(fget = get_inside, doc = "Determines if the specified"
-                      " point is within the boundary of the specified object,"
-                      " either 0 for false or 1 for true")
-    
-    intersect = property(fget = get_intersect, doc = "The coordinates of the"
-                         " intersection point between a line joining the two"
-                         " nominated points with the plane of the specified"
-                         " object. This command only works with planar objects")
-    
-    lastnode = property(fget = get_lastnode, doc = "The zero-based absolute"
-                        " index of its last node")
-    
-    length = property(fget = get_length, doc = "The length value for the"
-                      " specified object, measured in millimetres. This command"
-                      " only works on linear objects")
-    
-    link = property(fget = get_link, doc = "The absolute index of the object to"
-                    " which the specified object is linked.")
-    
-    mask = property(fget = get_mask, fset = set_mask, 
-                        doc = "The index of the object's shading mask. The"
-                        " shading mask assigned to each object determines when"
-                        " and by how much the object is overshadowed at any"
-                        " particular time")
-    
-    material = property(fget = get_material, fset = set_material, 
-                        doc = "The index of the object's primary material")
-    
-    node_position = property(fget = get_node_position, fset = set_node_position, 
-                        doc = "The position of the node in absolute world"
-                        " coordinates for each of the major axes")
-    
-    nodes = property(fget = get_nodes, doc = "The number of nodes in the"
-                     " specified object")
-    
-    normal = property(fget = get_normal, doc = "The values corresponding to the"
-                      " x, y and z axis components for the normal of the"
-                      " specified object")
-    
-    panelarea = property(fget = get_panelarea, doc = "The surface area value"
-                         " overlapping with a WINDOW or DOOR object in an"
-                         " adjacent zone, measured in square metres")
-    
-    pt_even = property(fget = get_pt_even, doc = "Information about how sample"
-                       " points are evenly distributed across an object")
-    
-    pt_initialise= property(fget = get_pt_initialise, doc = "This property"
-                            " allows you to initiate this process for the"
-                            " specified object")
-    
-    pt_random= property(fget = get_pt_random, doc = "Information about how"
-                        " sample points are randomly distributed across an"
-                        " object")
-    
-    reflect = property(fget = get_reflect, doc = "Reflects the nominated 3D"
-                       " point around the plane of the specified object")
-    
-    resolution = property(fget = get_resolution, fset = set_resolution, 
-                        doc = "The current curve resolution to use for virtual"
-                        " polylines, for the specified object")
-    
-    sameside = property(fget = get_sameside, doc = "A single integer value,"
-                        " either 0 (false) or 1 (true), depending on whether"
-                        " the two nominated points are on the same side of the"
-                        " specified object's plane equation")
-    
-    schedule = property(fget = get_schedule, fset = set_schedule, 
-                        doc = "The index value for the specified object's"
-                        " activation schedule. The activation schedule"
-                        " determines when and how much an object is turned on"
-                        " or off")
-    
-    selected = property(fget = get_selected, fset = set_selected, 
-                        doc = "The selection state of the specified object. A"
-                        " value of 1 means the object is part of the current"
-                        " selection set, whilst a value of 0 means that it is"
-                        " not")
-    
-    sunangles = property(fget = get_sunangles, doc = "The objects vertical"
-                         " shadow angle (VSA, always assuming it as a vertical"
-                         " surface) and horizontal shadow angle (HSA), given in"
-                         " decimal degrees")
-    
-    tag = property(fget = get_tag, fset = set_tag, 
-                        doc = "Tags are simply indicators to ECOTECT that the"
-                        " object performs additional functions or is"
-                        " specifically marked for certain calculations")
-    
-    type = property(fget = get_type, fset = set_type, 
-                        doc = "The element type of the specified object")
-    
-    underground = property(fget = get_underground, doc = "The surface area that"
-                           " is underground")
-    
-    vector = property(fget = get_vector, fset = set_vector, 
-                        doc = "The extrusion vector of the specified object")
-    
-    zone = property(fget = get_zone, fset = set_zone, 
-                        doc = "The zone index of the specified object")
 
 
 if __name__ == "__main__":

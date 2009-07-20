@@ -93,7 +93,7 @@ class Grid3D(object):
     # Properties
     #===========================================================================
     
-    def get_blockage(self, i, j, k, state):
+    def set_blockage(self, i, j, k, state):
         """
         
         Sets the CFD blockage flag of the specified grid cell. When in CFD mode, 

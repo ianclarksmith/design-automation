@@ -138,7 +138,7 @@ class Node(object):
                                                       azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotateaxis(self, x, y, z):
+    def rotate_axis(self, x, y, z):
         """
         
         Rotates the specified node in the last created object about the 
@@ -162,7 +162,7 @@ class Node(object):
                                                        x, y, z)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotatereverse(self, azi, alt):
+    def rotate_reverse(self, azi, alt):
         """
         
         Similar to node.rotate, this command rotates the specified node in the 
@@ -598,29 +598,6 @@ class Node(object):
 
 
     id = property(fget = get_id, doc = "Id of the Node object")
-    
-    flag = property(fget = get_flag, fset = set_flag, 
-                        doc = "The state of individual node flags")
-    
-    flags = property(fget = get_flags, doc = "A value representing the total of"
-                     " all the node's flags")
-    
-    link = property(fget = get_link, fset = set_link, 
-                        doc = "The node or object this node is linked to")
-    
-    modifier = property(fget = get_modifier, fset = set_modifier, 
-                        doc = "The node modifier value")
-    
-    position = property(fget = get_position, fset = set_position, 
-                        doc = "The position of the node in absolute world"
-                        " coordinates in each of the major axes")
-    
-    selected = property(fget = get_selected, fset = set_selected, 
-                        doc = "The selection state of the specified node")
-    
-    type = property(fget = get_type, fset = set_type, doc = "The node type for"
-                    " the specified node in the last created object")
-
 
 if __name__ == "__main__":
     #x = Node(255, 3, 1000, 2000, 0)

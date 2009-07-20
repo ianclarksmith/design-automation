@@ -198,7 +198,7 @@ class Project(object):
                                                      timezone, update)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_locname(self):
+    def get_loc_name(self):
         """
         
         Retrieves the name of the current model location. 
@@ -216,7 +216,7 @@ class Project(object):
         val = py2ecotect.conversation.Request("get.project.locname")
         return string_util._convert_str_to_type(val, str)
 
-    def set_locname(self, name):
+    def set_loc_name(self, name):
         """
         
         Sets the name of the current model location. 
@@ -523,11 +523,7 @@ class Project(object):
     latitude = property(fget = get_latitude, fset = set_latitude, 
                         doc = "The latitude of the current model")
     
-    location = property(fget = get_location, fset = set_location, 
-                        doc = "The location of the current model as"
-                        " latitude, longitude and timezone")
-    
-    locname = property(fget = get_locname, fset = set_locname, 
+    loc_name = property(fget = get_loc_name, fset = set_loc_name, 
                         doc = "The name of the current model location")
     
     longitude = property(fget = get_longitude, fset = set_longitude, 

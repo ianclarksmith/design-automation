@@ -233,6 +233,26 @@ class Masks(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
+    def set_object(self, index, object):
+        """
+        
+        Sets the object to which the specified mask will belong. You can use 
+        this property to change shading masks at any time during a calculation. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        index 
+        The zero-based index of the shading mask. 
+        
+        object 
+        The zero-based index of the object. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.masks.object", index, 
+                                                      object)
+        py2ecotect.conversation.Exec(arg_str)
+
     def get_percentage(self, index):
         """
         
@@ -445,6 +465,9 @@ class Masks(object):
         py2ecotect.conversation.Exec(arg_str)
 
 
+    count  = property(fget = get_count, doc = "The number of shading masks in"
+                      " the current list")
+
 
 if __name__ == "__main__":
     x = Masks()
@@ -466,6 +489,7 @@ if __name__ == "__main__":
     #print x.get_percentage_index(1, 5, 5)
     #print x.get_shading(4, 0, 45)
     #x.set_shading(1, 0, 45, 0.5)
+    #print x.count
     
     
     print "Tests completed"
