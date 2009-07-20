@@ -2,7 +2,7 @@ import keyword
 from util import *
 
 from py2rhino.data import gen_py2rhino as p2r 
-in_folder = "..\\data\\gen_rhino2py\\"
+in_folder = "..\\data\\gen_py2rhino\\"
 out_folder = "..\\"
 #===============================================================================
 # Get the data
@@ -19,9 +19,34 @@ def get_data_dictionary():
                 for key2 in sorted(mod.__dict__.keys()):
                     if not key2.startswith("__"):
                         data_dict[key1][key2] = mod.__dict__[key2]
+                        
+    #overwrite we overwrite the array strings with the corrected ones
+    
     return data_dict
 
-
+def write_array_type_strings(data_dict):
+    counter = 0
+    f = open(in_folder + "_array_type_strings.py", mode='w')
+    for module_name in sorted(data_dict.keys()):
+        w(f, ('"', module_name, '": {'), tabs=0, nls=0, nle=1)
+        for method_name in sorted(data_dict[module_name].keys()):
+            has_array = False
+            param_dict = data_dict[module_name][method_name]['params_html']
+            for param_num in param_dict.keys():
+                type_string = param_dict[param_num]['type_string']
+                if type_string.startswith('arr'):
+                    has_array = True
+                    counter += 1
+            if has_array:
+                w(f, ('"', method_name, '": {'), tabs=1, nls=0, nle=1)
+                for param_num in data_dict[module_name][method_name]['params_html'].keys():
+                    name = param_dict[param_num]['name']
+                    type_string = param_dict[param_num]['type_string']
+                    w(f, ('"', name, '": "', type_string, '",'), tabs=2, nls=0, nle=1)
+                w(f, '},', tabs=1, nls=0, nle=1)
+        w(f, '},', tabs=0, nls=0, nle=1)
+    f.close()
+    print counter
 #===============================================================================
 # Run
 #===============================================================================
@@ -181,7 +206,9 @@ def write_class_method(method_dict, f):
 # Run
 #===============================================================================
 if __name__ == '__main__':
-    write_classes(get_data_dictionary())
+    data_dict = get_data_dictionary()
+    write_array_type_strings(data_dict)
+    #write_classes(data_dict)
     print "done"
 
 
