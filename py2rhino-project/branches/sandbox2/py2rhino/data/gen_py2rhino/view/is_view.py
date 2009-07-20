@@ -1,7 +1,8 @@
 is_view = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "is_view",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "IsView",
+    "output_package_name": "view",
+    "output_module_name": "is_view",
 
     "doc_html": """
         Verifies that the specified view exists.

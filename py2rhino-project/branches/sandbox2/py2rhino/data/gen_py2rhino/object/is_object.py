@@ -1,7 +1,8 @@
 is_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "is_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "IsObject",
+    "output_package_name": "object",
+    "output_module_name": "is_object",
 
     "doc_html": """
         Verifies the existence of an object.

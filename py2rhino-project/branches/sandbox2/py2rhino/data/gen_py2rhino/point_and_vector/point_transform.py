@@ -1,7 +1,8 @@
 point_transform = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "point_transform",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "PointTransform",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "point_transform",
 
     "doc_html": """
         Transforms a 3-D point.

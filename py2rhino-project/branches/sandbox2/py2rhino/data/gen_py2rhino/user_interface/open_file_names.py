@@ -1,7 +1,8 @@
 open_file_names = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "open_file_names",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "OpenFileNames",
+    "output_package_name": "user_interface",
+    "output_module_name": "open_file_names",
 
     "doc_html": """
         Displays a Windows file open dialog box allowing the user to select one or more file names. Note, this function does not open files.

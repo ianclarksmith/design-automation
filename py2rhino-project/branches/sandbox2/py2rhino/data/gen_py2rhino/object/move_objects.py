@@ -1,7 +1,8 @@
 move_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "move_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "MoveObjects",
+    "output_package_name": "object",
+    "output_module_name": "move_objects",
 
     "doc_html": """
         Copies one or more objects.

@@ -1,7 +1,8 @@
 get_point_on_curve = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "get_point_on_curve",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "GetPointOnCurve",
+    "output_package_name": "user_interface",
+    "output_module_name": "get_point_on_curve",
 
     "doc_html": """
         Pauses for user input of a point constrained to a curve object.

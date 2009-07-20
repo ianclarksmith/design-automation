@@ -1,7 +1,8 @@
 alias_macro = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "alias_macro",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AliasMacro",
+    "output_package_name": "application",
+    "output_module_name": "alias_macro",
 
     "doc_html": """
         Returns or modifies the macro of a command alias.

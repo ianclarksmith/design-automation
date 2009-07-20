@@ -1,7 +1,8 @@
 point_in_planar_closed_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "point_in_planar_closed_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "PointInPlanarClosedCurve",
+    "output_package_name": "curve",
+    "output_module_name": "point_in_planar_closed_curve",
 
     "doc_html": """
         Determines if a point is inside of a closed curve, on  a closed curve, or outside of a closed curve.

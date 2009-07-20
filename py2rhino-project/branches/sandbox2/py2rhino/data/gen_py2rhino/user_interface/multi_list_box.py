@@ -1,7 +1,8 @@
 multi_list_box = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "multi_list_box",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "MultiListBox",
+    "output_package_name": "user_interface",
+    "output_module_name": "multi_list_box",
 
     "doc_html": """
         Displays a list of items in a multiple-selection list box dialog.

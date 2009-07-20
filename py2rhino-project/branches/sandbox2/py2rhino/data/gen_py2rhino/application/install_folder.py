@@ -1,7 +1,8 @@
 install_folder = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "install_folder",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "InstallFolder",
+    "output_package_name": "application",
+    "output_module_name": "install_folder",
 
     "doc_html": """
         Returns the full path to Rhino's installation folder.

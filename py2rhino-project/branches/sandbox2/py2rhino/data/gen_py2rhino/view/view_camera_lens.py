@@ -1,7 +1,8 @@
 view_camera_lens = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_camera_lens",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewCameraLens",
+    "output_package_name": "view",
+    "output_module_name": "view_camera_lens",
 
     "doc_html": """
         Returns or sets the 35mm camera lens length of the specified perspective projection view.

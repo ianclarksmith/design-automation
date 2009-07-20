@@ -40,7 +40,6 @@ def parse_docs():
             file_name = file[:-4]
             if file_name != folder_name:
                 
-                
                 #get all the lines in the file, ignoring the first line and any subsequent empty lines
                 contents = linecache.getlines(in_folder + folder_name +"\\"+ file)
                 contents = contents[1:]
@@ -75,7 +74,6 @@ def parse_docs():
                 assert contents[line_num_returns] == "Returns"
                 assert contents[line_num_example] == "Example"
                 
-
                 #get the help
                 content_help = []
                 if (line_num_syntax - line_num_help) > 1:
@@ -135,16 +133,10 @@ def parse_docs():
                             param_prefix = "str"
                         elif param_name.startswith("va"): 
                             param_name = param_name[2:]
-                            param_prefix = "var"
+                            param_prefix = "va"
                         elif param_name.startswith("n"): 
                             param_name = param_name[1:]
-                            param_prefix = "int"
-                        elif param_name.startswith("arrdbl"): 
-                            param_name = param_name[6:]
-                            param_prefix = "arr"
-                        elif param_name.startswith("arrstr"): 
-                            param_name = param_name[6:]
-                            param_prefix = "arr"                             
+                            param_prefix = "n"
                         elif param_name.startswith("arr"): 
                             param_name = param_name[3:]
                             param_prefix = "arr"
@@ -263,12 +255,15 @@ def write_modules(data):
             #===============================================
             #Start writing the data to the file
             w(f, mod_name+' = {', tabs = 0, nls = 0, nle=0)
-            #write module name
-            w(f, ('"module_name": "', pack_name, '",'), tabs = 1, nls = 1, nle=0)
-            #write class name
-            w(f, ('"class_name": "', underscore_to_camel(pack_name), '",'), tabs = 1, nls = 1, nle=0)            
+            #write folder name where the text file was douns
+            w(f, ('"input_folder_name": "', folder_name, '",'), tabs = 1, nls = 1, nle=0)         
             #write file name
-            w(f, ('"method_name": "', mod_name, '",'), tabs = 1, nls = 1, nle=0)
+            w(f, ('"input_file_name": "', file_name, '",'), tabs = 1, nls = 1, nle=0)            
+            #write the name of the package this file is in
+            w(f, ('"output_package_name": "', pack_name, '",'), tabs = 1, nls = 1, nle=0)         
+            #write the name of this file
+            w(f, ('"output_module_name": "', mod_name, '",'), tabs = 1, nls = 1, nle=0)            
+
             #write help
             w(f, '"doc_html": """', tabs = 1, nls = 2, nle=1)
             w(f, data[folder_name][file_name]['help'], tabs = 2, nle=1)

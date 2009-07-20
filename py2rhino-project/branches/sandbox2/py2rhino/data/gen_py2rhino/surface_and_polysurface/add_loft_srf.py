@@ -1,7 +1,8 @@
 add_loft_srf = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_loft_srf",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddLoftSrf",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_loft_srf",
 
     "doc_html": """
         Adds a surface created by lofting curves to the document.
@@ -82,7 +83,7 @@ add_loft_srf = {
             "name": "Value",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "type_string": "n",
             "doc": """
         A value based on the specified intStyle. If intStyle=1 (Rebuild), then nValue is the number of control point used to rebuild. If intstyle=1 is specified and this argument is omitted, then curves will be rebuilt using 10 control points. If intStyle=2 (Refit), then nValue is the tolerance used to rebuild. If intstyle=2 is specified and this argument is omitted, then the document's absolute tolerance us used for refitting.
             """

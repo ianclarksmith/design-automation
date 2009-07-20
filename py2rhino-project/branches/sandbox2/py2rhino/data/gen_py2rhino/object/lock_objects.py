@@ -1,7 +1,8 @@
 lock_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "lock_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "LockObjects",
+    "output_package_name": "object",
+    "output_module_name": "lock_objects",
 
     "doc_html": """
         Locks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.

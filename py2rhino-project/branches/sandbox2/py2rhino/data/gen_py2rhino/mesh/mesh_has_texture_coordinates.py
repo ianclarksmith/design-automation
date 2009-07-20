@@ -1,7 +1,8 @@
 mesh_has_texture_coordinates = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_has_texture_coordinates",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshHasTextureCoordinates",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_has_texture_coordinates",
 
     "doc_html": """
         Verifies a mesh object has texture coordinates.

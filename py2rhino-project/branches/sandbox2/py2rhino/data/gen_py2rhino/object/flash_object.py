@@ -1,7 +1,8 @@
 flash_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "flash_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "FlashObject",
+    "output_package_name": "object",
+    "output_module_name": "flash_object",
 
     "doc_html": """
         Causes the selection state of one or more objects to change momentarily so the object appears to flash on the screen.

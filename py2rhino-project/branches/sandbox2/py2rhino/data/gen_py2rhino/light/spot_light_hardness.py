@@ -1,7 +1,8 @@
 spot_light_hardness = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "spot_light_hardness",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "SpotLightHardness",
+    "output_package_name": "light",
+    "output_module_name": "spot_light_hardness",
 
     "doc_html": """
         Returns or changes the hardness of a spot light.  Spotlight hardness controls the fully illuminated region.

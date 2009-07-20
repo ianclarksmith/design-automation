@@ -1,7 +1,8 @@
 split_brep = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "split_brep",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SplitBrep",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "split_brep",
 
     "doc_html": """
         Splits a brep.  A brep can be either a surface with a single face or a polysurface.

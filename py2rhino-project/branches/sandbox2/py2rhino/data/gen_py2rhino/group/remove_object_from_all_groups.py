@@ -1,7 +1,8 @@
 remove_object_from_all_groups = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "remove_object_from_all_groups",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "RemoveObjectFromAllGroups",
+    "output_package_name": "group",
+    "output_module_name": "remove_object_from_all_groups",
 
     "doc_html": """
         Removes a single object from any and all groups that it is a member. Neither the object nor the group can be a reference object.

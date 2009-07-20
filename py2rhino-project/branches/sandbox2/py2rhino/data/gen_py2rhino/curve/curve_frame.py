@@ -1,7 +1,8 @@
 curve_frame = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_frame",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveFrame",
+    "output_package_name": "curve",
+    "output_module_name": "curve_frame",
 
     "doc_html": """
         Returns the plane at a parameter of a curve. The plane is based on the tangent and curvature vectors at a parameter.

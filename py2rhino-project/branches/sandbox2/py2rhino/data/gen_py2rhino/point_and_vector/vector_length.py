@@ -1,7 +1,8 @@
 vector_length = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_length",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorLength",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_length",
 
     "doc_html": """
         Returns the length of a 3-D vector.

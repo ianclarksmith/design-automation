@@ -1,7 +1,8 @@
 set_object_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "set_object_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "SetObjectData",
+    "output_package_name": "user_data",
+    "output_module_name": "set_object_data",
 
     "doc_html": """
         Adds or sets a RhinoScript user data item to an object's geometry.

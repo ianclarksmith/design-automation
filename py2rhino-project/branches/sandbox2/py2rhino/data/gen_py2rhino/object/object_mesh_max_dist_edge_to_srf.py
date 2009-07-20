@@ -1,7 +1,8 @@
 object_mesh_max_dist_edge_to_srf = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_mesh_max_dist_edge_to_srf",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectMeshMaxDistEdgeToSrf",
+    "output_package_name": "object",
+    "output_module_name": "object_mesh_max_dist_edge_to_srf",
 
     "doc_html": """
         Returns or modifies an object's custom render mesh parameter's maximum distance, edge to surface property.

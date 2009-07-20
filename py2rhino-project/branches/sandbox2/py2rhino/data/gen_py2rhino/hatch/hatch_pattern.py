@@ -1,7 +1,8 @@
 hatch_pattern = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "hatch_pattern",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "HatchPattern",
+    "output_package_name": "hatch",
+    "output_module_name": "hatch_pattern",
 
     "doc_html": """
         Returns or changes a hatch object's hatch pattern.

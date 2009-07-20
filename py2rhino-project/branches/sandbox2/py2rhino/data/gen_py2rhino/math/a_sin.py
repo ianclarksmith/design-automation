@@ -1,7 +1,8 @@
 a_sin = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "a_sin",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "ASin",
+    "output_package_name": "math",
+    "output_module_name": "a_sin",
 
     "doc_html": """
         Returns the arcsine, or inverse sine, of a number. The arcsine is the angle whose sine is number. The returned angle is given in radians in the range -PI/2 to PI/2.

@@ -1,7 +1,8 @@
 is_layer_on = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_on",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerOn",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_on",
 
     "doc_html": """
         Verifies that an existing layer is on.

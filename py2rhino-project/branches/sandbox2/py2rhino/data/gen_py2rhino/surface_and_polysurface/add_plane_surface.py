@@ -1,7 +1,8 @@
 add_plane_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_plane_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddPlaneSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_plane_surface",
 
     "doc_html": """
         Creates a plane surface.

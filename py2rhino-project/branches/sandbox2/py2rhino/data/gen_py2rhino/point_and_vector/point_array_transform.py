@@ -1,7 +1,8 @@
 point_array_transform = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "point_array_transform",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "PointArrayTransform",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "point_array_transform",
 
     "doc_html": """
         Transforms an array of 3-D points.

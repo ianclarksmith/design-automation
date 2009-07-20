@@ -1,7 +1,8 @@
 surface_principal_curvature = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_principal_curvature",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfacePrincipalCurvature",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_principal_curvature",
 
     "doc_html": """
         Adds curvature curves at the evaluated point on a surface. For more information, see the Rhino help file for the Curvature command.

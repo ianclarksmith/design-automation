@@ -1,7 +1,8 @@
 add_ellipse = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_ellipse",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddEllipse",
+    "output_package_name": "curve",
+    "output_module_name": "add_ellipse",
 
     "doc_html": """
         Adds an elliptical curve to the document.

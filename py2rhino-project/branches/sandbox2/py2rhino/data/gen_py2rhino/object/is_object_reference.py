@@ -1,7 +1,8 @@
 is_object_reference = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "is_object_reference",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "IsObjectReference",
+    "output_package_name": "object",
+    "output_module_name": "is_object_reference",
 
     "doc_html": """
         Verifies that an object is a reference object.  Reference objects are object that are not part of the current document.

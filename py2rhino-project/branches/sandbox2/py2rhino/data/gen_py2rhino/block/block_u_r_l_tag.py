@@ -1,7 +1,8 @@
 block_u_r_l_tag = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_u_r_l_tag",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockURLTag",
+    "output_package_name": "block",
+    "output_module_name": "block_u_r_l_tag",
 
     "doc_html": """
         Returns or sets the URL tag, or description, of a block definition.

@@ -1,7 +1,8 @@
 curve_arc_length_point = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_arc_length_point",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveArcLengthPoint",
+    "output_package_name": "curve",
+    "output_module_name": "curve_arc_length_point",
 
     "doc_html": """
         Returns the point on the curve that is a specified arc length from the start of the curve.

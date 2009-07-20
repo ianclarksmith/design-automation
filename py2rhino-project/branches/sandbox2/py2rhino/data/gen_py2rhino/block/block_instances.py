@@ -1,7 +1,8 @@
 block_instances = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_instances",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockInstances",
+    "output_package_name": "block",
+    "output_module_name": "block_instances",
 
     "doc_html": """
         Returns the identifiers of the inserted instances of a block.

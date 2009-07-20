@@ -1,7 +1,8 @@
 last_command_result = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "last_command_result",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "LastCommandResult",
+    "output_package_name": "application",
+    "output_module_name": "last_command_result",
 
     "doc_html": """
         Returns the result code for the last executed command.

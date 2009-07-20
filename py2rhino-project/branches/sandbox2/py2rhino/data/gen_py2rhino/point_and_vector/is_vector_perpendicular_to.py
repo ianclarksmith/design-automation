@@ -1,7 +1,8 @@
 is_vector_perpendicular_to = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "is_vector_perpendicular_to",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "IsVectorPerpendicularTo",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "is_vector_perpendicular_to",
 
     "doc_html": """
         Compares two vectors to see if they are perpendicular.

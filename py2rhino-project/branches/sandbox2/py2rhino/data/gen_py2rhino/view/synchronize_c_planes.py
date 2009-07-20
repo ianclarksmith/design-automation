@@ -1,7 +1,8 @@
 synchronize_c_planes = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "synchronize_c_planes",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "SynchronizeCPlanes",
+    "output_package_name": "view",
+    "output_module_name": "synchronize_c_planes",
 
     "doc_html": """
         Synchronizes all views and their construction plane to that of a specified view's construction plane.

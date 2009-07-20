@@ -1,7 +1,8 @@
 light_objects = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "light_objects",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "LightObjects",
+    "output_package_name": "light",
+    "output_module_name": "light_objects",
 
     "doc_html": """
         Returns the identifier of light objects in the document.

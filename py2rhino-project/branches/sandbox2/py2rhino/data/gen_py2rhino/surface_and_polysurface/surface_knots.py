@@ -1,7 +1,8 @@
 surface_knots = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_knots",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceKnots",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_knots",
 
     "doc_html": """
         Returns the knots, or knot vector, of a surface object.

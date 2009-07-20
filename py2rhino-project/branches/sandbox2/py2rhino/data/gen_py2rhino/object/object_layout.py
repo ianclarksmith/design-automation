@@ -1,7 +1,8 @@
 object_layout = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_layout",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectLayout",
+    "output_package_name": "object",
+    "output_module_name": "object_layout",
 
     "doc_html": """
         Returns or changes the layout or model space of an object.

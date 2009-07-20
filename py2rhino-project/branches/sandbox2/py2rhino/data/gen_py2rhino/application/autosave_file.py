@@ -1,7 +1,8 @@
 autosave_file = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "autosave_file",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AutosaveFile",
+    "output_package_name": "application",
+    "output_module_name": "autosave_file",
 
     "doc_html": """
         Returns or changes the file name used by Rhino's automatic file saving mechanism.

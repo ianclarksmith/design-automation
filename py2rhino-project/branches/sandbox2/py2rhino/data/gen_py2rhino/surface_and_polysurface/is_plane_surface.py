@@ -1,7 +1,8 @@
 is_plane_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_plane_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsPlaneSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_plane_surface",
 
     "doc_html": """
         Verifies an object is a plane surface. Plane surfaces can be created by the Plane command. Note, a plane surface is not a planar NURBS surface.

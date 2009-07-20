@@ -1,7 +1,8 @@
 polar = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "polar",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Polar",
+    "output_package_name": "math",
+    "output_module_name": "polar",
 
     "doc_html": """
         Returns the 3-D point that is a specified angle and distance from a 3-D point.

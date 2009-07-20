@@ -1,7 +1,8 @@
 rotate_view = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "rotate_view",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "RotateView",
+    "output_package_name": "view",
+    "output_module_name": "rotate_view",
 
     "doc_html": """
         Rotates a view. See the RotateView command in the Rhino help file for more information.

@@ -1,7 +1,8 @@
 light_count = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "light_count",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "LightCount",
+    "output_package_name": "light",
+    "output_module_name": "light_count",
 
     "doc_html": """
         Returns the number of light objects in the document.

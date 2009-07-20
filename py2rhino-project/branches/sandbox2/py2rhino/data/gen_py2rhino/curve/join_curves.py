@@ -1,7 +1,8 @@
 join_curves = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "join_curves",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "JoinCurves",
+    "output_package_name": "curve",
+    "output_module_name": "join_curves",
 
     "doc_html": """
         Joins two or more curve object together to form one or more curves or polycurves.

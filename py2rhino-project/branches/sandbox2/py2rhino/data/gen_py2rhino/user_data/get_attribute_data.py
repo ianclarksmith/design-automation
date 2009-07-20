@@ -1,7 +1,8 @@
 get_attribute_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "get_attribute_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "GetAttributeData",
+    "output_package_name": "user_data",
+    "output_module_name": "get_attribute_data",
 
     "doc_html": """
         Returns a RhinoScript user data item from an object's attributes.

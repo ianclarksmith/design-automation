@@ -1,7 +1,8 @@
 reference_objects = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "reference_objects",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "ReferenceObjects",
+    "output_package_name": "selection",
+    "output_module_name": "reference_objects",
 
     "doc_html": """
         Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.

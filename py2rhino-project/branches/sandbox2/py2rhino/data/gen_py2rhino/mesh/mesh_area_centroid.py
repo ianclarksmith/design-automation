@@ -1,7 +1,8 @@
 mesh_area_centroid = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_area_centroid",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshAreaCentroid",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_area_centroid",
 
     "doc_html": """
         Calculates the area centroid of a mesh object.

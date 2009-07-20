@@ -1,7 +1,8 @@
 combo_list_box = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "combo_list_box",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "ComboListBox",
+    "output_package_name": "user_interface",
+    "output_module_name": "combo_list_box",
 
     "doc_html": """
         Displays a list of items in a combo-style list box dialog.

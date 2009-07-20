@@ -1,7 +1,8 @@
 join_arrays = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "join_arrays",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "JoinArrays",
+    "output_package_name": "utility",
+    "output_module_name": "join_arrays",
 
     "doc_html": """
         Joins two one-dimensional arrays in to a single one-dimensional array.

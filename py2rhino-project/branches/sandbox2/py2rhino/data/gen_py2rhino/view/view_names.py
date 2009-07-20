@@ -1,7 +1,8 @@
 view_names = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_names",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewNames",
+    "output_package_name": "view",
+    "output_module_name": "view_names",
 
     "doc_html": """
         Returns the names, or titles, or identifiers of all views in the document.

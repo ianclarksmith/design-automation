@@ -1,7 +1,8 @@
 add_edge_srf = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_edge_srf",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddEdgeSrf",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_edge_srf",
 
     "doc_html": """
         Creates a surface from 2, 3, or 4 edge curves.

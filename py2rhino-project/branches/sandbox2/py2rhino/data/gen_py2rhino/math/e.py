@@ -1,7 +1,8 @@
 e = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "e",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "E",
+    "output_package_name": "math",
+    "output_module_name": "e",
 
     "doc_html": """
         Returns the value of the base of the natural system of logarithms (e).

@@ -1,7 +1,8 @@
 is_parameter_on_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_parameter_on_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsParameterOnSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_parameter_on_surface",
 
     "doc_html": """
         Verifies that a parameter space point is on a trimmed surface, or not on the trimmed portion of a surface.

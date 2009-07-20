@@ -1,7 +1,8 @@
 mesh_has_vertex_colors = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_has_vertex_colors",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshHasVertexColors",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_has_vertex_colors",
 
     "doc_html": """
         Verifies a mesh object has vertex colors.

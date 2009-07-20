@@ -1,7 +1,8 @@
 add_circle = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_circle",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddCircle",
+    "output_package_name": "curve",
+    "output_module_name": "add_circle",
 
     "doc_html": """
         Adds a circle curve to the document.

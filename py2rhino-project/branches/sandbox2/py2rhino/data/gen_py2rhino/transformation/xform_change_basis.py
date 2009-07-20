@@ -1,7 +1,8 @@
 xform_change_basis = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_change_basis",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformChangeBasis",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_change_basis",
 
     "doc_html": """
         Returns a change of basis transformation matrix.

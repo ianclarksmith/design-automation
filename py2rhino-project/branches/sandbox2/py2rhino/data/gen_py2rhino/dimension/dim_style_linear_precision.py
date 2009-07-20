@@ -1,7 +1,8 @@
 dim_style_linear_precision = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dim_style_linear_precision",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimStyleLinearPrecision",
+    "output_package_name": "dimension",
+    "output_module_name": "dim_style_linear_precision",
 
     "doc_html": """
         Returns or changes the linear display precision of a dimension style.

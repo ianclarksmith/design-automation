@@ -1,7 +1,8 @@
 vector_scale = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_scale",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorScale",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_scale",
 
     "doc_html": """
         Scales a 3-D vector.

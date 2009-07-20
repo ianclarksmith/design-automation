@@ -1,7 +1,8 @@
 delete_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "delete_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "DeleteObjects",
+    "output_package_name": "object",
+    "output_module_name": "delete_objects",
 
     "doc_html": """
         Deletes one or more objects from the document.

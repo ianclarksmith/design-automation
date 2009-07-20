@@ -1,7 +1,8 @@
 surface_surface_intersection = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_surface_intersection",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceSurfaceIntersection",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_surface_intersection",
 
     "doc_html": """
         Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.

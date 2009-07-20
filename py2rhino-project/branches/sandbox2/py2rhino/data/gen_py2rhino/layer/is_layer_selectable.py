@@ -1,7 +1,8 @@
 is_layer_selectable = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_selectable",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerSelectable",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_selectable",
 
     "doc_html": """
         Verifies that an existing layer is selectable (normal and reference).

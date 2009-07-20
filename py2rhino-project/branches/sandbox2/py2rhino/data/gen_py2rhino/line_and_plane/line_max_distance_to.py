@@ -1,7 +1,8 @@
 line_max_distance_to = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "line_max_distance_to",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "LineMaxDistanceTo",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "line_max_distance_to",
 
     "doc_html": """
         Finds the longest distance between the line, as a finite chord, and a point or another line.

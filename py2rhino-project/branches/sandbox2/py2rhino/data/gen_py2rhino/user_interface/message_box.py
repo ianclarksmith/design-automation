@@ -1,7 +1,8 @@
 message_box = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "message_box",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "MessageBox",
+    "output_package_name": "user_interface",
+    "output_module_name": "message_box",
 
     "doc_html": """
         Displays a Windows message box. A message box contains an application-defined message and title, plus any combination of predefined icons and push buttons.

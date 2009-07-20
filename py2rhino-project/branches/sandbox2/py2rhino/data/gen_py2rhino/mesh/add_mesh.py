@@ -1,7 +1,8 @@
 add_mesh = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "add_mesh",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "AddMesh",
+    "output_package_name": "mesh",
+    "output_module_name": "add_mesh",
 
     "doc_html": """
         Adds a mesh object to the document.

@@ -1,7 +1,8 @@
 object_type = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_type",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectType",
+    "output_package_name": "object",
+    "output_module_name": "object_type",
 
     "doc_html": """
         Returns the object type.

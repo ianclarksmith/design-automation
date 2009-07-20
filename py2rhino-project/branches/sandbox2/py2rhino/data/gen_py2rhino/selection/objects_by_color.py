@@ -1,7 +1,8 @@
 objects_by_color = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "objects_by_color",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "ObjectsByColor",
+    "output_package_name": "selection",
+    "output_module_name": "objects_by_color",
 
     "doc_html": """
         Returns the identifiers of all objects based on the objects' color.  Object colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.

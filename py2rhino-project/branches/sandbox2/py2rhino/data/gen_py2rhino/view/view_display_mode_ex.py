@@ -1,7 +1,8 @@
 view_display_mode_ex = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_display_mode_ex",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewDisplayModeEx",
+    "output_package_name": "view",
+    "output_module_name": "view_display_mode_ex",
 
     "doc_html": """
         Returns or sets a view's display mode.  Unlike the ViewDisplayMode method, which only allows you to set a view to wireframe, shaded, or render preview, this method allows you to set a view to any display mode including those listed in the Advanced Display Modes section of Rhino's Options dialog box.

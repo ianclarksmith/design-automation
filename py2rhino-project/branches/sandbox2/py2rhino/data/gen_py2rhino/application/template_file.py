@@ -1,7 +1,8 @@
 template_file = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "template_file",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "TemplateFile",
+    "output_package_name": "application",
+    "output_module_name": "template_file",
 
     "doc_html": """
         Returns or sets Rhino's default template file. The default template file is the template file used when Rhino starts.

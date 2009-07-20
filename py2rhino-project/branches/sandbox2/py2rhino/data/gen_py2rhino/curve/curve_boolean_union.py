@@ -1,7 +1,8 @@
 curve_boolean_union = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_boolean_union",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveBooleanUnion",
+    "output_package_name": "curve",
+    "output_module_name": "curve_boolean_union",
 
     "doc_html": """
         Calculates the union of two or more closed, planar curves and adds the results to the document. Note, curves must be coplanar.

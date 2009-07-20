@@ -1,7 +1,8 @@
 explode_polysurfaces = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "explode_polysurfaces",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ExplodePolysurfaces",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "explode_polysurfaces",
 
     "doc_html": """
         Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.

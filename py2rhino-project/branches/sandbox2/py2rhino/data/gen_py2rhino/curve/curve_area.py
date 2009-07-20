@@ -1,7 +1,8 @@
 curve_area = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_area",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveArea",
+    "output_package_name": "curve",
+    "output_module_name": "curve_area",
 
     "doc_html": """
         Returns that area of closed planar curves. The results are based on the current drawing units.

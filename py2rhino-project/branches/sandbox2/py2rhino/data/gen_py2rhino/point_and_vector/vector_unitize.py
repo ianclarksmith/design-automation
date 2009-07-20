@@ -1,7 +1,8 @@
 vector_unitize = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_unitize",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorUnitize",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_unitize",
 
     "doc_html": """
         Unitizes, or normalizes, a 3-D vector. Note, zero vectors cannot be unitized.

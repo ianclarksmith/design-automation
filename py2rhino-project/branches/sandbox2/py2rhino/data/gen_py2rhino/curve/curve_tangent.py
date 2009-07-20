@@ -1,7 +1,8 @@
 curve_tangent = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_tangent",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveTangent",
+    "output_package_name": "curve",
+    "output_module_name": "curve_tangent",
 
     "doc_html": """
         Returns a 3-D vector that is the tangent to a curve at a parameter.

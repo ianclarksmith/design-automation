@@ -1,7 +1,8 @@
 add_leader = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "add_leader",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "AddLeader",
+    "output_package_name": "dimension",
+    "output_module_name": "add_leader",
 
     "doc_html": """
         Adds an annotation leader to the document. Leader objects are planar. The array of 3-D points passed to this member should be co-planar.

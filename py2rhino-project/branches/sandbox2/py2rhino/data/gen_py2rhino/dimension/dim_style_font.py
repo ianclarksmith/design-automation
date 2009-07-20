@@ -1,7 +1,8 @@
 dim_style_font = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dim_style_font",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimStyleFont",
+    "output_package_name": "dimension",
+    "output_module_name": "dim_style_font",
 
     "doc_html": """
         Returns or changes the font used by a dimension style.

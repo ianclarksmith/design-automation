@@ -1,7 +1,8 @@
 block_instance_xform = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_instance_xform",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockInstanceXform",
+    "output_package_name": "block",
+    "output_module_name": "block_instance_xform",
 
     "doc_html": """
         Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix

@@ -1,7 +1,8 @@
 unify_mesh_normals = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "unify_mesh_normals",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "UnifyMeshNormals",
+    "output_package_name": "mesh",
+    "output_module_name": "unify_mesh_normals",
 
     "doc_html": """
         Fixes inconsistencies in the directions of faces of a mesh object.

@@ -1,7 +1,8 @@
 objects_by_type = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "objects_by_type",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "ObjectsByType",
+    "output_package_name": "selection",
+    "output_module_name": "objects_by_type",
 
     "doc_html": """
         Returns the identifiers of all objects based on the objects' geometry type.

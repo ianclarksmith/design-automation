@@ -1,7 +1,8 @@
 is_xform_zero = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "is_xform_zero",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "IsXformZero",
+    "output_package_name": "transformation",
+    "output_module_name": "is_xform_zero",
 
     "doc_html": """
         Verifies that a matrix is the zero transformation.

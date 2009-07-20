@@ -1,7 +1,8 @@
 curve_curve_intersection = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_curve_intersection",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveCurveIntersection",
+    "output_package_name": "curve",
+    "output_module_name": "curve_curve_intersection",
 
     "doc_html": """
         Calculates the intersection of two curve objects.

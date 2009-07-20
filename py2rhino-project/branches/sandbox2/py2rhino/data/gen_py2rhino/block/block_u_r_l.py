@@ -1,7 +1,8 @@
 block_u_r_l = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_u_r_l",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockURL",
+    "output_package_name": "block",
+    "output_module_name": "block_u_r_l",
 
     "doc_html": """
         Returns or sets the URL of a block definition.

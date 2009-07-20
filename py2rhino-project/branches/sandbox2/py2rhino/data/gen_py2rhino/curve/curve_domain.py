@@ -1,7 +1,8 @@
 curve_domain = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_domain",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveDomain",
+    "output_package_name": "curve",
+    "output_module_name": "curve_domain",
 
     "doc_html": """
         Returns the domain of a curve object.

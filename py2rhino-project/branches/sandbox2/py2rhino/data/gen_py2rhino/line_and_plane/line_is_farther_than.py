@@ -1,7 +1,8 @@
 line_is_farther_than = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "line_is_farther_than",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "LineIsFartherThan",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "line_is_farther_than",
 
     "doc_html": """
         Determines if the shortest distance from a line to a point or another line is greater than a specified distance.

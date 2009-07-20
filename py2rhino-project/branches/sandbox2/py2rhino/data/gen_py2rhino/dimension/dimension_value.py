@@ -1,7 +1,8 @@
 dimension_value = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dimension_value",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimensionValue",
+    "output_package_name": "dimension",
+    "output_module_name": "dimension_value",
 
     "doc_html": """
         Returns the value of a dimension object.

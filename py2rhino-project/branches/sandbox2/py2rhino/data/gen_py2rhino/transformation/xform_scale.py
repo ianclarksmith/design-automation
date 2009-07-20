@@ -1,7 +1,8 @@
 xform_scale = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_scale",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformScale",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_scale",
 
     "doc_html": """
         Returns a scale transformation matrix.

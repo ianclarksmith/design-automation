@@ -1,7 +1,8 @@
 get_point_coordinates = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "get_point_coordinates",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "GetPointCoordinates",
+    "output_package_name": "selection",
+    "output_module_name": "get_point_coordinates",
 
     "doc_html": """
         Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.

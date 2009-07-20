@@ -1,7 +1,8 @@
 is_line = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_line",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsLine",
+    "output_package_name": "curve",
+    "output_module_name": "is_line",
 
     "doc_html": """
         Verifies an object is a line curve object.

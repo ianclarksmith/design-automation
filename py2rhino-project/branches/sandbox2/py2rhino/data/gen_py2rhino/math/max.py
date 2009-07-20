@@ -1,7 +1,8 @@
 max = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "max",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Max",
+    "output_package_name": "math",
+    "output_module_name": "max",
 
     "doc_html": """
         Returns the maximum number from an array of numbers.

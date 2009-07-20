@@ -1,7 +1,8 @@
 all_procedures = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "all_procedures",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "AllProcedures",
+    "output_package_name": "utility",
+    "output_module_name": "all_procedures",
 
     "doc_html": """
         Returns the names of the  user-defined subroutines and functions resident in RhinoScript's VBScript engine.

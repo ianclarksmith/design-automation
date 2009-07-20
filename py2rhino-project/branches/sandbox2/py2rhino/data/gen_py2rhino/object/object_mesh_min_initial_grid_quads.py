@@ -1,7 +1,8 @@
 object_mesh_min_initial_grid_quads = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_mesh_min_initial_grid_quads",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectMeshMinInitialGridQuads",
+    "output_package_name": "object",
+    "output_module_name": "object_mesh_min_initial_grid_quads",
 
     "doc_html": """
         Returns or modifies an object's custom render mesh parameter's minimum initial grid quads property.

@@ -1,7 +1,8 @@
 integer_box = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "integer_box",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "IntegerBox",
+    "output_package_name": "user_interface",
+    "output_module_name": "integer_box",
 
     "doc_html": """
         Displays a dialog box prompting the user to enter a whole number.

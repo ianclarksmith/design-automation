@@ -1,7 +1,8 @@
 enable_redraw = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "enable_redraw",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "EnableRedraw",
+    "output_package_name": "document",
+    "output_module_name": "enable_redraw",
 
     "doc_html": """
         Enables or disables screen redrawing.

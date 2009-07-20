@@ -1,7 +1,8 @@
 vector_divide = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_divide",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorDivide",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_divide",
 
     "doc_html": """
         Divides a 3-D vectors by a value

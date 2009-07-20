@@ -1,7 +1,8 @@
 remove_surface_knot = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "remove_surface_knot",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "RemoveSurfaceKnot",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "remove_surface_knot",
 
     "doc_html": """
         Deletes a knot-line from a surface object.

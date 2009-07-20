@@ -1,7 +1,8 @@
 plug_ins = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "plug_ins",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "PlugIns",
+    "output_package_name": "application",
+    "output_module_name": "plug_ins",
 
     "doc_html": """
         Returns an array of registered Rhino plug-ins.

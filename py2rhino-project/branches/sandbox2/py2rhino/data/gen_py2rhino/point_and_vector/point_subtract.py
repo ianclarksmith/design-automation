@@ -1,7 +1,8 @@
 point_subtract = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "point_subtract",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "PointSubtract",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "point_subtract",
 
     "doc_html": """
         Subtracts a 3-D point or a 3-D vector from a 3-D point.

@@ -1,7 +1,8 @@
 prev_object_grip = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "prev_object_grip",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "PrevObjectGrip",
+    "output_package_name": "object_grip",
+    "output_module_name": "prev_object_grip",
 
     "doc_html": """
         Returns the previous grip index from a specified grip index of an object.

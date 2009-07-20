@@ -1,7 +1,8 @@
 curve_surface_intersection = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_surface_intersection",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveSurfaceIntersection",
+    "output_package_name": "curve",
+    "output_module_name": "curve_surface_intersection",
 
     "doc_html": """
         Calculates the intersection of a curve object with a surface object. Note, this function works on the untrimmed portion of the surface.

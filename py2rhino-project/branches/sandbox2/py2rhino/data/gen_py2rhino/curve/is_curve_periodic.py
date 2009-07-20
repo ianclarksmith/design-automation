@@ -1,7 +1,8 @@
 is_curve_periodic = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_curve_periodic",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsCurvePeriodic",
+    "output_package_name": "curve",
+    "output_module_name": "is_curve_periodic",
 
     "doc_html": """
         Verifies an object is a periodic curve object.

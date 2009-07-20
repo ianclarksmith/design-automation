@@ -1,7 +1,8 @@
 curve_fillet_points = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_fillet_points",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveFilletPoints",
+    "output_package_name": "curve",
+    "output_module_name": "curve_fillet_points",
 
     "doc_html": """
         Find points at which to cut a pair of curves so that a fillet of a specified radius fits.  A fillet point is a pair of points (arrPoint0, arrPoint1) such that there is a circle of radius dblRadius tangent to curve strCurve0 at arrPoint0 and tangent to curve strCurve1 at arrPoint1.

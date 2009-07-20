@@ -1,7 +1,8 @@
 brep_closest_point = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "brep_closest_point",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "BrepClosestPoint",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "brep_closest_point",
 
     "doc_html": """
         Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.

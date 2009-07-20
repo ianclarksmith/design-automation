@@ -1,7 +1,8 @@
 is_poly_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_poly_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsPolyCurve",
+    "output_package_name": "curve",
+    "output_module_name": "is_poly_curve",
 
     "doc_html": """
         Verifies an object is a polycurve object.  A polycurve is a curve that is represented by a sequence of contiguous curve segments.

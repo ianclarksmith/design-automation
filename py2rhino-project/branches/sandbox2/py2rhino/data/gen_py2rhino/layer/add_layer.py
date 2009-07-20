@@ -1,7 +1,8 @@
 add_layer = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "add_layer",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "AddLayer",
+    "output_package_name": "layer",
+    "output_module_name": "add_layer",
 
     "doc_html": """
         Adds a new layer to the document.

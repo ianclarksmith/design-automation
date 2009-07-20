@@ -1,7 +1,8 @@
 add_point = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "add_point",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "AddPoint",
+    "output_package_name": "geometry",
+    "output_module_name": "add_point",
 
     "doc_html": """
         Adds a point object to the document.

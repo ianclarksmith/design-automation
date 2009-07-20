@@ -1,7 +1,8 @@
 object_grip_location = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "object_grip_location",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "ObjectGripLocation",
+    "output_package_name": "object_grip",
+    "output_module_name": "object_grip_location",
 
     "doc_html": """
         Returns or modifies the location of an object's grip.

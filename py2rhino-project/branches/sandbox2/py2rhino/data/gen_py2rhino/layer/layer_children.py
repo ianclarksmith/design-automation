@@ -1,7 +1,8 @@
 layer_children = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_children",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerChildren",
+    "output_package_name": "layer",
+    "output_module_name": "layer_children",
 
     "doc_html": """
         Returns the immediate child layers of a layer.

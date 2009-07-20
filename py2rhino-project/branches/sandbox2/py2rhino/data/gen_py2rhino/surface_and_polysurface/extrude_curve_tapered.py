@@ -1,7 +1,8 @@
 extrude_curve_tapered = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "extrude_curve_tapered",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ExtrudeCurveTapered",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "extrude_curve_tapered",
 
     "doc_html": """
         Creates a surface by extruding a curve to a taper. Unlike Lofts and Sweeps, the initial orientation of the profile curve is maintained through the extrusion.

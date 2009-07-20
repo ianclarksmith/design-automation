@@ -1,7 +1,8 @@
 mesh_vertices = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_vertices",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshVertices",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_vertices",
 
     "doc_html": """
         Returns the vertices of a mesh object.

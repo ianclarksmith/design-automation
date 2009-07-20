@@ -1,7 +1,8 @@
 get_object_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "get_object_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "GetObjectData",
+    "output_package_name": "user_data",
+    "output_module_name": "get_object_data",
 
     "doc_html": """
         Returns a RhinoScript user data item from an object's geometry.

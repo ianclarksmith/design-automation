@@ -1,7 +1,8 @@
 add_fillet_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_fillet_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddFilletCurve",
+    "output_package_name": "curve",
+    "output_module_name": "add_fillet_curve",
 
     "doc_html": """
         Adds a fillet curve between two curve objects.

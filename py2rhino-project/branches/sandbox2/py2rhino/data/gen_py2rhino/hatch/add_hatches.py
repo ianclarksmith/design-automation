@@ -1,7 +1,8 @@
 add_hatches = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "add_hatches",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "AddHatches",
+    "output_package_name": "hatch",
+    "output_module_name": "add_hatches",
 
     "doc_html": """
         Creates one or more new hatch objects from an array of closed planar curve objects.

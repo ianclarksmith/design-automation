@@ -1,7 +1,8 @@
 send_keystrokes = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "send_keystrokes",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "SendKeystrokes",
+    "output_package_name": "application",
+    "output_module_name": "send_keystrokes",
 
     "doc_html": """
         Sends a string of printable characters, including spaces, to Rhino's command line.

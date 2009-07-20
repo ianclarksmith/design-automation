@@ -1,7 +1,8 @@
 add_directional_light = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "add_directional_light",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "AddDirectionalLight",
+    "output_package_name": "light",
+    "output_module_name": "add_directional_light",
 
     "doc_html": """
         Adds a new directional light object  to the document.

@@ -1,7 +1,8 @@
 intersect_breps = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "intersect_breps",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IntersectBreps",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "intersect_breps",
 
     "doc_html": """
         Intersects a brep object with another  brep object. Note, unlike the SurfaceSurfaceIntersection function this function works on trimmed surfaces.

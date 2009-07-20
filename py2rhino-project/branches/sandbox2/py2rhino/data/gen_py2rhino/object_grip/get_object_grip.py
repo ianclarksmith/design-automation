@@ -1,7 +1,8 @@
 get_object_grip = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "get_object_grip",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "GetObjectGrip",
+    "output_package_name": "object_grip",
+    "output_module_name": "get_object_grip",
 
     "doc_html": """
         Prompts the user to pick or select a single object grip.

@@ -1,7 +1,8 @@
 make_curve_periodic = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "make_curve_periodic",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "MakeCurvePeriodic",
+    "output_package_name": "curve",
+    "output_module_name": "make_curve_periodic",
 
     "doc_html": """
         Makes an existing curve a periodic NURBS curve.  A periodic NURBS curve is a closed curve with a simple knot at the seam.  If a joined curve is made periodic, it becomes a single-span curve and can no longer be exploded.

@@ -1,7 +1,8 @@
 layer_linetype = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_linetype",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerLinetype",
+    "output_package_name": "layer",
+    "output_module_name": "layer_linetype",
 
     "doc_html": """
         Returns or changes the linetype of a layer.

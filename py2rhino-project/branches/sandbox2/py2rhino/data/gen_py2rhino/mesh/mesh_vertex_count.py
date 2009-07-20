@@ -1,7 +1,8 @@
 mesh_vertex_count = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_vertex_count",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshVertexCount",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_vertex_count",
 
     "doc_html": """
         Returns the vertex count of a mesh object.

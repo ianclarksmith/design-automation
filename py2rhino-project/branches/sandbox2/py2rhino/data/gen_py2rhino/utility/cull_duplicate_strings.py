@@ -1,7 +1,8 @@
 cull_duplicate_strings = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "cull_duplicate_strings",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "CullDuplicateStrings",
+    "output_package_name": "utility",
+    "output_module_name": "cull_duplicate_strings",
 
     "doc_html": """
         Removes duplicates from an array of strings.

@@ -1,7 +1,8 @@
 hatch_pattern_description = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "hatch_pattern_description",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "HatchPatternDescription",
+    "output_package_name": "hatch",
+    "output_module_name": "hatch_pattern_description",
 
     "doc_html": """
         Returns the description of a hatch pattern. Note, not all hatch patterns have descriptions for descriptions are optional.

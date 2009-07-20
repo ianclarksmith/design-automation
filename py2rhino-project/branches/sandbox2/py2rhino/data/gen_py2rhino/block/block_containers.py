@@ -1,7 +1,8 @@
 block_containers = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_containers",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockContainers",
+    "output_package_name": "block",
+    "output_module_name": "block_containers",
 
     "doc_html": """
         Returns the names of the block definitions that contain a specified block definition.

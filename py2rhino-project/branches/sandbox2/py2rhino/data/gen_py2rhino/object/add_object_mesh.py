@@ -1,7 +1,8 @@
 add_object_mesh = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "add_object_mesh",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "AddObjectMesh",
+    "output_package_name": "object",
+    "output_module_name": "add_object_mesh",
 
     "doc_html": """
         

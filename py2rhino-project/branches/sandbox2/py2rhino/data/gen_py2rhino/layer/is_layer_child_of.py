@@ -1,7 +1,8 @@
 is_layer_child_of = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_child_of",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerChildOf",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_child_of",
 
     "doc_html": """
         Verifies that a layer is a child of another layer.

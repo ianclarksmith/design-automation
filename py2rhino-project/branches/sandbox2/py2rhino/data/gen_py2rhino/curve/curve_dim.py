@@ -1,7 +1,8 @@
 curve_dim = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_dim",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveDim",
+    "output_package_name": "curve",
+    "output_module_name": "curve_dim",
 
     "doc_html": """
         Returns the dimension of a curve object.

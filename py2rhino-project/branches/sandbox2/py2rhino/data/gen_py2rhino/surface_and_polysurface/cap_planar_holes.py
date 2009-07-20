@@ -1,7 +1,8 @@
 cap_planar_holes = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "cap_planar_holes",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "CapPlanarHoles",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "cap_planar_holes",
 
     "doc_html": """
         Caps planar holes in a surface or polysurface. For more details, see the Cap command in the Rhino help file.

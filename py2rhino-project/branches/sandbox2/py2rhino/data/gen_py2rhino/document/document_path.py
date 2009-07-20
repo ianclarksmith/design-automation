@@ -1,7 +1,8 @@
 document_path = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "document_path",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "DocumentPath",
+    "output_package_name": "document",
+    "output_module_name": "document_path",
 
     "doc_html": """
         Returns the path of the currently loaded Rhino document (3DM file).

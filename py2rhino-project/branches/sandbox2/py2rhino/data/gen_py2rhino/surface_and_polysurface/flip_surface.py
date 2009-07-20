@@ -1,7 +1,8 @@
 flip_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "flip_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "FlipSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "flip_surface",
 
     "doc_html": """
         Returns or changes the normal direction of a surface. This feature can also be found in Rhino's Dir command.

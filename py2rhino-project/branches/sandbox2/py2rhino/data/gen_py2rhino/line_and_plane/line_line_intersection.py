@@ -1,7 +1,8 @@
 line_line_intersection = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "line_line_intersection",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "LineLineIntersection",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "line_line_intersection",
 
     "doc_html": """
         Calculates the intersection of two non-parallel.  Note, the two lines do not have to intersect for an intersection to be found.

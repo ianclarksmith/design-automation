@@ -1,7 +1,8 @@
 is_brep_manifold = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_brep_manifold",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsBrepManifold",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_brep_manifold",
 
     "doc_html": """
         Verifies a polysurface object is manifold.  A polysurface for which every edge is shared by at most two faces is called a manifold.  If a polysurface has at least one edge that is shared by more than two faces, then that polysurface is called non-manifold.

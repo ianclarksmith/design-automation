@@ -1,7 +1,8 @@
 current_layer = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "current_layer",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "CurrentLayer",
+    "output_package_name": "layer",
+    "output_module_name": "current_layer",
 
     "doc_html": """
         Returns or changes the current layer.

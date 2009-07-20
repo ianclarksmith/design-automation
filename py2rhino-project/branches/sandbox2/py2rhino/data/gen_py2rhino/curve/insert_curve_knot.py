@@ -1,7 +1,8 @@
 insert_curve_knot = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "insert_curve_knot",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "InsertCurveKnot",
+    "output_package_name": "curve",
+    "output_module_name": "insert_curve_knot",
 
     "doc_html": """
         Inserts a knot into a curve object.

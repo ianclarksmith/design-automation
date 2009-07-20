@@ -1,7 +1,8 @@
 vector_add = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_add",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorAdd",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_add",
 
     "doc_html": """
         Adds two 3-D vectors.

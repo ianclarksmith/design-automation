@@ -1,7 +1,8 @@
 layer_print_color = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_print_color",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerPrintColor",
+    "output_package_name": "layer",
+    "output_module_name": "layer_print_color",
 
     "doc_html": """
         Returns or changes the print color of a layer. Layer print colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be printed.

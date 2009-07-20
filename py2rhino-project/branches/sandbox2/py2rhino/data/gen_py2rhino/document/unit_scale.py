@@ -1,7 +1,8 @@
 unit_scale = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "unit_scale",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "UnitScale",
+    "output_package_name": "document",
+    "output_module_name": "unit_scale",
 
     "doc_html": """
         Returns the scale factor for changing between unit systems.

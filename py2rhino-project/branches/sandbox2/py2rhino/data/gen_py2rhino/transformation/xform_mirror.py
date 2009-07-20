@@ -1,7 +1,8 @@
 xform_mirror = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_mirror",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformMirror",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_mirror",
 
     "doc_html": """
         Creates a mirror transformation matrix.

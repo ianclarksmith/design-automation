@@ -1,7 +1,8 @@
 is_arc = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_arc",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsArc",
+    "output_package_name": "curve",
+    "output_module_name": "is_arc",
 
     "doc_html": """
         Verifies an object is an arc curve object.

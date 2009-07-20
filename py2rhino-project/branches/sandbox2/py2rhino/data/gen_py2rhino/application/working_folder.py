@@ -1,7 +1,8 @@
 working_folder = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "working_folder",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "WorkingFolder",
+    "output_package_name": "application",
+    "output_module_name": "working_folder",
 
     "doc_html": """
         Returns or sets Rhino's working directory, or folder.  The working folder is the default folder for all file operations.

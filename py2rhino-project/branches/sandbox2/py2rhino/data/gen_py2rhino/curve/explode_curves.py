@@ -1,7 +1,8 @@
 explode_curves = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "explode_curves",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "ExplodeCurves",
+    "output_package_name": "curve",
+    "output_module_name": "explode_curves",
 
     "doc_html": """
         Explodes, or un-joins,  one more curve objects.  Polycurves will be exploded into curve segments.  Polylines will be exploded into line segments.  ExplodeCurves will return the curves in

@@ -1,7 +1,8 @@
 is_text_dot = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "is_text_dot",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "IsTextDot",
+    "output_package_name": "geometry",
+    "output_module_name": "is_text_dot",
 
     "doc_html": """
         Verifies an object is a text dot object.

@@ -1,7 +1,8 @@
 poly_curve_count = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "poly_curve_count",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "PolyCurveCount",
+    "output_package_name": "curve",
+    "output_module_name": "poly_curve_count",
 
     "doc_html": """
         Returns the number of curve segments that make up a polycurve.

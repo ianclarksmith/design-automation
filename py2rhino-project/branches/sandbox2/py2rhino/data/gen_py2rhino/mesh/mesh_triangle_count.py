@@ -1,7 +1,8 @@
 mesh_triangle_count = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_triangle_count",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshTriangleCount",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_triangle_count",
 
     "doc_html": """
         Returns the number of triangular faces of a mesh object.

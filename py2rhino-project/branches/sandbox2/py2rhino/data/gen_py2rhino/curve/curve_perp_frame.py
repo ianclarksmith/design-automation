@@ -1,7 +1,8 @@
 curve_perp_frame = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_perp_frame",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurvePerpFrame",
+    "output_package_name": "curve",
+    "output_module_name": "curve_perp_frame",
 
     "doc_html": """
         Returns the perpendicular plane at a parameter of a curve.  The result is relatively parallel (zero-twisting) plane.

@@ -1,7 +1,8 @@
 block_object_count = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_object_count",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockObjectCount",
+    "output_package_name": "block",
+    "output_module_name": "block_object_count",
 
     "doc_html": """
         Returns the number of objects that make up a block definition.

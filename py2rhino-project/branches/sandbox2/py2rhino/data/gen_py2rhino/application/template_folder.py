@@ -1,7 +1,8 @@
 template_folder = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "template_folder",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "TemplateFolder",
+    "output_package_name": "application",
+    "output_module_name": "template_folder",
 
     "doc_html": """
         Returns or sets the location of Rhino's template files.

@@ -1,7 +1,8 @@
 unit_system_name = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "unit_system_name",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "UnitSystemName",
+    "output_package_name": "document",
+    "output_module_name": "unit_system_name",
 
     "doc_html": """
         Returns the name of the current unit system.

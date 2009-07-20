@@ -1,7 +1,8 @@
 is_object_selectable = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "is_object_selectable",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "IsObjectSelectable",
+    "output_package_name": "object",
+    "output_module_name": "is_object_selectable",
 
     "doc_html": """
         Verifies that an object is selectable.  Objects that are locked, hidden, or on locked or hidden layers cannot be selected.

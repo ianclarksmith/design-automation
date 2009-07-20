@@ -1,7 +1,8 @@
 hidden_objects = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "hidden_objects",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "HiddenObjects",
+    "output_package_name": "selection",
+    "output_module_name": "hidden_objects",
 
     "doc_html": """
         Returns the identifiers of all hidden objects in the document.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.

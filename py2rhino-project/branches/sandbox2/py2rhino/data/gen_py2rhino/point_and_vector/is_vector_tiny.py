@@ -1,7 +1,8 @@
 is_vector_tiny = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "is_vector_tiny",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "IsVectorTiny",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "is_vector_tiny",
 
     "doc_html": """
         Verifies that a vector is very short, or tiny - the x,y,z  elements are less than or equal to 1.0e-12.

@@ -1,7 +1,8 @@
 add_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddCurve",
+    "output_package_name": "curve",
+    "output_module_name": "add_curve",
 
     "doc_html": """
         Adds a control points curve object to the document.

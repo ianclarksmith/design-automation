@@ -1,7 +1,8 @@
 wallpaper_hidden = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "wallpaper_hidden",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "WallpaperHidden",
+    "output_package_name": "view",
+    "output_module_name": "wallpaper_hidden",
 
     "doc_html": """
         Returns or sets the visibility of the wallpaper bitmap of the specified view.

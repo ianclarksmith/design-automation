@@ -1,7 +1,8 @@
 layer_visible = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_visible",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerVisible",
+    "output_package_name": "layer",
+    "output_module_name": "layer_visible",
 
     "doc_html": """
         Returns or changes the visibility property of a layer. This method should be use instead of LayerMode.

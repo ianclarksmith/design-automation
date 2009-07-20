@@ -1,7 +1,8 @@
 curve_arrows = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_arrows",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveArrows",
+    "output_package_name": "curve",
+    "output_module_name": "curve_arrows",
 
     "doc_html": """
         Enables or disabled a curve object's annotation arrows.

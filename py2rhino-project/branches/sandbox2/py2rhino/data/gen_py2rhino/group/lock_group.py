@@ -1,7 +1,8 @@
 lock_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "lock_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "LockGroup",
+    "output_package_name": "group",
+    "output_module_name": "lock_group",
 
     "doc_html": """
         Locks a group of objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.

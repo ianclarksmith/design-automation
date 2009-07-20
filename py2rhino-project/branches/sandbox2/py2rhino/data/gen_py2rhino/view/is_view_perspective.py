@@ -1,7 +1,8 @@
 is_view_perspective = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "is_view_perspective",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "IsViewPerspective",
+    "output_package_name": "view",
+    "output_module_name": "is_view_perspective",
 
     "doc_html": """
         Verifies that the specified view's projection is set to perspective.

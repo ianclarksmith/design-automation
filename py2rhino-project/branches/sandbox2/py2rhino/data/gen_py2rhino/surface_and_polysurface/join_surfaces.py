@@ -1,7 +1,8 @@
 join_surfaces = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "join_surfaces",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "JoinSurfaces",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "join_surfaces",
 
     "doc_html": """
         Joins two or more surface or polysurface object together to form one polysurface object.

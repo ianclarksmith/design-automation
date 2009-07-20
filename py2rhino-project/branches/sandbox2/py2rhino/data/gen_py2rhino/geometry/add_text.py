@@ -1,7 +1,8 @@
 add_text = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "add_text",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "AddText",
+    "output_package_name": "geometry",
+    "output_module_name": "add_text",
 
     "doc_html": """
         Adds a text string to the document.

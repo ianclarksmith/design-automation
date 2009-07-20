@@ -1,7 +1,8 @@
 object_linetype = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_linetype",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectLinetype",
+    "output_package_name": "object",
+    "output_module_name": "object_linetype",
 
     "doc_html": """
         Returns or modifies the linetype of an object.

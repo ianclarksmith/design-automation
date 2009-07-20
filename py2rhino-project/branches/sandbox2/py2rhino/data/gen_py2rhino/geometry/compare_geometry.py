@@ -1,7 +1,8 @@
 compare_geometry = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "compare_geometry",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "CompareGeometry",
+    "output_package_name": "geometry",
+    "output_module_name": "compare_geometry",
 
     "doc_html": """
         Compares two objects to determine if they are geometrically identical.

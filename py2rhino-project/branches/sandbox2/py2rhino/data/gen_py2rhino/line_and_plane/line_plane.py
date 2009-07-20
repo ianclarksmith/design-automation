@@ -1,7 +1,8 @@
 line_plane = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "line_plane",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "LinePlane",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "line_plane",
 
     "doc_html": """
         Returns a plane that contains the line.  The origin of the plane is at the start of the line.  If possible, a plane parallel to the world XY, YZ or ZX plane is returned.

@@ -1,7 +1,8 @@
 box_morph_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "box_morph_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "BoxMorphObject",
+    "output_package_name": "object",
+    "output_module_name": "box_morph_object",
 
     "doc_html": """
         Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.

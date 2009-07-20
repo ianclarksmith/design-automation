@@ -1,7 +1,8 @@
 color_green_value = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "color_green_value",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "ColorGreenValue",
+    "output_package_name": "utility",
+    "output_module_name": "color_green_value",
 
     "doc_html": """
         Retrieves an intensity value for the green component of a red-green-blue (RGB) value.

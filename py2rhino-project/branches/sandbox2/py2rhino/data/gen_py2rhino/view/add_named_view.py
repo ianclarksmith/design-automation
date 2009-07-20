@@ -1,7 +1,8 @@
 add_named_view = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "add_named_view",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "AddNamedView",
+    "output_package_name": "view",
+    "output_module_name": "add_named_view",
 
     "doc_html": """
         Adds a new named view to the document.

@@ -1,7 +1,8 @@
 hatch_pattern_fill_type = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "hatch_pattern_fill_type",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "HatchPatternFillType",
+    "output_package_name": "hatch",
+    "output_module_name": "hatch_pattern_fill_type",
 
     "doc_html": """
         Returns the fill type of a hatch pattern. Hatch patterns have one of the following fill types:

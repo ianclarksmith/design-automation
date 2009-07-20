@@ -1,7 +1,8 @@
 layer_names = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_names",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerNames",
+    "output_package_name": "layer",
+    "output_module_name": "layer_names",
 
     "doc_html": """
         Returns the names of all layers in the document.

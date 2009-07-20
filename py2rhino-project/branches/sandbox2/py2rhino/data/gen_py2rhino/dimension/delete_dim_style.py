@@ -1,7 +1,8 @@
 delete_dim_style = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "delete_dim_style",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DeleteDimStyle",
+    "output_package_name": "dimension",
+    "output_module_name": "delete_dim_style",
 
     "doc_html": """
         Removes an existing dimension style from the document.  The dimension style to be removed cannot be the reference by any dimension objects.

@@ -1,7 +1,8 @@
 surface_normal = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_normal",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceNormal",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_normal",
 
     "doc_html": """
         Returns a 3-D vector that is the normal to a surface at a parameter.

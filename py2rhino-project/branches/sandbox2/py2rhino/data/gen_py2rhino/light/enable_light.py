@@ -1,7 +1,8 @@
 enable_light = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "enable_light",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "EnableLight",
+    "output_package_name": "light",
+    "output_module_name": "enable_light",
 
     "doc_html": """
         Enables or disables a light object.

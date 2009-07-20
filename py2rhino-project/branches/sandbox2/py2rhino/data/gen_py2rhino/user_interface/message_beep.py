@@ -1,7 +1,8 @@
 message_beep = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "message_beep",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "MessageBeep",
+    "output_package_name": "user_interface",
+    "output_module_name": "message_beep",
 
     "doc_html": """
         Plays a system waveform sound.

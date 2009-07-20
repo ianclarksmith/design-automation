@@ -1,7 +1,8 @@
 vector_reverse = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_reverse",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorReverse",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_reverse",
 
     "doc_html": """
         Reverses the direction of a 3-D vector.

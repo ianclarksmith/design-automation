@@ -1,7 +1,8 @@
 normal_objects = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "normal_objects",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "NormalObjects",
+    "output_package_name": "selection",
+    "output_module_name": "normal_objects",
 
     "doc_html": """
         Returns the identifiers of all normal objects in the document.  Normal objects are visible, can be snapped to, and are independent of selection state.

@@ -1,7 +1,8 @@
 add_spot_light = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "add_spot_light",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "AddSpotLight",
+    "output_package_name": "light",
+    "output_module_name": "add_spot_light",
 
     "doc_html": """
         Adds a new spot light object  to the document.

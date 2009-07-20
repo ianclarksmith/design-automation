@@ -1,7 +1,8 @@
 mesh_offset = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_offset",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshOffset",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_offset",
 
     "doc_html": """
         Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.

@@ -1,7 +1,8 @@
 xform_world_to_screen = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_world_to_screen",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformWorldToScreen",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_world_to_screen",
 
     "doc_html": """
         Transforms a point from world coordinates to either client-area coordinates of the specified view or screen coordinates. The resulting coordinates are represented as a 2-D point.

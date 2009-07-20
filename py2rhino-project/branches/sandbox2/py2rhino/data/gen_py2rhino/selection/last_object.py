@@ -1,7 +1,8 @@
 last_object = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "last_object",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "LastObject",
+    "output_package_name": "selection",
+    "output_module_name": "last_object",
 
     "doc_html": """
         Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.

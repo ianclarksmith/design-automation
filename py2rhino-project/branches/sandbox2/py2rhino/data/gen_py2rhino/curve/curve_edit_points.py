@@ -1,7 +1,8 @@
 curve_edit_points = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_edit_points",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveEditPoints",
+    "output_package_name": "curve",
+    "output_module_name": "curve_edit_points",
 
     "doc_html": """
         Returns the edit, or Greville, points of a curve object.  For each curve control point, there is a corresponding edit point.

@@ -1,7 +1,8 @@
 rectangular_light_plane = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "rectangular_light_plane",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "RectangularLightPlane",
+    "output_package_name": "light",
+    "output_module_name": "rectangular_light_plane",
 
     "doc_html": """
         Returns the plane of a rectangular light object.

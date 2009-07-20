@@ -1,7 +1,8 @@
 is_hatch_pattern = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "is_hatch_pattern",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "IsHatchPattern",
+    "output_package_name": "hatch",
+    "output_module_name": "is_hatch_pattern",
 
     "doc_html": """
         Verifies the existence of a hatch pattern in the document.

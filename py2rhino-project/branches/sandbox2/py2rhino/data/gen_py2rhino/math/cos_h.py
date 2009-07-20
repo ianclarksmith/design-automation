@@ -1,7 +1,8 @@
 cos_h = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "cos_h",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "CosH",
+    "output_package_name": "math",
+    "output_module_name": "cos_h",
 
     "doc_html": """
         Returns the hyperbolic cosine of the specified angle.

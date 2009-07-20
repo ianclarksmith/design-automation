@@ -1,7 +1,8 @@
 is_hatch = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "is_hatch",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "IsHatch",
+    "output_package_name": "hatch",
+    "output_module_name": "is_hatch",
 
     "doc_html": """
         Verifies the existence of a hatch object in the document.

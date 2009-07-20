@@ -1,7 +1,8 @@
 curve_mesh_intersection = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "curve_mesh_intersection",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "CurveMeshIntersection",
+    "output_package_name": "mesh",
+    "output_module_name": "curve_mesh_intersection",
 
     "doc_html": """
         Calculates the intersection of a curve object and a mesh object.

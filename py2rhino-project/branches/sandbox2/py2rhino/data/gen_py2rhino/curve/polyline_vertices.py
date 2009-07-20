@@ -1,7 +1,8 @@
 polyline_vertices = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "polyline_vertices",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "PolylineVertices",
+    "output_package_name": "curve",
+    "output_module_name": "polyline_vertices",
 
     "doc_html": """
         Returns the vertices of a polyline curve object.

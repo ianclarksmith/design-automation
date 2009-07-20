@@ -1,7 +1,8 @@
 disjoint_mesh_count = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "disjoint_mesh_count",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "DisjointMeshCount",
+    "output_package_name": "mesh",
+    "output_module_name": "disjoint_mesh_count",
 
     "doc_html": """
         Returns the number of meshes that could be created by calling SplitDisjointMesh.

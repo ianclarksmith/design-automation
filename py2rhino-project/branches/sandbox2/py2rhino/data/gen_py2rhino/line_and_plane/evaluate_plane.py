@@ -1,7 +1,8 @@
 evaluate_plane = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "evaluate_plane",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "EvaluatePlane",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "evaluate_plane",
 
     "doc_html": """
         Evaluates a plane at a U,V parameter.

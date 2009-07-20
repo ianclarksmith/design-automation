@@ -1,7 +1,8 @@
 get_boolean = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "get_boolean",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "GetBoolean",
+    "output_package_name": "user_interface",
+    "output_module_name": "get_boolean",
 
     "doc_html": """
         Pauses for user input of one or more boolean values. Boolean values are displayed as click-able command-line option toggles.

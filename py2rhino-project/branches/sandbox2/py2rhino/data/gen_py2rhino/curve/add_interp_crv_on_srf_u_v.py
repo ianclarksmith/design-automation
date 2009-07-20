@@ -1,7 +1,8 @@
 add_interp_crv_on_srf_u_v = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_interp_crv_on_srf_u_v",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddInterpCrvOnSrfUV",
+    "output_package_name": "curve",
+    "output_module_name": "add_interp_crv_on_srf_u_v",
 
     "doc_html": """
         Adds an interpolated curve object. based on surface parameters, that lies on a specified surface. Note, this function will not create periodic curves, but it will create closed curves.

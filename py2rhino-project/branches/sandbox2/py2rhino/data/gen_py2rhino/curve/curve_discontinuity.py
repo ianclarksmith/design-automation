@@ -1,7 +1,8 @@
 curve_discontinuity = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_discontinuity",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveDiscontinuity",
+    "output_package_name": "curve",
+    "output_module_name": "curve_discontinuity",
 
     "doc_html": """
         Search for a derivatitive, tangent, or curvature discontinuity in a curve object.

@@ -1,7 +1,8 @@
 a_sin_h = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "a_sin_h",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "ASinH",
+    "output_package_name": "math",
+    "output_module_name": "a_sin_h",
 
     "doc_html": """
         Returns the inverse hyperbolic sine of a number. The inverse hyperbolic sine is the value whose hyperbolic sine is number, so ASinH(SinH(number)) equals number.

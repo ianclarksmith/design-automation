@@ -1,7 +1,8 @@
 copy_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "copy_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "CopyObjects",
+    "output_package_name": "object",
+    "output_module_name": "copy_objects",
 
     "doc_html": """
         Copies one or more objects from one location to another, or in-place.

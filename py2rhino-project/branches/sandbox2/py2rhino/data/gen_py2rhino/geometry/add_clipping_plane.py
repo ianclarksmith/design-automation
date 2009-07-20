@@ -1,7 +1,8 @@
 add_clipping_plane = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "add_clipping_plane",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "AddClippingPlane",
+    "output_package_name": "geometry",
+    "output_module_name": "add_clipping_plane",
 
     "doc_html": """
         Creates a clipping plane. A clipping plane is a plane for visibly clipping away geometry in a specific view. Note, clipping planes are infinite.

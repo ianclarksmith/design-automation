@@ -1,7 +1,8 @@
 object_top_group = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_top_group",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectTopGroup",
+    "output_package_name": "object",
+    "output_module_name": "object_top_group",
 
     "doc_html": """
         Returns the top most group name that an object is assigned.  This function primarily applies to objects that are members of nested groups.

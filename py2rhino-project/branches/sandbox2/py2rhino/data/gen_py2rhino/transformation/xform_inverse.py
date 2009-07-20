@@ -1,7 +1,8 @@
 xform_inverse = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_inverse",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformInverse",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_inverse",
 
     "doc_html": """
         Returns the inverse of a non-singular transformation matrix.

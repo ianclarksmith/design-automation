@@ -1,7 +1,8 @@
 trim_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "trim_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "TrimCurve",
+    "output_package_name": "curve",
+    "output_module_name": "trim_curve",
 
     "doc_html": """
         Trims a curve by removing portions of the curve outside the specified interval.

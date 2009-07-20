@@ -1,7 +1,8 @@
 visible_objects = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "visible_objects",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "VisibleObjects",
+    "output_package_name": "selection",
+    "output_module_name": "visible_objects",
 
     "doc_html": """
         Returns the identifiers of all objects that are visible in a specified view.

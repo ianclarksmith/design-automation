@@ -1,7 +1,8 @@
 surface_cone = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_cone",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceCone",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_cone",
 
     "doc_html": """
         

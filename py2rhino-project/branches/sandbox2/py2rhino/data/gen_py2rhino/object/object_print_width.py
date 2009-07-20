@@ -1,7 +1,8 @@
 object_print_width = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_print_width",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectPrintWidth",
+    "output_package_name": "object",
+    "output_module_name": "object_print_width",
 
     "doc_html": """
         Returns or modifies the print width of an object.  Object print widths are measured in millimeters (mm).

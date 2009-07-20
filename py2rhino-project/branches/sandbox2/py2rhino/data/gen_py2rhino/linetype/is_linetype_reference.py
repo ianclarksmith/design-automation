@@ -1,7 +1,8 @@
 is_linetype_reference = {
-    "module_name": "linetype",
-    "class_name": "Linetype",
-    "method_name": "is_linetype_reference",
+    "input_folder_name": "Linetype_Methods",
+    "input_file_name": "IsLinetypeReference",
+    "output_package_name": "linetype",
+    "output_module_name": "is_linetype_reference",
 
     "doc_html": """
         Verifies that an existing linetype is from a reference file.

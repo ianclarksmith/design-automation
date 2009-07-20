@@ -1,7 +1,8 @@
 curve_evaluate = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_evaluate",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveEvaluate",
+    "output_package_name": "curve",
+    "output_module_name": "curve_evaluate",
 
     "doc_html": """
         A general purpose curve evaluator.

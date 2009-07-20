@@ -1,7 +1,8 @@
 add_named_c_plane = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "add_named_c_plane",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "AddNamedCPlane",
+    "output_package_name": "view",
+    "output_module_name": "add_named_c_plane",
 
     "doc_html": """
         Adds a new named construction plane to the document.

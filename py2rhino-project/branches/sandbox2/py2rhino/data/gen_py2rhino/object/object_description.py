@@ -1,7 +1,8 @@
 object_description = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_description",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectDescription",
+    "output_package_name": "object",
+    "output_module_name": "object_description",
 
     "doc_html": """
         Returns a short text description of an object.

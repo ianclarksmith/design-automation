@@ -1,7 +1,8 @@
 is_layer_current = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_current",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerCurrent",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_current",
 
     "doc_html": """
         Verifies that a layer is the current layer.

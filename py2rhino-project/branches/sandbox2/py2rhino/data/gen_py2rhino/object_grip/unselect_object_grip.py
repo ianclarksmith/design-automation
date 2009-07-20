@@ -1,7 +1,8 @@
 unselect_object_grip = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "unselect_object_grip",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "UnselectObjectGrip",
+    "output_package_name": "object_grip",
+    "output_module_name": "unselect_object_grip",
 
     "doc_html": """
         Unselects a single grip owned by an object.

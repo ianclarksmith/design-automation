@@ -1,7 +1,8 @@
 is_layer = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayer",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer",
 
     "doc_html": """
         Verifies the existence of a layer in the document.

@@ -1,7 +1,8 @@
 is_document_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "is_document_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "IsDocumentData",
+    "output_package_name": "user_data",
+    "output_module_name": "is_document_data",
 
     "doc_html": """
         Verifies that the current document contains RhinoScript user data.

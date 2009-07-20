@@ -1,7 +1,8 @@
 duplicate_surface_border = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "duplicate_surface_border",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "DuplicateSurfaceBorder",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "duplicate_surface_border",
 
     "doc_html": """
         Creates a curve that duplicates a surface or polysurface border.

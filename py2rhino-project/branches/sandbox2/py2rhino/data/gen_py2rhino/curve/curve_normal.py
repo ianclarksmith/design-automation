@@ -1,7 +1,8 @@
 curve_normal = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_normal",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveNormal",
+    "output_package_name": "curve",
+    "output_module_name": "curve_normal",
 
     "doc_html": """
         Returns the normal direction of the plane in which a planar curve object lies.

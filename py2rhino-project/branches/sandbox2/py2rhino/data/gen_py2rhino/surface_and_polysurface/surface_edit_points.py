@@ -1,7 +1,8 @@
 surface_edit_points = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_edit_points",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceEditPoints",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_edit_points",
 
     "doc_html": """
         Returns the edit, or Greville, points of a surface object.  For each surface control point, there is a corresponding edit point.

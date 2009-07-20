@@ -1,7 +1,8 @@
 curve_mid_point = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_mid_point",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveMidPoint",
+    "output_package_name": "curve",
+    "output_module_name": "curve_mid_point",
 
     "doc_html": """
         Returns the mid point of a curve object.

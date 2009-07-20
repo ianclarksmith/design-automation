@@ -1,7 +1,8 @@
 object_mesh_max_edge_length = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_mesh_max_edge_length",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectMeshMaxEdgeLength",
+    "output_package_name": "object",
+    "output_module_name": "object_mesh_max_edge_length",
 
     "doc_html": """
         Returns or modifies an object's custom render mesh parameter's maximum edge length property.

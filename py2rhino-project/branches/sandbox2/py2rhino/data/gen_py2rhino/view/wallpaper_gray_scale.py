@@ -1,7 +1,8 @@
 wallpaper_gray_scale = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "wallpaper_gray_scale",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "WallpaperGrayScale",
+    "output_package_name": "view",
+    "output_module_name": "wallpaper_gray_scale",
 
     "doc_html": """
         Returns or sets the grayscale display option of the wallpaper bitmap of the specified view.

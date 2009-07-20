@@ -1,7 +1,8 @@
 hatch_rotation = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "hatch_rotation",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "HatchRotation",
+    "output_package_name": "hatch",
+    "output_module_name": "hatch_rotation",
 
     "doc_html": """
         Returns or modifies the rotation applied to the hatch pattern when it is mapped to the hatch's plane.

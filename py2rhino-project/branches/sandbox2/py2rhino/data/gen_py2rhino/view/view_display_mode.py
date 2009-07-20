@@ -1,7 +1,8 @@
 view_display_mode = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_display_mode",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewDisplayMode",
+    "output_package_name": "view",
+    "output_module_name": "view_display_mode",
 
     "doc_html": """
         Returns or sets a view's display mode.  A view's display mode can be either wireframe, shaded, or render preview.

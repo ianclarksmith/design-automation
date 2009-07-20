@@ -1,7 +1,8 @@
 curve_length = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_length",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveLength",
+    "output_package_name": "curve",
+    "output_module_name": "curve_length",
 
     "doc_html": """
         Returns the length of a curve object.

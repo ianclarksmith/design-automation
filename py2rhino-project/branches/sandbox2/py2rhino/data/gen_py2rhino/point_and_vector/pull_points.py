@@ -1,7 +1,8 @@
 pull_points = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "pull_points",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "PullPoints",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "pull_points",
 
     "doc_html": """
         Pulls an array of points to a surface or mesh object. For more information, see the Rhino help file for information on the Pull command.

@@ -1,7 +1,8 @@
 delete_document_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "delete_document_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "DeleteDocumentData",
+    "output_package_name": "user_data",
+    "output_module_name": "delete_document_data",
 
     "doc_html": """
         Removes RhinoScript user data items from the current document.

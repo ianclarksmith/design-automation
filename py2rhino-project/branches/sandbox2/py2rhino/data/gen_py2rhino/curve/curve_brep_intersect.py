@@ -1,7 +1,8 @@
 curve_brep_intersect = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_brep_intersect",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveBrepIntersect",
+    "output_package_name": "curve",
+    "output_module_name": "curve_brep_intersect",
 
     "doc_html": """
         Intersects a curve object with a brep object. Note, unlike the CurveSurfaceIntersection function, this function works on trimmed surfaces.

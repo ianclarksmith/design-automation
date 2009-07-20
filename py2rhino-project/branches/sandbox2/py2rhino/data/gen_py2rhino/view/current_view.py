@@ -1,7 +1,8 @@
 current_view = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "current_view",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "CurrentView",
+    "output_package_name": "view",
+    "output_module_name": "current_view",
 
     "doc_html": """
         Returns or sets the currently active view.

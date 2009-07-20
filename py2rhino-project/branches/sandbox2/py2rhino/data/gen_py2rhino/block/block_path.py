@@ -1,7 +1,8 @@
 block_path = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_path",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockPath",
+    "output_package_name": "block",
+    "output_module_name": "block_path",
 
     "doc_html": """
         Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.

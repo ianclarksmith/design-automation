@@ -1,7 +1,8 @@
 mesh_texture_coordinates = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_texture_coordinates",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshTextureCoordinates",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_texture_coordinates",
 
     "doc_html": """
         Returns the normalized 2-D texture coordinates of a mesh object.

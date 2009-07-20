@@ -1,7 +1,8 @@
 project_curve_to_mesh = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "project_curve_to_mesh",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "ProjectCurveToMesh",
+    "output_package_name": "curve",
+    "output_module_name": "project_curve_to_mesh",
 
     "doc_html": """
         Projects one or more points onto one or more meshes.

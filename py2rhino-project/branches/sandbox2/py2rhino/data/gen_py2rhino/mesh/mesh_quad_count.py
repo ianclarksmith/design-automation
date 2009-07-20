@@ -1,7 +1,8 @@
 mesh_quad_count = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_quad_count",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshQuadCount",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_quad_count",
 
     "doc_html": """
         

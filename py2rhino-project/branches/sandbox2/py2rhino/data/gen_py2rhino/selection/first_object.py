@@ -1,7 +1,8 @@
 first_object = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "first_object",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "FirstObject",
+    "output_package_name": "selection",
+    "output_module_name": "first_object",
 
     "doc_html": """
         Returns the identifier of the first object in the document.  The first object in the document is the last object created by the user.

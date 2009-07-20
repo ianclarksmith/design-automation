@@ -1,7 +1,8 @@
 render_mesh_max_angle = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "render_mesh_max_angle",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "RenderMeshMaxAngle",
+    "output_package_name": "document",
+    "output_module_name": "render_mesh_max_angle",
 
     "doc_html": """
         Returns or sets the render mesh maximum angle property of the active document.

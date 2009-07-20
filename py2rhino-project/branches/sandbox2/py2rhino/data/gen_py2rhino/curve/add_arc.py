@@ -1,7 +1,8 @@
 add_arc = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_arc",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddArc",
+    "output_package_name": "curve",
+    "output_module_name": "add_arc",
 
     "doc_html": """
         Adds an arc curve to the document.

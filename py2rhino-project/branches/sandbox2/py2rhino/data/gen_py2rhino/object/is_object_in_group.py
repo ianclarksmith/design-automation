@@ -1,7 +1,8 @@
 is_object_in_group = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "is_object_in_group",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "IsObjectInGroup",
+    "output_package_name": "object",
+    "output_module_name": "is_object_in_group",
 
     "doc_html": """
         Verifies that an object is a member of a specified group.

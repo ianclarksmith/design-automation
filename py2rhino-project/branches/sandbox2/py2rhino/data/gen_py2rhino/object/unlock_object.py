@@ -1,7 +1,8 @@
 unlock_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "unlock_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "UnlockObject",
+    "output_package_name": "object",
+    "output_module_name": "unlock_object",
 
     "doc_html": """
         Unlocks a previously locked object.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.

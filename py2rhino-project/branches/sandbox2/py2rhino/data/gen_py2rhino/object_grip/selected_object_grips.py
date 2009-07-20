@@ -1,7 +1,8 @@
 selected_object_grips = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "selected_object_grips",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "SelectedObjectGrips",
+    "output_package_name": "object_grip",
+    "output_module_name": "selected_object_grips",
 
     "doc_html": """
         Returns an array of grip indices identifying an object's selected grips.

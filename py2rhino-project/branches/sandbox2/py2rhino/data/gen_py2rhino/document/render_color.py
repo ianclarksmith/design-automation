@@ -1,7 +1,8 @@
 render_color = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "render_color",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "RenderColor",
+    "output_package_name": "document",
+    "output_module_name": "render_color",
 
     "doc_html": """
         Returns or sets the render ambient light or background color. Render colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed. See Rhino's DocumentProperties command (Rhino Render window) for details.

@@ -1,7 +1,8 @@
 xform_shear = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_shear",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformShear",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_shear",
 
     "doc_html": """
         Returns a scale transformation matrix.

@@ -1,7 +1,8 @@
 a_cos = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "a_cos",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "ACos",
+    "output_package_name": "math",
+    "output_module_name": "a_cos",
 
     "doc_html": """
         Returns the arccosine, or inverse cosine, of a number. The arccosine is the angle whose cosine is number. The returned angle is given in radians in the range 0 (zero) to PI.

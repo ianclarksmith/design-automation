@@ -1,7 +1,8 @@
 object_names = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_names",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectNames",
+    "output_package_name": "object",
+    "output_module_name": "object_names",
 
     "doc_html": """
         Returns or modifies the user-definable name of one or more objects.

@@ -1,7 +1,8 @@
 is_light_enabled = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "is_light_enabled",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "IsLightEnabled",
+    "output_package_name": "light",
+    "output_module_name": "is_light_enabled",
 
     "doc_html": """
         Verifies a light object is enabled.

@@ -1,7 +1,8 @@
 is_command = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "is_command",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "IsCommand",
+    "output_package_name": "application",
+    "output_module_name": "is_command",
 
     "doc_html": """
         Verifies that a command exists in Rhino. The function is useful when scripting commands found in 3rd party plug-ins.

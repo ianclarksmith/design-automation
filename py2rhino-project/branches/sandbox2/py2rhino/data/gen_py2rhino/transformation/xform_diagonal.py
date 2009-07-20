@@ -1,7 +1,8 @@
 xform_diagonal = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_diagonal",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformDiagonal",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_diagonal",
 
     "doc_html": """
         Returns a diagonal  transformation matrix. Diagonal matrices are 3x3 with the bottom row = 0,0,0,1.

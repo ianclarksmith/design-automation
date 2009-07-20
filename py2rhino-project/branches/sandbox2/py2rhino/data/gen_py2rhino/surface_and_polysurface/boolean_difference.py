@@ -1,7 +1,8 @@
 boolean_difference = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "boolean_difference",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "BooleanDifference",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "boolean_difference",
 
     "doc_html": """
         Performs a Boolean difference operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanDifference command in the Rhino help file.

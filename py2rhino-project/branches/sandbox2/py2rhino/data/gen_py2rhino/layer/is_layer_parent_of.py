@@ -1,7 +1,8 @@
 is_layer_parent_of = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_parent_of",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerParentOf",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_parent_of",
 
     "doc_html": """
         Verifies that a layer is a parent of another layer.

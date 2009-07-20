@@ -1,7 +1,8 @@
 background_bitmap = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "background_bitmap",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "BackgroundBitmap",
+    "output_package_name": "view",
+    "output_module_name": "background_bitmap",
 
     "doc_html": """
         Returns or sets the background bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.

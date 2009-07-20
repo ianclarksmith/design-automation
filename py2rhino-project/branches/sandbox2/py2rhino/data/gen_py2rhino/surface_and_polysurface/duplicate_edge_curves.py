@@ -1,7 +1,8 @@
 duplicate_edge_curves = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "duplicate_edge_curves",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "DuplicateEdgeCurves",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "duplicate_edge_curves",
 
     "doc_html": """
         Duplicates the edge curves of a surface or polysurface. For more information, see the Rhino help file for information on the DupEdge command.

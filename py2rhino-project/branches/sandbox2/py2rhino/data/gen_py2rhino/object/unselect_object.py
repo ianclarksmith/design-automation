@@ -1,7 +1,8 @@
 unselect_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "unselect_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "UnselectObject",
+    "output_package_name": "object",
+    "output_module_name": "unselect_object",
 
     "doc_html": """
         Unselects a single selected object.

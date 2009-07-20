@@ -1,7 +1,8 @@
 dim_style_number_format = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dim_style_number_format",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimStyleNumberFormat",
+    "output_package_name": "dimension",
+    "output_module_name": "dim_style_number_format",
 
     "doc_html": """
         Returns or changes the number display format of a dimension style.

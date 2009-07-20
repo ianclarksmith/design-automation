@@ -1,7 +1,8 @@
 get_document_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "get_document_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "GetDocumentData",
+    "output_package_name": "user_data",
+    "output_module_name": "get_document_data",
 
     "doc_html": """
         Returns a RhinoScript user data item from the current document.

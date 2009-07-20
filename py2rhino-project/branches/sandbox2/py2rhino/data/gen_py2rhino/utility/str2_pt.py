@@ -1,7 +1,8 @@
 str2_pt = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "str2_pt",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "Str2Pt",
+    "output_package_name": "utility",
+    "output_module_name": "str2_pt",
 
     "doc_html": """
         Converts a formatted string value into a 3-D point value.

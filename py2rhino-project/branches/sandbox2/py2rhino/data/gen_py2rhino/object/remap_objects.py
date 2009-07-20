@@ -1,7 +1,8 @@
 remap_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "remap_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "RemapObjects",
+    "output_package_name": "object",
+    "output_module_name": "remap_objects",
 
     "doc_html": """
         Remqps one or more objects from one plane, or coordinate system, to another.

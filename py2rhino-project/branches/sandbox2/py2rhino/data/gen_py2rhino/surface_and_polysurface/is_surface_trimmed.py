@@ -1,7 +1,8 @@
 is_surface_trimmed = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_surface_trimmed",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsSurfaceTrimmed",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_surface_trimmed",
 
     "doc_html": """
         Verifies a surface object has been trimmed.

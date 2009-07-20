@@ -1,7 +1,8 @@
 is_point_on_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_point_on_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsPointOnCurve",
+    "output_package_name": "curve",
+    "output_module_name": "is_point_on_curve",
 
     "doc_html": """
         Verifies that a point is on a curve.

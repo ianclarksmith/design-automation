@@ -1,7 +1,8 @@
 surface_area_centroid = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_area_centroid",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceAreaCentroid",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_area_centroid",
 
     "doc_html": """
         Calculates the area centroid of a surface or polysurface object.

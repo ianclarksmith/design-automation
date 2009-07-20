@@ -1,7 +1,8 @@
 object_mesh_settings = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_mesh_settings",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectMeshSettings",
+    "output_package_name": "object",
+    "output_module_name": "object_mesh_settings",
 
     "doc_html": """
         Returns or sets the render mesh settings of an object's custom render mesh parameters.

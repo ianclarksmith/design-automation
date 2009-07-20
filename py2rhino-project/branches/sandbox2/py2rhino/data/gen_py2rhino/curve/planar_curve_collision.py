@@ -1,7 +1,8 @@
 planar_curve_collision = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "planar_curve_collision",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "PlanarCurveCollision",
+    "output_package_name": "curve",
+    "output_module_name": "planar_curve_collision",
 
     "doc_html": """
         Determines if two coplanar curves intersect.

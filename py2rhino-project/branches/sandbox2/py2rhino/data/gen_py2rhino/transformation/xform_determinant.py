@@ -1,7 +1,8 @@
 xform_determinant = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_determinant",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformDeterminant",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_determinant",
 
     "doc_html": """
         Returns the determinant of a transformation matrix. If the determinant of a transformation matrix is 0, the matrix is said to be singular. Singular matrices do not have inverses.

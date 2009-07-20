@@ -1,7 +1,8 @@
 object_color_source = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_color_source",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectColorSource",
+    "output_package_name": "object",
+    "output_module_name": "object_color_source",
 
     "doc_html": """
         Returns or modifies the color source of an object.   The color used to display objects is specified in one of four ways:

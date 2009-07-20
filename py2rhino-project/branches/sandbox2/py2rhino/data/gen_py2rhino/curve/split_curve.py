@@ -1,7 +1,8 @@
 split_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "split_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "SplitCurve",
+    "output_package_name": "curve",
+    "output_module_name": "split_curve",
 
     "doc_html": """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.

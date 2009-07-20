@@ -1,7 +1,8 @@
 point_cloud_count = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "point_cloud_count",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "PointCloudCount",
+    "output_package_name": "geometry",
+    "output_module_name": "point_cloud_count",
 
     "doc_html": """
         Returns the point count of a point cloud object.

@@ -1,7 +1,8 @@
 object_print_color_source = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_print_color_source",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectPrintColorSource",
+    "output_package_name": "object",
+    "output_module_name": "object_print_color_source",
 
     "doc_html": """
         Returns or modifies the print color source of an object.  The color used to print objects is specified in one of four ways:

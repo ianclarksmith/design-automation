@@ -1,7 +1,8 @@
 surface_closest_point = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_closest_point",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceClosestPoint",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_closest_point",
 
     "doc_html": """
         Returns the UV parameter of the point on a surface that is closest to a test point.

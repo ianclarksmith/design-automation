@@ -1,7 +1,8 @@
 text_object_text = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "text_object_text",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "TextObjectText",
+    "output_package_name": "geometry",
+    "output_module_name": "text_object_text",
 
     "doc_html": """
         Returns or modifies the text string of a text object.  Text objects can be created using Rhino's Text command.

@@ -1,7 +1,8 @@
 material_environment_map = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "material_environment_map",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "MaterialEnvironmentMap",
+    "output_package_name": "material",
+    "output_module_name": "material_environment_map",
 
     "doc_html": """
         Returns or modifies a material's environment bitmap filename.

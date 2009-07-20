@@ -1,7 +1,8 @@
 view_display_mode_name = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_display_mode_name",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewDisplayModeName",
+    "output_package_name": "view",
+    "output_module_name": "view_display_mode_name",
 
     "doc_html": """
         Returns the name of a display mode given a display mode's identifier.

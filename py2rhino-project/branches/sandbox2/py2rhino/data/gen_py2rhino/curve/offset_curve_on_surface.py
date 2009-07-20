@@ -1,7 +1,8 @@
 offset_curve_on_surface = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "offset_curve_on_surface",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "OffsetCurveOnSurface",
+    "output_package_name": "curve",
+    "output_module_name": "offset_curve_on_surface",
 
     "doc_html": """
         Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.

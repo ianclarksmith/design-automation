@@ -1,7 +1,8 @@
 startup_script_count = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "startup_script_count",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "StartupScriptCount",
+    "output_package_name": "application",
+    "output_module_name": "startup_script_count",
 
     "doc_html": """
         Returns the number of startup script items in RhinoScript's startup script list. See "Options RhinoScript" for more details.

@@ -1,7 +1,8 @@
 intersect_planes = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "intersect_planes",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "IntersectPlanes",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "intersect_planes",
 
     "doc_html": """
         

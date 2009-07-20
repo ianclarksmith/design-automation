@@ -1,7 +1,8 @@
 is_curve_planar = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_curve_planar",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsCurvePlanar",
+    "output_package_name": "curve",
+    "output_module_name": "is_curve_planar",
 
     "doc_html": """
         Verifies an object is a planar curve object.

@@ -1,7 +1,8 @@
 a_tan2 = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "a_tan2",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "ATan2",
+    "output_package_name": "math",
+    "output_module_name": "a_tan2",
 
     "doc_html": """
         Returns the angle whose tangent is the quotient of two specified numbers.

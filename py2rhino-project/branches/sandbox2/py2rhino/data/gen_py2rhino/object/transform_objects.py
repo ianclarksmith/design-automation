@@ -1,7 +1,8 @@
 transform_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "transform_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "TransformObjects",
+    "output_package_name": "object",
+    "output_module_name": "transform_objects",
 
     "doc_html": """
         Moves, scales, or rotates one or more objects given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:

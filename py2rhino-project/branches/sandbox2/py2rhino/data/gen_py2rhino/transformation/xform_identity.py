@@ -1,7 +1,8 @@
 xform_identity = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_identity",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformIdentity",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_identity",
 
     "doc_html": """
         Returns the identity transformation matrix.

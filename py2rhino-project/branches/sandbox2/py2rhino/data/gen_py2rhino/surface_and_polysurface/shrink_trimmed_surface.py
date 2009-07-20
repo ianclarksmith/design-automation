@@ -1,7 +1,8 @@
 shrink_trimmed_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "shrink_trimmed_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ShrinkTrimmedSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "shrink_trimmed_surface",
 
     "doc_html": """
         Shrinks the underlying untrimmed surfaces near to trimming boundaries. For more details, see the ShrinkTrimmedSrf command in the Rhino help file.

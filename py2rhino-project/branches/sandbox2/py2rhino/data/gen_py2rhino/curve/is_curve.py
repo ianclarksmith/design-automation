@@ -1,7 +1,8 @@
 is_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsCurve",
+    "output_package_name": "curve",
+    "output_module_name": "is_curve",
 
     "doc_html": """
         Verifies an object is a curve object.

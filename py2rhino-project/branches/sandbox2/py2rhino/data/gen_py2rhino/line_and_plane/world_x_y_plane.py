@@ -1,7 +1,8 @@
 world_x_y_plane = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "world_x_y_plane",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "WorldXYPlane",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "world_x_y_plane",
 
     "doc_html": """
         Returns Rhino's world XY plane. This plane could also be created as follows:

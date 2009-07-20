@@ -1,7 +1,8 @@
 view_radius = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_radius",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewRadius",
+    "output_package_name": "view",
+    "output_module_name": "view_radius",
 
     "doc_html": """
         Returns or sets the radius of the viewing frustum of a parallel-projected view. This function is useful when you need an absolute zoom factor for a parallel-projected view.

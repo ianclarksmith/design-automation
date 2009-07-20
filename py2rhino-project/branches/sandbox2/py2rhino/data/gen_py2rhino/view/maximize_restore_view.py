@@ -1,7 +1,8 @@
 maximize_restore_view = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "maximize_restore_view",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "MaximizeRestoreView",
+    "output_package_name": "view",
+    "output_module_name": "maximize_restore_view",
 
     "doc_html": """
         Toggles a view's maximized/restore window state of the specified view.

@@ -1,7 +1,8 @@
 is_curve_in_plane = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_curve_in_plane",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsCurveInPlane",
+    "output_package_name": "curve",
+    "output_module_name": "is_curve_in_plane",
 
     "doc_html": """
         Test a curve to see if it lies in a specific plane.

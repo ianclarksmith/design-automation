@@ -1,7 +1,8 @@
 extract_preview_image = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "extract_preview_image",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "ExtractPreviewImage",
+    "output_package_name": "document",
+    "output_module_name": "extract_preview_image",
 
     "doc_html": """
         Extracts the bitmap preview image from the specified model (.3dm).

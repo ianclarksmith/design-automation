@@ -1,7 +1,8 @@
 is_surface_closed = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_surface_closed",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsSurfaceClosed",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_surface_closed",
 
     "doc_html": """
         Verifies a surface object is closed in the specified direction.  If the surface fully encloses a volume, it is considered a solid.

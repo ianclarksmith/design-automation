@@ -1,7 +1,8 @@
 is_material_reference = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "is_material_reference",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "IsMaterialReference",
+    "output_package_name": "material",
+    "output_module_name": "is_material_reference",
 
     "doc_html": """
         Verifies a material is referenced from another file.

@@ -1,7 +1,8 @@
 shear_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "shear_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ShearObjects",
+    "output_package_name": "object",
+    "output_module_name": "shear_objects",
 
     "doc_html": """
         Performs a shear transformation on one or more objects. Transformation is based on the active construction plane.

@@ -1,7 +1,8 @@
 status_bar_point = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "status_bar_point",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "StatusBarPoint",
+    "output_package_name": "application",
+    "output_module_name": "status_bar_point",
 
     "doc_html": """
         Sets Rhino's status bar point coordinate panes.

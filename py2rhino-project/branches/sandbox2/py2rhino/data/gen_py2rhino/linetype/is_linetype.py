@@ -1,7 +1,8 @@
 is_linetype = {
-    "module_name": "linetype",
-    "class_name": "Linetype",
-    "method_name": "is_linetype",
+    "input_folder_name": "Linetype_Methods",
+    "input_file_name": "IsLinetype",
+    "output_package_name": "linetype",
+    "output_module_name": "is_linetype",
 
     "doc_html": """
         Verifies the existence of a linetype in the document.

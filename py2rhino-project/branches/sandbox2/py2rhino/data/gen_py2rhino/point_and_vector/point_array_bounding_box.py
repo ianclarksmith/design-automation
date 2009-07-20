@@ -1,7 +1,8 @@
 point_array_bounding_box = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "point_array_bounding_box",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "PointArrayBoundingBox",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "point_array_bounding_box",
 
     "doc_html": """
         Returns either a world axis-aligned or a construction plane axis-aligned bounding box of an array of 3-D point locations.

@@ -1,7 +1,8 @@
 delete_attribute_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "delete_attribute_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "DeleteAttributeData",
+    "output_package_name": "user_data",
+    "output_module_name": "delete_attribute_data",
 
     "doc_html": """
         Removes RhinoScript user data items from an object's attributes.

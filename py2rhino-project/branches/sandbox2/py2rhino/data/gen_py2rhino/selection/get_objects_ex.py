@@ -1,7 +1,8 @@
 get_objects_ex = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "get_objects_ex",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "GetObjectsEx",
+    "output_package_name": "selection",
+    "output_module_name": "get_objects_ex",
 
     "doc_html": """
         Prompts the user to pick or select one or more objects.

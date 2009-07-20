@@ -1,7 +1,8 @@
 unit_system = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "unit_system",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "UnitSystem",
+    "output_package_name": "document",
+    "output_module_name": "unit_system",
 
     "doc_html": """
         Returns or sets the document's units system.  See Rhino's DocumentProperties command (Units window) for details.

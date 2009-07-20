@@ -1,7 +1,8 @@
 vector_create = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_create",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorCreate",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_create",
 
     "doc_html": """
         Creates a vector from two 3-D points.

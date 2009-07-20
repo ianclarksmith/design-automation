@@ -1,7 +1,8 @@
 line_closest_point = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "line_closest_point",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "LineClosestPoint",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "line_closest_point",
 
     "doc_html": """
         Finds the point on an infinite line that is closest to a test point.

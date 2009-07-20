@@ -1,7 +1,8 @@
 is_object_in_box = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "is_object_in_box",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "IsObjectInBox",
+    "output_package_name": "object",
+    "output_module_name": "is_object_in_box",
 
     "doc_html": """
         Verifies an object's bounding box is inside of another bounding box.

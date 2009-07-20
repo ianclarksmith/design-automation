@@ -1,7 +1,8 @@
 block_instance_count = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_instance_count",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockInstanceCount",
+    "output_package_name": "block",
+    "output_module_name": "block_instance_count",
 
     "doc_html": """
         Counts the number of instances of the block in the document.  Nested instances are not included in the count.

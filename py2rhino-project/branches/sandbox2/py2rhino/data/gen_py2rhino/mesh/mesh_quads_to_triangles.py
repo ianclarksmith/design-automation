@@ -1,7 +1,8 @@
 mesh_quads_to_triangles = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_quads_to_triangles",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshQuadsToTriangles",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_quads_to_triangles",
 
     "doc_html": """
         Converts a mesh object's quad faces to triangles.

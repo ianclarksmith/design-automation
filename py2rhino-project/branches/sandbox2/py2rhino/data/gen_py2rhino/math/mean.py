@@ -1,7 +1,8 @@
 mean = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "mean",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Mean",
+    "output_package_name": "math",
+    "output_module_name": "mean",
 
     "doc_html": """
         Returns the mean number, or average, from an array of numbers.

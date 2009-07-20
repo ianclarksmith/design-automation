@@ -1,7 +1,8 @@
 mirror_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "mirror_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "MirrorObject",
+    "output_package_name": "object",
+    "output_module_name": "mirror_object",
 
     "doc_html": """
         Mirrors a single object.

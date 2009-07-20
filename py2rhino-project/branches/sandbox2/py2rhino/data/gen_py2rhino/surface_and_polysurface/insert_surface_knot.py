@@ -1,7 +1,8 @@
 insert_surface_knot = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "insert_surface_knot",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "InsertSurfaceKnot",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "insert_surface_knot",
 
     "doc_html": """
         Inserts a knot into a surface object.

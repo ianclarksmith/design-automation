@@ -1,7 +1,8 @@
 is_block_in_use = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "is_block_in_use",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "IsBlockInUse",
+    "output_package_name": "block",
+    "output_module_name": "is_block_in_use",
 
     "doc_html": """
         Verifies that a block definition is being used by an inserted instance.

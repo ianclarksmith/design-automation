@@ -1,7 +1,8 @@
 alias_count = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "alias_count",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AliasCount",
+    "output_package_name": "application",
+    "output_module_name": "alias_count",
 
     "doc_html": """
         Returns the number of command alias in Rhino.

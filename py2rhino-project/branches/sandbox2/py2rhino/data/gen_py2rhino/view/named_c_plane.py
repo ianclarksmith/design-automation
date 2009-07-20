@@ -1,7 +1,8 @@
 named_c_plane = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "named_c_plane",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "NamedCPlane",
+    "output_package_name": "view",
+    "output_module_name": "named_c_plane",
 
     "doc_html": """
         Returns the plane geometry of the specified named construction plane.

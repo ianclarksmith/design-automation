@@ -1,7 +1,8 @@
 xform_compare = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_compare",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformCompare",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_compare",
 
     "doc_html": """
         Compares two transformation matrices.

@@ -1,7 +1,8 @@
 distance_to_plane = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "distance_to_plane",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "DistanceToPlane",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "distance_to_plane",
 
     "doc_html": """
         Returns the distance from a 3-D point to a plane.

@@ -1,7 +1,8 @@
 build_date = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "build_date",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "BuildDate",
+    "output_package_name": "application",
+    "output_module_name": "build_date",
 
     "doc_html": """
         Returns the build date of Rhino.  The build date is a number in the form of YYYYMMDD.

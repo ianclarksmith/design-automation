@@ -1,7 +1,8 @@
 object_layer = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_layer",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectLayer",
+    "output_package_name": "object",
+    "output_module_name": "object_layer",
 
     "doc_html": """
         Returns or modifies the layer of an object.

@@ -1,7 +1,8 @@
 pull_curve_to_mesh = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "pull_curve_to_mesh",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "PullCurveToMesh",
+    "output_package_name": "mesh",
+    "output_module_name": "pull_curve_to_mesh",
 
     "doc_html": """
         Pulls a curve object to a mesh object. The function makes a polyline approximation of the input curve and gets the closest point on the mesh for each point on the mesh.  Then it "connects the points" so  that you have a polyline on the mesh.

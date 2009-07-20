@@ -1,7 +1,8 @@
 vector_cross_product = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_cross_product",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorCrossProduct",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_cross_product",
 
     "doc_html": """
         Calculates the cross product of two 3-D vectors.

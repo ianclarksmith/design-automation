@@ -1,7 +1,8 @@
 add_object_to_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "add_object_to_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "AddObjectToGroup",
+    "output_package_name": "group",
+    "output_module_name": "add_object_to_group",
 
     "doc_html": """
         Adds a single object to an existing group. Neither the object nor the group can be reference objects.

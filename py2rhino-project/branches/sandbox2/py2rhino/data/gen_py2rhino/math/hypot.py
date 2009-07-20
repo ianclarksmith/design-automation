@@ -1,7 +1,8 @@
 hypot = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "hypot",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Hypot",
+    "output_package_name": "math",
+    "output_module_name": "hypot",
 
     "doc_html": """
         Calculates the length of the hypotenuse of a right triangle, given the length of the two sides x and y (in other words, the square root of x2 + y2).

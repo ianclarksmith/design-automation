@@ -1,7 +1,8 @@
 rename_layer = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "rename_layer",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "RenameLayer",
+    "output_package_name": "layer",
+    "output_module_name": "rename_layer",
 
     "doc_html": """
         Renames an existing layer.

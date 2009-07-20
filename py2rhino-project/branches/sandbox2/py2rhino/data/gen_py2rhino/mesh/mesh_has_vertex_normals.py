@@ -1,7 +1,8 @@
 mesh_has_vertex_normals = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_has_vertex_normals",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshHasVertexNormals",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_has_vertex_normals",
 
     "doc_html": """
         Verifies a mesh object has vertex normals.

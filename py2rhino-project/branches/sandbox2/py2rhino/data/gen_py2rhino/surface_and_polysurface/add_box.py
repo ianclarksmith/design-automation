@@ -1,7 +1,8 @@
 add_box = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_box",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddBox",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_box",
 
     "doc_html": """
         Adds a new box-shaped polysurface to the document.

@@ -1,7 +1,8 @@
 reverse_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "reverse_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "ReverseCurve",
+    "output_package_name": "curve",
+    "output_module_name": "reverse_curve",
 
     "doc_html": """
         Reverses the direction of a curve object. This feature can also be found in Rhino's Dir command.

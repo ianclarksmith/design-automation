@@ -1,7 +1,8 @@
 delete_named_c_plane = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "delete_named_c_plane",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "DeleteNamedCPlane",
+    "output_package_name": "view",
+    "output_module_name": "delete_named_c_plane",
 
     "doc_html": """
         Removed a new named construction plane from the document.

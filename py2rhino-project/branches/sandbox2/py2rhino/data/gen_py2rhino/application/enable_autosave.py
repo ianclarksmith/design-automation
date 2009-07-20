@@ -1,7 +1,8 @@
 enable_autosave = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "enable_autosave",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "EnableAutosave",
+    "output_package_name": "application",
+    "output_module_name": "enable_autosave",
 
     "doc_html": """
         Enables or disables Rhino's automatic file saving mechanism.

@@ -1,7 +1,8 @@
 edit_box = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "edit_box",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "EditBox",
+    "output_package_name": "user_interface",
+    "output_module_name": "edit_box",
 
     "doc_html": """
         Displays a dialog box prompting the user to enter a string value.  The string value may span multiple lines.

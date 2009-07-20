@@ -1,7 +1,8 @@
 notes = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "notes",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "Notes",
+    "output_package_name": "document",
+    "output_module_name": "notes",
 
     "doc_html": """
         Returns or sets the document's notes.  Notes are generally created by using Rhino's Notes command.

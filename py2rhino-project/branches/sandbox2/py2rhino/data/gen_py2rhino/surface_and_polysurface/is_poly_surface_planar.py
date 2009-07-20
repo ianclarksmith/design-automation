@@ -1,7 +1,8 @@
 is_poly_surface_planar = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_poly_surface_planar",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsPolySurfacePlanar",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_poly_surface_planar",
 
     "doc_html": """
         Verifies a polysurface object is planar.

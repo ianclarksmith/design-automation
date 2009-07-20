@@ -1,7 +1,8 @@
 zoom_extents = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "zoom_extents",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ZoomExtents",
+    "output_package_name": "view",
+    "output_module_name": "zoom_extents",
 
     "doc_html": """
         Zooms to the extents of visible objects in the specified view, or in the active view.

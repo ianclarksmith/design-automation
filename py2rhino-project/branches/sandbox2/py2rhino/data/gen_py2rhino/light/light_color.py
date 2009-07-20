@@ -1,7 +1,8 @@
 light_color = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "light_color",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "LightColor",
+    "output_package_name": "light",
+    "output_module_name": "light_color",
 
     "doc_html": """
         Returns or changes the color of a light.  Light colors are represented as RGB colors.   An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.

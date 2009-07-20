@@ -1,7 +1,8 @@
 is_linear_dimension = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "is_linear_dimension",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "IsLinearDimension",
+    "output_package_name": "dimension",
+    "output_module_name": "is_linear_dimension",
 
     "doc_html": """
         Verifies an object is a linear dimension object.

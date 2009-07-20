@@ -1,7 +1,8 @@
 render_mesh_max_dist_edge_to_srf = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "render_mesh_max_dist_edge_to_srf",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "RenderMeshMaxDistEdgeToSrf",
+    "output_package_name": "document",
+    "output_module_name": "render_mesh_max_dist_edge_to_srf",
 
     "doc_html": """
         Returns or sets the render mesh maximum distance, edge to surface parameter of the active document.

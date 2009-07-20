@@ -1,7 +1,8 @@
 curve_points = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_points",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurvePoints",
+    "output_package_name": "curve",
+    "output_module_name": "curve_points",
 
     "doc_html": """
         Returns the control points, or control vertices, of a curve object.  If the curve is a rational NURBS curve, the euclidean control vertices are returned.

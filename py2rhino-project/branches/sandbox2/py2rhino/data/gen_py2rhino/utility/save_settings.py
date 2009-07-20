@@ -1,7 +1,8 @@
 save_settings = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "save_settings",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "SaveSettings",
+    "output_package_name": "utility",
+    "output_module_name": "save_settings",
 
     "doc_html": """
         Saves a string to a specified section in a Windows-style initialization file.  The initialization file must have the following form:

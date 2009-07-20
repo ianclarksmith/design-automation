@@ -1,7 +1,8 @@
 parent_layer = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "parent_layer",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "ParentLayer",
+    "output_package_name": "layer",
+    "output_module_name": "parent_layer",
 
     "doc_html": """
         Returns or modifies the parent layer of a layer.

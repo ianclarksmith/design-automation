@@ -1,7 +1,8 @@
 cull_duplicate_points = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "cull_duplicate_points",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "CullDuplicatePoints",
+    "output_package_name": "utility",
+    "output_module_name": "cull_duplicate_points",
 
     "doc_html": """
         Removes duplicates from an array of 3-D points.

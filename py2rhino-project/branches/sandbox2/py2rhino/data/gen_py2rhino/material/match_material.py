@@ -1,7 +1,8 @@
 match_material = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "match_material",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "MatchMaterial",
+    "output_package_name": "material",
+    "output_module_name": "match_material",
 
     "doc_html": """
         Copies the material definition from one material to one or more objects.

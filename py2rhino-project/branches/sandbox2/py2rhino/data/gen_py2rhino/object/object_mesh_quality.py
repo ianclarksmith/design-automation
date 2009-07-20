@@ -1,7 +1,8 @@
 object_mesh_quality = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_mesh_quality",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectMeshQuality",
+    "output_package_name": "object",
+    "output_module_name": "object_mesh_quality",
 
     "doc_html": """
         Returns or sets the render mesh quality of an object's custom render mesh parameters.

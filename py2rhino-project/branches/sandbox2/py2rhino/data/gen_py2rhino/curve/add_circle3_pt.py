@@ -1,7 +1,8 @@
 add_circle3_pt = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_circle3_pt",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddCircle3Pt",
+    "output_package_name": "curve",
+    "output_module_name": "add_circle3_pt",
 
     "doc_html": """
         Adds a 3-point circle curve to the document.

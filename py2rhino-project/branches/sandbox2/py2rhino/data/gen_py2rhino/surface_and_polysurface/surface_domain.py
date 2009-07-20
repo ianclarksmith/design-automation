@@ -1,7 +1,8 @@
 surface_domain = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_domain",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceDomain",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_domain",
 
     "doc_html": """
         Returns the domain of a  surface object in the specified direction.

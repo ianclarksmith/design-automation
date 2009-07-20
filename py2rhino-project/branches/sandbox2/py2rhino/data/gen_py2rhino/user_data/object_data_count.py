@@ -1,7 +1,8 @@
 object_data_count = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "object_data_count",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "ObjectDataCount",
+    "output_package_name": "user_data",
+    "output_module_name": "object_data_count",
 
     "doc_html": """
         Returns the number of RhinoScript user data items on an object's geometry.

@@ -1,7 +1,8 @@
 spot_light_shadow_intensity = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "spot_light_shadow_intensity",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "SpotLightShadowIntensity",
+    "output_package_name": "light",
+    "output_module_name": "spot_light_shadow_intensity",
 
     "doc_html": """
         Returns or modifies the shadow intensity of a spot light.

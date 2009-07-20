@@ -1,7 +1,8 @@
 curve_curvature = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_curvature",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveCurvature",
+    "output_package_name": "curve",
+    "output_module_name": "curve_curvature",
 
     "doc_html": """
         Returns the curvature of a curve at a parameter.  See the Rhino help file for details on curve curvature.

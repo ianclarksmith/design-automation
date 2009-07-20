@@ -1,7 +1,8 @@
 screen_size = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "screen_size",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "ScreenSize",
+    "output_package_name": "application",
+    "output_module_name": "screen_size",
 
     "doc_html": """
         Returns the current width and height, in pixels, of the screen of the primary display monitor.

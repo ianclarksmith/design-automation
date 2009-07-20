@@ -1,7 +1,8 @@
 planar = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "planar",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "Planar",
+    "output_package_name": "application",
+    "output_module_name": "planar",
 
     "doc_html": """
         Enables or disables Rhino's planar modeling aid.

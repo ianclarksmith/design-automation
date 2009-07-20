@@ -1,7 +1,8 @@
 remove_curve_knot = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "remove_curve_knot",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "RemoveCurveKnot",
+    "output_package_name": "curve",
+    "output_module_name": "remove_curve_knot",
 
     "doc_html": """
         Deletes a knot from a curve object.

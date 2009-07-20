@@ -1,7 +1,8 @@
 show_world_axes = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "show_world_axes",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ShowWorldAxes",
+    "output_package_name": "view",
+    "output_module_name": "show_world_axes",
 
     "doc_html": """
         Shows or hides a view's world axes icon.

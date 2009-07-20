@@ -1,7 +1,8 @@
 render_mesh_min_initial_grid_quads = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "render_mesh_min_initial_grid_quads",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "RenderMeshMinInitialGridQuads",
+    "output_package_name": "document",
+    "output_module_name": "render_mesh_min_initial_grid_quads",
 
     "doc_html": """
         Returns or sets the render mesh minimum initial grid quads parameter of the active document.

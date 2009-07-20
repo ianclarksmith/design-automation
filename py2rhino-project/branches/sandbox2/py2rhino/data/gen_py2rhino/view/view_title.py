@@ -1,7 +1,8 @@
 view_title = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_title",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewTitle",
+    "output_package_name": "view",
+    "output_module_name": "view_title",
 
     "doc_html": """
         Returns the name, or title, of a view given a view's identifier.

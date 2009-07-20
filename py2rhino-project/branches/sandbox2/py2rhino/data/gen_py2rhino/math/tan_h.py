@@ -1,7 +1,8 @@
 tan_h = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "tan_h",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "TanH",
+    "output_package_name": "math",
+    "output_module_name": "tan_h",
 
     "doc_html": """
         Returns the hyperbolic tangent of the specified angle.

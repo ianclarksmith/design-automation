@@ -1,7 +1,8 @@
 block_names = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_names",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockNames",
+    "output_package_name": "block",
+    "output_module_name": "block_names",
 
     "doc_html": """
         Returns the names of all block definitions in the document.

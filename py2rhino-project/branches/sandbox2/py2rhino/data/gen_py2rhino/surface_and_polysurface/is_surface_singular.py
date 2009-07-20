@@ -1,7 +1,8 @@
 is_surface_singular = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_surface_singular",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsSurfaceSingular",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_surface_singular",
 
     "doc_html": """
         Verifies a surface object is singular in the specified direction.  Surfaces are considered singular if a side collapses to a point.

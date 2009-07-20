@@ -1,7 +1,8 @@
 is_block = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "is_block",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "IsBlock",
+    "output_package_name": "block",
+    "output_module_name": "is_block",
 
     "doc_html": """
         Verifies the existence of a block definition in the document.

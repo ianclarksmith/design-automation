@@ -1,7 +1,8 @@
 object_grip_locations = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "object_grip_locations",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "ObjectGripLocations",
+    "output_package_name": "object_grip",
+    "output_module_name": "object_grip_locations",
 
     "doc_html": """
         Returns or modifies the location of all grips owned by an object. The locations of the grips are returned in an array of 3-D points with each position in the array corresponding to that grip's index. To modify the locations of grips, you must provide an array of 3-D points that contains the same number of points at grips.

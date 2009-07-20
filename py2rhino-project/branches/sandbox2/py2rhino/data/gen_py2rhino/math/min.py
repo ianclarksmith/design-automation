@@ -1,7 +1,8 @@
 min = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "min",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Min",
+    "output_package_name": "math",
+    "output_module_name": "min",
 
     "doc_html": """
         Returns the minimum number from an array of numbers.

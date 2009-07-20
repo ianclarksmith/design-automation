@@ -1,7 +1,8 @@
 is_wallpaper = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "is_wallpaper",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "IsWallpaper",
+    "output_package_name": "view",
+    "output_module_name": "is_wallpaper",
 
     "doc_html": """
         Verifies that the specified view contains a wallpaper bitmap.

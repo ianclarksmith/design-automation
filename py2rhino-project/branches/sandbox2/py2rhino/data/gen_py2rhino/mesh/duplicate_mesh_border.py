@@ -1,7 +1,8 @@
 duplicate_mesh_border = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "duplicate_mesh_border",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "DuplicateMeshBorder",
+    "output_package_name": "mesh",
+    "output_module_name": "duplicate_mesh_border",
 
     "doc_html": """
         Creates a curve that duplicates a mesh border.

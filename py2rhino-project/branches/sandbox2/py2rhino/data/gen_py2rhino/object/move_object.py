@@ -1,7 +1,8 @@
 move_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "move_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "MoveObject",
+    "output_package_name": "object",
+    "output_module_name": "move_object",
 
     "doc_html": """
         Moves a single object.

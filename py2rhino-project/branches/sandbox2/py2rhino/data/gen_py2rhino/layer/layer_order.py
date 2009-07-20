@@ -1,7 +1,8 @@
 layer_order = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_order",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerOrder",
+    "output_package_name": "layer",
+    "output_module_name": "layer_order",
 
     "doc_html": """
         Returns the current display order index of a layer as displayed in Rhino's Layer dialog box.  A display order index of -1 indicates that the current Layer dialog filter does not allow the layer to appear in the layer list.

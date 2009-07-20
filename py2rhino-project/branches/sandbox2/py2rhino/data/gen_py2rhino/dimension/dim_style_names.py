@@ -1,7 +1,8 @@
 dim_style_names = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dim_style_names",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimStyleNames",
+    "output_package_name": "dimension",
+    "output_module_name": "dim_style_names",
 
     "doc_html": """
         Returns the names of all dimension styles in the document.

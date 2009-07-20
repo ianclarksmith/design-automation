@@ -1,7 +1,8 @@
 circle_radius = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "circle_radius",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CircleRadius",
+    "output_package_name": "curve",
+    "output_module_name": "circle_radius",
 
     "doc_html": """
         Returns the radius of a circle curve object.

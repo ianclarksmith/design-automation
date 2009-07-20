@@ -1,7 +1,8 @@
 popup_menu = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "popup_menu",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "PopupMenu",
+    "output_package_name": "user_interface",
+    "output_module_name": "popup_menu",
 
     "doc_html": """
         Displays a user-defined, context-style popup menu. The popup menu can appear almost anywhere. And, it can be dismissed by either clicking the left or right mouse buttons.

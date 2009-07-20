@@ -1,7 +1,8 @@
 save_file_name = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "save_file_name",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "SaveFileName",
+    "output_package_name": "user_interface",
+    "output_module_name": "save_file_name",
 
     "doc_html": """
         Displays a Windows file save dialog box allowing the user to enter a file name. Note, this function does not save the file.

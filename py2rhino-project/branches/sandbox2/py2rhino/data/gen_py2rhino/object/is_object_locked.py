@@ -1,7 +1,8 @@
 is_object_locked = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "is_object_locked",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "IsObjectLocked",
+    "output_package_name": "object",
+    "output_module_name": "is_object_locked",
 
     "doc_html": """
         Verifies that an object is locked.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.

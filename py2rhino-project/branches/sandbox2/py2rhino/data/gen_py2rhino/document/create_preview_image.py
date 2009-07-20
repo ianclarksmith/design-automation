@@ -1,7 +1,8 @@
 create_preview_image = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "create_preview_image",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "CreatePreviewImage",
+    "output_package_name": "document",
+    "output_module_name": "create_preview_image",
 
     "doc_html": """
         Creates a bitmap preview image of the current model.

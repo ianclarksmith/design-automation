@@ -1,7 +1,8 @@
 curve_degree = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_degree",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveDegree",
+    "output_package_name": "curve",
+    "output_module_name": "curve_degree",
 
     "doc_html": """
         Returns the degree of a curve object.

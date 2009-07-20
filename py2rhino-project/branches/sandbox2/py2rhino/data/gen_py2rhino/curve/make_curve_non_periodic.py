@@ -1,7 +1,8 @@
 make_curve_non_periodic = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "make_curve_non_periodic",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "MakeCurveNonPeriodic",
+    "output_package_name": "curve",
+    "output_module_name": "make_curve_non_periodic",
 
     "doc_html": """
         Makes a periodic curve non-periodic.  Non-periodic curves can develop kinks when deformed.

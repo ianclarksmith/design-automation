@@ -1,7 +1,8 @@
 set_attribute_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "set_attribute_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "SetAttributeData",
+    "output_package_name": "user_data",
+    "output_module_name": "set_attribute_data",
 
     "doc_html": """
         Adds or sets a RhinoScript user data item to an object's attributes.

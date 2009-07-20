@@ -1,7 +1,8 @@
 is_group_empty = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "is_group_empty",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "IsGroupEmpty",
+    "output_package_name": "group",
+    "output_module_name": "is_group_empty",
 
     "doc_html": """
         Verifies that an existing group is empty, or contains no object members.

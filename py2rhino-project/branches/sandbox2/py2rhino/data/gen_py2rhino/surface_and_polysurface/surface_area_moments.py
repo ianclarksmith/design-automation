@@ -1,7 +1,8 @@
 surface_area_moments = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_area_moments",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceAreaMoments",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_area_moments",
 
     "doc_html": """
         Calculates the area moments of inertia of a surface or polysurface object.  For more information, see the Rhino help file for "Mass Properties Calculation Details."

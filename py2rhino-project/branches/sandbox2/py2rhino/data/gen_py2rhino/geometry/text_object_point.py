@@ -1,7 +1,8 @@
 text_object_point = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "text_object_point",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "TextObjectPoint",
+    "output_package_name": "geometry",
+    "output_module_name": "text_object_point",
 
     "doc_html": """
         Returns or modifies the location of a text object.

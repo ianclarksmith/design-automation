@@ -1,7 +1,8 @@
 xform_world_to_c_plane = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_world_to_c_plane",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformWorldToCPlane",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_world_to_c_plane",
 
     "doc_html": """
         Transforms a point from world coordinates to construction plane coordinates.

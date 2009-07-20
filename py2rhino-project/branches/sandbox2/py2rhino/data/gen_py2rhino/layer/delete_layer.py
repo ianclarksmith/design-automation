@@ -1,7 +1,8 @@
 delete_layer = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "delete_layer",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "DeleteLayer",
+    "output_package_name": "layer",
+    "output_module_name": "delete_layer",
 
     "doc_html": """
         Removes an existing layer from the document.  The layer to be removed cannot be the current layer.  Unlike the PurgeLayer method,  the layer must be empty, or contain no objects, before it can be removed. Any layers that are children of the specified layer will also be removed if they are also empty.

@@ -1,7 +1,8 @@
 is_curve_closable = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_curve_closable",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsCurveClosable",
+    "output_package_name": "curve",
+    "output_module_name": "is_curve_closable",
 
     "doc_html": """
         Decide if it makes sense to close off the curve by moving  the endpoint to the start based on start-end gap size and length of curve as approximated by chord defined by 6 points.

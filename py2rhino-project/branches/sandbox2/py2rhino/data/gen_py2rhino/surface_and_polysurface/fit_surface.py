@@ -1,7 +1,8 @@
 fit_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "fit_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "FitSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "fit_surface",
 
     "doc_html": """
         Reduces the number of surface control points while maintaining the surfaces' same general shape.  Use this function for replacing surface with too many control points.  For more information, see the Rhino help file for the FitSrf command.

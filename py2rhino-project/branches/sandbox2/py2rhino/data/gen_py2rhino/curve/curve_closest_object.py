@@ -1,7 +1,8 @@
 curve_closest_object = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_closest_object",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveClosestObject",
+    "output_package_name": "curve",
+    "output_module_name": "curve_closest_object",
 
     "doc_html": """
         Returns the 3-D point locations on two objects where they are closest to each other.  Note, this function provides similar functionality to that of Rhino's ClosestPt command when used with the Object option.

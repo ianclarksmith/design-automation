@@ -1,7 +1,8 @@
 text_object_style = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "text_object_style",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "TextObjectStyle",
+    "output_package_name": "geometry",
+    "output_module_name": "text_object_style",
 
     "doc_html": """
         Returns or modifies the font style of a text object.

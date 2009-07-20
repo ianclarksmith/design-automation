@@ -1,7 +1,8 @@
 add_srf_pt_grid = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_srf_pt_grid",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddSrfPtGrid",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_srf_pt_grid",
 
     "doc_html": """
         Creates a surface from a grid of points.

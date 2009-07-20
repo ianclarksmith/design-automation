@@ -1,7 +1,8 @@
 add_nurbs_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_nurbs_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddNurbsSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_nurbs_surface",
 
     "doc_html": """
         Adds a NURBS surface object to the document.

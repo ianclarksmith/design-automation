@@ -1,7 +1,8 @@
 named_views = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "named_views",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "NamedViews",
+    "output_package_name": "view",
+    "output_module_name": "named_views",
 
     "doc_html": """
         Returns the names of all named views in the document.

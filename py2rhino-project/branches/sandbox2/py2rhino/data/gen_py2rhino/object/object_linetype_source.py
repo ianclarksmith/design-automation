@@ -1,7 +1,8 @@
 object_linetype_source = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_linetype_source",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectLinetypeSource",
+    "output_package_name": "object",
+    "output_module_name": "object_linetype_source",
 
     "doc_html": """
         Returns or modifies the linetype source of an object.   The linetype used to display objects is specified in one of three ways:

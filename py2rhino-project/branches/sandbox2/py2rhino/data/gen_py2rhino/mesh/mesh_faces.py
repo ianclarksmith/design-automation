@@ -1,7 +1,8 @@
 mesh_faces = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_faces",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshFaces",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_faces",
 
     "doc_html": """
         Returns the face vertices of a mesh object.

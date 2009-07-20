@@ -1,7 +1,8 @@
 mesh_polyline = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "mesh_polyline",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "MeshPolyline",
+    "output_package_name": "curve",
+    "output_module_name": "mesh_polyline",
 
     "doc_html": """
         Creates a polygon mesh object based on a closed polyline curve object. The newly created polygon mesh object is added to the document.

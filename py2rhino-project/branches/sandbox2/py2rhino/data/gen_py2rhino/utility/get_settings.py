@@ -1,7 +1,8 @@
 get_settings = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "get_settings",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "GetSettings",
+    "output_package_name": "utility",
+    "output_module_name": "get_settings",
 
     "doc_html": """
         Returns a string from a specified section in a Windows-style initialization file.  The initialization file must have the following form:

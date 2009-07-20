@@ -1,7 +1,8 @@
 xform_multiply = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_multiply",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformMultiply",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_multiply",
 
     "doc_html": """
         Multiples two transformation matrices, where arrXform = arrXform1 * arrXform2.

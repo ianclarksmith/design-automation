@@ -1,7 +1,8 @@
 plane_from_points = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "plane_from_points",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "PlaneFromPoints",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "plane_from_points",
 
     "doc_html": """
         Creates a plane from three non-colinear points.

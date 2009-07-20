@@ -1,7 +1,8 @@
 sdk_version = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "sdk_version",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "SdkVersion",
+    "output_package_name": "application",
+    "output_module_name": "sdk_version",
 
     "doc_html": """
         Returns the version of the Rhino SDK supported by the running version of Rhino.  Rhino SDK versions are 9 digit numbers in the form of YYYYMMDDn.

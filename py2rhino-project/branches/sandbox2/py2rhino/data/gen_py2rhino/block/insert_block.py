@@ -1,7 +1,8 @@
 insert_block = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "insert_block",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "InsertBlock",
+    "output_package_name": "block",
+    "output_module_name": "insert_block",
 
     "doc_html": """
         Inserts a block whose definition already exists in the document.

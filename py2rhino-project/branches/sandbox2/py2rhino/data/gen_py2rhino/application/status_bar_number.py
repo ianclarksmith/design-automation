@@ -1,7 +1,8 @@
 status_bar_number = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "status_bar_number",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "StatusBarNumber",
+    "output_package_name": "application",
+    "output_module_name": "status_bar_number",
 
     "doc_html": """
         Sets Rhino's status bar number pane.

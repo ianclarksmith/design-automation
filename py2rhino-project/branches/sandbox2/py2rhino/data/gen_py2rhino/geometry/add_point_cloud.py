@@ -1,7 +1,8 @@
 add_point_cloud = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "add_point_cloud",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "AddPointCloud",
+    "output_package_name": "geometry",
+    "output_module_name": "add_point_cloud",
 
     "doc_html": """
         Adds a point cloud object to the document.

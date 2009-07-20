@@ -1,7 +1,8 @@
 mesh_face_centers = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_face_centers",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshFaceCenters",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_face_centers",
 
     "doc_html": """
         Returns the center point of each face of a mesh object.

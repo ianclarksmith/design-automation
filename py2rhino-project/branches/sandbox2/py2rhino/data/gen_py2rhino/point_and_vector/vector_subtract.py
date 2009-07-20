@@ -1,7 +1,8 @@
 vector_subtract = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_subtract",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorSubtract",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_subtract",
 
     "doc_html": """
         Subtracts two 3-D vectors.

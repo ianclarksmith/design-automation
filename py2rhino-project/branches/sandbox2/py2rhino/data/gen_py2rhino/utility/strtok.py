@@ -1,7 +1,8 @@
 strtok = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "strtok",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "Strtok",
+    "output_package_name": "utility",
+    "output_module_name": "strtok",
 
     "doc_html": """
         Returns the tokens in a string.  Use this method as an alternative to the VBScript's Split function.

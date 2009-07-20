@@ -1,7 +1,8 @@
 command_history = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "command_history",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "CommandHistory",
+    "output_package_name": "application",
+    "output_module_name": "command_history",
 
     "doc_html": """
         Returns the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.

@@ -1,7 +1,8 @@
 sort_numbers = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "sort_numbers",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "SortNumbers",
+    "output_package_name": "utility",
+    "output_module_name": "sort_numbers",
 
     "doc_html": """
         Sorts an array of numbers.

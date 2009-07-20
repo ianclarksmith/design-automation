@@ -1,7 +1,8 @@
 find_file = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "find_file",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "FindFile",
+    "output_package_name": "application",
+    "output_module_name": "find_file",
 
     "doc_html": """
         Searches for a file using Rhino's search path. Rhino will look for a file in the following locations:

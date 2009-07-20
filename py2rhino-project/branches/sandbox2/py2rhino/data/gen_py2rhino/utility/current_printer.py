@@ -1,7 +1,8 @@
 current_printer = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "current_printer",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "CurrentPrinter",
+    "output_package_name": "utility",
+    "output_module_name": "current_printer",
 
     "doc_html": """
         Returns or changes the current Windows printer.

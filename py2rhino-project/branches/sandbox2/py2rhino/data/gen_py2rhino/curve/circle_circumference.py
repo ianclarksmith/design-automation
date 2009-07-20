@@ -1,7 +1,8 @@
 circle_circumference = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "circle_circumference",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CircleCircumference",
+    "output_package_name": "curve",
+    "output_module_name": "circle_circumference",
 
     "doc_html": """
         Returns the circumference of a circle curve object.

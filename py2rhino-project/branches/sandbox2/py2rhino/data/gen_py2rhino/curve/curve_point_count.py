@@ -1,7 +1,8 @@
 curve_point_count = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_point_count",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurvePointCount",
+    "output_package_name": "curve",
+    "output_module_name": "curve_point_count",
 
     "doc_html": """
         Returns the control points count of a curve object.

@@ -1,7 +1,8 @@
 add_point_light = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "add_point_light",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "AddPointLight",
+    "output_package_name": "light",
+    "output_module_name": "add_point_light",
 
     "doc_html": """
         Adds a new point light object  to the document.

@@ -1,7 +1,8 @@
 is_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_surface",
 
     "doc_html": """
         Verifies an object is surface.  Brep objects with only one face are also considered surfaces.

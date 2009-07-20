@@ -1,7 +1,8 @@
 current_hatch_pattern = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "current_hatch_pattern",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "CurrentHatchPattern",
+    "output_package_name": "hatch",
+    "output_module_name": "current_hatch_pattern",
 
     "doc_html": """
         Returns or sets the current hatch pattern file.

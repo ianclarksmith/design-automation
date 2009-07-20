@@ -1,7 +1,8 @@
 offset_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "offset_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "OffsetSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "offset_surface",
 
     "doc_html": """
         Offsets a surface by a distance. The offset surface will be added to Rhino.

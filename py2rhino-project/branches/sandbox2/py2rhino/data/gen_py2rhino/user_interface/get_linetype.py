@@ -1,7 +1,8 @@
 get_linetype = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "get_linetype",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "GetLinetype",
+    "output_package_name": "user_interface",
+    "output_module_name": "get_linetype",
 
     "doc_html": """
         Displays a dialog box prompting the user to select a linetype.

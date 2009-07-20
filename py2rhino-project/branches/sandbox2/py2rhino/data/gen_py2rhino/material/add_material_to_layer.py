@@ -1,7 +1,8 @@
 add_material_to_layer = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "add_material_to_layer",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "AddMaterialToLayer",
+    "output_package_name": "material",
+    "output_module_name": "add_material_to_layer",
 
     "doc_html": """
         Adds a material to a layer and returns the new material's index.  If the layer already has a material, then the layer's current material index is returned.

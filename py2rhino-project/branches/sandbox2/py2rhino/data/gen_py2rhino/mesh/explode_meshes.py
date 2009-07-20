@@ -1,7 +1,8 @@
 explode_meshes = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "explode_meshes",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "ExplodeMeshes",
+    "output_package_name": "mesh",
+    "output_module_name": "explode_meshes",
 
     "doc_html": """
         Explodes a mesh object, or mesh objects,  into submeshes.  A submesh is a collection of mesh faces that are contained within a closed loop of unwelded mesh edges.  Unwelded mesh edges are edges where the mesh faces that share the edge have unique mesh vertices (not mesh topology vertices) at both ends of the edge.

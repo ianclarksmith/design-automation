@@ -1,7 +1,8 @@
 object_grip_count = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "object_grip_count",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "ObjectGripCount",
+    "output_package_name": "object_grip",
+    "output_module_name": "object_grip_count",
 
     "doc_html": """
         Returns the number of grips owned by an object.

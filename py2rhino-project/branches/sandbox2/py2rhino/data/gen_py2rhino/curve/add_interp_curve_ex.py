@@ -1,7 +1,8 @@
 add_interp_curve_ex = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_interp_curve_ex",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddInterpCurveEx",
+    "output_package_name": "curve",
+    "output_module_name": "add_interp_curve_ex",
 
     "doc_html": """
         Adds an interpolated curve object to  the document similar to Rhino's InterpCrv command.

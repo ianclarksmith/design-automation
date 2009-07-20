@@ -1,7 +1,8 @@
 add_text_dot = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "add_text_dot",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "AddTextDot",
+    "output_package_name": "geometry",
+    "output_module_name": "add_text_dot",
 
     "doc_html": """
         Adds an annotation text dot to the document.

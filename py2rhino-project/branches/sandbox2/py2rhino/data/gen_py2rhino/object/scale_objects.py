@@ -1,7 +1,8 @@
 scale_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "scale_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ScaleObjects",
+    "output_package_name": "object",
+    "output_module_name": "scale_objects",
 
     "doc_html": """
         Scales one or more objects. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.

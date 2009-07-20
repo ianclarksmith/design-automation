@@ -1,7 +1,8 @@
 curve_closest_point = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_closest_point",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveClosestPoint",
+    "output_package_name": "curve",
+    "output_module_name": "curve_closest_point",
 
     "doc_html": """
         Returns the parameter of the point on a curve that is closest to a test point.

@@ -1,7 +1,8 @@
 copy_material = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "copy_material",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "CopyMaterial",
+    "output_package_name": "material",
+    "output_module_name": "copy_material",
 
     "doc_html": """
         Copies the definition of a source material to a destination material.

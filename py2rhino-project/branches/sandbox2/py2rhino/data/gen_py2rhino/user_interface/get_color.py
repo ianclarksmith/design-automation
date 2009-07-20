@@ -1,7 +1,8 @@
 get_color = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "get_color",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "GetColor",
+    "output_package_name": "user_interface",
+    "output_module_name": "get_color",
 
     "doc_html": """
         Displays the Rhino color picker dialog box allowing the user to select an RGB color value.

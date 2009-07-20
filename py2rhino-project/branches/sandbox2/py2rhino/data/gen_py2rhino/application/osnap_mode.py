@@ -1,7 +1,8 @@
 osnap_mode = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "osnap_mode",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "OsnapMode",
+    "output_package_name": "application",
+    "output_module_name": "osnap_mode",
 
     "doc_html": """
         Returns or sets the object snap mode. Object snaps are tools for specifying points on existing objects.

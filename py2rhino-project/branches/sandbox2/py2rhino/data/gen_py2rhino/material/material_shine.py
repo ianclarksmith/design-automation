@@ -1,7 +1,8 @@
 material_shine = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "material_shine",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "MaterialShine",
+    "output_package_name": "material",
+    "output_module_name": "material_shine",
 
     "doc_html": """
         Returns or modifies a material's shine value.

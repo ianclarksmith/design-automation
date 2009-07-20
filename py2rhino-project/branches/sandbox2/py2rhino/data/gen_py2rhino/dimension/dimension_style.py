@@ -1,7 +1,8 @@
 dimension_style = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dimension_style",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimensionStyle",
+    "output_package_name": "dimension",
+    "output_module_name": "dimension_style",
 
     "doc_html": """
         Returns or modifies the dimension style of a dimension object.

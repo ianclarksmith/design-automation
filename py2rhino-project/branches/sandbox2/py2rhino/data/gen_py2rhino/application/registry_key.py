@@ -1,7 +1,8 @@
 registry_key = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "registry_key",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "RegistryKey",
+    "output_package_name": "application",
+    "output_module_name": "registry_key",
 
     "doc_html": """
         Returns Rhino's Windows Registry key.

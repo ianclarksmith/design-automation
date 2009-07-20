@@ -1,7 +1,8 @@
 rebuild_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "rebuild_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "RebuildSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "rebuild_surface",
 
     "doc_html": """
         Rebuilds a surface to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.

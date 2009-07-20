@@ -1,7 +1,8 @@
 mesh_volume = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_volume",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshVolume",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_volume",
 
     "doc_html": """
         Returns the approximate volume of one or more closed mesh objects.

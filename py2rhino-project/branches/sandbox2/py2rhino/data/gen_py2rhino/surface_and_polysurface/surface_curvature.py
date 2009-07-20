@@ -1,7 +1,8 @@
 surface_curvature = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_curvature",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceCurvature",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_curvature",
 
     "doc_html": """
         Returns the curvature of a surface at a U,V parameter.  See the Rhino help file for details on surface curvature.

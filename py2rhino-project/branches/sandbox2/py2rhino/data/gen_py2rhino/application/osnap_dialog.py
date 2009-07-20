@@ -1,7 +1,8 @@
 osnap_dialog = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "osnap_dialog",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "OsnapDialog",
+    "output_package_name": "application",
+    "output_module_name": "osnap_dialog",
 
     "doc_html": """
         Shows or hides Rhino's dockable object snap bar.

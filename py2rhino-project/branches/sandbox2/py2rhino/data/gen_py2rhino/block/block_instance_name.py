@@ -1,7 +1,8 @@
 block_instance_name = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_instance_name",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockInstanceName",
+    "output_package_name": "block",
+    "output_module_name": "block_instance_name",
 
     "doc_html": """
         Returns the block name of a block instance.

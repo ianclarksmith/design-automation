@@ -1,7 +1,8 @@
 simplify_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "simplify_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "SimplifyCurve",
+    "output_package_name": "curve",
+    "output_module_name": "simplify_curve",
 
     "doc_html": """
         Simplify curve replaces the curve with a geometrically equivalent polycurve. The polycurve will have the following properties:

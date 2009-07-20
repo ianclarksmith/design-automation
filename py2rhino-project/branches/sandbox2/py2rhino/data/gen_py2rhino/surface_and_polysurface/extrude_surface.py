@@ -1,7 +1,8 @@
 extrude_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "extrude_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ExtrudeSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "extrude_surface",
 
     "doc_html": """
         Creates a surface or solid by extruding a straight along a path curve.

@@ -1,7 +1,8 @@
 rotate_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "rotate_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "RotateObjects",
+    "output_package_name": "object",
+    "output_module_name": "rotate_objects",
 
     "doc_html": """
         Rotates one or more objects. Rotation is based on the active construction plane.

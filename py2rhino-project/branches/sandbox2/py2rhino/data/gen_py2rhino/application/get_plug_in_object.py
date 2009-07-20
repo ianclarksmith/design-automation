@@ -1,7 +1,8 @@
 get_plug_in_object = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "get_plug_in_object",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "GetPlugInObject",
+    "output_package_name": "application",
+    "output_module_name": "get_plug_in_object",
 
     "doc_html": """
         Returns a scriptable object from a specified plug-in. Note, not all plug-ins contain scriptable objects. Check with the manufacturer of your plug-in to see if they support this capability.

@@ -1,7 +1,8 @@
 alias_names = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "alias_names",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AliasNames",
+    "output_package_name": "application",
+    "output_module_name": "alias_names",
 
     "doc_html": """
         Returns a list of command alias names.

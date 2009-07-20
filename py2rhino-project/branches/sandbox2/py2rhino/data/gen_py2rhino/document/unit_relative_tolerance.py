@@ -1,7 +1,8 @@
 unit_relative_tolerance = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "unit_relative_tolerance",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "UnitRelativeTolerance",
+    "output_package_name": "document",
+    "output_module_name": "unit_relative_tolerance",
 
     "doc_html": """
         Returns or sets the document's relative tolerance parameter.  Relative tolerance is measured in percent. See Rhino's DocumentProperties command (Units window) for details.

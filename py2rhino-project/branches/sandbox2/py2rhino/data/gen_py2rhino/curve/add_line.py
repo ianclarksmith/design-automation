@@ -1,7 +1,8 @@
 add_line = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_line",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddLine",
+    "output_package_name": "curve",
+    "output_module_name": "add_line",
 
     "doc_html": """
         Adds a line curve to the current model.

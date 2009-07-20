@@ -1,7 +1,8 @@
 all_objects = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "all_objects",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "AllObjects",
+    "output_package_name": "selection",
+    "output_module_name": "all_objects",
 
     "doc_html": """
         Returns the identifiers of all objects in the document.

@@ -1,7 +1,8 @@
 planar_closed_curve_containment = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "planar_closed_curve_containment",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "PlanarClosedCurveContainment",
+    "output_package_name": "curve",
+    "output_module_name": "planar_closed_curve_containment",
 
     "doc_html": """
         Determines the relationship between the regions bounded by two coplanar simple closed curves.

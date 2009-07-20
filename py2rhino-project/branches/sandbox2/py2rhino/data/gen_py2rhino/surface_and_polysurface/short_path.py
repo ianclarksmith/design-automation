@@ -1,7 +1,8 @@
 short_path = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "short_path",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ShortPath",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "short_path",
 
     "doc_html": """
         Creates the shortest possible curve (geodesic) between two points on a surface. For more details, see the ShortPath command in the Rhino help file.

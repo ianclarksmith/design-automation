@@ -1,7 +1,8 @@
 is_point_cloud = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "is_point_cloud",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "IsPointCloud",
+    "output_package_name": "geometry",
+    "output_module_name": "is_point_cloud",
 
     "doc_html": """
         Verifies an object is a point cloud object.

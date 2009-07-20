@@ -1,7 +1,8 @@
 is_alias = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "is_alias",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "IsAlias",
+    "output_package_name": "application",
+    "output_module_name": "is_alias",
 
     "doc_html": """
         Verifies that a command alias exists in Rhino.

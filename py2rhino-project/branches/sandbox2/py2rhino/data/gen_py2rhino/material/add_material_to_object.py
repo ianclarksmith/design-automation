@@ -1,7 +1,8 @@
 add_material_to_object = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "add_material_to_object",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "AddMaterialToObject",
+    "output_package_name": "material",
+    "output_module_name": "add_material_to_object",
 
     "doc_html": """
         Adds a material to an object and returns the new material's index.  Note, adding a material to an object modifies the object's material source from "By Layer" to "By Object."  See ObjectMaterialSource for details.  If the object already has a material, then the object's current material index is returned.

@@ -1,7 +1,8 @@
 curve_radius = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_radius",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveRadius",
+    "output_package_name": "curve",
+    "output_module_name": "curve_radius",
 
     "doc_html": """
         Returns the radius of curvature at a point on a curve.

@@ -1,7 +1,8 @@
 circle_center_point = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "circle_center_point",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CircleCenterPoint",
+    "output_package_name": "curve",
+    "output_module_name": "circle_center_point",
 
     "doc_html": """
         Returns the center point of a circle curve object.

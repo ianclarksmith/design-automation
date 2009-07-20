@@ -1,7 +1,8 @@
 zoom_selected = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "zoom_selected",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ZoomSelected",
+    "output_package_name": "view",
+    "output_module_name": "zoom_selected",
 
     "doc_html": """
         Zooms to the extents of selected objects in the specified view, or in the active view.

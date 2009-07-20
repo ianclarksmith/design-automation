@@ -1,7 +1,8 @@
 vector_dot_product = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_dot_product",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorDotProduct",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_dot_product",
 
     "doc_html": """
         Calculates the dot product of two 3-D vectors.

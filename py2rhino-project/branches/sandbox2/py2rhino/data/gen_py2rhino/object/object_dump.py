@@ -1,7 +1,8 @@
 object_dump = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_dump",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectDump",
+    "output_package_name": "object",
+    "output_module_name": "object_dump",
 
     "doc_html": """
         Returns a detailed description of an object.

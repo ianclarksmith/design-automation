@@ -1,7 +1,8 @@
 cull_duplicate_numbers = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "cull_duplicate_numbers",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "CullDuplicateNumbers",
+    "output_package_name": "utility",
+    "output_module_name": "cull_duplicate_numbers",
 
     "doc_html": """
         Removes duplicates from an array of numbers.

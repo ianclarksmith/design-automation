@@ -1,7 +1,8 @@
 evaluate_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "evaluate_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "EvaluateSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "evaluate_surface",
 
     "doc_html": """
         Evaluates a surface at a U,V parameter.

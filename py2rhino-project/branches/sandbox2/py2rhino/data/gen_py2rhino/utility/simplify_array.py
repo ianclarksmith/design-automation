@@ -1,7 +1,8 @@
 simplify_array = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "simplify_array",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "SimplifyArray",
+    "output_package_name": "utility",
+    "output_module_name": "simplify_array",
 
     "doc_html": """
         Flattens an array of 3-D points into a one-dimensional array of real number. For example, if you had an array containing three 3-D points, this method would return a one-dimensional array containing nine real numbers.

@@ -1,7 +1,8 @@
 wallpaper = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "wallpaper",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "Wallpaper",
+    "output_package_name": "view",
+    "output_module_name": "wallpaper",
 
     "doc_html": """
         Returns or sets the wallpaper bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.

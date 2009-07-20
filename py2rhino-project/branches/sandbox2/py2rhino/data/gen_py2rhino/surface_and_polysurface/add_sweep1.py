@@ -1,7 +1,8 @@
 add_sweep1 = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_sweep1",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddSweep1",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_sweep1",
 
     "doc_html": """
         Adds a surface created through profile curves that define the surface shape and one curve that defines a surface edge. For more details on this method, see the Rhino help file for the Sweep1 command.
@@ -75,7 +76,7 @@ add_sweep1 = {
             "name": "StyleArg",
             "opt_or_req": "Optional",
             "type": "Variant",
-            "type_string": "var",
+            "type_string": "va",
             "doc": """
         If intStyle = 1 (Roadlike), then this argument is a 3-D vector identifying the planar up direction for the sweep.
             """
@@ -93,7 +94,7 @@ add_sweep1 = {
             "name": "SimplifyArg",
             "opt_or_req": "Optional",
             "type": "Variant",
-            "type_string": "var",
+            "type_string": "va",
             "doc": """
         If intSimplify = 1 (Refit), then this argument is a number specifying the refit tolerance.  If intSimplify = 2 (Rebuild), then this argument is a number specifying the number of control points to rebuild the shape curves.
             """

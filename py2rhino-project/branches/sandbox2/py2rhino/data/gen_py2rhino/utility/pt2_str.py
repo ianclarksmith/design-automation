@@ -1,7 +1,8 @@
 pt2_str = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "pt2_str",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "Pt2Str",
+    "output_package_name": "utility",
+    "output_module_name": "pt2_str",
 
     "doc_html": """
         Converts a 3-D point value to a string.  Useful for display point values as output, or passing point values to Rhino commands.
@@ -25,7 +26,7 @@ pt2_str = {
             "name": "Precision",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "type_string": "n",
             "doc": """
         The display precision of the point coordinates.  The default is to display the precision defined by the display precision setting that is found on the Units page of the DocumentProperties command.
             """

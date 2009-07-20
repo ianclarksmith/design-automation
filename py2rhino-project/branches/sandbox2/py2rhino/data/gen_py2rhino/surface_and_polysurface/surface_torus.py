@@ -1,7 +1,8 @@
 surface_torus = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_torus",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceTorus",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_torus",
 
     "doc_html": """
         Returns the definition of a torus surface.

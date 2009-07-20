@@ -1,7 +1,8 @@
 html_box = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "html_box",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "HtmlBox",
+    "output_package_name": "user_interface",
+    "output_module_name": "html_box",
 
     "doc_html": """
         Displays a custom, modal HTML dialog page. A modal dialog box retains the input focus while open. The user cannot switch windows until the dialog box is closed.
@@ -25,7 +26,7 @@ html_box = {
             "name": "Arguments",
             "opt_or_req": "Optional",
             "type": "Variant",
-            "type_string": "var",
+            "type_string": "va",
             "doc": """
         An argument, or a zero-based, one-dimensional array of arguments, to pass to the HTML-dialog page.
             """

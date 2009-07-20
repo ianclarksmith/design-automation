@@ -1,7 +1,8 @@
 floor = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "floor",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Floor",
+    "output_package_name": "math",
+    "output_module_name": "floor",
 
     "doc_html": """
         Returns the largest integer less than or equal to the specified number.

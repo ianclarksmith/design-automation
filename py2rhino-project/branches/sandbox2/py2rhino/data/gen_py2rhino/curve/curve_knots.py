@@ -1,7 +1,8 @@
 curve_knots = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_knots",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveKnots",
+    "output_package_name": "curve",
+    "output_module_name": "curve_knots",
 
     "doc_html": """
         Returns the knots, or knot vector, of a curve object.

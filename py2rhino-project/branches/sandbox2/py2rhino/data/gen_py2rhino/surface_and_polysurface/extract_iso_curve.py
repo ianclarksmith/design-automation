@@ -1,7 +1,8 @@
 extract_iso_curve = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "extract_iso_curve",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ExtractIsoCurve",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "extract_iso_curve",
 
     "doc_html": """
         Extracts isoparametric curves from a surface.

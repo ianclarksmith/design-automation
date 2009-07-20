@@ -1,7 +1,8 @@
 material_reflective_color = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "material_reflective_color",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "MaterialReflectiveColor",
+    "output_package_name": "material",
+    "output_module_name": "material_reflective_color",
 
     "doc_html": """
         Returns or modifies a material's reflective color.  Reflective colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.

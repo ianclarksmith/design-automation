@@ -1,7 +1,8 @@
 add_hatch = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "add_hatch",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "AddHatch",
+    "output_package_name": "hatch",
+    "output_module_name": "add_hatch",
 
     "doc_html": """
         Creates a new hatch object from a closed planar curve object.

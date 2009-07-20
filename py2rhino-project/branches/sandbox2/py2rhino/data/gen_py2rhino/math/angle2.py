@@ -1,7 +1,8 @@
 angle2 = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "angle2",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Angle2",
+    "output_package_name": "math",
+    "output_module_name": "angle2",
 
     "doc_html": """
         Measures the angle between two lines.

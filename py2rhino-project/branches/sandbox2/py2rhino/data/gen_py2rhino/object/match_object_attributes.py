@@ -1,7 +1,8 @@
 match_object_attributes = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "match_object_attributes",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "MatchObjectAttributes",
+    "output_package_name": "object",
+    "output_module_name": "match_object_attributes",
 
     "doc_html": """
         Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.

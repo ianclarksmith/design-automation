@@ -1,7 +1,8 @@
 mesh_area = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_area",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshArea",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_area",
 
     "doc_html": """
         Returns the approximate area of one or more mesh objects.

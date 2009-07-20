@@ -1,7 +1,8 @@
 view_camera_up = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_camera_up",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewCameraUp",
+    "output_package_name": "view",
+    "output_module_name": "view_camera_up",
 
     "doc_html": """
         Returns or sets the camera up direction of specified view.

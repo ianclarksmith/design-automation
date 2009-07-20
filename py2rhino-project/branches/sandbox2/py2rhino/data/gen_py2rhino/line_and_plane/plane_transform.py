@@ -1,7 +1,8 @@
 plane_transform = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "plane_transform",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "PlaneTransform",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "plane_transform",
 
     "doc_html": """
         Transforms a plane.

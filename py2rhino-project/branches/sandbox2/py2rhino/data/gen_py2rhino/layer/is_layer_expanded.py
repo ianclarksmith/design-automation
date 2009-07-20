@@ -1,7 +1,8 @@
 is_layer_expanded = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_expanded",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerExpanded",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_expanded",
 
     "doc_html": """
         Verifies that a layer is expanded. Expanded layers can be viewed in Rhino's Layer dialog.

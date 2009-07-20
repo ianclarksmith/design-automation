@@ -1,7 +1,8 @@
 object_print_color = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_print_color",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectPrintColor",
+    "output_package_name": "object",
+    "output_module_name": "object_print_color",
 
     "doc_html": """
         Returns or modifies the print color of an object.  Object print colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.

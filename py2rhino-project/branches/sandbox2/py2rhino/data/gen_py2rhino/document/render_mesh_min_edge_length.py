@@ -1,7 +1,8 @@
 render_mesh_min_edge_length = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "render_mesh_min_edge_length",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "RenderMeshMinEdgeLength",
+    "output_package_name": "document",
+    "output_module_name": "render_mesh_min_edge_length",
 
     "doc_html": """
         Returns or sets the render mesh minimum edge length parameter of the active document.

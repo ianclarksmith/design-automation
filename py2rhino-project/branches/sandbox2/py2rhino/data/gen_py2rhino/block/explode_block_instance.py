@@ -1,7 +1,8 @@
 explode_block_instance = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "explode_block_instance",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "ExplodeBlockInstance",
+    "output_package_name": "block",
+    "output_module_name": "explode_block_instance",
 
     "doc_html": """
         Explodes a block instance into it's geometric components.  The exploded objects are added to the document.

@@ -1,7 +1,8 @@
 is_dim_style = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "is_dim_style",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "IsDimStyle",
+    "output_package_name": "dimension",
+    "output_module_name": "is_dim_style",
 
     "doc_html": """
         Verifies the existence of a dimension style in the document.

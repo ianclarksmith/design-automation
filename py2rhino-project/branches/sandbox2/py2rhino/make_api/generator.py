@@ -30,25 +30,25 @@ def write_classes(data_dict):
         write_class(module_name, data_dict[module_name])
 
 def write_class(module_name, module_dict):
-        
     #open, write, and close
     f = open(out_folder + module_name + ".py", mode='w')
     write_class_header(underscore_to_camel(module_name), f)
     for method_name in sorted(module_dict.keys()):
-        write_class_method(method_name, module_dict[method_name], f)
+        write_class_method(module_dict[method_name], f)
     f.close()
     
 def write_class_header(class_name, f):
     w(f,"# Auto-generated wrapper for Rhino4 RhinoScript functions", nle=2)
     w(f,"import exceptions")
-    w(f,"from _utils import *")
-    w(f,"from _rhinoscript import IRhinoScript", nle=2)
+    w(f,"from py2rhino._util import *")
+    w(f,"from py2rhino._rhinoscript import IRhinoScript", nle=2)
     w(f,"class %s(IRhinoScript):" % class_name, nle=4)
 
-def write_class_method(method_name, method_dict, f):
+def write_class_method(method_dict, f):
 
     #get the method name in py format
-    py_method_name = camel_to_underscore(method_name)
+    py_method_name = method_dict['output_module_name']
+    vb_method_name = method_dict['input_file_name']
     if keyword.iskeyword(py_method_name):
         py_method_name += '_'    
     
@@ -74,7 +74,8 @@ def write_class_method(method_name, method_dict, f):
         "arrdbl":"Array of Doubles",
         "arrstr":"Array of Strings",       
         "va":"Variant",
-        "n":"Integer"
+        "n":"Integer",
+        "arr":"Array of ????"
     }
     
     #mapping from type to magic numbers
@@ -94,7 +95,8 @@ def write_class_method(method_name, method_dict, f):
         "arrdbl":"VT_ARRAY + VT_R8",
         "arrstr":"VT_ARRAY + VT_BSTR",       
         "va":"VT_VARIANT",
-        "n":"VT_I2"
+        "n":"VT_I2",
+        "arr":"VT_VARIANT"
     }
     
     #get the param data into a set of lists for easy access
@@ -104,21 +106,25 @@ def write_class_method(method_name, method_dict, f):
     params_opt_or_req = []
     params_doc = []
     params_magic_numbers = []
+    num_params = 0
     if method_dict['params_html']:
-        for param in method_dict['params_html']:
-            param_name = camel_to_underscore(param['name'])
+        num_params = len(method_dict['params_html']) 
+    if num_params > 0:
+        for param_num in method_dict['params_html'].keys():
+            param_dict = method_dict['params_html'][param_num]
+            param_name = camel_to_underscore(param_dict['name'])
             if keyword.iskeyword(param_name):
                 param_name += "_"
             param_flattened = param_name
-            if param['type_string'].startswith('arr'):
+            if param_dict['type_string'].startswith('arr'):
                 param_flattened = 'flatten(' + param_name + ')'
             #add data to the lsists
             params_name.append(param_name)
-            params_type.append(string_to_type_map[param['type_string']])
+            params_type.append(string_to_type_map[param_dict['type_string']])
             params_flattened.append(param_flattened)
-            params_opt_or_req.append( param['opt_or_req'])
-            params_doc.append(param['doc'])
-            params_magic_numbers.append( '(' + str(string_to_magic_map[param['type_string']]) + ', 1)')
+            params_opt_or_req.append( param_dict['opt_or_req'])
+            params_doc.append(param_dict['doc'])
+            params_magic_numbers.append( '(' + str(string_to_magic_map[param_dict['type_string']]) + ', 1)')
             
     #create the method signature
     w(f, ['def ', py_method_name, '(self'], tabs=1, nle=0)
@@ -132,50 +138,41 @@ def write_class_method(method_name, method_dict, f):
     #create the method documentation
     #TODO: add syntax example here
     #TODO: use the py_params format in the doc string
-    w(f, '"""', tabs=2, nle=2)    
-    w(f, method_dict['doc_html'], tabs=2, nle=2)
+    w(f, '"""', tabs=2, nle=0)    
+    w(f, method_dict['doc_html'], tabs=2, nls=0, nle=1)
     if params_name:
-        w(f, 'Parameters', tabs=2, nle=2)
+        w(f, 'Parameters', tabs=2, nls=0, nle=1)
+        w(f, '==========', tabs=2, nls=0, nle=1)
         for i in range(len(params_name)):
-            w(f, [', '.join(params_name[i], params_type[i], params_opt_or_req[i])], tabs=2, nle=1)
-            w(f, params_doc[i], tabs=2, nle=1)
+            w(f, [', '.join((params_name[i], params_type[i], params_opt_or_req[i]))], tabs=2, nls=1, nle=0)
+            w(f, params_doc[i], tabs=2, nls=0, nle=0)
     else:
         w(f, 'No parameters', tabs=2, nle=1)
     if method_dict['returns_html']:
-        w(f, 'Returns', tabs=2, nls=1, nle=2)
-        for returns in method_dict['returns_html']:
-            returns_type = returns['type']
-            returns_doc = returns['doc']
-            w(f, returns_type, tabs=2, nle=1)
-            w(f, returns_doc, tabs=2, nle=1)
+        w(f, 'Returns', tabs=2, nls=1, nle=1)
+        w(f, '=======', tabs=2, nls=0, nle=1)
+        for returns_num in method_dict['returns_html']:
+            returns_dict = method_dict['returns_html'][returns_num]
+            returns_type = returns_dict['type']
+            returns_doc = returns_dict['doc']
+            w(f, returns_type, tabs=2, nls=1, nle=1)
+            w(f, returns_doc, tabs=2, nls=0, nle=1)
     else:
         w(f, 'No returns', tabs=2, nls=1, nle=2)        
     w(f, '"""', tabs=2, nls=1, nle=2)
     #w(f, "pass", tabs=2, nle=2)
-    
-
-    
-    #figure out the params, adding in flatten for all arrays
-    py_params_flattened = []
-    if method_dict['params_html']:
-        for param in method_dict['params_html']:
-            py_param = camel_to_underscore(param[0])
-            if keyword.iskeyword(py_param):
-                py_param += '_'
-            if param[3].startswith('arr'):
-                py_param = 'flatten(' + py_param + ')'
-            py_params_flattened.append(py_param)
-    py_params_flattened = ', '.join(py_params_flattened)
 
     #figure out the magic numbers
     magic_id = method_dict['id_com']
     returns_magic_numbers = '(VT_VARIANT, 0)'
     params_magic_numbers = ', '.join(params_magic_numbers)
+    if num_params == 1:
+        params_magic_numbers = params_magic_numbers + ','
     params_flattened = ', '.join(params_flattened)
     
     #now write the function    
-    magic = str(magic_id) + ', 1, '+returns_magic_numbers+', ('+params_magic_numbers+',)'
-    w(f, ['return self._ApplyTypes_(', magic,', u"', method_name,'", None, ', params_flattened, ')'], tabs=2, nle=2)
+    magic = str(magic_id) + ', 1, '+returns_magic_numbers+', ('+params_magic_numbers+')'
+    w(f, ['return self._ApplyTypes_(', magic,', u"', vb_method_name,'", None, ', params_flattened, ')'], tabs=2, nle=2)
 
 
 
@@ -185,6 +182,7 @@ def write_class_method(method_name, method_dict, f):
 #===============================================================================
 if __name__ == '__main__':
     write_classes(get_data_dictionary())
+    print "done"
 
 
 

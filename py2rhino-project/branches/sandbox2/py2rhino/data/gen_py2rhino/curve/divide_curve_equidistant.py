@@ -1,7 +1,8 @@
 divide_curve_equidistant = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "divide_curve_equidistant",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "DivideCurveEquidistant",
+    "output_package_name": "curve",
+    "output_module_name": "divide_curve_equidistant",
 
     "doc_html": """
         Divides a curve such that the linear distance between the points is equal.

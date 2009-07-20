@@ -1,7 +1,8 @@
 mesh_mesh_intersection = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_mesh_intersection",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshMeshIntersection",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_mesh_intersection",
 
     "doc_html": """
         Calculates the intersection of a mesh object with another mesh object.

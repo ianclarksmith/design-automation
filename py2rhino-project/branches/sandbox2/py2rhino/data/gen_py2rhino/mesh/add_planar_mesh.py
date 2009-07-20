@@ -1,7 +1,8 @@
 add_planar_mesh = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "add_planar_mesh",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "AddPlanarMesh",
+    "output_package_name": "mesh",
+    "output_module_name": "add_planar_mesh",
 
     "doc_html": """
         Creates a planar mesh from a closed, planar curve.

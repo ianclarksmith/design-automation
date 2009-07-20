@@ -1,7 +1,8 @@
 mesh_boolean_split = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_boolean_split",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshBooleanSplit",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_boolean_split",
 
     "doc_html": """
         Performs a Boolean split operation on two sets of input meshes. For more details, see the MeshBooleanSplit command in the Rhino help file.

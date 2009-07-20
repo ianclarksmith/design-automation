@@ -1,7 +1,8 @@
 autosave_interval = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "autosave_interval",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AutosaveInterval",
+    "output_package_name": "application",
+    "output_module_name": "autosave_interval",
 
     "doc_html": """
         Returns or changes how often the document will be saved when Rhino's automatic file saving mechanism is enabled.

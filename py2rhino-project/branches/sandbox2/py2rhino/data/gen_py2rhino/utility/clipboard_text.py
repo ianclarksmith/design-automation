@@ -1,7 +1,8 @@
 clipboard_text = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "clipboard_text",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "ClipboardText",
+    "output_package_name": "utility",
+    "output_module_name": "clipboard_text",
 
     "doc_html": """
         Returns or sets a text string to the Windows clipboard.

@@ -1,7 +1,8 @@
 is_mesh_closed = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "is_mesh_closed",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "IsMeshClosed",
+    "output_package_name": "mesh",
+    "output_module_name": "is_mesh_closed",
 
     "doc_html": """
         Verifies a mesh object is closed.

@@ -1,7 +1,8 @@
 ellipse_quad_points = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "ellipse_quad_points",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "EllipseQuadPoints",
+    "output_package_name": "curve",
+    "output_module_name": "ellipse_quad_points",
 
     "doc_html": """
         Returns the quadrant points of an elliptical-shaped curve object.

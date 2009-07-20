@@ -1,7 +1,8 @@
 ortho = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "ortho",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "Ortho",
+    "output_package_name": "application",
+    "output_module_name": "ortho",
 
     "doc_html": """
         Enables or disables Rhino's ortho modeling aid.

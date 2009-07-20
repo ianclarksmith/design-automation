@@ -1,7 +1,8 @@
 osnap = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "osnap",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "Osnap",
+    "output_package_name": "application",
+    "output_module_name": "osnap",
 
     "doc_html": """
         Enables or disables Rhino's object snap modeling aid.  Object snaps are tools for specifying points on existing objects.

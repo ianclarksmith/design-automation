@@ -1,7 +1,8 @@
 text_object_font = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "text_object_font",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "TextObjectFont",
+    "output_package_name": "geometry",
+    "output_module_name": "text_object_font",
 
     "doc_html": """
         Returns or modifies the font used by text object.

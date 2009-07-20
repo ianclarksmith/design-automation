@@ -1,7 +1,8 @@
 pull_curve = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "pull_curve",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "PullCurve",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "pull_curve",
 
     "doc_html": """
         Pulls a curve object to a surface object. For more information, see the Rhino help file for information on the Pull command.

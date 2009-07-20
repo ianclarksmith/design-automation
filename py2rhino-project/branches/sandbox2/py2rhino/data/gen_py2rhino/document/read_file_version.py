@@ -1,7 +1,8 @@
 read_file_version = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "read_file_version",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "ReadFileVersion",
+    "output_package_name": "document",
+    "output_module_name": "read_file_version",
 
     "doc_html": """
         Returns the file version of the current document.  Use this function to determine which version of Rhino last saved the document. Note, this function will not return values from referenced or merged files.

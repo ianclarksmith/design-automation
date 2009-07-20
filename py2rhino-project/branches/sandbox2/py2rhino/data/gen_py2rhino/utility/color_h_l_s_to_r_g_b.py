@@ -1,7 +1,8 @@
 color_h_l_s_to_r_g_b = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "color_h_l_s_to_r_g_b",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "ColorHLSToRGB",
+    "output_package_name": "utility",
+    "output_module_name": "color_h_l_s_to_r_g_b",
 
     "doc_html": """
         Converts colors from hue-luminance-saturation (HLS) to red-green-blue format.

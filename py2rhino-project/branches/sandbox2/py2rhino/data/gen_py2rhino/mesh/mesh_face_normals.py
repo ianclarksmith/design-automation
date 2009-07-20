@@ -1,7 +1,8 @@
 mesh_face_normals = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_face_normals",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshFaceNormals",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_face_normals",
 
     "doc_html": """
         Returns the face unit normal for each face of a mesh object.

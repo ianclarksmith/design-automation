@@ -1,7 +1,8 @@
 rename_block = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "rename_block",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "RenameBlock",
+    "output_package_name": "block",
+    "output_module_name": "rename_block",
 
     "doc_html": """
         Renames an existing block definition.

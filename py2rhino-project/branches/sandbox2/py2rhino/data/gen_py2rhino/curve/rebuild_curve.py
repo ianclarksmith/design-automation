@@ -1,7 +1,8 @@
 rebuild_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "rebuild_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "RebuildCurve",
+    "output_package_name": "curve",
+    "output_module_name": "rebuild_curve",
 
     "doc_html": """
         Rebuilds a curve to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.

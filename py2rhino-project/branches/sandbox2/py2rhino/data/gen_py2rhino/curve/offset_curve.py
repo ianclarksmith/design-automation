@@ -1,7 +1,8 @@
 offset_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "offset_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "OffsetCurve",
+    "output_package_name": "curve",
+    "output_module_name": "offset_curve",
 
     "doc_html": """
         Offsets a curve by a distance. The offset curve will be added to Rhino.

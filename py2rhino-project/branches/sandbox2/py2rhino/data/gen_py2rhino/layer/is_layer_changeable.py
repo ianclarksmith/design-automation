@@ -1,7 +1,8 @@
 is_layer_changeable = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_changeable",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerChangeable",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_changeable",
 
     "doc_html": """
         Verifies that the objects on a layer can be changed (normal).

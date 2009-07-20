@@ -1,7 +1,8 @@
 render_resolution = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "render_resolution",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "RenderResolution",
+    "output_package_name": "document",
+    "output_module_name": "render_resolution",
 
     "doc_html": """
         Returns or sets the render resolution. Resolution is measured in pixels. See Rhino's DocumentProperties command (Rhino Render window) for details. Note, if the render resolution is set to "viewport", then the size of the active viewt is returned.

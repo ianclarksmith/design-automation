@@ -1,7 +1,8 @@
 unit_angle_tolerance = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "unit_angle_tolerance",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "UnitAngleTolerance",
+    "output_package_name": "document",
+    "output_module_name": "unit_angle_tolerance",
 
     "doc_html": """
         Returns or sets the document's angle tolerance parameter.  Angle tolerance is measured degrees.  See Rhino's DocumentProperties command (Units window) for details.

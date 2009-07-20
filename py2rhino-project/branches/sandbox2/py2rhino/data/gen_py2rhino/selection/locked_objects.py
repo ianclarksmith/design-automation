@@ -1,7 +1,8 @@
 locked_objects = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "locked_objects",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "LockedObjects",
+    "output_package_name": "selection",
+    "output_module_name": "locked_objects",
 
     "doc_html": """
         Returns the identifiers of all locked objects in the document.  Visible objects are visible and can be snapped to, but they cannot be selected.

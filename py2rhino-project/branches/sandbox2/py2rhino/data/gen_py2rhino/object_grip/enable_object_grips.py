@@ -1,7 +1,8 @@
 enable_object_grips = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "enable_object_grips",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "EnableObjectGrips",
+    "output_package_name": "object_grip",
+    "output_module_name": "enable_object_grips",
 
     "doc_html": """
         Enables or disables an object's grips. For curves and surfaces, these are also called control points.

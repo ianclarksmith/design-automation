@@ -1,7 +1,8 @@
 mesh_face_vertices = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_face_vertices",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshFaceVertices",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_face_vertices",
 
     "doc_html": """
         Returns the vertex indices of all faces of a mesh object.

@@ -1,7 +1,8 @@
 split_disjoint_mesh = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "split_disjoint_mesh",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "SplitDisjointMesh",
+    "output_package_name": "mesh",
+    "output_module_name": "split_disjoint_mesh",
 
     "doc_html": """
         Splits up a mesh object into its unconnected pieces.

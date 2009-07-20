@@ -1,7 +1,8 @@
 command = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "command",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "Command",
+    "output_package_name": "application",
+    "output_module_name": "command",
 
     "doc_html": """
         Runs a Rhino command script.  All Rhino commands can be used in command scripts.  The command can be a build-in Rhino command or a command that is provided by a 3rd party plug-in.

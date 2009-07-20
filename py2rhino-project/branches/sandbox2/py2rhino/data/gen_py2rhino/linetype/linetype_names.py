@@ -1,7 +1,8 @@
 linetype_names = {
-    "module_name": "linetype",
-    "class_name": "Linetype",
-    "method_name": "linetype_names",
+    "input_folder_name": "Linetype_Methods",
+    "input_file_name": "LinetypeNames",
+    "output_package_name": "linetype",
+    "output_module_name": "linetype_names",
 
     "doc_html": """
         Returns the names of all linetypes in the document.

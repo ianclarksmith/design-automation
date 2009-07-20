@@ -1,7 +1,8 @@
 select_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "select_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "SelectObject",
+    "output_package_name": "object",
+    "output_module_name": "select_object",
 
     "doc_html": """
         Selects a single object.

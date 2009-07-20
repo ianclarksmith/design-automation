@@ -1,7 +1,8 @@
 point_coordinates = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "point_coordinates",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "PointCoordinates",
+    "output_package_name": "geometry",
+    "output_module_name": "point_coordinates",
 
     "doc_html": """
         Returns or modifies the X, Y, and Z coordinates of a point object.

@@ -1,7 +1,8 @@
 add_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "add_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "AddGroup",
+    "output_package_name": "group",
+    "output_module_name": "add_group",
 
     "doc_html": """
         Adds a new empty group to the document.

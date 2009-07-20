@@ -1,7 +1,8 @@
 appearance_display = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "appearance_display",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AppearanceDisplay",
+    "output_package_name": "application",
+    "output_module_name": "appearance_display",
 
     "doc_html": """
         Returns or modifies an application interface item's visibility.

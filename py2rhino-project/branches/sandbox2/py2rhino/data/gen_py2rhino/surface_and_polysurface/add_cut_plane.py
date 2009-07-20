@@ -1,7 +1,8 @@
 add_cut_plane = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_cut_plane",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddCutPlane",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_cut_plane",
 
     "doc_html": """
         Adds a planar surface through objects at a designated location.  For more information, see the Rhino help file for the CutPlane command.

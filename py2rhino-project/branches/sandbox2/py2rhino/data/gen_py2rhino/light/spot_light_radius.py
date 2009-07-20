@@ -1,7 +1,8 @@
 spot_light_radius = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "spot_light_radius",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "SpotLightRadius",
+    "output_package_name": "light",
+    "output_module_name": "spot_light_radius",
 
     "doc_html": """
         Returns or changes the radius of a spot light.

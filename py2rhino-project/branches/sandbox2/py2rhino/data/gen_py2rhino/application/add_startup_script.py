@@ -1,7 +1,8 @@
 add_startup_script = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "add_startup_script",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AddStartupScript",
+    "output_package_name": "application",
+    "output_module_name": "add_startup_script",
 
     "doc_html": """
         Adds a new startup script to RhinoScript's startup script list. Startup script  items can be added manually by using Rhino's Options command and modifying the contents of the RhinoScript tab.

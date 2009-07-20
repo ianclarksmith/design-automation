@@ -1,7 +1,8 @@
 ellipse_center_point = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "ellipse_center_point",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "EllipseCenterPoint",
+    "output_package_name": "curve",
+    "output_module_name": "ellipse_center_point",
 
     "doc_html": """
         Returns the center point of an elliptical-shaped curve object.

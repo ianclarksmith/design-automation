@@ -1,7 +1,8 @@
 log10 = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "log10",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Log10",
+    "output_package_name": "math",
+    "output_module_name": "log10",
 
     "doc_html": """
         Returns the base-10 logarithm of a number.

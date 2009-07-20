@@ -1,7 +1,8 @@
 reverse_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "reverse_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ReverseSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "reverse_surface",
 
     "doc_html": """
         Reverses the U and V directions of a surface object. This feature can also be found in Rhino's Dir command.

@@ -1,7 +1,8 @@
 material_name = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "material_name",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "MaterialName",
+    "output_package_name": "material",
+    "output_module_name": "material_name",
 
     "doc_html": """
         Returns or modifies a material's user-definable name.

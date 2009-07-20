@@ -1,7 +1,8 @@
 material_color = {
-    "module_name": "material",
-    "class_name": "Material",
-    "method_name": "material_color",
+    "input_folder_name": "Material_Methods",
+    "input_file_name": "MaterialColor",
+    "output_package_name": "material",
+    "output_module_name": "material_color",
 
     "doc_html": """
         Returns or modifies a material's diffuse color.  Material colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.

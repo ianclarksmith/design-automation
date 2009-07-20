@@ -1,7 +1,8 @@
 display_ole_alerts = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "display_ole_alerts",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "DisplayOleAlerts",
+    "output_package_name": "application",
+    "output_module_name": "display_ole_alerts",
 
     "doc_html": """
         Enables or disables OLE Server Busy/Not Responding dialog boxes from appearing during a lengthy OLE, or COM, operations. In detail, this function does the following:

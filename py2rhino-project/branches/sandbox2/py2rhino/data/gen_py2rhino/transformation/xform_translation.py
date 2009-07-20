@@ -1,7 +1,8 @@
 xform_translation = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_translation",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformTranslation",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_translation",
 
     "doc_html": """
         Creates a translation transformation matrix.

@@ -1,7 +1,8 @@
 add_rectangular_light = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "add_rectangular_light",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "AddRectangularLight",
+    "output_package_name": "light",
+    "output_module_name": "add_rectangular_light",
 
     "doc_html": """
         Adds a new rectangular light object  to the document.

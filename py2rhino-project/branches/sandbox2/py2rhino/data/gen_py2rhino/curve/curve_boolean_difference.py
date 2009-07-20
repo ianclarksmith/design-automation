@@ -1,7 +1,8 @@
 curve_boolean_difference = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_boolean_difference",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveBooleanDifference",
+    "output_package_name": "curve",
+    "output_module_name": "curve_boolean_difference",
 
     "doc_html": """
         Calculates the difference between two closed, planar curves and adds the results to the document. Note, curves must be coplanar.

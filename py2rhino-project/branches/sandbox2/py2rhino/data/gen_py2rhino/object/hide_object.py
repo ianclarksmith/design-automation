@@ -1,7 +1,8 @@
 hide_object = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "hide_object",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "HideObject",
+    "output_package_name": "object",
+    "output_module_name": "hide_object",
 
     "doc_html": """
         Hides a single object.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.

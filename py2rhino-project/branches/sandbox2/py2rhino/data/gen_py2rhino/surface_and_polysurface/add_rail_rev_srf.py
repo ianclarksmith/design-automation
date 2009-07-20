@@ -1,7 +1,8 @@
 add_rail_rev_srf = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_rail_rev_srf",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddRailRevSrf",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_rail_rev_srf",
 
     "doc_html": """
         Create a surface by revolving a profile curve along a rail curve.

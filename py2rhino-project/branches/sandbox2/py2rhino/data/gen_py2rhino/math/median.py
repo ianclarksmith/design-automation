@@ -1,7 +1,8 @@
 median = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "median",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Median",
+    "output_package_name": "math",
+    "output_module_name": "median",
 
     "doc_html": """
         Returns the median value from an array of numbers.

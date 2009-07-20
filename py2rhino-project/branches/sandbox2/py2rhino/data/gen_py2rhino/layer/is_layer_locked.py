@@ -1,7 +1,8 @@
 is_layer_locked = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_locked",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerLocked",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_locked",
 
     "doc_html": """
         Verifies that an existing layer is locked.

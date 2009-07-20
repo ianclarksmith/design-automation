@@ -1,7 +1,8 @@
 is_curve_closed = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_curve_closed",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsCurveClosed",
+    "output_package_name": "curve",
+    "output_module_name": "is_curve_closed",
 
     "doc_html": """
         Verifies an object is a closed curve object.

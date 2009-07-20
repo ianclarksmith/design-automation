@@ -1,7 +1,8 @@
 leader_text = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "leader_text",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "LeaderText",
+    "output_package_name": "dimension",
+    "output_module_name": "leader_text",
 
     "doc_html": """
         Returns or modifies the text string of a dimension leader object.

@@ -1,7 +1,8 @@
 add_alias = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "add_alias",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AddAlias",
+    "output_package_name": "application",
+    "output_module_name": "add_alias",
 
     "doc_html": """
         Adds a new command alias to Rhino. Command aliases can be added manually by using Rhino's Options command and modifying the contents of the Aliases tab. See "Options Aliases" in the Rhino help file for more details.

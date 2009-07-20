@@ -1,7 +1,8 @@
 view_near_corners = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_near_corners",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewNearCorners",
+    "output_package_name": "view",
+    "output_module_name": "view_near_corners",
 
     "doc_html": """
         Returns the 3-D corners points of a view's near clipping plane rectangle. This function can be useful in determining the "real world" size of a parallel-projected view.

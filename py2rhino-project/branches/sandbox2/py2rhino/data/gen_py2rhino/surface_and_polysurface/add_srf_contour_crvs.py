@@ -1,7 +1,8 @@
 add_srf_contour_crvs = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_srf_contour_crvs",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddSrfContourCrvs",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_srf_contour_crvs",
 
     "doc_html": """
         Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.

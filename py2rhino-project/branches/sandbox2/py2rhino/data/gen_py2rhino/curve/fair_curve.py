@@ -1,7 +1,8 @@
 fair_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "fair_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "FairCurve",
+    "output_package_name": "curve",
+    "output_module_name": "fair_curve",
 
     "doc_html": """
         Fairs a curve object. Fair works best on degree 3 (cubic) curves. Fair attempts to remove large curvature variations while limiting the geometry changes to be no more than the specified tolerance. Sometimes several applications of this method are necessary to remove nasty curvature problems.

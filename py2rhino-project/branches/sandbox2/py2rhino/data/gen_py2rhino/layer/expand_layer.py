@@ -1,7 +1,8 @@
 expand_layer = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "expand_layer",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "ExpandLayer",
+    "output_package_name": "layer",
+    "output_module_name": "expand_layer",
 
     "doc_html": """
         Expands a layer. Expanded layers can be viewed in Rhino's Layer dialog.

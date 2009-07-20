@@ -1,7 +1,8 @@
 view_camera_plane = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_camera_plane",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewCameraPlane",
+    "output_package_name": "view",
+    "output_module_name": "view_camera_plane",
 
     "doc_html": """
         Returns the orientation of a view's camera.

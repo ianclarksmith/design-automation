@@ -1,7 +1,8 @@
 enable_history_recording = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "enable_history_recording",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "EnableHistoryRecording",
+    "output_package_name": "application",
+    "output_module_name": "enable_history_recording",
 
     "doc_html": """
         Enables or disables Rhino's command history recording. For more information, see the Rhino help file for the History command.

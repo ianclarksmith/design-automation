@@ -1,7 +1,8 @@
 is_layer_reference = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "is_layer_reference",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "IsLayerReference",
+    "output_package_name": "layer",
+    "output_module_name": "is_layer_reference",
 
     "doc_html": """
         Verifies that an existing layer is from a reference file.

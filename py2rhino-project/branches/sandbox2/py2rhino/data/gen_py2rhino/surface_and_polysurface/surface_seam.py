@@ -1,7 +1,8 @@
 surface_seam = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_seam",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceSeam",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_seam",
 
     "doc_html": """
         Changes the seam of a closed surface. For more information, see the Rhino help file for the SrfSeam command.

@@ -1,7 +1,8 @@
 is_block_reference = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "is_block_reference",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "IsBlockReference",
+    "output_package_name": "block",
+    "output_module_name": "is_block_reference",
 
     "doc_html": """
         Verifies that a block definition is from a reference file.

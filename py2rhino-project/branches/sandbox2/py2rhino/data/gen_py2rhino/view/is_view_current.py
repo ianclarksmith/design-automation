@@ -1,7 +1,8 @@
 is_view_current = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "is_view_current",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "IsViewCurrent",
+    "output_package_name": "view",
+    "output_module_name": "is_view_current",
 
     "doc_html": """
         Verifies that the specified view is the current, or active, view.

@@ -1,7 +1,8 @@
 object_mesh_max_angle = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_mesh_max_angle",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectMeshMaxAngle",
+    "output_package_name": "object",
+    "output_module_name": "object_mesh_max_angle",
 
     "doc_html": """
         Returns or modifies an object's custom render mesh parameter's maximum angle property.

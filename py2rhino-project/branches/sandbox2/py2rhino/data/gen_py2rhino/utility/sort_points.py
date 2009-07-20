@@ -1,7 +1,8 @@
 sort_points = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "sort_points",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "SortPoints",
+    "output_package_name": "utility",
+    "output_module_name": "sort_points",
 
     "doc_html": """
         Sorts an array of 3-D points.

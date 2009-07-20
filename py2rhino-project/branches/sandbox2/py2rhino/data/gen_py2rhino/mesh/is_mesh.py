@@ -1,7 +1,8 @@
 is_mesh = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "is_mesh",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "IsMesh",
+    "output_package_name": "mesh",
+    "output_module_name": "is_mesh",
 
     "doc_html": """
         Verifies an object is a mesh object.

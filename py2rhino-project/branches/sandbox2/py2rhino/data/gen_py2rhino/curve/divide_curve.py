@@ -1,7 +1,8 @@
 divide_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "divide_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "DivideCurve",
+    "output_package_name": "curve",
+    "output_module_name": "divide_curve",
 
     "doc_html": """
         Divides a curve object into a specified number of segments.

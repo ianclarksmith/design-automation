@@ -1,7 +1,8 @@
 document_u_r_l = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "document_u_r_l",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "DocumentURL",
+    "output_package_name": "document",
+    "output_module_name": "document_u_r_l",
 
     "doc_html": """
         Returns or sets the uniform resource locator (URL) of the currently loaded Rhino document (3DM file).

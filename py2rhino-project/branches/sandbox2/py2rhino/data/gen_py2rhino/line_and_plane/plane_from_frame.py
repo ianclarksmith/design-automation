@@ -1,7 +1,8 @@
 plane_from_frame = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "plane_from_frame",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "PlaneFromFrame",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "plane_from_frame",
 
     "doc_html": """
         Construct a plane from a point, and two vectors in the plane.

@@ -1,7 +1,8 @@
 view_camera = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_camera",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewCamera",
+    "output_package_name": "view",
+    "output_module_name": "view_camera",
 
     "doc_html": """
         Returns or sets the camera location of the specified view.

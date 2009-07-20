@@ -1,7 +1,8 @@
 is_block_embedded = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "is_block_embedded",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "IsBlockEmbedded",
+    "output_package_name": "block",
+    "output_module_name": "is_block_embedded",
 
     "doc_html": """
         Verifies that a block definition is embedded, or linked, from an external file.

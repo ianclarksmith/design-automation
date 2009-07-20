@@ -1,7 +1,8 @@
 add_sub_crv = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_sub_crv",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddSubCrv",
+    "output_package_name": "curve",
+    "output_module_name": "add_sub_crv",
 
     "doc_html": """
         Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.

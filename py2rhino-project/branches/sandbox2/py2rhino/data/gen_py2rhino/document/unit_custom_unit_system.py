@@ -1,7 +1,8 @@
 unit_custom_unit_system = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "unit_custom_unit_system",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "UnitCustomUnitSystem",
+    "output_package_name": "document",
+    "output_module_name": "unit_custom_unit_system",
 
     "doc_html": """
         Sets the document's units system to a user-defined system.  This overrides the units system set using the UnitSystem method.  See Rhino's DocumentProperties command (Units window) for details.

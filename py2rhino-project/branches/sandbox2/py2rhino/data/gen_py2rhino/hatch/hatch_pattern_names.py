@@ -1,7 +1,8 @@
 hatch_pattern_names = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "hatch_pattern_names",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "HatchPatternNames",
+    "output_package_name": "hatch",
+    "output_module_name": "hatch_pattern_names",
 
     "doc_html": """
         Returns the names of all of the hatch pattern in the document.

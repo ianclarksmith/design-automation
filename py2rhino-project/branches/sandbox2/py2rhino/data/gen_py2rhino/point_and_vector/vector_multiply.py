@@ -1,7 +1,8 @@
 vector_multiply = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_multiply",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorMultiply",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_multiply",
 
     "doc_html": """
         Multiplies two 3-D vectors.

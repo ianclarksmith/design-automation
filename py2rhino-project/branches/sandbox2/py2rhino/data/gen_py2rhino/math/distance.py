@@ -1,7 +1,8 @@
 distance = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "distance",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Distance",
+    "output_package_name": "math",
+    "output_module_name": "distance",
 
     "doc_html": """
         Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.

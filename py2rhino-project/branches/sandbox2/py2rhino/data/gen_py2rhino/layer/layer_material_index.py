@@ -1,7 +1,8 @@
 layer_material_index = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_material_index",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerMaterialIndex",
+    "output_package_name": "layer",
+    "output_module_name": "layer_material_index",
 
     "doc_html": """
         Returns the material index of a layer.  A material index of -1 indicates that no material has been assigned to the layer.  Thus, the layer will use Rhino's default layer material.

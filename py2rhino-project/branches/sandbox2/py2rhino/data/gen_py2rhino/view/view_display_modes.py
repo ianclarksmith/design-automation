@@ -1,7 +1,8 @@
 view_display_modes = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_display_modes",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewDisplayModes",
+    "output_package_name": "view",
+    "output_module_name": "view_display_modes",
 
     "doc_html": """
         Returns a list of view display modes, including those listed in the Advanced Display Modes section of Rhino's Options dialog box.

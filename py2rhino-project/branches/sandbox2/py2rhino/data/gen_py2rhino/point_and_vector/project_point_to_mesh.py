@@ -1,7 +1,8 @@
 project_point_to_mesh = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "project_point_to_mesh",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "ProjectPointToMesh",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "project_point_to_mesh",
 
     "doc_html": """
         Projects one or more points onto one or more meshes.

@@ -1,7 +1,8 @@
 is_sphere = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_sphere",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsSphere",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_sphere",
 
     "doc_html": """
         Determines if a surface is a portion of a sphere.

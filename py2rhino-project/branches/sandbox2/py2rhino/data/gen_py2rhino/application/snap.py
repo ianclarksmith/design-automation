@@ -1,7 +1,8 @@
 snap = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "snap",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "Snap",
+    "output_package_name": "application",
+    "output_module_name": "snap",
 
     "doc_html": """
         Enables or disables Rhino's grid snap modeling aid.

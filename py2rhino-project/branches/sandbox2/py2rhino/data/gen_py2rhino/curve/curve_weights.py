@@ -1,7 +1,8 @@
 curve_weights = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_weights",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveWeights",
+    "output_package_name": "curve",
+    "output_module_name": "curve_weights",
 
     "doc_html": """
         Returns an array of weight values that are assigned to the control points of a curve.

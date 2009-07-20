@@ -1,7 +1,8 @@
 object_u_r_l = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_u_r_l",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectURL",
+    "output_package_name": "object",
+    "output_module_name": "object_u_r_l",
 
     "doc_html": """
         Returns or modifies the user-definable URL of an object.

@@ -1,7 +1,8 @@
 curve_start_point = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_start_point",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveStartPoint",
+    "output_package_name": "curve",
+    "output_module_name": "curve_start_point",
 
     "doc_html": """
         Returns the start point of a curve object.

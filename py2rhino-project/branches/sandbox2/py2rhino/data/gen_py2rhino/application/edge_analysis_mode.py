@@ -1,7 +1,8 @@
 edge_analysis_mode = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "edge_analysis_mode",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "EdgeAnalysisMode",
+    "output_package_name": "application",
+    "output_module_name": "edge_analysis_mode",
 
     "doc_html": """
         Returns or modifies edge analysis mode displayed by the ShowEdges command.

@@ -1,7 +1,8 @@
 add_hatch_patterns = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "add_hatch_patterns",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "AddHatchPatterns",
+    "output_package_name": "hatch",
+    "output_module_name": "add_hatch_patterns",
 
     "doc_html": """
         Adds hatch pattens to the document by importing hatch pattern definitions from a pattern file. For more information on hatch pattern files, see the Rhino help file for the Hatch command.

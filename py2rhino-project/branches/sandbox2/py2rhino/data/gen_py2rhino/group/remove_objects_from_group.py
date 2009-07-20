@@ -1,7 +1,8 @@
 remove_objects_from_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "remove_objects_from_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "RemoveObjectsFromGroup",
+    "output_package_name": "group",
+    "output_module_name": "remove_objects_from_group",
 
     "doc_html": """
         Removes one or more objects from an existing group.

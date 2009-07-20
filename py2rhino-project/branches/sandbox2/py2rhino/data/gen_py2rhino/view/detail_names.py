@@ -1,7 +1,8 @@
 detail_names = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "detail_names",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "DetailNames",
+    "output_package_name": "view",
+    "output_module_name": "detail_names",
 
     "doc_html": """
         Returns the names, or titles, or identifiers of all detail views in a page layout view.

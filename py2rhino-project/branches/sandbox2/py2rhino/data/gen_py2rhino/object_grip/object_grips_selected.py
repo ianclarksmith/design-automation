@@ -1,7 +1,8 @@
 object_grips_selected = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "object_grips_selected",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "ObjectGripsSelected",
+    "output_package_name": "object_grip",
+    "output_module_name": "object_grips_selected",
 
     "doc_html": """
         Verifies that an object's grips are turned on and at least one grip is selected.

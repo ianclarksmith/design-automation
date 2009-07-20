@@ -1,7 +1,8 @@
 view_size = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_size",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewSize",
+    "output_package_name": "view",
+    "output_module_name": "view_size",
 
     "doc_html": """
         Returns the width and height in pixels of the specified view.

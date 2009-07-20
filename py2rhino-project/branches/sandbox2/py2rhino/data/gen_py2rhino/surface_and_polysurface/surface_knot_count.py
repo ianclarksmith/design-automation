@@ -1,7 +1,8 @@
 surface_knot_count = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_knot_count",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceKnotCount",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_knot_count",
 
     "doc_html": """
         Returns the knot count of a surface object.

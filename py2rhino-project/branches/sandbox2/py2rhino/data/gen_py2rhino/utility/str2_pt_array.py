@@ -1,7 +1,8 @@
 str2_pt_array = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "str2_pt_array",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "Str2PtArray",
+    "output_package_name": "utility",
+    "output_module_name": "str2_pt_array",
 
     "doc_html": """
         Converts a formatted string value into an array of 3-D point value.

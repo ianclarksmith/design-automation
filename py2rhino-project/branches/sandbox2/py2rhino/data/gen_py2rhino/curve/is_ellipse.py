@@ -1,7 +1,8 @@
 is_ellipse = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_ellipse",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsEllipse",
+    "output_package_name": "curve",
+    "output_module_name": "is_ellipse",
 
     "doc_html": """
         Verifies an object is an elliptical-shaped curve object.

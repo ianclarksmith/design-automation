@@ -1,7 +1,8 @@
 spool_to_printer = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "spool_to_printer",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "SpoolToPrinter",
+    "output_package_name": "utility",
+    "output_module_name": "spool_to_printer",
 
     "doc_html": """
         Spools, or sends, a text file or a print/plot file to a Windows printer.

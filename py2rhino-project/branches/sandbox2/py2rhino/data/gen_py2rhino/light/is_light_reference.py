@@ -1,7 +1,8 @@
 is_light_reference = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "is_light_reference",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "IsLightReference",
+    "output_package_name": "light",
+    "output_module_name": "is_light_reference",
 
     "doc_html": """
         Verifies a light object is referenced from another file.

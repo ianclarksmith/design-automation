@@ -1,7 +1,8 @@
 mesh_boolean_union = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_boolean_union",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshBooleanUnion",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_boolean_union",
 
     "doc_html": """
         Performs a Boolean union operation on a set of input meshes. For more details, see the MeshBooleanUnion command in the Rhino help file.

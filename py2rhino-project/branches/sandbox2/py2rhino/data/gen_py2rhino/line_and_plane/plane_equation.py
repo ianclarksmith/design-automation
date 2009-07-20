@@ -1,7 +1,8 @@
 plane_equation = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "plane_equation",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "PlaneEquation",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "plane_equation",
 
     "doc_html": """
         Returns the equation of  a plane. The standard equation of a plane with a non-zero normal vector is as follows:

@@ -1,7 +1,8 @@
 layer_locked = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_locked",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerLocked",
+    "output_package_name": "layer",
+    "output_module_name": "layer_locked",
 
     "doc_html": """
         Returns or changes the locked mode of a layer. This method should be use instead of LayerMode.

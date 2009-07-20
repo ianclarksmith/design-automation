@@ -1,7 +1,8 @@
 a_cos_h = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "a_cos_h",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "ACosH",
+    "output_package_name": "math",
+    "output_module_name": "a_cos_h",
 
     "doc_html": """
         Returns the inverse hyperbolic cosine of a number. Number must be greater than or equal to 1. The inverse hyperbolic cosine is the value whose hyperbolic cosine is number, so ACosH(CosH(number)) equals the number.

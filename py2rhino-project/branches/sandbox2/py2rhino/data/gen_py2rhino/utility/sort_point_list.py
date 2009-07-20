@@ -1,7 +1,8 @@
 sort_point_list = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "sort_point_list",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "SortPointList",
+    "output_package_name": "utility",
+    "output_module_name": "sort_point_list",
 
     "doc_html": """
         Sorts an array of 3-D points so they will be connected in "reasonable" polyline order.

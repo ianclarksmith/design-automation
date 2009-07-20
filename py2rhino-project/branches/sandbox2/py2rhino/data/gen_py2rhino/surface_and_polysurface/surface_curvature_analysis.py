@@ -1,7 +1,8 @@
 surface_curvature_analysis = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_curvature_analysis",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceCurvatureAnalysis",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_curvature_analysis",
 
     "doc_html": """
         Returns the curvature of a surface.  See the Rhino help file for details on surface curvature analysis.

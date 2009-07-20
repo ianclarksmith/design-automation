@@ -1,7 +1,8 @@
 add_cylinder = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_cylinder",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddCylinder",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_cylinder",
 
     "doc_html": """
         Adds a cylinder-shaped polysurface to the document.

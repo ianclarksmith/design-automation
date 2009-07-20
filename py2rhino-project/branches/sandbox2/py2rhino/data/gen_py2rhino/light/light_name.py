@@ -1,7 +1,8 @@
 light_name = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "light_name",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "LightName",
+    "output_package_name": "light",
+    "output_module_name": "light_name",
 
     "doc_html": """
         Returns or modifies the user-definable name of a light object.

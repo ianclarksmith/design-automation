@@ -1,7 +1,8 @@
 unlock_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "unlock_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "UnlockGroup",
+    "output_package_name": "group",
+    "output_module_name": "unlock_group",
 
     "doc_html": """
         Unlocks a group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.

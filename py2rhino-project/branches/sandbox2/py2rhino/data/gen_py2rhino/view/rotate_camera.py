@@ -1,7 +1,8 @@
 rotate_camera = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "rotate_camera",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "RotateCamera",
+    "output_package_name": "view",
+    "output_module_name": "rotate_camera",
 
     "doc_html": """
         Rotates a perspective-projected view's camera. See the RotateCamera command in the Rhino help file for more details.

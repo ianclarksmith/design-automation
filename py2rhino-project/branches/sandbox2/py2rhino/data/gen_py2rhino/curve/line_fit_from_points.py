@@ -1,7 +1,8 @@
 line_fit_from_points = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "line_fit_from_points",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "LineFitFromPoints",
+    "output_package_name": "curve",
+    "output_module_name": "line_fit_from_points",
 
     "doc_html": """
         Returns the starting and ending points of a line that was fit through an array of 3-D points.

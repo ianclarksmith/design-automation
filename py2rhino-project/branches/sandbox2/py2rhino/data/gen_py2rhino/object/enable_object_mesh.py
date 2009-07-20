@@ -1,7 +1,8 @@
 enable_object_mesh = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "enable_object_mesh",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "EnableObjectMesh",
+    "output_package_name": "object",
+    "output_module_name": "enable_object_mesh",
 
     "doc_html": """
         Enables or disables an object's custom render mesh parameters. If an object's custom render mesh parameters are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.

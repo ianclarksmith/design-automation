@@ -1,7 +1,8 @@
 rename_dim_style = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "rename_dim_style",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "RenameDimStyle",
+    "output_package_name": "dimension",
+    "output_module_name": "rename_dim_style",
 
     "doc_html": """
         Renames an existing dimension style.

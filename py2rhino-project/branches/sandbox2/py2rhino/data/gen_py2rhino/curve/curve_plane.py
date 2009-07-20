@@ -1,7 +1,8 @@
 curve_plane = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_plane",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurvePlane",
+    "output_package_name": "curve",
+    "output_module_name": "curve_plane",
 
     "doc_html": """
         Returns the plane in which a planar curve lies. Note, this function works only on planar curves.

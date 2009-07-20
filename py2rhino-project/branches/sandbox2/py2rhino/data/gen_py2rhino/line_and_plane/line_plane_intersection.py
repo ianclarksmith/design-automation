@@ -1,7 +1,8 @@
 line_plane_intersection = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "line_plane_intersection",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "LinePlaneIntersection",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "line_plane_intersection",
 
     "doc_html": """
         Calculates the intersection of a line and a plane.

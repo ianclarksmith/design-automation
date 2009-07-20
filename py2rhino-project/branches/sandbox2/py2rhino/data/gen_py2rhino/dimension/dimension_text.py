@@ -1,7 +1,8 @@
 dimension_text = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dimension_text",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimensionText",
+    "output_package_name": "dimension",
+    "output_module_name": "dimension_text",
 
     "doc_html": """
         Returns the text displayed by a dimension object.

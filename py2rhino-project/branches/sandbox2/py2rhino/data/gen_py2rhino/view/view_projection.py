@@ -1,7 +1,8 @@
 view_projection = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "view_projection",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ViewProjection",
+    "output_package_name": "view",
+    "output_module_name": "view_projection",
 
     "doc_html": """
         Returns or sets a view's projection mode.  A view's projection mode can be either parallel or perspective.

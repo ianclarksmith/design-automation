@@ -1,7 +1,8 @@
 surface_frame = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_frame",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceFrame",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_frame",
 
     "doc_html": """
         Returns a plane based on the normal, u, and v directions at a given surface U,V parameter.

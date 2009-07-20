@@ -1,7 +1,8 @@
 surface_volume_centroid = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_volume_centroid",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceVolumeCentroid",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_volume_centroid",
 
     "doc_html": """
         Calculates the volume centroid of closed surface or polysurface objects.

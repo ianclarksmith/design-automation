@@ -1,7 +1,8 @@
 extend_curve_point = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "extend_curve_point",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "ExtendCurvePoint",
+    "output_package_name": "curve",
+    "output_module_name": "extend_curve_point",
 
     "doc_html": """
         Extends a non-closed curve object by smooth extension to a point.

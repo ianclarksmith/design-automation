@@ -1,7 +1,8 @@
 dim_style_extension = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dim_style_extension",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimStyleExtension",
+    "output_package_name": "dimension",
+    "output_module_name": "dim_style_extension",
 
     "doc_html": """
         Returns or changes the extension line extension of a dimension style.

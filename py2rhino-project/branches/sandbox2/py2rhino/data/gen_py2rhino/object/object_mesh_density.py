@@ -1,7 +1,8 @@
 object_mesh_density = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_mesh_density",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectMeshDensity",
+    "output_package_name": "object",
+    "output_module_name": "object_mesh_density",
 
     "doc_html": """
         Returns or modifies an object's custom render mesh parameter's mesh density property.

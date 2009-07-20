@@ -1,7 +1,8 @@
 explode_hatch = {
-    "module_name": "hatch",
-    "class_name": "Hatch",
-    "method_name": "explode_hatch",
+    "input_folder_name": "Hatch_Methods",
+    "input_file_name": "ExplodeHatch",
+    "output_package_name": "hatch",
+    "output_module_name": "explode_hatch",
 
     "doc_html": """
         Explodes a hatch object into its component objects. The exploded objects will be added to the document. If the hatch object uses a solid pattern, then planar face Brep objects will be created. Otherwise, line curve objects will be created.

@@ -1,7 +1,8 @@
 arc_angle = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "arc_angle",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "ArcAngle",
+    "output_package_name": "curve",
+    "output_module_name": "arc_angle",
 
     "doc_html": """
         Returns the angle of an arc curve object.

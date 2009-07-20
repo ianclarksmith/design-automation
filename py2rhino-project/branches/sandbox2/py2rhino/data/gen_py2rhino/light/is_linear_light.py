@@ -1,7 +1,8 @@
 is_linear_light = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "is_linear_light",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "IsLinearLight",
+    "output_package_name": "light",
+    "output_module_name": "is_linear_light",
 
     "doc_html": """
         Verifies a light object is a linear light.

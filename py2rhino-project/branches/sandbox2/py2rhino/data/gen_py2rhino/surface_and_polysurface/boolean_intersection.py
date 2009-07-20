@@ -1,7 +1,8 @@
 boolean_intersection = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "boolean_intersection",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "BooleanIntersection",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "boolean_intersection",
 
     "doc_html": """
         Performs a Boolean intersection operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanIntersection command in the Rhino help file.

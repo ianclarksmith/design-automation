@@ -1,7 +1,8 @@
 is_cone = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_cone",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsCone",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_cone",
 
     "doc_html": """
         Determines if a surface is a portion of a cone.

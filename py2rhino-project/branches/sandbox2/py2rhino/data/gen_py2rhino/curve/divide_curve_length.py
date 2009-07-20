@@ -1,7 +1,8 @@
 divide_curve_length = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "divide_curve_length",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "DivideCurveLength",
+    "output_package_name": "curve",
+    "output_module_name": "divide_curve_length",
 
     "doc_html": """
         Divides a curve object into segments of a specified length.

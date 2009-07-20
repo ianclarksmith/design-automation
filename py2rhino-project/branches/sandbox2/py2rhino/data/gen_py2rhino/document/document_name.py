@@ -1,7 +1,8 @@
 document_name = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "document_name",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "DocumentName",
+    "output_package_name": "document",
+    "output_module_name": "document_name",
 
     "doc_html": """
         Returns the name of the currently loaded Rhino document (3DM file).

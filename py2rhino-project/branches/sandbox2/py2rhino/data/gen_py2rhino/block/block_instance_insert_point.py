@@ -1,7 +1,8 @@
 block_instance_insert_point = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_instance_insert_point",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockInstanceInsertPoint",
+    "output_package_name": "block",
+    "output_module_name": "block_instance_insert_point",
 
     "doc_html": """
         Returns the insertion point of a block instance.

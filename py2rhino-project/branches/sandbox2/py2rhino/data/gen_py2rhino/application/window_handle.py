@@ -1,7 +1,8 @@
 window_handle = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "window_handle",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "WindowHandle",
+    "output_package_name": "application",
+    "output_module_name": "window_handle",
 
     "doc_html": """
         Returns the Windows handle of Rhino's main window.

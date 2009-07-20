@@ -1,7 +1,8 @@
 render_settings = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "render_settings",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "RenderSettings",
+    "output_package_name": "document",
+    "output_module_name": "render_settings",
 
     "doc_html": """
         Returns or sets render settings.  See Rhino's DocumentProperties command (Rhino Render window) for details.

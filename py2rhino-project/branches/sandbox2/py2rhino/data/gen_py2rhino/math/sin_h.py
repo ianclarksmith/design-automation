@@ -1,7 +1,8 @@
 sin_h = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "sin_h",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "SinH",
+    "output_package_name": "math",
+    "output_module_name": "sin_h",
 
     "doc_html": """
         Returns the hyperbolic sine of the specified angle.

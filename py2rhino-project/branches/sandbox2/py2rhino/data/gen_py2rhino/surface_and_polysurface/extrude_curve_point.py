@@ -1,7 +1,8 @@
 extrude_curve_point = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "extrude_curve_point",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ExtrudeCurvePoint",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "extrude_curve_point",
 
     "doc_html": """
         Creates a surface by extruding a curve to a point.

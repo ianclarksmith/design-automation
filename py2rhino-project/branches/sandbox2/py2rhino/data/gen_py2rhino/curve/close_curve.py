@@ -1,7 +1,8 @@
 close_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "close_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CloseCurve",
+    "output_package_name": "curve",
+    "output_module_name": "close_curve",
 
     "doc_html": """
         Closes an open curve object by making adjustments to the end points so that they meet at a point.

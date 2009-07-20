@@ -1,7 +1,8 @@
 project_osnaps = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "project_osnaps",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "ProjectOsnaps",
+    "output_package_name": "application",
+    "output_module_name": "project_osnaps",
 
     "doc_html": """
         Enables or disables object snap projection.

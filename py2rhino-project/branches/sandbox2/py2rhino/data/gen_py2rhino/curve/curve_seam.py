@@ -1,7 +1,8 @@
 curve_seam = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_seam",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveSeam",
+    "output_package_name": "curve",
+    "output_module_name": "curve_seam",
 
     "doc_html": """
         Adjusts the seam, or start/end, point of a closed curve.

@@ -1,7 +1,8 @@
 plane_from_normal = {
-    "module_name": "line_and_plane",
-    "class_name": "LineAndPlane",
-    "method_name": "plane_from_normal",
+    "input_folder_name": "Line_and_Plane_Methods",
+    "input_file_name": "PlaneFromNormal",
+    "output_package_name": "line_and_plane",
+    "output_module_name": "plane_from_normal",
 
     "doc_html": """
         Creates a plane from an origin point and a normal direction vector.

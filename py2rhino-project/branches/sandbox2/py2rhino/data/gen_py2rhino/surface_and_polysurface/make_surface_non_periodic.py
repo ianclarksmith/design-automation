@@ -1,7 +1,8 @@
 make_surface_non_periodic = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "make_surface_non_periodic",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "MakeSurfaceNonPeriodic",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "make_surface_non_periodic",
 
     "doc_html": """
         Makes a periodic surface non-periodic. Non-periodic surfaces can develop kinks when deformed.

@@ -1,7 +1,8 @@
 is_clipping_plane = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "is_clipping_plane",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "IsClippingPlane",
+    "output_package_name": "geometry",
+    "output_module_name": "is_clipping_plane",
 
     "doc_html": """
         Verifies that an object is a clipping plane object.

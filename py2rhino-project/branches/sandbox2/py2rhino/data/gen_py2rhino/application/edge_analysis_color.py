@@ -1,7 +1,8 @@
 edge_analysis_color = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "edge_analysis_color",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "EdgeAnalysisColor",
+    "output_package_name": "application",
+    "output_module_name": "edge_analysis_color",
 
     "doc_html": """
         Returns or modifies edge analysis color displayed by the ShowEdges command.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.

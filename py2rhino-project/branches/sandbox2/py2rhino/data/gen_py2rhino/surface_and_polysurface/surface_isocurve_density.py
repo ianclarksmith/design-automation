@@ -1,7 +1,8 @@
 surface_isocurve_density = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "surface_isocurve_density",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "SurfaceIsocurveDensity",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "surface_isocurve_density",
 
     "doc_html": """
         Returns or sets the isocurve density of a surface or polysurface object. An isoparametric curve is a curve of constant U or V value on a surface. Rhino uses isocurves and surface edge curves to visualize the shape of a NURBS surface.

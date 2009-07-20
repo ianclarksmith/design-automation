@@ -1,7 +1,8 @@
 is_point_in_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_point_in_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsPointInSurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_point_in_surface",
 
     "doc_html": """
         Verifies that a point is inside a closed surface or polysurface.

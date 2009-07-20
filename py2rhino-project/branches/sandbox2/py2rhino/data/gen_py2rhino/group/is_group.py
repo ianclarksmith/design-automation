@@ -1,7 +1,8 @@
 is_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "is_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "IsGroup",
+    "output_package_name": "group",
+    "output_module_name": "is_group",
 
     "doc_html": """
         Verifies the existence of a group.

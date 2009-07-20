@@ -1,7 +1,8 @@
 dim_style_count = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "dim_style_count",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "DimStyleCount",
+    "output_package_name": "dimension",
+    "output_module_name": "dim_style_count",
 
     "doc_html": """
         Returns the number of dimension styles in the document.

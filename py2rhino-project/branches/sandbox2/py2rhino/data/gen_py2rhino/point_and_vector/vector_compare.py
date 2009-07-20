@@ -1,7 +1,8 @@
 vector_compare = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "vector_compare",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "VectorCompare",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "vector_compare",
 
     "doc_html": """
         Compares two 3-D vectors.

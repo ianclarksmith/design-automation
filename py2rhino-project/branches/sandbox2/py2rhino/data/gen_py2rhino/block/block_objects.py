@@ -1,7 +1,8 @@
 block_objects = {
-    "module_name": "block",
-    "class_name": "Block",
-    "method_name": "block_objects",
+    "input_folder_name": "Block_Methods",
+    "input_file_name": "BlockObjects",
+    "output_package_name": "block",
+    "output_module_name": "block_objects",
 
     "doc_html": """
         Returns the identifiers of the objects that make up a block definition.

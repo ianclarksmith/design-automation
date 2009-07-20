@@ -1,7 +1,8 @@
 remove_object_from_top_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "remove_object_from_top_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "RemoveObjectFromTopGroup",
+    "output_package_name": "group",
+    "output_module_name": "remove_object_from_top_group",
 
     "doc_html": """
         Removes a single object from it's top-most group.

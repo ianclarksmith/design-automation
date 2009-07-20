@@ -1,7 +1,8 @@
 mesh_boolean_difference = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_boolean_difference",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshBooleanDifference",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_boolean_difference",
 
     "doc_html": """
         Performs a Boolean difference operation on two sets of input meshes. For more details, see the MeshBooleanDifference command in the Rhino help file.

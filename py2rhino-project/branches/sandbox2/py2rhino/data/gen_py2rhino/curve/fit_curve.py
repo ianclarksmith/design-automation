@@ -1,7 +1,8 @@
 fit_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "fit_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "FitCurve",
+    "output_package_name": "curve",
+    "output_module_name": "fit_curve",
 
     "doc_html": """
         Reduces the number of curve control points while maintaining the curve's same general shape.  Use this function for replacing curves with too many control points.  For more information, see the Rhino help file for the FitCrv command.

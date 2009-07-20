@@ -1,7 +1,8 @@
 add_interp_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "add_interp_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "AddInterpCurve",
+    "output_package_name": "curve",
+    "output_module_name": "add_interp_curve",
 
     "doc_html": """
         Adds an interpolated curve object to  the document.  Options exist to make a periodic curve or to specify the tangent at the endpoints.  The resulting curve is a non-rational NURBS curve of the specified degree.

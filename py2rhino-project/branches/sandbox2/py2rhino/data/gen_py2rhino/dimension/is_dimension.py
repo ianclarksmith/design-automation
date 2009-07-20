@@ -1,7 +1,8 @@
 is_dimension = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "is_dimension",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "IsDimension",
+    "output_package_name": "dimension",
+    "output_module_name": "is_dimension",
 
     "doc_html": """
         Verifies an object is a dimension object.

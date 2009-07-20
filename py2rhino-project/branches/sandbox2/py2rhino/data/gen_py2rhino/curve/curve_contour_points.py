@@ -1,7 +1,8 @@
 curve_contour_points = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_contour_points",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveContourPoints",
+    "output_package_name": "curve",
+    "output_module_name": "curve_contour_points",
 
     "doc_html": """
         Returns the 3-D point locations calculated by contouring a curve object.

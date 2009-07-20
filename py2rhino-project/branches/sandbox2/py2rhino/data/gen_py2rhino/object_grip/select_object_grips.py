@@ -1,7 +1,8 @@
 select_object_grips = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "select_object_grips",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "SelectObjectGrips",
+    "output_package_name": "object_grip",
+    "output_module_name": "select_object_grips",
 
     "doc_html": """
         Selects an object's grips. If the object's grips are not turned on, they will not be selected.

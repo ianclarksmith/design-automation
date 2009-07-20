@@ -1,7 +1,8 @@
 convert_curve_to_polyline = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "convert_curve_to_polyline",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "ConvertCurveToPolyline",
+    "output_package_name": "curve",
+    "output_module_name": "convert_curve_to_polyline",
 
     "doc_html": """
         Converts a curve to a polyline curve.

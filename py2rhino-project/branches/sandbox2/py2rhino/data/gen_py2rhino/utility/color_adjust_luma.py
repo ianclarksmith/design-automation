@@ -1,7 +1,8 @@
 color_adjust_luma = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "color_adjust_luma",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "ColorAdjustLuma",
+    "output_package_name": "utility",
+    "output_module_name": "color_adjust_luma",
 
     "doc_html": """
         Changes the luminance of a red-green-blue (RGB) value. Hue and saturation are not affected.

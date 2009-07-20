@@ -1,7 +1,8 @@
 to_radians = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "to_radians",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "ToRadians",
+    "output_package_name": "math",
+    "output_module_name": "to_radians",
 
     "doc_html": """
         Converts an angle specified in degrees to radians.

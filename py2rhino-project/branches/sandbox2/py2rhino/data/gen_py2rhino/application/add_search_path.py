@@ -1,7 +1,8 @@
 add_search_path = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "add_search_path",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AddSearchPath",
+    "output_package_name": "application",
+    "output_module_name": "add_search_path",
 
     "doc_html": """
         Adds a new path to Rhino's search path list. Search path items can be added manually by using Rhino's Options command and modifying the contents of the Files tab. See "Options Files settings" in the Rhino help file for more details.

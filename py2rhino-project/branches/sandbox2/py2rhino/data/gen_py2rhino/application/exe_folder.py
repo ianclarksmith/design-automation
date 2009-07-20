@@ -1,7 +1,8 @@
 exe_folder = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "exe_folder",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "ExeFolder",
+    "output_package_name": "application",
+    "output_module_name": "exe_folder",
 
     "doc_html": """
         Returns the full path to Rhino's executable folder.

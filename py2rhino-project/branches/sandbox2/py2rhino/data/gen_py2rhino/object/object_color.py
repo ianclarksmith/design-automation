@@ -1,7 +1,8 @@
 object_color = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_color",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectColor",
+    "output_package_name": "object",
+    "output_module_name": "object_color",
 
     "doc_html": """
         Returns or modifies the color of an object.  Object colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.

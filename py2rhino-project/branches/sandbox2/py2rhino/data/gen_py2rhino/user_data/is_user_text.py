@@ -1,7 +1,8 @@
 is_user_text = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "is_user_text",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "IsUserText",
+    "output_package_name": "user_data",
+    "output_module_name": "is_user_text",
 
     "doc_html": """
         Verifies that an object contains user text. For more details on User Text, see the discussion found in the User Data Methods summary.

@@ -1,7 +1,8 @@
 orient_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "orient_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "OrientObjects",
+    "output_package_name": "object",
+    "output_module_name": "orient_objects",
 
     "doc_html": """
         Orients one or more objects based on input points.

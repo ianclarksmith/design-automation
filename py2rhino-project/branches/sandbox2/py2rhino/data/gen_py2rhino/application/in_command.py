@@ -1,7 +1,8 @@
 in_command = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "in_command",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "InCommand",
+    "output_package_name": "application",
+    "output_module_name": "in_command",
 
     "doc_html": """
         Determines if Rhino is currently running a command. Because Rhino allow for transparent commands (commands that can be run from inside of other commands), this method returns the total number of active commands.

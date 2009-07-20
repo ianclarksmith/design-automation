@@ -1,7 +1,8 @@
 object_groups = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_groups",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectGroups",
+    "output_package_name": "object",
+    "output_module_name": "object_groups",
 
     "doc_html": """
         Returns all of the group names that an object is assigned.

@@ -1,7 +1,8 @@
 is_surface_periodic = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_surface_periodic",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsSurfacePeriodic",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_surface_periodic",
 
     "doc_html": """
         Verifies a surface object is periodic in the specified direction.

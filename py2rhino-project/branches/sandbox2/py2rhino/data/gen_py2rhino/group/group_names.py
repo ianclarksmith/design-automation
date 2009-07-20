@@ -1,7 +1,8 @@
 group_names = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "group_names",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "GroupNames",
+    "output_package_name": "group",
+    "output_module_name": "group_names",
 
     "doc_html": """
         Returns the name of all the groups in the document.

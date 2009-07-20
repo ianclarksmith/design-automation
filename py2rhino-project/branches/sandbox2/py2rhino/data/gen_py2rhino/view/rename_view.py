@@ -1,7 +1,8 @@
 rename_view = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "rename_view",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "RenameView",
+    "output_package_name": "view",
+    "output_module_name": "rename_view",
 
     "doc_html": """
         Renames, or changes the title, of the specified view..

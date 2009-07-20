@@ -1,7 +1,8 @@
 is_dim_style_reference = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "is_dim_style_reference",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "IsDimStyleReference",
+    "output_package_name": "dimension",
+    "output_module_name": "is_dim_style_reference",
 
     "doc_html": """
         Verifies that an existing dimension style is from a reference file.

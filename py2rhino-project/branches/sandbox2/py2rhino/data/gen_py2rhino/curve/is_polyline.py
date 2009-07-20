@@ -1,7 +1,8 @@
 is_polyline = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_polyline",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsPolyline",
+    "output_package_name": "curve",
+    "output_module_name": "is_polyline",
 
     "doc_html": """
         

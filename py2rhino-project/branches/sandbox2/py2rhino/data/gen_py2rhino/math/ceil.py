@@ -1,7 +1,8 @@
 ceil = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "ceil",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Ceil",
+    "output_package_name": "math",
+    "output_module_name": "ceil",
 
     "doc_html": """
         Returns the smallest integer greater than or equal to the specified number.

@@ -1,7 +1,8 @@
 object_material_source = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "object_material_source",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ObjectMaterialSource",
+    "output_package_name": "object",
+    "output_module_name": "object_material_source",
 
     "doc_html": """
         Returns or modifies the rendering material source of an object.

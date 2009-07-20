@@ -1,7 +1,8 @@
 linetype_count = {
-    "module_name": "linetype",
-    "class_name": "Linetype",
-    "method_name": "linetype_count",
+    "input_folder_name": "Linetype_Methods",
+    "input_file_name": "LinetypeCount",
+    "output_package_name": "linetype",
+    "output_module_name": "linetype_count",
 
     "doc_html": """
         Returns the number of linetypes in the document.

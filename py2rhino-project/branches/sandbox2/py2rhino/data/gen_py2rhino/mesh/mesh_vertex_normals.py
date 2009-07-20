@@ -1,7 +1,8 @@
 mesh_vertex_normals = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_vertex_normals",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshVertexNormals",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_vertex_normals",
 
     "doc_html": """
         Returns the vertex unit normal for each vertex of a mesh object.

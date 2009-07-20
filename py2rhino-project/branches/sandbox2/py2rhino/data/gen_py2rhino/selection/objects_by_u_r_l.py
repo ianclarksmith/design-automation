@@ -1,7 +1,8 @@
 objects_by_u_r_l = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "objects_by_u_r_l",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "ObjectsByURL",
+    "output_package_name": "selection",
+    "output_module_name": "objects_by_u_r_l",
 
     "doc_html": """
         Returns the identifiers of all objects based on the objects' user-assigned URL.

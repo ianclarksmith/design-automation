@@ -1,7 +1,8 @@
 curve_deviation = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_deviation",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveDeviation",
+    "output_package_name": "curve",
+    "output_module_name": "curve_deviation",
 
     "doc_html": """
         Returns the minimum and maximum deviation between two curve objects. For more information on curve deviation, see the Rhino help file for the CrvDeviation command.

@@ -1,7 +1,8 @@
 angle = {
-    "module_name": "math",
-    "class_name": "Math",
-    "method_name": "angle",
+    "input_folder_name": "Math_Methods",
+    "input_file_name": "Angle",
+    "output_package_name": "math",
+    "output_module_name": "angle",
 
     "doc_html": """
         Measures the angle between two points.

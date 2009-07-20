@@ -1,7 +1,8 @@
 extend_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "extend_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "ExtendCurve",
+    "output_package_name": "curve",
+    "output_module_name": "extend_curve",
 
     "doc_html": """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.

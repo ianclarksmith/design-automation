@@ -1,7 +1,8 @@
 delete_startup_script = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "delete_startup_script",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "DeleteStartupScript",
+    "output_package_name": "application",
+    "output_module_name": "delete_startup_script",
 
     "doc_html": """
         Removes an existing startup script from RhinoScript's startup script list. Startup script items can be removed manually by using Rhino's Options command and modifying the contents of the RhinoScript tab.

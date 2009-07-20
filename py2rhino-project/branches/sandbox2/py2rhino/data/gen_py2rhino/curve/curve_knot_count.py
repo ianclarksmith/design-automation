@@ -1,7 +1,8 @@
 curve_knot_count = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_knot_count",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveKnotCount",
+    "output_package_name": "curve",
+    "output_module_name": "curve_knot_count",
 
     "doc_html": """
         Returns the knot count of a curve object.

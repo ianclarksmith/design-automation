@@ -1,7 +1,8 @@
 purge_layer = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "purge_layer",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "PurgeLayer",
+    "output_package_name": "layer",
+    "output_module_name": "purge_layer",
 
     "doc_html": """
         Removes an existing layer from the document.  Unlike the DeleteLayer method, PurgeLayer will remove the layer even if contains geometry objects.  The layer to be removed cannot be the current layer.

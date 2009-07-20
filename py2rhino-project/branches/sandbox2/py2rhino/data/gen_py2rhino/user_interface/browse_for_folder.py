@@ -1,7 +1,8 @@
 browse_for_folder = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "browse_for_folder",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "BrowseForFolder",
+    "output_package_name": "user_interface",
+    "output_module_name": "browse_for_folder",
 
     "doc_html": """
         Displays the Windows browse-for-folder dialog box allowing the user to select a folder.

@@ -1,7 +1,8 @@
 delete_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "delete_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "DeleteGroup",
+    "output_package_name": "group",
+    "output_module_name": "delete_group",
 
     "doc_html": """
         Removes an existing group from the document. Reference groups cannot be removed. Deleting a group does not delete the member objects.

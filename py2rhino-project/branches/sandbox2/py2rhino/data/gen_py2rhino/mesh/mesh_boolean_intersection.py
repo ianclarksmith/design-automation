@@ -1,7 +1,8 @@
 mesh_boolean_intersection = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_boolean_intersection",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshBooleanIntersection",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_boolean_intersection",
 
     "doc_html": """
         Performs a Boolean intersection operation on two sets of input meshes. For more details, see the MeshBooleanIntersection command in the Rhino help file.

@@ -1,7 +1,8 @@
 appearance_color = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "appearance_color",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "AppearanceColor",
+    "output_package_name": "application",
+    "output_module_name": "appearance_color",
 
     "doc_html": """
         Returns or modifies an application interface item's color.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.

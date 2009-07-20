@@ -1,7 +1,8 @@
 is_object_data = {
-    "module_name": "user_data",
-    "class_name": "UserData",
-    "method_name": "is_object_data",
+    "input_folder_name": "User_Data_Methods",
+    "input_file_name": "IsObjectData",
+    "output_package_name": "user_data",
+    "output_module_name": "is_object_data",
 
     "doc_html": """
         Verifies that an object's geometry contains RhinoScript user data.

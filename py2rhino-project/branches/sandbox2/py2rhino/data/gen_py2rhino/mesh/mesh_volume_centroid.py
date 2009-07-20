@@ -1,7 +1,8 @@
 mesh_volume_centroid = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_volume_centroid",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshVolumeCentroid",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_volume_centroid",
 
     "doc_html": """
         Calculates the volume centroid of a mesh object.

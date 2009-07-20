@@ -1,7 +1,8 @@
 is_text = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "is_text",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "IsText",
+    "output_package_name": "geometry",
+    "output_module_name": "is_text",
 
     "doc_html": """
         Verifies an object is a text object.

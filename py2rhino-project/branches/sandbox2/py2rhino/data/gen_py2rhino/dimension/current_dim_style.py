@@ -1,7 +1,8 @@
 current_dim_style = {
-    "module_name": "dimension",
-    "class_name": "Dimension",
-    "method_name": "current_dim_style",
+    "input_folder_name": "Dimension_Methods",
+    "input_file_name": "CurrentDimStyle",
+    "output_package_name": "dimension",
+    "output_module_name": "current_dim_style",
 
     "doc_html": """
         Returns or changes the current default dimension style.

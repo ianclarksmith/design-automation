@@ -1,7 +1,8 @@
 unit_distance_display_mode = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "unit_distance_display_mode",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "UnitDistanceDisplayMode",
+    "output_package_name": "document",
+    "output_module_name": "unit_distance_display_mode",
 
     "doc_html": """
         Returns or sets the document's distance display mode parameter.  See Rhino's DocumentProperties command (Units window) for details.

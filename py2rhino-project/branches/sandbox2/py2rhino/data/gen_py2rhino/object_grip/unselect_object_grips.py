@@ -1,7 +1,8 @@
 unselect_object_grips = {
-    "module_name": "object_grip",
-    "class_name": "ObjectGrip",
-    "method_name": "unselect_object_grips",
+    "input_folder_name": "Object_Grip_Methods",
+    "input_file_name": "UnselectObjectGrips",
+    "output_package_name": "object_grip",
+    "output_module_name": "unselect_object_grips",
 
     "doc_html": """
         Unselects an object's grips. Note, the grips will not be turned off.

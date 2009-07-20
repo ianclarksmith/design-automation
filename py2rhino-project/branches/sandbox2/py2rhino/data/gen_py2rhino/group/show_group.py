@@ -1,7 +1,8 @@
 show_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "show_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "ShowGroup",
+    "output_package_name": "group",
+    "output_module_name": "show_group",
 
     "doc_html": """
         Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.

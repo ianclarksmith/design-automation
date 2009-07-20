@@ -1,7 +1,8 @@
 zoom_bounding_box = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "zoom_bounding_box",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ZoomBoundingBox",
+    "output_package_name": "view",
+    "output_module_name": "zoom_bounding_box",
 
     "doc_html": """
         Zooms to the extents of a specified bounding box in the specified view, or in the active view.

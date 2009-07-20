@@ -1,7 +1,8 @@
 current_detail = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "current_detail",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "CurrentDetail",
+    "output_package_name": "view",
+    "output_module_name": "current_detail",
 
     "doc_html": """
         Returns or changes the current detail view in a page layout view.

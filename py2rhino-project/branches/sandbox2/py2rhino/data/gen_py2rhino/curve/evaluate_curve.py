@@ -1,7 +1,8 @@
 evaluate_curve = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "evaluate_curve",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "EvaluateCurve",
+    "output_package_name": "curve",
+    "output_module_name": "evaluate_curve",
 
     "doc_html": """
         Evaluates a curve at a parameter.

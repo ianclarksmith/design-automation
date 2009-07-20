@@ -1,7 +1,8 @@
 layer_mode = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_mode",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerMode",
+    "output_package_name": "layer",
+    "output_module_name": "layer_mode",
 
     "doc_html": """
         OBSOLETE, use either LayerLocked or LayerVisible instead.

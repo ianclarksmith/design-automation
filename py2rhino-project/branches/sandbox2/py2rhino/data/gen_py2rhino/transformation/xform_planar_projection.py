@@ -1,7 +1,8 @@
 xform_planar_projection = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_planar_projection",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformPlanarProjection",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_planar_projection",
 
     "doc_html": """
         Returns a transformation matrix that projects to a plane.

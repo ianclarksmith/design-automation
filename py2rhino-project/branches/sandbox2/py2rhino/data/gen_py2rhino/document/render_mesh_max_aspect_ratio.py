@@ -1,7 +1,8 @@
 render_mesh_max_aspect_ratio = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "render_mesh_max_aspect_ratio",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "RenderMeshMaxAspectRatio",
+    "output_package_name": "document",
+    "output_module_name": "render_mesh_max_aspect_ratio",
 
     "doc_html": """
         Returns or sets the render mesh maximum aspect ratio property of the active document.

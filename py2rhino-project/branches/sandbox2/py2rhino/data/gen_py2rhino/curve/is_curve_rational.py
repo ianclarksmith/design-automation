@@ -1,7 +1,8 @@
 is_curve_rational = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_curve_rational",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsCurveRational",
+    "output_package_name": "curve",
+    "output_module_name": "is_curve_rational",
 
     "doc_html": """
         Verifies an object is a rational NURBS curve object.

@@ -1,7 +1,8 @@
 selected_objects = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "selected_objects",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "SelectedObjects",
+    "output_package_name": "selection",
+    "output_module_name": "selected_objects",
 
     "doc_html": """
         Returns the identifiers of all objects that are currently selected.

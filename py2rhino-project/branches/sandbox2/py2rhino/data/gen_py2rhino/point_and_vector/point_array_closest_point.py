@@ -1,7 +1,8 @@
 point_array_closest_point = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "point_array_closest_point",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "PointArrayClosestPoint",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "point_array_closest_point",
 
     "doc_html": """
         Finds the point in an array of 3-D points that is closest to a test point.

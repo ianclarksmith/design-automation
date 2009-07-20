@@ -1,7 +1,8 @@
 add_torus = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_torus",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddTorus",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_torus",
 
     "doc_html": """
         Adds a torus-shaped revolved surface to the document.

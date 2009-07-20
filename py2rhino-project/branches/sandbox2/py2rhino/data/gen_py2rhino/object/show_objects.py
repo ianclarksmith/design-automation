@@ -1,7 +1,8 @@
 show_objects = {
-    "module_name": "object",
-    "class_name": "Object",
-    "method_name": "show_objects",
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "ShowObjects",
+    "output_package_name": "object",
+    "output_module_name": "show_objects",
 
     "doc_html": """
         Shows one or more hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.

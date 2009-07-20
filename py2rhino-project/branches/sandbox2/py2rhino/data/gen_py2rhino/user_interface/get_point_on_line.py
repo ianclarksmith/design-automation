@@ -1,7 +1,8 @@
 get_point_on_line = {
-    "module_name": "user_interface",
-    "class_name": "UserInterface",
-    "method_name": "get_point_on_line",
+    "input_folder_name": "User_Interface_Methods",
+    "input_file_name": "GetPointOnLine",
+    "output_package_name": "user_interface",
+    "output_module_name": "get_point_on_line",
 
     "doc_html": """
         Pauses for user input of a point constrained to an infinite line.

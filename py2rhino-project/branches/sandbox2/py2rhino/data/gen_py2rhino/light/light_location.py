@@ -1,7 +1,8 @@
 light_location = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "light_location",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "LightLocation",
+    "output_package_name": "light",
+    "output_module_name": "light_location",
 
     "doc_html": """
         Returns or changes the location of a light object.

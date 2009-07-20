@@ -1,7 +1,8 @@
 is_curve_linear = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "is_curve_linear",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "IsCurveLinear",
+    "output_package_name": "curve",
+    "output_module_name": "is_curve_linear",
 
     "doc_html": """
         Verifies an object is a linear curve object.

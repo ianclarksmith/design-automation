@@ -1,7 +1,8 @@
 show_grid = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "show_grid",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "ShowGrid",
+    "output_package_name": "view",
+    "output_module_name": "show_grid",
 
     "doc_html": """
         Shows or hides a view's construction plane grid.

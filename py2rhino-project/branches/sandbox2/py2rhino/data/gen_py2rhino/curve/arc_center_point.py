@@ -1,7 +1,8 @@
 arc_center_point = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "arc_center_point",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "ArcCenterPoint",
+    "output_package_name": "curve",
+    "output_module_name": "arc_center_point",
 
     "doc_html": """
         Returns the center point of an arc curve object.

@@ -1,7 +1,8 @@
 tilt_view = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "tilt_view",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "TiltView",
+    "output_package_name": "view",
+    "output_module_name": "tilt_view",
 
     "doc_html": """
         Tilts a view by rotating the camera up vector.  See the TiltView command in the Rhino help file for more details.

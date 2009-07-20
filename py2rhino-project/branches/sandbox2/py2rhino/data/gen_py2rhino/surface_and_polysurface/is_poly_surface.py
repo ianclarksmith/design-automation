@@ -1,7 +1,8 @@
 is_poly_surface = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "is_poly_surface",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "IsPolySurface",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "is_poly_surface",
 
     "doc_html": """
         Verifies an object is a polysurface.  Polysurfaces consists of two or more surfaces joined together. If the polysurface fully encloses a volume, it is considered a solid. In some other 3-D programs, this is called a "quilt."

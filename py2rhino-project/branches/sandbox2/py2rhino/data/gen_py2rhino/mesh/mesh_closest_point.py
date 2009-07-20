@@ -1,7 +1,8 @@
 mesh_closest_point = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_closest_point",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshClosestPoint",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_closest_point",
 
     "doc_html": """
         Returns the point on a mesh that is closest to a test point.

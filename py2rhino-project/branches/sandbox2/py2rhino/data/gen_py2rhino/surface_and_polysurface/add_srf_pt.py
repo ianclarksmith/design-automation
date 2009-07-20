@@ -1,7 +1,8 @@
 add_srf_pt = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "add_srf_pt",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "AddSrfPt",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "add_srf_pt",
 
     "doc_html": """
         Creates a new surface from either 3 or 4 corner points.

@@ -1,7 +1,8 @@
 search_path_list = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "search_path_list",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "SearchPathList",
+    "output_package_name": "application",
+    "output_module_name": "search_path_list",
 
     "doc_html": """
         Returns all of the path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.

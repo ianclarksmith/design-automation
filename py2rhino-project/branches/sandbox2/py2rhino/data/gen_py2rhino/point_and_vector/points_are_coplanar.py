@@ -1,7 +1,8 @@
 points_are_coplanar = {
-    "module_name": "point_and_vector",
-    "class_name": "PointAndVector",
-    "method_name": "points_are_coplanar",
+    "input_folder_name": "Point_and_Vector_Methods",
+    "input_file_name": "PointsAreCoplanar",
+    "output_package_name": "point_and_vector",
+    "output_module_name": "points_are_coplanar",
 
     "doc_html": """
         Verifies that an array of 3-D points are co-planar.

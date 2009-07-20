@@ -1,7 +1,8 @@
 sleep = {
-    "module_name": "utility",
-    "class_name": "Utility",
-    "method_name": "sleep",
+    "input_folder_name": "Utility_Methods",
+    "input_file_name": "Sleep",
+    "output_package_name": "utility",
+    "output_module_name": "sleep",
 
     "doc_html": """
         Suspends the execution of a running script for the specified interval.

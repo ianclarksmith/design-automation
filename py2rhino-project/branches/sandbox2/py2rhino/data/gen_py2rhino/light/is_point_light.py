@@ -1,7 +1,8 @@
 is_point_light = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "is_point_light",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "IsPointLight",
+    "output_package_name": "light",
+    "output_module_name": "is_point_light",
 
     "doc_html": """
         Verifies a light object is a point light.

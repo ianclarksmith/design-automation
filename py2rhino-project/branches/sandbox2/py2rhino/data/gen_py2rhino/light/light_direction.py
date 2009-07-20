@@ -1,7 +1,8 @@
 light_direction = {
-    "module_name": "light",
-    "class_name": "Light",
-    "method_name": "light_direction",
+    "input_folder_name": "Light_Methods",
+    "input_file_name": "LightDirection",
+    "output_package_name": "light",
+    "output_module_name": "light_direction",
 
     "doc_html": """
         Returns or changes the direction of a light object. This function can be used to return or modify the target of spotlights.

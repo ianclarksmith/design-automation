@@ -1,7 +1,8 @@
 document_modified = {
-    "module_name": "document",
-    "class_name": "Document",
-    "method_name": "document_modified",
+    "input_folder_name": "Document_Methods",
+    "input_file_name": "DocumentModified",
+    "output_package_name": "document",
+    "output_module_name": "document_modified",
 
     "doc_html": """
         Returns or sets the document's modified flag. The modified flag indicates whether or not any changes to the current document have been made.

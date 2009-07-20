@@ -1,7 +1,8 @@
 exit = {
-    "module_name": "application",
-    "class_name": "Application",
-    "method_name": "exit",
+    "input_folder_name": "Application_Methods",
+    "input_file_name": "Exit",
+    "output_package_name": "application",
+    "output_module_name": "exit",
 
     "doc_html": """
         Closes the Rhino application.

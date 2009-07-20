@@ -1,7 +1,8 @@
 invert_selected_objects = {
-    "module_name": "selection",
-    "class_name": "Selection",
-    "method_name": "invert_selected_objects",
+    "input_folder_name": "Selection_Methods",
+    "input_file_name": "InvertSelectedObjects",
+    "output_package_name": "selection",
+    "output_module_name": "invert_selected_objects",
 
     "doc_html": """
         Inverts the current object selection.  The identifiers of the newly selected objects are returned.

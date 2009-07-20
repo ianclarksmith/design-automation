@@ -1,7 +1,8 @@
 extrude_curve_straight = {
-    "module_name": "surface_and_polysurface",
-    "class_name": "SurfaceAndPolysurface",
-    "method_name": "extrude_curve_straight",
+    "input_folder_name": "Surface_and_Polysurface_Methods",
+    "input_file_name": "ExtrudeCurveStraight",
+    "output_package_name": "surface_and_polysurface",
+    "output_module_name": "extrude_curve_straight",
 
     "doc_html": """
         Creates a surface by extruding a curve straight along two points that define a line.

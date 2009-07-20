@@ -1,7 +1,8 @@
 layer_count = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_count",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerCount",
+    "output_package_name": "layer",
+    "output_module_name": "layer_count",
 
     "doc_html": """
         Returns the number of layers in the document.

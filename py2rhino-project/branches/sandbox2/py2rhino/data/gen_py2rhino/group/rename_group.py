@@ -1,7 +1,8 @@
 rename_group = {
-    "module_name": "group",
-    "class_name": "Group",
-    "method_name": "rename_group",
+    "input_folder_name": "Group_Methods",
+    "input_file_name": "RenameGroup",
+    "output_package_name": "group",
+    "output_module_name": "rename_group",
 
     "doc_html": """
         Renames an existing group.

@@ -1,7 +1,8 @@
 mesh_vertex_colors = {
-    "module_name": "mesh",
-    "class_name": "Mesh",
-    "method_name": "mesh_vertex_colors",
+    "input_folder_name": "Mesh_Methods",
+    "input_file_name": "MeshVertexColors",
+    "output_package_name": "mesh",
+    "output_module_name": "mesh_vertex_colors",
 
     "doc_html": """
         Returns or modifies the  vertex colors of a mesh object

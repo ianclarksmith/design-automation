@@ -1,7 +1,8 @@
 curve_directions_match = {
-    "module_name": "curve",
-    "class_name": "Curve",
-    "method_name": "curve_directions_match",
+    "input_folder_name": "Curve_Methods",
+    "input_file_name": "CurveDirectionsMatch",
+    "output_package_name": "curve",
+    "output_module_name": "curve_directions_match",
 
     "doc_html": """
         Tests if two curve objects are generally in the same direction or if they would be more in the same direction if one of them were flipped. When testing curve directions, both curves must be either open or closed - you cannot test one open curve and one closed curve.

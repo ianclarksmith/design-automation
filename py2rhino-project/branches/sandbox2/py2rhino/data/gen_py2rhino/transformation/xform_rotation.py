@@ -1,7 +1,8 @@
 xform_rotation = {
-    "module_name": "transformation",
-    "class_name": "Transformation",
-    "method_name": "xform_rotation",
+    "input_folder_name": "Transformation_Methods",
+    "input_file_name": "XformRotation",
+    "output_package_name": "transformation",
+    "output_module_name": "xform_rotation",
 
     "doc_html": """
         Returns a rotation transformation matrix. The XformRotation provides several ways to compute a rotation transformation.  A positive rotation angle indicates a counter-clockwise (right hand rule) rotation about the axis of rotation.

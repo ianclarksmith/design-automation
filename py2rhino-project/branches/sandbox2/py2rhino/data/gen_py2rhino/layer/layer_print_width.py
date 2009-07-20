@@ -1,7 +1,8 @@
 layer_print_width = {
-    "module_name": "layer",
-    "class_name": "Layer",
-    "method_name": "layer_print_width",
+    "input_folder_name": "Layer_Methods",
+    "input_file_name": "LayerPrintWidth",
+    "output_package_name": "layer",
+    "output_module_name": "layer_print_width",
 
     "doc_html": """
         Returns or changes the print width of a layer. Print width is specified in millimeters. A print width of 0.0 denotes the "default" print width.

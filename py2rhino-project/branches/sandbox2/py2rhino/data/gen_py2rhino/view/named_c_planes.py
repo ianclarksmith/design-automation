@@ -1,7 +1,8 @@
 named_c_planes = {
-    "module_name": "view",
-    "class_name": "View",
-    "method_name": "named_c_planes",
+    "input_folder_name": "View_Methods",
+    "input_file_name": "NamedCPlanes",
+    "output_package_name": "view",
+    "output_module_name": "named_c_planes",
 
     "doc_html": """
         Returns the names of all named construction planes in the document.

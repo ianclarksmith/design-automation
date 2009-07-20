@@ -1,7 +1,8 @@
 is_point = {
-    "module_name": "geometry",
-    "class_name": "Geometry",
-    "method_name": "is_point",
+    "input_folder_name": "Geometry_Methods",
+    "input_file_name": "IsPoint",
+    "output_package_name": "geometry",
+    "output_module_name": "is_point",
 
     "doc_html": """
         Verifies an object is a point object.
