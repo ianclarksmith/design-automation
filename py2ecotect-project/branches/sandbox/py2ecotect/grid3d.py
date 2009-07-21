@@ -391,7 +391,8 @@ class Grid3D(object):
         given in model coordinates. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.grid3d.vector", i, j, k)
+        arg_str = string_util._convert_args_to_string("get.grid3d.vector", 
+                                                      i, j, k)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 

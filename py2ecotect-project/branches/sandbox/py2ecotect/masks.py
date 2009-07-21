@@ -60,8 +60,8 @@ class Masks(object):
         and 1 (t2).
         
         """
-        arg_str = string_util._convert_args_to_string("masks.interpolate", index, t1, 
-                                                     t2, fraction )
+        arg_str = string_util._convert_args_to_string("masks.interpolate", 
+                                                      index, t1, t2, fraction )
         py2ecotect.conversation.Exec(arg_str)
 
     def load(self):

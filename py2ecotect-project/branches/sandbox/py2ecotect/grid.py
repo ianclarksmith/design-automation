@@ -19,8 +19,8 @@ class Grid(object):
         
         filename 
         This parameter specifies the file where the data will be saved, and may 
-        include a full pathname. However, be aware of the issues with backslashes in 
-        filename parameters described here.
+        include a full pathname. However, be aware of the issues with 
+        backslashes in filename parameters described here.
         
         """
         arg_str = string_util._convert_args_to_string("grid.export", filename)
@@ -43,7 +43,8 @@ class Grid(object):
         where 1 or true represents the affirmative and 0 or false the negative. 
       
         """
-        arg_str = string_util._convert_args_to_string("grid.fit.selection", fit_form)
+        arg_str = string_util._convert_args_to_string("grid.fit.selection", 
+                                                      fit_form)
         py2ecotect.conversation.Exec(arg_str)
 
     def fit_values(self):
@@ -440,10 +441,12 @@ class Grid(object):
         elastic 512 Use elastic method when dragging axial nodes. 
          1024 UNUSED. 
         clip 2048 Clip the displayed grid to those nodes above the minimum range. 
-        average 4096 Display the average of all visible values at bottom of canvas. 
+        average 4096 Display the average of all visible values at bottom of 
+        canvas. 
         lines 8192 Display grid lines. 
         3d 16384 Display grid values as a 3D peturbed surface. 
-        daylight 32768 Indicates that grid displays valid daylight analysis results. 
+        daylight 32768 Indicates that grid displays valid daylight analysis 
+        results. 
  
         """
         arg_str = string_util._convert_args_to_string("get.grid.flag", 
@@ -490,10 +493,12 @@ class Grid(object):
         elastic 512 Use elastic method when dragging axial nodes. 
          1024 UNUSED. 
         clip 2048 Clip the displayed grid to those nodes above the minimum range. 
-        average 4096 Display the average of all visible values at bottom of canvas. 
+        average 4096 Display the average of all visible values at bottom of 
+        canvas. 
         lines 8192 Display grid lines. 
         3d 16384 Display grid values as a 3D peturbed surface. 
-        daylight 32768 Indicates that grid displays valid daylight analysis results. 
+        daylight 32768 Indicates that grid displays valid daylight analysis 
+        results. 
 
         """
         arg_str = string_util._convert_args_to_string("set.grid.flag", 
@@ -665,8 +670,8 @@ class Grid(object):
         
         Sets the position of a grid point. Note that setting this value is only 
         possible when the grid has been form fit to selected objects using the 
-        grid.fit.selection command, or by selecting the Fit to Selected Objects > 
-        3D Form button in the Analysis Grid panel. 
+        grid.fit.selection command, or by selecting the Fit to Selected Objects 
+        > 3D Form button in the Analysis Grid panel. 
 
         Parameter(s)
         This property takes the following parameters.
@@ -756,8 +761,8 @@ class Grid(object):
         The increment size used to draw contours.
         
         """
-        arg_str = string_util._convert_args_to_string("set.grid.scale", min, max,
-                                                     inc)
+        arg_str = string_util._convert_args_to_string("set.grid.scale", 
+                                                      min, max, inc)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_size(self):
@@ -796,7 +801,8 @@ class Grid(object):
         specified, the analysis grid becomes a 2D analysis grid.
         
         """
-        arg_str = string_util._convert_args_to_string("set.grid.size", ix, jy, kz)
+        arg_str = string_util._convert_args_to_string("set.grid.size", 
+                                                      ix, jy, kz)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_state(self, i, j):

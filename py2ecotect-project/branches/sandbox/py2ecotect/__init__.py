@@ -15,5 +15,6 @@ try:
 except:
     win32api.WinExec("C:\\Program Files\\Autodesk\\Ecotect 2009\\ecotect.exe")
     conversation.ConnectTo("Ecotect", "request")
-
+    
+print "conv = ", conversation
 print "Connection with Ecotect successful..."
