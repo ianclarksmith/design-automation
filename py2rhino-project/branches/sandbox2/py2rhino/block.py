@@ -30,14 +30,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(411, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockContainerCount", None, *params_flattened)
 
@@ -63,18 +66,21 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(412, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockContainers", None, *params_flattened)
 
-    def block_count):
+    def block_count():
         """        
         Returns the number of block definitions in the document.
     
@@ -92,14 +98,17 @@ class Block(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(397, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockCount", None, *params_flattened)
 
@@ -131,14 +140,17 @@ class Block(IRhinoScript):
         """
 
         params = [block, text]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [block, text]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(400, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockDescription", None, *params_flattened)
 
@@ -164,14 +176,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(404, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstanceCount", None, *params_flattened)
 
@@ -197,14 +212,17 @@ class Block(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(413, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstanceInsertPoint", None, *params_flattened)
 
@@ -230,14 +248,17 @@ class Block(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(571, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstanceName", None, *params_flattened)
 
@@ -263,14 +284,17 @@ class Block(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(415, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstanceXform", None, *params_flattened)
 
@@ -296,14 +320,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(414, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockInstances", None, *params_flattened)
 
@@ -329,14 +356,17 @@ class Block(IRhinoScript):
         """
 
         params = [sort]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_BOOL, 1),]
         params_flattened = [sort]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(396, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockNames", None, *params_flattened)
 
@@ -362,14 +392,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(416, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockObjectCount", None, *params_flattened)
 
@@ -395,14 +428,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(417, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockObjects", None, *params_flattened)
 
@@ -428,14 +464,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(408, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockPath", None, *params_flattened)
 
@@ -467,14 +506,17 @@ class Block(IRhinoScript):
         """
 
         params = [block, u_r_l]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [block, u_r_l]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(402, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockURL", None, *params_flattened)
 
@@ -506,14 +548,17 @@ class Block(IRhinoScript):
         """
 
         params = [block, u_r_l]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [block, u_r_l]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(403, 1, (VT_VARIANT, 0), params_magic_numbers, u"BlockURLTag", None, *params_flattened)
 
@@ -539,14 +584,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(418, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteBlock", None, *params_flattened)
 
@@ -572,14 +620,17 @@ class Block(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(419, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExplodeBlockInstance", None, *params_flattened)
 
@@ -620,14 +671,17 @@ class Block(IRhinoScript):
         """
 
         params = [name, point, scale, angle, normal, xform]
-        params_opt_or_req = [Required, Required, Optional, Optional, Optional, Required]
+        params_required = [True, True, False, False, False, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [name, flatten(point), flatten(scale), angle, flatten(normal), flatten(xform)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(633, 1, (VT_VARIANT, 0), params_magic_numbers, u"InsertBlock", None, *params_flattened)
 
@@ -653,14 +707,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(398, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlock", None, *params_flattened)
 
@@ -686,14 +743,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(405, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlockEmbedded", None, *params_flattened)
 
@@ -727,14 +787,17 @@ class Block(IRhinoScript):
         """
 
         params = [block, where]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [block, where]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(406, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlockInUse", None, *params_flattened)
 
@@ -760,14 +823,17 @@ class Block(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(420, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlockInstance", None, *params_flattened)
 
@@ -793,14 +859,17 @@ class Block(IRhinoScript):
         """
 
         params = [block]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(407, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBlockReference", None, *params_flattened)
 
@@ -829,14 +898,17 @@ class Block(IRhinoScript):
         """
 
         params = [old_block, new_block]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [old_block, new_block]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(399, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenameBlock", None, *params_flattened)
 

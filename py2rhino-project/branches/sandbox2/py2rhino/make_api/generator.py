@@ -33,18 +33,26 @@ def write_classes(data_dict):
 
 def write_class(module_name, module_dict):
     #open, write, and close
-    f = open(out_folder + module_name + ".py", mode='w')
+    f = open(out_folder + module_name + '.py', mode='w')
     write_class_header(underscore_to_camel(module_name), f)
     for method_name in sorted(module_dict.keys()):
+        #write_init(f)
         write_class_method(module_dict[method_name], f)
     f.close()
     
 def write_class_header(class_name, f):
-    w(f,"# Auto-generated wrapper for Rhino4 RhinoScript functions", nle=2)
-    w(f,"import exceptions")
-    w(f,"from py2rhino._util import *")
-    w(f,"from py2rhino._rhinoscript import IRhinoScript", nle=2)
-    w(f,"class %s(IRhinoScript):" % class_name, nle=4)
+    w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
+    w(f,'import exceptions')
+    w(f,'from py2rhino._util import *')
+    w(f,'from py2rhino._rhinoscript import IRhinoScript', nle=2)
+    w(f,'class %s(IRhinoScript):' % class_name, nle=4)
+
+def write_init(f):
+    w(f,'# Class constructor', tabs=1, nls=0, nle=1)
+    w(f,'def __init__(self):', tabs=1, nls=0, nle=1)
+    
+    
+    
 
 def write_class_method(method_dict, f):
 
@@ -111,6 +119,7 @@ def write_class_method(method_dict, f):
     params_flattened = []
     params_type = []
     params_opt_or_req = []
+    params_required = []    
     params_doc = []
     params_magic_numbers = []
     num_params = 0
@@ -125,11 +134,15 @@ def write_class_method(method_dict, f):
             param_flattened = param_name
             if param_dict['type_string'].startswith('arr'):
                 param_flattened = 'flatten(' + param_name + ')'
+            param_required = 'False'
+            if param_dict['opt_or_req'] == 'Required':
+                param_required = 'True'
             #add data to the lsists
             params_name.append(param_name)
             params_type.append(string_to_type_map[param_dict['type_string']])
             params_flattened.append(param_flattened)
             params_opt_or_req.append( param_dict['opt_or_req'])
+            params_required.append(param_required)
             params_doc.append(param_dict['doc'])
             params_magic_numbers.append( '(' + str(string_to_magic_map[param_dict['type_string']]) + ', 1)')
             
@@ -145,7 +158,7 @@ def write_class_method(method_dict, f):
         param_list = param_list[:-2]
         w(f, ('(self, ', param_list, '):'), tabs=0, nle=1)
     else:
-        w(f, '):', tabs=0, nle=1)
+        w(f, '():', tabs=0, nle=1)
 
 
     
@@ -184,15 +197,17 @@ def write_class_method(method_dict, f):
     params_flattened = ', '.join(params_flattened)
     
     w(f, ('params = [', ', '.join(params_name), ']'), tabs=2, nls=1, nle=0)
-    w(f, ('params_opt_or_req = [', ', '.join(params_opt_or_req), ']'), tabs=2, nls=1, nle=0)
+    w(f, ('params_required = [', ', '.join(params_required), ']'), tabs=2, nls=1, nle=0)
     w(f, ('params_magic_numbers = [', params_magic_numbers, ']'), tabs=2, nls=1, nle=0)
     w(f, ('params_flattened = [', params_flattened, ']'), tabs=2, nls=1, nle=1)
     
     w(f, ('for i in range(len(params)):'), tabs=2, nls=1, nle=0)
-    w(f, ('if (params[i] == None) and (params_opt_or_req[i] = "Optional"):'), tabs=3, nls=1, nle=0)
+    w(f, ('if (params[i] == None) and (not params_required[i]):'), tabs=3, nls=1, nle=0)
     w(f, ('params_magic_numbers.pop(i)'), tabs=4, nls=1, nle=0)
-    w(f, ('params_flattened.pop(i)'), tabs=4, nls=1, nle=1)    
+    w(f, ('params_flattened.pop(i)'), tabs=4, nls=1, nle=1)
     
+    w(f, ('params_magic_numbers = tuple(params_magic_numbers)'), tabs=2, nls=1, nle=0)
+    w(f, ('params_flattened = tuple(params_flattened)'), tabs=2, nls=1, nle=1)
     
     #now write the function    
     magic = str(magic_id) + ', 1, '+returns_magic_numbers+', params_magic_numbers'

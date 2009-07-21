@@ -30,14 +30,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [corners]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(corners)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(72, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddBox", None, *params_flattened)
 
@@ -78,14 +81,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [base, plane, height, height, radius, cap]
-        params_opt_or_req = [Required, Required, Required, Required, Required, Optional]
+        params_required = [True, True, True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(base), flatten(plane), flatten(height), height, radius, cap]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(75, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCone", None, *params_flattened)
 
@@ -120,14 +126,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [objects, start_point, end_point, normal]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(objects), flatten(start_point), flatten(end_point), flatten(normal)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(822, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCutPlane", None, *params_flattened)
 
@@ -168,14 +177,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [base, plane, height, height, radius, cap]
-        params_opt_or_req = [Required, Required, Required, Required, Required, Optional]
+        params_required = [True, True, True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(base), flatten(plane), flatten(height), height, radius, cap]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(73, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCylinder", None, *params_flattened)
 
@@ -201,14 +213,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(203, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddEdgeSrf", None, *params_flattened)
 
@@ -273,14 +288,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [objects, start_pt, end_pt, type, style, value, closed]
-        params_opt_or_req = [Required, Optional, Optional, Optional, Optional, Optional, Optional]
+        params_required = [True, False, False, False, False, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(objects), flatten(start_pt), flatten(end_pt), type, style, value, closed]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(567, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddLoftSrf", None, *params_flattened)
 
@@ -321,14 +339,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [point_count, points, knots_u, knots_u, degree, weights]
-        params_opt_or_req = [Required, Required, Required, Required, Required, Required]
+        params_required = [True, True, True, True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(point_count), flatten(points), flatten(knots_u), flatten(knots_u), flatten(degree), flatten(weights)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(435, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddNurbsSurface", None, *params_flattened)
 
@@ -354,14 +375,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(371, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPlanarSrf", None, *params_flattened)
 
@@ -393,14 +417,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [plane, d_u, d_v]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [flatten(plane), d_u, d_v]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(648, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPlaneSurface", None, *params_flattened)
 
@@ -432,14 +459,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [profile, rail, axis]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [profile, rail, flatten(axis)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(536, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddRailRevSrf", None, *params_flattened)
 
@@ -474,14 +504,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [profile, axis, start_angle, end_angle]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [profile, flatten(axis), start_angle, end_angle]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(535, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddRevSrf", None, *params_flattened)
 
@@ -513,14 +546,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [center, plane, radius]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(center), flatten(plane), radius]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(71, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSphere", None, *params_flattened)
 
@@ -558,14 +594,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, start_point, end_point, plane, interval]
-        params_opt_or_req = [Required, Required, Required, Required, Optional]
+        params_required = [True, True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [object, flatten(start_point), flatten(end_point), flatten(plane), interval]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(747, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSrfContourCrvs", None, *params_flattened)
 
@@ -597,14 +636,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [count, points, degree]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(count), flatten(points), flatten(degree)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(294, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSrfControlPtGrid", None, *params_flattened)
 
@@ -630,14 +672,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [points]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(204, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSrfPt", None, *params_flattened)
 
@@ -672,14 +717,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [count, points, degree, closed]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(count), flatten(points), flatten(degree), flatten(closed)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(293, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSrfPtGrid", None, *params_flattened)
 
@@ -708,14 +756,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, plane]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(plane)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(803, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSrfSectionCrvs", None, *params_flattened)
 
@@ -770,14 +821,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [rail, shapes, start_pt, end_pt, closed, style, style_arg, simplify, simplify_arg]
-        params_opt_or_req = [Required, Required, Optional, Optional, Optional, Optional, Optional, Optional, Optional]
+        params_required = [True, True, False, False, False, False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1), (VT_I2, 1), (VT_VARIANT, 1), (VT_I2, 1), (VT_VARIANT, 1)]
         params_flattened = [rail, flatten(shapes), flatten(start_pt), flatten(end_pt), closed, style, style_arg, simplify, simplify_arg]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(893, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSweep1", None, *params_flattened)
 
@@ -833,14 +887,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [rails, shapes, start_pt, end_pt, closed, simple_sweep, maintain_height, simplify, simplify_arg]
-        params_opt_or_req = [Required, Required, Optional, Optional, Optional, Optional, Optional, Optional, Optional]
+        params_required = [True, True, False, False, False, False, False, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_I2, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(rails), flatten(shapes), flatten(start_pt), flatten(end_pt), closed, simple_sweep, maintain_height, simplify, simplify_arg]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(894, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSweep2", None, *params_flattened)
 
@@ -878,14 +935,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [base, plane, major_radius, minor_radius, direction]
-        params_opt_or_req = [Required, Required, Required, Required, Optional]
+        params_required = [True, True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(base), flatten(plane), major_radius, minor_radius, flatten(direction)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(74, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddTorus", None, *params_flattened)
 
@@ -917,14 +977,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [input0, input1, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(input0), flatten(input1), delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(508, 1, (VT_VARIANT, 0), params_magic_numbers, u"BooleanDifference", None, *params_flattened)
 
@@ -956,14 +1019,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [input0, input1, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(input0), flatten(input1), delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(507, 1, (VT_VARIANT, 0), params_magic_numbers, u"BooleanIntersection", None, *params_flattened)
 
@@ -992,14 +1058,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [input, delete]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(input), delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(506, 1, (VT_VARIANT, 0), params_magic_numbers, u"BooleanUnion", None, *params_flattened)
 
@@ -1028,14 +1097,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(514, 1, (VT_VARIANT, 0), params_magic_numbers, u"BrepClosestPoint", None, *params_flattened)
 
@@ -1061,14 +1133,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(701, 1, (VT_VARIANT, 0), params_magic_numbers, u"CapPlanarHoles", None, *params_flattened)
 
@@ -1097,14 +1172,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, select]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, select]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(657, 1, (VT_VARIANT, 0), params_magic_numbers, u"DuplicateEdgeCurves", None, *params_flattened)
 
@@ -1130,14 +1208,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(852, 1, (VT_VARIANT, 0), params_magic_numbers, u"DuplicateSurfaceBorder", None, *params_flattened)
 
@@ -1166,14 +1247,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(parameter)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(205, 1, (VT_VARIANT, 0), params_magic_numbers, u"EvaluateSurface", None, *params_flattened)
 
@@ -1205,14 +1289,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, objects, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(objects), delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(447, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExplodePolysurfaces", None, *params_flattened)
 
@@ -1244,14 +1331,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter, dir]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(parameter), dir]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(488, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtractIsoCurve", None, *params_flattened)
 
@@ -1280,14 +1370,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [curve, path]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [curve, path]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(538, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtrudeCurve", None, *params_flattened)
 
@@ -1316,14 +1409,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [curve, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [curve, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(540, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtrudeCurvePoint", None, *params_flattened)
 
@@ -1355,14 +1451,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [curve, start_point, end_point]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [curve, flatten(start_point), flatten(end_point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(539, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtrudeCurveStraight", None, *params_flattened)
 
@@ -1414,14 +1513,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [curve, distance, direction, base_point, angle, corner_type]
-        params_opt_or_req = [Required, Required, Required, Required, Required, Optional]
+        params_required = [True, True, True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_I2, 1)]
         params_flattened = [curve, distance, flatten(direction), flatten(base_point), angle, corner_type]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(914, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtrudeCurveTapered", None, *params_flattened)
 
@@ -1453,14 +1555,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface, curve, cap]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [surface, curve, cap]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(541, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtrudeSurface", None, *params_flattened)
 
@@ -1492,14 +1597,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, degree, tolerance]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [object, flatten(degree), tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(815, 1, (VT_VARIANT, 0), params_magic_numbers, u"FitSurface", None, *params_flattened)
 
@@ -1531,14 +1639,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, flip]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, flip]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(718, 1, (VT_VARIANT, 0), params_magic_numbers, u"FlipSurface", None, *params_flattened)
 
@@ -1573,14 +1684,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter, direction, symmetrical]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [object, parameter, direction, symmetrical]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(516, 1, (VT_VARIANT, 0), params_magic_numbers, u"InsertSurfaceKnot", None, *params_flattened)
 
@@ -1612,14 +1726,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [brep1, brep2, tolerance]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [brep1, brep2, tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(544, 1, (VT_VARIANT, 0), params_magic_numbers, u"IntersectBreps", None, *params_flattened)
 
@@ -1645,14 +1762,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(206, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBrep", None, *params_flattened)
 
@@ -1678,14 +1798,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(854, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsBrepManifold", None, *params_flattened)
 
@@ -1711,14 +1834,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(885, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCone", None, *params_flattened)
 
@@ -1744,14 +1870,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(884, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCylinder", None, *params_flattened)
 
@@ -1780,14 +1909,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(parameter)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(879, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsParameterOnSurface", None, *params_flattened)
 
@@ -1813,14 +1945,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(638, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPlaneSurface", None, *params_flattened)
 
@@ -1849,14 +1984,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(443, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPointInSurface", None, *params_flattened)
 
@@ -1885,14 +2023,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(319, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPointOnSurface", None, *params_flattened)
 
@@ -1918,14 +2059,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(207, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPolySurface", None, *params_flattened)
 
@@ -1951,14 +2095,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(208, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPolySurfaceClosed", None, *params_flattened)
 
@@ -1984,14 +2131,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(209, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPolySurfacePlanar", None, *params_flattened)
 
@@ -2017,14 +2167,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(883, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSphere", None, *params_flattened)
 
@@ -2050,14 +2203,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(210, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSurface", None, *params_flattened)
 
@@ -2086,14 +2242,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, direction]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(211, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSurfaceClosed", None, *params_flattened)
 
@@ -2122,14 +2281,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, direction]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(212, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSurfacePeriodic", None, *params_flattened)
 
@@ -2158,14 +2320,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, tolerance]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(213, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSurfacePlanar", None, *params_flattened)
 
@@ -2191,14 +2356,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(434, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSurfaceRational", None, *params_flattened)
 
@@ -2227,14 +2395,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, direction]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(214, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSurfaceSingular", None, *params_flattened)
 
@@ -2260,14 +2431,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(269, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSurfaceTrimmed", None, *params_flattened)
 
@@ -2293,14 +2467,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(886, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsTorus", None, *params_flattened)
 
@@ -2329,14 +2506,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, delete]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(487, 1, (VT_VARIANT, 0), params_magic_numbers, u"JoinSurfaces", None, *params_flattened)
 
@@ -2371,14 +2551,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [object, direction, delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(926, 1, (VT_VARIANT, 0), params_magic_numbers, u"MakeSurfaceNonPeriodic", None, *params_flattened)
 
@@ -2413,14 +2596,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [object, direction, delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(445, 1, (VT_VARIANT, 0), params_magic_numbers, u"MakeSurfacePeriodic", None, *params_flattened)
 
@@ -2449,14 +2635,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, distance]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, distance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(635, 1, (VT_VARIANT, 0), params_magic_numbers, u"OffsetSurface", None, *params_flattened)
 
@@ -2488,14 +2677,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface, curve, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [surface, curve, delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(493, 1, (VT_VARIANT, 0), params_magic_numbers, u"PullCurve", None, *params_flattened)
 
@@ -2527,14 +2719,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, degree, point_count]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(degree), flatten(point_count)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(816, 1, (VT_VARIANT, 0), params_magic_numbers, u"RebuildSurface", None, *params_flattened)
 
@@ -2566,14 +2761,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter, direction]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
         params_flattened = [object, parameter, direction]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(917, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemoveSurfaceKnot", None, *params_flattened)
 
@@ -2610,14 +2808,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, direction]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(927, 1, (VT_VARIANT, 0), params_magic_numbers, u"ReverseSurface", None, *params_flattened)
 
@@ -2649,14 +2850,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface, start, end]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [surface, flatten(start), flatten(end)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(702, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShortPath", None, *params_flattened)
 
@@ -2682,14 +2886,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(700, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShrinkTrimmedSurface", None, *params_flattened)
 
@@ -2721,14 +2928,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [brep, cutter, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [brep, cutter, delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(637, 1, (VT_VARIANT, 0), params_magic_numbers, u"SplitBrep", None, *params_flattened)
 
@@ -2760,14 +2970,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(382, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceArea", None, *params_flattened)
 
@@ -2793,14 +3006,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(384, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceAreaCentroid", None, *params_flattened)
 
@@ -2826,14 +3042,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(386, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceAreaMoments", None, *params_flattened)
 
@@ -2862,14 +3081,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(215, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceClosestPoint", None, *params_flattened)
 
@@ -2904,14 +3126,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(889, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceCone", None, *params_flattened)
 
@@ -2949,14 +3174,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, start_point, end_point, interval, angle]
-        params_opt_or_req = [Required, Required, Required, Optional, Optional]
+        params_required = [True, True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [object, flatten(start_point), flatten(end_point), interval, angle]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(79, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceContourPoints", None, *params_flattened)
 
@@ -2997,14 +3225,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(parameter)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(378, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceCurvature", None, *params_flattened)
 
@@ -3042,14 +3273,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(632, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceCurvatureAnalysis", None, *params_flattened)
 
@@ -3084,14 +3318,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(888, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceCylinder", None, *params_flattened)
 
@@ -3123,14 +3360,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, direction]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(216, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceDegree", None, *params_flattened)
 
@@ -3159,14 +3399,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, direction]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(217, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceDomain", None, *params_flattened)
 
@@ -3201,14 +3444,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, return_parameters, return_all]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
         params_flattened = [object, return_parameters, return_all]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(427, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceEditPoints", None, *params_flattened)
 
@@ -3261,14 +3507,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter, derivative]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(parameter), derivative]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(583, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceEvaluate", None, *params_flattened)
 
@@ -3297,14 +3546,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(parameter)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(623, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceFrame", None, *params_flattened)
 
@@ -3345,14 +3597,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, density]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, density]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(361, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceIsocurveDensity", None, *params_flattened)
 
@@ -3378,14 +3633,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(431, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceKnotCount", None, *params_flattened)
 
@@ -3411,14 +3669,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(432, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceKnots", None, *params_flattened)
 
@@ -3447,14 +3708,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(parameter)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(362, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceNormal", None, *params_flattened)
 
@@ -3480,14 +3744,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(218, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfacePointCount", None, *params_flattened)
 
@@ -3516,14 +3783,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, return_all]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, return_all]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(372, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfacePoints", None, *params_flattened)
 
@@ -3552,14 +3822,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(717, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfacePrincipalCurvature", None, *params_flattened)
 
@@ -3591,14 +3864,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object, direction, parameter]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1)]
         params_flattened = [object, direction, parameter]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(804, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceSeam", None, *params_flattened)
 
@@ -3630,14 +3906,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(887, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceSphere", None, *params_flattened)
 
@@ -3681,14 +3960,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface_a, surface_b, tolerance, create]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1)]
         params_flattened = [surface_a, surface_b, tolerance, create]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(484, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceSurfaceIntersection", None, *params_flattened)
 
@@ -3723,14 +4005,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [surface]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(890, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceTorus", None, *params_flattened)
 
@@ -3762,14 +4047,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(383, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceVolume", None, *params_flattened)
 
@@ -3795,14 +4083,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(385, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceVolumeCentroid", None, *params_flattened)
 
@@ -3828,14 +4119,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(387, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceVolumeMoments", None, *params_flattened)
 
@@ -3861,14 +4155,17 @@ class SurfaceAndPolysurface(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(433, 1, (VT_VARIANT, 0), params_magic_numbers, u"SurfaceWeights", None, *params_flattened)
 

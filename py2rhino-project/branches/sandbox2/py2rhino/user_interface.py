@@ -36,14 +36,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [folder, message, title]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [folder, message, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(146, 1, (VT_VARIANT, 0), params_magic_numbers, u"BrowseForFolder", None, *params_flattened)
 
@@ -78,14 +81,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, values, message, title]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [flatten(items), flatten(values), message, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(52, 1, (VT_VARIANT, 0), params_magic_numbers, u"CheckListBox", None, *params_flattened)
 
@@ -117,14 +123,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, message, title]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [flatten(items), message, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(53, 1, (VT_VARIANT, 0), params_magic_numbers, u"ComboListBox", None, *params_flattened)
 
@@ -156,14 +165,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [string, message, title]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [string, message, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(54, 1, (VT_VARIANT, 0), params_magic_numbers, u"EditBox", None, *params_flattened)
 
@@ -198,14 +210,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [point, reference, angle, message]
-        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1)]
         params_flattened = [flatten(point), flatten(reference), angle, message]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(277, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetAngle", None, *params_flattened)
 
@@ -244,14 +259,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, items, defaults]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [message, flatten(items), flatten(defaults)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(622, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetBoolean", None, *params_flattened)
 
@@ -300,14 +318,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [mode, point, prompt1, prompt2, prompt3]
-        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False, False]
         params_magic_numbers = [(VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [mode, flatten(point), prompt1, prompt2, prompt3]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(342, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetBox", None, *params_flattened)
 
@@ -333,14 +354,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [color]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I4, 1),]
         params_flattened = [color]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(65, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetColor", None, *params_flattened)
 
@@ -375,14 +399,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [point, distance, message1, message2]
-        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [flatten(point), distance, message1, message2]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(66, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetDistance", None, *params_flattened)
 
@@ -417,14 +444,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, number, min, max]
-        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_I2, 1)]
         params_flattened = [message, number, min, max]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(64, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetInteger", None, *params_flattened)
 
@@ -459,14 +489,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [title, layer, show_new_layer, show_set_current]
-        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
         params_flattened = [title, layer, show_new_layer, show_set_current]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(672, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetLayer", None, *params_flattened)
 
@@ -492,14 +525,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [linetype]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [linetype]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(673, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetLinetype", None, *params_flattened)
 
@@ -534,14 +570,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, point, distance, plane]
-        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BOOL, 1)]
         params_flattened = [message, flatten(point), distance, plane]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(61, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPoint", None, *params_flattened)
 
@@ -570,14 +609,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [object, message]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, message]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(147, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnCurve", None, *params_flattened)
 
@@ -612,14 +654,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, start, end, track]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [message, flatten(start), flatten(end), track]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(798, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnLine", None, *params_flattened)
 
@@ -648,14 +693,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [object, message]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, message]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(401, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnMesh", None, *params_flattened)
 
@@ -687,14 +735,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, plane, point]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [message, flatten(plane), flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(797, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnPlane", None, *params_flattened)
 
@@ -723,14 +774,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [object, message]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, message]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(148, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnSurface", None, *params_flattened)
 
@@ -771,14 +825,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [draw, plane, message1, message2, max_points, base_point]
-        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False, False, False]
         params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
         params_flattened = [draw, plane, message1, message2, max_points, flatten(base_point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(67, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPoints", None, *params_flattened)
 
@@ -804,14 +861,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [print_width]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [print_width]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(674, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPrintWidth", None, *params_flattened)
 
@@ -846,14 +906,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, number, min, max]
-        params_opt_or_req = [Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [message, number, min, max]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(63, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetReal", None, *params_flattened)
 
@@ -902,14 +965,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [mode, point, prompt1, prompt2, prompt3]
-        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False, False]
         params_magic_numbers = [(VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [mode, flatten(point), prompt1, prompt2, prompt3]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(341, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetRectangle", None, *params_flattened)
 
@@ -941,14 +1007,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, string, strings]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [message, string, flatten(strings)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(62, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetString", None, *params_flattened)
 
@@ -977,14 +1046,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [object, message]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, message]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(775, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetSurfaceIsoParamPoint", None, *params_flattened)
 
@@ -1044,14 +1116,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [file_name, arguments, options, modal]
-        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_required = [True, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [file_name, arguments, options, modal]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(276, 1, (VT_VARIANT, 0), params_magic_numbers, u"HtmlBox", None, *params_flattened)
 
@@ -1083,14 +1158,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, number, title]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)]
         params_flattened = [message, number, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(55, 1, (VT_VARIANT, 0), params_magic_numbers, u"IntegerBox", None, *params_flattened)
 
@@ -1122,14 +1200,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, message, title]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [flatten(items), message, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(56, 1, (VT_VARIANT, 0), params_magic_numbers, u"ListBox", None, *params_flattened)
 
@@ -1162,14 +1243,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [beep]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [beep]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(149, 1, (VT_VARIANT, 0), params_magic_numbers, u"MessageBeep", None, *params_flattened)
 
@@ -1231,14 +1315,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, buttons, title]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)]
         params_flattened = [message, buttons, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(150, 1, (VT_VARIANT, 0), params_magic_numbers, u"MessageBox", None, *params_flattened)
 
@@ -1270,14 +1357,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, message, title]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [flatten(items), message, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(57, 1, (VT_VARIANT, 0), params_magic_numbers, u"MultiListBox", None, *params_flattened)
 
@@ -1315,14 +1405,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [title, filter, folder, filename, extension]
-        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [title, filter, folder, filename, extension]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(151, 1, (VT_VARIANT, 0), params_magic_numbers, u"OpenFileName", None, *params_flattened)
 
@@ -1360,14 +1453,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [title, filter, folder, filename, extension]
-        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [title, filter, folder, filename, extension]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(821, 1, (VT_VARIANT, 0), params_magic_numbers, u"OpenFileNames", None, *params_flattened)
 
@@ -1412,14 +1508,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, modes, point, view]
-        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_required = [True, False, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
         params_flattened = [flatten(items), flatten(modes), flatten(point), view]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(595, 1, (VT_VARIANT, 0), params_magic_numbers, u"PopupMenu", None, *params_flattened)
 
@@ -1454,14 +1553,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, values, message, title]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [flatten(items), flatten(values), message, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(58, 1, (VT_VARIANT, 0), params_magic_numbers, u"PropertyListBox", None, *params_flattened)
 
@@ -1493,14 +1595,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, number, title]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BSTR, 1)]
         params_flattened = [message, number, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(59, 1, (VT_VARIANT, 0), params_magic_numbers, u"RealBox", None, *params_flattened)
 
@@ -1538,14 +1643,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [title, filter, folder, filename, extension]
-        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [title, filter, folder, filename, extension]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(152, 1, (VT_VARIANT, 0), params_magic_numbers, u"SaveFileName", None, *params_flattened)
 
@@ -1577,14 +1685,17 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, string, title]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [message, string, title]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(60, 1, (VT_VARIANT, 0), params_magic_numbers, u"StringBox", None, *params_flattened)
 

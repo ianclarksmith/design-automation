@@ -30,14 +30,17 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [number]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(757, 1, (VT_VARIANT, 0), params_magic_numbers, u"ACos", None, *params_flattened)
 
@@ -63,14 +66,17 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [number]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(763, 1, (VT_VARIANT, 0), params_magic_numbers, u"ACosH", None, *params_flattened)
 
@@ -96,14 +102,17 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [number]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(756, 1, (VT_VARIANT, 0), params_magic_numbers, u"ASin", None, *params_flattened)
 
@@ -129,14 +138,17 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [number]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(762, 1, (VT_VARIANT, 0), params_magic_numbers, u"ASinH", None, *params_flattened)
 
@@ -165,14 +177,17 @@ class Math(IRhinoScript):
         """
 
         params = [number_y, number_x]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_R8, 1), (VT_R8, 1)]
         params_flattened = [number_y, number_x]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(758, 1, (VT_VARIANT, 0), params_magic_numbers, u"ATan2", None, *params_flattened)
 
@@ -198,14 +213,17 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [number]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(764, 1, (VT_VARIANT, 0), params_magic_numbers, u"ATanH", None, *params_flattened)
 
@@ -237,14 +255,17 @@ class Math(IRhinoScript):
         """
 
         params = [point1, point2, world]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(point1), flatten(point2), world]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(115, 1, (VT_VARIANT, 0), params_magic_numbers, u"Angle", None, *params_flattened)
 
@@ -273,14 +294,17 @@ class Math(IRhinoScript):
         """
 
         params = [point1, point2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(point1), flatten(point2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(116, 1, (VT_VARIANT, 0), params_magic_numbers, u"Angle2", None, *params_flattened)
 
@@ -306,14 +330,17 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [number]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(766, 1, (VT_VARIANT, 0), params_magic_numbers, u"Ceil", None, *params_flattened)
 
@@ -339,14 +366,17 @@ class Math(IRhinoScript):
         """
 
         params = [angle]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [angle]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(760, 1, (VT_VARIANT, 0), params_magic_numbers, u"CosH", None, *params_flattened)
 
@@ -372,14 +402,17 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(numbers)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(773, 1, (VT_VARIANT, 0), params_magic_numbers, u"Deviation", None, *params_flattened)
 
@@ -414,18 +447,21 @@ class Math(IRhinoScript):
         """
 
         params = [point1, point2, point_array]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(point1), flatten(point2), flatten(point_array)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(118, 1, (VT_VARIANT, 0), params_magic_numbers, u"Distance", None, *params_flattened)
 
-    def e):
+    def e():
         """        
         Returns the value of the base of the natural system of logarithms (e).
     
@@ -440,14 +476,17 @@ class Math(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(774, 1, (VT_VARIANT, 0), params_magic_numbers, u"E", None, *params_flattened)
 
@@ -473,14 +512,17 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [number]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(767, 1, (VT_VARIANT, 0), params_magic_numbers, u"Floor", None, *params_flattened)
 
@@ -509,14 +551,17 @@ class Math(IRhinoScript):
         """
 
         params = [number_x, number_y]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_R8, 1), (VT_R8, 1)]
         params_flattened = [number_x, number_y]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(765, 1, (VT_VARIANT, 0), params_magic_numbers, u"Hypot", None, *params_flattened)
 
@@ -542,14 +587,17 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [number]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(777, 1, (VT_VARIANT, 0), params_magic_numbers, u"Log10", None, *params_flattened)
 
@@ -575,14 +623,17 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(numbers)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(768, 1, (VT_VARIANT, 0), params_magic_numbers, u"Max", None, *params_flattened)
 
@@ -608,14 +659,17 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(numbers)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(771, 1, (VT_VARIANT, 0), params_magic_numbers, u"Mean", None, *params_flattened)
 
@@ -641,14 +695,17 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(numbers)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(772, 1, (VT_VARIANT, 0), params_magic_numbers, u"Median", None, *params_flattened)
 
@@ -674,18 +731,21 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(numbers)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(769, 1, (VT_VARIANT, 0), params_magic_numbers, u"Min", None, *params_flattened)
 
-    def p_i):
+    def p_i():
         """        
         Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793238462643.
     
@@ -700,14 +760,17 @@ class Math(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(663, 1, (VT_VARIANT, 0), params_magic_numbers, u"PI", None, *params_flattened)
 
@@ -749,14 +812,17 @@ class Math(IRhinoScript):
         """
 
         params = [point, angle, distance, plane]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(point), angle, distance, flatten(plane)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(662, 1, (VT_VARIANT, 0), params_magic_numbers, u"Polar", None, *params_flattened)
 
@@ -782,14 +848,17 @@ class Math(IRhinoScript):
         """
 
         params = [angle]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [angle]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(759, 1, (VT_VARIANT, 0), params_magic_numbers, u"SinH", None, *params_flattened)
 
@@ -815,14 +884,17 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(numbers)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(770, 1, (VT_VARIANT, 0), params_magic_numbers, u"Sum", None, *params_flattened)
 
@@ -848,14 +920,17 @@ class Math(IRhinoScript):
         """
 
         params = [angle]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [angle]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(761, 1, (VT_VARIANT, 0), params_magic_numbers, u"TanH", None, *params_flattened)
 
@@ -881,14 +956,17 @@ class Math(IRhinoScript):
         """
 
         params = [radians]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [radians]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(664, 1, (VT_VARIANT, 0), params_magic_numbers, u"ToDegrees", None, *params_flattened)
 
@@ -914,14 +992,17 @@ class Math(IRhinoScript):
         """
 
         params = [degrees]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [degrees]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(665, 1, (VT_VARIANT, 0), params_magic_numbers, u"ToRadians", None, *params_flattened)
 

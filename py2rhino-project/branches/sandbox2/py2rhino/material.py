@@ -30,14 +30,17 @@ class Material(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(173, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddMaterialToLayer", None, *params_flattened)
 
@@ -63,14 +66,17 @@ class Material(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(174, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddMaterialToObject", None, *params_flattened)
 
@@ -99,14 +105,17 @@ class Material(IRhinoScript):
         """
 
         params = [src_index, dst_index]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_I2, 1), (VT_I2, 1)]
         params_flattened = [src_index, dst_index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(812, 1, (VT_VARIANT, 0), params_magic_numbers, u"CopyMaterial", None, *params_flattened)
 
@@ -129,14 +138,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [material_index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(175, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMaterialDefault", None, *params_flattened)
 
@@ -162,14 +174,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [material_index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(176, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMaterialReference", None, *params_flattened)
 
@@ -204,14 +219,17 @@ class Material(IRhinoScript):
         """
 
         params = [src_material_index, src_object, dest_object, dest_objects]
-        params_opt_or_req = [Required, Required, Required, Required]
+        params_required = [True, True, True, True]
         params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [src_material_index, src_object, dest_object, flatten(dest_objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(322, 1, (VT_VARIANT, 0), params_magic_numbers, u"MatchMaterial", None, *params_flattened)
 
@@ -243,14 +261,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, file_name]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
         params_flattened = [material_index, file_name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(177, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialBump", None, *params_flattened)
 
@@ -282,14 +303,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, color]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_I4, 1)]
         params_flattened = [material_index, color]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(178, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialColor", None, *params_flattened)
 
@@ -321,14 +345,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, file_name]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
         params_flattened = [material_index, file_name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(754, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialEnvironmentMap", None, *params_flattened)
 
@@ -360,14 +387,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, name]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
         params_flattened = [material_index, name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(179, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialName", None, *params_flattened)
 
@@ -399,14 +429,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, color]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_I4, 1)]
         params_flattened = [material_index, color]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(180, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialReflectiveColor", None, *params_flattened)
 
@@ -438,14 +471,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, shine]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_R8, 1)]
         params_flattened = [material_index, shine]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(181, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialShine", None, *params_flattened)
 
@@ -477,14 +513,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, file_name]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
         params_flattened = [material_index, file_name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(182, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialTexture", None, *params_flattened)
 
@@ -516,14 +555,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, transparency]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_R8, 1)]
         params_flattened = [material_index, transparency]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(183, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialTransparency", None, *params_flattened)
 
@@ -555,14 +597,17 @@ class Material(IRhinoScript):
         """
 
         params = [material_index, file_name]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1)]
         params_flattened = [material_index, file_name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(753, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaterialTransparencyMap", None, *params_flattened)
 

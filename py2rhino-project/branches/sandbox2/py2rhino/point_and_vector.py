@@ -33,14 +33,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector1), flatten(vector2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(660, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVectorParallelTo", None, *params_flattened)
 
@@ -69,14 +72,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector1), flatten(vector2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(661, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVectorPerpendicularTo", None, *params_flattened)
 
@@ -102,14 +108,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(vector)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(610, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVectorTiny", None, *params_flattened)
 
@@ -135,14 +144,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(vector)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(611, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVectorZero", None, *params_flattened)
 
@@ -171,14 +183,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point1, point2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(point1), flatten(point2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(666, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointAdd", None, *params_flattened)
 
@@ -210,14 +225,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, view, world_coords]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(points), view, world_coords]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(746, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointArrayBoundingBox", None, *params_flattened)
 
@@ -246,14 +264,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(points), flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(742, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointArrayClosestPoint", None, *params_flattened)
 
@@ -282,14 +303,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, xform]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(points), flatten(xform)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(802, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointArrayTransform", None, *params_flattened)
 
@@ -321,14 +345,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point1, point2, tolerance]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(point1), flatten(point2), tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(667, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointCompare", None, *params_flattened)
 
@@ -357,14 +384,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point, scale]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(point), scale]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(668, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointDivide", None, *params_flattened)
 
@@ -393,14 +423,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point, scale]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(point), scale]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(669, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointScale", None, *params_flattened)
 
@@ -429,14 +462,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point1, point2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(point1), flatten(point2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(670, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointSubtract", None, *params_flattened)
 
@@ -465,14 +501,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point, xform]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(point), flatten(xform)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(671, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointTransform", None, *params_flattened)
 
@@ -501,14 +540,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, tolerance]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(points), tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(593, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointsAreCoplanar", None, *params_flattened)
 
@@ -546,14 +588,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, points, mesh, meshes, direction]
-        params_opt_or_req = [Required, Required, Required, Required, Required]
+        params_required = [True, True, True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(points), flatten(points), mesh, flatten(meshes), flatten(direction)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(912, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectPointToMesh", None, *params_flattened)
 
@@ -591,14 +636,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, points, surface, surfaces, direction]
-        params_opt_or_req = [Required, Required, Required, Required, Required]
+        params_required = [True, True, True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(points), flatten(points), surface, flatten(surfaces), flatten(direction)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(892, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectPointToSurface", None, *params_flattened)
 
@@ -627,14 +675,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [object, points]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(716, 1, (VT_VARIANT, 0), params_magic_numbers, u"PullPoints", None, *params_flattened)
 
@@ -663,14 +714,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector1), flatten(vector2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(612, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorAdd", None, *params_flattened)
 
@@ -696,14 +750,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector1), flatten(vector2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(613, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorCompare", None, *params_flattened)
 
@@ -732,14 +789,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point1, point2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(point1), flatten(point2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(614, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorCreate", None, *params_flattened)
 
@@ -768,14 +828,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector1), flatten(vector2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(615, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorCrossProduct", None, *params_flattened)
 
@@ -804,14 +867,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector, divide]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(vector), divide]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(625, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorDivide", None, *params_flattened)
 
@@ -837,14 +903,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector1), flatten(vector2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(616, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorDotProduct", None, *params_flattened)
 
@@ -867,14 +936,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(vector)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(617, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorLength", None, *params_flattened)
 
@@ -903,14 +975,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector1), flatten(vector2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(624, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorMultiply", None, *params_flattened)
 
@@ -936,14 +1011,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(vector)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(618, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorReverse", None, *params_flattened)
 
@@ -975,14 +1053,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector, angle, axis]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector), angle, flatten(axis)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(678, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorRotate", None, *params_flattened)
 
@@ -1011,14 +1092,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector, scale]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(vector), scale]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(619, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorScale", None, *params_flattened)
 
@@ -1047,14 +1131,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector1), flatten(vector2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(620, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorSubtract", None, *params_flattened)
 
@@ -1083,14 +1170,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector, xform]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(vector), flatten(xform)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(800, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorTransform", None, *params_flattened)
 
@@ -1116,14 +1206,17 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(vector)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(621, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorUnitize", None, *params_flattened)
 

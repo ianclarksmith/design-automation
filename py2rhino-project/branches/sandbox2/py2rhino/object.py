@@ -47,14 +47,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, quality, enable]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [object, quality, enable]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(866, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddObjectMesh", None, *params_flattened)
 
@@ -92,14 +95,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, box_points, copy]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(objects), flatten(box_points), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(918, 1, (VT_VARIANT, 0), params_magic_numbers, u"BoxMorphObject", None, *params_flattened)
 
@@ -134,14 +140,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, start, end, translation]
-        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_required = [True, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(start), flatten(end), flatten(translation)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(184, 1, (VT_VARIANT, 0), params_magic_numbers, u"CopyObject", None, *params_flattened)
 
@@ -176,14 +185,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, start, end, translation]
-        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_required = [True, False, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(objects), flatten(start), flatten(end), flatten(translation)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(295, 1, (VT_VARIANT, 0), params_magic_numbers, u"CopyObjects", None, *params_flattened)
 
@@ -209,14 +221,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(185, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteObject", None, *params_flattened)
 
@@ -242,14 +257,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(186, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteObjects", None, *params_flattened)
 
@@ -282,14 +300,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, enable]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(objects), enable]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(856, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableObjectMesh", None, *params_flattened)
 
@@ -315,14 +336,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, style]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(objects), style]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(869, 1, (VT_VARIANT, 0), params_magic_numbers, u"FlashObject", None, *params_flattened)
 
@@ -348,14 +372,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(187, 1, (VT_VARIANT, 0), params_magic_numbers, u"HideObject", None, *params_flattened)
 
@@ -381,14 +408,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(303, 1, (VT_VARIANT, 0), params_magic_numbers, u"HideObjects", None, *params_flattened)
 
@@ -411,14 +441,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(919, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayoutObject", None, *params_flattened)
 
@@ -438,14 +471,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(46, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObject", None, *params_flattened)
 
@@ -468,14 +504,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(47, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectHidden", None, *params_flattened)
 
@@ -509,14 +548,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, box, mode]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(box), mode]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(799, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectInBox", None, *params_flattened)
 
@@ -542,14 +584,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, group]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, group]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(188, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectInGroup", None, *params_flattened)
 
@@ -572,14 +617,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(48, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectLocked", None, *params_flattened)
 
@@ -602,14 +650,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(49, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectNormal", None, *params_flattened)
 
@@ -632,14 +683,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(271, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectReference", None, *params_flattened)
 
@@ -662,14 +716,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(307, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectSelectable", None, *params_flattened)
 
@@ -692,14 +749,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(50, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectSelected", None, *params_flattened)
 
@@ -722,14 +782,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(189, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectSolid", None, *params_flattened)
 
@@ -752,14 +815,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(522, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectValid", None, *params_flattened)
 
@@ -785,14 +851,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, view]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, view]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(727, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVisibleInView", None, *params_flattened)
 
@@ -818,14 +887,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(190, 1, (VT_VARIANT, 0), params_magic_numbers, u"LockObject", None, *params_flattened)
 
@@ -851,14 +923,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(304, 1, (VT_VARIANT, 0), params_magic_numbers, u"LockObjects", None, *params_flattened)
 
@@ -890,14 +965,17 @@ class Object(IRhinoScript):
         """
 
         params = [target, targets, source]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
         params_flattened = [target, flatten(targets), source]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(781, 1, (VT_VARIANT, 0), params_magic_numbers, u"MatchObjectAttributes", None, *params_flattened)
 
@@ -932,14 +1010,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, start_pt, end_pt, copy]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(start_pt), flatten(end_pt), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(589, 1, (VT_VARIANT, 0), params_magic_numbers, u"MirrorObject", None, *params_flattened)
 
@@ -974,14 +1055,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, start_pt, end_pt, copy]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(objects), flatten(start_pt), flatten(end_pt), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(590, 1, (VT_VARIANT, 0), params_magic_numbers, u"MirrorObjects", None, *params_flattened)
 
@@ -1016,14 +1100,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, start, end, translation]
-        params_opt_or_req = [Required, Required, Required, Required]
+        params_required = [True, True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(start), flatten(end), flatten(translation)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(270, 1, (VT_VARIANT, 0), params_magic_numbers, u"MoveObject", None, *params_flattened)
 
@@ -1058,14 +1145,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, start, end, translation]
-        params_opt_or_req = [Required, Required, Required, Required]
+        params_required = [True, True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(objects), flatten(start), flatten(end), flatten(translation)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(296, 1, (VT_VARIANT, 0), params_magic_numbers, u"MoveObjects", None, *params_flattened)
 
@@ -1103,14 +1193,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, color]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I4, 1)]
         params_flattened = [object, flatten(objects), color]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(191, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectColor", None, *params_flattened)
 
@@ -1161,14 +1254,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, source]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(objects), source]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(192, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectColorSource", None, *params_flattened)
 
@@ -1194,14 +1290,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(470, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectDescription", None, *params_flattened)
 
@@ -1239,14 +1338,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, type]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, type]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(705, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectDump", None, *params_flattened)
 
@@ -1272,14 +1374,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(193, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGroups", None, *params_flattened)
 
@@ -1305,14 +1410,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(867, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectHasMesh", None, *params_flattened)
 
@@ -1350,14 +1458,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, layer]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
         params_flattened = [object, flatten(objects), layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(51, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectLayer", None, *params_flattened)
 
@@ -1392,14 +1503,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, layout, return_name]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, layout, return_name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(924, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectLayout", None, *params_flattened)
 
@@ -1437,14 +1551,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, layer]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
         params_flattened = [object, flatten(objects), layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(646, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectLinetype", None, *params_flattened)
 
@@ -1494,14 +1611,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, source]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(objects), source]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(647, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectLinetypeSource", None, *params_flattened)
 
@@ -1529,14 +1649,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(194, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMaterialIndex", None, *params_flattened)
 
@@ -1589,14 +1712,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, source]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(objects), source]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(195, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMaterialSource", None, *params_flattened)
 
@@ -1629,14 +1755,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, density]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, density]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(858, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshDensity", None, *params_flattened)
 
@@ -1669,14 +1798,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, angle]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, angle]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(859, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMaxAngle", None, *params_flattened)
 
@@ -1709,14 +1841,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, ratio]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, ratio]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(860, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMaxAspectRatio", None, *params_flattened)
 
@@ -1749,14 +1884,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, distance]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, distance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(863, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMaxDistEdgeToSrf", None, *params_flattened)
 
@@ -1789,14 +1927,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, length]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, length]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(862, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMaxEdgeLength", None, *params_flattened)
 
@@ -1829,14 +1970,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, length]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, length]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(861, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMinEdgeLength", None, *params_flattened)
 
@@ -1869,14 +2013,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, quads]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, quads]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(864, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshMinInitialGridQuads", None, *params_flattened)
 
@@ -1915,14 +2062,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, quality]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, quality]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(857, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshQuality", None, *params_flattened)
 
@@ -1965,14 +2115,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, settings]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, settings]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(865, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectMeshSettings", None, *params_flattened)
 
@@ -2010,14 +2163,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, name]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
         params_flattened = [object, flatten(objects), name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(196, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectName", None, *params_flattened)
 
@@ -2049,14 +2205,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, names]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(objects), flatten(names)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(639, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectNames", None, *params_flattened)
 
@@ -2094,14 +2253,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, color]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I4, 1)]
         params_flattened = [object, flatten(objects), color]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(805, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectPrintColor", None, *params_flattened)
 
@@ -2152,14 +2314,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, source]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(objects), source]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(806, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectPrintColorSource", None, *params_flattened)
 
@@ -2197,14 +2362,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, width]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [object, flatten(objects), width]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(807, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectPrintWidth", None, *params_flattened)
 
@@ -2254,14 +2422,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, source]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(objects), source]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(808, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectPrintWidthSource", None, *params_flattened)
 
@@ -2287,14 +2458,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(197, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectTopGroup", None, *params_flattened)
 
@@ -2320,14 +2494,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(198, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectType", None, *params_flattened)
 
@@ -2365,14 +2542,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, objects, u_r_l]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
         params_flattened = [object, flatten(objects), u_r_l]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(199, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectURL", None, *params_flattened)
 
@@ -2412,14 +2592,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, reference, target, flags]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(reference), flatten(target), flags]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(390, 1, (VT_VARIANT, 0), params_magic_numbers, u"OrientObject", None, *params_flattened)
 
@@ -2459,14 +2642,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, reference, target, flags]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [flatten(objects), flatten(reference), flatten(target), flags]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(391, 1, (VT_VARIANT, 0), params_magic_numbers, u"OrientObjects", None, *params_flattened)
 
@@ -2501,14 +2687,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, src_plane, dst_plane, copy]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(src_plane), flatten(dst_plane), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(655, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemapObject", None, *params_flattened)
 
@@ -2543,14 +2732,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, src_plane, dst_plane, copy]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(object), flatten(src_plane), flatten(dst_plane), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(656, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemapObjects", None, *params_flattened)
 
@@ -2588,14 +2780,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, point, angle, axis, copy]
-        params_opt_or_req = [Required, Required, Required, Optional, Optional]
+        params_required = [True, True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(point), angle, flatten(axis), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(392, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotateObject", None, *params_flattened)
 
@@ -2633,14 +2828,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, point, angle, axis, copy]
-        params_opt_or_req = [Required, Required, Required, Optional, Optional]
+        params_required = [True, True, True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(objects), flatten(point), angle, flatten(axis), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(393, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotateObjects", None, *params_flattened)
 
@@ -2675,14 +2873,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, origin, scale, copy]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(origin), flatten(scale), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(585, 1, (VT_VARIANT, 0), params_magic_numbers, u"ScaleObject", None, *params_flattened)
 
@@ -2717,14 +2918,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, origin, scale, copy]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(objects), flatten(origin), flatten(scale), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(586, 1, (VT_VARIANT, 0), params_magic_numbers, u"ScaleObjects", None, *params_flattened)
 
@@ -2750,14 +2954,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(200, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObject", None, *params_flattened)
 
@@ -2783,14 +2990,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(298, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObjects", None, *params_flattened)
 
@@ -2828,14 +3038,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, origin, ref_pt, scale, copy]
-        params_opt_or_req = [Required, Required, Required, Required, Optional]
+        params_required = [True, True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(origin), flatten(ref_pt), flatten(scale), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(587, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShearObject", None, *params_flattened)
 
@@ -2873,14 +3086,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, origin, ref_pt, scale, copy]
-        params_opt_or_req = [Required, Required, Required, Required, Optional]
+        params_required = [True, True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(objects), flatten(origin), flatten(ref_pt), flatten(scale), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(588, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShearObjects", None, *params_flattened)
 
@@ -2906,14 +3122,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(201, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowObject", None, *params_flattened)
 
@@ -2939,14 +3158,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(305, 1, (VT_VARIANT, 0), params_magic_numbers, u"ShowObjects", None, *params_flattened)
 
@@ -2994,14 +3216,17 @@ class Object(IRhinoScript):
         """
 
         params = [object, matrix, copy]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(matrix), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(272, 1, (VT_VARIANT, 0), params_magic_numbers, u"TransformObject", None, *params_flattened)
 
@@ -3049,14 +3274,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects, matrix, copy]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(objects), flatten(matrix), copy]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(302, 1, (VT_VARIANT, 0), params_magic_numbers, u"TransformObjects", None, *params_flattened)
 
@@ -3082,14 +3310,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(202, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnlockObject", None, *params_flattened)
 
@@ -3115,14 +3346,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(306, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnlockObjects", None, *params_flattened)
 
@@ -3148,14 +3382,17 @@ class Object(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(299, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObject", None, *params_flattened)
 
@@ -3181,14 +3418,17 @@ class Object(IRhinoScript):
         """
 
         params = [objects]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(300, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObjects", None, *params_flattened)
 

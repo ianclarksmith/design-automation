@@ -42,14 +42,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, color, visible, locked, parent]
-        params_opt_or_req = [Optional, Optional, Optional, Optional, Optional]
+        params_required = [False, False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BSTR, 1)]
         params_flattened = [layer, color, visible, locked, parent]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(3, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddLayer", None, *params_flattened)
 
@@ -78,14 +81,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(5, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurrentLayer", None, *params_flattened)
 
@@ -111,14 +117,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(4, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteLayer", None, *params_flattened)
 
@@ -147,14 +156,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, expand]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [layer, expand]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(690, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExpandLayer", None, *params_flattened)
 
@@ -177,14 +189,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(6, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayer", None, *params_flattened)
 
@@ -207,14 +222,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(18, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerChangeable", None, *params_flattened)
 
@@ -243,14 +261,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, test]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [layer, test]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(692, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerChildOf", None, *params_flattened)
 
@@ -273,14 +294,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(313, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerCurrent", None, *params_flattened)
 
@@ -303,14 +327,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(7, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerEmpty", None, *params_flattened)
 
@@ -336,14 +363,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(689, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerExpanded", None, *params_flattened)
 
@@ -366,14 +396,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(8, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerLocked", None, *params_flattened)
 
@@ -396,14 +429,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(9, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerOn", None, *params_flattened)
 
@@ -432,14 +468,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, test]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [layer, test]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(693, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerParentOf", None, *params_flattened)
 
@@ -462,14 +501,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(10, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerReference", None, *params_flattened)
 
@@ -492,14 +534,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(19, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerSelectable", None, *params_flattened)
 
@@ -522,14 +567,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(20, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerVisible", None, *params_flattened)
 
@@ -555,14 +603,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(694, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerChildCount", None, *params_flattened)
 
@@ -588,14 +639,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(691, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerChildren", None, *params_flattened)
 
@@ -627,18 +681,21 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, color]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1)]
         params_flattened = [layer, color]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(11, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerColor", None, *params_flattened)
 
-    def layer_count):
+    def layer_count():
         """        
         Returns the number of layers in the document.
     
@@ -653,14 +710,17 @@ class Layer(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(12, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerCount", None, *params_flattened)
 
@@ -692,14 +752,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, linetype]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [layer, linetype]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(602, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerLinetype", None, *params_flattened)
 
@@ -731,14 +794,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, visible]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [layer, visible]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(601, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerLocked", None, *params_flattened)
 
@@ -764,14 +830,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(13, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerMaterialIndex", None, *params_flattened)
 
@@ -811,14 +880,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, mode]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [layer, mode]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(14, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerMode", None, *params_flattened)
 
@@ -844,14 +916,17 @@ class Layer(IRhinoScript):
         """
 
         params = [sort]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_BOOL, 1),]
         params_flattened = [sort]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(15, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerNames", None, *params_flattened)
 
@@ -877,14 +952,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(17, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerOrder", None, *params_flattened)
 
@@ -916,14 +994,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, color]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1)]
         params_flattened = [layer, color]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(603, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerPrintColor", None, *params_flattened)
 
@@ -955,14 +1036,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, width]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [layer, width]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(604, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerPrintWidth", None, *params_flattened)
 
@@ -994,14 +1078,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, visible]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [layer, visible]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(600, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerVisible", None, *params_flattened)
 
@@ -1033,14 +1120,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, parent]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [layer, parent]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(688, 1, (VT_VARIANT, 0), params_magic_numbers, u"ParentLayer", None, *params_flattened)
 
@@ -1066,14 +1156,17 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [layer]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(291, 1, (VT_VARIANT, 0), params_magic_numbers, u"PurgeLayer", None, *params_flattened)
 
@@ -1102,14 +1195,17 @@ class Layer(IRhinoScript):
         """
 
         params = [old_name, new_name]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [old_name, new_name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(16, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenameLayer", None, *params_flattened)
 

@@ -42,14 +42,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [plane, d_u, d_v, view, views]
-        params_opt_or_req = [Required, Required, Required, Optional, Optional]
+        params_required = [True, True, True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(plane), d_u, d_v, view, flatten(views)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(904, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddClippingPlane", None, *params_flattened)
 
@@ -75,14 +78,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [point]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(68, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPoint", None, *params_flattened)
 
@@ -108,14 +114,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [points]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(69, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPointCloud", None, *params_flattened)
 
@@ -141,14 +150,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [points]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(526, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPoints", None, *params_flattened)
 
@@ -196,14 +208,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [text, point, plane, height, font, style]
-        params_opt_or_req = [Required, Required, Required, Optional, Optional, Optional]
+        params_required = [True, True, True, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [text, flatten(point), flatten(plane), height, font, style]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(76, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddText", None, *params_flattened)
 
@@ -232,14 +247,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [test, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [test, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(320, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddTextDot", None, *params_flattened)
 
@@ -274,14 +292,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, objects, view, world_coords]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(objects), view, world_coords]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(117, 1, (VT_VARIANT, 0), params_magic_numbers, u"BoundingBox", None, *params_flattened)
 
@@ -310,14 +331,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object1, object2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object1, object2]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(598, 1, (VT_VARIANT, 0), params_magic_numbers, u"CompareGeometry", None, *params_flattened)
 
@@ -343,14 +367,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(905, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsClippingPlane", None, *params_flattened)
 
@@ -376,14 +403,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(120, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPoint", None, *params_flattened)
 
@@ -409,14 +439,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(121, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPointCloud", None, *params_flattened)
 
@@ -442,14 +475,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(122, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsText", None, *params_flattened)
 
@@ -475,14 +511,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(336, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsTextDot", None, *params_flattened)
 
@@ -508,14 +547,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(128, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointCloudCount", None, *params_flattened)
 
@@ -541,14 +583,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(129, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointCloudPoints", None, *params_flattened)
 
@@ -580,14 +625,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, point]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(130, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointCoordinates", None, *params_flattened)
 
@@ -619,14 +667,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, point]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(422, 1, (VT_VARIANT, 0), params_magic_numbers, u"TextDotPoint", None, *params_flattened)
 
@@ -658,14 +709,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, text]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, text]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(421, 1, (VT_VARIANT, 0), params_magic_numbers, u"TextDotText", None, *params_flattened)
 
@@ -697,14 +751,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, font]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, font]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(474, 1, (VT_VARIANT, 0), params_magic_numbers, u"TextObjectFont", None, *params_flattened)
 
@@ -736,14 +793,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, height]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, height]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(473, 1, (VT_VARIANT, 0), params_magic_numbers, u"TextObjectHeight", None, *params_flattened)
 
@@ -784,14 +844,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, plane]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(plane)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(476, 1, (VT_VARIANT, 0), params_magic_numbers, u"TextObjectPlane", None, *params_flattened)
 
@@ -823,14 +886,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, point]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(471, 1, (VT_VARIANT, 0), params_magic_numbers, u"TextObjectPoint", None, *params_flattened)
 
@@ -869,14 +935,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, style]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, style]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(475, 1, (VT_VARIANT, 0), params_magic_numbers, u"TextObjectStyle", None, *params_flattened)
 
@@ -908,14 +977,17 @@ class Geometry(IRhinoScript):
         """
 
         params = [object, text]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, text]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(472, 1, (VT_VARIANT, 0), params_magic_numbers, u"TextObjectText", None, *params_flattened)
 
