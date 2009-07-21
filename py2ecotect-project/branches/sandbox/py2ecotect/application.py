@@ -67,7 +67,8 @@ class Application(object):
         using the close action. 
         
         """
-        arg_str = string_util._convert_args_to_string("app.busy" + action, message)
+        arg_str = string_util._convert_args_to_string("app.busy" + action, 
+                                                      message)
         py2ecotect.conversation.Exec(arg_str)
     
     def center(self, ):
@@ -604,9 +605,9 @@ class Application(object):
         state 
         An optional parameter that determines whether the application is 
         minimised or restored to its previous state (true to minimise, false to 
-        restore). If not given, the command toggles between minimised and normal. 
-        This is a boolean value where 1 or true represents the affirmative and 0 
-        or false the negative.
+        restore). If not given, the command toggles between minimised and 
+        normal. This is a boolean value where 1 or true represents the 
+        affirmative and 0 or false the negative.
         
         Here is an example:
         
@@ -677,7 +678,8 @@ class Application(object):
         >>> mouseevent("rclick", 100, 150)
         
         """
-        arg_str = string_util._convert_args_to_string("app.mouseevent", action, x, y)
+        arg_str = string_util._convert_args_to_string("app.mouseevent", action, 
+                                                      x, y)
         py2ecotect.conversation.Exec(arg_str)
      
     def progress(self, percent):
@@ -709,19 +711,20 @@ class Application(object):
         current script will pause whilst the new script is run, and will then 
         continue its own execution. If you are running a script from the Script 
         Manager, this command is useful as ECOTECT will run the new script 
-        itself, significantly reducing the inter-process communication overhead. You can 
-        also use the dofile() LUA command to execute a new script as part of an 
-        existing one, however this is simply run as an extra command within the 
-        current script environment. 
+        itself, significantly reducing the inter-process communication overhead. 
+        You can also use the dofile() LUA command to execute a new script as 
+        part of an existing one, however this is simply run as an extra command 
+        within the current script environment. 
     
         Parameter(s)
         This command takes the following parameters.
     
         script 
-        Gives the name of the script to run. If you do not give the full pathname 
-        of file, ECOTECT will first search for it in the same directory as the 
-        current script, then the current model, then the default model directory 
-        and then in subfolders within the Square One installation directory.
+        Gives the name of the script to run. If you do not give the full 
+        pathname of file, ECOTECT will first search for it in the same directory 
+        as the current script, then the current model, then the default model 
+        directory and then in subfolders within the Square One installation 
+        directory.
         
         Here is an example:
         
@@ -734,19 +737,19 @@ class Application(object):
     def status(self, msg):
         """
         
-        This function displays messages in the main application window's status bar.
-        Sometimes you will see two messages in this area; the first specifying what
-        action is taking place and the second in the status/progress area saying '
-        Please wait...' or similar. To include both messages, simply separate 
-        them with the '|' character. 
+        This function displays messages in the main application window's status 
+        bar. Sometimes you will see two messages in this area; the first 
+        specifying what action is taking place and the second in the 
+        status/progress area saying 'Please wait...' or similar. To include both 
+        messages, simply separate them with the '|' character. 
     
         Parameter(s)
         This command takes the following parameters.
     
         msg 
-        This parameter gives the message to be displayed. If this message contains 
-        the '|' character, it will be split with the first shown in the action area 
-        and the second in the progress area. 
+        This parameter gives the message to be displayed. If this message 
+        contains the '|' character, it will be split with the first shown in the 
+        action area and the second in the progress area. 
         
         Here is an example:
         
@@ -785,24 +788,24 @@ class Application(object):
         """
         
         Creates an image of the specified item in the system $TEMP directory and 
-        returns the pathname. This command is useful for embedding images in your 
-        own HTML reports. 
+        returns the pathname. This command is useful for embedding images in 
+        your own HTML reports. 
     
         Parameter(s)
         This property takes the following parameters.
     
         type 
-        Specify the type of image to create. See the following table for available 
-        values for this parameter. 
+        Specify the type of image to create. See the following table for 
+        available values for this parameter. 
     
         [name] 
-        If not given, a pseudo-random unique filename will be used for the image. 
-        If you provide a name, then this will be used. Either way, image files are 
-        always in JPG format and generated within the system $TEMP directory. 
-        This is to ensure that they can be saved and that the resulting directory 
-        exists irrespective of which computer the script is run on. You can use the 
-        'Save As' command within your browser to store a complete copy of the 
-        resulting page along with it's images.
+        If not given, a pseudo-random unique filename will be used for the 
+        image. If you provide a name, then this will be used. Either way, image 
+        files are always in JPG format and generated within the system $TEMP 
+        directory. This is to ensure that they can be saved and that the 
+        resulting directory exists irrespective of which computer the script is 
+        run on. You can use the 'Save As' command within your browser to store a 
+        complete copy of the resulting page along with it's images.
          
         Return Value(s)
         Getting this property returns the following value(s).
@@ -822,7 +825,8 @@ class Application(object):
         schedule 5 The current schedule 
     
         """
-        arg_str = string_util._convert_args_to_string("get.app.image", type, name)
+        arg_str = string_util._convert_args_to_string("get.app.image", type, 
+                                                      name)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, str)
     
@@ -874,16 +878,16 @@ class Application(object):
         character.
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.menu.tool", index,
-                                                      name_path)
+        arg_str = string_util._convert_args_to_string("set.app.menu.tool", 
+                                                      index, name_path)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_menu_wizard(self, index):
         """
         
-        Retrieve the user-defined wizard data at the specified position within the 
-        Draw > Geometry Wizards submenu. Use this command to check for an empty 
-        value before adding a new user wizard. 
+        Retrieve the user-defined wizard data at the specified position within 
+        the Draw > Geometry Wizards submenu. Use this command to check for an 
+        empty value before adding a new user wizard. 
     
         Parameter(s)
         This property takes the following parameters.
@@ -902,7 +906,8 @@ class Application(object):
         The full pathname to the associated script file.
         
         """
-        arg_str = string_util._convert_args_to_string("get.app.menu.wizard", index)
+        arg_str = string_util._convert_args_to_string("get.app.menu.wizard", 
+                                                      index)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, str)  
     
@@ -938,7 +943,8 @@ class Application(object):
         """
         
         Gets the currently active page in the ECOTECT application window. The 
-        returned value will correspond to one of the items in the following table. 
+        returned value will correspond to one of the items in the following 
+        table. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -967,8 +973,8 @@ class Application(object):
         """
         
         Sets the currently active page in the ECOTECT application window. These 
-        correspond to the pages with tabs running down the far left side marked as 
-        shown in the following table. 
+        correspond to the pages with tabs running down the far left side marked 
+        as shown in the following table. 
     
         Parameter(s)
         This property takes the following parameters.
@@ -995,8 +1001,8 @@ class Application(object):
         """
         Gets the currently active panel in the ECOTECT application window. These 
         correspond to the tabbed panels on the right hand side of the window, as 
-        shown in the following table. Getting this value returns the integer value 
-        corresponding to each item in the table. 
+        shown in the following table. Getting this value returns the integer 
+        value corresponding to each item in the table. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -1064,9 +1070,10 @@ class Application(object):
         """
         
         Getting this property returns a single text string containing the 
-        installation home directory of the ECOTECT application which, by default, 
-        is usually 'C:\Program Files\Square One'. This can be useful if you need to 
-        locate example or tutorial files in your script. This property is read only. 
+        installation home directory of the ECOTECT application which, by 
+        default, is usually 'C:\Program Files\Square One'. This can be useful 
+        if you need to locate example or tutorial files in your script. This 
+        property is read only. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -1085,11 +1092,11 @@ class Application(object):
         """
         
         Use this property to retrieve values from the application's entry within 
-        the Windows registry. Such values are stored on a per-user basic and this 
-        property only allows access to values local to this application. In ECOTECT, 
-        for example, this is located at HKEY_CURRENT_USER\Software\Square One\
-        Ecotect\5.60. Registry entries are stored as a series of parameters in the 
-        form 'key=value'. 
+        the Windows registry. Such values are stored on a per-user basic and 
+        this property only allows access to values local to this application. In 
+        ECOTECT, for example, this is located at 
+        HKEY_CURRENT_USER\Software\Square One\Ecotect\5.60. Registry entries are 
+        stored as a series of parameters in the form 'key=value'. 
     
         Parameter(s)
         This property takes the following parameters.
@@ -1101,7 +1108,8 @@ class Application(object):
         Getting this property returns the following value(s).
         
         value 
-        A text string containing the value, if any, associated with the given key.
+        A text string containing the value, if any, associated with the given 
+        key.
         
         """
         arg_str = string_util._convert_args_to_string("get.app.registry", key)
@@ -1112,24 +1120,28 @@ class Application(object):
         """
         Use this property to set a value in the application's Windows registry 
         entry. Such values are stored on a per-user basic and this property only 
-        allows access to values local to this application. In ECOTECT, for example, 
-        this is located at HKEY_CURRENT_USER\Software\Square One\Ecotect\5.60. 
-        Registry entries are stored as a series of parameters in the form 
-        'key=value'. 
+        allows access to values local to this application. In ECOTECT, for 
+        example, this is located at 
+        HKEY_CURRENT_USER\Software\Square One\Ecotect\5.60. Registry entries are 
+        stored as a series of parameters in the form 'key=value'. 
     
         Parameter(s)
         This property takes the following parameters.
         
         key=value 
-        To set a value, you must include both the key name and the value to be set, separated by an equal '=' character. 
+        To set a value, you must include both the key name and the value to be 
+        set, separated by an equal '=' character. 
+        
         Return Value(s)
         Getting this property returns the following value(s).
         
         value 
-        A text string containing the value, if any, associated with the given key.
+        A text string containing the value, if any, associated with the given 
+        key.
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.registry", keyvalue)
+        arg_str = string_util._convert_args_to_string("set.app.registry", 
+                                                      keyvalue)
         py2ecotect.conversation.Exec(arg_str)
         
     def get_screen(self):
@@ -1162,9 +1174,10 @@ class Application(object):
     def get_slider_range(self):
         """
         
-        Retrieves the range of the main slider. The range defines the minimum and 
-        maximum values over which the slider moves as well as other settings such 
-        as the increment/decrement when using the arrow and PageUp/PageDown keys. 
+        Retrieves the range of the main slider. The range defines the minimum 
+        and maximum values over which the slider moves as well as other settings 
+        such as the increment/decrement when using the arrow and PageUp/PageDown 
+        keys. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -1194,9 +1207,10 @@ class Application(object):
     def set_slider_range(self, min, max, freq, lineSize, pageSize):
         """
         
-        Sets the range of the main slider. The range defines the minimum and maximum 
-        values over which the slider moves as well as other settings such as the 
-        increment/decrement when using the arrow and PageUp/PageDown keys. 
+        Sets the range of the main slider. The range defines the minimum and 
+        maximum values over which the slider moves as well as other settings 
+        such as the increment/decrement when using the arrow and PageUp/PageDown 
+        keys. 
     
         Parameter(s)
         This property takes the following parameters.
@@ -1210,17 +1224,19 @@ class Application(object):
         anything as long as it is greater than the 'min' parameter. 
         
         freq 
-        The frequency of indicator marks running along the bottom. If this value is 
-        set to zero (0) or less, it is ignored and the currently set value is used. 
+        The frequency of indicator marks running along the bottom. If this value 
+        is set to zero (0) or less, it is ignored and the currently set value is 
+        used. 
         
         lineSize 
-        The increment/decrement value when using the arrow keys. If this value is 
-        set to zero (0) or less, it is ignored and the currently set value is used. 
+        The increment/decrement value when using the arrow keys. If this value 
+        is set to zero (0) or less, it is ignored and the currently set value is 
+        used. 
         
         pageSize 
-        The increment/decrement value when using the PageUp/PageDown keys. If this 
-        value is set to zero (0) or less, it is ignored and the currently set value 
-        is used. 
+        The increment/decrement value when using the PageUp/PageDown keys. If 
+        this value is set to zero (0) or less, it is ignored and the currently 
+        set value is used. 
         
         """
         arg_str = string_util._convert_args_to_string("set.app.slider.range", 
@@ -1231,8 +1247,8 @@ class Application(object):
     def get_slider_scale(self):
         """
         
-        Retrieves the current scale factor for the main slider and the hover-over 
-        hint if it is set. 
+        Retrieves the current scale factor for the main slider and the 
+        hover-over hint if it is set. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -1241,12 +1257,13 @@ class Application(object):
         Getting this property returns the following value(s).
         
         scale 
-        This scale factor is used to convert the range specfied in the app.slider.
-        range setting to a user-readable value (see set.app.slider.scale). 
+        This scale factor is used to convert the range specfied in the 
+        app.slider.range setting to a user-readable value 
+        (see set.app.slider.scale). 
         
         [hint] 
-        This is the popup hint you see when you move the mouse over the top of the 
-        slider.
+        This is the popup hint you see when you move the mouse over the top of 
+        the slider.
         
         """    
         val = py2ecotect.conversation.Request("get.app.slider.scale")
@@ -1255,26 +1272,26 @@ class Application(object):
     def set_slider_scale(self, scale, hint=None):
         """
         
-        Sets the scale factor for the main slider and, optionally, the hover-over 
-        hint value. 
+        Sets the scale factor for the main slider and, optionally, the 
+        hover-over hint value. 
     
         Parameter(s)
         This property takes the following parameters.
         
         scale 
-        This scale factor is used to convert the range specfied in the app.slider.
-        range setting to a user-readable value. For example, you may want to display 
-        values in percent, but want higher accuracy on the slider values. In this 
-        case, you can set range.min=0, range.max=1000, range.freq=1 and then the 
-        scale to 0.1. 
+        This scale factor is used to convert the range specfied in the 
+        app.slider.range setting to a user-readable value. For example, you may 
+        want to display values in percent, but want higher accuracy on the 
+        slider values. In this case, you can set range.min=0, range.max=1000, 
+        range.freq=1 and then the scale to 0.1. 
         
         [hint] 
-        By including this optional value, you can set the hover-over hint for the 
-        slider when you move the mouse over the top of it.
+        By including this optional value, you can set the hover-over hint for 
+        the slider when you move the mouse over the top of it.
         
         """    
-        arg_str = string_util._convert_args_to_string("set.app.slider.scale", scale, 
-                                                     hint)
+        arg_str = string_util._convert_args_to_string("set.app.slider.scale", 
+                                                      scale, hint)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_slider_title(self):
@@ -1308,7 +1325,8 @@ class Application(object):
         
         """
         
-        arg_str = string_util._convert_args_to_string("set.app.slider.title", title)
+        arg_str = string_util._convert_args_to_string("set.app.slider.title", 
+                                                      title)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_username(self):
@@ -1333,17 +1351,17 @@ class Application(object):
     def get_web_file(self, url):
         """
         
-        Retrieve the contents of the specified web URL from the internet and stores 
-        it as a temporary file on your local hard disk. You must be responsible for 
-        cleaning up these files using the remove() command or manually using the 
-        Tools >: Clear Temporary File... menu item. 
+        Retrieve the contents of the specified web URL from the internet and 
+        stores it as a temporary file on your local hard disk. You must be 
+        responsible for cleaning up these files using the remove() command or 
+        manually using the Tools >: Clear Temporary File... menu item. 
     
         Parameter(s)
         This property takes the following parameters.
         
         url 
-        The full Universal Resource Locator (URL) of the web page or CGI script you 
-        want to retrieve. If you need to send parameters, use the standard 
+        The full Universal Resource Locator (URL) of the web page or CGI script 
+        you want to retrieve. If you need to send parameters, use the standard 
         'url?key1=value1&key2=value2' format. 
         
         Return Value(s)
@@ -1361,27 +1379,29 @@ class Application(object):
     def get_web_line(self, lineNumber):
         """
         
-        Retrieve individual lines of text from the last call to get.web.page.text. 
-        There is obviously a limit to the amount of text you can transfer, so it is 
-        usually safest to retrieve web text line-by-line. However, if you know the 
-        that returned text will be relatively small, you can use a line number of -1 
-        to retrieve all the text at once. 
+        Retrieve individual lines of text from the last call to 
+        get.web.page.text. There is obviously a limit to the amount of text you 
+        can transfer, so it is usually safest to retrieve web text line-by-line. 
+        However, if you know the that returned text will be relatively small, 
+        you can use a line number of -1 to retrieve all the text at once. 
     
         Parameter(s)
         This property takes the following parameters.
         
         lineNumber 
-        The line number to retrieve. You can get the number of lines using get.web.
-        lines, the raw text results will have 
+        The line number to retrieve. You can get the number of lines using 
+        get.web.lines, the raw text results will have 
         
         Return Value(s)
         Getting this property returns the following value(s).
         
         value 
-        A text string containing the value, if any, associated with the given key.
+        A text string containing the value, if any, associated with the given 
+        key.
         
         """
-        arg_str = string_util._convert_args_to_string("get.app.web.line", lineNumber)
+        arg_str = string_util._convert_args_to_string("get.app.web.line", 
+                                                      lineNumber)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, str)
     
@@ -1390,11 +1410,11 @@ class Application(object):
         
         Many websites require a login name and password in order to authenticate 
         individual users. Use this property before you request your page to set 
-        both of these. You should consider using the getUserInput() function rather 
-        than hard-coding passwords within your scripts.
+        both of these. You should consider using the getUserInput() function 
+        rather than hard-coding passwords within your scripts.
     
-        To clear a previously set username and password, call this property with no 
-        parameters. 
+        To clear a previously set username and password, call this property with 
+        no parameters. 
         
         Parameter(s)
         This property takes the following parameters.
@@ -1406,8 +1426,8 @@ class Application(object):
         The password you require to login.
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.web.login", username, 
-                                                     password)
+        arg_str = string_util._convert_args_to_string("set.app.web.login", 
+                                                      username, password)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_web_page(self, url, text = False):
@@ -1415,18 +1435,18 @@ class Application(object):
         
         Retrieve the contents of the specified web URL from the internet if you 
         have access. As many web-based CGI scripts return a series of parameters 
-        in the form 'key=value', by default the downloaded results are parsed into 
-        a series of parameter pairs and can be accessed using the get.web.param 
-        property. If the url you are accessing returns normal text or some other 
-        data format, append the suffix '.text' to avoid the parsing process and 
-        access the data using the get.web.line properties. 
+        in the form 'key=value', by default the downloaded results are parsed 
+        into a series of parameter pairs and can be accessed using the 
+        get.web.param property. If the url you are accessing returns normal text 
+        or some other data format, append the suffix '.text' to avoid the 
+        parsing process and access the data using the get.web.line properties. 
     
         Parameter(s)
         This property takes the following parameters.
         
         url 
-        The full Universal Resource Locator (URL) of the web page or CGI script you 
-        want to retrieve. If you need to send parameters, use the standard 
+        The full Universal Resource Locator (URL) of the web page or CGI script 
+        you want to retrieve. If you need to send parameters, use the standard 
         'url?key1=value1&key2=value2' format.
         
         Return Value(s)
@@ -1438,9 +1458,11 @@ class Application(object):
         
         """
         if text:
-            arg_str = string_util._convert_args_to_string("get.app.web.page.text", url)
+            arg_str = string_util._convert_args_to_string("get.app.web.page.text", 
+                                                          url)
         else:
-            arg_str = string_util._convert_args_to_string("get.app.web.page", url)
+            arg_str = string_util._convert_args_to_string("get.app.web.page", 
+                                                          url)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
     
@@ -1461,12 +1483,14 @@ class Application(object):
         Getting this property returns the following value(s).
         
         value 
-        A text string containing the value, if any, associated with the given key. 
+        A text string containing the value, if any, associated with the given 
+        key. 
         
         Many web-based CGI scripts return a series of parameters in the form 
         'key=value'. If you don't know the names of all the keys, you can use 
-        the index of each one to retrieve them. You can only do this after you have 
-        used the get.web.page property and stored the number of parameters parsed. 
+        the index of each one to retrieve them. You can only do this after you 
+        have used the get.web.page property and stored the number of parameters 
+        parsed. 
         
         Parameter(s)
         This property takes the following parameters.
@@ -1485,7 +1509,8 @@ class Application(object):
         
         """
         if name:
-            arg_str = string_util._convert_args_to_string("get.app.web.param", name)
+            arg_str = string_util._convert_args_to_string("get.app.web.param", 
+                                                          name)
             val = py2ecotect.conversation.Request(arg_str)
             return string_util._convert_str_to_type(val, str)
         elif index:
@@ -1497,8 +1522,8 @@ class Application(object):
     def get_window(self):
         """
         
-        Retrieve the position and size of the main ECOTECT window displayed within 
-        your screen. 
+        Retrieve the position and size of the main ECOTECT window displayed 
+        within your screen. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -1525,29 +1550,30 @@ class Application(object):
     def set_window(self, left, top, width, height):
         """
         
-        Sets the position and size of the main ECOTECT window displayed within your 
-        screen. 
+        Sets the position and size of the main ECOTECT window displayed within 
+        your screen. 
     
         Parameter(s)
         This property takes the following parameters.
         
         left 
-        The position of the left side of the window in screen pixels. If this value 
-        is less than zero, the left side of the window will not be changed. 
+        The position of the left side of the window in screen pixels. If this 
+        value is less than zero, the left side of the window will not be 
+        changed. 
         
         top 
-        The position of the top side of the window in screen pixels. If this value 
-        is less than zero, the top of the window will not be changed. 
+        The position of the top side of the window in screen pixels. If this 
+        value is less than zero, the top of the window will not be changed. 
         
         width 
         The horizontal width of the window in screen pixels. This parameter is 
-        optional - if not given or less than zero the width of the window will not 
-        be changed. 
+        optional - if not given or less than zero the width of the window will 
+        not be changed. 
         
         height 
         The vertical height of the window in screen pixels. This parameter is 
-        optional - if not given or less than zero the height of the window will not 
-        be changed.
+        optional - if not given or less than zero the height of the window will 
+        not be changed.
         
         """
         arg_str = string_util._convert_args_to_string("set.app.window", left, 
@@ -1577,8 +1603,9 @@ class Application(object):
     slider_title = property(fget = get_slider_title, doc = "The current title"
                             " displayed on the main slider")
     
-    username = property(fget = get_username, doc = "The login name of the currently"
-                        " logged in user on the computer running ECOTECT")
+    username = property(fget = get_username, doc = "The login name of the"
+                        " currently logged in user on the computer running"
+                        " ECOTECT")
     
 
 
