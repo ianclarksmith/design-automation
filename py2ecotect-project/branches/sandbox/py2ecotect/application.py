@@ -10,8 +10,8 @@ class Application(object):
     def activate(self):
         """
         
-        Displays the main ECOTECT window and brings it to the front if it is behind 
-        any other windows.
+        Displays the main ECOTECT window and brings it to the front if it is 
+        behind any other windows.
         
         Parameter(s)
         There are no parameters for this command.
@@ -23,9 +23,9 @@ class Application(object):
     def alert(self, msg, type = ""):
         """
         
-        Displays a popup message box displaying the given message and an OK button. 
-        You can change the different icons and titles displayed in the dialog using 
-        the info, question, warning or error suffixes.
+        Displays a popup message box displaying the given message and an OK 
+        button. You can change the different icons and titles displayed in the 
+        dialog using the info, question, warning or error suffixes.
         
         Parameter(s)
         This command takes the following parameters.
@@ -44,26 +44,27 @@ class Application(object):
     def busy(self, action, message):
         """
         
-        Controls the display of the 'Application Busy' dialog box. Use this dialog
-        during a complex calculation whose progress is not linear or unsuitable for 
-        using the standard progress bar. 
+        Controls the display of the 'Application Busy' dialog box. Use this 
+        dialog during a complex calculation whose progress is not linear or 
+        unsuitable for using the standard progress bar. 
     
         Parameter(s)
         This command takes the following parameters.
     
         action 
-        This first parameter gives the required action. The open action opens the 
-        dialog box and displays the static message provided. The update action 
-        refreshes the dynamic message line displayed immediately beneath the static 
-        message and is used to keep the user informed of progress. The close action 
-        closes and hides the busy dialog. 
+        This first parameter gives the required action. The open action opens 
+        the dialog box and displays the static message provided. The update 
+        action refreshes the dynamic message line displayed immediately beneath 
+        the static message and is used to keep the user informed of progress. 
+        The close action closes and hides the busy dialog. 
     
         message 
-        This parameter provides the message to be displayed within the busy dialog. 
-        When used with the open action, the message becomes the static title 
-        displayed in bold in the centre. When used with the update action, this 
-        parameters is used as the dynamic message line displayed immediately beneath 
-        the static message. This parameter is ignored when using the close action. 
+        This parameter provides the message to be displayed within the busy 
+        dialog. When used with the open action, the message becomes the static 
+        title displayed in bold in the centre. When used with the update action, 
+        this parameters is used as the dynamic message line displayed 
+        immediately beneath the static message. This parameter is ignored when 
+        using the close action. 
         
         """
         arg_str = string_util._convert_args_to_string("app.busy" + action, message)
@@ -73,8 +74,8 @@ class Application(object):
         """
         
         Use this command to centre the main Ecotect window withing the current 
-        desktop. Its size will remain the same, it will simply move into the centre 
-        of the screen. 
+        desktop. Its size will remain the same, it will simply move into the 
+        centre of the screen. 
     
         Parameter(s)
         There are no parameters for this command.
@@ -86,10 +87,10 @@ class Application(object):
         """   
         
         Use this command to send a stream of characters to the currently focused 
-        control. The text parameter is simply a string of characters. Note: this is 
-        very experimental and will need to be used in conjunction with the 
-        app.mouseevent or app.keyevent commands to first select the required 
-        control. 
+        control. The text parameter is simply a string of characters. 
+        Note: this is very experimental and will need to be used in conjunction 
+        with the app.mouseevent or app.keyevent commands to first select the 
+        required control. 
         
         Parameter(s)
         This command takes the following parameters.
@@ -107,8 +108,9 @@ class Application(object):
         
         This function causes the instance of Ecotect running the script to exit, 
         just as if you had manualy chosen the > Exit menu item. You will need to 
-        be careful using this command as it may automatically save any changes you 
-        have made to the current model unless you use the model.new function first.
+        be careful using this command as it may automatically save any changes 
+        you have made to the current model unless you use the model.new function 
+        first.
         
         Parameter(s)
         There are no parameters for this command.
@@ -119,28 +121,29 @@ class Application(object):
     def key(self, keyCode):
         """
         
-        Use this command to emulate virtual keyboard events in the currently active 
-        window or control. With this command you can simulate TAB and control keys. 
-        The key parameter is the virtual key code of the key to be pressed, as 
-        given in the following table.
+        Use this command to emulate virtual keyboard events in the currently 
+        active window or control. With this command you can simulate TAB and 
+        control keys. The key parameter is the virtual key code of the key to be 
+        pressed, as given in the following table.
         
-        Important Note: Keyboard events are generated directly using the keyboard 
-        interrupt, which are then sent to the target application via the Windows 
-        message queue. Thus, you must give the program time to complete any tasks 
-        that may result from each keystroke. If not, the application may miss the 
-        next command and hang the script, meaning that you will have to 
-        disconnect/reconnect.
+        Important Note: Keyboard events are generated directly using the 
+        keyboard interrupt, which are then sent to the target application via 
+        the Windows message queue. Thus, you must give the program time to 
+        complete any tasks that may result from each keystroke. If not, the 
+        application may miss the next command and hang the script, meaning that 
+        you will have to disconnect/reconnect.
         
         To overcome this, use the Script Manager pause(msec) command immediately 
-        after such a keystroke or slow down the execution speed of the script using 
-        the script("delay 1000"); command immediately prior to the keystroke. 
+        after such a keystroke or slow down the execution speed of the script 
+        using the script("delay 1000"); command immediately prior to the 
+        keystroke. 
     
         Parameter(s)
         This command takes the following parameters.
     
         keyCode 
-        A value specifying the key code to emulate. Some example values are given 
-        in the following table. 
+        A value specifying the key code to emulate. Some example values are 
+        given in the following table. 
         
         Relevant Data Table(s)
         
@@ -197,18 +200,18 @@ class Application(object):
     def maximise(self, state = 1):
         """
         
-        Maximises ECOTECT to fill the entire screen. This can be useful if you need 
-        to give an animated presentation or run a demonstration script. 
+        Maximises ECOTECT to fill the entire screen. This can be useful if you 
+        need to give an animated presentation or run a demonstration script. 
         
         Parameter(s)
         This command takes the following parameters.
     
         state 
-        An optional parameter that determines whether the application is maximised 
-        or restored to its previous state (true to maximise, false to restore). If 
-        not given, the command toggles between maximised and normal. This is a 
-        boolean value where 1 or true represents the affirmative and 0 or false 
-        the negative.
+        An optional parameter that determines whether the application is 
+        maximised or restored to its previous state (true to maximise, false to 
+        restore). If not given, the command toggles between maximised and 
+        normal. This is a boolean value where 1 or true represents the 
+        affirmative and 0 or false the negative.
         
         Here is an example:
         
@@ -226,9 +229,9 @@ class Application(object):
         ECOTECT application. These are very different from other methods in that 
         they allow you to emulate interactive menu commands and actions. This is 
         useful for direct command line entry and accessing some functions not 
-        otherwise available, however you will need to be very careful that you do 
-        not include commands that invoke dialog boxes or on-screen prompts if you 
-        intend your script to operate unattended.
+        otherwise available, however you will need to be very careful that you 
+        do not include commands that invoke dialog boxes or on-screen prompts 
+        if you intend your script to operate unattended.
         
         Parameter(s)
         This command takes the following parameters.
@@ -599,11 +602,11 @@ class Application(object):
         This command takes the following parameters.
     
         state 
-        An optional parameter that determines whether the application is minimised 
-        or restored to its previous state (true to minimise, false to restore). 
-        If not given, the command toggles between minimised and normal. This is a 
-        boolean value where 1 or true represents the affirmative and 0 or false the 
-        negative.
+        An optional parameter that determines whether the application is 
+        minimised or restored to its previous state (true to minimise, false to 
+        restore). If not given, the command toggles between minimised and normal. 
+        This is a boolean value where 1 or true represents the affirmative and 0 
+        or false the negative.
         
         Here is an example:
         
@@ -618,12 +621,13 @@ class Application(object):
         """
         
         This is not a command for the faint hearted and is very experimental at 
-        this stage (see below). It can be used to emulate user mouse actions. The 
-        action tokens are given in the table below whereas the x and y values give 
-        the position in screen pixels where the event is to take place, relative to 
-        the top left corner of the main application window. If called from methods 
-        in the graph, sunpath, opengl or view objects, the pixel values are 
-        relative to the top left corner of the graphics canvas in each window.
+        this stage (see below). It can be used to emulate user mouse actions. 
+        The action tokens are given in the table below whereas the x and y 
+        values give the position in screen pixels where the event is to take 
+        place, relative to the top left corner of the main application window. 
+        If called from methods in the graph, sunpath, opengl or view objects, 
+        the pixel values are relative to the top left corner of the graphics 
+        canvas in each window.
     
         This command is actually a leftover from early versions of ECOTECT which 
         had a macro record and playback function. This function seemed to work 
@@ -638,8 +642,8 @@ class Application(object):
         This command takes the following parameters.
     
         action 
-        This parameter specifies the type of action/operation to use with the mouse 
-        at the given screen location. See the following table for details. 
+        This parameter specifies the type of action/operation to use with the 
+        mouse at the given screen location. See the following table for details. 
         
         x 
         Gives the horizontal X location of the desired mouse operation in pixel 
@@ -687,8 +691,8 @@ class Application(object):
         percent 
         This parameter gives the progress indicator value is given as either a 
         fraction (0-1) or a percentage (1-100). Any value greater than 1 is 
-        interpreted as a percentage whereas any value between 0 and 1 as a fraction. 
-        A value equal to or less than zero (0) hides the status bar. 
+        interpreted as a percentage whereas any value between 0 and 1 as a 
+        fraction. A value equal to or less than zero (0) hides the status bar. 
         
         Here is an example:
         
@@ -704,8 +708,8 @@ class Application(object):
         This command instructs ECOTECT to run the specified script file. The 
         current script will pause whilst the new script is run, and will then 
         continue its own execution. If you are running a script from the Script 
-        Manager, this command is useful as ECOTECT will run the new script itself, 
-        significantly reducing the inter-process communication overhead. You can 
+        Manager, this command is useful as ECOTECT will run the new script 
+        itself, significantly reducing the inter-process communication overhead. You can 
         also use the dofile() LUA command to execute a new script as part of an 
         existing one, however this is simply run as an extra command within the 
         current script environment. 
