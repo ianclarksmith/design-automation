@@ -10,22 +10,30 @@ block = {
     	# 2: vaScale, Optional
     	# 3: vaAngle, Optional
     	# 4: vaRotate, Optional
-        "Name": 	("Required", "str"),
-        "Point": 	("Required", "arr_of_???"),
-        "Scale": 	("Optional", "arr_of_???"),
-        "Angle": 	("Optional", "dbl"),
-        "Normal": 	("Optional", "arr_of_???"),
-        "Xform": 	("Required", "arr_of_???"),
+        
+        "SPLIT_METHOD:": {
+            "insert_block": {
+                "Name":     ("Required", "str"),
+                "Point":     ("Required", "arr_of_???"),
+                "Scale":     ("Optional", "arr_of_???"),
+                "Angle":     ("Optional", "dbl"),
+                "Normal":     ("Optional", "arr_of_???"),
+            },
+            "insert_block_xform": {
+                "Name":     ("Required", "str"),        
+                "Xform":     ("Required", "arr_of_???"),
+            }
+        }        
     },
 },
 curve = {
-    "curve_knot_count": {
+    "curve_knot_count": { #<<<<<<<<<<<<<<<< OK
     	# The COM object lists the following parameters
     	# 0: vaObject, Required
         "Object": 	("Required", "str"),
         "Index": 	("Optional", "int"),
     },
-    "curve_knots": {
+    "curve_knots": {#<<<<<<<<<<<<<<<< OK
     	# The COM object lists the following parameters
     	# 0: vaObject, Required
         "Object": 	("Required", "str"),
@@ -111,12 +119,13 @@ material = {
     },
 },
 math = {
-    "distance": {
+    "distance": {#<<<<<<<<<<<<<<<< OK
     	# The COM object lists the following parameters
     	# 0: vaFrom, Required
     	# 1: vaTo, Required
+        
         "Point1": 	("Required", "arr_of_???"),
-        "Point2": 	("Required", "arr_of_???"),
+        #"Point2": 	("Required", "arr_of_???"),
         "PointArray": 	("Required", "arr_of_???"),
     },
 },

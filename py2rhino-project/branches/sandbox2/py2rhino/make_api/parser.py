@@ -34,10 +34,21 @@ def parse_docs():
         #get all the files
         all_files = os.listdir(in_folder + folder_name)
         #remove svn files
-        files = []
+        non_svn_files = []
         for file in all_files:
             if file != ".svn":
+                non_svn_files.append(file)
+                
+        #remove files with duplicates ending in 's'
+        files = []
+        for file in non_svn_files:
+            file_s = file[:-4] + 's' + file[-4:]
+            if not file_s in non_svn_files:
                 files.append(file)
+            else:
+                print "found plural method", file_s
+                
+        #now start parsing
         for file in files:
             
             file_name = file[:-4]
@@ -175,21 +186,28 @@ def parse_docs():
                         param_vb_type = line2_word2
                         content_params.append((param_name, param_req, param_vb_type, param_prefix, content_param_help))
                         
-                """
+                
                 #now check for duplicate parameters, e.g strObject and arrObjects
-                list_of_param_names = map(lambda i: i[0], content_params)
-                dups_to_be_removed = []
-                counter = 0
-                for param in content_params:
-                    if (param[0] + 's') in list_of_param_names:
-                        dups_to_be_removed.append(counter)
-                        print "found dup"
-                        print file_name, folder_name
-                    counter += 1
-                if dups_to_be_removed:
-                    for i in dups_to_be_removed:
-                        content_params.pop(i)               
-                """
+                num_com_params = get_com_num_params(file_name)
+                num_html_params = len(content_params)
+                #print num_html_params, num_com_params
+                if num_html_params>num_com_params:
+                    list_of_param_names = map(lambda i: i[0], content_params)
+                    dups_to_be_removed = []
+                    counter = 0
+                    for param in content_params:
+                        if (param[0] + 's') in list_of_param_names:
+                            dups_to_be_removed.append(counter)
+                            #print "found plural 's' parameter"
+                            #print file_name, folder_name
+                        if (param[0] + 'es') in list_of_param_names:
+                            dups_to_be_removed.append(counter)
+                            print "found plural 'es' parameter"
+                            print file_name, folder_name
+                        counter += 1
+                    if dups_to_be_removed:
+                        for i in dups_to_be_removed:
+                            content_params.pop(i)               
                 
                 #now get the returns
                 content_returns = []

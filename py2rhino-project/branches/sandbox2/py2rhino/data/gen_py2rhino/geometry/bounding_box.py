@@ -14,15 +14,6 @@ bounding_box = {
 
     "params_html": {
         0: {
-            "name": "Object",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of the object.
-            """
-        },
-        1: {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
@@ -31,7 +22,7 @@ bounding_box = {
         An array of strings identifying the objects.
             """
         },
-        2: {
+        1: {
             "name": "View",
             "opt_or_req": "Optional",
             "type": "String",
@@ -40,7 +31,7 @@ bounding_box = {
         The title of the view that contains the construction plane to which the bounding box should be aligned.  If omitted, a world axis-aligned bounding box will be calculated.
             """
         },
-        3: {
+        2: {
             "name": "WorldCoords",
             "opt_or_req": "Optional",
             "type": "Boolean",

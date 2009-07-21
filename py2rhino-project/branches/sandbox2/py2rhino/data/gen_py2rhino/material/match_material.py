@@ -32,15 +32,6 @@ match_material = {
             """
         },
         2: {
-            "name": "DestObject",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of the destination object.  If the object's material source is set to "By Layer", it will be changed to "By Object."
-            """
-        },
-        3: {
             "name": "DestObjects",
             "opt_or_req": "Required",
             "type": "Array",

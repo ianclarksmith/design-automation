@@ -29,9 +29,24 @@ offset_curve_on_surface = {
             "type_string": "str",
             "doc": """
         The surface object's identifier.
-		dblDistance
-		Requried.  Number.  The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
-		arrParameter
+            """
+        },
+        2: {
+            "name": "Distance",
+            "opt_or_req": "Required",
+            "type": "Number",
+            "type_string": "dbl",
+            "doc": """
+        The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+            """
+        },
+        3: {
+            "name": "Parameter",
+            "opt_or_req": "Required",
+            "type": "Array",
+            "type_string": "arr",
+            "doc": """
+        An array containing the surface U,V parameter that the curve will be offset through.
             """
         },
     },

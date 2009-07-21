@@ -14,7 +14,7 @@ join_arrays = {
 
     "params_html": {
         0: {
-            "name": "1",
+            "name": "Array1",
             "opt_or_req": "Required",
             "type": "Array",
             "type_string": "arr",
@@ -23,7 +23,7 @@ join_arrays = {
             """
         },
         1: {
-            "name": "2",
+            "name": "Array2",
             "opt_or_req": "Required",
             "type": "Array",
             "type_string": "arr",

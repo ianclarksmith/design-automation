@@ -14,15 +14,6 @@ curve_area_centroid = {
 
     "params_html": {
         0: {
-            "name": "Object",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of a closed, planar curve object.
-            """
-        },
-        1: {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",

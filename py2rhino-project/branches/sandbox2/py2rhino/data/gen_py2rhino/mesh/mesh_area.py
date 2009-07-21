@@ -14,15 +14,6 @@ mesh_area = {
 
     "params_html": {
         0: {
-            "name": "Object",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The object's identifier.
-            """
-        },
-        1: {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",

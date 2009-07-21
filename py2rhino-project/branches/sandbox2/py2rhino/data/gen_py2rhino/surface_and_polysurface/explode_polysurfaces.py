@@ -14,15 +14,6 @@ explode_polysurfaces = {
 
     "params_html": {
         0: {
-            "name": "Object",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of the polysurface object to explode.
-            """
-        },
-        1: {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
@@ -31,7 +22,7 @@ explode_polysurfaces = {
         An array of strings identifying the polysurface objects to explode.
             """
         },
-        2: {
+        1: {
             "name": "Delete",
             "opt_or_req": "Optional",
             "type": "Boolean",

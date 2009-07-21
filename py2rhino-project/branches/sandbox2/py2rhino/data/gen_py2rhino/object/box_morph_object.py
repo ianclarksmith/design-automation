@@ -14,15 +14,6 @@ box_morph_object = {
 
     "params_html": {
         0: {
-            "name": "Object",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of the object to morph.
-            """
-        },
-        1: {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
@@ -31,7 +22,7 @@ box_morph_object = {
         An array of strings identifying the objects to morph.
             """
         },
-        2: {
+        1: {
             "name": "BoxPoints",
             "opt_or_req": "Required",
             "type": "Array",
@@ -40,7 +31,7 @@ box_morph_object = {
         An array of eight 3-D points that contain the modified bounding box points.
             """
         },
-        3: {
+        2: {
             "name": "Copy",
             "opt_or_req": "Optional",
             "type": "Boolean",

@@ -14,15 +14,6 @@ flash_object = {
 
     "params_html": {
         0: {
-            "name": "Object",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of the object to flash.
-            """
-        },
-        1: {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
@@ -31,7 +22,7 @@ flash_object = {
         The identifiers of the objects to flash.
             """
         },
-        2: {
+        1: {
             "name": "Style",
             "opt_or_req": "Optional",
             "type": "Boolean",

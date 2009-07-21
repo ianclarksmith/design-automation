@@ -218,16 +218,13 @@ class Mesh(IRhinoScript):
 
         return self._ApplyTypes_(853, 1, (VT_VARIANT, 0), params_magic_numbers, u"DuplicateMeshBorder", None, *params_flattened)
 
-    def explode_meshes(self, object, objects, delete=None):
+    def explode_meshes(self, objects, delete=None):
         """        
         Explodes a mesh object, or mesh objects,  into submeshes.  A submesh is a collection of mesh faces that are contained within a closed loop of unwelded mesh edges.  Unwelded mesh edges are edges where the mesh faces that share the edge have unique mesh vertices (not mesh topology vertices) at both ends of the edge.
     
         Parameters
         ==========
 
-        object, String, Required        
-        The identifier of the mesh object to explode.
-            
         objects, Array of ????, Required        
         An array of strings identifying the mesh objects to explode.
             
@@ -245,10 +242,10 @@ class Mesh(IRhinoScript):
 
         """
 
-        params = [object, objects, delete]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [object, flatten(objects), delete]
+        params = [objects, delete]
+        params_required = [True, False]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), delete]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -368,16 +365,13 @@ class Mesh(IRhinoScript):
 
         return self._ApplyTypes_(855, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMeshManifold", None, *params_flattened)
 
-    def mesh_area(self, object, objects):
+    def mesh_area(self, objects):
         """        
         Returns the approximate area of one or more mesh objects.
     
         Parameters
         ==========
 
-        object, String, Required        
-        The object's identifier.
-            
         objects, Array of ????, Required        
         An array of object identifier.
             
@@ -401,10 +395,10 @@ class Mesh(IRhinoScript):
 
         """
 
-        params = [object, objects]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(objects)]
+        params = [objects]
+        params_required = [True]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -1459,16 +1453,13 @@ class Mesh(IRhinoScript):
 
         return self._ApplyTypes_(127, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshVertices", None, *params_flattened)
 
-    def mesh_volume(self, object, objects):
+    def mesh_volume(self, objects):
         """        
         Returns the approximate volume of one or more closed mesh objects.
     
         Parameters
         ==========
 
-        object, String, Required        
-        The object's identifier.
-            
         objects, Array of ????, Required        
         An array of object identifier.
             
@@ -1492,10 +1483,10 @@ class Mesh(IRhinoScript):
 
         """
 
-        params = [object, objects]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(objects)]
+        params = [objects]
+        params_required = [True]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
