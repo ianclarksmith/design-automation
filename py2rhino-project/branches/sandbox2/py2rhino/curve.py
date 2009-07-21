@@ -1096,16 +1096,13 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(658, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveArcLengthPoint", None, *params_flattened)
 
-    def curve_area(self, object, objects):
+    def curve_area(self, objects):
         """        
         Returns that area of closed planar curves. The results are based on the current drawing units.
     
         Parameters
         ==========
 
-        object, String, Required        
-        The identifier of a closed, planar curve object.
-            
         objects, Array of ????, Required        
         An array of strings containing the identifiers of one or more closed, planar curve objects.
             
@@ -1126,10 +1123,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [object, objects]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(objects)]
+        params = [objects]
+        params_required = [True]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -1141,16 +1138,13 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(643, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveArea", None, *params_flattened)
 
-    def curve_area_centroid(self, object, objects):
+    def curve_area_centroid(self, objects):
         """        
         Returns that area centroid of closed, planar curves. The results are based on the current drawing units.
     
         Parameters
         ==========
 
-        object, String, Required        
-        The identifier of a closed, planar curve object.
-            
         objects, Array of ????, Required        
         An array of strings containing the identifiers of one or more closed, planar curve objects.
             
@@ -1165,10 +1159,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [object, objects]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(objects)]
+        params = [objects]
+        params_required = [True]
+        params_magic_numbers = [(VT_VARIANT, 1),]
+        params_flattened = [flatten(objects)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -1387,7 +1381,7 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(545, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBrepIntersect", None, *params_flattened)
 
-    def curve_closest_object(self, curve, object, objects):
+    def curve_closest_object(self, curve, objects):
         """        
         Returns the 3-D point locations on two objects where they are closest to each other.  Note, this function provides similar functionality to that of Rhino's ClosestPt command when used with the Object option.
     
@@ -1396,9 +1390,6 @@ class Curve(IRhinoScript):
 
         curve, String, Required        
         The identifier of the curve object to test.
-            
-        object, String, Required        
-        The identifier of a point cloud, curve, surface, or polysurface to test against.
             
         objects, Array of ????, Required        
         The identifiers of one or more point cloud, curve, surface, or polysurface to test against.
@@ -1423,10 +1414,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [curve, object, objects]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [curve, object, flatten(objects)]
+        params = [curve, objects]
+        params_required = [True, True]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [curve, flatten(objects)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -2987,7 +2978,7 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(100, 1, (VT_VARIANT, 0), params_magic_numbers, u"EvaluateCurve", None, *params_flattened)
 
-    def explode_curves(self, object, objects, delete=None):
+    def explode_curves(self, objects, delete=None):
         """        
         Explodes, or un-joins,  one more curve objects.  Polycurves will be exploded into curve segments.  Polylines will be exploded into line segments.  ExplodeCurves will return the curves in
 		topological order.
@@ -2995,9 +2986,6 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        object, String, Required        
-        The identifier of the curve object to explode.
-            
         objects, Array of ????, Required        
         An array of strings identifying the curve objects to explode.
             
@@ -3015,10 +3003,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [object, objects, delete]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [object, flatten(objects), delete]
+        params = [objects, delete]
+        params_required = [True, False]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), delete]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -4113,7 +4101,7 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(546, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshPolyline", None, *params_flattened)
 
-    def offset_curve(self, object, direction, normal=None, style=None):
+    def offset_curve(self, object, direction, distance, normal=None, style=None):
         """        
         Offsets a curve by a distance. The offset curve will be added to Rhino.
     
@@ -4125,13 +4113,15 @@ class Curve(IRhinoScript):
             
         direction, Array of ????, Required        
         The 3-D point that indicates the direction of the offset.
-		dblDistance
+            
+        distance, Double, Required        
+        The distance of the offset.
             
         normal, Array of ????, Optional        
         A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
             
         style, Integer, Optional        
-        The corner style.  Of omitted, a sharp corner style is used.
+        The corner style.  If omitted, a sharp corner style is used.
 		Value
 		Description
 		0
@@ -4155,10 +4145,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [object, direction, normal, style]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)]
-        params_flattened = [object, flatten(direction), flatten(normal), style]
+        params = [object, direction, distance, normal, style]
+        params_required = [True, True, True, False, False]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        params_flattened = [object, flatten(direction), distance, flatten(normal), style]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -4170,7 +4160,7 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(634, 1, (VT_VARIANT, 0), params_magic_numbers, u"OffsetCurve", None, *params_flattened)
 
-    def offset_curve_on_surface(self, curve, surface):
+    def offset_curve_on_surface(self, curve, surface, distance, parameter):
         """        
         Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
     
@@ -4182,9 +4172,12 @@ class Curve(IRhinoScript):
             
         surface, String, Required        
         The surface object's identifier.
-		dblDistance
-		Requried.  Number.  The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
-		arrParameter
+            
+        distance, Double, Required        
+        The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+            
+        parameter, Array of ????, Required        
+        An array containing the surface U,V parameter that the curve will be offset through.
             
         Returns
         =======
@@ -4197,10 +4190,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [curve, surface]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [curve, surface]
+        params = [curve, surface, distance, parameter]
+        params_required = [True, True, True, True]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        params_flattened = [curve, surface, distance, flatten(parameter)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -4464,24 +4457,18 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(112, 1, (VT_VARIANT, 0), params_magic_numbers, u"PolylineVertices", None, *params_flattened)
 
-    def project_curve_to_mesh(self, curve, curves, mesh, meshes, direction):
+    def project_curve_to_mesh(self, curves, mesh, direction):
         """        
         Projects one or more points onto one or more meshes.
     
         Parameters
         ==========
 
-        curve, String, Required        
-        The identifier of a curve object to project.
-            
         curves, Array of ????, Required        
         The identifiers of one or more curve objects to project.
             
         mesh, String, Required        
         The identifier of the mesh object to project onto.
-            
-        meshes, Array of ????, Required        
-        The identifiers of the mesh objects to project onto.
             
         direction, Array of ????, Required        
         The direction (3-D vector) to project the points.
@@ -4497,10 +4484,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [curve, curves, mesh, meshes, direction]
-        params_required = [True, True, True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [curve, flatten(curves), mesh, flatten(meshes), flatten(direction)]
+        params = [curves, mesh, direction]
+        params_required = [True, True, True]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(curves), mesh, flatten(direction)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -4512,24 +4499,18 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(911, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectCurveToMesh", None, *params_flattened)
 
-    def project_curve_to_surface(self, curve, curves, surface, surfaces, direction):
+    def project_curve_to_surface(self, curves, surface, direction):
         """        
         Projects one or more points onto one or more surfaces or polysurfaces.
     
         Parameters
         ==========
 
-        curve, String, Required        
-        The identifier of a curve object to project.
-            
         curves, Array of ????, Required        
         The identifiers of one or more curve objects to project.
             
         surface, String, Required        
         The identifier of the surface or polysurface object to project onto.
-            
-        surfaces, Array of ????, Required        
-        The identifiers of the surface or polysurface objects to project onto.
             
         direction, Array of ????, Required        
         The direction (3-D vector) to project the points.
@@ -4545,10 +4526,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [curve, curves, surface, surfaces, direction]
-        params_required = [True, True, True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [curve, flatten(curves), surface, flatten(surfaces), flatten(direction)]
+        params = [curves, surface, direction]
+        params_required = [True, True, True]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(curves), surface, flatten(direction)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -4737,7 +4718,7 @@ class Curve(IRhinoScript):
 
         return self._ApplyTypes_(573, 1, (VT_VARIANT, 0), params_magic_numbers, u"SimplifyCurve", None, *params_flattened)
 
-    def split_curve(self, object, parameter, parameters, delete=None):
+    def split_curve(self, object, parameters, delete=None):
         """        
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     
@@ -4746,9 +4727,6 @@ class Curve(IRhinoScript):
 
         object, String, Required        
         The object's identifier.
-            
-        parameter, Double, Required        
-        The parameter, to split the curve at, that is in the interval returned by CurveDomain.
             
         parameters, Array of ????, Required        
         An array of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
@@ -4767,10 +4745,10 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [object, parameter, parameters, delete]
-        params_required = [True, True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [object, parameter, flatten(parameters), delete]
+        params = [object, parameters, delete]
+        params_required = [True, True, False]
+        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [object, flatten(parameters), delete]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):

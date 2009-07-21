@@ -549,17 +549,17 @@ class Utility(IRhinoScript):
 
         return self._ApplyTypes_(287, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsProcedure", None, *params_flattened)
 
-    def join_arrays(self, 1, 2):
+    def join_arrays(self, array1, array2):
         """        
         Joins two one-dimensional arrays in to a single one-dimensional array.
     
         Parameters
         ==========
 
-        1, Array of ????, Required        
+        array1, Array of ????, Required        
         The first one-dimensional array.
             
-        2, Array of ????, Required        
+        array2, Array of ????, Required        
         The second one-dimensional array.
             
         Returns
@@ -573,10 +573,10 @@ class Utility(IRhinoScript):
 
         """
 
-        params = [1, 2]
+        params = [array1, array2]
         params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(1), flatten(2)]
+        params_flattened = [flatten(array1), flatten(array2)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):

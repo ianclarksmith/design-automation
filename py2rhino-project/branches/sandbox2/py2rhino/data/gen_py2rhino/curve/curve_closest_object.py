@@ -23,15 +23,6 @@ curve_closest_object = {
             """
         },
         1: {
-            "name": "Object",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of a point cloud, curve, surface, or polysurface to test against.
-            """
-        },
-        2: {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",

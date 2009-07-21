@@ -696,42 +696,6 @@ class View(IRhinoScript):
 
         return self._ApplyTypes_(257, 1, (VT_VARIANT, 0), params_magic_numbers, u"MaximizeRestoreView", None, *params_flattened)
 
-    def named_c_plane(self, name):
-        """        
-        Returns the plane geometry of the specified named construction plane.
-    
-        Parameters
-        ==========
-
-        name, String, Required        
-        The name of a named construction plane.
-            
-        Returns
-        =======
-
-        array
-        An array containing the plane. The elements of a construction plane array are as follows:
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [name]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [name]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(286, 1, (VT_VARIANT, 0), params_magic_numbers, u"NamedCPlane", None, *params_flattened)
-
     def named_c_planes():
         """        
         Returns the names of all named construction planes in the document.
@@ -1496,55 +1460,6 @@ class View(IRhinoScript):
         params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(517, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewCameraUp", None, *params_flattened)
-
-    def view_display_mode(self, view=None, mode=None):
-        """        
-        Returns or sets a view's display mode.  A view's display mode can be either wireframe, shaded, or render preview.
-    
-        Parameters
-        ==========
-
-        view, String, Optional        
-        The title or identifier of the view.  If omitted, the current active view is used.
-            
-        mode, Integer, Optional        
-        The display mode.  The display modes are as follows:
-		Value
-		Description
-		0
-		Wireframe.
-		1
-		Shaded.
-		2
-            
-        Returns
-        =======
-
-        number
-        If intMode is not specified, the current display mode for the specified view if successful.
-
-        number
-        If intMode is specified, the previous display mode for the specified view if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [view, mode]
-        params_required = [False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [view, mode]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(290, 1, (VT_VARIANT, 0), params_magic_numbers, u"ViewDisplayMode", None, *params_flattened)
 
     def view_display_mode_ex(self, view=None, mode=None, return_names=None):
         """        

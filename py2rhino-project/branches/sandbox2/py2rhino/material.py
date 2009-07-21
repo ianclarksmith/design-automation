@@ -188,7 +188,7 @@ class Material(IRhinoScript):
 
         return self._ApplyTypes_(176, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsMaterialReference", None, *params_flattened)
 
-    def match_material(self, src_material_index, src_object, dest_object, dest_objects):
+    def match_material(self, src_material_index, src_object, dest_objects):
         """        
         Copies the material definition from one material to one or more objects.
     
@@ -200,9 +200,6 @@ class Material(IRhinoScript):
             
         src_object, String, Required        
         The identifier of the source object.  The object must have a material assigned.
-            
-        dest_object, String, Required        
-        The identifier of the destination object.  If the object's material source is set to "By Layer", it will be changed to "By Object."
             
         dest_objects, Array of ????, Required        
         An array of destination object identifiers.  If the objects' material sources are set to "By Layer", they will be changed to "By Object."
@@ -218,10 +215,10 @@ class Material(IRhinoScript):
 
         """
 
-        params = [src_material_index, src_object, dest_object, dest_objects]
-        params_required = [True, True, True, True]
-        params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [src_material_index, src_object, dest_object, flatten(dest_objects)]
+        params = [src_material_index, src_object, dest_objects]
+        params_required = [True, True, True]
+        params_magic_numbers = [(VT_I2, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [src_material_index, src_object, flatten(dest_objects)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):

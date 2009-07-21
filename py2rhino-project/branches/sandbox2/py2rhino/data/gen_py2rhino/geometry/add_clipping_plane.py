@@ -41,15 +41,6 @@ add_clipping_plane = {
             """
         },
         3: {
-            "name": "View",
-            "opt_or_req": "Optional",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The title of the view to clip.  If omitted, the current active view is used.
-            """
-        },
-        4: {
             "name": "Views",
             "opt_or_req": "Optional",
             "type": "Array",

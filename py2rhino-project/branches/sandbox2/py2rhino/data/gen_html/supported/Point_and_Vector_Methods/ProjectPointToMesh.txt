@@ -24,7 +24,7 @@ Parameters
 
 
 
-point 
+arrPoint 
 
 Required.  A 3-D point to project.
 

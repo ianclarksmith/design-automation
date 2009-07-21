@@ -17,26 +17,6 @@ curve = {
     	# 1: vaIndex, Optional
         "Object": 	("Required", "str"),
     },
-    "offset_curve": {
-    	# The COM object lists the following parameters
-    	# 0: vaObject, Required
-    	# 1: vaOrigin, Required
-    	# 2: vaDistance, Required
-    	# 3: vaNormal, Optional
-    	# 4: vaCorner, Optional
-        "Object": 	("Required", "str"),
-        "Direction": 	("Required", "arr_of_???"),
-        "Normal": 	("Optional", "arr_of_???"),
-        "Style": 	("Optional", "int"),
-    },
-    "offset_curve_on_surface": {
-    	# The COM object lists the following parameters
-    	# 0: vaCurve, Required
-    	# 1: vaSurface, Required
-    	# 2: vaDistance, Required
-        "Curve": 	("Required", "str"),
-        "Surface": 	("Required", "str"),
-    },
 },
 dimension = {
 },

@@ -14,15 +14,6 @@ match_object_attributes = {
 
     "params_html": {
         0: {
-            "name": "Target",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of the target object.
-            """
-        },
-        1: {
             "name": "Targets",
             "opt_or_req": "Required",
             "type": "Array",
@@ -31,7 +22,7 @@ match_object_attributes = {
         An array of strings identifying the target objects.
             """
         },
-        2: {
+        1: {
             "name": "Source",
             "opt_or_req": "Optional",
             "type": "String",

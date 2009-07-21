@@ -44,7 +44,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         return self._ApplyTypes_(72, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddBox", None, *params_flattened)
 
-    def add_cone(self, base, plane, height, height, radius, cap=None):
+    def add_cone(self, base, plane, height, height2, radius, cap=None):
         """        
         Adds a cone-shaped polysurface to the document.
     
@@ -80,10 +80,10 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         """
 
-        params = [base, plane, height, height, radius, cap]
+        params = [base, plane, height, height2, radius, cap]
         params_required = [True, True, True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(base), flatten(plane), flatten(height), height, radius, cap]
+        params_flattened = [flatten(base), flatten(plane), flatten(height), height2, radius, cap]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -140,7 +140,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         return self._ApplyTypes_(822, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCutPlane", None, *params_flattened)
 
-    def add_cylinder(self, base, plane, height, height, radius, cap=None):
+    def add_cylinder(self, base, plane, height, height2, radius, cap=None):
         """        
         Adds a cylinder-shaped polysurface to the document.
     
@@ -176,10 +176,10 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         """
 
-        params = [base, plane, height, height, radius, cap]
+        params = [base, plane, height, height2, radius, cap]
         params_required = [True, True, True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(base), flatten(plane), flatten(height), height, radius, cap]
+        params_flattened = [flatten(base), flatten(plane), flatten(height), height2, radius, cap]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -1261,16 +1261,13 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         return self._ApplyTypes_(205, 1, (VT_VARIANT, 0), params_magic_numbers, u"EvaluateSurface", None, *params_flattened)
 
-    def explode_polysurfaces(self, object, objects, delete=None):
+    def explode_polysurfaces(self, objects, delete=None):
         """        
         Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.
     
         Parameters
         ==========
 
-        object, String, Required        
-        The identifier of the polysurface object to explode.
-            
         objects, Array of ????, Required        
         An array of strings identifying the polysurface objects to explode.
             
@@ -1288,10 +1285,10 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         """
 
-        params = [object, objects, delete]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [object, flatten(objects), delete]
+        params = [objects, delete]
+        params_required = [True, False]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), delete]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):

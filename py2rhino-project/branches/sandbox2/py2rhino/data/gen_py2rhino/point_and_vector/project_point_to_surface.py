@@ -19,19 +19,10 @@ project_point_to_surface = {
             "type": "Array",
             "type_string": "arr",
             "doc": """
-        A 3-D point to project.
-            """
-        },
-        1: {
-            "name": "Points",
-            "opt_or_req": "Required",
-            "type": "Array",
-            "type_string": "arr",
-            "doc": """
         An array of 3-D points to project.
             """
         },
-        2: {
+        1: {
             "name": "Surface",
             "opt_or_req": "Required",
             "type": "String",
@@ -40,16 +31,7 @@ project_point_to_surface = {
         The identifier of the surface or polysurface object to project onto.
             """
         },
-        3: {
-            "name": "Surfaces",
-            "opt_or_req": "Required",
-            "type": "Array",
-            "type_string": "arr",
-            "doc": """
-        The identifiers of the surface or polysurface objects to project onto.
-            """
-        },
-        4: {
+        2: {
             "name": "Direction",
             "opt_or_req": "Required",
             "type": "Array",

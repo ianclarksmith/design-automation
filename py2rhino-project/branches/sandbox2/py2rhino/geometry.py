@@ -8,7 +8,7 @@ class Geometry(IRhinoScript):
 
 
 
-    def add_clipping_plane(self, plane, d_u, d_v, view=None, views=None):
+    def add_clipping_plane(self, plane, d_u, d_v, views=None):
         """        
         Creates a clipping plane. A clipping plane is a plane for visibly clipping away geometry in a specific view. Note, clipping planes are infinite.
     
@@ -24,9 +24,6 @@ class Geometry(IRhinoScript):
         d_v, Double, Required        
         The magnitude in the V direction.
             
-        view, String, Optional        
-        The title of the view to clip.  If omitted, the current active view is used.
-            
         views, Array of ????, Optional        
         The titles of the views to clip.  If omitted, the current active view is used.
             
@@ -41,10 +38,10 @@ class Geometry(IRhinoScript):
 
         """
 
-        params = [plane, d_u, d_v, view, views]
-        params_required = [True, True, True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane), d_u, d_v, view, flatten(views)]
+        params = [plane, d_u, d_v, views]
+        params_required = [True, True, True, False]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(plane), d_u, d_v, flatten(views)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -55,42 +52,6 @@ class Geometry(IRhinoScript):
         params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(904, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddClippingPlane", None, *params_flattened)
-
-    def add_point(self, point):
-        """        
-        Adds a point object to the document.
-    
-        Parameters
-        ==========
-
-        point, Array of ????, Required        
-        A 3-D point.
-            
-        Returns
-        =======
-
-        string
-        The identifier of the new object if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [point]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(point)]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(68, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPoint", None, *params_flattened)
 
     def add_point_cloud(self, points):
         """        
@@ -261,16 +222,13 @@ class Geometry(IRhinoScript):
 
         return self._ApplyTypes_(320, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddTextDot", None, *params_flattened)
 
-    def bounding_box(self, object, objects, view=None, world_coords=None):
+    def bounding_box(self, objects, view=None, world_coords=None):
         """        
         Returns either a world axis-aligned or a construction plane axis-aligned bounding box of an object or of several objects.
     
         Parameters
         ==========
 
-        object, String, Required        
-        The identifier of the object.
-            
         objects, Array of ????, Required        
         An array of strings identifying the objects.
             
@@ -291,10 +249,10 @@ class Geometry(IRhinoScript):
 
         """
 
-        params = [object, objects, view, world_coords]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [object, flatten(objects), view, world_coords]
+        params = [objects, view, world_coords]
+        params_required = [True, False, False]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        params_flattened = [flatten(objects), view, world_coords]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):

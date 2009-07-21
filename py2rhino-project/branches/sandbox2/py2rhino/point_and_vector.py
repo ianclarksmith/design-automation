@@ -554,7 +554,7 @@ class PointAndVector(IRhinoScript):
 
         return self._ApplyTypes_(593, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointsAreCoplanar", None, *params_flattened)
 
-    def project_point_to_mesh(self, points, points, mesh, meshes, direction):
+    def project_point_to_mesh(self, points, mesh, direction):
         """        
         Projects one or more points onto one or more meshes.
     
@@ -562,16 +562,10 @@ class PointAndVector(IRhinoScript):
         ==========
 
         points, Array of ????, Required        
-        A 3-D point to project.
-            
-        points, Array of ????, Required        
         An array of 3-D points to project.
             
         mesh, String, Required        
         The identifier of the mesh object to project onto.
-            
-        meshes, Array of ????, Required        
-        The identifiers of the mesh objects to project onto.
             
         direction, Array of ????, Required        
         The direction (3-D vector) to project the points.
@@ -587,10 +581,10 @@ class PointAndVector(IRhinoScript):
 
         """
 
-        params = [points, points, mesh, meshes, direction]
-        params_required = [True, True, True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), flatten(points), mesh, flatten(meshes), flatten(direction)]
+        params = [points, mesh, direction]
+        params_required = [True, True, True]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(points), mesh, flatten(direction)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):
@@ -602,7 +596,7 @@ class PointAndVector(IRhinoScript):
 
         return self._ApplyTypes_(912, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectPointToMesh", None, *params_flattened)
 
-    def project_point_to_surface(self, points, points, surface, surfaces, direction):
+    def project_point_to_surface(self, points, surface, direction):
         """        
         Projects one or more points onto one or more surfaces or polysurfaces.
     
@@ -610,16 +604,10 @@ class PointAndVector(IRhinoScript):
         ==========
 
         points, Array of ????, Required        
-        A 3-D point to project.
-            
-        points, Array of ????, Required        
         An array of 3-D points to project.
             
         surface, String, Required        
         The identifier of the surface or polysurface object to project onto.
-            
-        surfaces, Array of ????, Required        
-        The identifiers of the surface or polysurface objects to project onto.
             
         direction, Array of ????, Required        
         The direction (3-D vector) to project the points.
@@ -635,10 +623,10 @@ class PointAndVector(IRhinoScript):
 
         """
 
-        params = [points, points, surface, surfaces, direction]
-        params_required = [True, True, True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), flatten(points), surface, flatten(surfaces), flatten(direction)]
+        params = [points, surface, direction]
+        params_required = [True, True, True]
+        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        params_flattened = [flatten(points), surface, flatten(direction)]
 
         for i in range(len(params)):
             if (params[i] == None) and (not params_required[i]):

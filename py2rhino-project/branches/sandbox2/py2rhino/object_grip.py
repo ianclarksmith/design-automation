@@ -47,57 +47,6 @@ class ObjectGrip(IRhinoScript):
 
         return self._ApplyTypes_(499, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableObjectGrips", None, *params_flattened)
 
-    def get_object_grip(self, message=None, pre_select=None, select=None):
-        """        
-        Prompts the user to pick or select a single object grip.
-    
-        Parameters
-        ==========
-
-        message, String, Optional        
-        A prompt or message.
-            
-        pre_select, Boolean, Optional        
-        Allow for the selection of a pre-selected object grip.  If omitted, pre-selected object grips are not accepted (False).
-            
-        select, Boolean, Optional        
-        Select the picked object grip.  If omitted, the object grip that is  picked is not selected (False).
-            
-        Returns
-        =======
-
-        array
-        A one-dimensional array containing the following three elements if successful:
-
-        string
-        The identifier of the object that owns the grip.
-
-        number
-        The zero-based index value of the grip.
-
-        array
-        A 3-D point identifying the location of the grip.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [message, pre_select, select]
-        params_required = [False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
-        params_flattened = [message, pre_select, select]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(561, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjectGrip", None, *params_flattened)
-
     def get_object_grips(self, message=None, pre_select=None, select=None):
         """        
         Prompts the user to pick or select one or more object grips from one or more objects.
@@ -229,51 +178,6 @@ class ObjectGrip(IRhinoScript):
         params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(500, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripCount", None, *params_flattened)
-
-    def object_grip_location(self, object, index, point=None):
-        """        
-        Returns or modifies the location of an object's grip.
-    
-        Parameters
-        ==========
-
-        object, String, Required        
-        The identifier of the object.
-            
-        index, Integer, Required        
-        The zero-based index of the grip to either query or modify.
-            
-        point, Array of ????, Optional        
-        A 3-D point identifying the new location of the grip.
-            
-        Returns
-        =======
-
-        array
-        If arrPoint is not specified, the current location of the grip referenced by intIndex if successful.
-
-        array
-        If arrPoint is specified, the previous location of the grip referenced by intIndex if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [object, index, point]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, index, flatten(point)]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(556, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripLocation", None, *params_flattened)
 
     def object_grip_locations(self, object, points=None):
         """        
@@ -434,45 +338,6 @@ class ObjectGrip(IRhinoScript):
 
         return self._ApplyTypes_(559, 1, (VT_VARIANT, 0), params_magic_numbers, u"PrevObjectGrip", None, *params_flattened)
 
-    def select_object_grip(self, object, index):
-        """        
-        Selects a single grip owned by an object. If the object's grips are not turned on, grips will  not be selected.
-    
-        Parameters
-        ==========
-
-        object, String, Required        
-        The identifier of the object.
-            
-        index, Integer, Required        
-        The zero-based grip index to select.
-            
-        Returns
-        =======
-
-        boolean
-        True or False indicating success or failure.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [object, index]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(554, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObjectGrip", None, *params_flattened)
-
     def select_object_grips(self, object):
         """        
         Selects an object's grips. If the object's grips are not turned on, they will not be selected.
@@ -544,45 +409,6 @@ class ObjectGrip(IRhinoScript):
         params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(560, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectedObjectGrips", None, *params_flattened)
-
-    def unselect_object_grip(self, object, index):
-        """        
-        Unselects a single grip owned by an object.
-    
-        Parameters
-        ==========
-
-        object, String, Required        
-        The identifier of the object.
-            
-        index, Integer, Required        
-        The zero-based grip index to unselect.
-            
-        Returns
-        =======
-
-        boolean
-        True or False indicating success or failure.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [object, index]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(555, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObjectGrip", None, *params_flattened)
 
     def unselect_object_grips(self, object):
         """        

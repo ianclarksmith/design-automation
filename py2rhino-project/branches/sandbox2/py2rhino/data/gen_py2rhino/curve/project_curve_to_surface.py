@@ -14,15 +14,6 @@ project_curve_to_surface = {
 
     "params_html": {
         0: {
-            "name": "Curve",
-            "opt_or_req": "Required",
-            "type": "Array",
-            "type_string": "str",
-            "doc": """
-        The identifier of a curve object to project.
-            """
-        },
-        1: {
             "name": "Curves",
             "opt_or_req": "Required",
             "type": "Array",
@@ -31,7 +22,7 @@ project_curve_to_surface = {
         The identifiers of one or more curve objects to project.
             """
         },
-        2: {
+        1: {
             "name": "Surface",
             "opt_or_req": "Required",
             "type": "String",
@@ -40,16 +31,7 @@ project_curve_to_surface = {
         The identifier of the surface or polysurface object to project onto.
             """
         },
-        3: {
-            "name": "Surfaces",
-            "opt_or_req": "Required",
-            "type": "Array",
-            "type_string": "arr",
-            "doc": """
-        The identifiers of the surface or polysurface objects to project onto.
-            """
-        },
-        4: {
+        2: {
             "name": "Direction",
             "opt_or_req": "Required",
             "type": "Array",

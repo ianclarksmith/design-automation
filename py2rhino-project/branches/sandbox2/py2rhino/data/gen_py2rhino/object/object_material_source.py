@@ -20,15 +20,6 @@ object_material_source = {
 
     "params_html": {
         0: {
-            "name": "Object",
-            "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
-            "doc": """
-        The identifier of the object.
-            """
-        },
-        1: {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
@@ -37,7 +28,7 @@ object_material_source = {
         An array of strings identifying the objects to modify.
             """
         },
-        2: {
+        1: {
             "name": "Source",
             "opt_or_req": "Optional",
             "type": "Number",

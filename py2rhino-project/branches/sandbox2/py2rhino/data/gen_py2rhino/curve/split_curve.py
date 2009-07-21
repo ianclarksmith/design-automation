@@ -23,15 +23,6 @@ split_curve = {
             """
         },
         1: {
-            "name": "Parameter",
-            "opt_or_req": "Required",
-            "type": "Number",
-            "type_string": "dbl",
-            "doc": """
-        The parameter, to split the curve at, that is in the interval returned by CurveDomain.
-            """
-        },
-        2: {
             "name": "Parameters",
             "opt_or_req": "Required",
             "type": "Array",
@@ -40,7 +31,7 @@ split_curve = {
         An array of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
             """
         },
-        3: {
+        2: {
             "name": "Delete",
             "opt_or_req": "Optional",
             "type": "Boolean",

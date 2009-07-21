@@ -5,14 +5,12 @@ from popup_menu import *
 from check_list_box import *
 from real_box import *
 from get_box import *
-from open_file_name import *
 from message_beep import *
 from get_boolean import *
 from get_point_on_mesh import *
 from get_point_on_line import *
 from get_string import *
 from integer_box import *
-from get_point import *
 from get_integer import *
 from get_point_on_surface import *
 from string_box import *

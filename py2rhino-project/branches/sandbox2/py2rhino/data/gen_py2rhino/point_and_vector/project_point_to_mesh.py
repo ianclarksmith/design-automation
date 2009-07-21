@@ -19,19 +19,10 @@ project_point_to_mesh = {
             "type": "Array",
             "type_string": "arr",
             "doc": """
-        A 3-D point to project.
-            """
-        },
-        1: {
-            "name": "Points",
-            "opt_or_req": "Required",
-            "type": "Array",
-            "type_string": "arr",
-            "doc": """
         An array of 3-D points to project.
             """
         },
-        2: {
+        1: {
             "name": "Mesh",
             "opt_or_req": "Required",
             "type": "String",
@@ -40,16 +31,7 @@ project_point_to_mesh = {
         The identifier of the mesh object to project onto.
             """
         },
-        3: {
-            "name": "Meshes",
-            "opt_or_req": "Required",
-            "type": "Array",
-            "type_string": "arr",
-            "doc": """
-        The identifiers of the mesh objects to project onto.
-            """
-        },
-        4: {
+        2: {
             "name": "Direction",
             "opt_or_req": "Required",
             "type": "Array",

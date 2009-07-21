@@ -539,51 +539,6 @@ class UserInterface(IRhinoScript):
 
         return self._ApplyTypes_(673, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetLinetype", None, *params_flattened)
 
-    def get_point(self, message=None, point=None, distance=None, plane=None):
-        """        
-        Pauses for user input of a point.
-    
-        Parameters
-        ==========
-
-        message, String, Optional        
-        A prompt or message.
-            
-        point, Array of ????, Optional        
-        A zero-based, one-dimensional array containing three numbers identifying a starting, or base, point.
-            
-        distance, Double, Optional        
-        A constraining distance.  If a constraining distance is specified, a base point must also be specified.
-            
-        plane, Boolean, Optional        
-        Constrain the point selection to the active construction plane.
-            
-        Returns
-        =======
-
-        array
-        A zero-based, one-dimensional array containing three numbers identifying the 3-D point input by the user successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [message, point, distance, plane]
-        params_required = [False, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BOOL, 1)]
-        params_flattened = [message, flatten(point), distance, plane]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(61, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPoint", None, *params_flattened)
-
     def get_point_on_curve(self, object, message=None):
         """        
         Pauses for user input of a point constrained to a curve object.
@@ -1370,54 +1325,6 @@ class UserInterface(IRhinoScript):
         params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(57, 1, (VT_VARIANT, 0), params_magic_numbers, u"MultiListBox", None, *params_flattened)
-
-    def open_file_name(self, title=None, filter=None, folder=None, filename=None, extension=None):
-        """        
-        Displays a Windows file open dialog box allowing the user to select a file name. Note, this function does not open the file.
-    
-        Parameters
-        ==========
-
-        title, String, Optional        
-        A dialog box title.
-            
-        filter, String, Optional        
-        A filter string.  The filter string must be in the following form:  "Description1|Filter1|Description2|Filter2||", where "||" terminates filter string.  If omitted, the filter (*.*) is used.
-            
-        folder, String, Optional        
-        A default folder.
-            
-        filename, String, Optional        
-        A default file name.
-            
-        extension, String, Optional        
-        A default file extension.
-            
-        Returns
-        =======
-
-        string
-        The file name if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [title, filter, folder, filename, extension]
-        params_required = [False, False, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [title, filter, folder, filename, extension]
-
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
-
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(151, 1, (VT_VARIANT, 0), params_magic_numbers, u"OpenFileName", None, *params_flattened)
 
     def open_file_names(self, title=None, filter=None, folder=None, filename=None, extension=None):
         """        
