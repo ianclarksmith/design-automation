@@ -30,14 +30,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(685, 1, (VT_VARIANT, 0), params_magic_numbers, u"AttributeDataCount", None, *params_flattened)
 
@@ -69,14 +72,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object, section, entry]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, section, entry]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(684, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteAttributeData", None, *params_flattened)
 
@@ -105,14 +111,17 @@ class UserData(IRhinoScript):
         """
 
         params = [section, entry]
-        params_opt_or_req = [Optional, Optional]
+        params_required = [False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [section, entry]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(237, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteDocumentData", None, *params_flattened)
 
@@ -144,18 +153,21 @@ class UserData(IRhinoScript):
         """
 
         params = [object, section, entry]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, section, entry]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(238, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteObjectData", None, *params_flattened)
 
-    def document_data_count):
+    def document_data_count():
         """        
         Returns the number of RhinoScript user data items in the current document.
     
@@ -170,14 +182,17 @@ class UserData(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(239, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentDataCount", None, *params_flattened)
 
@@ -215,14 +230,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object, section, entry]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, section, entry]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(682, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetAttributeData", None, *params_flattened)
 
@@ -257,14 +275,17 @@ class UserData(IRhinoScript):
         """
 
         params = [section, entry]
-        params_opt_or_req = [Optional, Optional]
+        params_required = [False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [section, entry]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(240, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetDocumentData", None, *params_flattened)
 
@@ -302,14 +323,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object, section, entry]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, section, entry]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(241, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjectData", None, *params_flattened)
 
@@ -349,14 +373,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object, key, attach_to_geometry]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, key, attach_to_geometry]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(729, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetUserText", None, *params_flattened)
 
@@ -382,18 +409,21 @@ class UserData(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(686, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsAttributeData", None, *params_flattened)
 
-    def is_document_data):
+    def is_document_data():
         """        
         Verifies that the current document contains RhinoScript user data.
     
@@ -408,14 +438,17 @@ class UserData(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(278, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDocumentData", None, *params_flattened)
 
@@ -441,14 +474,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(279, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsObjectData", None, *params_flattened)
 
@@ -474,14 +510,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(730, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsUserText", None, *params_flattened)
 
@@ -507,14 +546,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(242, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectDataCount", None, *params_flattened)
 
@@ -549,14 +591,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object, section, entry, value]
-        params_opt_or_req = [Required, Required, Required, Required]
+        params_required = [True, True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, section, entry, value]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(683, 1, (VT_VARIANT, 0), params_magic_numbers, u"SetAttributeData", None, *params_flattened)
 
@@ -588,14 +633,17 @@ class UserData(IRhinoScript):
         """
 
         params = [section, entry, value]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [section, entry, value]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(243, 1, (VT_VARIANT, 0), params_magic_numbers, u"SetDocumentData", None, *params_flattened)
 
@@ -630,14 +678,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object, section, entry, value]
-        params_opt_or_req = [Required, Required, Required, Required]
+        params_required = [True, True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [object, section, entry, value]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(244, 1, (VT_VARIANT, 0), params_magic_numbers, u"SetObjectData", None, *params_flattened)
 
@@ -677,14 +728,17 @@ class UserData(IRhinoScript):
         """
 
         params = [object, key, value, attach_to_geometry]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, key, value, attach_to_geometry]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(728, 1, (VT_VARIANT, 0), params_magic_numbers, u"SetUserText", None, *params_flattened)
 

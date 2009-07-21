@@ -1,22 +1,18 @@
-from win32com.client import Dispatch
-import time 
-#===============================================================================
-# Make the connection
-#===============================================================================
-app = Dispatch("Rhino4.Interface")
-time.sleep(1)
-app.Visible = True
-script_object = app.GetScriptObject
-
+#TESTING
 #===============================================================================
 # Curves
 #===============================================================================
+import py2rhino
 from py2rhino.curve import Curve
-curve = Curve(script_object)
+
+cv = Curve.add_line((0,0,0), (10,10,0))
+length = cv.length()
+
+
+print curve
 # draw a line
 
-
-
+"""
 spl = u'b54d0963-0772-463e-b579-39770b5612e4'
 pl = u'c0080928-ca3d-40fa-b1db-deeb9338c036'
 box = u'8d5ec6ff-2ae7-4fc3-b798-779ce882ae04'
@@ -33,6 +29,9 @@ print curve.curve_area((cir, closed_spl))
 print curve.curve_area(cir)
 print curve.curve_area((cir,))
 print curve.curve_area([cir])
+"""
 
+cv1 = u'4667b736-caba-43c7-a123-82710108c031'
+cv2 = u'8ba463b6-eb00-404e-82af-2650fb543763'
 print " --"
-print curve.curve_knot_count(spl, 0)
+print curve.curve_knot_count(cv2, 2)

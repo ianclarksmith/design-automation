@@ -59,14 +59,17 @@ class Document(IRhinoScript):
         """
 
         params = [file, view, size, flags, wireframe]
-        params_opt_or_req = [Required, Optional, Optional, Optional, Optional]
+        params_required = [True, False, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [file, view, flatten(size), flags, wireframe]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(388, 1, (VT_VARIANT, 0), params_magic_numbers, u"CreatePreviewImage", None, *params_flattened)
 
@@ -93,18 +96,21 @@ class Document(IRhinoScript):
         """
 
         params = [modified]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_BOOL, 1),]
         params_flattened = [modified]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(323, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentModified", None, *params_flattened)
 
-    def document_name):
+    def document_name():
         """        
         Returns the name of the currently loaded Rhino document (3DM file).
     
@@ -122,18 +128,21 @@ class Document(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(113, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentName", None, *params_flattened)
 
-    def document_path):
+    def document_path():
         """        
         Returns the path of the currently loaded Rhino document (3DM file).
     
@@ -151,14 +160,17 @@ class Document(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(301, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentPath", None, *params_flattened)
 
@@ -187,14 +199,17 @@ class Document(IRhinoScript):
         """
 
         params = [u_r_l]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [u_r_l]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(275, 1, (VT_VARIANT, 0), params_magic_numbers, u"DocumentURL", None, *params_flattened)
 
@@ -217,14 +232,17 @@ class Document(IRhinoScript):
         """
 
         params = [select]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_BOOL, 1),]
         params_flattened = [select]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(317, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableRedraw", None, *params_flattened)
 
@@ -263,18 +281,21 @@ class Document(IRhinoScript):
         """
 
         params = [file_name, model_name]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [file_name, model_name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(389, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtractPreviewImage", None, *params_flattened)
 
-    def is_document_modified):
+    def is_document_modified():
         """        
         Verifies that the current document has been modified in some way.
     
@@ -289,14 +310,17 @@ class Document(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(273, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDocumentModified", None, *params_flattened)
 
@@ -325,18 +349,21 @@ class Document(IRhinoScript):
         """
 
         params = [notes]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [notes]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(274, 1, (VT_VARIANT, 0), params_magic_numbers, u"Notes", None, *params_flattened)
 
-    def read_file_version):
+    def read_file_version():
         """        
         Returns the file version of the current document.  Use this function to determine which version of Rhino last saved the document. Note, this function will not return values from referenced or merged files.
     
@@ -354,18 +381,21 @@ class Document(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(737, 1, (VT_VARIANT, 0), params_magic_numbers, u"ReadFileVersion", None, *params_flattened)
 
-    def redraw):
+    def redraw():
         """        
         Redraws all views.
     
@@ -377,14 +407,17 @@ class Document(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(114, 1, (VT_VARIANT, 0), params_magic_numbers, u"Redraw", None, *params_flattened)
 
@@ -421,14 +454,17 @@ class Document(IRhinoScript):
         """
 
         params = [style]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [style]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(333, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderAntialias", None, *params_flattened)
 
@@ -463,14 +499,17 @@ class Document(IRhinoScript):
         """
 
         params = [item, color]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_I4, 1)]
         params_flattened = [item, color]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(331, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderColor", None, *params_flattened)
 
@@ -500,14 +539,17 @@ class Document(IRhinoScript):
         """
 
         params = [density]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [density]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(844, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshDensity", None, *params_flattened)
 
@@ -537,14 +579,17 @@ class Document(IRhinoScript):
         """
 
         params = [angle]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [angle]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(845, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMaxAngle", None, *params_flattened)
 
@@ -574,14 +619,17 @@ class Document(IRhinoScript):
         """
 
         params = [ratio]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [ratio]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(846, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMaxAspectRatio", None, *params_flattened)
 
@@ -611,14 +659,17 @@ class Document(IRhinoScript):
         """
 
         params = [distance]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [distance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(849, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMaxDistEdgeToSrf", None, *params_flattened)
 
@@ -648,14 +699,17 @@ class Document(IRhinoScript):
         """
 
         params = [length]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [length]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(848, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMaxEdgeLength", None, *params_flattened)
 
@@ -685,14 +739,17 @@ class Document(IRhinoScript):
         """
 
         params = [length]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [length]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(847, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMinEdgeLength", None, *params_flattened)
 
@@ -722,14 +779,17 @@ class Document(IRhinoScript):
         """
 
         params = [quads]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [quads]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(850, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshMinInitialGridQuads", None, *params_flattened)
 
@@ -766,14 +826,17 @@ class Document(IRhinoScript):
         """
 
         params = [quality]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [quality]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(843, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshQuality", None, *params_flattened)
 
@@ -812,14 +875,17 @@ class Document(IRhinoScript):
         """
 
         params = [settings]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [settings]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(851, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderMeshSettings", None, *params_flattened)
 
@@ -848,14 +914,17 @@ class Document(IRhinoScript):
         """
 
         params = [resolution]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(resolution)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(332, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderResolution", None, *params_flattened)
 
@@ -895,14 +964,17 @@ class Document(IRhinoScript):
         """
 
         params = [settings]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [settings]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(334, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenderSettings", None, *params_flattened)
 
@@ -931,14 +1003,17 @@ class Document(IRhinoScript):
         """
 
         params = [abs_tol]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [abs_tol]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(324, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitAbsoluteTolerance", None, *params_flattened)
 
@@ -967,14 +1042,17 @@ class Document(IRhinoScript):
         """
 
         params = [angle_tol]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [angle_tol]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(325, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitAngleTolerance", None, *params_flattened)
 
@@ -1006,14 +1084,17 @@ class Document(IRhinoScript):
         """
 
         params = [units, scale, name]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_R8, 1), (VT_BOOL, 1), (VT_BSTR, 1)]
         params_flattened = [units, scale, name]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(326, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitCustomUnitSystem", None, *params_flattened)
 
@@ -1049,14 +1130,17 @@ class Document(IRhinoScript):
         """
 
         params = [mode]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [mode]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(327, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitDistanceDisplayMode", None, *params_flattened)
 
@@ -1085,14 +1169,17 @@ class Document(IRhinoScript):
         """
 
         params = [precision]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_I2, 1),]
         params_flattened = [precision]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(328, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitDistanceDisplayPrecision", None, *params_flattened)
 
@@ -1121,14 +1208,17 @@ class Document(IRhinoScript):
         """
 
         params = [rel_tol]
-        params_opt_or_req = [Optional]
+        params_required = [False]
         params_magic_numbers = [(VT_R8, 1),]
         params_flattened = [rel_tol]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(329, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitRelativeTolerance", None, *params_flattened)
 
@@ -1210,14 +1300,17 @@ class Document(IRhinoScript):
         """
 
         params = [to_system, from_system]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_I2, 1), (VT_I2, 1)]
         params_flattened = [to_system, from_system]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(868, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitScale", None, *params_flattened)
 
@@ -1299,14 +1392,17 @@ class Document(IRhinoScript):
         """
 
         params = [system, scale]
-        params_opt_or_req = [Optional, Optional]
+        params_required = [False, False]
         params_magic_numbers = [(VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [system, scale]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(330, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitSystem", None, *params_flattened)
 
@@ -1335,14 +1431,17 @@ class Document(IRhinoScript):
         """
 
         params = [capitalize, singular, abbreviate]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
         params_flattened = [capitalize, singular, abbreviate]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(492, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnitSystemName", None, *params_flattened)
 

@@ -18,11 +18,11 @@ Parameters
 
 
 
-arr1 
+arrArray1 
 
 Required. Array. The first one-dimensional array.
 
-arr2 
+arrArray2 
 
 Required. Array. The second one-dimensional array.
 

@@ -24,9 +24,9 @@ Parameters
 
 
 
-arrPoints 
+point 
 
-Required.  Array.  A 3-D point to project.
+Required.  A 3-D point to project.
 
 arrPoints 
 

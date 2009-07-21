@@ -33,14 +33,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object, enable]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, enable]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(499, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableObjectGrips", None, *params_flattened)
 
@@ -81,14 +84,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [message, pre_select, select]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
         params_flattened = [message, pre_select, select]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(561, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjectGrip", None, *params_flattened)
 
@@ -129,14 +135,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [message, pre_select, select]
-        params_opt_or_req = [Optional, Optional, Optional]
+        params_required = [False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
         params_flattened = [message, pre_select, select]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(562, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetObjectGrips", None, *params_flattened)
 
@@ -171,14 +180,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object, index, direction, enable]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [object, index, direction, enable]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(558, 1, (VT_VARIANT, 0), params_magic_numbers, u"NextObjectGrip", None, *params_flattened)
 
@@ -204,14 +216,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(500, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripCount", None, *params_flattened)
 
@@ -246,14 +261,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object, index, point]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
         params_flattened = [object, index, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(556, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripLocation", None, *params_flattened)
 
@@ -285,14 +303,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object, points]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(557, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripLocations", None, *params_flattened)
 
@@ -318,14 +339,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(497, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripsOn", None, *params_flattened)
 
@@ -351,14 +375,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(498, 1, (VT_VARIANT, 0), params_magic_numbers, u"ObjectGripsSelected", None, *params_flattened)
 
@@ -393,14 +420,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object, index, direction, enable]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1)]
         params_flattened = [object, index, direction, enable]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(559, 1, (VT_VARIANT, 0), params_magic_numbers, u"PrevObjectGrip", None, *params_flattened)
 
@@ -429,14 +459,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(554, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObjectGrip", None, *params_flattened)
 
@@ -462,14 +495,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(501, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectObjectGrips", None, *params_flattened)
 
@@ -495,14 +531,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(560, 1, (VT_VARIANT, 0), params_magic_numbers, u"SelectedObjectGrips", None, *params_flattened)
 
@@ -531,14 +570,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(555, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObjectGrip", None, *params_flattened)
 
@@ -564,14 +606,17 @@ class ObjectGrip(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(502, 1, (VT_VARIANT, 0), params_magic_numbers, u"UnselectObjectGrips", None, *params_flattened)
 

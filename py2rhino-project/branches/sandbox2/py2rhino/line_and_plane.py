@@ -42,14 +42,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(plane), flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(628, 1, (VT_VARIANT, 0), params_magic_numbers, u"DistanceToPlane", None, *params_flattened)
 
@@ -87,14 +90,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(plane), flatten(parameter)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(751, 1, (VT_VARIANT, 0), params_magic_numbers, u"EvaluatePlane", None, *params_flattened)
 
@@ -126,14 +132,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane1, plane2, plane3]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(plane1), flatten(plane2), flatten(plane3)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(745, 1, (VT_VARIANT, 0), params_magic_numbers, u"IntersectPlanes", None, *params_flattened)
 
@@ -162,14 +171,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(line), flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(899, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineClosestPoint", None, *params_flattened)
 
@@ -204,14 +216,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, distance, point, line2]
-        params_opt_or_req = [Required, Required, Required, Required]
+        params_required = [True, True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(line), distance, flatten(point), flatten(line2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(902, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineIsFartherThan", None, *params_flattened)
 
@@ -248,14 +263,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line_a, line_b, planar]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(line_a), flatten(line_b), planar]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(736, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineLineIntersection", None, *params_flattened)
 
@@ -287,14 +305,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, point, line2]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(line), flatten(point), flatten(line2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(901, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineMaxDistanceTo", None, *params_flattened)
 
@@ -326,14 +347,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, point, line2]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(line), flatten(point), flatten(line2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(900, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineMinDistanceTo", None, *params_flattened)
 
@@ -359,14 +383,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(line)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(898, 1, (VT_VARIANT, 0), params_magic_numbers, u"LinePlane", None, *params_flattened)
 
@@ -395,14 +422,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, point]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(line), flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(743, 1, (VT_VARIANT, 0), params_magic_numbers, u"LinePlaneIntersection", None, *params_flattened)
 
@@ -431,14 +461,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, xform]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(line), flatten(xform)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(897, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineTransform", None, *params_flattened)
 
@@ -476,14 +509,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, origin]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(plane), flatten(origin)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(631, 1, (VT_VARIANT, 0), params_magic_numbers, u"MovePlane", None, *params_flattened)
 
@@ -524,14 +560,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, point, return_point]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [flatten(plane), flatten(point), return_point]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(629, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneClosestPoint", None, *params_flattened)
 
@@ -567,14 +606,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(plane)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(642, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneEquation", None, *params_flattened)
 
@@ -600,14 +642,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [points]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(725, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFitFromPoints", None, *params_flattened)
 
@@ -639,14 +684,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [origin, xaxis, yaxis]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(origin), flatten(xaxis), flatten(yaxis)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(627, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromFrame", None, *params_flattened)
 
@@ -675,14 +723,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [origin, normal]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(origin), flatten(normal)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(626, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromNormal", None, *params_flattened)
 
@@ -714,14 +765,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [origin, point_x, point_y]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(origin), flatten(point_x), flatten(point_y)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(649, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromPoints", None, *params_flattened)
 
@@ -750,14 +804,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane1, point2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(plane1), flatten(point2)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(744, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlanePlaneIntersection", None, *params_flattened)
 
@@ -786,14 +843,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, xform]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(plane), flatten(xform)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(801, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneTransform", None, *params_flattened)
 
@@ -834,18 +894,21 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, angle, axis]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(plane), angle, flatten(axis)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(630, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotatePlane", None, *params_flattened)
 
-    def world_x_y_plane):
+    def world_x_y_plane():
         """        
         Returns Rhino's world XY plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(1.0,0.0,0.0), Array(0.0,1.0,0.0)
@@ -861,18 +924,21 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(652, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldXYPlane", None, *params_flattened)
 
-    def world_y_z_plane):
+    def world_y_z_plane():
         """        
         Returns Rhino's world YZ plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,1.0,0.0), Array(0.0,0.0,1.0)
@@ -888,18 +954,21 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
 
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
+
         return self._ApplyTypes_(653, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldYZPlane", None, *params_flattened)
 
-    def world_z_x_plane):
+    def world_z_x_plane():
         """        
         Returns Rhino's world ZX plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,0.0,1.0), Array(1.0,0.0,0.0)
@@ -915,14 +984,17 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = []
-        params_opt_or_req = []
+        params_required = []
         params_magic_numbers = []
         params_flattened = []
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(654, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldZXPlane", None, *params_flattened)
 

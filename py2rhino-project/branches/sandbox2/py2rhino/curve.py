@@ -36,14 +36,17 @@ class Curve(IRhinoScript):
         """
 
         params = [plane, radius, angle]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [flatten(plane), radius, angle]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(651, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddArc", None, *params_flattened)
 
@@ -75,14 +78,17 @@ class Curve(IRhinoScript):
         """
 
         params = [start, end, point]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(start), flatten(end), flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(82, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddArc3Pt", None, *params_flattened)
 
@@ -111,14 +117,17 @@ class Curve(IRhinoScript):
         """
 
         params = [plane, radius]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(plane), radius]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(83, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCircle", None, *params_flattened)
 
@@ -150,14 +159,17 @@ class Curve(IRhinoScript):
         """
 
         params = [start, end, point]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(start), flatten(end), flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(84, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCircle3Pt", None, *params_flattened)
 
@@ -186,14 +198,17 @@ class Curve(IRhinoScript):
         """
 
         params = [points, degree]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [flatten(points), degree]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(77, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCurve", None, *params_flattened)
 
@@ -225,14 +240,17 @@ class Curve(IRhinoScript):
         """
 
         params = [plane, x_radius, y_radius]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [flatten(plane), x_radius, y_radius]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(679, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddEllipse", None, *params_flattened)
 
@@ -264,14 +282,17 @@ class Curve(IRhinoScript):
         """
 
         params = [center, second, third]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(center), flatten(second), flatten(third)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(680, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddEllipse3Pt", None, *params_flattened)
 
@@ -309,14 +330,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve0, curve1, radius, point0, point1]
-        params_opt_or_req = [Required, Required, Optional, Optional, Optional]
+        params_required = [True, True, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [curve0, curve1, radius, flatten(point0), flatten(point1)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(574, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddFilletCurve", None, *params_flattened)
 
@@ -345,14 +369,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, points]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(513, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddInterpCrvOnSrf", None, *params_flattened)
 
@@ -381,14 +408,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, points]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(641, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddInterpCrvOnSrfUV", None, *params_flattened)
 
@@ -439,14 +469,17 @@ class Curve(IRhinoScript):
         """
 
         params = [points, degree, knot_style, start_tan, end_tan]
-        params_opt_or_req = [Required, Optional, Optional, Optional, Optional]
+        params_required = [True, False, False, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_I2, 1), (VT_I2, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(points), degree, knot_style, flatten(start_tan), flatten(end_tan)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(268, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddInterpCurve", None, *params_flattened)
 
@@ -494,14 +527,17 @@ class Curve(IRhinoScript):
         """
 
         params = [points, degree, knot_style, sharp, start_tangent, end_tangent]
-        params_opt_or_req = [Required, Optional, Optional, Optional, Optional, Optional]
+        params_required = [True, False, False, False, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(points), degree, knot_style, sharp, flatten(start_tangent), flatten(end_tangent)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(520, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddInterpCurveEx", None, *params_flattened)
 
@@ -530,14 +566,17 @@ class Curve(IRhinoScript):
         """
 
         params = [start, end]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(start), flatten(end)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(70, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddLine", None, *params_flattened)
 
@@ -572,14 +611,17 @@ class Curve(IRhinoScript):
         """
 
         params = [points, knots, degree, weights]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1), (VT_VARIANT, 1)]
         params_flattened = [flatten(points), flatten(knots), degree, flatten(weights)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(309, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddNurbsCurve", None, *params_flattened)
 
@@ -605,14 +647,17 @@ class Curve(IRhinoScript):
         """
 
         params = [points]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(points)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(85, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPolyline", None, *params_flattened)
 
@@ -644,14 +689,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, param0, param1]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [object, param0, param1]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(681, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSubCrv", None, *params_flattened)
 
@@ -680,14 +728,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(86, 1, (VT_VARIANT, 0), params_magic_numbers, u"ArcAngle", None, *params_flattened)
 
@@ -713,14 +764,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(87, 1, (VT_VARIANT, 0), params_magic_numbers, u"ArcCenterPoint", None, *params_flattened)
 
@@ -746,14 +800,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(88, 1, (VT_VARIANT, 0), params_magic_numbers, u"ArcMidPoint", None, *params_flattened)
 
@@ -782,14 +839,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(89, 1, (VT_VARIANT, 0), params_magic_numbers, u"ArcRadius", None, *params_flattened)
 
@@ -818,14 +878,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(90, 1, (VT_VARIANT, 0), params_magic_numbers, u"CircleCenterPoint", None, *params_flattened)
 
@@ -854,14 +917,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(91, 1, (VT_VARIANT, 0), params_magic_numbers, u"CircleCircumference", None, *params_flattened)
 
@@ -890,14 +956,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(92, 1, (VT_VARIANT, 0), params_magic_numbers, u"CircleRadius", None, *params_flattened)
 
@@ -926,14 +995,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, tolerance]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(440, 1, (VT_VARIANT, 0), params_magic_numbers, u"CloseCurve", None, *params_flattened)
 
@@ -968,14 +1040,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, angle_tolerance, tolerance, delete_input]
-        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_required = [True, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
         params_flattened = [object, angle_tolerance, tolerance, delete_input]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(377, 1, (VT_VARIANT, 0), params_magic_numbers, u"ConvertCurveToPolyline", None, *params_flattened)
 
@@ -1007,14 +1082,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, length, from_start]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1)]
         params_flattened = [object, length, from_start]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(658, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveArcLengthPoint", None, *params_flattened)
 
@@ -1049,14 +1127,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, objects]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(643, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveArea", None, *params_flattened)
 
@@ -1085,14 +1166,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, objects]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(677, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveAreaCentroid", None, *params_flattened)
 
@@ -1133,14 +1217,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, style]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, style]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(578, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveArrows", None, *params_flattened)
 
@@ -1169,14 +1256,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve_a, curve_b]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [curve_a, curve_b]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(811, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBooleanDifference", None, *params_flattened)
 
@@ -1205,14 +1295,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve_a, curve_b]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [curve_a, curve_b]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(810, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBooleanIntersection", None, *params_flattened)
 
@@ -1238,14 +1331,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curves]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_VARIANT, 1),]
         params_flattened = [flatten(curves)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(809, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBooleanUnion", None, *params_flattened)
 
@@ -1277,14 +1373,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, brep, tolerance]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [curve, brep, tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(545, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBrepIntersect", None, *params_flattened)
 
@@ -1325,14 +1424,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, object, objects]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [curve, object, flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(870, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveClosestObject", None, *params_flattened)
 
@@ -1364,14 +1466,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, point, index]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(point), index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(93, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveClosestPoint", None, *params_flattened)
 
@@ -1406,14 +1511,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, start_point, end_point, interval]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [object, flatten(start_point), flatten(end_point), interval]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(748, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveContourPoints", None, *params_flattened)
 
@@ -1445,14 +1553,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, parameter]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(379, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveCurvature", None, *params_flattened)
 
@@ -1499,14 +1610,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object1, object2, tolerance]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object1, object2, tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(423, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveCurveIntersection", None, *params_flattened)
 
@@ -1535,14 +1649,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(94, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDegree", None, *params_flattened)
 
@@ -1589,14 +1706,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve_a, curve_b]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [curve_a, curve_b]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(687, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDeviation", None, *params_flattened)
 
@@ -1625,14 +1745,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(381, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDim", None, *params_flattened)
 
@@ -1661,14 +1784,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve1, curve2]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [curve1, curve2]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(543, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDirectionsMatch", None, *params_flattened)
 
@@ -1708,14 +1834,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, style]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, style]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(579, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDiscontinuity", None, *params_flattened)
 
@@ -1744,14 +1873,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(95, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDomain", None, *params_flattened)
 
@@ -1786,14 +1918,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, return_parameters, index]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_I2, 1)]
         params_flattened = [object, return_parameters, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(442, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveEditPoints", None, *params_flattened)
 
@@ -1822,14 +1957,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(96, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveEndPoint", None, *params_flattened)
 
@@ -1873,14 +2011,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, derivative]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
         params_flattened = [object, parameter, derivative]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(489, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveEvaluate", None, *params_flattened)
 
@@ -1922,14 +2063,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve0, curve1, radius, base_point0, base_point1]
-        params_opt_or_req = [Required, Required, Optional, Optional, Optional]
+        params_required = [True, True, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [curve0, curve1, radius, flatten(base_point0), flatten(base_point1)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(572, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveFilletPoints", None, *params_flattened)
 
@@ -1958,14 +2102,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, parameter]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(675, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveFrame", None, *params_flattened)
 
@@ -1994,14 +2141,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(310, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveKnotCount", None, *params_flattened)
 
@@ -2030,14 +2180,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(311, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveKnots", None, *params_flattened)
 
@@ -2069,14 +2222,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index, sub_domain]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
         params_flattened = [object, index, flatten(sub_domain)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(97, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveLength", None, *params_flattened)
 
@@ -2102,14 +2258,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(577, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveMidPoint", None, *params_flattened)
 
@@ -2135,14 +2294,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(521, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveNormal", None, *params_flattened)
 
@@ -2171,14 +2333,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, parameter]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(676, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurvePerpFrame", None, *params_flattened)
 
@@ -2204,14 +2369,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [curve]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(609, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurvePlane", None, *params_flattened)
 
@@ -2240,14 +2408,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(98, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurvePointCount", None, *params_flattened)
 
@@ -2276,14 +2447,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(308, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurvePoints", None, *params_flattened)
 
@@ -2315,14 +2489,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, point, index]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(point), index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(80, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveRadius", None, *params_flattened)
 
@@ -2351,14 +2528,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, parameter]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(527, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveSeam", None, *params_flattened)
 
@@ -2387,14 +2567,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(99, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveStartPoint", None, *params_flattened)
 
@@ -2450,14 +2633,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, surface, tolerance, angle_tolerance]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [curve, surface, tolerance, angle_tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(424, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveSurfaceIntersection", None, *params_flattened)
 
@@ -2489,14 +2675,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, index]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
         params_flattened = [object, parameter, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(363, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveTangent", None, *params_flattened)
 
@@ -2525,14 +2714,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(314, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveWeights", None, *params_flattened)
 
@@ -2570,14 +2762,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, segments, create, points]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
         params_flattened = [object, segments, create, points]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(78, 1, (VT_VARIANT, 0), params_magic_numbers, u"DivideCurve", None, *params_flattened)
 
@@ -2616,14 +2811,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, distance, create, points]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
         params_flattened = [object, distance, create, points]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(913, 1, (VT_VARIANT, 0), params_magic_numbers, u"DivideCurveEquidistant", None, *params_flattened)
 
@@ -2661,14 +2859,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, length, create, points]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
         params_flattened = [object, length, create, points]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(374, 1, (VT_VARIANT, 0), params_magic_numbers, u"DivideCurveLength", None, *params_flattened)
 
@@ -2694,14 +2895,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(524, 1, (VT_VARIANT, 0), params_magic_numbers, u"EllipseCenterPoint", None, *params_flattened)
 
@@ -2727,14 +2931,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(525, 1, (VT_VARIANT, 0), params_magic_numbers, u"EllipseQuadPoints", None, *params_flattened)
 
@@ -2766,14 +2973,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, index]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
         params_flattened = [object, parameter, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(100, 1, (VT_VARIANT, 0), params_magic_numbers, u"EvaluateCurve", None, *params_flattened)
 
@@ -2806,14 +3016,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, objects, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(objects), delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(446, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExplodeCurves", None, *params_flattened)
 
@@ -2860,14 +3073,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, type, side, objects]
-        params_opt_or_req = [Required, Required, Required, Required]
+        params_required = [True, True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_VARIANT, 1)]
         params_flattened = [object, type, side, flatten(objects)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(438, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtendCurve", None, *params_flattened)
 
@@ -2916,14 +3132,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, type, side, length]
-        params_opt_or_req = [Required, Required, Required, Required]
+        params_required = [True, True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_R8, 1)]
         params_flattened = [object, type, side, length]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(436, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtendCurveLength", None, *params_flattened)
 
@@ -2960,14 +3179,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, side, point]
-        params_opt_or_req = [Required, Required, Required]
+        params_required = [True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
         params_flattened = [object, side, flatten(point)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(437, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtendCurvePoint", None, *params_flattened)
 
@@ -2996,14 +3218,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, tolerance]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(599, 1, (VT_VARIANT, 0), params_magic_numbers, u"FairCurve", None, *params_flattened)
 
@@ -3038,14 +3263,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, degree, tolerance, angle_tolerance]
-        params_opt_or_req = [Required, Optional, Optional, Optional]
+        params_required = [True, False, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1), (VT_R8, 1)]
         params_flattened = [object, degree, tolerance, angle_tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(813, 1, (VT_VARIANT, 0), params_magic_numbers, u"FitCurve", None, *params_flattened)
 
@@ -3077,14 +3305,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, symmetrical]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1)]
         params_flattened = [object, parameter, symmetrical]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(515, 1, (VT_VARIANT, 0), params_magic_numbers, u"InsertCurveKnot", None, *params_flattened)
 
@@ -3113,14 +3344,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(101, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsArc", None, *params_flattened)
 
@@ -3149,14 +3383,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(102, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCircle", None, *params_flattened)
 
@@ -3185,14 +3422,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(103, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurve", None, *params_flattened)
 
@@ -3221,14 +3461,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, tolerance]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(441, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveClosable", None, *params_flattened)
 
@@ -3257,14 +3500,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(104, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveClosed", None, *params_flattened)
 
@@ -3307,14 +3553,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, plane]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
         params_flattened = [object, flatten(plane)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(483, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveInPlane", None, *params_flattened)
 
@@ -3343,14 +3592,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(105, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveLinear", None, *params_flattened)
 
@@ -3379,14 +3631,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(106, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurvePeriodic", None, *params_flattened)
 
@@ -3415,14 +3670,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(107, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurvePlanar", None, *params_flattened)
 
@@ -3451,14 +3709,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(380, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveRational", None, *params_flattened)
 
@@ -3484,14 +3745,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(523, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsEllipse", None, *params_flattened)
 
@@ -3520,14 +3784,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(108, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLine", None, *params_flattened)
 
@@ -3559,14 +3826,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, point, index]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(point), index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(318, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPointOnCurve", None, *params_flattened)
 
@@ -3595,14 +3865,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(368, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPolyCurve", None, *params_flattened)
 
@@ -3631,14 +3904,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(110, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPolyline", None, *params_flattened)
 
@@ -3667,14 +3943,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, delete]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(111, 1, (VT_VARIANT, 0), params_magic_numbers, u"JoinCurves", None, *params_flattened)
 
@@ -3700,14 +3979,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(726, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineFitFromPoints", None, *params_flattened)
 
@@ -3739,14 +4021,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, delete]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(925, 1, (VT_VARIANT, 0), params_magic_numbers, u"MakeCurveNonPeriodic", None, *params_flattened)
 
@@ -3778,14 +4063,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, delete]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
         params_flattened = [object, delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(444, 1, (VT_VARIANT, 0), params_magic_numbers, u"MakeCurvePeriodic", None, *params_flattened)
 
@@ -3811,14 +4099,17 @@ class Curve(IRhinoScript):
         """
 
         params = [polyline]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [polyline]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(546, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshPolyline", None, *params_flattened)
 
@@ -3865,14 +4156,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, direction, normal, style]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1)]
         params_flattened = [object, flatten(direction), flatten(normal), style]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(634, 1, (VT_VARIANT, 0), params_magic_numbers, u"OffsetCurve", None, *params_flattened)
 
@@ -3904,14 +4198,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, surface]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
         params_flattened = [curve, surface]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(906, 1, (VT_VARIANT, 0), params_magic_numbers, u"OffsetCurveOnSurface", None, *params_flattened)
 
@@ -3960,14 +4257,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve1, curve2, plane, tolerance]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [curve1, curve2, flatten(plane), tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(480, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlanarClosedCurveContainment", None, *params_flattened)
 
@@ -4013,14 +4313,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve1, curve2, plane, tolerance]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [curve1, curve2, flatten(plane), tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(481, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlanarCurveCollision", None, *params_flattened)
 
@@ -4069,14 +4372,17 @@ class Curve(IRhinoScript):
         """
 
         params = [point, curve, plane, tolerance]
-        params_opt_or_req = [Required, Required, Optional, Optional]
+        params_required = [True, True, False, False]
         params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
         params_flattened = [flatten(point), curve, flatten(plane), tolerance]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(482, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointInPlanarClosedCurve", None, *params_flattened)
 
@@ -4105,14 +4411,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(369, 1, (VT_VARIANT, 0), params_magic_numbers, u"PolyCurveCount", None, *params_flattened)
 
@@ -4141,14 +4450,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, index]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(112, 1, (VT_VARIANT, 0), params_magic_numbers, u"PolylineVertices", None, *params_flattened)
 
@@ -4186,14 +4498,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, curves, mesh, meshes, direction]
-        params_opt_or_req = [Required, Required, Required, Required, Required]
+        params_required = [True, True, True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [curve, flatten(curves), mesh, flatten(meshes), flatten(direction)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(911, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectCurveToMesh", None, *params_flattened)
 
@@ -4231,14 +4546,17 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, curves, surface, surfaces, direction]
-        params_opt_or_req = [Required, Required, Required, Required, Required]
+        params_required = [True, True, True, True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
         params_flattened = [curve, flatten(curves), surface, flatten(surfaces), flatten(direction)]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(891, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectCurveToSurface", None, *params_flattened)
 
@@ -4270,14 +4588,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, degree, point_count]
-        params_opt_or_req = [Required, Optional, Optional]
+        params_required = [True, False, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1)]
         params_flattened = [object, degree, point_count]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(814, 1, (VT_VARIANT, 0), params_magic_numbers, u"RebuildCurve", None, *params_flattened)
 
@@ -4306,14 +4627,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_opt_or_req = [Required, Required]
+        params_required = [True, True]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
         params_flattened = [object, parameter]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(916, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemoveCurveKnot", None, *params_flattened)
 
@@ -4339,14 +4663,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_opt_or_req = [Required]
+        params_required = [True]
         params_magic_numbers = [(VT_BSTR, 1),]
         params_flattened = [object]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(542, 1, (VT_VARIANT, 0), params_magic_numbers, u"ReverseCurve", None, *params_flattened)
 
@@ -4396,14 +4723,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, flags]
-        params_opt_or_req = [Required, Optional]
+        params_required = [True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
         params_flattened = [object, flags]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(573, 1, (VT_VARIANT, 0), params_magic_numbers, u"SimplifyCurve", None, *params_flattened)
 
@@ -4438,14 +4768,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, parameters, delete]
-        params_opt_or_req = [Required, Required, Required, Optional]
+        params_required = [True, True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, parameter, flatten(parameters), delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(504, 1, (VT_VARIANT, 0), params_magic_numbers, u"SplitCurve", None, *params_flattened)
 
@@ -4477,14 +4810,17 @@ class Curve(IRhinoScript):
         """
 
         params = [object, interval, delete]
-        params_opt_or_req = [Required, Required, Optional]
+        params_required = [True, True, False]
         params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
         params_flattened = [object, flatten(interval), delete]
 
         for i in range(len(params)):
-            if (params[i] == None) and (params_opt_or_req[i] = "Optional"):
+            if (params[i] == None) and (not params_required[i]):
                 params_magic_numbers.pop(i)
                 params_flattened.pop(i)
+
+        params_magic_numbers = tuple(params_magic_numbers)
+        params_flattened = tuple(params_flattened)
 
         return self._ApplyTypes_(505, 1, (VT_VARIANT, 0), params_magic_numbers, u"TrimCurve", None, *params_flattened)
 
