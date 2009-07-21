@@ -91,10 +91,7 @@ class Object(object):
         object and delete backwards through the list. 
 
         Parameter(s)
-        This command takes the following parameters.
-        
-        object 
-        The zero-based index of the object to be deleted.
+        There are no parameters for this command..
         
         """
         arg_str = string_util._convert_args_to_string("object.delete", self._id)
@@ -107,10 +104,7 @@ class Object(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        object 
-        The zero-based index of the object to delete the node from. 
-        
+
         node 
         The zero-based node index belonging to the object. 
         
@@ -142,9 +136,6 @@ class Object(object):
         Parameter(s)
         This command takes the following parameters.
         
-        object 
-        The zero-based index of the object to duplicate. 
-        
         x, y, z 
         Specifies a distance move the duplicate object in each of the major axes. 
         
@@ -160,9 +151,6 @@ class Object(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        object 
-        The zero-based index of the object to extrude. 
         
         x, y, z 
         Specifies a distance to extrude the specified object in each of the 
@@ -182,9 +170,6 @@ class Object(object):
         Parameter(s)
         This command takes the following parameters.
         
-        object 
-        The zero-based index of the object to link as the child object. 
-        
         parent 
         Specifies the zero-based index of the object the child object is linked 
         with.
@@ -201,9 +186,7 @@ class Object(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        object 
-        The zero-based index of the object to move. 
+
         x, y, z 
         Specifies a distance to move the specified object in each of the major axes.
         
@@ -251,9 +234,6 @@ class Object(object):
         Parameter(s)
         This command takes the following parameters.
         
-        object 
-        The zero-based index of the object to nudge. 
-        
         dir 
         A number representing the three major axes as given in the Nudge Direction 
         table. If the value is negative, the direction is in the negative axial 
@@ -281,9 +261,6 @@ class Object(object):
         Parameter(s)
         This command takes the following parameters.
         
-        object 
-        The zero-based index of the object to select. 
-        
         azi 
         The horizontal angle of orientation, given in degrees. 
         
@@ -304,9 +281,6 @@ class Object(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        object 
-        The zero-based index of the object to revolve. 
         
         axis 
         The axis for the revolve, and is an integer selected from the Axis table. 
@@ -342,9 +316,6 @@ class Object(object):
         Parameter(s)
         This command takes the following parameters.
         
-        object 
-        The zero-based index of the object to rotate. 
-        
         azi 
         The azimuth angle of rotation in decimal degrees. 
         
@@ -364,9 +335,6 @@ class Object(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        object 
-        The zero-based index of the object to rotate. 
         
         rx, ry, rz 
         The amount of rotation in decimal degrees for each required axis, in a 
@@ -388,9 +356,6 @@ class Object(object):
         Parameter(s)
         This command takes the following parameters.
         
-        object 
-        The zero-based index of the object to rotate. 
-        
         azi 
         The azimuth angle of rotation in decimal degrees. 
         
@@ -410,9 +375,6 @@ class Object(object):
         Parameter(s)
         This command takes the following parameters.
         
-        object 
-        The zero-based index of the object to scale. 
-        
         dx, dy, dz 
         The scale factor to apply in each of the major axes. 
         
@@ -428,10 +390,7 @@ class Object(object):
         then all the specified objects. 
 
         Parameter(s)
-        This command takes the following parameters.
-        
-        object 
-        The the zero-based index of the object to select. Repeat as necessary. 
+        There are no parameters for this command.
         
         """
         arg_str = string_util._convert_args_to_string("object.select", self._id)
@@ -445,9 +404,6 @@ class Object(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        object 
-        The zero-based index of the object to spin. 
         
         spin 
         The spin angle given in decimal degrees.
@@ -466,10 +422,7 @@ class Object(object):
         for all objects in the model at once. 
 
         Parameter(s)
-        This command takes the following parameters.
-        
-        object 
-        The the zero-based index of the object to select.
+        There are no parameters for this command.
         
         """
         arg_str = string_util._convert_args_to_string("object.update", self._id)
@@ -482,9 +435,6 @@ class Object(object):
 
         Parameter(s)
         This command takes the following parameters.
-        
-        object 
-        The zero-based index of the object to transform. 
         
         trans 
         The generic tranformation to apply, according to the Tranformation Types 
@@ -536,9 +486,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to retrieve. 
-        
         day 
         The julian date, given as an integer between 1 and 365. 
         
@@ -570,10 +517,8 @@ class Object(object):
         the material object for more details. 
 
         Parameter(s)
-        This property takes the following parameters.
+        There are no parameters for this property.
         
-        object 
-        The zero-based index of the object to retrieve. 
         Return Value(s)
         Getting this property returns the following value(s).
         
@@ -598,9 +543,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         material 
         This parameter can be given as either a material name or as a number, 
         being the zero-based index of the material to be assigned from within 
@@ -619,9 +561,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
         
         type 
         What the surface normal angle is measured in relation to, and may be 
@@ -656,10 +595,7 @@ class Object(object):
         metres. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -680,10 +616,7 @@ class Object(object):
         specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -704,9 +637,7 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to set. 
+         
         value 
         The value to assign.
         
@@ -723,10 +654,7 @@ class Object(object):
         specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -748,8 +676,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
         value 
         The value to assign.
         
@@ -765,10 +691,7 @@ class Object(object):
         specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -789,9 +712,7 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to set. 
+
         value 
         The value to assign.
         
@@ -808,10 +729,7 @@ class Object(object):
         centre are given in absolute world coordinates. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -835,9 +753,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         x, y, z 
         Represents the absolute position in the X, Y and Z axis of a point in 3 
         dimensional model space.
@@ -860,9 +775,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
         
         [absolute] 
         This optional parameter, if set to true, will return the size of the 
@@ -909,9 +821,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the child object to set. 
-        
         u 
         The horizontal location of the bottom left hand corner of the child 
         object. Note that this command always assumes you are looking towards 
@@ -947,9 +856,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to retrieve. 
-        
         x, y, z 
         Represents the absolute position in the X, Y and Z axis of a point in 3 
         dimensional model space. 
@@ -974,10 +880,7 @@ class Object(object):
         current object before invoking a command. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to set.
+        There are no parameters for this property.
         
         """
         arg_str = string_util._convert_args_to_string("set.object.current", 
@@ -995,9 +898,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
         
         x, y, z 
         Represents the absolute position in the X, Y and Z axis of a point in 3 
@@ -1022,10 +922,7 @@ class Object(object):
         equation for the specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1048,10 +945,7 @@ class Object(object):
         Ax + By + Cz = D for the specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to calculate.
+        There are no parameters for this property.
         
         """
         arg_str = string_util._convert_args_to_string("set.object.equation", 
@@ -1065,10 +959,7 @@ class Object(object):
         outside conditions. This command only works for planar objects. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1089,10 +980,7 @@ class Object(object):
         millimetres. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1115,9 +1003,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
         
         u, v 
         Proportional values that nominate the point to measure in relation to 
@@ -1148,10 +1033,7 @@ class Object(object):
         object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1172,10 +1054,7 @@ class Object(object):
         Retrieves the coordinates for the minimum extent of the selected object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1196,10 +1075,7 @@ class Object(object):
         Returns the zero-based absolute index of its first node. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1222,9 +1098,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
         
         flag 
         An integer value representing a binary bit, as shown in the Object Flags 
@@ -1285,9 +1158,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         flag 
         An integer value representing a binary bit, as shown in the Object Flags 
         table. To set multiple flags at once, add their values together. 
@@ -1337,9 +1207,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to retrieve. 
-        
         x, y, z 
         The coordinates of the point to check in relation to the object. 
         
@@ -1368,9 +1235,6 @@ class Object(object):
         
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The ero-based index of the object to retrieve. 
         
         x, y, z 
         The coordinates of the point to check in relation to the object. 
@@ -1409,9 +1273,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to retrieve. 
-        
         x1, y1, z1 
         The 3D start point of the intersecting line. 
         
@@ -1438,10 +1299,8 @@ class Object(object):
         Returns the zero-based absolute index of its last node. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
+         
         Return Value(s)
         Getting this property returns the following value(s).
         
@@ -1461,10 +1320,7 @@ class Object(object):
         millimetres. This command only works on linear objects. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1486,10 +1342,7 @@ class Object(object):
         object, it returns a value of -1. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1511,10 +1364,7 @@ class Object(object):
         overshadowed at any particular time. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1539,9 +1389,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         index 
         An integer value between -1 and the value given by get.masks.count - 1, 
         being the zero-based index of the shading mask in the current list. 
@@ -1561,10 +1408,7 @@ class Object(object):
         object for more details. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1590,9 +1434,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         material 
         Either a material name or an integer, being the zero-based index of the 
         material to be assigned from within the material list. You can obtain 
@@ -1614,9 +1455,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
         
         node 
         The relative index of the node in the specified object to retrieve. 
@@ -1644,9 +1482,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         node 
         The relative index of the node in the specified object to set. 
         
@@ -1665,10 +1500,8 @@ class Object(object):
         Returns the number of nodes in the specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
+        There are no parameters for this property.
         
-        object 
-        The zero-based index of the object to retrieve. 
         Return Value(s)
         Getting this property returns the following value(s).
         
@@ -1690,10 +1523,7 @@ class Object(object):
         (ie: length = 1.0). 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1715,10 +1545,7 @@ class Object(object):
         object in an adjacent zone, measured in square metres. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1750,10 +1577,7 @@ class Object(object):
         process is complete. 
         
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1793,9 +1617,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to retrieve. 
-        
         fraction 
         A multiplier to control the density of points over the object's surface. 
         By default this is configured as a 25x25 grid with a value of 1. Thus, a 
@@ -1832,10 +1653,7 @@ class Object(object):
         process is complete. 
         
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1873,9 +1691,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to retrieve. 
-        
         x, y, z 
         Represents the absolute position in the X, Y and Z axis of a point in 3 
         dimensional model space. 
@@ -1899,10 +1714,8 @@ class Object(object):
         Retrieves the current curve resolution to use for virtual polylines, for the specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
+        There are no parameters for this property.
         
-        object 
-        The zero-based index of the object to retrieve. 
         Return Value(s)
         Getting this property returns the following value(s).
         
@@ -1924,9 +1737,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         value 
         The value to use for the virtual polyline curve resolution.
         
@@ -1945,9 +1755,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
         
         x1 y1 z1 
         The first 3D point to use for the comparison. 
@@ -1982,10 +1789,7 @@ class Object(object):
         for more details. 
         
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -2014,9 +1818,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         schedule 
         Either a schedule name or as the zero-based index of the schedule to be 
         assigned from within the model's schedule list. This index value can be 
@@ -2036,10 +1837,7 @@ class Object(object):
         0 means that it is not. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -2065,9 +1863,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         [state] 
         This optional parameter determines whether to set the object as selected 
         or not. This is a boolean value where 1 or true represents the 
@@ -2092,10 +1887,7 @@ class Object(object):
         base. 
         
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -2122,9 +1914,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
         
         tag 
         An integer value representing a binary bit, as shown in the Object Tags 
@@ -2171,9 +1960,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         tag 
         An integer value representing a binary bit, as shown in the Object Tags 
         table. To test multiple tags at once, simply add their values together. 
@@ -2213,10 +1999,7 @@ class Object(object):
         values in the Element Types table. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -2259,9 +2042,6 @@ class Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        object 
-        The zero-based index of the object to set. 
-        
         type 
         Either a token or value corresponding to the Element Types table.
         
@@ -2276,10 +2056,7 @@ class Object(object):
         Gets the surface area that is underground. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -2299,10 +2076,7 @@ class Object(object):
         Retrieves the extrusion vector of the specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -2323,10 +2097,7 @@ class Object(object):
         Sets the extrusion vector of the specified object. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to set. 
+        This property takes the following parameters. 
         
         dx, dy, dz 
         A vector value representing the offset distance in each of the X, Y and 
@@ -2347,10 +2118,7 @@ class Object(object):
         zone is always 0. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to retrieve. 
+        There are no parameters for this property.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -2375,9 +2143,6 @@ class Object(object):
 
         Parameter(s)
         This property takes the following parameters.
-        
-        object 
-        The zero-based index of the object to set. 
         
         index 
         The zero-based index of the zone the specified object will be assigned 
