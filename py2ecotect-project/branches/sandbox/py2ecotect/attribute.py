@@ -23,9 +23,9 @@ class Attribute(object):
         Getting this property returns the following value(s).
         
         state 
-        The boolean state of the selected bitwise flag. If set, the value is 1, if 
-        not it is 0. The table below gives the bitwise values of each available 
-        attribute flag. 
+        The boolean state of the selected bitwise flag. If set, the value is 1, 
+        if not it is 0. The table below gives the bitwise values of each 
+        available attribute flag. 
         
         Relevant Data Table(s)
         
@@ -53,9 +53,9 @@ class Attribute(object):
         This parameter specifies the bitwise flag to be set or cleared. 
         
         [state] 
-        This parameter determines whether the flag is to be set or cleared. This is 
-        a boolean value where 1 or true represents the affirmative and 0 or false 
-        the negative. If not included, it defaults to true. 
+        This parameter determines whether the flag is to be set or cleared. This 
+        is a boolean value where 1 or true represents the affirmative and 0 or 
+        false the negative. If not included, it defaults to true. 
         
         Relevant Data Table(s)
         
@@ -70,8 +70,8 @@ class Attribute(object):
         >>> set_flag("text", False)
         
         """
-        arg_str = string_util._convert_args_to_string("set.attribute.flag", flag, 
-                                                     state)
+        arg_str = string_util._convert_args_to_string("set.attribute.flag", 
+                                                      flag, state)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_flags():
@@ -87,8 +87,8 @@ class Attribute(object):
         Getting this property returns the following value(s).
         
         flags 
-        The bitwise total of all the flags currently set. The table below gives the 
-        bitwise values of each available attribute flag. 
+        The bitwise total of all the flags currently set. The table below gives 
+        the bitwise values of each available attribute flag. 
         
         Relevant Data Table(s)
         
@@ -111,8 +111,8 @@ class Attribute(object):
         This property takes the following parameters.
         
         index 
-        An number from 0 to 2 representing the index of the three available object 
-        attributes. 
+        An number from 0 to 2 representing the index of the three available 
+        object attributes. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -121,15 +121,17 @@ class Attribute(object):
         A text string containing the name name of the attribute.
         
         """
-        arg_str = string_util._convert_args_to_string("get.attribute.name", index)
+        arg_str = string_util._convert_args_to_string("get.attribute.name", 
+                                                      index)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, str)
     
     def set_name(index, name):
         """
         
-        Sets the name of the specified object attribute as a string value. The index 
-        parameter is an from 0 to 2 representing the index of the object attribute. 
+        Sets the name of the specified object attribute as a string value. The 
+        index parameter is an from 0 to 2 representing the index of the object 
+        attribute. 
     
         Parameter(s)
         This property takes the following parameters.
@@ -139,15 +141,15 @@ class Attribute(object):
         attributes.
         
         """
-        arg_str = string_util._convert_args_to_string("set.attribute.name", index, 
-                                                     name)
+        arg_str = string_util._convert_args_to_string("set.attribute.name", 
+                                                      index, name)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_scale():
         """
         
-        Gets the minimum and maximum extents of the colour scale used to display the 
-        object attributes. 
+        Gets the minimum and maximum extents of the colour scale used to display 
+        the object attributes. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -168,8 +170,8 @@ class Attribute(object):
     def set_scale(min, max):
         """
         
-        Sets the minimum and maximum extents of the colour scale used to display the 
-        object attributes. 
+        Sets the minimum and maximum extents of the colour scale used to display 
+        the object attributes. 
     
         Parameter(s)
         This property takes the following parameters.
@@ -181,22 +183,23 @@ class Attribute(object):
         Sets the maximum scale value to be used.
         
         """
-        arg_str = string_util._convert_args_to_string("set.attribute.scale", min, max)
+        arg_str = string_util._convert_args_to_string("set.attribute.scale", 
+                                                      min, max)
         py2ecotect.conversation.Exec(arg_str)
     
     def set_type(index, type):
         """
         
-        Sets the type of the specified object attribute. The index parameter is an 
-        from 0 to 2 representing the index of the object attribute, whilst type must 
-        be a value from the following table.
+        Sets the type of the specified object attribute. The index parameter is 
+        an from 0 to 2 representing the index of the object attribute, whilst 
+        type must be a value from the following table.
     
         Parameter(s)
         This property takes the following parameters.
         
         index 
-        An value ranging 0 and 2, representing the index of the object attribute to 
-        be set. 
+        An value ranging 0 and 2, representing the index of the object attribute 
+        to be set. 
         
         type 
         A value representing a standard data type, taken from the following 
@@ -221,15 +224,16 @@ class Attribute(object):
         42 Flow Rate 
     
         """
-        arg_str = string_util._convert_args_to_string("set.attribute.type", index, 
-                                                     type)
+        arg_str = string_util._convert_args_to_string("set.attribute.type", 
+                                                      index, type)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_units(type):
         """
         
-        Gets the name of the specified object attribute as a string value. The index 
-        parameter is an from 0 to 2 representing the index of the object attribute. 
+        Gets the name of the specified object attribute as a string value. The 
+        index parameter is an from 0 to 2 representing the index of the object 
+        attribute. 
     
         Parameter(s)
         This property takes the following parameters.
@@ -244,16 +248,18 @@ class Attribute(object):
         The units of measurement used, for example Lux.
         
         """
-        arg_str = string_util._convert_args_to_string("get.attribute.units", type)
+        arg_str = string_util._convert_args_to_string("get.attribute.units", 
+                                                      type)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, str)
     
     def set_units(type, units):
         """
         
-        Sets the name of the specified object attribute as a string value. The index 
-        parameter is an from 0 to 2 representing the index of the object attribute, 
-        while the units parameter specifies the units of measurement to be used. 
+        Sets the name of the specified object attribute as a string value. The 
+        index parameter is an from 0 to 2 representing the index of the object 
+        attribute, while the units parameter specifies the units of measurement 
+        to be used. 
     
         Parameter(s)
         This property takes the following parameters.
@@ -265,8 +271,8 @@ class Attribute(object):
         Specifies the units of measurement to be used. For example Lux.
         
         """
-        arg_str = string_util._convert_args_to_string("set.attribute.units", type, 
-                                                     units)
+        arg_str = string_util._convert_args_to_string("set.attribute.units", 
+                                                      type, units)
         py2ecotect.conversation.Exec(arg_str)
 
 if __name__ == "__main__":
