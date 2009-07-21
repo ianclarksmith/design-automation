@@ -42,8 +42,8 @@ class Calculation(object):
         8 16000 Hz 
         
         """
-        arg_str = string_util._convert_args_to_string("calc.acousticresponse", type, 
-                                                     frequency)
+        arg_str = string_util._convert_args_to_string("calc.acousticresponse", 
+                                                      type, frequency)
         py2py2ecotect.conversation.Exec(arg_str)
     
     def adjacencies(self):
@@ -61,17 +61,17 @@ class Calculation(object):
         know will not affect overshadowing or the thermal validity of spaces. 
         
         sampleSize 
-        To deal with geometry of any level of complexity, ECOTECT samples surfaces 
-        using pseudo-random points, each located somewhere within a regular grid. 
-        Use this parameter to set the size of this grid for each object in the 
-        default dimension units. Smaller sampling grid values will result in more 
-        accurate adjacency calculations, but will obviously take much longer to 
-        generate. 
+        To deal with geometry of any level of complexity, ECOTECT samples 
+        surfaces using pseudo-random points, each located somewhere within a 
+        regular grid. Use this parameter to set the size of this grid for each 
+        object in the default dimension units. Smaller sampling grid values will 
+        result in more accurate adjacency calculations, but will obviously take 
+        much longer to generate. 
         
         shading 
-        [true|false] Set this parameter to 'true' to have the calculation generate 
-        shading masks for each object. When set to 'false', no masks are calculated 
-        and shading is ignored.
+        [true|false] Set this parameter to 'true' to have the calculation 
+        generate shading masks for each object. When set to 'false', no masks 
+        are calculated and shading is ignored.
         
         """
         arg_str = string_util._convert_args_to_string("calc.adjacencies" , 100, 
@@ -82,8 +82,8 @@ class Calculation(object):
         """
         
         Use this command to (re)calculate mean radiant temperatures and thermal 
-        comfort values if you have an a visible analysis grid set up within a valid 
-        thermal model. 
+        comfort values if you have an a visible analysis grid set up within a 
+        valid thermal model. 
     
         Parameter(s)
         There are no parameters for this command.
@@ -101,25 +101,26 @@ class Calculation(object):
         This command takes the following parameters.
         
         target 
-        [grid|objects] This parameter determines whether the insolation calculation 
-        is performed over the analysis grid or over objects. It can only have either 
-        the value 'grid' or 'objects'. Any other value will be intepreted as 'grid'. 
+        [grid|objects] This parameter determines whether the insolation 
+        calculation is performed over the analysis grid or over objects. It can 
+        only have either the value 'grid' or 'objects'. Any other value will be 
+        intepreted as 'grid'. 
         
         type 
-        The type parameter sets the type of calculation to be performed, as shown in 
-        the following insolation types table. 
+        The type parameter sets the type of calculation to be performed, as 
+        shown in the following insolation types table. 
         
         select3D 
-        When calculating over the analysis grid, setting this boolean parameter to 
-        'true' or 1 calculates insolation for the entire 3D volume of the grid. 
-        Setting it to 'false' or 0 means just the current 2D slice. When calculating 
-        over objects, setting this parameter to 'true' or 1 calculates insolation 
-        only for selected objects in the model. Setting it to 'false' or 0 means all 
-        visible objects. 
+        When calculating over the analysis grid, setting this boolean parameter 
+        to 'true' or 1 calculates insolation for the entire 3D volume of the 
+        grid. Setting it to 'false' or 0 means just the current 2D slice. When 
+        calculating over objects, setting this parameter to 'true' or 1 
+        calculates insolation only for selected objects in the model. Setting it 
+        to 'false' or 0 means all visible objects. 
         
         accumulation 
-        Determines how to tabulate the results of the insolation calculation, based 
-        on values in the following solar accumulation table. 
+        Determines how to tabulate the results of the insolation calculation, 
+        based on values in the following solar accumulation table. 
         
         [metric] 
         This parameter must be given if the type parameter has been set to 
@@ -160,8 +161,8 @@ class Calculation(object):
         if type == "reference" and  metric is None:
             return
         else:
-            arg_str = string_util._convert_args_to_string("calc.insolation", target, 
-                                                         type, select3D, 
+            arg_str = string_util._convert_args_to_string("calc.insolation", 
+                                                          target, type, select3D, 
                                                          accumulation, metric)
             py2ecotect.conversation.Exec(arg_str)
     
@@ -182,14 +183,14 @@ class Calculation(object):
         performed, as shown in the following Solar Shading Accuracy table. 
         
         ground 
-        Determines whether ground reflections are considered in the calclation. This 
-        is a boolean value where 1 or true represents the affirmative and 0 or false 
-        the negative. 
+        Determines whether ground reflections are considered in the calclation. 
+        This is a boolean value where 1 or true represents the affirmative and 0 
+        or false the negative. 
         
         direct 
-        Determines whether only direct light is included in the solar calculation. 
-        This is a boolean value where 1 or true represents the affirmative and 0 or 
-        false the negative. 
+        Determines whether only direct light is included in the solar 
+        calculation. This is a boolean value where 1 or true represents the 
+        affirmative and 0 or false the negative. 
         
         Relevant Data Table(s)
         
@@ -211,12 +212,12 @@ class Calculation(object):
     
         """
         try:
-            arg_str = string_util._convert_args_to_string("calc.insolation", period, 
-                                                     shading, ground, direct)
+            arg_str = string_util._convert_args_to_string("calc.insolation", 
+                                                          period, shading, 
+                                                          ground, direct)
             py2ecotect.conversation.Exec(arg_str)
         except:
             print "exception occured"
-            pass
             
     
     def lighting(self, target, type, select3D, comparison = 0):
@@ -229,26 +230,27 @@ class Calculation(object):
         This command takes the following parameters.
         
         target 
-        [grid|points] This parameter determines whether the lighting calculation is 
-        performed over the analysis grid or over POINT objects. It can only have 
-        either the value 'grid' or 'point'. Any other value will be intepreted as 
-        'grid'. 
+        [grid|points] This parameter determines whether the lighting calculation 
+        is performed over the analysis grid or over POINT objects. It can only 
+        have  either the value 'grid' or 'point'. Any other value will be 
+        intepreted as grid'. 
         
         type 
-        The type parameter sets the type of calculation to be performed, as shown 
-        in the following Lighting Types table. 
+        The type parameter sets the type of calculation to be performed, as 
+        shown in the following Lighting Types table. 
         
         select3D 
-        When calculating over the analysis grid, setting this boolean parameter to 
-        'true' or 1 calculates lighting for the entire 3D volume of the grid. 
-        Setting it to 'false' or 0 means just the current 2D slice. When calculating 
-        over objects, setting this parameter to 'true' or 1 calculates lighting only 
-        for selected POINTs in the model. Setting it to 'false' or 0 means all 
-        visible POINTs. 
+        When calculating over the analysis grid, setting this boolean parameter 
+        to 'true' or 1 calculates lighting for the entire 3D volume of the grid. 
+        Setting it to 'false' or 0 means just the current 2D slice. When 
+        calculating over objects, setting this parameter to 'true' or 1 
+        calculates lighting only for selected POINTs in the model. Setting it to 
+        'false' or 0 means all visible POINTs. 
         
         [comparison] 
-        The comparison parameter is optional and allows you to compare before and 
-        after results, as outlined in the Lighting Comparison following table. 
+        The comparison parameter is optional and allows you to compare before 
+        and after results, as outlined in the Lighting Comparison following 
+        table. 
         
         Relevant Data Table(s)
         
@@ -268,8 +270,9 @@ class Calculation(object):
         4 Compare: Before - After 
         
         """
-        arg_str = string_util._convert_args_to_string("calc.lighting", target, type, 
-                                                     select3D, comparison)
+        arg_str = string_util._convert_args_to_string("calc.lighting", target, 
+                                                      type, select3D, 
+                                                      comparison)
         py2ecotect.conversation.Exec(arg_str)
     
     def resources(self, type):
@@ -281,8 +284,8 @@ class Calculation(object):
         This command takes the following parameters.
         
         type 
-        The type parameter sets the type of resource calculation to be performed, 
-        as shown in the following resource calculation types table. 
+        The type parameter sets the type of resource calculation to be 
+        performed, as shown in the following resource calculation types table. 
         
         Relevant Data Table(s)
         
@@ -307,29 +310,34 @@ class Calculation(object):
     def shading_percentage(self, cumulative, startDay, stopDay, startTime, stopTime, shadingType = ""):
         """
         
-        Calculates the shading mask for the currently selected object. The command 
-        suffix refers to the shading information to be calculated, as outlined in 
-        the following Available Shading Calculations table. The optional parameters 
-        only apply to solar stress calculations. If not included, these default to 
-        the full year (0-365) and all day (0-24). 
+        Calculates the shading mask for the currently selected object. The 
+        command suffix refers to the shading information to be calculated, as 
+        outlined in the following Available Shading Calculations table. The 
+        optional parameters only apply to solar stress calculations. If not 
+        included, these default to the full year (0-365) and all day (0-24). 
     
         Parameter(s)
         This command takes the following parameters.
         
         cumulative 
-        A boolean value determining if solar radiation should show cumulative annual results rather than hourly total stress values. 
+        A boolean value determining if solar radiation should show cumulative 
+        annual results rather than hourly total stress values. 
         
         startDay 
-        The starting date for the calculation. This is a julian date, a number between 1 and 365. 
+        The starting date for the calculation. This is a julian date, a number 
+        between 1 and 365. 
         
         stopDay 
-        The end date for the calculation. This is a julian date, a number between 1 and 365. 
+        The end date for the calculation. This is a julian date, a number 
+        between 1 and 365. 
         
         startTime 
-        Determines the starting time for the calculation. This is a decimal value between 0.00 and 23.99. 
+        Determines the starting time for the calculation. This is a decimal 
+        value between 0.00 and 23.99. 
         
         stopTime 
-        Determines the end time for the calculation. This is a decimal value between 0.00 and 23.99.
+        Determines the end time for the calculation. This is a decimal value 
+        between 0.00 and 23.99.
         
         Relevant Data Table(s)
         
@@ -353,21 +361,30 @@ class Calculation(object):
     
     
         """
-        arg_str = string_util._convert_args_to_string("calc.shading." + shadingType, 
-                                                     cumulative, startDay, stopDay, 
-                                                     startTime, stopTime)
+        arg_str = string_util._convert_args_to_string("calc.shading." + 
+                                                      shadingType,cumulative, 
+                                                      startDay, stopDay, 
+                                                      startTime, stopTime)
         py2ecotect.conversation.Exec(arg_str)
     
     def thermal_temperatures(self, selector, zone = 0):
         """
         
-        Use these methods to invoke thermal calculations. The command suffixes refer to the different thermal calculation types as shown in the following Available Thermal Calculations table. Calculation types relate directly to the Thermal Calculation selector in the Thermal Analysis tab of the Graphical Results dialog. 
+        Use these methods to invoke thermal calculations. The command suffixes 
+        refer to the different thermal calculation types as shown in the 
+        following Available Thermal Calculations table. Calculation types relate 
+        directly to the Thermal Calculation selector in the Thermal Analysis tab 
+        of the Graphical Results dialog. 
     
         Parameter(s)
         This command takes the following parameters.
         
         [zone] 
-        This optional parameter can be used to specify the zero-based index of a zone to use for the calculation. This paramater only applies to the .gains and ...gains calculations, and relates directly to the Highlight Zone selector (however the zone index is always given as the absolute index in the entire zone list). 
+        This optional parameter can be used to specify the zero-based index of a 
+        zone to use for the calculation. This paramater only applies to the 
+        .gains and ...gains calculations, and relates directly to the Highlight 
+        Zone selector (however the zone index is always given as the absolute 
+        index in the entire zone list). 
         
         Relevant Data Table(s)
         
@@ -389,7 +406,8 @@ class Calculation(object):
         degreedays Monthly degree days. 
     
         """
-        arg_str = string_util._convert_args_to_string("calc.thermal." + selector, zone)
+        arg_str = string_util._convert_args_to_string("calc.thermal." + 
+                                                      selector, zone)
         py2ecotect.conversation.Exec(arg_str)
     
     def volumes(self):
@@ -410,9 +428,10 @@ class Calculation(object):
     def get_dates(self):
         """
         
-        Retrieves the range of dates used for calculations. Up to three values are 
-        returned, being the startDay, the stopDay, and the optional [incDay], which 
-        determines if the start and stop days are inclusive of the date range. 
+        Retrieves the range of dates used for calculations. Up to three values 
+        are returned, being the startDay, the stopDay, and the optional 
+        [incDay], which determines if the start and stop days are inclusive of 
+        the date range. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -421,8 +440,8 @@ class Calculation(object):
         Getting this property returns the following value(s).
         
         startDay 
-        The starting date for the calculation. This is a julian date, being a number 
-        between 1 and 365. 
+        The starting date for the calculation. This is a julian date, being a 
+        number between 1 and 365. 
         
         stopDay 
         The end date for the calculation. This is a julian date, being a number 
@@ -449,16 +468,16 @@ class Calculation(object):
         between 1 and 365. 
         
         stopDay 
-        The end date for the calculation. This is a julian date, a number between 1 
-        and 365. 
+        The end date for the calculation. This is a julian date, a number 
+        between 1 and 365. 
         
         [incDay] 
-        An optional boolean parameter (0 or 1) that determines if the start and stop 
-        dates are inclusive of the date range.
+        An optional boolean parameter (0 or 1) that determines if the start and 
+        stop dates are inclusive of the date range.
         
         """
-        arg_str = string_util._convert_args_to_string("set.calc.dates", startDay, 
-                                                     stopDay, incDay)
+        arg_str = string_util._convert_args_to_string("set.calc.dates", 
+                                                      startDay, stopDay, incDay)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_precision(self):
@@ -474,7 +493,8 @@ class Calculation(object):
         Getting this property returns the following value(s).
         
         precision 
-        An integer value corresponding to one of the items in the following Calculation Precision table. 
+        An integer value corresponding to one of the items in the following 
+        Calculation Precision table. 
         
         Relevant Data Table(s)
         
@@ -500,8 +520,8 @@ class Calculation(object):
         This property takes the following parameters.
         
         precision 
-        Determines the calculation accuracy by controlling the number of test rays 
-        sprayed from each test point, according to the following table. 
+        Determines the calculation accuracy by controlling the number of test 
+        rays sprayed from each test point, according to the following table. 
         
         Relevant Data Table(s)
         
@@ -514,7 +534,8 @@ class Calculation(object):
         low 4 Low Precision 
     
         """
-        arg_str = string_util._convert_args_to_string("set.calc.precision", precision)
+        arg_str = string_util._convert_args_to_string("set.calc.precision", 
+                                                      precision)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_sky(self):
@@ -573,9 +594,10 @@ class Calculation(object):
     def get_times(self):
         """
         
-        Retrieves the range of times used for calculations. Up to three values are 
-        returned, being the startTime, the stopTime, and the optional [incTime], 
-        which determines if the start and stop times are inclusive of the time range. 
+        Retrieves the range of times used for calculations. Up to three values 
+        are returned, being the startTime, the stopTime, and the optional 
+        [incTime], which determines if the start and stop times are inclusive of 
+        the time range. 
     
         Parameter(s)
         There are no parameters for this property.
@@ -584,12 +606,12 @@ class Calculation(object):
         Getting this property returns the following value(s).
         
         startTime 
-        The starting time for the calculation. This is a decimal value between 0.00 
-        and 23.99. 
+        The starting time for the calculation. This is a decimal value between 
+        0.00 and 23.99. 
         
         stopTime 
-        The end time for the calculation. This is a decimal value between 0.00 and 
-        23.99. 
+        The end time for the calculation. This is a decimal value between 0.00 
+        and  23.99. 
         
         [incDay] 
         A boolean value (0 or 1) indicating if the start and stop times are 
@@ -621,15 +643,15 @@ class Calculation(object):
         stop times are inclusive of the date range.
         
         """
-        arg_str = string_util._convert_args_to_string("set.calc.times", startDay, 
-                                                     stopDay, incDay)
+        arg_str = string_util._convert_args_to_string("set.calc.times", 
+                                                      startDay, stopDay, incDay)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_windows(self):
         """
         
-        Sets the window conditions for lighting calculations using the calc.lighting 
-        command. 
+        Sets the window conditions for lighting calculations using the 
+        calc.lighting command. 
     
         Parameter(s)
         There are no parameters for this property.
