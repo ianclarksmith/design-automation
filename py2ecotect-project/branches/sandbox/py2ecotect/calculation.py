@@ -1,5 +1,7 @@
 import py2ecotect
 from py2ecotect import string_util
+from py2ecotect import application
+from py2ecotect.application import Application
 
 class Calculation(object):
     
@@ -158,14 +160,48 @@ class Calculation(object):
         sky 6 Total Visible Sky  
         
         """
+        import threading
+        
         if type == "reference" and  metric is None:
             return
         else:
-            arg_str = string_util._convert_args_to_string("calc.insolation", 
+            try:
+                arg_str = string_util._convert_args_to_string("calc.insolation", 
                                                           target, type, select3D, 
                                                          accumulation, metric)
+                threading.Thread(target = self.do_calc(arg_str))
+                self.wait()
+                #py2ecotect.conversation.Exec(arg_str)
+            except:
+                print "exception caught"
+                #print self.get_sky()
+                #print Application().get_username()
+                
+                
+                """
+                try:
+                    self.get_sky()
+                except:
+                    self.get_sky()
+                #while (len(value) == 0):
+                print "exception occured"
+                """
+    def do_calc(self, arg_str):
+        try:
             py2ecotect.conversation.Exec(arg_str)
-    
+        except:
+            pass
+                
+    def wait(self):
+        while(True):
+            try:
+                print "waiting 1"
+                x = self.get_sky()
+                print x
+                if x: break
+            except:
+                print "waiting 2"
+
     def insolation_2(self, period, shading, ground, direct):
         """
         
@@ -650,7 +686,7 @@ class Calculation(object):
     def get_windows(self):
         """
         
-        Sets the window conditions for lighting calculations using the 
+        Gets the window conditions for lighting calculations using the 
         calc.lighting command. 
     
         Parameter(s)
@@ -722,7 +758,7 @@ if __name__ == "__main__":
     #adjacencies()
     """
     #comfort()
-    #insolation_1("grid", "reference", True, 0, "photosynthetic")
+    x.insolation_1("grid", "incidence", True, 0, "photosynthetic")
     #insolation_2("day", 2,True,False)
     #lighting("grid", "daylight", True)
     #resources("load")
@@ -742,6 +778,10 @@ if __name__ == "__main__":
     #print x.get_windows() 
     #print x.windows
     #x.windows = 2
+    
+    #import time
+    #time.sleep(15)
+    #print x.get_dates()
     
     
     
