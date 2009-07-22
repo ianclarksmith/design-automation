@@ -752,7 +752,10 @@ class Rays(object):
         arg_str = string_util._convert_args_to_string("set.rays.units", units)
         py2ecotect.conversation.Exec(arg_str)
 
-
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     altitude = property(fget = get_altitude, fset = set_altitude, 
                         doc = "The controlling altitude angle when using the"
                         " spherical or cylindrical methods in the"

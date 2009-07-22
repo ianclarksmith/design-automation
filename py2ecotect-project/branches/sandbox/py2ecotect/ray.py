@@ -287,7 +287,11 @@ class Ray(object):
         """
         arg_str = string_util._convert_args_to_string("set.ray.source", x, y, z,)
         py2ecotect.conversation.Exec(arg_str)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     depth = property(fget = get_depth, fset = set_depth, 
                         doc = "The number of reflections contained in the"
                         " currently generated ray")

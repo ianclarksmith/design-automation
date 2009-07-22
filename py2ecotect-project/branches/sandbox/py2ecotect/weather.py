@@ -518,7 +518,11 @@ class Weather(object):
         arg_str = string_util._convert_args_to_string("set.weather.temperature", 
                                                      day, hour, value)
         py2ecotect.conversation.Exec(arg_str)     
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     country = property(fget = get_country, fset = set_country, 
                         doc = "The name of the state/country in the currently"
                         " loaded weather data set")

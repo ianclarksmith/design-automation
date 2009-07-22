@@ -503,7 +503,11 @@ class Shading(object):
         arg_str = string_util._convert_args_to_string("set.shading.state", 
                                                      state)
         py2ecotect.conversation.Exec(arg_str)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     accuracy = property(fset = set_accuracy, 
                         doc = "The accuracy of the overshadowing calculation")
     

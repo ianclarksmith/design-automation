@@ -225,7 +225,7 @@ class Selection(object):
                                                       azi, alt)
         py2ecotect.conversation.Exec(arg_str)
     
-    def rotateaxis(self, x, y, z):
+    def rotate_axis(self, x, y, z):
         """
         
         Rotates the selected object(s) by the given angles in each axis. 
@@ -247,7 +247,7 @@ class Selection(object):
                                                       y, z)
         py2ecotect.conversation.Exec(arg_str)
     
-    def rotatereverse(self, azi, alt):
+    def rotate_reverse(self, azi, alt):
         """
         
         Rotates the currently selected object(s) about the Transformation 
@@ -839,6 +839,10 @@ class Selection(object):
         val = py2ecotect.conversation.Request("get.selection.underground")
         #TODO: Result is different
         return string_util._convert_str_to_type(val, float)
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
     
     alternate = property(fget = get_alternate, fset = set_alternate, 
                         doc = "The alternate material index of all currently"

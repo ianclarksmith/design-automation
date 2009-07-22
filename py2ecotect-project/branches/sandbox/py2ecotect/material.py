@@ -1987,7 +1987,11 @@ class Material(object):
         arg_str = string_util._convert_args_to_string("set.material.weight", 
                                                      material, value)
         py2ecotect.conversation.Exec(arg_str)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     default = property(fset = set_default, doc = "Set this property to make the"
                        " specified material the default for all new objects of"
                        " the same element type")

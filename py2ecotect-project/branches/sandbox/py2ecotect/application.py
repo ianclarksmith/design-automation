@@ -1582,6 +1582,10 @@ class Application(object):
                                                      height)
         py2ecotect.conversation.Exec(arg_str)
     
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     computer = property(fget = get_computer, doc = "The system name of the"
                         " computer the application is currently running on")
 

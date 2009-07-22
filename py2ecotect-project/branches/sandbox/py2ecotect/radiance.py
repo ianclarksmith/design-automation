@@ -359,7 +359,7 @@ class Radiance(object):
         val = py2ecotect.conversation.Request("get.radiance.lights")
         return string_util._convert_str_to_type(val, int)
 
-    def set_lights(self, lights):
+    def set_light_data(self, lights):
         """
         
         Sets the option for how LIGHT objects are exported in Radiance scene 
@@ -379,7 +379,7 @@ class Radiance(object):
         3 Generate as Markers 
 
         """
-        arg_str = string_util._convert_args_to_string("set.radiance.lights", 
+        arg_str = string_util._convert_args_to_string("set.radiance.lightdata", 
                                                      lights)
         py2ecotect.conversation.Exec(arg_str)
         
@@ -769,6 +769,10 @@ class Radiance(object):
                                                      type)
         py2ecotect.conversation.Exec(arg_str)    
 
+    #===========================================================================
+    # Properties
+    #===========================================================================
+
     action = property(fget = get_action, fset = set_action, 
                         doc = "The current set radiance render action setting")
     
@@ -779,7 +783,7 @@ class Radiance(object):
     image_type= property(fget = get_image_type, fset = set_image_type, 
                         doc = "The currently set image type")
     
-    lights = property(fget = get_lights, fset = set_lights, 
+    lights = property(fget = get_lights, fset = set_light_data, 
                         doc = "The current setting for how LIGHT objects are"
                         " exported in Radiance scene files")
     

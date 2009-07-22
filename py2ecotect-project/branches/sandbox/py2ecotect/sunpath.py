@@ -425,7 +425,11 @@ class Sunpath(object):
         """
         val = py2ecotect.conversation.Request("get.sunpath.visible")
         return string_util._convert_str_to_type(val, int)
-        
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     display = property(fget = get_display, doc = "The current display and data"
                        " overlay settings")
     

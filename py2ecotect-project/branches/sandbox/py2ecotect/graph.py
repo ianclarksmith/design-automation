@@ -490,6 +490,28 @@ class Graph(object):
         arg_str = string_util._convert_args_to_string("graph.save", filename)
         py2ecotect.conversation.Exec(arg_str)
     
+    def save_bmp(self, filename):
+        """
+        
+        Saves the current graph using the specified filename to the current 
+        model directory, as a bitmap (.BMP) file.
+
+        If you wish to save the file into a directory other than the current 
+        model directory, you must include the full pathname, as shown in the 
+        following example. However, be aware of the issues with backslashes in 
+        filename parameters as described here. 
+        
+        Parameter(s)
+        This command takes the following parameters.
+        
+        filename 
+        A text string specifying the filename to use for the saved file.
+        
+        """
+        arg_str = string_util._convert_args_to_string("graph.save.bmp", filename)
+        py2ecotect.conversation.Exec(arg_str)
+
+        
     def save_results(self, filename):
         """
         
@@ -853,6 +875,10 @@ class Graph(object):
         """
         arg_str = string_util._convert_args_to_string("set.graph.tab", index)
         py2ecotect.conversation.Exec(arg_str)
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
 
     tab = property(fget = get_tab, fset = set_tab, 
                         doc = "The currently selected tab within the Analysis"

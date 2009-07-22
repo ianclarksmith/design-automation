@@ -26,9 +26,10 @@ class Zone(object):
         that the operation failed. 
         
         """
-        arg_str = string_util._convert_args_to_string("add.zone", name)
-        val = py2ecotect.conversation.Request(arg_str)
-        self._id = string_util._convert_str_to_type(val, int)
+        #arg_str = string_util._convert_args_to_string("add.zone", name)
+        #val = py2ecotect.conversation.Request(arg_str)
+        #self._id = string_util._convert_str_to_type(val, int)
+        self._id = 12
  
     #===========================================================================
     # Commands
@@ -893,7 +894,954 @@ class Zone(object):
         arg_str = string_util._convert_args_to_string("set.zone.flag", 
                                                      self._id, flag, state)
         py2ecotect.conversation.Exec(arg_str)
+    
+    def get_floor_area(self):
+        """
+        
+        Retrieves the specified zone's current value for the total zone floor 
+        area (m^2). 
 
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.floorarea", 
+                                                     self._id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float)
+        
+    def set_floor_area(self, value):
+        """
+        
+        Sets the specified zone's current value for the total zone floor area 
+        (m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        value 
+        value representing the total zone floor area (m^2). 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.floorarea", 
+                                                     self._id, value)
+        py2ecotect.conversation.Exec(arg_str)
+    
+    def get_group_hidden(self, group):
+        """
+        
+        Retrieves the hidden state of the specified zone group. Hidden zones 
+        still take part in all analytical calculations, but are not visible in 
+        the current model view. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.group.hidden", 
+                                                     group)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int)
+         
+    def set_group_hidden(self, group, hidden):
+        """
+        
+        Sets the hidden state of all zones in the specified zone group. Hidden 
+        zones still take part in all analytical calculations, but are not 
+        visible in the current model view. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        hidden 
+        A boolean value where 1 or true represents the affirmative and 0 or 
+        false the negative.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.group.hidden", 
+                                                     group, hidden)
+        py2ecotect.conversation.Exec(arg_str)
+    
+    def get_group_index(self, name):
+        """
+        
+        Retrieves the index (0-15) the specified zone group name. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        name 
+        The name of the zone group to find the index of. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        The zero-based index of the matching zone group (0-15). if no match is 
+        found, the value -1 is returned.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.group.index", 
+                                                     name)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int)
+    
+    def get_group_locked(self, group):
+        """
+        
+        Retrieves the locked state of the specified zone group. Locked zones are 
+        still displayed and take part in calculations, but the user cannot 
+        interactively select or manipulate them. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.group.locked", 
+                                                     group)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int)
+        
+    def set_group_locked(self, group, locked):
+        """
+        
+        Sets the locked state of all zones in the specified zone group. Locked 
+        zones are still displayed and take part in calculations, but the user 
+        cannot interactively select or manipulate them. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        locked 
+        A boolean value where 1 or true represents the affirmative and 0 or 
+        false the negative.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.group.locked", 
+                                                     group, locked)
+        py2ecotect.conversation.Exec(arg_str)
+    
+    def get_group_name(self, group, nospaces = False):
+        """
+        
+        Retrieves the name of the specified zone group. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        [nospaces] 
+        An optional boolean true/false parameter specifying that the returned 
+        name should have all spaces replaced by the underscore ('_') character. 
+        The default values for this parameters is false. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A test string containing the name of the specfied group.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.group.name", 
+                                                     group, nospaces)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, str)
+        
+    def set_group_name(self, group, name):
+        """
+        
+        Sets the name of the specified zone group. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        name 
+        The name of the specfied group.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.group.name", 
+                                                     group, name)
+        py2ecotect.conversation.Exec(arg_str)
+    
+    def  get_group_off(self, group):
+        """
+        
+        Retrieves the off state of the specified zone group. Off zones are 
+        effectively removed from the mode and are not displayed or involved in 
+        any calculations. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.group.off", 
+                                                     group)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int)
+    
+    def set_group_off(self, group, off):
+        """
+        
+        Sets the off state of all zones in the specified zone group. Off zones 
+        are effectively removed from the mode and are not displayed or involved 
+        in any calculations. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        off 
+        A boolean value where 1 or true represents the affirmative and 0 or 
+        false the negative. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.group.off", 
+                                                     group, off)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_group_thermal(self, group):
+        """
+        
+        Retrieves the thermal state of the specified zone group. Thermal zones 
+        are treated as fully enclosed spaces or rooms for which volume, 
+        temperature and acoustic data is calculated. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.group.thermal", 
+                                                     group)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int)
+    
+    def set_group_thermal(self, group, thermal):
+        """
+        
+        Sets the thermal state of all zones in the specified zone group. 
+        Thermal zones are treated as fully enclosed spaces or rooms for which 
+        volume, temperature and acoustic data is calculated. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        group 
+        The zero-based index of the required zone group (0-15). 
+        
+        thermal 
+        A boolean value where 1 or true represents the affirmative and 0 or 
+        false the negative. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.group.thermal", 
+                                                     group, thermal)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_heating(self, month):
+        """
+        
+        Retrieves the total monthly heating load for the zone during the given 
+        month. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        month 
+        A value between 0 and 11 representing the month to retrieve the value 
+        from. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        The heating load in Wh for the given month.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.heating", 
+                                                     self.id, month)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float)
+        
+    def get_hidden(self):
+        """
+        
+        Retrieves the current hidden state of the specified zone. Hidden zones 
+        still take part in all analytical calculations, but are not visible in 
+        the current model view. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.hidden", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int)
+        
+    def set_hidden(self, state = True):
+        """
+        
+        Sets or resets the specified zone's hidden state. Hidden zones still 
+        take part in all analytical calculations, but are not visible in the 
+        current model view. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        [state] 
+        This optional parameter will set (true) or reset (false) the specified 
+        state. Defaulting to true if not given.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.hidden", 
+                                                     self.id, state)
+        py2ecotect.conversation.Exec(arg_str)
+    
+    def get_index(self, name):
+        """
+        
+        This property returns the zero-based index of the zone with a name 
+        matching the name parameter. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        name 
+        A string value representing the name of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        index 
+        The zero-based index of the matching zone. If no matching zone is found, 
+        an index of -1 is returned. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.index", 
+                                                     name)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int)
+
+    def get_infiltration_rate(self):
+        """
+        
+        Retrieves the specified zone's current value for the air infiltration 
+        rate (ac/h). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.infiltrationrate", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float)
+
+    def set_infiltration_rate(self, value):
+        """
+        
+        Sets the specified zone's current value for the air infiltration rate 
+        (ac/h). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the air infiltration rate (ac/h). 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.infiltrationrate", 
+                                                     self.id, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_ingroup(self, group):
+        """
+        
+        Determines if the specified zone belongs to the given zone group. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index of the zone to be tested. 
+        
+        group 
+        The zero-based index of the zone group (0-15) to test against. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        belongs 
+        A boolean value where 1 represents true and 0 represents false.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.ingroup", 
+                                                     self.id, group)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int)
+        
+    def get_internal_gains(self):
+        """
+        
+        Retrieves the specified zone's current value for the total internally 
+        generated heat gains (W). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.internalgains", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float)
+
+    def set_internal_gains(self, value):
+        """
+        
+        Sets the specified zone's current value for the total internally 
+        generated heat gains (W). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the total internally generated heat gains (W). 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.internalgains", 
+                                                     self.id, value)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_interzonal_gains(self):
+        """
+        
+        Retrieves the specified zone's current value for the total gains flowing 
+        to/from other adjacent zones (W). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.interzonalgains", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float) 
+
+    def get_latent_gains(self):
+        """
+        
+        Retrieves the specified zone's current value for the latent internal 
+        heat gains (W/m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.latentgains", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float) 
+    
+    def set_latent_gains(self, value):
+        """
+        
+        Sets the specified zone's current value for the latent internal heat 
+        gains (W/m^2). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the latent internal heat gains (W/m^2).
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.latentgains", 
+                                                     self.id, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_lighting_energy(self):
+        """
+        
+        Retrieves the specified zone's current value for the total energy gain 
+        from LIGHT objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.lightingenergy", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float) 
+
+    def set_lighting_energy(self, value):
+        """
+        
+        Sets the specified zone's current value for the total energy gain from 
+        LIGHT objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the total energy gain from LIGHT objects.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.latentgains", 
+                                                     self.id, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_locked(self):
+        """
+        
+        Retrieves the current locked state of the specified zone. Locked zones 
+        are still displayed and take part in calculations, but the user cannot 
+        interactively select or manipulate them. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        result 
+        A boolean value where 1 represents true and 0 represents false.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.locked", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int) 
+
+    def set_locked(self, state = True):
+        """
+        
+        Sets or resets the specified zone's locked state. Locked zones are still 
+        displayed and take part in calculations, but the user cannot 
+        interactively select or manipulate them. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        [state] 
+        This optional parameter will set (true) or reset (false) the specified 
+        state. Defaulting to true if not given.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.locked", 
+                                                     self.id, state)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_lower_band(self):
+        """
+        
+        Retrieves the specified zone's current value for the lower comfort 
+        band ( deg Celsius). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.lowerband", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float) 
+
+    def set_lower_band(self, value):
+        """
+        
+        Sets the specified zone's current value for the lower comfort band 
+        (deg Celsius). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the lower comfort band (deg Celsius). 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.lowerband", 
+                                                     self.id, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_lux(self):
+        """
+        
+        Retrieves the specified zone's current value for the design internal 
+        lighting level (lux). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.lux", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float) 
+
+    def set_lux(self, value):
+        """
+        
+        Sets the specified zone's current value for the design internal lighting 
+        level (lux). 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the design internal lighting level (lux). 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.lux", 
+                                                     self.id, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_method_reverb(self):
+        """
+        
+        Retrieves the specified zone's current value for the reverberation 
+        calculation method. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        value 
+        A decimal value containing the reqested zone data. 
+
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.methodreverb", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, float) 
+
+    def set_method_reverb(self, value):
+        """
+        
+        Sets the specified zone's current value for the reverberation 
+        calculation method. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        value 
+        A value representing the reverberation calculation method.
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.methodreverb", 
+                                                     self.id, value)
+        py2ecotect.conversation.Exec(arg_str)
+
+    def get_name(self):
+        """
+        
+        Returns the specified zone's name. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        name 
+        A text string containing the zone's name.
+        
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.name", 
+                                                     self.id)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, str) 
+
+    def set_name(self, name):
+        """
+        
+        Sets the specified zone's name. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        zone 
+        The zero-based index value of the zone. 
+        
+        name 
+        A string of up to 40 characters representing the zone name. 
+        
+        """
+        arg_str = string_util._convert_args_to_string("set.zone.name", 
+                                                     self.id, name)
+        py2ecotect.conversation.Exec(arg_str)
+        
+    def get_next_object(self, startat, type, flag, tag):
+        """
+        
+        Use this property to obtain the zero-based index of the next object 
+        matching the type, flag and tag values specified, but belonging to the 
+        specificed zone. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        startat 
+        The index value to start searching from. To search from the start, use 
+        a value of -1. 
+        
+        type 
+        The element type, as outlined in the Element Types table below. To 
+        ignore this parameter, enter a negative value, such as -1. 
+        
+        flag 
+        The boolean flags from the Object Flags table. To combine multiple flag 
+        values, add their numeric values together. To ignore this parameter, 
+        enter a negative value, such as -1. 
+        
+        tag 
+        The boolean tag parameter from the Object Tags table. To combine 
+        multiple tag values, add their numeric values together. To ignore this 
+        parameter, enter a negative value, such as -1. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        index 
+        The zero-based index of the next matching object. If no object is found, 
+        a value of -1 is returned. 
+        
+        Relevant Data Table(s)
+        
+         Element Types 
+         Token Value 
+        void 0 
+        roof 1 
+        floor 2 
+        ceiling 3 
+        wall 4 
+        partition 5 
+        window 6 
+        panel 7 
+        door 8 
+        point 9 
+        speaker 10 
+        light 11 
+        appliance 12 
+        line 13 
+        solarcollector 14 
+        camera 15 
+        
+        
+        Object Flag Codes 
+        Value Description 
+        1 Object is a single-node point. 
+        2 Object is a direction vector. 
+        4 Object is a flat surface with an equation. 
+        8 Objects is a closed loop. 
+        16 Object defines a virtual polyline. 
+        32 Object is formed from the extrusion of its parent. 
+        64 Object has been extruded. 
+        128 Object is linked to another as coplanar. 
+        256 Object is linked to another as inside its extents. 
+        512 Object is a complex/concave polygon. 
+        1024 Object is the parent of another. 
+        2048 Object is the child of another. 
+        4096 Object defines a model zone. 
+        8192 *User has specified particular nodes to generate equation. 
+        16384 Object's surface normal is reversed. 
+        32768 Object is partially transparent. 
+        
+        
+        Object Tag Codes 
+        Value Description 
+        1 *User clicked near one of its lines. 
+        2 *Part of the previous selection set. 
+        16 Object has valid assigned attribute data. 
+        32 Shadows are cast onto this object. 
+        256 Object produces solar reflections. 
+        512 Object is tagged as an acoustic reflector. 
+        4096 Not used. 
+        32768 *Generic calculation marker. 
+
+        """
+        arg_str = string_util._convert_args_to_string("get.zone.nextobject", 
+                                                     nextobject)
+        val = py2ecotect.conversation.Request(arg_str)
+        return string_util._convert_str_to_type(val, int) 
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
     def get_occupancy(self):
         """
         
@@ -1804,7 +2752,9 @@ class Zone(object):
                                                      self._id, value)
         py2ecotect.conversation.Exec(arg_str)
     
-    
+    #===========================================================================
+    # Properties
+    #===========================================================================
     
     id = property(fget = get_id, doc = "Id of the Zone object")
     
@@ -1947,6 +2897,10 @@ if __name__ == "__main__":
     #print x.windowarea
     #print x.colour
     #x.windowarea = 2.5
+    #print x.get_floor_area()
+    #x.set_floor_area(2.5)
+    #print x.get_heating(9)
+    print x.get_interzonal_gains()
     
     """PROBLEM
     print x.set_selected(False)

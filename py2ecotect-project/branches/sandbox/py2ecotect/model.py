@@ -447,6 +447,25 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.daylightsavings")
         return string_util._convert_str_to_type(val, bool)          
     
+    def set_daylight_savings(self, state):
+        """
+        
+        Sets the status of the daylight savings flag. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        [state] 
+        Sets the daylight savings flag. This is a boolean value where 1 or true 
+        represents the affirmative and 0 or false the negative. When set to 
+        true, the current time is offset by one hour.
+        
+        """
+        args = string_util._convert_args_to_string("set.model.daylightsavings", 
+                                                   state)
+        py2ecotect.conversation.Exec(args)
+        
+        
     def get_day_of_the_year(self):
         """
         
@@ -484,9 +503,11 @@ class Model(object):
          
         """
         if time:
-            arg_str = string_util._convert_args_to_string("set.model.dayoftheyear", day, time)
+            arg_str = string_util._convert_args_to_string("set.model.dayoftheyear", 
+                                                          day, time)
         else:
-            arg_str = string_util._convert_args_to_string("set.model.dayoftheyear", day)
+            arg_str = string_util._convert_args_to_string("set.model.dayoftheyear", 
+                                                          day)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_directory(self):
@@ -587,7 +608,7 @@ class Model(object):
         
         """
         args = string_util._convert_args_to_string("set.model.display", display)
-        py2ecotect.conversation.Exec()
+        py2ecotect.conversation.Exec(args)
     
     def get_distance(self, x1, y1, z1, x2, y2, z2):
         """
@@ -1362,6 +1383,10 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.zones")
         return string_util._convert_str_to_type(val, int)
     
+    #===========================================================================
+    # Properties    
+    #===========================================================================
+    
     current_node = property(fget = get_current_node, doc = "The zero-based index"
                            " of the last selected node within the currently"
                            " loaded ECOTECT model")
@@ -1377,8 +1402,8 @@ class Model(object):
     date_string = property(fget = get_date_string, doc = "A formated string"
                            " containing the current model date")
     
-    daylight_savings = property(fget = get_daylight_savings, doc = "The status"
-                                " of the daylight savings flag")
+    daylight_savings = property(fget = get_daylight_savings, fset = set_daylight_savings, 
+                                doc = "The status of the daylight savings flag")
     
     directory = property(fget = get_directory, fset = set_directory, 
                         doc = "The drive and directory in which the currently"

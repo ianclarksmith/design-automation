@@ -217,7 +217,8 @@ class Project_Data(object):
         
         Relevant Data Table(s)
         
-        Embedded Data Format Value Description 
+        Embedded Data Format 
+        Value Description 
         -1 Data node is hidden text. 
         0 No format has been defined, assume raw text. 
         1 Data contains raw text. 
@@ -229,6 +230,39 @@ class Project_Data(object):
                                                      nodeName, notes)
         py2ecotect.conversation.Exec(arg_str)
 
+    def add_notes(self, nodeName, notes):
+        """
+        
+        Appends new note text to the associated data node. If the node already 
+        exists, any text you provide will be appended to it's existing notes. If 
+        the data node does not exist, it will be created first. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        nodeName 
+        A text string containing the full dot(.)-separated path to the embedded 
+        data node. For example 'EXPORT.RADIANCE.MYDATA'. Paths to data nodes 
+        cannot contain spaces of any kind. If you want to separate words, use 
+        the underscore (_) character. 
+        
+        notes 
+        A text string containing the new note text to append. 
+        
+        Relevant Data Table(s)
+        Embedded Data Format 
+        Value Description 
+        -1 Data node is hidden text. 
+        0 No format has been defined, assume raw text. 
+        1 Data contains raw text. 
+        2 Data contains a parameter set (key=value). 
+        3 Data contains runnable script code. 
+
+        """
+        arg_str = string_util._convert_args_to_string("add.project.data.notes", 
+                                                      nodeName, notes)
+        py2ecotect.conversation.Request(arg_str)
+    
     def get_param(self, nodeName, parameter):
         """
         

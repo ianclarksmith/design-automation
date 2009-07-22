@@ -156,7 +156,11 @@ class Timer(object):
         arg_str = string_util._convert_args_to_string("set.timer.running", 
                                                       running)
         py2ecotect.conversation.Exec(arg_str)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     count= property(fget = get_count, fset = set_count, 
                         doc = "The number of times the OnTimer(count) event has"
                         " been triggered since it was first started")
