@@ -26,7 +26,7 @@ curve_contour_points = {
             "name": "StartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D starting point of a center line.
             """
@@ -35,7 +35,7 @@ curve_contour_points = {
             "name": "EndPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D ending point of a center line.
             """

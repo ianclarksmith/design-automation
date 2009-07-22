@@ -26,7 +26,7 @@ add_interp_crv_on_srf_u_v = {
             "name": "Points",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 2-D surface parameters. The array must contain at least two sets of surface parameters.
             """

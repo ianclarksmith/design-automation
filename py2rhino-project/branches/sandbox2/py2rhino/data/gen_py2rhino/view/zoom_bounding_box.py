@@ -17,7 +17,7 @@ zoom_bounding_box = {
             "name": "Corners",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.  Use BoundingBox to obtain the bounding box of objects.
             """

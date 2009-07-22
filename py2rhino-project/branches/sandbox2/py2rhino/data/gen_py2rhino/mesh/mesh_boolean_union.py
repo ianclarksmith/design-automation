@@ -17,7 +17,7 @@ mesh_boolean_union = {
             "name": "Input",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         The identifiers of the meshes to union.
             """

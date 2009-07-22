@@ -17,7 +17,7 @@ add_interp_curve_ex = {
             "name": "Points",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array containing 3-D points to interpolate. Note, the number of control points must be >= (intDegree+1).
             """
@@ -60,7 +60,7 @@ add_interp_curve_ex = {
             "name": "StartTangent",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D vector that specifies a tangency condition at the beginning of the curve.
             """
@@ -69,7 +69,7 @@ add_interp_curve_ex = {
             "name": "EndTangent",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D vector that specifies a tangency condition at the end of the curve.
             """

@@ -17,7 +17,7 @@ curve_boolean_union = {
             "name": "Curves",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         The identifiers of two or more curve objects.
             """

@@ -17,7 +17,7 @@ plane_from_normal = {
             "name": "Origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point identifying the origin of the plane.
             """
@@ -26,7 +26,7 @@ plane_from_normal = {
             "name": "Normal",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A non-zero 3-D vector identifying the normal direction of the plane.
             """

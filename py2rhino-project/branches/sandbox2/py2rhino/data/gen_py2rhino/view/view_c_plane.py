@@ -26,7 +26,7 @@ view_c_plane = {
             "name": "Plane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The new construction plane.  The elements of a plane array are as follows:
 		Element

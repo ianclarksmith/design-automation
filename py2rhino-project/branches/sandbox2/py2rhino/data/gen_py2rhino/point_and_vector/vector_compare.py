@@ -17,7 +17,7 @@ vector_compare = {
             "name": "Vector1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The first 3-D vector to compare.
             """
@@ -26,7 +26,7 @@ vector_compare = {
             "name": "Vector2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The second 3-D vector to compare.
             """

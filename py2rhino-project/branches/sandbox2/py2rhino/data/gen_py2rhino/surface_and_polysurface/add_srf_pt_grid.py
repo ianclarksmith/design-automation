@@ -17,7 +17,7 @@ add_srf_pt_grid = {
             "name": "Count",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The number of points in the U and V directions.
             """
@@ -26,7 +26,7 @@ add_srf_pt_grid = {
             "name": "Points",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D points.
             """
@@ -35,7 +35,7 @@ add_srf_pt_grid = {
             "name": "Degree",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The degree of the surface in the U and V directions.  If omitted, the degree of the new surface in the U and V directions will be 3.
             """
@@ -44,7 +44,7 @@ add_srf_pt_grid = {
             "name": "Closed",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_bln",
             "doc": """
         Whether or not the surface is closed in the U and V directions.  If omitted, the new surface will not be closed in either the U or V directions.
             """

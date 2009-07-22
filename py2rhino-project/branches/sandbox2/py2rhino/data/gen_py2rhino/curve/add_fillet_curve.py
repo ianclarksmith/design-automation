@@ -44,7 +44,7 @@ add_fillet_curve = {
             "name": "Point0",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The base point on the first curve. If omitted, the starting point of the curve is used.
             """
@@ -53,7 +53,7 @@ add_fillet_curve = {
             "name": "Point1",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The base point on the second curve. If omitted, the starting point of the curve is used.
             """

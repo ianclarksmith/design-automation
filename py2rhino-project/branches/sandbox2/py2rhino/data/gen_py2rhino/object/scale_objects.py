@@ -17,7 +17,7 @@ scale_objects = {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of strings identifying the objects to scale.
             """
@@ -26,7 +26,7 @@ scale_objects = {
             "name": "Origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The origin of the scale transformation.
             """
@@ -35,7 +35,7 @@ scale_objects = {
             "name": "Scale",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of three numbers that identify the X axis, Y axis, and Z axis scale factors to apply. Scaling is based on the active construction plane.
             """

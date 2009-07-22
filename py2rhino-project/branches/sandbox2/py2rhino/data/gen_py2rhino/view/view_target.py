@@ -26,7 +26,7 @@ view_target = {
             "name": "Target",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point identifying the new target location.  If arrTarget is not specified, the current target location is returned.
             """

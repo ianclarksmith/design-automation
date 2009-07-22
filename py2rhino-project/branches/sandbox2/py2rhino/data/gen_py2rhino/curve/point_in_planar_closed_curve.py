@@ -17,7 +17,7 @@ point_in_planar_closed_curve = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point to test.
             """
@@ -35,7 +35,7 @@ point_in_planar_closed_curve = {
             "name": "Plane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element

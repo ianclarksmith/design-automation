@@ -26,7 +26,7 @@ rebuild_surface = {
             "name": "Degree",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         An array of two numbers that identify the surface curve degree in both the U and the V directions. Each degree value must be greater than 1. The default is 3 in each direction.
             """
@@ -35,7 +35,7 @@ rebuild_surface = {
             "name": "PointCount",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         An array of two numbers that identify the surface point count in both the U and the V directions.  The point count must be greater than the degree.  The default value is 10 in each direction.
             """

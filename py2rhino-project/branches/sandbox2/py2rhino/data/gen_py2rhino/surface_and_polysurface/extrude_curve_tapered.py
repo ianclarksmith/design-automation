@@ -35,7 +35,7 @@ extrude_curve_tapered = {
             "name": "Direction",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D vector that specifies the extrusion direction.
             """
@@ -44,7 +44,7 @@ extrude_curve_tapered = {
             "name": "BasePoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point that specifies the base point of the extrusion.
             """

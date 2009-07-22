@@ -17,7 +17,7 @@ add_nurbs_curve = {
             "name": "Points",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D control points.
             """
@@ -26,7 +26,7 @@ add_nurbs_curve = {
             "name": "Knots",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The knot values for the curve.  The number of elements in arrKnots must equal the number of elements in arrPoints plus intDegree minus one (1).
             """
@@ -44,7 +44,7 @@ add_nurbs_curve = {
             "name": "Weights",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The weight values for the curve.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
             """

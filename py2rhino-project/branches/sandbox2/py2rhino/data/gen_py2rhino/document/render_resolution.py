@@ -17,7 +17,7 @@ render_resolution = {
             "name": "Resolution",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         An array containing two numbers identifying the resolution width and height in pixels.
             """

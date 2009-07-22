@@ -17,7 +17,7 @@ vector_dot_product = {
             "name": "Vector1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The first 3-D vector.
             """
@@ -26,7 +26,7 @@ vector_dot_product = {
             "name": "Vector2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The second 3-D vector.
             """

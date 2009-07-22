@@ -35,7 +35,7 @@ get_string = {
             "name": "Strings",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         A array of strings to be displayed as click-able command options. Note, strings cannot begin with a numeric character.
             """

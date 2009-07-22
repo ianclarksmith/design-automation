@@ -37,7 +37,7 @@ get_box = {
             "name": "Point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D base point.
             """

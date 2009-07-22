@@ -17,7 +17,7 @@ xform_compare = {
             "name": "Xform1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The first 4x4 transformation matrix to compare.
             """
@@ -26,7 +26,7 @@ xform_compare = {
             "name": "Xform2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The second 4x4 transformation matrix to compare.
             """

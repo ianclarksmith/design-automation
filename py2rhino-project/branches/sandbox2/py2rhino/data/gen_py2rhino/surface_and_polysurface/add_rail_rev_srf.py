@@ -35,7 +35,7 @@ add_rail_rev_srf = {
             "name": "Axis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of two 3-D points identifying the start point and end point of the rail revolve axis.
             """

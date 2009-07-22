@@ -17,7 +17,7 @@ cull_duplicate_numbers = {
             "name": "Numbers",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         An array of numbers.
             """

@@ -17,7 +17,7 @@ add_mesh = {
             "name": "Vertices",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D points defining the vertices of the mesh.
             """
@@ -26,7 +26,7 @@ add_mesh = {
             "name": "FaceVertices",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         An array containing arrays of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
             """
@@ -35,7 +35,7 @@ add_mesh = {
             "name": "VertexNormals",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D vectors defining the vertex normals of the mesh. Note, for every vertex, the must be a corresponding vertex normal.
             """
@@ -44,7 +44,7 @@ add_mesh = {
             "name": "TextureCoordinates",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 2-D texture coordinates. Note, for every vertex, there must be a corresponding texture coordinate.
             """
@@ -53,7 +53,7 @@ add_mesh = {
             "name": "VertexColors",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
             """

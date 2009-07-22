@@ -17,7 +17,7 @@ add_nurbs_surface = {
             "name": "PointCount",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The number of control points in the U and V directions.
             """
@@ -26,7 +26,7 @@ add_nurbs_surface = {
             "name": "Points",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D control points.
             """
@@ -35,7 +35,7 @@ add_nurbs_surface = {
             "name": "KnotsU",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The knot values for the surface in the U direction.  The array must contain arrPointCount(0) + arrDegree(0) - 1 elements.
             """
@@ -44,7 +44,7 @@ add_nurbs_surface = {
             "name": "KnotsU",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The knot values for the surface in the U direction.  The array must contain arrPointCount(1) + arrDegree(1) - 1 elements.
             """
@@ -53,7 +53,7 @@ add_nurbs_surface = {
             "name": "Degree",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The degree of the surface in the U and V directions.  The degree in each direction must be greater than or equal to one (1).
             """
@@ -62,7 +62,7 @@ add_nurbs_surface = {
             "name": "Weights",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The weight values for the surface.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
             """

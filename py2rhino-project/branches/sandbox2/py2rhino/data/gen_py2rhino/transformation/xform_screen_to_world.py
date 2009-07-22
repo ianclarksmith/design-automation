@@ -17,7 +17,7 @@ xform_screen_to_world = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 2-D point in either client-area coordinates of a specified view or screen coordinates.
             """

@@ -17,7 +17,7 @@ evaluate_plane = {
             "name": "Plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The plane.  The elements of a plane array are as follows:
 		Element
@@ -35,7 +35,7 @@ evaluate_plane = {
             "name": "Parameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array containing the U,V parameter to evaluate.
             """

@@ -17,7 +17,7 @@ get_angle = {
             "name": "Point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A zero-based, one-dimensional array containing three numbers identifying the starting, or base, point.
             """
@@ -26,7 +26,7 @@ get_angle = {
             "name": "Reference",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A zero-based, one-dimensional array containing three numbers identifying a reference point.  If specified, the reference angle is calculated from it and the base point.
             """

@@ -90,7 +90,7 @@ get_object_ex = {
             "name": "Objects",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of strings identifying the objects that are allowed to be selected.
             """

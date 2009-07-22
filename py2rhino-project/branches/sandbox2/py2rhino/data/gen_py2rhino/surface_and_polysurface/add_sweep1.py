@@ -31,7 +31,7 @@ add_sweep1 = {
             "name": "Shapes",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of strings identifying one or more shape, or cross section, curves.
             """
@@ -40,7 +40,7 @@ add_sweep1 = {
             "name": "StartPt",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D starting point of the surface.
             """
@@ -49,7 +49,7 @@ add_sweep1 = {
             "name": "EndPt",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D ending point of the surface.
             """

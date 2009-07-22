@@ -26,7 +26,7 @@ view_camera = {
             "name": "Camera",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point identifying the new camera location.  If arrCamera is not specified, the current camera location is returned.
             """

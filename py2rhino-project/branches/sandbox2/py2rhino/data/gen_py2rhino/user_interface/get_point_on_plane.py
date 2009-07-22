@@ -26,7 +26,7 @@ get_point_on_plane = {
             "name": "Plane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The plane to constrain the point to.
             """
@@ -35,7 +35,7 @@ get_point_on_plane = {
             "name": "Point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point from with to draw a tracking line. If omitted, a tracking line will not be drawn.
             """

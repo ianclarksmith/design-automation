@@ -17,7 +17,7 @@ vector_rotate = {
             "name": "Vector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D vector.
             """
@@ -35,7 +35,7 @@ vector_rotate = {
             "name": "Axis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D vector defining the axis of rotation.
             """

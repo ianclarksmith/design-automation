@@ -17,7 +17,7 @@ add_leader = {
             "name": "Points",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D points.  The array must contain at least two points.
             """

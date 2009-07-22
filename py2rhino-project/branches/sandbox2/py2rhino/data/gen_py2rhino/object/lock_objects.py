@@ -17,7 +17,7 @@ lock_objects = {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of strings identifying the objects to lock.
             """

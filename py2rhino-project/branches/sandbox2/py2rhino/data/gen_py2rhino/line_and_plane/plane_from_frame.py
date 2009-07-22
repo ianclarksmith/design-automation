@@ -17,7 +17,7 @@ plane_from_frame = {
             "name": "Origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point identifying the origin of the plane.
             """
@@ -26,7 +26,7 @@ plane_from_frame = {
             "name": "Xaxis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A non-zero 3-D vector in the plane that determines the X axis direction.
             """
@@ -35,7 +35,7 @@ plane_from_frame = {
             "name": "Yaxis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A non-zero 3-D vector not parallel to arrXaxis that is used to determine the Y axis direction. Note, arrYaxis does not have to be perpendicular to arrXaxis.
             """

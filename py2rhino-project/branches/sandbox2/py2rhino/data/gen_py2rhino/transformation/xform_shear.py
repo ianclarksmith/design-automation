@@ -17,7 +17,7 @@ xform_shear = {
             "name": "Plane",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The plane, where arrPlane(0) is the fixed point.
             """
@@ -26,7 +26,7 @@ xform_shear = {
             "name": "X1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The x-axis scale factor.
             """
@@ -35,7 +35,7 @@ xform_shear = {
             "name": "Y1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The y-axis scale factor.
             """
@@ -44,7 +44,7 @@ xform_shear = {
             "name": "Z1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The z-axis scale factor.
             """

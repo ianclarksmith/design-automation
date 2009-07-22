@@ -48,7 +48,7 @@ create_preview_image = {
             "name": "Size",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         An array of two integers that specify the width and height of the bitmap in pixels.
             """

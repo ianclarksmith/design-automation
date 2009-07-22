@@ -17,7 +17,7 @@ shear_objects = {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of strings identifying the objects to shear.
             """
@@ -26,7 +26,7 @@ shear_objects = {
             "name": "Origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The origin of the shear transformation.
             """
@@ -35,7 +35,7 @@ shear_objects = {
             "name": "RefPt",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The reference point of the shear transformation.
             """
@@ -44,7 +44,7 @@ shear_objects = {
             "name": "Scale",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
             """

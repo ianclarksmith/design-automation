@@ -26,7 +26,7 @@ text_dot_point = {
             "name": "Point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point identifying the new location point.
             """

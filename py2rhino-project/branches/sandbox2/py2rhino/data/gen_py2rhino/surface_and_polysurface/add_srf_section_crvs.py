@@ -26,7 +26,7 @@ add_srf_section_crvs = {
             "name": "Plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A plane that defines the cutting plane.
             """

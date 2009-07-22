@@ -26,7 +26,7 @@ curve_closest_point = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The test, or sampling, point.
             """

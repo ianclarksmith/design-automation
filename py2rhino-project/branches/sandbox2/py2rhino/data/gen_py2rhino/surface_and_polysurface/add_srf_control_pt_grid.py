@@ -17,7 +17,7 @@ add_srf_control_pt_grid = {
             "name": "Count",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         The number of control points in the U and V directions.
             """
@@ -26,7 +26,7 @@ add_srf_control_pt_grid = {
             "name": "Points",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D control points.
             """
@@ -35,7 +35,7 @@ add_srf_control_pt_grid = {
             "name": "Degree",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The degree of the surface in the U and V directions.  If omitted, the degree of the new surface in the U and V directions will be 3.
             """

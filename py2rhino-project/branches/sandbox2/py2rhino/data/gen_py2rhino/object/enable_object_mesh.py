@@ -18,7 +18,7 @@ enable_object_mesh = {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         The identifier of a meshable object.
             """

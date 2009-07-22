@@ -17,7 +17,7 @@ point_transform = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D point to transform.
             """
@@ -26,7 +26,7 @@ point_transform = {
             "name": "Xform",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A valid 4x4 transformation matrix.
             """

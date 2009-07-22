@@ -1045,8 +1045,8 @@ utility = {
         "CaseSensitive": "bln",
     },
     "join_arrays": {
-        "1": "arr_of_any",
-        "2": "arr_of_any",
+        "Array1": "arr_of_any",
+        "Array2": "arr_of_any",
     },
     "pt2_str": {
         "Point": "arr_of_dbl",

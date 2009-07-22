@@ -20,7 +20,7 @@ add_loft_srf = {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An ordered array of strings identifying the curve objects to loft.
             """
@@ -29,7 +29,7 @@ add_loft_srf = {
             "name": "StartPt",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The starting point of the loft.
             """
@@ -38,7 +38,7 @@ add_loft_srf = {
             "name": "EndPt",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The ending point of the loft.
             """

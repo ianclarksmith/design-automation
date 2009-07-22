@@ -17,7 +17,7 @@ move_plane = {
             "name": "Plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The plane.  The elements of a plane array are as follows:
 		Element
@@ -35,7 +35,7 @@ move_plane = {
             "name": "Origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point identifying the new origin location.
             """

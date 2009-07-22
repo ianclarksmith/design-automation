@@ -26,7 +26,7 @@ surface_principal_curvature = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A point on the curve to evaluate.
             """

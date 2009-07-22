@@ -17,7 +17,7 @@ point_compare = {
             "name": "Point1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The first 3-D point to compare.
             """
@@ -26,7 +26,7 @@ point_compare = {
             "name": "Point2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The second 3-D point to compare.
             """

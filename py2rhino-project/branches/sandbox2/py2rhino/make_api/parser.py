@@ -5,6 +5,8 @@ import string
 from py2rhino.data.gen_comtypes import rhinoscript as ct_rs
 from util import *
 
+from py2rhino.data.gen_py2rhino import _array_type_strings_updated as types
+
 #file paths
 in_folder = "..\\data\\gen_html\\supported\\"
 out_folder = "..\\data\\gen_py2rhino\\"
@@ -46,7 +48,8 @@ def parse_docs():
             if not file_s in non_svn_files:
                 files.append(file)
             else:
-                print "found plural method", file_s
+                pass
+                #print "found plural method", file_s
                 
         #now start parsing
         for file in files:
@@ -184,7 +187,7 @@ def parse_docs():
                         #assign parameters
                         param_req = line2_word1
                         param_vb_type = line2_word2
-                        content_params.append((param_name, param_req, param_vb_type, param_prefix, content_param_help))
+                        content_params.append([param_name, param_req, param_vb_type, param_prefix, content_param_help])
                         
                 
                 #now check for duplicate parameters, e.g strObject and arrObjects
@@ -202,13 +205,21 @@ def parse_docs():
                             #print file_name, folder_name
                         if (param[0] + 'es') in list_of_param_names:
                             dups_to_be_removed.append(counter)
-                            print "found plural 'es' parameter"
-                            print file_name, folder_name
+                            #print "found plural 'es' parameter"
+                            #print file_name, folder_name
                         counter += 1
                     if dups_to_be_removed:
                         for i in dups_to_be_removed:
                             content_params.pop(i)               
                 
+                #now check to see if there are any changes specified in the types file
+                module_name = folder_name[:-8].lower() #TODO: fix this naming - this is getting messy
+                method_name = camel_to_underscore(file_name)
+                module_methods = types.__dict__[module_name][0]
+                if method_name in module_methods.keys():
+                    for param in content_params:
+                        param[3] = module_methods[method_name][param[0]]
+                            
                 #now get the returns
                 content_returns = []
                 if (line_num_example - line_num_returns) > 2:

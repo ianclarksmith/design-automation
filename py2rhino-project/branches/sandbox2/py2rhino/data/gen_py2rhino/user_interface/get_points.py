@@ -62,7 +62,7 @@ get_points = {
             "name": "BasePoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A starting, or base, point.
             """

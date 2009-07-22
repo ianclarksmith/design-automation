@@ -17,7 +17,7 @@ plane_from_points = {
             "name": "Origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The first point, or origin, of the plane.
             """
@@ -26,7 +26,7 @@ plane_from_points = {
             "name": "PointX",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A point on the plane's X axis.
             """
@@ -35,7 +35,7 @@ plane_from_points = {
             "name": "PointY",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A point on the plane's Y axis.
             """

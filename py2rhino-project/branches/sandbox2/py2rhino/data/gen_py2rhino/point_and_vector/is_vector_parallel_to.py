@@ -17,7 +17,7 @@ is_vector_parallel_to = {
             "name": "Vector1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D vector.
             """
@@ -26,7 +26,7 @@ is_vector_parallel_to = {
             "name": "Vector2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D vector to compare to.
             """
