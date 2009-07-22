@@ -55,11 +55,11 @@ class Node(object):
         spline 8 Control node for a virtual spline curve. 
         
         """
-        #arg_str = string_util._convert_args_to_string("add.node", object, index, 
-        #                                             x, y, z, nodeType, link)
-        #val = py2ecotect.conversation.Request(arg_str)
-        #self._id = string_util._convert_str_to_type(val, int)
-        self._id = 1293
+        arg_str = string_util._convert_args_to_string("add.node", object, index, 
+                                                     x, y, z, nodeType, link)
+        val = py2ecotect.conversation.Request(arg_str)
+        self._id = string_util._convert_str_to_type(val, int)
+        #self._id = 1293
  
     #===========================================================================
     # Commands

@@ -7,7 +7,7 @@ class Model(object):
     # Commands
     #===========================================================================
         
-    def dump(filename):
+    def dump(self, filename):
         """
         
         Use the dump command to save a snapshot copy of the current model to the 
@@ -36,7 +36,7 @@ class Model(object):
         arg_str = string_util._convert_args_to_string("model.dump", filename)
         py2py2ecotect.conversation.Exec(arg_str)
     
-    def export_file(filename, fileformat):
+    def export_file(self, filename, fileformat):
         """
         
         Use this command to export the current model data to the a file. A 
@@ -96,7 +96,7 @@ class Model(object):
         arg_str = string_util._convert_args_to_string("model.export" + fileformat, filename)
         py2ecotect.conversation.Exec(arg_str)
     
-    def import_file(filename):
+    def import_file(self, filename):
         """
         
         Use this command to import data in into the current model. A suffix 
@@ -147,7 +147,7 @@ class Model(object):
         arg_str = string_util._convert_args_to_string("model.import", filename)
         py2ecotect.conversation.Exec(arg_str)
     
-    def load(filename):
+    def load(self, filename):
         """
         
         Loads the specified file as the current model. 
@@ -166,7 +166,7 @@ class Model(object):
         arg_str = string_util.string_util._convert_args_to_string("model.load", filename)
         py2ecotect.conversation.Exec(arg_str)
     
-    def load_new():
+    def load_new(self):
         """   
         
         Clears the current model from memory and resets the material library. 
@@ -183,7 +183,7 @@ class Model(object):
         """
         py2ecotect.conversation.Exec("model.new")
     
-    def revert():
+    def revert(self):
         """
         
         Use this command to revert to the last saved version of the current 
@@ -198,7 +198,7 @@ class Model(object):
         """
         py2ecotect.conversation.Exec("model.revert")
     
-    def save():
+    def save(self):
         """
         
         This command simply saves the current model to disk. If the model does 
@@ -210,7 +210,7 @@ class Model(object):
         """
         py2ecotect.conversation.Exec("model.save")
     
-    def save_as(filename):
+    def save_as(self, filename):
         """
         
         When invoked, the model.saveas command saves the model with the new 
@@ -227,7 +227,7 @@ class Model(object):
         arg_str = string_util._convert_args_to_string("model.saveas", filename)        
         py2ecotect.conversation.Exec(arg_str)
         
-    def update():
+    def update(self):
         """
         
         Use the update command to check and refresh inter-object relationships 
@@ -246,7 +246,7 @@ class Model(object):
     # Properties
     #===========================================================================
     
-    def get_altitude(x1, y1, z1, x2, y2, z2):
+    def get_altitude(self, x1, y1, z1, x2, y2, z2):
         """
         
         Retrieves geometric information from the current ECOTECT model, 
@@ -276,7 +276,7 @@ class Model(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)        
         
-    def get_azimuth(x1, y1, z1, x2, y2, z2):
+    def get_azimuth(self, x1, y1, z1, x2, y2, z2):
         """
         
         Retrieves geometric information from the current ECOTECT model, 
@@ -306,7 +306,7 @@ class Model(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)           
     
-    def get_current_node():
+    def get_current_node(self):
         """
         
         Returns the zero-based index of the last selected node within the 
@@ -325,7 +325,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.currentnode")
         return string_util._convert_str_to_type(val, int)  
     
-    def get_current_object():
+    def get_current_object(self):
         """
         
         Returns the zero-based index of the last selected object within the 
@@ -344,7 +344,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.currentobject")
         return string_util._convert_str_to_type(val, int)   
     
-    def get_current_zone():
+    def get_current_zone(self):
         """
         
         Returns the zero-based index of the current zone in the currently 
@@ -363,7 +363,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.currentzone")
         return string_util._convert_str_to_type(val, int)   
     
-    def get_date():
+    def get_date(self):
         """
         
         Retrieves the current date as a formatted string ready for printing 
@@ -385,7 +385,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.date")
         return string_util._convert_str_to_list(val, int)  
     
-    def set_date(day, month, time=None):
+    def set_date(self, day, month, time=None):
         """
         
         Sets the date in the ECOTECT model. 
@@ -409,7 +409,7 @@ class Model(object):
             arg_str = string_util._convert_args_to_string("set.model.date", day, month)
         py2ecotect.conversation.Exec(arg_str)
         
-    def get_date_string():
+    def get_date_string(self):
         """
         
         Retrieves a formated string containing the current model date. 
@@ -427,7 +427,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.datestring")
         return string_util._convert_str_to_type(val, str)
                 
-    def get_daylight_savings():
+    def get_daylight_savings(self):
         """
         
         Retrieves the status of the daylight savings flag. 
@@ -447,7 +447,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.daylightsavings")
         return string_util._convert_str_to_type(val, bool)          
     
-    def get_day_of_the_year():
+    def get_day_of_the_year(self):
         """
         
         Retrieves the current date and displays it in the julian date 
@@ -468,7 +468,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.dayoftheyear")
         return string_util._convert_str_to_type(val, int)  
     
-    def set_day_of_the_year(day, time=None):
+    def set_day_of_the_year(self, day, time=None):
         """
         
         Sets the current date using the julian date format. 
@@ -489,7 +489,7 @@ class Model(object):
             arg_str = string_util._convert_args_to_string("set.model.dayoftheyear", day)
         py2ecotect.conversation.Exec(arg_str)
     
-    def get_directory():
+    def get_directory(self):
         """
         
         Returns the drive and directory in which the currently loaded 
@@ -509,7 +509,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.directory")
         return string_util._convert_str_to_type(val, str)
     
-    def set_directory(path):
+    def set_directory(self, path):
         """
         
         Sets the drive and directory to use with the currently loaded 
@@ -529,7 +529,7 @@ class Model(object):
         arg_str = string_util._convert_args_to_string(args)
         py2ecotect.conversation.Exec(arg_str)
     
-    def get_display():
+    def get_display(self):
         """
         
         Retrieves the current information display. When retrieving this 
@@ -561,7 +561,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.display")
         return string_util._convert_str_to_type(val, int)        
     
-    def set_display(display):
+    def set_display(self, display):
         """
         
         This property sets the current information display. 
@@ -589,7 +589,7 @@ class Model(object):
         args = string_util._convert_args_to_string("set.model.display", display)
         py2ecotect.conversation.Exec()
     
-    def get_distance(x1, y1, z1, x2, y2, z2):
+    def get_distance(self, x1, y1, z1, x2, y2, z2):
         """
         
         Retrieves geometric information from the current ECOTECT model, 
@@ -620,7 +620,7 @@ class Model(object):
         return string_util._convert_str_to_type(val, float)          
     
     
-    def get_filename():
+    def get_filename(self):
         """
         
         Returns the filename of the currently loaded ECOTECT model. This is 
@@ -639,7 +639,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.filename")
         return string_util._convert_str_to_type(val, str)
     
-    def get_last_node():
+    def get_last_node(self):
         """
         
         Returns the zero-based index of the last added/inserted node within 
@@ -659,7 +659,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.lastnode")
         return string_util._convert_str_to_type(val, int)
     
-    def get_materials():
+    def get_materials(self):
         """
         
         Returns the number of materials stored in the currently loaded 
@@ -679,7 +679,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.materials")
         return string_util._convert_str_to_type(val, int)      
     
-    def get_month():
+    def get_month(self):
         """
         
         Returns the current month. 
@@ -697,7 +697,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.month")
         return string_util._convert_str_to_type(val, int)
     
-    def get_next_node(object, index):
+    def get_next_node(self, object, index):
         """
         
         Returns the zero-based absolute index of the next node in the specified 
@@ -724,7 +724,7 @@ class Model(object):
         val = py2ecotect.conversation.Request(args)
         return string_util._convert_str_to_type(val, int)       
     
-    def get_next_object(startat, type, flag, tag, zone):
+    def get_next_object(self, startat, type, flag, tag, zone):
         """
         
         Use this property to obtain the zero-based index of the next object 
@@ -816,7 +816,7 @@ class Model(object):
         val = py2ecotect.conversation.Request(args)
         return string_util._convert_str_to_type(val, int)          
     
-    def get_nodes():
+    def get_nodes(self):
         """
         
         Returns the number of individual object nodes within the currently 
@@ -835,7 +835,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.nodes")
         return string_util._convert_str_to_type(val, int)          
     
-    def get_objects():
+    def get_objects(self):
         """
         
         Returns the number of objects in the currently loaded ECOTECT model. 
@@ -855,7 +855,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.objects")
         return string_util._convert_str_to_type(val, int)
     
-    def get_orientation(x1, y1, z1, x2, y2, z2):
+    def get_orientation(self, x1, y1, z1, x2, y2, z2):
         """
         
         Retrieves geometric information from the current ECOTECT model, 
@@ -885,7 +885,7 @@ class Model(object):
         val = py2ecotect.conversation.Request(args)
         return string_util._convert_str_to_type(val, float)        
     
-    def get_origin():
+    def get_origin(self):
         """
         
         Retrieves the location of the Transformation Origin. This is a dynamic 
@@ -905,7 +905,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.origin")
         return string_util._convert_str_to_list(val, float)
     
-    def set_origin(x, y, z):
+    def set_origin(self, x, y, z):
         """
         
         Sets the location of the Transformation Origin. This is a dynamic point 
@@ -922,7 +922,7 @@ class Model(object):
         args = string_util._convert_args_to_string("set.model.origin", x, y, z)
         py2ecotect.conversation.Exec(args)     
     
-    def get_path_name():
+    def get_path_name(self):
         """
         
         Returns the full pathname of the currently loaded ECOTECT model. This 
@@ -940,7 +940,7 @@ class Model(object):
         """
         return py2ecotect.conversation.Request("get.model.pathname")
     
-    def get_prev_node(object, index):
+    def get_prev_node(self, object, index):
         """
         
         Returns the zero-based absolute index of the previous node in the 
@@ -967,7 +967,7 @@ class Model(object):
         val = py2ecotect.conversation.Request(args)
         return string_util._convert_str_to_type(val, int)        
     
-    def get_prev_object(startat, type, flag, tag, zone):
+    def get_prev_object(self, startat, type, flag, tag, zone):
         """
         
         Use this property to obtain the zero-based index of the preceding object 
@@ -1059,7 +1059,7 @@ class Model(object):
         val = py2ecotect.conversation.Request(args)
         return string_util._convert_str_to_type(val, int)         
     
-    def get_snap():
+    def get_snap(self):
         """
         
         Retrieves the current information display
@@ -1092,7 +1092,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.snap")
         return string_util._convert_str_to_type(val, bool)         
     
-    def set_snap(snap):
+    def set_snap(self, snap):
         """
         
         This property sets the current information display. 
@@ -1123,7 +1123,7 @@ class Model(object):
         args = string_util._convert_args_to_string("set.model.snap", snap)
         py2ecotect.conversation.Exec(args)
         
-    def get_sun_angles():
+    def get_sun_angles(self):
         """
         
         Returns two values, being the azimuth and altitude of the Sun for the 
@@ -1145,7 +1145,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.sunangles")
         return string_util._convert_str_to_list(val, float)          
         
-    def get_sun_position(dist=0, xyz=(0,0,0)):
+    def get_sun_position(self, dist=0, xyz=(0,0,0)):
         """
         
         Returns a position value that can be used to represent the Sun location 
@@ -1177,7 +1177,7 @@ class Model(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float) 
             
-    def get_sunrise():
+    def get_sunrise(self):
         """
         
         Returns the sunrise time as a 24 hour decimal value. Thus, 6:30am would 
@@ -1196,7 +1196,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.sunrise")
         return string_util._convert_str_to_type(val, float)  
         
-    def get_sun_set():
+    def get_sun_set(self):
         """
         
         Returns the sunset time as a 24 hour decimal value. Thus, 6:30pm would 
@@ -1215,7 +1215,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.sunset")
         return string_util._convert_str_to_type(val, float)        
     
-    def get_time():
+    def get_time(self):
         """
         
         Retrieves the current time of day. The time value returned is a decimal 
@@ -1234,7 +1234,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.time")
         return string_util._convert_str_to_type(val, float)          
     
-    def set_time(time):
+    def set_time(self, time):
         """
         
         Sets the current time of day. 
@@ -1249,7 +1249,7 @@ class Model(object):
         args = string_util._convert_args_to_string("set.model.time", time)
         py2ecotect.conversation.Exec(args)
     
-    def get_time_string():
+    def get_time_string(self):
         """
         
         Retrieves a formated string containing the current model time. 
@@ -1267,7 +1267,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.timestring")
         return string_util._convert_str_to_type(val, str)
         
-    def get_cap_extrusions():
+    def get_cap_extrusions(self):
         """
         
         Retrieves the capextrusions flag. When capextrusions is set to true or 
@@ -1287,7 +1287,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.xform.capextrusions")
         return string_util._convert_str_to_type(val, bool)          
         
-    def set_cap_extrusions(state = True):
+    def set_cap_extrusions(self, state = True):
         """
         
         Sets the capextrusions flag. 
@@ -1303,7 +1303,7 @@ class Model(object):
         args = string_util._convert_args_to_string("set.model.xform.capextrusions", state)
         py2ecotect.conversation.Exec(args)
     
-    def get_vectors():
+    def get_vectors(self):
         """
         
         Retrieves the xform.vectors flag. With transform vectors set to true or 
@@ -1324,7 +1324,7 @@ class Model(object):
         val = py2ecotect.conversation.Request("get.model.xform.vectors")
         return string_util._convert_str_to_type(val, bool)
     
-    def set_vectors(state = True):
+    def set_vectors(self, state = True):
         """
         
         Returns the number of zones in the currently loaded ECOTECT model as a 

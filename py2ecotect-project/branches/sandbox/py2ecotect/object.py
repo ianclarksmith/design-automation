@@ -2153,6 +2153,10 @@ class Object(object):
                                                      self._id, index)
         py2ecotect.conversation.Exec(arg_str)
         
+    #===========================================================================
+    # Properties
+    #===========================================================================
+        
     id = property(fget = get_id, doc = "Id of the object")
     
     alternate= property(fget = get_alternate, fset = set_alternate, 
