@@ -547,6 +547,9 @@ class Node(object):
                                                           self._id, type, link)
             py2ecotect.conversation.Exec(arg_str)
 
+    #===========================================================================
+    # Properties    
+    #===========================================================================
 
     id = property(fget = get_id, doc = "Id of the Node object")
     

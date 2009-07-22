@@ -343,7 +343,8 @@ class Calculation(object):
         arg_str = string_util._convert_args_to_string("calc.resources", type)
         py2ecotect.conversation.Exec(arg_str)
     
-    def shading_percentage(self, cumulative, startDay, stopDay, startTime, stopTime, shadingType = ""):
+    def shading_percentage(self, cumulative, startDay, stopDay, startTime, 
+                           stopTime, shadingType = "percentage"):
         """
         
         Calculates the shading mask for the currently selected object. The 
@@ -375,6 +376,9 @@ class Calculation(object):
         Determines the end time for the calculation. This is a decimal value 
         between 0.00 and 23.99.
         
+        shadingType
+        Can be percentage, total, diffuse or direct. Default is percentage
+        
         Relevant Data Table(s)
         
         Available Thermal Calculations 
@@ -403,7 +407,7 @@ class Calculation(object):
                                                       startTime, stopTime)
         py2ecotect.conversation.Exec(arg_str)
     
-    def thermal_temperatures(self, selector, zone = 0):
+    def thermal_temperatures(self, calculationType, zone = 0):
         """
         
         Use these methods to invoke thermal calculations. The command suffixes 
@@ -415,6 +419,9 @@ class Calculation(object):
         Parameter(s)
         This command takes the following parameters.
         
+        calculationType
+        Refer to  the thermal calculations table below
+        
         [zone] 
         This optional parameter can be used to specify the zero-based index of a 
         zone to use for the calculation. This paramater only applies to the 
@@ -424,7 +431,8 @@ class Calculation(object):
         
         Relevant Data Table(s)
         
-        Available Thermal Calculations Token Description 
+        Available Thermal Calculations 
+        Token Description 
         temperatures Hourly temperatures for current day. 
         gains Hourly heat gains for current day. 
         loads Monthly heating and cooling loads. 
@@ -602,7 +610,7 @@ class Calculation(object):
         val = py2ecotect.conversation.Request("get.calc.sky")
         return string_util._convert_str_to_list(val, int)
     
-    def set_sky(self, sky, level):
+    def set_material_default(self, sky, level):
         """
         
         Set this property to make the specified material the default for all new 
@@ -624,7 +632,8 @@ class Calculation(object):
         uniform 1 CIE Uniform Sky 
     
         """
-        arg_str = string_util._convert_args_to_string("set.calc.sky", sky, level)
+        arg_str = string_util._convert_args_to_string("set.material.default", 
+                                                      sky, level)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_times(self):
@@ -737,14 +746,13 @@ class Calculation(object):
                                                       cleanliness)
         py2ecotect.conversation.Exec(arg_str)
     
+        #=======================================================================
+        # Properties    
+        #=======================================================================
+
     precision = property(fget = get_precision, fset = set_precision, 
                         doc = "The level of precision used in lighting"
                         " calculations for the calc.lighting command")
-    
-    sky = property(fget = get_sky, fset = set_sky, 
-                        doc = "The type of sky illuminance distribution and"
-                        " design sky illuminance level used during daylight"
-                        " calculations")
     
     windows = property(fget = get_windows, fset = set_windows, 
                         doc = "The window conditions for lighting calculations"

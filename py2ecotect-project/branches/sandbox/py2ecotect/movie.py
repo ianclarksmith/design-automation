@@ -476,6 +476,10 @@ class Movie(object):
         arg_str = string_util._convert_args_to_string("set.movie.type", type)
         py2ecotect.conversation.Exec(arg_str)    
 
+    #===========================================================================
+    # Properties    
+    #===========================================================================
+
     aero_3d= property(fget = get_aero_3d, fset = set_aero_3d, 
                         doc = "Desktop composition within the Aero theme uses"
                         " the 3D graphics buffer to generate blurred"

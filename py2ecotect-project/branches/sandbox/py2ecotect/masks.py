@@ -464,7 +464,10 @@ class Masks(object):
                                                      azi, alt, value)
         py2ecotect.conversation.Exec(arg_str)
 
-
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     count  = property(fget = get_count, doc = "The number of shading masks in"
                       " the current list")
 

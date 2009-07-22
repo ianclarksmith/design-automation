@@ -59,7 +59,7 @@ class Grid(object):
         """
         py2ecotect.conversation.Exec("grid.fit.values")
 
-    def import_data(self, filename, operation = ""):
+    def import_data(self, filename, importOperation = ""):
         """
         
         This command imports data from an external coma separated value (*.CSV) 
@@ -75,12 +75,16 @@ class Grid(object):
         filename 
         This parameter specifies the file where the data will be imported from, 
         and may include a full pathname. However, be aware of the issues with 
-        backslashes in filename parameters described here. 
+        backslashes in filename parameters described here.
+        
+        importOperation
+        Refer to table below 
         
         Relevant Data Table(s)
+        
         Grid Import Operations 
         Command Suffix Description 
-         If no value is appended, current grid data is overwritten. 
+                If no value is appended, current grid data is overwritten. 
         subtract Subtract imported data from existing data. 
         add Add imported data to existing data. 
         divide Divide existing data by imported data. 
@@ -1052,7 +1056,11 @@ class Grid(object):
                                                      axis, draw)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     average = property(fget = get_average, doc = "This property returns three"
                        " values - the average value of all enabled grid nodes,"
                        " the number of enabled grid nodes, and the fraction of"

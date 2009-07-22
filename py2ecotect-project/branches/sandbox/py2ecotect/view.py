@@ -31,7 +31,10 @@ class View(object):
         (.wfm) format is created instead. 
 
         Parameter(s)
-        There are no parameters for this command.
+        This command takes the following parameters.
+        
+        [format]
+        Can be bmp or wmf. Default is blank.
 
         """
         if len(format) != 0:
@@ -853,7 +856,7 @@ class View(object):
         val = py2ecotect.conversation.Request("get.view.grid.min")
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_grid_max(self, x, y, z):
+    def set_grid_min(self, x, y, z):
         """
         
         Sets the minimum starting position of the current display grid. 
@@ -998,7 +1001,11 @@ class View(object):
         """
         val = py2ecotect.conversation.Request("get.view.visible")
         return string_util._convert_str_to_type(val, int)
-
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     align = property(fget = get_align, fset = set_align, 
                         doc = "The alignment of output text by the view.draw."
                         "text")

@@ -508,6 +508,10 @@ class Project(object):
         arg_str = string_util._convert_args_to_string("set.project.type", type)
         py2ecotect.conversation.Exec(arg_str)
 
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     altitude = property(fget = get_altitude, fset = set_altitude, 
                         doc = "The current altitude of the site, relative to"
                         " sea level")
@@ -551,6 +555,7 @@ class Project(object):
 if __name__ == "__main__":
     x = Project()
     #x.type = 3
-    #print x.type
+    #print x.title
+    #x.title = "HELLO"
     
     print "Tests completed"
