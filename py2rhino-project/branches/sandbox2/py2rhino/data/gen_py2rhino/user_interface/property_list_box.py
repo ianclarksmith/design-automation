@@ -17,7 +17,7 @@ property_list_box = {
             "name": "Items",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         A zero-based, one-dimensional array of string items.
             """
@@ -26,7 +26,7 @@ property_list_box = {
             "name": "Values",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         A zero-based, one-dimensional array of strings indicating the value of each item in the list.
             """

@@ -17,7 +17,7 @@ add_objects_to_group = {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of object identifiers.
             """

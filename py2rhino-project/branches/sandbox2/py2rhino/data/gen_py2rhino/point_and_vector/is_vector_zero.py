@@ -17,7 +17,7 @@ is_vector_zero = {
             "name": "Vector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D vector to test.
             """

@@ -17,7 +17,7 @@ add_hatches = {
             "name": "Curves",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of strings that identify one or more closed planar curves that defines the boundaries of the hatch objects.
             """

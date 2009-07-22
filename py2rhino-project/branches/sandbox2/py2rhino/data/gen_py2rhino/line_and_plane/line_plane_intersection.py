@@ -17,7 +17,7 @@ line_plane_intersection = {
             "name": "Line",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         Two 3-D points identifying the starting and ending points of the line to intersect.
             """
@@ -26,7 +26,7 @@ line_plane_intersection = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The plane to intersect.
             """

@@ -17,7 +17,7 @@ point_subtract = {
             "name": "Point1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D point to subtract from.
             """
@@ -26,7 +26,7 @@ point_subtract = {
             "name": "Point2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D point or a 3-D vector to subtract.
             """

@@ -17,7 +17,7 @@ add_ellipse3_pt = {
             "name": "Center",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The center point of the ellipse.
             """
@@ -26,7 +26,7 @@ add_ellipse3_pt = {
             "name": "Second",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The end point of the X-axis.
             """
@@ -35,7 +35,7 @@ add_ellipse3_pt = {
             "name": "Third",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The end point of the Y-axis.
             """

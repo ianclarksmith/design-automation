@@ -26,7 +26,7 @@ surface_curvature = {
             "name": "Parameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array containing the U,V parameter to evaluate.
             """

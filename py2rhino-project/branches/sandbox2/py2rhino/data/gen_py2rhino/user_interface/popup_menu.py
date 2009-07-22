@@ -17,7 +17,7 @@ popup_menu = {
             "name": "Items",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of string representing the menu items. An empty string, or "", will create a menu separator item.
             """
@@ -26,7 +26,7 @@ popup_menu = {
             "name": "Modes",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_int",
             "doc": """
         A array if numbers identifying the display mode of the corresponding menu items. If omitted, all menu items are enabled. Note, display modes are ignored for menu separators. The display modes are a follows:
 		0
@@ -42,7 +42,7 @@ popup_menu = {
             "name": "Point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point where the menu item is to appear. If omitted, the menu item will appear at the current cursor position.
             """

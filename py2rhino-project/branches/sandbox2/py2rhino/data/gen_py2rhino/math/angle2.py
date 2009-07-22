@@ -17,7 +17,7 @@ angle2 = {
             "name": "Point1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array containing the starting and ending 3-D points of the first line.
             """
@@ -26,7 +26,7 @@ angle2 = {
             "name": "Point2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array containing the starting and ending 3-D points of the second line.
             """

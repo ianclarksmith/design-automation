@@ -17,7 +17,7 @@ add_ellipse = {
             "name": "Plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The plane on which the ellipse will lie. The origin of the plane will be the center point of the ellipse.
             """

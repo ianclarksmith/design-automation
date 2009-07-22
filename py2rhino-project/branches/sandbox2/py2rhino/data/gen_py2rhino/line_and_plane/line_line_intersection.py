@@ -19,7 +19,7 @@ line_line_intersection = {
             "name": "LineA",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         Two 3-D points identifying the starting and ending points of the first line.
             """
@@ -28,7 +28,7 @@ line_line_intersection = {
             "name": "LineB",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         Two 3-D points identifying the starting and ending points of the second line.
             """

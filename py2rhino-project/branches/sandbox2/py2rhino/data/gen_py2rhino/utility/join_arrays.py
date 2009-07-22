@@ -17,7 +17,7 @@ join_arrays = {
             "name": "Array1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_any",
             "doc": """
         The first one-dimensional array.
             """
@@ -26,7 +26,7 @@ join_arrays = {
             "name": "Array2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_any",
             "doc": """
         The second one-dimensional array.
             """

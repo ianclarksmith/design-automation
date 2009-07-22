@@ -17,7 +17,7 @@ add_linear_light = {
             "name": "StartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D starting point of the light.
             """
@@ -26,7 +26,7 @@ add_linear_light = {
             "name": "EndPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D ending point and direction of the light.
             """

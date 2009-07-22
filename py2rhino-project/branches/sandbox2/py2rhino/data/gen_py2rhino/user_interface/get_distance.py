@@ -17,7 +17,7 @@ get_distance = {
             "name": "Point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A zero-based, one-dimensional array containing three numbers identifying the first distance point.
             """

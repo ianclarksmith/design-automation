@@ -17,7 +17,7 @@ mirror_objects = {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         An array of strings identifying the objects to mirror.
             """
@@ -26,7 +26,7 @@ mirror_objects = {
             "name": "StartPt",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The start of the mirror plane.
             """
@@ -35,7 +35,7 @@ mirror_objects = {
             "name": "EndPt",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The end of the mirror plane.
             """

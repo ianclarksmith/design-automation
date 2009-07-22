@@ -26,7 +26,7 @@ light_location = {
             "name": "location",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The new start point, or location.  If omitted, the location point is returned.
             """

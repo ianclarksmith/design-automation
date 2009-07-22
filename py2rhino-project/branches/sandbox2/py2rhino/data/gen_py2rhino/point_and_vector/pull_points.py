@@ -26,7 +26,7 @@ pull_points = {
             "name": "Points",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D points to pull.
             """

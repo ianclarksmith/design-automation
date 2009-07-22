@@ -26,7 +26,7 @@ short_path = {
             "name": "Start",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D surface point identifying the starting point of the short curve.
             """
@@ -35,7 +35,7 @@ short_path = {
             "name": "End",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D surface point identifying the ending point of the short curve.
             """

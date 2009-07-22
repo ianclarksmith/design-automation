@@ -17,7 +17,7 @@ mesh_boolean_difference = {
             "name": "Input0",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         The identifiers of the meshes.
             """
@@ -26,7 +26,7 @@ mesh_boolean_difference = {
             "name": "Input1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         The identifiers of the meshes.
             """

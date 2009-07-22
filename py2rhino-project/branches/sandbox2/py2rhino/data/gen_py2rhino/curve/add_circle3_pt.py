@@ -17,7 +17,7 @@ add_circle3_pt = {
             "name": "Start",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The first point of the circle.
             """
@@ -26,7 +26,7 @@ add_circle3_pt = {
             "name": "End",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The second point of the circle.
             """
@@ -35,7 +35,7 @@ add_circle3_pt = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The third point of the circle.
             """

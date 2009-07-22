@@ -17,7 +17,7 @@ polar = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D point to transform.
             """
@@ -44,7 +44,7 @@ polar = {
             "name": "Plane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The plane to base the transformation. Of omitted, the world x-y plane is used. The elements of a plane array are as follows:
 		0

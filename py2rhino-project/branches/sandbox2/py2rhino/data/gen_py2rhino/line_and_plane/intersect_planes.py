@@ -17,7 +17,7 @@ intersect_planes = {
             "name": "Plane1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The first plane to intersect.
             """
@@ -26,7 +26,7 @@ intersect_planes = {
             "name": "Plane2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The second plane to intersect.
             """
@@ -35,7 +35,7 @@ intersect_planes = {
             "name": "Plane3",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The third plane to intersect.
             """

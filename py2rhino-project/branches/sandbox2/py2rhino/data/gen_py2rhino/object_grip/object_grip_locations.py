@@ -26,7 +26,7 @@ object_grip_locations = {
             "name": "Points",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         An array of 3-D points identifying the new locations of the grips.
             """

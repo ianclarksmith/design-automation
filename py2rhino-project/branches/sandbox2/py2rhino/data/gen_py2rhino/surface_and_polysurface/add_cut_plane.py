@@ -17,7 +17,7 @@ add_cut_plane = {
             "name": "Objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         The identifiers of objects that the cutting planes will pass through.
             """
@@ -26,7 +26,7 @@ add_cut_plane = {
             "name": "StartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The start of the line that defines the cutting plane.
             """
@@ -35,7 +35,7 @@ add_cut_plane = {
             "name": "EndPoint",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The end of the line that defines the cutting plane.
             """
@@ -44,7 +44,7 @@ add_cut_plane = {
             "name": "Normal",
             "opt_or_req": "Optional",
             "type": "A vector that will be contained in the returned planar surface",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         In the case of Rhino's CutPlane command, this is the normal to, or Z axis of, the active view's construction plane.  If omitted, the world Z axis is used.
             """

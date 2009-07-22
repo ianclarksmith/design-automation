@@ -17,7 +17,7 @@ add_line = {
             "name": "Start",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The starting point of the line.
             """
@@ -26,7 +26,7 @@ add_line = {
             "name": "End",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The ending point of the line.
             """

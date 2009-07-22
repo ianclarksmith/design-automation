@@ -17,7 +17,7 @@ remap_objects = {
             "name": "Object",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_str",
             "doc": """
         The identifiers of the objects to remap.
             """
@@ -26,7 +26,7 @@ remap_objects = {
             "name": "SrcPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The source plane to transform from.
             """
@@ -35,7 +35,7 @@ remap_objects = {
             "name": "DstPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The destination plane to transform to.
             """

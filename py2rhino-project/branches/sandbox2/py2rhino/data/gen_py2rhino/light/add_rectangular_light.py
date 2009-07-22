@@ -17,7 +17,7 @@ add_rectangular_light = {
             "name": "Origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D origin point of the light.
             """
@@ -26,7 +26,7 @@ add_rectangular_light = {
             "name": "Width",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D width and direction point of the light.
             """
@@ -35,7 +35,7 @@ add_rectangular_light = {
             "name": "Height",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The 3-D height and direction point of the light.
             """

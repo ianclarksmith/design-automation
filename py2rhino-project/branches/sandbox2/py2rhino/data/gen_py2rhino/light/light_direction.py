@@ -26,7 +26,7 @@ light_direction = {
             "name": "Direction",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The new end point, or direction.  If omitted, the direction point is returned.
             """

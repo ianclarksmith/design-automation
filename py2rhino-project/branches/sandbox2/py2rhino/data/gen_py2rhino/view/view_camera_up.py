@@ -26,7 +26,7 @@ view_camera_up = {
             "name": "UpVector",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D vector identifying the new camera location.
             """

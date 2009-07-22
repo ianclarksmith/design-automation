@@ -35,7 +35,7 @@ planar_closed_curve_containment = {
             "name": "Plane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element

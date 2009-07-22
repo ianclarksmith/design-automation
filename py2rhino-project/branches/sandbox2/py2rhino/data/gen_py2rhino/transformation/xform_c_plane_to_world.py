@@ -17,7 +17,7 @@ xform_c_plane_to_world = {
             "name": "Point",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         A 3-D point in construction plane coordinates.
             """
@@ -26,7 +26,7 @@ xform_c_plane_to_world = {
             "name": "Plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "type_string": "arr_of_dbl",
             "doc": """
         The construction plane.  The elements of a plane array are as follows:
 		Elemenet
