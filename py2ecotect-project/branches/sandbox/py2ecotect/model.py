@@ -866,6 +866,7 @@ class Model(object):
         
         count 
         The total number of objects in the current model. 
+        
         Return Value(s)
         Getting this property returns the following value(s).
         
