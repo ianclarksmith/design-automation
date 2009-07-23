@@ -13,7 +13,7 @@ Syntax
 
 Rhino.MeshVertexColors (strObject [, arrVertexColors])
 
-Rhino.MeshVertexColors (strObject [, Null])
+
 
 
 Parameters
@@ -28,9 +28,7 @@ arrVertexColors
 
 Optional.  Array.  An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
 
-Null 
 
-Optional.  Null.  Specifying Null will remove, or purge, any existing vertex colors from the mesh.
 
 
 Returns
