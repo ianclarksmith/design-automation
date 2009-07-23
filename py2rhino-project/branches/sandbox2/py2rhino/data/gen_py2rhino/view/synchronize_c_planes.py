@@ -10,16 +10,17 @@ synchronize_c_planes = {
 		The view synchronization only applies to Rhino's standard-named, parallel-projected views (e.g. Back, Bottom, Front, Left, Right, and Top).  All other views (e.g. Perspective, etc) simply have their construction plane synchronized to that of the specified view's construction plane.
     """,
 
-    "syntax_html": """
-        Rhino.SynchronizeCPlanes ([strView])
-    """,
+    "syntax_html": {
+        0: ("strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view from which to synchronize.  If omitted, the current active view is used.
             """

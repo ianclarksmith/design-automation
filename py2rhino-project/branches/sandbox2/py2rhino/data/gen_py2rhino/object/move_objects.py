@@ -8,43 +8,48 @@ move_objects = {
         Copies one or more objects.
     """,
 
-    "syntax_html": """
-        Rhino.MoveObjects (arrObjects, arrStart, arrEnd)
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrStart", "arrEnd"),
+        1: ("strObject", "arrTranslation"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to move.
             """
         },
         1: {
-            "name": "Start",
+            "name": "arrStart",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Start",
             "doc": """
         The 3-D starting, or base, point of the move operation.
             """
         },
         2: {
-            "name": "End",
+            "name": "arrEnd",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "End",
             "doc": """
         The 3-D ending point of the move operation.
             """
         },
         3: {
-            "name": "Translation",
+            "name": "arrTranslation",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Translation",
             "doc": """
         The 3-D translation vector.
             """

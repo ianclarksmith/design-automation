@@ -8,16 +8,17 @@ shrink_trimmed_surface = {
         Shrinks the underlying untrimmed surfaces near to trimming boundaries. For more details, see the ShrinkTrimmedSrf command in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.ShrinkTrimmedSurface (strSurface)
-    """,
+    "syntax_html": {
+        0: ("strSurface"),
+    },
 
     "params_html": {
         0: {
-            "name": "Surface",
+            "name": "strSurface",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Surface",
             "doc": """
         The identifier of the surface or polysurface to shrink.
             """

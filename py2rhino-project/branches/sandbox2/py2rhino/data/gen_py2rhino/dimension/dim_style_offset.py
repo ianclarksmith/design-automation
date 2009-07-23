@@ -8,25 +8,27 @@ dim_style_offset = {
         Returns or changes the extension line offset of a dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleOffset (strDimStyle [, dblOffset])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle", "dblOffset"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "Offset",
+            "name": "dblOffset",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Offset",
             "doc": """
         The new extension line offset.  If omitted, the current extension line offset is returned.
             """

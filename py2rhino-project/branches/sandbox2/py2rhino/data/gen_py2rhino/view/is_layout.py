@@ -8,16 +8,17 @@ is_layout = {
         Verifies that a view is a page layout view.
     """,
 
-    "syntax_html": """
-        Rhino.IsLayout (strLayout)
-    """,
+    "syntax_html": {
+        0: ("strLayout"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layout",
+            "name": "strLayout",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layout",
             "doc": """
         The title or identifier of an existing page layout view.
             """

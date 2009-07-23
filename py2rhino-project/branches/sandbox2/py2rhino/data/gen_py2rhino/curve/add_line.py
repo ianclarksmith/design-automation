@@ -8,25 +8,27 @@ add_line = {
         Adds a line curve to the current model.
     """,
 
-    "syntax_html": """
-        Rhino.AddLine (arrStart, arrEnd)
-    """,
+    "syntax_html": {
+        0: ("arrStart", "arrEnd"),
+    },
 
     "params_html": {
         0: {
-            "name": "Start",
+            "name": "arrStart",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Start",
             "doc": """
         The starting point of the line.
             """
         },
         1: {
-            "name": "End",
+            "name": "arrEnd",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "End",
             "doc": """
         The ending point of the line.
             """

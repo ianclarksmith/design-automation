@@ -8,16 +8,17 @@ add_planar_srf = {
         Creates one or more surfaces from planar curves.
     """,
 
-    "syntax_html": """
-        Rhino.AddPlanarSrf (arrObjects)
-    """,
+    "syntax_html": {
+        0: ("arrObjects"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of curve object identifiers.
             """

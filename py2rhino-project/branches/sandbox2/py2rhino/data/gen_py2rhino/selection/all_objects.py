@@ -8,34 +8,37 @@ all_objects = {
         Returns the identifiers of all objects in the document.
     """,
 
-    "syntax_html": """
-        Rhino.AllObjects ([blnSelect [, blnIncludeLights [, blnIncludeGrips]]])
-    """,
+    "syntax_html": {
+        0: ("blnSelect", "blnIncludeLights", "blnIncludeGrips"),
+    },
 
     "params_html": {
         0: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the objects.  If omitted, the objects are not selected (False).
             """
         },
         1: {
-            "name": "IncludeLights",
+            "name": "blnIncludeLights",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeLights",
             "doc": """
         Include light objects.  If omitted, light objects are not returned (False).
             """
         },
         2: {
-            "name": "IncludeGrips",
+            "name": "blnIncludeGrips",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeGrips",
             "doc": """
         Include grips objects.  If omitted, grips objects are not returned (False).
             """

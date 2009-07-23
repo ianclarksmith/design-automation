@@ -8,43 +8,47 @@ convert_curve_to_polyline = {
         Converts a curve to a polyline curve.
     """,
 
-    "syntax_html": """
-        Rhino.ConvertCurveToPolyline (strObject [, dblAngleTolerance [, dblTolerance [, blnDeleteInput]]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblAngleTolerance", "dblTolerance", "blnDeleteInput"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "AngleTolerance",
+            "name": "dblAngleTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "AngleTolerance",
             "doc": """
         The maximum angle between curve tangents at line endpoints.  If omitted, the angle tolerance is set to 5.0.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The distance tolerance at segment midpoints.  If omitted, the tolerance is set to 0.01.
             """
         },
         3: {
-            "name": "DeleteInput",
+            "name": "blnDeleteInput",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "DeleteInput",
             "doc": """
         Delete the curve object specified by strObject.  If omitted, strObject will not be deleted.
             """

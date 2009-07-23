@@ -8,16 +8,17 @@ is_object_reference = {
         Verifies that an object is a reference object.  Reference objects are object that are not part of the current document.
     """,
 
-    "syntax_html": """
-        Rhino.IsObjectReference (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object.
             """

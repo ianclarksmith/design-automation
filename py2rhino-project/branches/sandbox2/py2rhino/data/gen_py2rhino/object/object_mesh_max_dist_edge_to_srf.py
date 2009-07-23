@@ -9,25 +9,27 @@ object_mesh_max_dist_edge_to_srf = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectMeshMaxDistEdgeToSrf (strObject [, dblDistance])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblDistance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object that has custom render mesh parameters.
             """
         },
         1: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The render mesh maximum distance, edge to surface.
             """

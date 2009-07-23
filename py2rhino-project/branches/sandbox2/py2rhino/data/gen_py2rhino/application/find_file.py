@@ -11,16 +11,17 @@ find_file = {
 		3. Rhino's System folders.
     """,
 
-    "syntax_html": """
-        Rhino.FindFile (strFilename)
-    """,
+    "syntax_html": {
+        0: ("strFilename"),
+    },
 
     "params_html": {
         0: {
-            "name": "Filename",
+            "name": "strFilename",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Filename",
             "doc": """
         A valid filename.
             """

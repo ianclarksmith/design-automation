@@ -8,61 +8,67 @@ add_nurbs_surface = {
         Adds a NURBS surface object to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddNurbsSurface (arrPointCount, arrPoints, arrKnotU, arrKnotV, arrDegree [, arrWeights])
-    """,
+    "syntax_html": {
+        0: ("arrPointCount", "arrPoints", "arrKnotU", "arrKnotV", "arrDegree", "arrWeights"),
+    },
 
     "params_html": {
         0: {
-            "name": "PointCount",
+            "name": "arrPointCount",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "PointCount",
             "doc": """
         The number of control points in the U and V directions.
             """
         },
         1: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D control points.
             """
         },
         2: {
-            "name": "KnotsU",
+            "name": "arrKnotsU",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "KnotsU",
             "doc": """
         The knot values for the surface in the U direction.  The array must contain arrPointCount(0) + arrDegree(0) - 1 elements.
             """
         },
         3: {
-            "name": "KnotsU",
+            "name": "arrKnotsV",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "KnotsV",
             "doc": """
-        The knot values for the surface in the U direction.  The array must contain arrPointCount(1) + arrDegree(1) - 1 elements.
+        The knot values for the surface in the V direction.  The array must contain arrPointCount(1) + arrDegree(1) - 1 elements.
             """
         },
         4: {
-            "name": "Degree",
+            "name": "arrDegree",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Degree",
             "doc": """
         The degree of the surface in the U and V directions.  The degree in each direction must be greater than or equal to one (1).
             """
         },
         5: {
-            "name": "Weights",
+            "name": "arrWeights",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Weights",
             "doc": """
         The weight values for the surface.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
             """

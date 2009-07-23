@@ -8,25 +8,27 @@ vector_divide = {
         Divides a 3-D vectors by a value
     """,
 
-    "syntax_html": """
-        Rhino.VectorDivide (arrVector, dblDivide)
-    """,
+    "syntax_html": {
+        0: ("arrVector", "dblDivide"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vector",
+            "name": "arrVector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector",
             "doc": """
         The 3-D vector to divide.
             """
         },
         1: {
-            "name": "Divide",
+            "name": "dblDivide",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Divide",
             "doc": """
         The a non-zero value to divide.
             """

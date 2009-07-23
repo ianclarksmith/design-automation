@@ -8,34 +8,37 @@ unit_system_name = {
         Returns the name of the current unit system.
     """,
 
-    "syntax_html": """
-        Rhino.UnitSystemName ([blnCapitalize [, blnSingular [, blnAbbreviate]])
-    """,
+    "syntax_html": {
+        0: ("blnCapitalize", "blnSingular", "blnAbbreviate"),
+    },
 
     "params_html": {
         0: {
-            "name": "Capitalize",
+            "name": "blnCapitalize",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Capitalize",
             "doc": """
         Capitalize the first character of the units system name (e.g. return "Millimeter" instead of "millimeter"). The default is not to capitalize the first character (false).
             """
         },
         1: {
-            "name": "Singular",
+            "name": "blnSingular",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Singular",
             "doc": """
         Return the singular form of the units system name (e.g. "millimeter" instead of "millimeters"). The default is to return the singular form of the name (true).
             """
         },
         2: {
-            "name": "Abbreviate",
+            "name": "blnAbbreviate",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Abbreviate",
             "doc": """
         Abbreviate the name of the units system (e.g. return "mm" instead of "millimeter"). The default is not to abbreviate the name (false).
             """

@@ -8,34 +8,37 @@ add_rectangular_light = {
         Adds a new rectangular light object  to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddRectangularLight (arrOrigin, arrWidth, arrHeight)
-    """,
+    "syntax_html": {
+        0: ("arrOrigin", "arrWidth", "arrHeight"),
+    },
 
     "params_html": {
         0: {
-            "name": "Origin",
+            "name": "arrOrigin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Origin",
             "doc": """
         The 3-D origin point of the light.
             """
         },
         1: {
-            "name": "Width",
+            "name": "arrWidth",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Width",
             "doc": """
         The 3-D width and direction point of the light.
             """
         },
         2: {
-            "name": "Height",
+            "name": "arrHeight",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Height",
             "doc": """
         The 3-D height and direction point of the light.
             """

@@ -8,25 +8,27 @@ delete_document_data = {
         Removes RhinoScript user data items from the current document.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteDocumentData ([strSection [, strEntry]])
-    """,
+    "syntax_html": {
+        0: ("strSection", "strEntry"),
+    },
 
     "params_html": {
         0: {
-            "name": "Section",
+            "name": "strSection",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Section",
             "doc": """
         The section name.  If omitted, all sections and their corresponding entries are removed.
             """
         },
         1: {
-            "name": "Entry",
+            "name": "strEntry",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Entry",
             "doc": """
         The entry name.  If omitted, all entries for strSection are removed.
             """

@@ -8,25 +8,27 @@ layer_color = {
         Returns or changes the color of a layer.  Layer colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     """,
 
-    "syntax_html": """
-        Rhino.LayerColor (strLayer [, lngColor])
-    """,
+    "syntax_html": {
+        0: ("strLayer", "lngColor"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.
             """
         },
         1: {
-            "name": "Color",
+            "name": "lngColor",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Color",
             "doc": """
         The new color value.  If omitted, the current layer color is returned.
             """

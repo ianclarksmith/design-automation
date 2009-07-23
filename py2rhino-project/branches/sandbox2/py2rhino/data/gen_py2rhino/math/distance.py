@@ -8,34 +8,38 @@ distance = {
         Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.
     """,
 
-    "syntax_html": """
-        Rhino.Distance (arrPoint1, arrPoint2)
-    """,
+    "syntax_html": {
+        0: ("arrPoint1", "arrPoint2"),
+        1: ("arrPoint1", "arrPointArray"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point1",
+            "name": "arrPoint1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point1",
             "doc": """
         The first 3-D point.
             """
         },
         1: {
-            "name": "Point2",
+            "name": "arrPoint2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point2",
             "doc": """
         The second 3-D point.
             """
         },
         2: {
-            "name": "PointArray",
+            "name": "arrPointArray",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "PointArray",
             "doc": """
         An array of 3-D points.
             """

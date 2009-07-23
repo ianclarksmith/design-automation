@@ -8,16 +8,17 @@ template_file = {
         Returns or sets Rhino's default template file. The default template file is the template file used when Rhino starts.
     """,
 
-    "syntax_html": """
-        Rhino.TemplateFile ([strFilename])
-    """,
+    "syntax_html": {
+        0: ("strFilename"),
+    },
 
     "params_html": {
         0: {
-            "name": "Filename",
+            "name": "strFilename",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Filename",
             "doc": """
         The name of the new default template file. Note, the template file must exist.
             """

@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class Dimension(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def add_dim_style(self, dim_style=None):
         """        
@@ -30,19 +39,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [dim_style]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [dim_style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(455, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddDimStyle", None, *params_flattened)
+        return self._ApplyTypes_(455, 1, (VT_VARIANT, 0), magic, u"AddDimStyle", None, *flattened)
 
     def add_leader(self, points, view=None, text=None):
         """        
@@ -51,7 +54,7 @@ class Dimension(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points.  The array must contain at least two points.
             
         view, String, Optional        
@@ -72,19 +75,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [points, view, text]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(points), view, text]
+        required = [True, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(points), view, text]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(321, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddLeader", None, *params_flattened)
+        return self._ApplyTypes_(321, 1, (VT_VARIANT, 0), magic, u"AddLeader", None, *flattened)
 
     def current_dim_style(self, dim_style=None):
         """        
@@ -111,19 +108,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [dim_style]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [dim_style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(453, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurrentDimStyle", None, *params_flattened)
+        return self._ApplyTypes_(453, 1, (VT_VARIANT, 0), magic, u"CurrentDimStyle", None, *flattened)
 
     def delete_dim_style(self, dim_style):
         """        
@@ -147,19 +138,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [dim_style]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [dim_style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(456, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteDimStyle", None, *params_flattened)
+        return self._ApplyTypes_(456, 1, (VT_VARIANT, 0), magic, u"DeleteDimStyle", None, *flattened)
 
     def dim_scale(self, scale=None):
         """        
@@ -186,19 +171,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [scale]
-        params_required = [False]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [scale]
+        required = [False]
+        magic = [(VT_R8, 1),]
+        flattened = [scale]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(460, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimScale", None, *params_flattened)
+        return self._ApplyTypes_(460, 1, (VT_VARIANT, 0), magic, u"DimScale", None, *flattened)
 
     def dim_style_angle_precision(self, dim_style, precision=None):
         """        
@@ -228,19 +207,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, precision]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [dim_style, precision]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [dim_style, precision]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(464, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleAnglePrecision", None, *params_flattened)
+        return self._ApplyTypes_(464, 1, (VT_VARIANT, 0), magic, u"DimStyleAnglePrecision", None, *flattened)
 
     def dim_style_arrow_size(self, dim_style, size=None):
         """        
@@ -270,21 +243,15 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, size]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [dim_style, size]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [dim_style, size]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(468, 1, (VT_VARIANT, 0), magic, u"DimStyleArrowSize", None, *flattened)
 
-        return self._ApplyTypes_(468, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleArrowSize", None, *params_flattened)
-
-    def dim_style_count():
+    def dim_style_count(self):
         """        
         Returns the number of dimension styles in the document.
     
@@ -299,19 +266,13 @@ class Dimension(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(451, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleCount", None, *params_flattened)
+        return self._ApplyTypes_(451, 1, (VT_VARIANT, 0), magic, u"DimStyleCount", None, *flattened)
 
     def dim_style_extension(self, dim_style, extension=None):
         """        
@@ -341,19 +302,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, extension]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [dim_style, extension]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [dim_style, extension]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(466, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleExtension", None, *params_flattened)
+        return self._ApplyTypes_(466, 1, (VT_VARIANT, 0), magic, u"DimStyleExtension", None, *flattened)
 
     def dim_style_font(self, dim_style, font=None):
         """        
@@ -383,19 +338,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, font]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [dim_style, font]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [dim_style, font]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(462, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleFont", None, *params_flattened)
+        return self._ApplyTypes_(462, 1, (VT_VARIANT, 0), magic, u"DimStyleFont", None, *flattened)
 
     def dim_style_leader_arrow_size(self, dim_style, size=None):
         """        
@@ -425,19 +374,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, size]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [dim_style, size]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [dim_style, size]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(704, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleLeaderArrowSize", None, *params_flattened)
+        return self._ApplyTypes_(704, 1, (VT_VARIANT, 0), magic, u"DimStyleLeaderArrowSize", None, *flattened)
 
     def dim_style_linear_precision(self, dim_style, precision=None):
         """        
@@ -467,19 +410,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, precision]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [dim_style, precision]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [dim_style, precision]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(463, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleLinearPrecision", None, *params_flattened)
+        return self._ApplyTypes_(463, 1, (VT_VARIANT, 0), magic, u"DimStyleLinearPrecision", None, *flattened)
 
     def dim_style_names(self, sort=None):
         """        
@@ -503,19 +440,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [sort]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [sort]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [sort]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(452, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleNames", None, *params_flattened)
+        return self._ApplyTypes_(452, 1, (VT_VARIANT, 0), magic, u"DimStyleNames", None, *flattened)
 
     def dim_style_number_format(self, dim_style, format=None):
         """        
@@ -552,19 +483,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, format]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [dim_style, format]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [dim_style, format]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(459, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleNumberFormat", None, *params_flattened)
+        return self._ApplyTypes_(459, 1, (VT_VARIANT, 0), magic, u"DimStyleNumberFormat", None, *flattened)
 
     def dim_style_offset(self, dim_style, offset=None):
         """        
@@ -594,19 +519,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, offset]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [dim_style, offset]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [dim_style, offset]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(467, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleOffset", None, *params_flattened)
+        return self._ApplyTypes_(467, 1, (VT_VARIANT, 0), magic, u"DimStyleOffset", None, *flattened)
 
     def dim_style_text_alignment(self, dim_style, alignment=None):
         """        
@@ -645,19 +564,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, alignment]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [dim_style, alignment]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [dim_style, alignment]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(461, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleTextAlignment", None, *params_flattened)
+        return self._ApplyTypes_(461, 1, (VT_VARIANT, 0), magic, u"DimStyleTextAlignment", None, *flattened)
 
     def dim_style_text_gap(self, dim_style, gap=None):
         """        
@@ -687,19 +600,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, gap]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [dim_style, gap]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [dim_style, gap]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(741, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleTextGap", None, *params_flattened)
+        return self._ApplyTypes_(741, 1, (VT_VARIANT, 0), magic, u"DimStyleTextGap", None, *flattened)
 
     def dim_style_text_height(self, dim_style, height=None):
         """        
@@ -729,19 +636,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style, height]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [dim_style, height]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [dim_style, height]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(465, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimStyleTextHeight", None, *params_flattened)
+        return self._ApplyTypes_(465, 1, (VT_VARIANT, 0), magic, u"DimStyleTextHeight", None, *flattened)
 
     def dimension_style(self, object, style=None):
         """        
@@ -771,19 +672,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object, style]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, style]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(703, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimensionStyle", None, *params_flattened)
+        return self._ApplyTypes_(703, 1, (VT_VARIANT, 0), magic, u"DimensionStyle", None, *flattened)
 
     def dimension_text(self, object):
         """        
@@ -807,19 +702,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(469, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimensionText", None, *params_flattened)
+        return self._ApplyTypes_(469, 1, (VT_VARIANT, 0), magic, u"DimensionText", None, *flattened)
 
     def dimension_user_text(self, object, user_text=None):
         """        
@@ -849,19 +738,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object, user_text]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, user_text]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, user_text]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(563, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimensionUserText", None, *params_flattened)
+        return self._ApplyTypes_(563, 1, (VT_VARIANT, 0), magic, u"DimensionUserText", None, *flattened)
 
     def dimension_value(self, object):
         """        
@@ -885,19 +768,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(568, 1, (VT_VARIANT, 0), params_magic_numbers, u"DimensionValue", None, *params_flattened)
+        return self._ApplyTypes_(568, 1, (VT_VARIANT, 0), magic, u"DimensionValue", None, *flattened)
 
     def is_aligned_dimension(self, object):
         """        
@@ -921,19 +798,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(566, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsAlignedDimension", None, *params_flattened)
+        return self._ApplyTypes_(566, 1, (VT_VARIANT, 0), magic, u"IsAlignedDimension", None, *flattened)
 
     def is_angular_dimension(self, object):
         """        
@@ -957,19 +828,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(338, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsAngularDimension", None, *params_flattened)
+        return self._ApplyTypes_(338, 1, (VT_VARIANT, 0), magic, u"IsAngularDimension", None, *flattened)
 
     def is_diameter_dimension(self, object):
         """        
@@ -993,19 +858,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(565, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDiameterDimension", None, *params_flattened)
+        return self._ApplyTypes_(565, 1, (VT_VARIANT, 0), magic, u"IsDiameterDimension", None, *flattened)
 
     def is_dim_style(self, dim_style):
         """        
@@ -1026,19 +885,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [dim_style]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [dim_style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(454, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDimStyle", None, *params_flattened)
+        return self._ApplyTypes_(454, 1, (VT_VARIANT, 0), magic, u"IsDimStyle", None, *flattened)
 
     def is_dim_style_reference(self, dim_style):
         """        
@@ -1059,19 +912,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [dim_style]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [dim_style]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [dim_style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(457, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDimStyleReference", None, *params_flattened)
+        return self._ApplyTypes_(457, 1, (VT_VARIANT, 0), magic, u"IsDimStyleReference", None, *flattened)
 
     def is_dimension(self, object):
         """        
@@ -1095,19 +942,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(564, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDimension", None, *params_flattened)
+        return self._ApplyTypes_(564, 1, (VT_VARIANT, 0), magic, u"IsDimension", None, *flattened)
 
     def is_leader(self, object):
         """        
@@ -1131,19 +972,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(337, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLeader", None, *params_flattened)
+        return self._ApplyTypes_(337, 1, (VT_VARIANT, 0), magic, u"IsLeader", None, *flattened)
 
     def is_linear_dimension(self, object):
         """        
@@ -1167,19 +1002,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(339, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLinearDimension", None, *params_flattened)
+        return self._ApplyTypes_(339, 1, (VT_VARIANT, 0), magic, u"IsLinearDimension", None, *flattened)
 
     def is_ordinate_dimension(self, object):
         """        
@@ -1203,19 +1032,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(659, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsOrdinateDimension", None, *params_flattened)
+        return self._ApplyTypes_(659, 1, (VT_VARIANT, 0), magic, u"IsOrdinateDimension", None, *flattened)
 
     def is_radial_dimension(self, object):
         """        
@@ -1239,19 +1062,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(340, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsRadialDimension", None, *params_flattened)
+        return self._ApplyTypes_(340, 1, (VT_VARIANT, 0), magic, u"IsRadialDimension", None, *flattened)
 
     def leader_text(self, object, text=None):
         """        
@@ -1281,19 +1098,13 @@ class Dimension(IRhinoScript):
         """
 
         params = [object, text]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, text]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, text]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(895, 1, (VT_VARIANT, 0), params_magic_numbers, u"LeaderText", None, *params_flattened)
+        return self._ApplyTypes_(895, 1, (VT_VARIANT, 0), magic, u"LeaderText", None, *flattened)
 
     def rename_dim_style(self, old_style, new_style):
         """        
@@ -1320,17 +1131,11 @@ class Dimension(IRhinoScript):
         """
 
         params = [old_style, new_style]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [old_style, new_style]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [old_style, new_style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(458, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenameDimStyle", None, *params_flattened)
+        return self._ApplyTypes_(458, 1, (VT_VARIANT, 0), magic, u"RenameDimStyle", None, *flattened)
 

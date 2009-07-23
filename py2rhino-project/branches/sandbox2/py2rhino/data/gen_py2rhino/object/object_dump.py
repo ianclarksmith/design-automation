@@ -8,25 +8,27 @@ object_dump = {
         Returns a detailed description of an object.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectDump (strObject [, intType])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intType"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Type",
+            "name": "intType",
             "opt_or_req": "Optional",
             "type": "The type of dump",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Type",
             "doc": """
         The acceptable values are as follows:
 		Value

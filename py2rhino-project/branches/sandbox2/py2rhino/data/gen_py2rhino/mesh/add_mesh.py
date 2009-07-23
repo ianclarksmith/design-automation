@@ -8,52 +8,57 @@ add_mesh = {
         Adds a mesh object to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddMesh (arrVertices, arrFaceVertices [, arrVertexNormals [, arrTextureCoordinates [, arrVertexColors ]]])
-    """,
+    "syntax_html": {
+        0: ("arrVertices", "arrFaceVertices", "arrVertexNormals", "arrTextureCoordinates", "arrVertexColors"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vertices",
+            "name": "arrVertices",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vertices",
             "doc": """
         An array of 3-D points defining the vertices of the mesh.
             """
         },
         1: {
-            "name": "FaceVertices",
+            "name": "arrFaceVertices",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "FaceVertices",
             "doc": """
         An array containing arrays of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
             """
         },
         2: {
-            "name": "VertexNormals",
+            "name": "arrVertexNormals",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "VertexNormals",
             "doc": """
         An array of 3-D vectors defining the vertex normals of the mesh. Note, for every vertex, the must be a corresponding vertex normal.
             """
         },
         3: {
-            "name": "TextureCoordinates",
+            "name": "arrTextureCoordinates",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "TextureCoordinates",
             "doc": """
         An array of 2-D texture coordinates. Note, for every vertex, there must be a corresponding texture coordinate.
             """
         },
         4: {
-            "name": "VertexColors",
+            "name": "arrVertexColors",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "VertexColors",
             "doc": """
         An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
             """

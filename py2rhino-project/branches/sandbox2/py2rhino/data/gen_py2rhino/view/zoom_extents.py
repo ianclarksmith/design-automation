@@ -8,25 +8,27 @@ zoom_extents = {
         Zooms to the extents of visible objects in the specified view, or in the active view.
     """,
 
-    "syntax_html": """
-        Rhino.ZoomExtents ([strView [, blnAll]])
-    """,
+    "syntax_html": {
+        0: ("strView", "blnAll"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "All",
+            "name": "blnAll",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "All",
             "doc": """
         Zoom extents in all views.  If omitted, only the specified view is zoomed (False).
             """

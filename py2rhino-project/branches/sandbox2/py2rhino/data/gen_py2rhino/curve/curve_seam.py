@@ -8,25 +8,27 @@ curve_seam = {
         Adjusts the seam, or start/end, point of a closed curve.
     """,
 
-    "syntax_html": """
-        Rhino.CurveSeam (strObject, dblParameter)
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblParameter"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "dblParameter",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Parameter",
             "doc": """
         The parameter of the new start/end point. Note, if successful, the resulting curve's domain will start at dblParameter.
             """

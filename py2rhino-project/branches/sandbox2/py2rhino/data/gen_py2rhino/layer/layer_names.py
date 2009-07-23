@@ -8,16 +8,17 @@ layer_names = {
         Returns the names of all layers in the document.
     """,
 
-    "syntax_html": """
-        Rhino.LayerNames ([blnSort])
-    """,
+    "syntax_html": {
+        0: ("blnSort"),
+    },
 
     "params_html": {
         0: {
-            "name": "Sort",
+            "name": "blnSort",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Sort",
             "doc": """
         Return a sorted list of layer names. The default is not to return a sorted list (False).
             """

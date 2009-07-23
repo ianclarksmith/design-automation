@@ -8,9 +8,9 @@ startup_script_count = {
         Returns the number of startup script items in RhinoScript's startup script list. See "Options RhinoScript" for more details.
     """,
 
-    "syntax_html": """
-        Rhino.StartupScriptCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

@@ -9,16 +9,17 @@ render_mesh_max_aspect_ratio = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.RenderMeshMaxAspectRatio ([dblRatio])
-    """,
+    "syntax_html": {
+        0: ("dblRatio"),
+    },
 
     "params_html": {
         0: {
-            "name": "Ratio",
+            "name": "dblRatio",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Ratio",
             "doc": """
         The render mesh maximum aspect ratio.  The suggested range, when not zero, is from 1 to 100.
             """

@@ -8,16 +8,17 @@ object_grips_selected = {
         Verifies that an object's grips are turned on and at least one grip is selected.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectGripsSelected (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """

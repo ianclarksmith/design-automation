@@ -8,16 +8,17 @@ unit_scale = {
         Returns the scale factor for changing between unit systems.
     """,
 
-    "syntax_html": """
-        Rhino.UnitSystem (intToSystem [, intFromSystem])
-    """,
+    "syntax_html": {
+        0: ("intToSystem", "intFromSystem"),
+    },
 
     "params_html": {
         0: {
-            "name": "ToSystem",
+            "name": "intToSystem",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "ToSystem",
             "doc": """
         The units system to convert to.  The possible units systems are as follows:
 		Value
@@ -76,10 +77,11 @@ unit_scale = {
             """
         },
         1: {
-            "name": "FromSystem",
+            "name": "intFromSystem",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "FromSystem",
             "doc": """
         The units system to convert from (see above).  If omitted, the document's current unit system is used
             """

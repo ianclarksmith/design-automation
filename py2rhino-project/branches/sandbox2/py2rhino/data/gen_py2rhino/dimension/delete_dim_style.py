@@ -8,16 +8,17 @@ delete_dim_style = {
         Removes an existing dimension style from the document.  The dimension style to be removed cannot be the reference by any dimension objects.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteDimStyle (strDimStyle)
-    """,
+    "syntax_html": {
+        0: ("strDimStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an un-referenced dimension style.
             """

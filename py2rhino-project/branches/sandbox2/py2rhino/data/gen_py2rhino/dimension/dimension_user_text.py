@@ -8,25 +8,27 @@ dimension_user_text = {
         Returns or modifies the user text string of a dimension object. The user text is the string that gets printed when the dimension is drawn. If it contains the token "<>", then the token is replaced with the measured value of the dimension, formatted according to the dimension style settings. Note,  "<>" is the default user text string for linear dimensions.
     """,
 
-    "syntax_html": """
-        Rhino.DimensionUserText (strObject [, strUserText])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strUserText"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "UserText",
+            "name": "strUserText",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "UserText",
             "doc": """
         The new user text string value. To reset the use text string, use the string "<>".
             """

@@ -8,16 +8,17 @@ is_alias = {
         Verifies that a command alias exists in Rhino.
     """,
 
-    "syntax_html": """
-        Rhino.IsAlias (strAlias)
-    """,
+    "syntax_html": {
+        0: ("strAlias"),
+    },
 
     "params_html": {
         0: {
-            "name": "Alias",
+            "name": "strAlias",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Alias",
             "doc": """
         The name of an existing command alias.
             """

@@ -8,9 +8,9 @@ redraw = {
         Redraws all views.
     """,
 
-    "syntax_html": """
-        Rhino.Redraw ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

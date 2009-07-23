@@ -8,25 +8,27 @@ point_divide = {
         Divides a 3-D point by a value
     """,
 
-    "syntax_html": """
-        Rhino.PointDivide (arrPoint, dblDivide)
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "dblDivide"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D point to divide.
             """
         },
         1: {
-            "name": "Scale",
+            "name": "dblScale",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Scale",
             "doc": """
         The a non-zero value to divide.
             """

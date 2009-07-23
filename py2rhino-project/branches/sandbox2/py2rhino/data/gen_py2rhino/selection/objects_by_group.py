@@ -8,25 +8,27 @@ objects_by_group = {
         Returns the identifiers of all objects based on the objects' group name.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectsByGroup (strGroup [, blnSelect])
-    """,
+    "syntax_html": {
+        0: ("strGroup", "blnSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Group",
+            "name": "strGroup",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Group",
             "doc": """
         The name of a group of objects.
             """
         },
         1: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the objects.  If omitted, the objects are not selected (False).
             """

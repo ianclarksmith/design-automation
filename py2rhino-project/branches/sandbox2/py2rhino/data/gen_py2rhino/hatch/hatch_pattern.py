@@ -8,25 +8,27 @@ hatch_pattern = {
         Returns or changes a hatch object's hatch pattern.
     """,
 
-    "syntax_html": """
-        Rhino.HatchPattern (strObject [, strHatch])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strHatch"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a hatch object.
             """
         },
         1: {
-            "name": "Hatch",
+            "name": "strHatch",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Hatch",
             "doc": """
         The name of an existing hatch pattern to replace the current hatch pattern.
             """

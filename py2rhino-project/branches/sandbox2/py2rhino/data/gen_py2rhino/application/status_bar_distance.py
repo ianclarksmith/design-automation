@@ -8,16 +8,17 @@ status_bar_distance = {
         Sets Rhino's status bar distance pane.
     """,
 
-    "syntax_html": """
-        Rhino.StatusBarDistance ([dblDistance])
-    """,
+    "syntax_html": {
+        0: ("dblDistance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The distance to display.
             """

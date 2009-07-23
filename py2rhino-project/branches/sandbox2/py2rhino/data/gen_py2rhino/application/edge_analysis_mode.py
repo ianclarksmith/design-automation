@@ -8,16 +8,17 @@ edge_analysis_mode = {
         Returns or modifies edge analysis mode displayed by the ShowEdges command.
     """,
 
-    "syntax_html": """
-        Rhino.EdgeAnalysisMode ([intMode])
-    """,
+    "syntax_html": {
+        0: ("intMode"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mode",
+            "name": "intMode",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Mode",
             "doc": """
         The new display mode.  If omitted, the current display mode is returned.  The available mores are as follows:
 		0

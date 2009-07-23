@@ -8,25 +8,27 @@ point_array_transform = {
         Transforms an array of 3-D points.
     """,
 
-    "syntax_html": """
-        Rhino.PointArrayTransform (arrPoints, arrXform)
-    """,
+    "syntax_html": {
+        0: ("arrPoints", "arrXform"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points to transform.
             """
         },
         1: {
-            "name": "Xform",
+            "name": "arrXform",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Xform",
             "doc": """
         A valid 4x4 transformation matrix.
             """

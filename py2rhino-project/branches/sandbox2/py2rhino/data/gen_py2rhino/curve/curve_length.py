@@ -8,34 +8,37 @@ curve_length = {
         Returns the length of a curve object.
     """,
 
-    "syntax_html": """
-        Rhino.CurveLength (strObject [, intIndex [, arrSubDomain]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intIndex", "arrSubDomain"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Index",
+            "name": "intIndex",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Index",
             "doc": """
         If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
             """
         },
         2: {
-            "name": "SubDomain",
+            "name": "arrSubDomain",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "SubDomain",
             "doc": """
         An array of two numbers identifying the sub-domain of the curve on which the calculation will be performed.  The two parameters (sub-domain) must be non-decreasing.  If omitted, the length of the entire curve is returned.
             """

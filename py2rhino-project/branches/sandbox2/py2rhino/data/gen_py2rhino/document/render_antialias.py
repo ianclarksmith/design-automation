@@ -9,16 +9,17 @@ render_antialias = {
 		pixel.  Increasing the antialiasing level can add considerable time to the overall rendering.  See Rhino's DocumentProperties command (Rhino Render window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.RenderAntialias ([intStyle])
-    """,
+    "syntax_html": {
+        0: ("intStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Style",
+            "name": "intStyle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Style",
             "doc": """
         The render antialiasing style.
 		Value

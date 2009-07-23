@@ -8,25 +8,27 @@ mesh_boolean_union = {
         Performs a Boolean union operation on a set of input meshes. For more details, see the MeshBooleanUnion command in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.MeshBooleanUnion (arrInput [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("arrInput", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Input",
+            "name": "arrInput",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Input",
             "doc": """
         The identifiers of the meshes to union.
             """
         },
         1: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete all input objects. The default is to delete all input objects (True).
             """

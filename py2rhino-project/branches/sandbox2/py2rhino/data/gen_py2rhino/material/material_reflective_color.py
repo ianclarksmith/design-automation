@@ -8,25 +8,27 @@ material_reflective_color = {
         Returns or modifies a material's reflective color.  Reflective colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     """,
 
-    "syntax_html": """
-        Rhino.MaterialReflectiveColor (intMaterialIndex [, lngColor])
-    """,
+    "syntax_html": {
+        0: ("intMaterialIndex", "lngColor"),
+    },
 
     "params_html": {
         0: {
-            "name": "MaterialIndex",
+            "name": "intMaterialIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "MaterialIndex",
             "doc": """
         The zero-based source material index.
             """
         },
         1: {
-            "name": "Color",
+            "name": "lngColor",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Color",
             "doc": """
         The new color value.  If omitted, the current reflective color is returned.
             """

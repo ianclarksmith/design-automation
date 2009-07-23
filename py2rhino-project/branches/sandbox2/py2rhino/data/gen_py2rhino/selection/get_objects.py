@@ -8,25 +8,27 @@ get_objects = {
         Prompts the user to pick or select one or more objects.
     """,
 
-    "syntax_html": """
-        Rhino.GetObjects ([strMessage [, intType [, blnGroup [, blnPreSelect [, blnSelect [, arrObjects ]]]]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "intType", "blnGroup", "blnPreSelect", "blnSelect", "arrObjects"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "Type",
+            "name": "intType",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Type",
             "doc": """
         The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
 		Value
@@ -69,37 +71,41 @@ get_objects = {
             """
         },
         2: {
-            "name": "Group",
+            "name": "blnGroup",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Group",
             "doc": """
         Honor object grouping.  If omitted and the user picks a group, the entire group will be picked (True). Note, if intType is set to a value other than 0 (All objects), then group selection will be disabled.
             """
         },
         3: {
-            "name": "PreSelect",
+            "name": "blnPreSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "PreSelect",
             "doc": """
         Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
             """
         },
         4: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Specifies whether or not the picked objects will remain selected when the function ends.  If omitted, objects that were pre-picked will remain selected and the objects that were post-picked will not be selected.
             """
         },
         5: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects that are allowed to be selected.
             """

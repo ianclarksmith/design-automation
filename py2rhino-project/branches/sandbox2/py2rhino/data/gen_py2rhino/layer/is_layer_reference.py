@@ -8,16 +8,17 @@ is_layer_reference = {
         Verifies that an existing layer is from a reference file.
     """,
 
-    "syntax_html": """
-        Rhino.IsLayerReference (strLayer)
-    """,
+    "syntax_html": {
+        0: ("strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.
             """

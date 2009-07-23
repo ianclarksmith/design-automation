@@ -8,34 +8,40 @@ project_point_to_mesh = {
         Projects one or more points onto one or more meshes.
     """,
 
-    "syntax_html": """
-        Rhino.ProjectPointToMesh (arrPoint, strMesh, arrDirection)
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "strMesh", "arrDirection"),
+        1: ("arrPoint", "arrMeshes", "arrDirection"),
+        2: ("arrPoints", "strMesh", "arrDirection"),
+        3: ("arrPoints", "arrMeshes", "arrDirection"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points to project.
             """
         },
         1: {
-            "name": "Mesh",
+            "name": "arrMeshes",
             "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
+            "type": "Array",
+            "name_prefix": "arr",
+            "name_main": "Meshes",
             "doc": """
-        The identifier of the mesh object to project onto.
+        The identifiers of the mesh objects to project onto.
             """
         },
         2: {
-            "name": "Direction",
+            "name": "arrDirection",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Direction",
             "doc": """
         The direction (3-D vector) to project the points.
             """

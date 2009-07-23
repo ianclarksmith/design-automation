@@ -8,52 +8,57 @@ open_file_names = {
         Displays a Windows file open dialog box allowing the user to select one or more file names. Note, this function does not open files.
     """,
 
-    "syntax_html": """
-        Rhino.OpenFileNames ([strTitle [, strFilter [, strFolder [, strFilename [, strExtension]]]]])
-    """,
+    "syntax_html": {
+        0: ("strTitle", "strFilter", "strFolder", "strFilename", "strExtension"),
+    },
 
     "params_html": {
         0: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """
         },
         1: {
-            "name": "Filter",
+            "name": "strFilter",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Filter",
             "doc": """
         A filter string.  The filter string must be in the following form:  "Description1|Filter1|Description2|Filter2||", where "||" terminates filter string.  If omitted, the filter (*.*) is used.
             """
         },
         2: {
-            "name": "Folder",
+            "name": "strFolder",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Folder",
             "doc": """
         A default folder.
             """
         },
         3: {
-            "name": "Filename",
+            "name": "strFilename",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Filename",
             "doc": """
         A default file name.
             """
         },
         4: {
-            "name": "Extension",
+            "name": "strExtension",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Extension",
             "doc": """
         A default file extension.
             """

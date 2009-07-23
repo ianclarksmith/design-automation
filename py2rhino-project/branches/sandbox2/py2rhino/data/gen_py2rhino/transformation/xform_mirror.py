@@ -8,25 +8,27 @@ xform_mirror = {
         Creates a mirror transformation matrix.
     """,
 
-    "syntax_html": """
-        Rhino.XformMirror (arrPoint, arrNormal)
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "arrNormal"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point on mirror plane.
             """
         },
         1: {
-            "name": "Normal",
+            "name": "arrNormal",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Normal",
             "doc": """
         A 3-D vector that is normal to mirror plane.
             """

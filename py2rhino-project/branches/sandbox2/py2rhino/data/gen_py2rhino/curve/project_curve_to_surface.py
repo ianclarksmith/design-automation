@@ -8,34 +8,40 @@ project_curve_to_surface = {
         Projects one or more points onto one or more surfaces or polysurfaces.
     """,
 
-    "syntax_html": """
-        Rhino.ProjectCurveToSurface (strCurve, strSurface, arrDirection)
-    """,
+    "syntax_html": {
+        0: ("strCurve", "strSurface", "arrDirection"),
+        1: ("strCurve", "arrSurfaces", "arrDirection"),
+        2: ("arrCurves", "strSurface", "arrDirection"),
+        3: ("arrCurves", "arrSurfaces", "arrDirection"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curves",
+            "name": "arrCurves",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Curves",
             "doc": """
         The identifiers of one or more curve objects to project.
             """
         },
         1: {
-            "name": "Surface",
+            "name": "arrSurfaces",
             "opt_or_req": "Required",
-            "type": "String",
-            "type_string": "str",
+            "type": "Array",
+            "name_prefix": "arr",
+            "name_main": "Surfaces",
             "doc": """
-        The identifier of the surface or polysurface object to project onto.
+        The identifiers of the surface or polysurface objects to project onto.
             """
         },
         2: {
-            "name": "Direction",
+            "name": "arrDirection",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Direction",
             "doc": """
         The direction (3-D vector) to project the points.
             """

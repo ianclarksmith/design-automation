@@ -8,16 +8,17 @@ remove_object_from_all_groups = {
         Removes a single object from any and all groups that it is a member. Neither the object nor the group can be a reference object.
     """,
 
-    "syntax_html": """
-        Rhino.RemoveObjectFromAllGroups (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """

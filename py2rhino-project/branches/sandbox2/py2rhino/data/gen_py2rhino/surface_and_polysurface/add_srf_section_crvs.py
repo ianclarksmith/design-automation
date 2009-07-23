@@ -8,25 +8,27 @@ add_srf_section_crvs = {
         Adds planar curves resulting from the intersection of a defined cutting plane through a surface or a polysurface. For more information, see the Rhino help file for details on the Section command.
     """,
 
-    "syntax_html": """
-        Rhino.AddSrfSectionCrvs (strObject, arrPlane)
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a surface or polysurface object.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         A plane that defines the cutting plane.
             """

@@ -8,25 +8,27 @@ add_objects_to_group = {
         Adds one or more objects to an existing group. Neither the objects nor the group can be reference objects.
     """,
 
-    "syntax_html": """
-        Rhino.AddObjectsToGroup (arrObjects, strGroup)
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "strGroup"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of object identifiers.
             """
         },
         1: {
-            "name": "Group",
+            "name": "strGroup",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Group",
             "doc": """
         The name of an existing group.
             """

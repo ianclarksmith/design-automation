@@ -8,16 +8,17 @@ enable_redraw = {
         Enables or disables screen redrawing.
     """,
 
-    "syntax_html": """
-        Rhino.EnableRedraw ([blnRedraw])
-    """,
+    "syntax_html": {
+        0: ("blnRedraw"),
+    },
 
     "params_html": {
         0: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         The screen redrawing state.  If omitted, screen redrawing is enabled (True).
             """

@@ -8,16 +8,17 @@ curve_plane = {
         Returns the plane in which a planar curve lies. Note, this function works only on planar curves.
     """,
 
-    "syntax_html": """
-        Rhino.CurvePlane (strCurve)
-    """,
+    "syntax_html": {
+        0: ("strCurve"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of a planar curve object
             """

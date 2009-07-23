@@ -8,52 +8,57 @@ shear_objects = {
         Performs a shear transformation on one or more objects. Transformation is based on the active construction plane.
     """,
 
-    "syntax_html": """
-        Rhino.ShearObjects (arrObjects, arrOrigin, arrRefPt, dblAngle [, blnCopy])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrOrigin", "arrRefPt", "dblAngle", "blnCopy"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to shear.
             """
         },
         1: {
-            "name": "Origin",
+            "name": "arrOrigin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Origin",
             "doc": """
         The origin of the shear transformation.
             """
         },
         2: {
-            "name": "RefPt",
+            "name": "arrRefPt",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "RefPt",
             "doc": """
         The reference point of the shear transformation.
             """
         },
         3: {
-            "name": "Scale",
+            "name": "arrScale",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Scale",
             "doc": """
         An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
             """
         },
         4: {
-            "name": "Copy",
+            "name": "blnCopy",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Copy",
             "doc": """
         Copy the objects. If omitted, the objects will not be copied (False).
             """

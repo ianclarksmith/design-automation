@@ -8,25 +8,27 @@ expand_layer = {
         Expands a layer. Expanded layers can be viewed in Rhino's Layer dialog.
     """,
 
-    "syntax_html": """
-        Rhino.ExpandLayer (strLayer, blnExpand)
-    """,
+    "syntax_html": {
+        0: ("strLayer", "blnExpand"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of the layer to expand.
             """
         },
         1: {
-            "name": "Expand",
+            "name": "blnExpand",
             "opt_or_req": "Required",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Expand",
             "doc": """
         True to expand, False to collapse.
             """

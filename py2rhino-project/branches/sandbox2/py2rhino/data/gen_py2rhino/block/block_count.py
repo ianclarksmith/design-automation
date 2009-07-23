@@ -8,9 +8,9 @@ block_count = {
         Returns the number of block definitions in the document.
     """,
 
-    "syntax_html": """
-        Rhino.BlockCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

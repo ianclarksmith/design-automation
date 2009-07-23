@@ -8,16 +8,17 @@ enable_autosave = {
         Enables or disables Rhino's automatic file saving mechanism.
     """,
 
-    "syntax_html": """
-        Rhino.EnableAutosave ([blnEnable])
-    """,
+    "syntax_html": {
+        0: ("blnEnable"),
+    },
 
     "params_html": {
         0: {
-            "name": "Enable",
+            "name": "blnEnable",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Enable",
             "doc": """
         The autosave state.  If omitted, automatic saving is enabled (True).
             """

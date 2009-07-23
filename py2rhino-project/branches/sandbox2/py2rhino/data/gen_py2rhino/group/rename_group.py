@@ -8,25 +8,27 @@ rename_group = {
         Renames an existing group.
     """,
 
-    "syntax_html": """
-        Rhino.RenameGroup (strOldGroup, strNewGroup)
-    """,
+    "syntax_html": {
+        0: ("strOldGroup", "strNewGroup"),
+    },
 
     "params_html": {
         0: {
-            "name": "OldGroup",
+            "name": "strOldGroup",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "OldGroup",
             "doc": """
         The name of an existing group.
             """
         },
         1: {
-            "name": "NewGroup",
+            "name": "strNewGroup",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "NewGroup",
             "doc": """
         The new group name.
             """

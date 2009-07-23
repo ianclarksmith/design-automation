@@ -8,25 +8,27 @@ text_object_plane = {
         Returns or modifies the plane used by a text object.
     """,
 
-    "syntax_html": """
-        Rhino.TextObjectPlane(strObject [, arrPlane])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The new construction plane.  The elements of a plane array are as follows:
 		Value

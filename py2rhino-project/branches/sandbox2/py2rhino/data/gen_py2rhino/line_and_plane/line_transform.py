@@ -8,25 +8,27 @@ line_transform = {
         Transforms a line.
     """,
 
-    "syntax_html": """
-        Rhino.LineTransform (arrLine, arrXform)
-    """,
+    "syntax_html": {
+        0: ("arrLine", "arrXform"),
+    },
 
     "params_html": {
         0: {
-            "name": "Line",
+            "name": "arrLine",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Line",
             "doc": """
         Two 3-D points identifying the starting and ending points of the line.
             """
         },
         1: {
-            "name": "Xform",
+            "name": "arrXform",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Xform",
             "doc": """
         A valid 4x4 transformation matrix.
             """

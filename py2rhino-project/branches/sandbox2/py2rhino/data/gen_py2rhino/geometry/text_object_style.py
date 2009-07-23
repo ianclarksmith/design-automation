@@ -8,25 +8,27 @@ text_object_style = {
         Returns or modifies the font style of a text object.
     """,
 
-    "syntax_html": """
-        Rhino.TextObjectStyle (strObject [, intStyle])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Style",
+            "name": "intStyle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Style",
             "doc": """
         The font style.  If omitted, the current font style is returned.  The font style can be any number of the following flags:
 		Value

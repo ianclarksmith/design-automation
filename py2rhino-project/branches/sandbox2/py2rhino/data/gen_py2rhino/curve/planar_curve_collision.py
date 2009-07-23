@@ -8,34 +8,37 @@ planar_curve_collision = {
         Determines if two coplanar curves intersect.
     """,
 
-    "syntax_html": """
-        Rhino.PlanarCurveCollision (strCurve1, strCurve2 [, arrPlane [, dblTolerance]])
-    """,
+    "syntax_html": {
+        0: ("strCurve1", "strCurve2", "arrPlane", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve1",
+            "name": "strCurve1",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve1",
             "doc": """
         The object identifier of the first planar curve.
             """
         },
         1: {
-            "name": "Curve2",
+            "name": "strCurve2",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve2",
             "doc": """
         The object identifier of the second planar curve.
             """
         },
         2: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element
@@ -55,10 +58,11 @@ planar_curve_collision = {
             """
         },
         3: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The tolerance.  If omitted, the current document absolute tolerance is used.
             """

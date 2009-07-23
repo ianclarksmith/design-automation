@@ -8,25 +8,27 @@ extend_curve_point = {
         Extends a non-closed curve object by smooth extension to a point.
     """,
 
-    "syntax_html": """
-        Rhino.ExtendCurvePoint (strObject, intSide, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("strObject", "intSide", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Side",
+            "name": "intSide",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Side",
             "doc": """
         The size to  extent.
 		Value
@@ -37,10 +39,11 @@ extend_curve_point = {
             """
         },
         2: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D point.
             """

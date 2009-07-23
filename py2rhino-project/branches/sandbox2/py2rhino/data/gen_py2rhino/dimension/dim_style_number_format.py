@@ -8,25 +8,27 @@ dim_style_number_format = {
         Returns or changes the number display format of a dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleNumberFormat (strDimStyle [, intFormat])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle", "intFormat"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "Format",
+            "name": "intFormat",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Format",
             "doc": """
         The new number display format.  If omitted, the current number display format is returned.  The format values are as follows:
 		Value

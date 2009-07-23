@@ -8,9 +8,9 @@ alias_names = {
         Returns a list of command alias names.
     """,
 
-    "syntax_html": """
-        Rhino.AliasNames ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

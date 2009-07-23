@@ -8,25 +8,27 @@ text_object_height = {
         Returns or modifies the height of a text object.
     """,
 
-    "syntax_html": """
-        Rhino.TextObjectHeight (strObject [, dblHeight])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblHeight"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Height",
+            "name": "dblHeight",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Height",
             "doc": """
         The new text height.  If omitted, the current text height is returned.
             """

@@ -8,16 +8,17 @@ get_rectangle = {
         Pauses for user input of a rectangle.
     """,
 
-    "syntax_html": """
-        Rhino.GetRectangle ([intMode [, arrPoint [, strPrompt1 [, strPrompt2 [, strPrompt3]]]]])
-    """,
+    "syntax_html": {
+        0: ("intMode", "arrPoint", "strPrompt1", "strPrompt2", "strPrompt3"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mode",
+            "name": "intMode",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Mode",
             "doc": """
         The rectangle selection mode.  If not specified, all modes (0) are available.  The rectangle selection modes are as follows:
 		Value
@@ -34,37 +35,41 @@ get_rectangle = {
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point",
             "doc": """
         A 3-D base point.
             """
         },
         2: {
-            "name": "Prompt1",
+            "name": "strPrompt1",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Prompt1",
             "doc": """
         The first prompt or message.
             """
         },
         3: {
-            "name": "Prompt2",
+            "name": "strPrompt2",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Prompt2",
             "doc": """
         The second prompt or message.
             """
         },
         4: {
-            "name": "Prompt3",
+            "name": "strPrompt3",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Prompt3",
             "doc": """
         The third prompt or message.  The third prompt used only with 3Point and Vertical modes.
             """

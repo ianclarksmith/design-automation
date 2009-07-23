@@ -8,16 +8,17 @@ delete_named_view = {
         Removed a new named view from  the document.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteNamedView (strName)
-    """,
+    "syntax_html": {
+        0: ("strName"),
+    },
 
     "params_html": {
         0: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The name of the named view to remove.
             """

@@ -8,25 +8,27 @@ rename_dim_style = {
         Renames an existing dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.RenameDimStyle (strOldStyle, strNewStyle)
-    """,
+    "syntax_html": {
+        0: ("strOldStyle", "strNewStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "OldStyle",
+            "name": "strOldStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "OldStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "NewStyle",
+            "name": "strNewStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "NewStyle",
             "doc": """
         The new dimension style name.
             """

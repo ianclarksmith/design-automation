@@ -8,16 +8,17 @@ curve_boolean_union = {
         Calculates the union of two or more closed, planar curves and adds the results to the document. Note, curves must be coplanar.
     """,
 
-    "syntax_html": """
-        Rhino.CurveBooleanUnion (arrCurves)
-    """,
+    "syntax_html": {
+        0: ("arrCurves"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curves",
+            "name": "arrCurves",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Curves",
             "doc": """
         The identifiers of two or more curve objects.
             """

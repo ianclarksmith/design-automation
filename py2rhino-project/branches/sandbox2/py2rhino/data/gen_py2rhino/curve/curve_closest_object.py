@@ -8,25 +8,28 @@ curve_closest_object = {
         Returns the 3-D point locations on two objects where they are closest to each other.  Note, this function provides similar functionality to that of Rhino's ClosestPt command when used with the Object option.
     """,
 
-    "syntax_html": """
-        Rhino.CurveClosestObject (strCurve, strObject)
-    """,
+    "syntax_html": {
+        0: ("strCurve", "strObject"),
+        1: ("strCurve", "arrObjects"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of the curve object to test.
             """
         },
         1: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         The identifiers of one or more point cloud, curve, surface, or polysurface to test against.
             """

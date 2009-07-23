@@ -8,16 +8,17 @@ delete_startup_script = {
         Removes an existing startup script from RhinoScript's startup script list. Startup script items can be removed manually by using Rhino's Options command and modifying the contents of the RhinoScript tab.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteStartupScript (strScriptFile)
-    """,
+    "syntax_html": {
+        0: ("strScriptFile"),
+    },
 
     "params_html": {
         0: {
-            "name": "ScriptFile",
+            "name": "strScriptFile",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "ScriptFile",
             "doc": """
         An existing script file path to remove.
             """

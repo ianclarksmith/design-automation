@@ -8,16 +8,17 @@ mesh_has_texture_coordinates = {
         Verifies a mesh object has texture coordinates.
     """,
 
-    "syntax_html": """
-        Rhino.MeshHasTextureCoordinates (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

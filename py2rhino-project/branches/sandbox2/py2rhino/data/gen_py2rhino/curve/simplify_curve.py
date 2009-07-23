@@ -14,25 +14,27 @@ simplify_curve = {
 		6.  Segments that meet with G1-continuity have there ends tuned up so that they meet with G1-continuity to within machine precision.
     """,
 
-    "syntax_html": """
-        Rhino.SimplifyCurve (strObject [, intFlags])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intFlags"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The curve object's identifier.
             """
         },
         1: {
-            "name": "Flags",
+            "name": "intFlags",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Flags",
             "doc": """
         The simplification methods to use. By default, all methods are used (intFlags = 0). The possible options are as follows:
 		Value

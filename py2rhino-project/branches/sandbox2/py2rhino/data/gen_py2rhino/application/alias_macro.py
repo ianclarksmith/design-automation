@@ -8,25 +8,27 @@ alias_macro = {
         Returns or modifies the macro of a command alias.
     """,
 
-    "syntax_html": """
-        Rhino.AliasMacro (strAlias [, strMacro])
-    """,
+    "syntax_html": {
+        0: ("strAlias", "strMacro"),
+    },
 
     "params_html": {
         0: {
-            "name": "Alias",
+            "name": "strAlias",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Alias",
             "doc": """
         The name of an existing command alias.
             """
         },
         1: {
-            "name": "Macro",
+            "name": "strMacro",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Macro",
             "doc": """
         The new macro to run when the alias is executed.
             """

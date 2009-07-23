@@ -8,34 +8,37 @@ string_box = {
         Displays a dialog box prompting the user to enter a string value.
     """,
 
-    "syntax_html": """
-        Rhino.StringBox ([strMessage [, strString [, strTitle]]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "strString", "strTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "String",
+            "name": "strString",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "String",
             "doc": """
         A default string value.
             """
         },
         2: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """

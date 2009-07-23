@@ -8,52 +8,57 @@ offset_curve = {
         Offsets a curve by a distance. The offset curve will be added to Rhino.
     """,
 
-    "syntax_html": """
-        Rhino.OffsetCurve (strObject, arrDirection, dblDistance [, arrNormal [, intStyle]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrDirection", "dblDistance", "arrNormal", "intStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "arrDirection",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Direction",
             "doc": """
         The 3-D point that indicates the direction of the offset.
             """
         },
         2: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The distance of the offset.
             """
         },
         3: {
-            "name": "Normal",
+            "name": "arrNormal",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Normal",
             "doc": """
         A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
             """
         },
         4: {
-            "name": "Style",
+            "name": "intStyle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Style",
             "doc": """
         The corner style.  If omitted, a sharp corner style is used.
 		Value

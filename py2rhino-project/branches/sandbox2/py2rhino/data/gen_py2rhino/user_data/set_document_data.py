@@ -8,34 +8,37 @@ set_document_data = {
         Adds or sets a RhinoScript user data item to the current document.
     """,
 
-    "syntax_html": """
-        Rhino.SetDocumentData (strSection, strEntry, strValue)
-    """,
+    "syntax_html": {
+        0: ("strSection", "strEntry", "strValue"),
+    },
 
     "params_html": {
         0: {
-            "name": "Section",
+            "name": "strSection",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Section",
             "doc": """
         The section name.
             """
         },
         1: {
-            "name": "Entry",
+            "name": "strEntry",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Entry",
             "doc": """
         The entry name.
             """
         },
         2: {
-            "name": "Value",
+            "name": "strValue",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Value",
             "doc": """
         The string value.
             """

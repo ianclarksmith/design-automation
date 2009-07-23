@@ -8,9 +8,9 @@ sdk_version = {
         Returns the version of the Rhino SDK supported by the running version of Rhino.  Rhino SDK versions are 9 digit numbers in the form of YYYYMMDDn.
     """,
 
-    "syntax_html": """
-        Rhino.SdkVersion ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

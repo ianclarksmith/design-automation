@@ -8,16 +8,17 @@ is_linetype = {
         Verifies the existence of a linetype in the document.
     """,
 
-    "syntax_html": """
-        Rhino.IsLinetype (strLinetype)
-    """,
+    "syntax_html": {
+        0: ("strLinetype"),
+    },
 
     "params_html": {
         0: {
-            "name": "Linetype",
+            "name": "strLinetype",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Linetype",
             "doc": """
         The name of an existing linetype.
             """

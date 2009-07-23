@@ -9,25 +9,27 @@ object_mesh_density = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectMeshDensity (strObject [, dblDensity])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblDensity"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object that has custom render mesh parameters.
             """
         },
         1: {
-            "name": "Density",
+            "name": "dblDensity",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Density",
             "doc": """
         The render mesh density, which is a number between 0.0 and 1.0.
             """

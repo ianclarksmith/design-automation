@@ -8,34 +8,37 @@ is_point_on_curve = {
         Verifies that a point is on a curve.
     """,
 
-    "syntax_html": """
-        Rhino.IsPointOnCurve (strObject, arrPoint [, intIndex])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrPoint", "intIndex"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Point",
             "doc": """
         The test, or sampling, point.
             """
         },
         2: {
-            "name": "Index",
+            "name": "intIndex",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Index",
             "doc": """
         If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
             """

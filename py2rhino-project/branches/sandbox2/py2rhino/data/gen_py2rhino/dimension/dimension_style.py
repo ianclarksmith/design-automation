@@ -8,25 +8,27 @@ dimension_style = {
         Returns or modifies the dimension style of a dimension object.
     """,
 
-    "syntax_html": """
-        Rhino.DimensionStyle (strObject [, strStyle]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Style",
+            "name": "strStyle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Style",
             "doc": """
         The name of an existing dimension style.
             """

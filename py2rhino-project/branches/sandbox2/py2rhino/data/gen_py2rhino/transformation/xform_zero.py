@@ -24,9 +24,9 @@ xform_zero = {
 		0
     """,
 
-    "syntax_html": """
-        Rhino.XformZero ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

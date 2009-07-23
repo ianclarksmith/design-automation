@@ -8,52 +8,57 @@ add_layer = {
         Adds a new layer to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddLayer ([strLayer [, lngColor [, blnVisible [, blnLocked [,strParent]]]]])
-    """,
+    "syntax_html": {
+        0: ("strLayer", "lngColor", "blnVisible", "blnLocked", "strParent"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of the new layer.  If omitted, Rhino automatically generates the layer name.
             """
         },
         1: {
-            "name": "Color",
+            "name": "lngColor",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Color",
             "doc": """
         A Red-Green-Blue color value.  If omitted, the color Black is assigned.
             """
         },
         2: {
-            "name": "Visible",
+            "name": "blnVisible",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Visible",
             "doc": """
         The layer's visibility. The default is visible (True).
             """
         },
         3: {
-            "name": "Locked",
+            "name": "blnLocked",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Locked",
             "doc": """
         The layer's locked state. The default is not locked (False).
             """
         },
         4: {
-            "name": "Parent",
+            "name": "strParent",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Parent",
             "doc": """
         The name of the new layer's parent layer. If omitted, the new layer will have not parent layer.
             """

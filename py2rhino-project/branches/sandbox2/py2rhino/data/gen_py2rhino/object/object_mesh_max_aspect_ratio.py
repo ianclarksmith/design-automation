@@ -9,25 +9,27 @@ object_mesh_max_aspect_ratio = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectMeshMaxAspectRatio (strObject [, dblRatio])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblRatio"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object that has custom render mesh parameters.
             """
         },
         1: {
-            "name": "Ratio",
+            "name": "dblRatio",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Ratio",
             "doc": """
         The render mesh maximum aspect ratio.  The suggested range, when not zero, is from 1 to 100.
             """

@@ -8,25 +8,27 @@ layer_print_width = {
         Returns or changes the print width of a layer. Print width is specified in millimeters. A print width of 0.0 denotes the "default" print width.
     """,
 
-    "syntax_html": """
-        Rhino.LayerPrintWidth (strLayer [, dblWidth])
-    """,
+    "syntax_html": {
+        0: ("strLayer", "dblWidth"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.
             """
         },
         1: {
-            "name": "Width",
+            "name": "dblWidth",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Width",
             "doc": """
         The new layer print width in millimeters.
             """

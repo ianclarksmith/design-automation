@@ -8,34 +8,37 @@ integer_box = {
         Displays a dialog box prompting the user to enter a whole number.
     """,
 
-    "syntax_html": """
-        Rhino.IntegerBox ([strMessage [, intNumber [, strTitle]]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "intNumber", "strTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "Number",
+            "name": "intNumber",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Number",
             "doc": """
         A default whole number.
             """
         },
         2: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """

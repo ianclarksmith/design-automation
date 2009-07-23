@@ -8,34 +8,37 @@ objects_by_name = {
         Returns the identifiers of all objects based on the objects' user-assigned name.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectsByName (strName [, blnSelect [, blnIncludeLights]])
-    """,
+    "syntax_html": {
+        0: ("strName", "blnSelect", "blnIncludeLights"),
+    },
 
     "params_html": {
         0: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The name of an object or objects.
             """
         },
         1: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the objects.  If omitted, the objects are not selected (False).
             """
         },
         2: {
-            "name": "IncludeLights",
+            "name": "blnIncludeLights",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeLights",
             "doc": """
         Include light objects.  If omitted, light objects are not returned (False).
             """

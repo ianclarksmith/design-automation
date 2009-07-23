@@ -8,16 +8,17 @@ distance_to_plane = {
         Returns the distance from a 3-D point to a plane.
     """,
 
-    "syntax_html": """
-        Rhino.DistanceToPlane (arrPlane, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane.  The elements of a plane array are as follows:
 		Element
@@ -32,10 +33,11 @@ distance_to_plane = {
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D point.
             """

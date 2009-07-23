@@ -8,34 +8,37 @@ restore_named_view = {
         Restores a named view to the specified view.
     """,
 
-    "syntax_html": """
-        Rhino.RestoreNamedView (strName [, strView [, blnRestoreBitmap]])
-    """,
+    "syntax_html": {
+        0: ("strName", "strView", "blnRestoreBitmap"),
+    },
 
     "params_html": {
         0: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The name of the named view to restore.
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view to restore the view.  If omitted, the current active view is used.
             """
         },
         2: {
-            "name": "RestoreBitmap",
+            "name": "blnRestoreBitmap",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "RestoreBitmap",
             "doc": """
         Restore the named view's background bitmap. If omitted, the named view's background bitmap is not restored (false).
             """

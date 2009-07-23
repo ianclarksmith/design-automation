@@ -8,25 +8,27 @@ restore_named_c_plane = {
         Restores a named construction plane to the specified view.
     """,
 
-    "syntax_html": """
-        Rhino.RestoreNamedCPlane (strName [, strView])
-    """,
+    "syntax_html": {
+        0: ("strName", "strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The name of the named construction plane to restore.
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view to restore the construction plane.  If omitted, the current active view is used.
             """

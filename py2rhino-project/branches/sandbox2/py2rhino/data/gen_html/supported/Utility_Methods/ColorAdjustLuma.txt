@@ -26,7 +26,7 @@ intLuma
 
 Required.  Number.  The luminance in units of 0.1 percent of the total range.  For example, a value of intLuma = 50 corresponds to 5 percent of the maximum luminance.
 
-bScale 
+blnScale 
 
 Optional.  Boolean.  If bScale is set to True, intLuma specifies how much to increment or decrement the current luminance.  If bScale is set to FALSE, intLuma specifies the absolute luminance.  The default value is False.
 

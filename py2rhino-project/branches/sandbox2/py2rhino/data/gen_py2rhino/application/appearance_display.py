@@ -8,16 +8,17 @@ appearance_display = {
         Returns or modifies an application interface item's visibility.
     """,
 
-    "syntax_html": """
-        Rhino.AppearanceDisplay (intItem [, blnShow])
-    """,
+    "syntax_html": {
+        0: ("intItem", "blnShow"),
+    },
 
     "params_html": {
         0: {
-            "name": "Item",
+            "name": "intItem",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Item",
             "doc": """
         Item number to either query or modify.  The available items are as follows:
 		Value
@@ -38,10 +39,11 @@ appearance_display = {
             """
         },
         1: {
-            "name": "Show",
+            "name": "blnShow",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Show",
             "doc": """
         The new visibility state, either visible (True) or hidden (False).  If omitted, the current visibility state is returned.
             """

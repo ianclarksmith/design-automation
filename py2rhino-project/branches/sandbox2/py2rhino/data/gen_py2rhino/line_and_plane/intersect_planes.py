@@ -8,34 +8,37 @@ intersect_planes = {
         Calculates the intersection of three planes.
     """,
 
-    "syntax_html": """
-        Rhino.IntersectPlanes (arrPlane1, arrPlane2, arrPlane3)
-    """,
+    "syntax_html": {
+        0: ("arrPlane1", "arrPlane2", "arrPlane3"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane1",
+            "name": "arrPlane1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane1",
             "doc": """
         The first plane to intersect.
             """
         },
         1: {
-            "name": "Plane2",
+            "name": "arrPlane2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane2",
             "doc": """
         The second plane to intersect.
             """
         },
         2: {
-            "name": "Plane3",
+            "name": "arrPlane3",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane3",
             "doc": """
         The third plane to intersect.
             """

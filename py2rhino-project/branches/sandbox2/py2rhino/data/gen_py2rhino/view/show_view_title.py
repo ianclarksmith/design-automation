@@ -8,25 +8,27 @@ show_view_title = {
         Shows or hides the title window of a view.
     """,
 
-    "syntax_html": """
-        Rhino.ShowViewTitle ([strView [, blnState]])
-    """,
+    "syntax_html": {
+        0: ("strView", "blnState"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "State",
+            "name": "blnState",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "State",
             "doc": """
         The visible state of the view's title window.  If omitted, the title will be shown (True).
             """

@@ -8,25 +8,28 @@ object_layer = {
         Returns or modifies the layer of an object.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectLayer (strObject [, strLayer])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strLayer"),
+        1: ("arrObjects", "strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
             """
         },
         1: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.  If omitted, the current object layer is returned.  Note, if arrObjects is specified, strLayer is required.
             """

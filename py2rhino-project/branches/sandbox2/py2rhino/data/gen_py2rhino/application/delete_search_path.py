@@ -8,16 +8,17 @@ delete_search_path = {
         Removes an existing path from Rhino's search path list. Search path items can be removed manually by using Rhino's Options command and modifying the contents of the Files tab. See "Options Files settings" in the Rhino help file for more details.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteSearchPath (strFolder)
-    """,
+    "syntax_html": {
+        0: ("strFolder"),
+    },
 
     "params_html": {
         0: {
-            "name": "Folder",
+            "name": "strFolder",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Folder",
             "doc": """
         A valid folder, or path, to remove.
             """

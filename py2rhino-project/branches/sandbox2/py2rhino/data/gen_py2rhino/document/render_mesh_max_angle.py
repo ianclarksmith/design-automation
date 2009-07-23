@@ -9,16 +9,17 @@ render_mesh_max_angle = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.RenderMeshMaxAngle ([dblAngle])
-    """,
+    "syntax_html": {
+        0: ("dblAngle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         The render mesh maximum angle in degrees.
             """

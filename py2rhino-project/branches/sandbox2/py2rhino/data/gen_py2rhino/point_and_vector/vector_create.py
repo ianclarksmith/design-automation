@@ -8,25 +8,27 @@ vector_create = {
         Creates a vector from two 3-D points.
     """,
 
-    "syntax_html": """
-        Rhino.VectorCreate (arrPoint1, arrPoint2)
-    """,
+    "syntax_html": {
+        0: ("arrPoint1", "arrPoint2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point1",
+            "name": "arrPoint1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point1",
             "doc": """
         The first 3-D point.
             """
         },
         1: {
-            "name": "Point2",
+            "name": "arrPoint2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point2",
             "doc": """
         The second 3-D point.
             """

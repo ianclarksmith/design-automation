@@ -8,34 +8,37 @@ curve_evaluate = {
         A general purpose curve evaluator.
     """,
 
-    "syntax_html": """
-        Rhino.CurveEvaluate (strObject, dblParameter, intDerivative)
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblParameter", "intDerivative"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "dblParameter",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Parameter",
             "doc": """
         The evaluation parameter.
             """
         },
         2: {
-            "name": "Derivative",
+            "name": "intDerivative",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Derivative",
             "doc": """
         The number of derivatives to evaluate.
             """

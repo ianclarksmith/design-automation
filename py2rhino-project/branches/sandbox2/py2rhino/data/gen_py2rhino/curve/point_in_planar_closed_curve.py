@@ -8,34 +8,37 @@ point_in_planar_closed_curve = {
         Determines if a point is inside of a closed curve, on  a closed curve, or outside of a closed curve.
     """,
 
-    "syntax_html": """
-        Rhino.PointInPlanarClosedCurve (arrPoint, strCurve [, arrPlane [, dblTolerance]])
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "strCurve", "arrPlane", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point to test.
             """
         },
         1: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The object identifier of the planar, closed curve.
             """
         },
         2: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element
@@ -55,10 +58,11 @@ point_in_planar_closed_curve = {
             """
         },
         3: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The tolerance.  If omitted, the current document absolute tolerance is used.
             """

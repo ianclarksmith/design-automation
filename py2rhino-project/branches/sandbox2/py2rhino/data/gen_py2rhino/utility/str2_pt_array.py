@@ -8,16 +8,17 @@ str2_pt_array = {
         Converts a formatted string value into an array of 3-D point value.
     """,
 
-    "syntax_html": """
-        Rhino.Str2PtArray (strPoints)
-    """,
+    "syntax_html": {
+        0: ("strPoints"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "strPoints",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Points",
             "doc": """
         A string that contains an unknown number of space delimited points like "1,2,3 4,5,6 7,8,9".
             """

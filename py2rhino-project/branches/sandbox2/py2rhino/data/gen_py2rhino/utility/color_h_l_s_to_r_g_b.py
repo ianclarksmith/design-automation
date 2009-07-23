@@ -8,16 +8,17 @@ color_h_l_s_to_r_g_b = {
         Converts colors from hue-luminance-saturation (HLS) to red-green-blue format.
     """,
 
-    "syntax_html": """
-        Rhino.ColorHLSToRGB (lngRGB)
-    """,
+    "syntax_html": {
+        0: ("lngRGB"),
+    },
 
     "params_html": {
         0: {
-            "name": "RGB",
+            "name": "lngRGB",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "RGB",
             "doc": """
         The HLS color value.
             """

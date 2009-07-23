@@ -8,25 +8,27 @@ add_hatch_patterns = {
         Adds hatch pattens to the document by importing hatch pattern definitions from a pattern file. For more information on hatch pattern files, see the Rhino help file for the Hatch command.
     """,
 
-    "syntax_html": """
-        Rhino.AddHatchPatterns (strFileName [, blnReplace])
-    """,
+    "syntax_html": {
+        0: ("strFileName", "blnReplace"),
+    },
 
     "params_html": {
         0: {
-            "name": "FileName",
+            "name": "strFileName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "FileName",
             "doc": """
         The name of the hatch pattern file to import.
             """
         },
         1: {
-            "name": "Replace",
+            "name": "blnReplace",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Replace",
             "doc": """
         If hatch pattern names already in the document match hatch pattern names in the pattern definition file, then the existing hatch patterns will be redefined.  If omitted, existing hatch patterns will not be redefined (False).
             """

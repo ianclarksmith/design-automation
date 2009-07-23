@@ -8,16 +8,17 @@ render_color = {
         Returns or sets the render ambient light or background color. Render colors are represented as RGB colors. An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed. See Rhino's DocumentProperties command (Rhino Render window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.RenderColor (intItem, [lngColor])
-    """,
+    "syntax_html": {
+        0: ("intItem", "lngColor"),
+    },
 
     "params_html": {
         0: {
-            "name": "Item",
+            "name": "intItem",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Item",
             "doc": """
         The item you wish to either query or change.
 		0
@@ -26,10 +27,11 @@ render_color = {
             """
         },
         1: {
-            "name": "Color",
+            "name": "lngColor",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Color",
             "doc": """
         The new color value. If omitted, the curreng intItem color is returned.
             """

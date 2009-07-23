@@ -8,16 +8,17 @@ block_objects = {
         Returns the identifiers of the objects that make up a block definition.
     """,
 
-    "syntax_html": """
-        Rhino.BlockObjects (strBlock)
-    """,
+    "syntax_html": {
+        0: ("strBlock"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """

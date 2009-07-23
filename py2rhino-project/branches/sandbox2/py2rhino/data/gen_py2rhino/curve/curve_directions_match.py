@@ -8,25 +8,27 @@ curve_directions_match = {
         Tests if two curve objects are generally in the same direction or if they would be more in the same direction if one of them were flipped. When testing curve directions, both curves must be either open or closed - you cannot test one open curve and one closed curve.
     """,
 
-    "syntax_html": """
-        Rhino.CurveDirectionsMatch (strCurve1, strCurve2)
-    """,
+    "syntax_html": {
+        0: ("strCurve1", "strCurve2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve1",
+            "name": "strCurve1",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve1",
             "doc": """
         The identifier of the first curve to compare.
             """
         },
         1: {
-            "name": "Curve2",
+            "name": "strCurve2",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve2",
             "doc": """
         The identifier of the second curve to compare.
             """

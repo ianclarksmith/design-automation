@@ -8,16 +8,17 @@ sleep = {
         Suspends the execution of a running script for the specified interval.
     """,
 
-    "syntax_html": """
-        Rhino.Sleep (lngMilliseconds)
-    """,
+    "syntax_html": {
+        0: ("lngMilliseconds"),
+    },
 
     "params_html": {
         0: {
-            "name": "Milliseconds",
+            "name": "lngMilliseconds",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Milliseconds",
             "doc": """
         The duration in milliseconds.
             """

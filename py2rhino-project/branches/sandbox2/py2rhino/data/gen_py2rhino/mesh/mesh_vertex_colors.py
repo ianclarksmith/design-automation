@@ -8,25 +8,28 @@ mesh_vertex_colors = {
         Returns or modifies the  vertex colors of a mesh object
     """,
 
-    "syntax_html": """
-        Rhino.MeshVertexColors (strObject [, arrVertexColors])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrVertexColors"),
+        1: ("strObject", "Null"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "VertexColors",
+            "name": "arrVertexColors",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "VertexColors",
             "doc": """
         An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
             """
@@ -35,7 +38,8 @@ mesh_vertex_colors = {
             "name": "Null",
             "opt_or_req": "Optional",
             "type": "Null",
-            "type_string": "arr",
+            "name_prefix": "none",
+            "name_main": "Null",
             "doc": """
         Specifying Null will remove, or purge, any existing vertex colors from the mesh.
             """

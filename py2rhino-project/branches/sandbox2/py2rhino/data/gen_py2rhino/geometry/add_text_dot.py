@@ -8,25 +8,27 @@ add_text_dot = {
         Adds an annotation text dot to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddTextDot (strText, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("strText", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Test",
+            "name": "strTest",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Test",
             "doc": """
         A character or text string.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point identifying the origin point.
             """

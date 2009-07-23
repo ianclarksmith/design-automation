@@ -8,34 +8,37 @@ get_attribute_data = {
         Returns a RhinoScript user data item from an object's attributes.
     """,
 
-    "syntax_html": """
-        Rhino.GetAttributeData (strObject [, strSection [, strEntry]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strSection", "strEntry"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Section",
+            "name": "strSection",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Section",
             "doc": """
         The section name.  If omitted, all section names are returned.
             """
         },
         2: {
-            "name": "Entry",
+            "name": "strEntry",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Entry",
             "doc": """
         The entry name.  If omitted, all entry names for strSection are returned.
             """

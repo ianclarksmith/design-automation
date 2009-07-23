@@ -8,9 +8,9 @@ hatch_pattern_count = {
         Returns the number of hatch patterns in the document.
     """,
 
-    "syntax_html": """
-        Rhino.HatchPatternCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

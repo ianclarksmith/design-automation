@@ -8,34 +8,37 @@ surface_edit_points = {
         Returns the edit, or Greville, points of a surface object.  For each surface control point, there is a corresponding edit point.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceEditPoints (strObject [, blnReturnParameters [, blnReturnAll]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnReturnParameters", "blnReturnAll"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "ReturnParameters",
+            "name": "blnReturnParameters",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnParameters",
             "doc": """
         If False (default), edit points are returned as an array of 3-D points. If True, edit points are returned as an array U,V surface parameters.
             """
         },
         2: {
-            "name": "ReturnAll",
+            "name": "blnReturnAll",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnAll",
             "doc": """
         If True (default) all surface edit points are returned. If False, the function will returned surface edit points based on whether or not the surface is closed or periodic.
             """

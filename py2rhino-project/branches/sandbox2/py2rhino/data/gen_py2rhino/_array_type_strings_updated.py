@@ -23,9 +23,9 @@ curve = {
         "Radius": "dbl",
     },
     "add_circle3_pt": {
-        "Start": "arr_of_dbl",
-        "End": "arr_of_dbl",
-        "Point": "arr_of_dbl",
+        "First": "arr_of_dbl",
+        "Second": "arr_of_dbl",
+        "Third": "arr_of_dbl",
     },
     "add_curve": {
         "Points": "arr_of_dbl",
@@ -714,7 +714,7 @@ surface_and_polysurface = {
         "PointCount": "arr_of_int",
         "Points": "arr_of_dbl",
         "KnotsU": "arr_of_int",
-        "KnotsU": "arr_of_int",
+        "KnotsV": "arr_of_int",
         "Degree": "arr_of_int",
         "Weights": "arr_of_int",
     }, 

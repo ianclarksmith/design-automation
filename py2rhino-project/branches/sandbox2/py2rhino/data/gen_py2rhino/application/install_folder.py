@@ -8,9 +8,9 @@ install_folder = {
         Returns the full path to Rhino's installation folder.
     """,
 
-    "syntax_html": """
-        Rhino.InstallFolder ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

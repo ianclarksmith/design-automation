@@ -8,25 +8,27 @@ join_curves = {
         Joins two or more curve object together to form one or more curves or polycurves.
     """,
 
-    "syntax_html": """
-        Rhino.JoinCurves (arrObjects [,blnDelete])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         An array of strings identifying the curve objects to join.
             """
         },
         1: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete input objects after joining.  The default is not to delete objects (False).
             """

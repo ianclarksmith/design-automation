@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class Curve(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def add_arc(self, plane, radius, angle):
         """        
@@ -15,7 +24,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane on which the arc will lie. The origin of the plane will be the center point of the arc. The X-axis of the plane will define the 0 angle direction.
             
         radius, Double, Required        
@@ -36,19 +45,13 @@ class Curve(IRhinoScript):
         """
 
         params = [plane, radius, angle]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [flatten(plane), radius, angle]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(plane), radius, angle]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(651, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddArc", None, *params_flattened)
+        return self._ApplyTypes_(651, 1, (VT_VARIANT, 0), magic, u"AddArc", None, *flattened)
 
     def add_arc3_pt(self, start, end, point):
         """        
@@ -57,13 +60,13 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        start, Array of ????, Required        
+        start, Array of Doubles, Required        
         The starting point of the arc.
             
-        end, Array of ????, Required        
+        end, Array of Doubles, Required        
         The ending point of the arc.
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         A point on the arc.
             
         Returns
@@ -78,19 +81,13 @@ class Curve(IRhinoScript):
         """
 
         params = [start, end, point]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(start), flatten(end), flatten(point)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(start), flatten_params(end), flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(82, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddArc3Pt", None, *params_flattened)
+        return self._ApplyTypes_(82, 1, (VT_VARIANT, 0), magic, u"AddArc3Pt", None, *flattened)
 
     def add_circle(self, plane, radius):
         """        
@@ -99,7 +96,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane on which the circle will lie. The origin of the plane will be the center point of the circle.
             
         radius, Double, Required        
@@ -117,34 +114,28 @@ class Curve(IRhinoScript):
         """
 
         params = [plane, radius]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(plane), radius]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(plane), radius]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(83, 1, (VT_VARIANT, 0), magic, u"AddCircle", None, *flattened)
 
-        return self._ApplyTypes_(83, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCircle", None, *params_flattened)
-
-    def add_circle3_pt(self, start, end, point):
+    def add_circle3_pt(self, first, second, third):
         """        
         Adds a 3-point circle curve to the document.
     
         Parameters
         ==========
 
-        start, Array of ????, Required        
+        first, Array of Doubles, Required        
         The first point of the circle.
             
-        end, Array of ????, Required        
+        second, Array of Doubles, Required        
         The second point of the circle.
             
-        point, Array of ????, Required        
+        third, Array of Doubles, Required        
         The third point of the circle.
             
         Returns
@@ -158,20 +149,14 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [start, end, point]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(start), flatten(end), flatten(point)]
+        params = [first, second, third]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(first), flatten_params(second), flatten_params(third)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(84, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCircle3Pt", None, *params_flattened)
+        return self._ApplyTypes_(84, 1, (VT_VARIANT, 0), magic, u"AddCircle3Pt", None, *flattened)
 
     def add_curve(self, points, degree=None):
         """        
@@ -180,7 +165,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points.
             
         degree, Integer, Optional        
@@ -198,19 +183,13 @@ class Curve(IRhinoScript):
         """
 
         params = [points, degree]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_I2, 1)]
-        params_flattened = [flatten(points), degree]
+        required = [True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_I2, 1)]
+        flattened = [flatten_params(points), degree]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(77, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddCurve", None, *params_flattened)
+        return self._ApplyTypes_(77, 1, (VT_VARIANT, 0), magic, u"AddCurve", None, *flattened)
 
     def add_ellipse(self, plane, x_radius, y_radius):
         """        
@@ -219,7 +198,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane on which the ellipse will lie. The origin of the plane will be the center point of the ellipse.
             
         x_radius, Double, Required        
@@ -240,19 +219,13 @@ class Curve(IRhinoScript):
         """
 
         params = [plane, x_radius, y_radius]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [flatten(plane), x_radius, y_radius]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(plane), x_radius, y_radius]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(679, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddEllipse", None, *params_flattened)
+        return self._ApplyTypes_(679, 1, (VT_VARIANT, 0), magic, u"AddEllipse", None, *flattened)
 
     def add_ellipse3_pt(self, center, second, third):
         """        
@@ -261,13 +234,13 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        center, Array of ????, Required        
+        center, Array of Doubles, Required        
         The center point of the ellipse.
             
-        second, Array of ????, Required        
+        second, Array of Doubles, Required        
         The end point of the X-axis.
             
-        third, Array of ????, Required        
+        third, Array of Doubles, Required        
         The end point of the Y-axis.
             
         Returns
@@ -282,19 +255,13 @@ class Curve(IRhinoScript):
         """
 
         params = [center, second, third]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(center), flatten(second), flatten(third)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(center), flatten_params(second), flatten_params(third)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(680, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddEllipse3Pt", None, *params_flattened)
+        return self._ApplyTypes_(680, 1, (VT_VARIANT, 0), magic, u"AddEllipse3Pt", None, *flattened)
 
     def add_fillet_curve(self, curve0, curve1, radius=None, point0=None, point1=None):
         """        
@@ -312,10 +279,10 @@ class Curve(IRhinoScript):
         radius, Double, Optional        
         The fillet radius. If omitted, a radius of 1.0 is specified.
             
-        point0, Array of ????, Optional        
+        point0, Array of Doubles, Optional        
         The base point on the first curve. If omitted, the starting point of the curve is used.
             
-        point1, Array of ????, Optional        
+        point1, Array of Doubles, Optional        
         The base point on the second curve. If omitted, the starting point of the curve is used.
             
         Returns
@@ -330,19 +297,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve0, curve1, radius, point0, point1]
-        params_required = [True, True, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [curve0, curve1, radius, flatten(point0), flatten(point1)]
+        required = [True, True, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [curve0, curve1, radius, flatten_params(point0), flatten_params(point1)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(574, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddFilletCurve", None, *params_flattened)
+        return self._ApplyTypes_(574, 1, (VT_VARIANT, 0), magic, u"AddFilletCurve", None, *flattened)
 
     def add_interp_crv_on_srf(self, object, points):
         """        
@@ -354,7 +315,7 @@ class Curve(IRhinoScript):
         object, String, Required        
         The surface object's identifier.
             
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points that lie on the specified surface. The array must contain at least two points.
             
         Returns
@@ -369,19 +330,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, points]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(points)]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [object, flatten_params(points)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(513, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddInterpCrvOnSrf", None, *params_flattened)
+        return self._ApplyTypes_(513, 1, (VT_VARIANT, 0), magic, u"AddInterpCrvOnSrf", None, *flattened)
 
     def add_interp_crv_on_srf_u_v(self, object, points):
         """        
@@ -393,7 +348,7 @@ class Curve(IRhinoScript):
         object, String, Required        
         The surface object's identifier.
             
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 2-D surface parameters. The array must contain at least two sets of surface parameters.
             
         Returns
@@ -408,19 +363,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, points]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(points)]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [object, flatten_params(points)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(641, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddInterpCrvOnSrfUV", None, *params_flattened)
+        return self._ApplyTypes_(641, 1, (VT_VARIANT, 0), magic, u"AddInterpCrvOnSrfUV", None, *flattened)
 
     def add_interp_curve(self, points, degree=None, knot_style=None, start_tan=None, end_tan=None):
         """        
@@ -429,7 +378,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array containing 3-D points to interpolate.  For periodic curves, if the final point is a duplicate of the initial point, it is ignored. Note, the number of control points must be >= (intDegree+1).
             
         degree, Integer, Optional        
@@ -451,10 +400,10 @@ class Curve(IRhinoScript):
 		Periodic with chord length spacing.  Requires an odd degree value.
 		5
             
-        start_tan, Array of ????, Optional        
+        start_tan, Array of Doubles, Optional        
         A 3-D vector that specifies a tangency condition at the beginning of the curve. If the curve is to periodic, this argument must be omitted.
             
-        end_tan, Array of ????, Optional        
+        end_tan, Array of Doubles, Optional        
         A 3-D vector that specifies a tangency condition at the end of the curve. If the curve is to periodic, this argument must be omitted.
             
         Returns
@@ -469,19 +418,13 @@ class Curve(IRhinoScript):
         """
 
         params = [points, degree, knot_style, start_tan, end_tan]
-        params_required = [True, False, False, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_I2, 1), (VT_I2, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), degree, knot_style, flatten(start_tan), flatten(end_tan)]
+        required = [True, False, False, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_I2, 1), (VT_I2, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(points), degree, knot_style, flatten_params(start_tan), flatten_params(end_tan)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(268, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddInterpCurve", None, *params_flattened)
+        return self._ApplyTypes_(268, 1, (VT_VARIANT, 0), magic, u"AddInterpCurve", None, *flattened)
 
     def add_interp_curve_ex(self, points, degree=None, knot_style=None, sharp=None, start_tangent=None, end_tangent=None):
         """        
@@ -490,7 +433,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array containing 3-D points to interpolate. Note, the number of control points must be >= (intDegree+1).
             
         degree, Integer, Optional        
@@ -509,10 +452,10 @@ class Curve(IRhinoScript):
         sharp, Boolean, Optional        
         If True, when you create a closed curve, it will have a kink at the start/end point. If False (default), a smooth closure will be created.
             
-        start_tangent, Array of ????, Optional        
+        start_tangent, Array of Doubles, Optional        
         A 3-D vector that specifies a tangency condition at the beginning of the curve.
             
-        end_tangent, Array of ????, Optional        
+        end_tangent, Array of Doubles, Optional        
         A 3-D vector that specifies a tangency condition at the end of the curve.
             
         Returns
@@ -527,19 +470,13 @@ class Curve(IRhinoScript):
         """
 
         params = [points, degree, knot_style, sharp, start_tangent, end_tangent]
-        params_required = [True, False, False, False, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), degree, knot_style, sharp, flatten(start_tangent), flatten(end_tangent)]
+        required = [True, False, False, False, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_I2, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(points), degree, knot_style, sharp, flatten_params(start_tangent), flatten_params(end_tangent)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(520, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddInterpCurveEx", None, *params_flattened)
+        return self._ApplyTypes_(520, 1, (VT_VARIANT, 0), magic, u"AddInterpCurveEx", None, *flattened)
 
     def add_line(self, start, end):
         """        
@@ -548,10 +485,10 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        start, Array of ????, Required        
+        start, Array of Doubles, Required        
         The starting point of the line.
             
-        end, Array of ????, Required        
+        end, Array of Doubles, Required        
         The ending point of the line.
             
         Returns
@@ -566,19 +503,13 @@ class Curve(IRhinoScript):
         """
 
         params = [start, end]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(start), flatten(end)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(start), flatten_params(end)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(70, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddLine", None, *params_flattened)
+        return self._ApplyTypes_(70, 1, (VT_VARIANT, 0), magic, u"AddLine", None, *flattened)
 
     def add_nurbs_curve(self, points, knots, degree, weights=None):
         """        
@@ -587,16 +518,16 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D control points.
             
-        knots, Array of ????, Required        
+        knots, Array of Integers, Required        
         The knot values for the curve.  The number of elements in arrKnots must equal the number of elements in arrPoints plus intDegree minus one (1).
             
         degree, Integer, Required        
         The degree of the curve.  The degree must be greater than or equal to one (1).
             
-        weights, Array of ????, Optional        
+        weights, Array of Integers, Optional        
         The weight values for the curve.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
             
         Returns
@@ -611,19 +542,13 @@ class Curve(IRhinoScript):
         """
 
         params = [points, knots, degree, weights]
-        params_required = [True, True, True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), flatten(knots), degree, flatten(weights)]
+        required = [True, True, True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_I2, 1), (VT_I2, 1), (VT_ARRAY + VT_I2, 1)]
+        flattened = [flatten_params(points), flatten_params(knots), degree, flatten_params(weights)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(309, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddNurbsCurve", None, *params_flattened)
+        return self._ApplyTypes_(309, 1, (VT_VARIANT, 0), magic, u"AddNurbsCurve", None, *flattened)
 
     def add_polyline(self, points):
         """        
@@ -632,7 +557,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points.  Duplicate, consecutive points found in the array will be removed.  The array must contain at least two 3-D points.  If the array contains less than four points, then the first point and the last point must be different.
             
         Returns
@@ -647,19 +572,13 @@ class Curve(IRhinoScript):
         """
 
         params = [points]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(points)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(points)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(85, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPolyline", None, *params_flattened)
+        return self._ApplyTypes_(85, 1, (VT_VARIANT, 0), magic, u"AddPolyline", None, *flattened)
 
     def add_sub_crv(self, object, param0, param1):
         """        
@@ -689,19 +608,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, param0, param1]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [object, param0, param1]
+        required = [True, True, True]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [object, param0, param1]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(681, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSubCrv", None, *params_flattened)
+        return self._ApplyTypes_(681, 1, (VT_VARIANT, 0), magic, u"AddSubCrv", None, *flattened)
 
     def arc_angle(self, object, index=None):
         """        
@@ -728,19 +641,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(86, 1, (VT_VARIANT, 0), params_magic_numbers, u"ArcAngle", None, *params_flattened)
+        return self._ApplyTypes_(86, 1, (VT_VARIANT, 0), magic, u"ArcAngle", None, *flattened)
 
     def arc_center_point(self, object, index=None):
         """        
@@ -764,19 +671,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(87, 1, (VT_VARIANT, 0), params_magic_numbers, u"ArcCenterPoint", None, *params_flattened)
+        return self._ApplyTypes_(87, 1, (VT_VARIANT, 0), magic, u"ArcCenterPoint", None, *flattened)
 
     def arc_mid_point(self, object, index=None):
         """        
@@ -800,19 +701,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(88, 1, (VT_VARIANT, 0), params_magic_numbers, u"ArcMidPoint", None, *params_flattened)
+        return self._ApplyTypes_(88, 1, (VT_VARIANT, 0), magic, u"ArcMidPoint", None, *flattened)
 
     def arc_radius(self, object, index=None):
         """        
@@ -839,19 +734,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(89, 1, (VT_VARIANT, 0), params_magic_numbers, u"ArcRadius", None, *params_flattened)
+        return self._ApplyTypes_(89, 1, (VT_VARIANT, 0), magic, u"ArcRadius", None, *flattened)
 
     def circle_center_point(self, object, index=None):
         """        
@@ -878,19 +767,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(90, 1, (VT_VARIANT, 0), params_magic_numbers, u"CircleCenterPoint", None, *params_flattened)
+        return self._ApplyTypes_(90, 1, (VT_VARIANT, 0), magic, u"CircleCenterPoint", None, *flattened)
 
     def circle_circumference(self, object, index=None):
         """        
@@ -917,19 +800,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(91, 1, (VT_VARIANT, 0), params_magic_numbers, u"CircleCircumference", None, *params_flattened)
+        return self._ApplyTypes_(91, 1, (VT_VARIANT, 0), magic, u"CircleCircumference", None, *flattened)
 
     def circle_radius(self, object, index=None):
         """        
@@ -956,19 +833,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(92, 1, (VT_VARIANT, 0), params_magic_numbers, u"CircleRadius", None, *params_flattened)
+        return self._ApplyTypes_(92, 1, (VT_VARIANT, 0), magic, u"CircleRadius", None, *flattened)
 
     def close_curve(self, object, tolerance=None):
         """        
@@ -995,19 +866,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, tolerance]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, tolerance]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(440, 1, (VT_VARIANT, 0), params_magic_numbers, u"CloseCurve", None, *params_flattened)
+        return self._ApplyTypes_(440, 1, (VT_VARIANT, 0), magic, u"CloseCurve", None, *flattened)
 
     def convert_curve_to_polyline(self, object, angle_tolerance=None, tolerance=None, delete_input=None):
         """        
@@ -1040,19 +905,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, angle_tolerance, tolerance, delete_input]
-        params_required = [True, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
-        params_flattened = [object, angle_tolerance, tolerance, delete_input]
+        required = [True, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        flattened = [object, angle_tolerance, tolerance, delete_input]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(377, 1, (VT_VARIANT, 0), params_magic_numbers, u"ConvertCurveToPolyline", None, *params_flattened)
+        return self._ApplyTypes_(377, 1, (VT_VARIANT, 0), magic, u"ConvertCurveToPolyline", None, *flattened)
 
     def curve_arc_length_point(self, object, length, from_start=None):
         """        
@@ -1082,19 +941,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, length, from_start]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1)]
-        params_flattened = [object, length, from_start]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        flattened = [object, length, from_start]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(658, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveArcLengthPoint", None, *params_flattened)
+        return self._ApplyTypes_(658, 1, (VT_VARIANT, 0), magic, u"CurveArcLengthPoint", None, *flattened)
 
     def curve_area(self, objects):
         """        
@@ -1124,19 +977,13 @@ class Curve(IRhinoScript):
         """
 
         params = [objects]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(objects)]
+        required = [True]
+        magic = [(VT_VARIANT, 1),]
+        flattened = [flatten_params(objects)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(643, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveArea", None, *params_flattened)
+        return self._ApplyTypes_(643, 1, (VT_VARIANT, 0), magic, u"CurveArea", None, *flattened)
 
     def curve_area_centroid(self, objects):
         """        
@@ -1160,19 +1007,13 @@ class Curve(IRhinoScript):
         """
 
         params = [objects]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(objects)]
+        required = [True]
+        magic = [(VT_VARIANT, 1),]
+        flattened = [flatten_params(objects)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(677, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveAreaCentroid", None, *params_flattened)
+        return self._ApplyTypes_(677, 1, (VT_VARIANT, 0), magic, u"CurveAreaCentroid", None, *flattened)
 
     def curve_arrows(self, object, style=None):
         """        
@@ -1211,19 +1052,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, style]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, style]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(578, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveArrows", None, *params_flattened)
+        return self._ApplyTypes_(578, 1, (VT_VARIANT, 0), magic, u"CurveArrows", None, *flattened)
 
     def curve_boolean_difference(self, curve_a, curve_b):
         """        
@@ -1250,19 +1085,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve_a, curve_b]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [curve_a, curve_b]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [curve_a, curve_b]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(811, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBooleanDifference", None, *params_flattened)
+        return self._ApplyTypes_(811, 1, (VT_VARIANT, 0), magic, u"CurveBooleanDifference", None, *flattened)
 
     def curve_boolean_intersection(self, curve_a, curve_b):
         """        
@@ -1289,19 +1118,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve_a, curve_b]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [curve_a, curve_b]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [curve_a, curve_b]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(810, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBooleanIntersection", None, *params_flattened)
+        return self._ApplyTypes_(810, 1, (VT_VARIANT, 0), magic, u"CurveBooleanIntersection", None, *flattened)
 
     def curve_boolean_union(self, curves):
         """        
@@ -1310,7 +1133,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        curves, Array of ????, Required        
+        curves, Array of Strings, Required        
         The identifiers of two or more curve objects.
             
         Returns
@@ -1325,19 +1148,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curves]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(curves)]
+        required = [True]
+        magic = [(VT_VARIANT, 1),]
+        flattened = [flatten_params(curves)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(809, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBooleanUnion", None, *params_flattened)
+        return self._ApplyTypes_(809, 1, (VT_VARIANT, 0), magic, u"CurveBooleanUnion", None, *flattened)
 
     def curve_brep_intersect(self, curve, brep, tolerance=None):
         """        
@@ -1367,19 +1184,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, brep, tolerance]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [curve, brep, tolerance]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [curve, brep, tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(545, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveBrepIntersect", None, *params_flattened)
+        return self._ApplyTypes_(545, 1, (VT_VARIANT, 0), magic, u"CurveBrepIntersect", None, *flattened)
 
     def curve_closest_object(self, curve, objects):
         """        
@@ -1415,19 +1226,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, objects]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [curve, flatten(objects)]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        flattened = [curve, flatten_params(objects)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(870, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveClosestObject", None, *params_flattened)
+        return self._ApplyTypes_(870, 1, (VT_VARIANT, 0), magic, u"CurveClosestObject", None, *flattened)
 
     def curve_closest_point(self, object, point, index=None):
         """        
@@ -1439,7 +1244,7 @@ class Curve(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The test, or sampling, point.
             
         index, Integer, Optional        
@@ -1457,19 +1262,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, point, index]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
-        params_flattened = [object, flatten(point), index]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_I2, 1)]
+        flattened = [object, flatten_params(point), index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(93, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveClosestPoint", None, *params_flattened)
+        return self._ApplyTypes_(93, 1, (VT_VARIANT, 0), magic, u"CurveClosestPoint", None, *flattened)
 
     def curve_contour_points(self, object, start_point, end_point, interval=None):
         """        
@@ -1481,10 +1280,10 @@ class Curve(IRhinoScript):
         object, String, Required        
         The identifier of a curve object.
             
-        start_point, Array of ????, Required        
+        start_point, Array of Doubles, Required        
         The 3-D starting point of a center line.
             
-        end_point, Array of ????, Required        
+        end_point, Array of Doubles, Required        
         The 3-D ending point of a center line.
             
         interval, Double, Optional        
@@ -1502,19 +1301,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, start_point, end_point, interval]
-        params_required = [True, True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [object, flatten(start_point), flatten(end_point), interval]
+        required = [True, True, True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [object, flatten_params(start_point), flatten_params(end_point), interval]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(748, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveContourPoints", None, *params_flattened)
+        return self._ApplyTypes_(748, 1, (VT_VARIANT, 0), magic, u"CurveContourPoints", None, *flattened)
 
     def curve_curvature(self, object, parameter):
         """        
@@ -1544,19 +1337,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, parameter]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, parameter]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(379, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveCurvature", None, *params_flattened)
+        return self._ApplyTypes_(379, 1, (VT_VARIANT, 0), magic, u"CurveCurvature", None, *flattened)
 
     def curve_curve_intersection(self, object1, object2=None, tolerance=None):
         """        
@@ -1601,19 +1388,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object1, object2, tolerance]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object1, object2, tolerance]
+        required = [True, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object1, object2, tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(423, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveCurveIntersection", None, *params_flattened)
+        return self._ApplyTypes_(423, 1, (VT_VARIANT, 0), magic, u"CurveCurveIntersection", None, *flattened)
 
     def curve_degree(self, object, index=None):
         """        
@@ -1640,19 +1421,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(94, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDegree", None, *params_flattened)
+        return self._ApplyTypes_(94, 1, (VT_VARIANT, 0), magic, u"CurveDegree", None, *flattened)
 
     def curve_deviation(self, curve_a, curve_b):
         """        
@@ -1697,19 +1472,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve_a, curve_b]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [curve_a, curve_b]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [curve_a, curve_b]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(687, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDeviation", None, *params_flattened)
+        return self._ApplyTypes_(687, 1, (VT_VARIANT, 0), magic, u"CurveDeviation", None, *flattened)
 
     def curve_dim(self, object, index=None):
         """        
@@ -1736,19 +1505,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(381, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDim", None, *params_flattened)
+        return self._ApplyTypes_(381, 1, (VT_VARIANT, 0), magic, u"CurveDim", None, *flattened)
 
     def curve_directions_match(self, curve1, curve2):
         """        
@@ -1775,19 +1538,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve1, curve2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [curve1, curve2]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [curve1, curve2]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(543, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDirectionsMatch", None, *params_flattened)
+        return self._ApplyTypes_(543, 1, (VT_VARIANT, 0), magic, u"CurveDirectionsMatch", None, *flattened)
 
     def curve_discontinuity(self, object, style):
         """        
@@ -1825,19 +1582,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, style]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, style]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(579, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDiscontinuity", None, *params_flattened)
+        return self._ApplyTypes_(579, 1, (VT_VARIANT, 0), magic, u"CurveDiscontinuity", None, *flattened)
 
     def curve_domain(self, object, index=None):
         """        
@@ -1864,19 +1615,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(95, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveDomain", None, *params_flattened)
+        return self._ApplyTypes_(95, 1, (VT_VARIANT, 0), magic, u"CurveDomain", None, *flattened)
 
     def curve_edit_points(self, object, return_parameters=None, index=None):
         """        
@@ -1909,19 +1654,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, return_parameters, index]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_I2, 1)]
-        params_flattened = [object, return_parameters, index]
+        required = [True, False, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1), (VT_I2, 1)]
+        flattened = [object, return_parameters, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(442, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveEditPoints", None, *params_flattened)
+        return self._ApplyTypes_(442, 1, (VT_VARIANT, 0), magic, u"CurveEditPoints", None, *flattened)
 
     def curve_end_point(self, object, index=None):
         """        
@@ -1948,19 +1687,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(96, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveEndPoint", None, *params_flattened)
+        return self._ApplyTypes_(96, 1, (VT_VARIANT, 0), magic, u"CurveEndPoint", None, *flattened)
 
     def curve_evaluate(self, object, parameter, derivative):
         """        
@@ -2002,19 +1735,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, derivative]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
-        params_flattened = [object, parameter, derivative]
+        required = [True, True, True]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
+        flattened = [object, parameter, derivative]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(489, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveEvaluate", None, *params_flattened)
+        return self._ApplyTypes_(489, 1, (VT_VARIANT, 0), magic, u"CurveEvaluate", None, *flattened)
 
     def curve_fillet_points(self, curve0, curve1, radius=None, base_point0=None, base_point1=None):
         """        
@@ -2033,10 +1760,10 @@ class Curve(IRhinoScript):
         radius, Double, Optional        
         The fillet radius. If omitted, a radius of 1.0 is specified.
             
-        base_point0, Array of ????, Optional        
+        base_point0, Array of Doubles, Optional        
         The base point on the first curve. If omitted, the starting point of the curve is used.
             
-        base_point1, Array of ????, Optional        
+        base_point1, Array of Doubles, Optional        
         The base point on the second curve. If omitted, the starting point of the curve is used.
             
         Returns
@@ -2054,19 +1781,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve0, curve1, radius, base_point0, base_point1]
-        params_required = [True, True, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [curve0, curve1, radius, flatten(base_point0), flatten(base_point1)]
+        required = [True, True, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [curve0, curve1, radius, flatten_params(base_point0), flatten_params(base_point1)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(572, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveFilletPoints", None, *params_flattened)
+        return self._ApplyTypes_(572, 1, (VT_VARIANT, 0), magic, u"CurveFilletPoints", None, *flattened)
 
     def curve_frame(self, object, parameter):
         """        
@@ -2093,19 +1814,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, parameter]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, parameter]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(675, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveFrame", None, *params_flattened)
+        return self._ApplyTypes_(675, 1, (VT_VARIANT, 0), magic, u"CurveFrame", None, *flattened)
 
     def curve_knot_count(self, object, index=None):
         """        
@@ -2132,19 +1847,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(310, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveKnotCount", None, *params_flattened)
+        return self._ApplyTypes_(310, 1, (VT_VARIANT, 0), magic, u"CurveKnotCount", None, *flattened)
 
     def curve_knots(self, object, index=None):
         """        
@@ -2171,19 +1880,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(311, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveKnots", None, *params_flattened)
+        return self._ApplyTypes_(311, 1, (VT_VARIANT, 0), magic, u"CurveKnots", None, *flattened)
 
     def curve_length(self, object, index=None, sub_domain=None):
         """        
@@ -2198,7 +1901,7 @@ class Curve(IRhinoScript):
         index, Integer, Optional        
         If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
             
-        sub_domain, Array of ????, Optional        
+        sub_domain, Array of Integers, Optional        
         An array of two numbers identifying the sub-domain of the curve on which the calculation will be performed.  The two parameters (sub-domain) must be non-decreasing.  If omitted, the length of the entire curve is returned.
             
         Returns
@@ -2213,19 +1916,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index, sub_domain]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, index, flatten(sub_domain)]
+        required = [True, False, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_ARRAY + VT_I2, 1)]
+        flattened = [object, index, flatten_params(sub_domain)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(97, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveLength", None, *params_flattened)
+        return self._ApplyTypes_(97, 1, (VT_VARIANT, 0), magic, u"CurveLength", None, *flattened)
 
     def curve_mid_point(self, object):
         """        
@@ -2249,19 +1946,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(577, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveMidPoint", None, *params_flattened)
+        return self._ApplyTypes_(577, 1, (VT_VARIANT, 0), magic, u"CurveMidPoint", None, *flattened)
 
     def curve_normal(self, object):
         """        
@@ -2285,19 +1976,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(521, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveNormal", None, *params_flattened)
+        return self._ApplyTypes_(521, 1, (VT_VARIANT, 0), magic, u"CurveNormal", None, *flattened)
 
     def curve_perp_frame(self, object, parameter):
         """        
@@ -2324,19 +2009,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, parameter]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, parameter]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(676, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurvePerpFrame", None, *params_flattened)
+        return self._ApplyTypes_(676, 1, (VT_VARIANT, 0), magic, u"CurvePerpFrame", None, *flattened)
 
     def curve_plane(self, curve):
         """        
@@ -2360,19 +2039,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [curve]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [curve]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(609, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurvePlane", None, *params_flattened)
+        return self._ApplyTypes_(609, 1, (VT_VARIANT, 0), magic, u"CurvePlane", None, *flattened)
 
     def curve_point_count(self, object, index=None):
         """        
@@ -2399,19 +2072,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(98, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurvePointCount", None, *params_flattened)
+        return self._ApplyTypes_(98, 1, (VT_VARIANT, 0), magic, u"CurvePointCount", None, *flattened)
 
     def curve_points(self, object, index=None):
         """        
@@ -2438,19 +2105,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(308, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurvePoints", None, *params_flattened)
+        return self._ApplyTypes_(308, 1, (VT_VARIANT, 0), magic, u"CurvePoints", None, *flattened)
 
     def curve_radius(self, object, point, index=None):
         """        
@@ -2462,7 +2123,7 @@ class Curve(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The test, or sampling, point.
             
         index, Integer, Optional        
@@ -2480,19 +2141,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, point, index]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
-        params_flattened = [object, flatten(point), index]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_I2, 1)]
+        flattened = [object, flatten_params(point), index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(80, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveRadius", None, *params_flattened)
+        return self._ApplyTypes_(80, 1, (VT_VARIANT, 0), magic, u"CurveRadius", None, *flattened)
 
     def curve_seam(self, object, parameter):
         """        
@@ -2519,19 +2174,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, parameter]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, parameter]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(527, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveSeam", None, *params_flattened)
+        return self._ApplyTypes_(527, 1, (VT_VARIANT, 0), magic, u"CurveSeam", None, *flattened)
 
     def curve_start_point(self, object, index=None):
         """        
@@ -2558,19 +2207,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(99, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveStartPoint", None, *params_flattened)
+        return self._ApplyTypes_(99, 1, (VT_VARIANT, 0), magic, u"CurveStartPoint", None, *flattened)
 
     def curve_surface_intersection(self, curve, surface, tolerance=None, angle_tolerance=None):
         """        
@@ -2624,19 +2267,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve, surface, tolerance, angle_tolerance]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [curve, surface, tolerance, angle_tolerance]
+        required = [True, True, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [curve, surface, tolerance, angle_tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(424, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveSurfaceIntersection", None, *params_flattened)
+        return self._ApplyTypes_(424, 1, (VT_VARIANT, 0), magic, u"CurveSurfaceIntersection", None, *flattened)
 
     def curve_tangent(self, object, parameter, index=None):
         """        
@@ -2666,19 +2303,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, index]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
-        params_flattened = [object, parameter, index]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
+        flattened = [object, parameter, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(363, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveTangent", None, *params_flattened)
+        return self._ApplyTypes_(363, 1, (VT_VARIANT, 0), magic, u"CurveTangent", None, *flattened)
 
     def curve_weights(self, object, index=None):
         """        
@@ -2705,19 +2336,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(314, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurveWeights", None, *params_flattened)
+        return self._ApplyTypes_(314, 1, (VT_VARIANT, 0), magic, u"CurveWeights", None, *flattened)
 
     def divide_curve(self, object, segments, create=None, points=None):
         """        
@@ -2753,19 +2378,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, segments, create, points]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
-        params_flattened = [object, segments, create, points]
+        required = [True, True, False, False]
+        magic = [(VT_BSTR, 1), (VT_I4, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        flattened = [object, segments, create, points]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(78, 1, (VT_VARIANT, 0), params_magic_numbers, u"DivideCurve", None, *params_flattened)
+        return self._ApplyTypes_(78, 1, (VT_VARIANT, 0), magic, u"DivideCurve", None, *flattened)
 
     def divide_curve_equidistant(self, object, distance, create=None, points=None):
         """        
@@ -2802,19 +2421,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, distance, create, points]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
-        params_flattened = [object, distance, create, points]
+        required = [True, True, False, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        flattened = [object, distance, create, points]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(913, 1, (VT_VARIANT, 0), params_magic_numbers, u"DivideCurveEquidistant", None, *params_flattened)
+        return self._ApplyTypes_(913, 1, (VT_VARIANT, 0), magic, u"DivideCurveEquidistant", None, *flattened)
 
     def divide_curve_length(self, object, length, create=None, points=None):
         """        
@@ -2850,19 +2463,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, length, create, points]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
-        params_flattened = [object, length, create, points]
+        required = [True, True, False, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        flattened = [object, length, create, points]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(374, 1, (VT_VARIANT, 0), params_magic_numbers, u"DivideCurveLength", None, *params_flattened)
+        return self._ApplyTypes_(374, 1, (VT_VARIANT, 0), magic, u"DivideCurveLength", None, *flattened)
 
     def ellipse_center_point(self, object):
         """        
@@ -2886,19 +2493,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(524, 1, (VT_VARIANT, 0), params_magic_numbers, u"EllipseCenterPoint", None, *params_flattened)
+        return self._ApplyTypes_(524, 1, (VT_VARIANT, 0), magic, u"EllipseCenterPoint", None, *flattened)
 
     def ellipse_quad_points(self, object):
         """        
@@ -2922,19 +2523,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(525, 1, (VT_VARIANT, 0), params_magic_numbers, u"EllipseQuadPoints", None, *params_flattened)
+        return self._ApplyTypes_(525, 1, (VT_VARIANT, 0), magic, u"EllipseQuadPoints", None, *flattened)
 
     def evaluate_curve(self, object, parameter, index=None):
         """        
@@ -2964,19 +2559,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, index]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
-        params_flattened = [object, parameter, index]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_I2, 1)]
+        flattened = [object, parameter, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(100, 1, (VT_VARIANT, 0), params_magic_numbers, u"EvaluateCurve", None, *params_flattened)
+        return self._ApplyTypes_(100, 1, (VT_VARIANT, 0), magic, u"EvaluateCurve", None, *flattened)
 
     def explode_curves(self, objects, delete=None):
         """        
@@ -3004,19 +2593,13 @@ class Curve(IRhinoScript):
         """
 
         params = [objects, delete]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(objects), delete]
+        required = [True, False]
+        magic = [(VT_VARIANT, 1), (VT_BOOL, 1)]
+        flattened = [flatten_params(objects), delete]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(446, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExplodeCurves", None, *params_flattened)
+        return self._ApplyTypes_(446, 1, (VT_VARIANT, 0), magic, u"ExplodeCurves", None, *flattened)
 
     def extend_curve(self, object, type, side, objects):
         """        
@@ -3046,7 +2629,7 @@ class Curve(IRhinoScript):
 		Extend from the start of the curve.
 		1
             
-        objects, Array of ????, Required        
+        objects, Array of Strings, Required        
         The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
             
         Returns
@@ -3061,19 +2644,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, type, side, objects]
-        params_required = [True, True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, type, side, flatten(objects)]
+        required = [True, True, True, True]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_VARIANT, 1)]
+        flattened = [object, type, side, flatten_params(objects)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(438, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtendCurve", None, *params_flattened)
+        return self._ApplyTypes_(438, 1, (VT_VARIANT, 0), magic, u"ExtendCurve", None, *flattened)
 
     def extend_curve_length(self, object, type, side, length):
         """        
@@ -3120,19 +2697,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, type, side, length]
-        params_required = [True, True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_R8, 1)]
-        params_flattened = [object, type, side, length]
+        required = [True, True, True, True]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_R8, 1)]
+        flattened = [object, type, side, length]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(436, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtendCurveLength", None, *params_flattened)
+        return self._ApplyTypes_(436, 1, (VT_VARIANT, 0), magic, u"ExtendCurveLength", None, *flattened)
 
     def extend_curve_point(self, object, side, point):
         """        
@@ -3152,7 +2723,7 @@ class Curve(IRhinoScript):
 		Extend from the start of the curve.
 		1
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D point.
             
         Returns
@@ -3167,19 +2738,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, side, point]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, side, flatten(point)]
+        required = [True, True, True]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [object, side, flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(437, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExtendCurvePoint", None, *params_flattened)
+        return self._ApplyTypes_(437, 1, (VT_VARIANT, 0), magic, u"ExtendCurvePoint", None, *flattened)
 
     def fair_curve(self, object, tolerance=None):
         """        
@@ -3206,19 +2771,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, tolerance]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, tolerance]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(599, 1, (VT_VARIANT, 0), params_magic_numbers, u"FairCurve", None, *params_flattened)
+        return self._ApplyTypes_(599, 1, (VT_VARIANT, 0), magic, u"FairCurve", None, *flattened)
 
     def fit_curve(self, object, degree=None, tolerance=None, angle_tolerance=None):
         """        
@@ -3251,19 +2810,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, degree, tolerance, angle_tolerance]
-        params_required = [True, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [object, degree, tolerance, angle_tolerance]
+        required = [True, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [object, degree, tolerance, angle_tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(813, 1, (VT_VARIANT, 0), params_magic_numbers, u"FitCurve", None, *params_flattened)
+        return self._ApplyTypes_(813, 1, (VT_VARIANT, 0), magic, u"FitCurve", None, *flattened)
 
     def insert_curve_knot(self, object, parameter, symmetrical=None):
         """        
@@ -3293,19 +2846,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter, symmetrical]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1)]
-        params_flattened = [object, parameter, symmetrical]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        flattened = [object, parameter, symmetrical]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(515, 1, (VT_VARIANT, 0), params_magic_numbers, u"InsertCurveKnot", None, *params_flattened)
+        return self._ApplyTypes_(515, 1, (VT_VARIANT, 0), magic, u"InsertCurveKnot", None, *flattened)
 
     def is_arc(self, object, index=None):
         """        
@@ -3332,19 +2879,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(101, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsArc", None, *params_flattened)
+        return self._ApplyTypes_(101, 1, (VT_VARIANT, 0), magic, u"IsArc", None, *flattened)
 
     def is_circle(self, object, index=None):
         """        
@@ -3371,19 +2912,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(102, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCircle", None, *params_flattened)
+        return self._ApplyTypes_(102, 1, (VT_VARIANT, 0), magic, u"IsCircle", None, *flattened)
 
     def is_curve(self, object, index=None):
         """        
@@ -3410,19 +2945,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(103, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurve", None, *params_flattened)
+        return self._ApplyTypes_(103, 1, (VT_VARIANT, 0), magic, u"IsCurve", None, *flattened)
 
     def is_curve_closable(self, object, tolerance=None):
         """        
@@ -3449,19 +2978,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, tolerance]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, tolerance]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(441, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveClosable", None, *params_flattened)
+        return self._ApplyTypes_(441, 1, (VT_VARIANT, 0), magic, u"IsCurveClosable", None, *flattened)
 
     def is_curve_closed(self, object, index=None):
         """        
@@ -3488,19 +3011,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(104, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveClosed", None, *params_flattened)
+        return self._ApplyTypes_(104, 1, (VT_VARIANT, 0), magic, u"IsCurveClosed", None, *flattened)
 
     def is_curve_in_plane(self, object, plane=None):
         """        
@@ -3512,7 +3029,7 @@ class Curve(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        plane, Array of ????, Optional        
+        plane, Array of Doubles, Optional        
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element
 		Type
@@ -3541,19 +3058,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, plane]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(plane)]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [object, flatten_params(plane)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(483, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveInPlane", None, *params_flattened)
+        return self._ApplyTypes_(483, 1, (VT_VARIANT, 0), magic, u"IsCurveInPlane", None, *flattened)
 
     def is_curve_linear(self, object, index=None):
         """        
@@ -3580,19 +3091,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(105, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveLinear", None, *params_flattened)
+        return self._ApplyTypes_(105, 1, (VT_VARIANT, 0), magic, u"IsCurveLinear", None, *flattened)
 
     def is_curve_periodic(self, object, index=None):
         """        
@@ -3619,19 +3124,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(106, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurvePeriodic", None, *params_flattened)
+        return self._ApplyTypes_(106, 1, (VT_VARIANT, 0), magic, u"IsCurvePeriodic", None, *flattened)
 
     def is_curve_planar(self, object, index=None):
         """        
@@ -3658,19 +3157,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(107, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurvePlanar", None, *params_flattened)
+        return self._ApplyTypes_(107, 1, (VT_VARIANT, 0), magic, u"IsCurvePlanar", None, *flattened)
 
     def is_curve_rational(self, object, index=None):
         """        
@@ -3697,19 +3190,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(380, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCurveRational", None, *params_flattened)
+        return self._ApplyTypes_(380, 1, (VT_VARIANT, 0), magic, u"IsCurveRational", None, *flattened)
 
     def is_ellipse(self, object):
         """        
@@ -3733,19 +3220,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(523, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsEllipse", None, *params_flattened)
+        return self._ApplyTypes_(523, 1, (VT_VARIANT, 0), magic, u"IsEllipse", None, *flattened)
 
     def is_line(self, object, index=None):
         """        
@@ -3772,19 +3253,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(108, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLine", None, *params_flattened)
+        return self._ApplyTypes_(108, 1, (VT_VARIANT, 0), magic, u"IsLine", None, *flattened)
 
     def is_point_on_curve(self, object, point, index=None):
         """        
@@ -3796,7 +3271,7 @@ class Curve(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        point, Array of ????, Required        
+        point, Array of Integers, Required        
         The test, or sampling, point.
             
         index, Integer, Optional        
@@ -3814,19 +3289,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, point, index]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_I2, 1)]
-        params_flattened = [object, flatten(point), index]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_I2, 1), (VT_I2, 1)]
+        flattened = [object, flatten_params(point), index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(318, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPointOnCurve", None, *params_flattened)
+        return self._ApplyTypes_(318, 1, (VT_VARIANT, 0), magic, u"IsPointOnCurve", None, *flattened)
 
     def is_poly_curve(self, object, index=None):
         """        
@@ -3853,19 +3322,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(368, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPolyCurve", None, *params_flattened)
+        return self._ApplyTypes_(368, 1, (VT_VARIANT, 0), magic, u"IsPolyCurve", None, *flattened)
 
     def is_polyline(self, object, index=None):
         """        
@@ -3892,19 +3355,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(110, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPolyline", None, *params_flattened)
+        return self._ApplyTypes_(110, 1, (VT_VARIANT, 0), magic, u"IsPolyline", None, *flattened)
 
     def join_curves(self, object, delete=None):
         """        
@@ -3931,19 +3388,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, delete]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [object, delete]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [object, delete]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(111, 1, (VT_VARIANT, 0), params_magic_numbers, u"JoinCurves", None, *params_flattened)
+        return self._ApplyTypes_(111, 1, (VT_VARIANT, 0), magic, u"JoinCurves", None, *flattened)
 
     def line_fit_from_points(self, object):
         """        
@@ -3967,19 +3418,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(726, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineFitFromPoints", None, *params_flattened)
+        return self._ApplyTypes_(726, 1, (VT_VARIANT, 0), magic, u"LineFitFromPoints", None, *flattened)
 
     def make_curve_non_periodic(self, object, delete=None):
         """        
@@ -4009,19 +3454,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, delete]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [object, delete]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [object, delete]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(925, 1, (VT_VARIANT, 0), params_magic_numbers, u"MakeCurveNonPeriodic", None, *params_flattened)
+        return self._ApplyTypes_(925, 1, (VT_VARIANT, 0), magic, u"MakeCurveNonPeriodic", None, *flattened)
 
     def make_curve_periodic(self, object, delete=None):
         """        
@@ -4051,19 +3490,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, delete]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [object, delete]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [object, delete]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(444, 1, (VT_VARIANT, 0), params_magic_numbers, u"MakeCurvePeriodic", None, *params_flattened)
+        return self._ApplyTypes_(444, 1, (VT_VARIANT, 0), magic, u"MakeCurvePeriodic", None, *flattened)
 
     def mesh_polyline(self, polyline):
         """        
@@ -4087,19 +3520,13 @@ class Curve(IRhinoScript):
         """
 
         params = [polyline]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [polyline]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [polyline]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(546, 1, (VT_VARIANT, 0), params_magic_numbers, u"MeshPolyline", None, *params_flattened)
+        return self._ApplyTypes_(546, 1, (VT_VARIANT, 0), magic, u"MeshPolyline", None, *flattened)
 
     def offset_curve(self, object, direction, distance, normal=None, style=None):
         """        
@@ -4146,21 +3573,15 @@ class Curve(IRhinoScript):
         """
 
         params = [object, direction, distance, normal, style]
-        params_required = [True, True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_I2, 1)]
-        params_flattened = [object, flatten(direction), distance, flatten(normal), style]
+        required = [True, True, True, False, False]
+        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        flattened = [object, flatten_params(direction), distance, flatten_params(normal), style]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(634, 1, (VT_VARIANT, 0), magic, u"OffsetCurve", None, *flattened)
 
-        return self._ApplyTypes_(634, 1, (VT_VARIANT, 0), params_magic_numbers, u"OffsetCurve", None, *params_flattened)
-
-    def offset_curve_on_surface(self, curve, surface, distance, parameter):
+    def offset_curve_on_surface(self, curve, surface, distance):
         """        
         Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
     
@@ -4176,6 +3597,39 @@ class Curve(IRhinoScript):
         distance, Double, Required        
         The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
             
+        Returns
+        =======
+
+        array
+        An array containing the identifiers of the new curve objects if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        params = [curve, surface, distance]
+        required = [True, True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [curve, surface, distance]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(906, 1, (VT_VARIANT, 0), magic, u"OffsetCurveOnSurface", None, *flattened)
+
+    def offset_curve_on_surface_2(self, curve, surface, parameter):
+        """        
+        Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
+    
+        Parameters
+        ==========
+
+        curve, String, Required        
+        The curve object's identifier. Note, the curve must lie on the surface.
+            
+        surface, String, Required        
+        The surface object's identifier.
+            
         parameter, Array of ????, Required        
         An array containing the surface U,V parameter that the curve will be offset through.
             
@@ -4190,20 +3644,14 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [curve, surface, distance, parameter]
-        params_required = [True, True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_VARIANT, 1)]
-        params_flattened = [curve, surface, distance, flatten(parameter)]
+        params = [curve, surface, parameter]
+        required = [True, True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        flattened = [curve, surface, flatten_params(parameter)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(906, 1, (VT_VARIANT, 0), params_magic_numbers, u"OffsetCurveOnSurface", None, *params_flattened)
+        return self._ApplyTypes_(906, 1, (VT_VARIANT, 0), magic, u"OffsetCurveOnSurface", None, *flattened)
 
     def planar_closed_curve_containment(self, curve1, curve2, plane=None, tolerance=None):
         """        
@@ -4218,7 +3666,7 @@ class Curve(IRhinoScript):
         curve2, String, Required        
         The object identifier of the second planar, closed curve.
             
-        plane, Array of ????, Optional        
+        plane, Array of Doubles, Optional        
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element
 		Type
@@ -4250,19 +3698,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve1, curve2, plane, tolerance]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [curve1, curve2, flatten(plane), tolerance]
+        required = [True, True, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [curve1, curve2, flatten_params(plane), tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(480, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlanarClosedCurveContainment", None, *params_flattened)
+        return self._ApplyTypes_(480, 1, (VT_VARIANT, 0), magic, u"PlanarClosedCurveContainment", None, *flattened)
 
     def planar_curve_collision(self, curve1, curve2, plane=None, tolerance=None):
         """        
@@ -4277,7 +3719,7 @@ class Curve(IRhinoScript):
         curve2, String, Required        
         The object identifier of the second planar curve.
             
-        plane, Array of ????, Optional        
+        plane, Array of Doubles, Optional        
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element
 		Type
@@ -4306,19 +3748,13 @@ class Curve(IRhinoScript):
         """
 
         params = [curve1, curve2, plane, tolerance]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [curve1, curve2, flatten(plane), tolerance]
+        required = [True, True, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [curve1, curve2, flatten_params(plane), tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(481, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlanarCurveCollision", None, *params_flattened)
+        return self._ApplyTypes_(481, 1, (VT_VARIANT, 0), magic, u"PlanarCurveCollision", None, *flattened)
 
     def point_in_planar_closed_curve(self, point, curve, plane=None, tolerance=None):
         """        
@@ -4327,13 +3763,13 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         A 3-D point to test.
             
         curve, String, Required        
         The object identifier of the planar, closed curve.
             
-        plane, Array of ????, Optional        
+        plane, Array of Doubles, Optional        
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element
 		Type
@@ -4365,19 +3801,13 @@ class Curve(IRhinoScript):
         """
 
         params = [point, curve, plane, tolerance]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(point), curve, flatten(plane), tolerance]
+        required = [True, True, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(point), curve, flatten_params(plane), tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(482, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointInPlanarClosedCurve", None, *params_flattened)
+        return self._ApplyTypes_(482, 1, (VT_VARIANT, 0), magic, u"PointInPlanarClosedCurve", None, *flattened)
 
     def poly_curve_count(self, object, index=None):
         """        
@@ -4404,19 +3834,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(369, 1, (VT_VARIANT, 0), params_magic_numbers, u"PolyCurveCount", None, *params_flattened)
+        return self._ApplyTypes_(369, 1, (VT_VARIANT, 0), magic, u"PolyCurveCount", None, *flattened)
 
     def polyline_vertices(self, object, index=None):
         """        
@@ -4443,21 +3867,15 @@ class Curve(IRhinoScript):
         """
 
         params = [object, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(112, 1, (VT_VARIANT, 0), magic, u"PolylineVertices", None, *flattened)
 
-        return self._ApplyTypes_(112, 1, (VT_VARIANT, 0), params_magic_numbers, u"PolylineVertices", None, *params_flattened)
-
-    def project_curve_to_mesh(self, curves, mesh, direction):
+    def project_curve_to_mesh(self, curves, meshes, direction):
         """        
         Projects one or more points onto one or more meshes.
     
@@ -4467,8 +3885,8 @@ class Curve(IRhinoScript):
         curves, Array of ????, Required        
         The identifiers of one or more curve objects to project.
             
-        mesh, String, Required        
-        The identifier of the mesh object to project onto.
+        meshes, Array of ????, Required        
+        The identifiers of the mesh objects to project onto.
             
         direction, Array of ????, Required        
         The direction (3-D vector) to project the points.
@@ -4484,22 +3902,16 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [curves, mesh, direction]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(curves), mesh, flatten(direction)]
+        params = [curves, meshes, direction]
+        required = [True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(curves), flatten_params(meshes), flatten_params(direction)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(911, 1, (VT_VARIANT, 0), magic, u"ProjectCurveToMesh", None, *flattened)
 
-        return self._ApplyTypes_(911, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectCurveToMesh", None, *params_flattened)
-
-    def project_curve_to_surface(self, curves, surface, direction):
+    def project_curve_to_surface(self, curves, surfaces, direction):
         """        
         Projects one or more points onto one or more surfaces or polysurfaces.
     
@@ -4509,8 +3921,8 @@ class Curve(IRhinoScript):
         curves, Array of ????, Required        
         The identifiers of one or more curve objects to project.
             
-        surface, String, Required        
-        The identifier of the surface or polysurface object to project onto.
+        surfaces, Array of ????, Required        
+        The identifiers of the surface or polysurface objects to project onto.
             
         direction, Array of ????, Required        
         The direction (3-D vector) to project the points.
@@ -4526,20 +3938,14 @@ class Curve(IRhinoScript):
 
         """
 
-        params = [curves, surface, direction]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(curves), surface, flatten(direction)]
+        params = [curves, surfaces, direction]
+        required = [True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(curves), flatten_params(surfaces), flatten_params(direction)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(891, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectCurveToSurface", None, *params_flattened)
+        return self._ApplyTypes_(891, 1, (VT_VARIANT, 0), magic, u"ProjectCurveToSurface", None, *flattened)
 
     def rebuild_curve(self, object, degree=None, point_count=None):
         """        
@@ -4569,19 +3975,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, degree, point_count]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1)]
-        params_flattened = [object, degree, point_count]
+        required = [True, False, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1)]
+        flattened = [object, degree, point_count]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(814, 1, (VT_VARIANT, 0), params_magic_numbers, u"RebuildCurve", None, *params_flattened)
+        return self._ApplyTypes_(814, 1, (VT_VARIANT, 0), magic, u"RebuildCurve", None, *flattened)
 
     def remove_curve_knot(self, object, parameter):
         """        
@@ -4608,19 +4008,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameter]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, parameter]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, parameter]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(916, 1, (VT_VARIANT, 0), params_magic_numbers, u"RemoveCurveKnot", None, *params_flattened)
+        return self._ApplyTypes_(916, 1, (VT_VARIANT, 0), magic, u"RemoveCurveKnot", None, *flattened)
 
     def reverse_curve(self, object):
         """        
@@ -4644,19 +4038,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(542, 1, (VT_VARIANT, 0), params_magic_numbers, u"ReverseCurve", None, *params_flattened)
+        return self._ApplyTypes_(542, 1, (VT_VARIANT, 0), magic, u"ReverseCurve", None, *flattened)
 
     def simplify_curve(self, object, flags=None):
         """        
@@ -4704,19 +4092,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, flags]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [object, flags]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [object, flags]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(573, 1, (VT_VARIANT, 0), params_magic_numbers, u"SimplifyCurve", None, *params_flattened)
+        return self._ApplyTypes_(573, 1, (VT_VARIANT, 0), magic, u"SimplifyCurve", None, *flattened)
 
     def split_curve(self, object, parameters, delete=None):
         """        
@@ -4746,19 +4128,13 @@ class Curve(IRhinoScript):
         """
 
         params = [object, parameters, delete]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [object, flatten(parameters), delete]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        flattened = [object, flatten_params(parameters), delete]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(504, 1, (VT_VARIANT, 0), params_magic_numbers, u"SplitCurve", None, *params_flattened)
+        return self._ApplyTypes_(504, 1, (VT_VARIANT, 0), magic, u"SplitCurve", None, *flattened)
 
     def trim_curve(self, object, interval, delete=None):
         """        
@@ -4770,7 +4146,7 @@ class Curve(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        interval, Array of ????, Required        
+        interval, Array of Integers, Required        
         An array of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
             
         delete, Boolean, Optional        
@@ -4788,17 +4164,11 @@ class Curve(IRhinoScript):
         """
 
         params = [object, interval, delete]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [object, flatten(interval), delete]
+        required = [True, True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_I2, 1), (VT_BOOL, 1)]
+        flattened = [object, flatten_params(interval), delete]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(505, 1, (VT_VARIANT, 0), params_magic_numbers, u"TrimCurve", None, *params_flattened)
+        return self._ApplyTypes_(505, 1, (VT_VARIANT, 0), magic, u"TrimCurve", None, *flattened)
 

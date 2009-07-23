@@ -8,25 +8,27 @@ block_u_r_l = {
         Returns or sets the URL of a block definition.
     """,
 
-    "syntax_html": """
-        Rhino.BlockURL (strBlock [, strURL])
-    """,
+    "syntax_html": {
+        0: ("strBlock", "strURL"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """
         },
         1: {
-            "name": "URL",
+            "name": "strURL",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "URL",
             "doc": """
         The new URL.  If omitted, the current URL is returned.
             """

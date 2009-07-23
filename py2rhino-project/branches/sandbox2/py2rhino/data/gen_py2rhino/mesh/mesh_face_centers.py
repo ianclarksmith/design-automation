@@ -8,16 +8,17 @@ mesh_face_centers = {
         Returns the center point of each face of a mesh object.
     """,
 
-    "syntax_html": """
-        Rhino.MeshFaceCenters (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a mesh object.
             """

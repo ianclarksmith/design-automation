@@ -8,25 +8,27 @@ line_plane_intersection = {
         Calculates the intersection of a line and a plane.
     """,
 
-    "syntax_html": """
-        Rhino.LinePlaneIntersection (arrLine, arrPlane)
-    """,
+    "syntax_html": {
+        0: ("arrLine", "arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "Line",
+            "name": "arrLine",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Line",
             "doc": """
         Two 3-D points identifying the starting and ending points of the line to intersect.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The plane to intersect.
             """

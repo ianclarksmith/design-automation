@@ -24,9 +24,9 @@ xform_identity = {
 		1
     """,
 
-    "syntax_html": """
-        Rhino.XformIdentity ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

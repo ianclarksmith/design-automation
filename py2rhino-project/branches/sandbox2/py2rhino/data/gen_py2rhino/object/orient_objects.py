@@ -8,43 +8,47 @@ orient_objects = {
         Orients one or more objects based on input points.
     """,
 
-    "syntax_html": """
-        Rhino.OrientObjects (arrObjects, arrReference, arrTarget [, intFlags])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrReference", "arrTarget", "intFlags"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to orient.
             """
         },
         1: {
-            "name": "Reference",
+            "name": "arrReference",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Reference",
             "doc": """
         An array of 3-D reference points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
             """
         },
         2: {
-            "name": "Target",
+            "name": "arrTarget",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Target",
             "doc": """
         An array of 3-D target points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
             """
         },
         3: {
-            "name": "Flags",
+            "name": "intFlags",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Flags",
             "doc": """
         The orient flags.  Values can be added together to specify multiple options.
 		Value

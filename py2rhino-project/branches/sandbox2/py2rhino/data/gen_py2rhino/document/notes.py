@@ -8,16 +8,17 @@ notes = {
         Returns or sets the document's notes.  Notes are generally created by using Rhino's Notes command.
     """,
 
-    "syntax_html": """
-        Rhino.Notes ([strNotes])
-    """,
+    "syntax_html": {
+        0: ("strNotes"),
+    },
 
     "params_html": {
         0: {
-            "name": "Notes",
+            "name": "strNotes",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Notes",
             "doc": """
         The notes.
             """

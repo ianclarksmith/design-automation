@@ -8,34 +8,37 @@ object_layout = {
         Returns or changes the layout or model space of an object.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectLayout (strObject [, strLayout [, blnReturnName]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strLayout", "blnReturnName"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Layout",
+            "name": "strLayout",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layout",
             "doc": """
         To change, or move, an object from model space to page layout space, or from one page layout to another, then specify the title or identifier of an existing page layout view. To move an object from page layout space to model space, just specify Null.
             """
         },
         2: {
-            "name": "ReturnName",
+            "name": "blnReturnName",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnName",
             "doc": """
         If True (default), then the name, or title, of the page layout view is returned. If False, then the identifier of the page layout view is returned.
             """

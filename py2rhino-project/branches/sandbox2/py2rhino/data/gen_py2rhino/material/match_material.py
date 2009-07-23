@@ -8,34 +8,38 @@ match_material = {
         Copies the material definition from one material to one or more objects.
     """,
 
-    "syntax_html": """
-        Rhino.MatchMaterial (intSrcMaterialIndex, strDestObject)
-    """,
+    "syntax_html": {
+        0: ("intSrcMaterialIndex", "strDestObject"),
+        1: ("strSrcObject", "arrDestObjects"),
+    },
 
     "params_html": {
         0: {
-            "name": "SrcMaterialIndex",
+            "name": "intSrcMaterialIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "SrcMaterialIndex",
             "doc": """
         The zero-based source material index.
             """
         },
         1: {
-            "name": "SrcObject",
+            "name": "strSrcObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "SrcObject",
             "doc": """
         The identifier of the source object.  The object must have a material assigned.
             """
         },
         2: {
-            "name": "DestObjects",
+            "name": "arrDestObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "DestObjects",
             "doc": """
         An array of destination object identifiers.  If the objects' material sources are set to "By Layer", they will be changed to "By Object."
             """

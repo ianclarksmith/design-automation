@@ -8,34 +8,37 @@ add_circle3_pt = {
         Adds a 3-point circle curve to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddCircle3Pt (arrFirst, arrSecond, arrThird)
-    """,
+    "syntax_html": {
+        0: ("arrFirst", "arrSecond", "arrThird"),
+    },
 
     "params_html": {
         0: {
-            "name": "Start",
+            "name": "arrFirst",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "First",
             "doc": """
         The first point of the circle.
             """
         },
         1: {
-            "name": "End",
+            "name": "arrSecond",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Second",
             "doc": """
         The second point of the circle.
             """
         },
         2: {
-            "name": "Point",
+            "name": "arrThird",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Third",
             "doc": """
         The third point of the circle.
             """

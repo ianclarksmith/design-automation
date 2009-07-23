@@ -8,16 +8,17 @@ is_command = {
         Verifies that a command exists in Rhino. The function is useful when scripting commands found in 3rd party plug-ins.
     """,
 
-    "syntax_html": """
-        Rhino.IsCommand (strCommandName])
-    """,
+    "syntax_html": {
+        0: ("strCommandName"),
+    },
 
     "params_html": {
         0: {
-            "name": "CommandName",
+            "name": "strCommandName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "CommandName",
             "doc": """
         The command name to test.
             """

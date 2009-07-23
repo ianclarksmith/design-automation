@@ -8,9 +8,9 @@ locale_i_d = {
         Returns the language used for the Rhino interface.  The current language is returned as a locale ID, or LCID, value.
     """,
 
-    "syntax_html": """
-        Rhino.LocaleID ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

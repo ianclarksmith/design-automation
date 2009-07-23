@@ -8,16 +8,17 @@ object_has_mesh = {
         Verifies that an object has custom render mesh parameters.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectHasMesh (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a meshable object.
             """

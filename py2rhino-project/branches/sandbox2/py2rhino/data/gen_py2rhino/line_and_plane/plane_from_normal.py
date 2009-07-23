@@ -8,25 +8,27 @@ plane_from_normal = {
         Creates a plane from an origin point and a normal direction vector.
     """,
 
-    "syntax_html": """
-        Rhino.PlaneFromNormal (arrOrigin, arrNormal)
-    """,
+    "syntax_html": {
+        0: ("arrOrigin", "arrNormal"),
+    },
 
     "params_html": {
         0: {
-            "name": "Origin",
+            "name": "arrOrigin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Origin",
             "doc": """
         A 3-D point identifying the origin of the plane.
             """
         },
         1: {
-            "name": "Normal",
+            "name": "arrNormal",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Normal",
             "doc": """
         A non-zero 3-D vector identifying the normal direction of the plane.
             """

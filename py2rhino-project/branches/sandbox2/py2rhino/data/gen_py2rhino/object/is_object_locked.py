@@ -8,16 +8,17 @@ is_object_locked = {
         Verifies that an object is locked.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
     """,
 
-    "syntax_html": """
-        Rhino.IsObjectLocked (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object.
             """

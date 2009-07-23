@@ -8,16 +8,17 @@ is_view_perspective = {
         Verifies that the specified view's projection is set to perspective.
     """,
 
-    "syntax_html": """
-        Rhino.IsViewPerspective (strView)
-    """,
+    "syntax_html": {
+        0: ("strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """

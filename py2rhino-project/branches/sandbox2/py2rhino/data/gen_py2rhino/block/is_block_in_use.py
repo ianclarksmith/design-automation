@@ -8,25 +8,27 @@ is_block_in_use = {
         Verifies that a block definition is being used by an inserted instance.
     """,
 
-    "syntax_html": """
-        Rhino.IsBlockInUse (strBlock [, intWhere])
-    """,
+    "syntax_html": {
+        0: ("strBlock", "intWhere"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """
         },
         1: {
-            "name": "Where",
+            "name": "intWhere",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Where",
             "doc": """
         Where to look, where:
 		0 (Default)

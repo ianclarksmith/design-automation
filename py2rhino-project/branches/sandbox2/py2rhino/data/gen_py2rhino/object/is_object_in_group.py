@@ -8,25 +8,27 @@ is_object_in_group = {
         Verifies that an object is a member of a specified group.
     """,
 
-    "syntax_html": """
-        Rhino.IsObjectInGroup (strObject [, strGroup])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strGroup"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object.
             """
         },
         1: {
-            "name": "Group",
+            "name": "strGroup",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Group",
             "doc": """
         The name of a group.  If omitted, the function verifies that the object is a member of any group.
             """

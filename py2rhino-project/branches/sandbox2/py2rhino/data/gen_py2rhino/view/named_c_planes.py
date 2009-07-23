@@ -8,9 +8,9 @@ named_c_planes = {
         Returns the names of all named construction planes in the document.
     """,
 
-    "syntax_html": """
-        Rhino.NamedCPlanes ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

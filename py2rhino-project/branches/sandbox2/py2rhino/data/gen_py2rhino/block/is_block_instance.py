@@ -8,16 +8,17 @@ is_block_instance = {
         Verifies an object is a block instance.
     """,
 
-    "syntax_html": """
-        Rhino.IsBlockInstance (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an existing block definition.
             """

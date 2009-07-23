@@ -8,16 +8,17 @@ line_fit_from_points = {
         Returns the starting and ending points of a line that was fit through an array of 3-D points.
     """,
 
-    "syntax_html": """
-        Rhino.LineFitFromPoints (arrPoints)
-    """,
+    "syntax_html": {
+        0: ("arrPoints"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         An array of 3-D points. The array must contain at least two 3-D points.
             """

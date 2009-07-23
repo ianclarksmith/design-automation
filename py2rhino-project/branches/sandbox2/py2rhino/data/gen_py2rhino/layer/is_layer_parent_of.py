@@ -8,25 +8,27 @@ is_layer_parent_of = {
         Verifies that a layer is a parent of another layer.
     """,
 
-    "syntax_html": """
-        Rhino.IsLayerParentOf (strLayer, strTest)
-    """,
+    "syntax_html": {
+        0: ("strLayer", "strTest"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of the layer to test against.
             """
         },
         1: {
-            "name": "Test",
+            "name": "strTest",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Test",
             "doc": """
         The name of the layer to test
             """

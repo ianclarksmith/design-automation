@@ -8,34 +8,37 @@ add_leader = {
         Adds an annotation leader to the document. Leader objects are planar. The array of 3-D points passed to this member should be co-planar.
     """,
 
-    "syntax_html": """
-        Rhino.AddLeader (arrPoints [, strView [, [strText]])
-    """,
+    "syntax_html": {
+        0: ("arrPoints", "strView", "strText"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points.  The array must contain at least two points.
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title of the view.  If a view title is specified,  arrPoints will be constrained to the view's construction plane. If a view title is not specified, arrPoints will be constrained to a plane fit through the array of points.
             """
         },
         2: {
-            "name": "Text",
+            "name": "strText",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Text",
             "doc": """
         The leader's text string.
             """

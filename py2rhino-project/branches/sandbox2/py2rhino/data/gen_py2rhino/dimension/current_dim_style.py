@@ -8,16 +8,17 @@ current_dim_style = {
         Returns or changes the current default dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.CurrentDimStyle ([strDimStyle])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style to make current.
             """

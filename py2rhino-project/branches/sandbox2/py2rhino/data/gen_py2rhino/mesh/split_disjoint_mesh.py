@@ -8,25 +8,27 @@ split_disjoint_mesh = {
         Splits up a mesh object into its unconnected pieces.
     """,
 
-    "syntax_html": """
-        Rhino.SplitDisjointMesh (strObject [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a mesh object.
             """
         },
         1: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete the input object. The default is not to delete the input object (False).
             """

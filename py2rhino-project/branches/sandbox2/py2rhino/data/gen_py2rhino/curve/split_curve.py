@@ -8,34 +8,38 @@ split_curve = {
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     """,
 
-    "syntax_html": """
-        Rhino.SplitCurve (strObject, dblParameter [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblParameter", "blnDelete"),
+        1: ("strObject", "arrParameters", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Parameters",
+            "name": "arrParameters",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Parameters",
             "doc": """
         An array of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
             """
         },
         2: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete the input curve. The default is to delete the input curve (True).
             """

@@ -8,9 +8,8 @@ p_i = {
         Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793238462643.
     """,
 
-    "syntax_html": """
-        Rhino.PI
-    """,
+    "syntax_html": {
+    },
 
     "params_html": {
     },

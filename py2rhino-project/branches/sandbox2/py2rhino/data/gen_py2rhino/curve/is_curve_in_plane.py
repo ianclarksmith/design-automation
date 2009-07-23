@@ -8,25 +8,27 @@ is_curve_in_plane = {
         Test a curve to see if it lies in a specific plane.
     """,
 
-    "syntax_html": """
-        Rhino.IsCurveInPlane (strObject [, arrPlane])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane array are as follows:
 		Element

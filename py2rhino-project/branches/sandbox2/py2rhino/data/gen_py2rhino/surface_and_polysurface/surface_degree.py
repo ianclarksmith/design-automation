@@ -8,25 +8,27 @@ surface_degree = {
         Returns the degree of a  surface object in the specified direction.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceDegree (strObject [, intDirection])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intDirection"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The direction, either 0 = U, or 1 = V, or 2 = Both.  Of omitted, both the degrees in the U and V directions are returned (2 = Both).
             """

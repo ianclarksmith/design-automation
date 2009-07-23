@@ -8,34 +8,37 @@ add_ellipse = {
         Adds an elliptical curve to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddEllipse (arrPlane, dblXRadius, dblYRadius)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "dblXRadius", "dblYRadius"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane on which the ellipse will lie. The origin of the plane will be the center point of the ellipse.
             """
         },
         1: {
-            "name": "XRadius",
+            "name": "dblXRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "XRadius",
             "doc": """
         The radius in the X-axis direction.
             """
         },
         2: {
-            "name": "YRadius",
+            "name": "dblYRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "YRadius",
             "doc": """
         The radius in the Y-axis direction.
             """

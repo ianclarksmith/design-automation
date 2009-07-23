@@ -8,16 +8,17 @@ is_object_normal = {
         Verifies that an object is normal.  Normal objects are visible, can be snapped to, and can be selected.
     """,
 
-    "syntax_html": """
-        Rhino.IsObjectNormal (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object.
             """

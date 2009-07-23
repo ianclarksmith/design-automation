@@ -8,34 +8,37 @@ pt2_str = {
         Converts a 3-D point value to a string.  Useful for display point values as output, or passing point values to Rhino commands.
     """,
 
-    "syntax_html": """
-        Rhino.Pt2Str (arrPoint [, nPrecision [, blnSpace]])
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "nPrecision", "blnSpace"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point.
             """
         },
         1: {
-            "name": "Precision",
+            "name": "nPrecision",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "n",
+            "name_prefix": "n",
+            "name_main": "Precision",
             "doc": """
         The display precision of the point coordinates.  The default is to display the precision defined by the display precision setting that is found on the Units page of the DocumentProperties command.
             """
         },
         2: {
-            "name": "Space",
+            "name": "blnSpace",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Space",
             "doc": """
         Append an additional trailing space after the point string.  The default value is not to append the additional space (False).
             """

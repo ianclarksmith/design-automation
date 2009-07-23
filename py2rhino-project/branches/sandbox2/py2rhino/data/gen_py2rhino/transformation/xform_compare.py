@@ -8,25 +8,27 @@ xform_compare = {
         Compares two transformation matrices.
     """,
 
-    "syntax_html": """
-        Rhino.XformCompare (arrXform1, arrXform2)
-    """,
+    "syntax_html": {
+        0: ("arrXform1", "arrXform2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Xform1",
+            "name": "arrXform1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Xform1",
             "doc": """
         The first 4x4 transformation matrix to compare.
             """
         },
         1: {
-            "name": "Xform2",
+            "name": "arrXform2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Xform2",
             "doc": """
         The second 4x4 transformation matrix to compare.
             """

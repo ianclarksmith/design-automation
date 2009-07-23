@@ -8,25 +8,27 @@ offset_surface = {
         Offsets a surface by a distance. The offset surface will be added to Rhino.
     """,
 
-    "syntax_html": """
-        Rhino.OffsetSurface (strObject, dblDistance)
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblDistance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The distance to offset.
             """

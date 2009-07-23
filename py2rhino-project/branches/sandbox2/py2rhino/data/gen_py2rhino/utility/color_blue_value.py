@@ -8,16 +8,17 @@ color_blue_value = {
         Retrieves an intensity value for the blue component of a red-green-blue (RGB) value.
     """,
 
-    "syntax_html": """
-        Rhino.ColorBlueValue (lngRGB)
-    """,
+    "syntax_html": {
+        0: ("lngRGB"),
+    },
 
     "params_html": {
         0: {
-            "name": "RGB",
+            "name": "lngRGB",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "RGB",
             "doc": """
         The RGB color value.
             """

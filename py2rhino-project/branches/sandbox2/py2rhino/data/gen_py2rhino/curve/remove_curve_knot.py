@@ -8,25 +8,27 @@ remove_curve_knot = {
         Deletes a knot from a curve object.
     """,
 
-    "syntax_html": """
-        Rhino.RemoveCurveKnot (strObject, dblParameter)
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblParameter"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the curve object.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "dblParameter",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Parameter",
             "doc": """
         The parameter on the curve.  Note, if the parameter is not equal to one of the existing knots, then the knot closest to the specified parameter will be removed.
             """

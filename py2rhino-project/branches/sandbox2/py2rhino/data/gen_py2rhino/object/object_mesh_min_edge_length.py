@@ -9,25 +9,27 @@ object_mesh_min_edge_length = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectMeshMinEdgeLength (strObject [, dblLength])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblLength"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object that has custom render mesh parameters.
             """
         },
         1: {
-            "name": "Length",
+            "name": "dblLength",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Length",
             "doc": """
         The render mesh minimum edge length.
             """

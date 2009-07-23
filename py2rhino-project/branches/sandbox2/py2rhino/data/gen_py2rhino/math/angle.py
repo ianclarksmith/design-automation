@@ -8,34 +8,37 @@ angle = {
         Measures the angle between two points.
     """,
 
-    "syntax_html": """
-        Rhino.Angle (arrPoint1, arrPoint2 [, blnWorld])
-    """,
+    "syntax_html": {
+        0: ("arrPoint1", "arrPoint2", "blnWorld"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point1",
+            "name": "arrPoint1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point1",
             "doc": """
         The first 3-D point.
             """
         },
         1: {
-            "name": "Point2",
+            "name": "arrPoint2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point2",
             "doc": """
         The second 3-D point.
             """
         },
         2: {
-            "name": "World",
+            "name": "blnWorld",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "World",
             "doc": """
         If True, the angle calculation is based on the world coordinate system.  If False, the angle calculation is based on the active construction plane.  The default value is True.
             """

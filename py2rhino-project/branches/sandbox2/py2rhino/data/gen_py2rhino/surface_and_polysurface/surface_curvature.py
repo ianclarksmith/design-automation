@@ -8,25 +8,27 @@ surface_curvature = {
         Returns the curvature of a surface at a U,V parameter.  See the Rhino help file for details on surface curvature.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceCurvature (strObject, arrParameter)
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrParameter"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "arrParameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Parameter",
             "doc": """
         An array containing the U,V parameter to evaluate.
             """

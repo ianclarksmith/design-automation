@@ -8,16 +8,17 @@ evaluate_plane = {
         Evaluates a plane at a U,V parameter.
     """,
 
-    "syntax_html": """
-        Rhino.EvaluatePlane (arrPlane, arrParameter)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "arrParameter"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane.  The elements of a plane array are as follows:
 		Element
@@ -32,10 +33,11 @@ evaluate_plane = {
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "arrParameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Parameter",
             "doc": """
         An array containing the U,V parameter to evaluate.
             """

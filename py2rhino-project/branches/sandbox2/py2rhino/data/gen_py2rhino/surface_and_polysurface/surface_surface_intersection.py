@@ -8,43 +8,47 @@ surface_surface_intersection = {
         Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceSurfaceIntersection (strSurfaceA, strSurfaceB [, dblTolerance [, blnCreate]])
-    """,
+    "syntax_html": {
+        0: ("strSurfaceA", "strSurfaceB", "dblTolerance", "blnCreate"),
+    },
 
     "params_html": {
         0: {
-            "name": "SurfaceA",
+            "name": "strSurfaceA",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "SurfaceA",
             "doc": """
         The identifier of the first surface object.
             """
         },
         1: {
-            "name": "SurfaceB",
+            "name": "strSurfaceB",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "SurfaceB",
             "doc": """
         The identifier of the second surface object.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
             """
         },
         3: {
-            "name": "Create",
+            "name": "blnCreate",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Create",
             "doc": """
         Create the intersection curves and points.  If omitted, intersection geometry will not be created.
             """

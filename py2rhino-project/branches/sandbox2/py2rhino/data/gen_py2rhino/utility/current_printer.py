@@ -8,16 +8,17 @@ current_printer = {
         Returns or changes the current Windows printer.
     """,
 
-    "syntax_html": """
-        Rhino.CurrentPrinter ([strPrinter])
-    """,
+    "syntax_html": {
+        0: ("strPrinter"),
+    },
 
     "params_html": {
         0: {
-            "name": "Printer",
+            "name": "strPrinter",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Printer",
             "doc": """
         The name of a Windows printer as returned by this method or by the PrinterNames method.
             """

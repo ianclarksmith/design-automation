@@ -8,9 +8,9 @@ printer_names = {
         Returns the name of all installed Windows printer.
     """,
 
-    "syntax_html": """
-        Rhino.PrinterNames ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

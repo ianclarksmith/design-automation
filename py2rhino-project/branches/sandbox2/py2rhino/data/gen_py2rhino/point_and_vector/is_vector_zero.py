@@ -8,16 +8,17 @@ is_vector_zero = {
         Verifies that a vector is zero, or tiny - the  x,y,z elements are equal to 0.0.
     """,
 
-    "syntax_html": """
-        Rhino.IsVectorZero (arrVector)
-    """,
+    "syntax_html": {
+        0: ("arrVector"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vector",
+            "name": "arrVector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector",
             "doc": """
         The 3-D vector to test.
             """

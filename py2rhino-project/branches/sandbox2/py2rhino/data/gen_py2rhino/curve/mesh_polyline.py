@@ -8,16 +8,17 @@ mesh_polyline = {
         Creates a polygon mesh object based on a closed polyline curve object. The newly created polygon mesh object is added to the document.
     """,
 
-    "syntax_html": """
-        Rhino.MeshPolyline (strPolyline)
-    """,
+    "syntax_html": {
+        0: ("strPolyline"),
+    },
 
     "params_html": {
         0: {
-            "name": "Polyline",
+            "name": "strPolyline",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Polyline",
             "doc": """
         The identifier of the polyline curve object.
             """

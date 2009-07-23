@@ -8,16 +8,17 @@ render_settings = {
         Returns or sets render settings.  See Rhino's DocumentProperties command (Rhino Render window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.RenderSettings ([intSettings])
-    """,
+    "syntax_html": {
+        0: ("intSettings"),
+    },
 
     "params_html": {
         0: {
-            "name": "Settings",
+            "name": "intSettings",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Settings",
             "doc": """
         The render setting or settings to modify.  Render settings can be any combination of the following flags:
 		Value

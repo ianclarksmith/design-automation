@@ -8,16 +8,17 @@ is_procedure = {
         Verifies that a user-defined subroutine or function is resident in RhinoScript's VBScript engine.
     """,
 
-    "syntax_html": """
-        Rhino.IsProcedure (strSubName)
-    """,
+    "syntax_html": {
+        0: ("strSubName"),
+    },
 
     "params_html": {
         0: {
-            "name": "SubName",
+            "name": "strSubName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "SubName",
             "doc": """
         The name of a user-defined subroutine of function.
             """

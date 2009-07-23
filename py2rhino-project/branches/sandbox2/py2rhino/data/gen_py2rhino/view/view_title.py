@@ -8,16 +8,17 @@ view_title = {
         Returns the name, or title, of a view given a view's identifier.
     """,
 
-    "syntax_html": """
-        Rhino.ViewTitle (strView])
-    """,
+    "syntax_html": {
+        0: ("strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mode",
+            "name": "strMode",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Mode",
             "doc": """
         The identifier of the display mode obtained from the ViewNames method.
             """

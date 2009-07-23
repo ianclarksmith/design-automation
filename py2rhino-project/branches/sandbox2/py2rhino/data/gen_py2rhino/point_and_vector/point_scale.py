@@ -8,25 +8,27 @@ point_scale = {
         Scales a 3-D point.
     """,
 
-    "syntax_html": """
-        Rhino.PointScale (arrPoint, dblScale)
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "dblScale"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D point to scale.
             """
         },
         1: {
-            "name": "Scale",
+            "name": "dblScale",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Scale",
             "doc": """
         The scale factor to apply.
             """

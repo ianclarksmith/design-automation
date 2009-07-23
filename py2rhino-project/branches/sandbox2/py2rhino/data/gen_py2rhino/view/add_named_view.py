@@ -8,25 +8,27 @@ add_named_view = {
         Adds a new named view to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddNamedView (strName [, strView])
-    """,
+    "syntax_html": {
+        0: ("strName", "strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The name of the new named view.
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view to save.  If omitted, the current active view is saved.
             """

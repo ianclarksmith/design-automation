@@ -8,9 +8,9 @@ layer_count = {
         Returns the number of layers in the document.
     """,
 
-    "syntax_html": """
-        Rhino.LayerCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

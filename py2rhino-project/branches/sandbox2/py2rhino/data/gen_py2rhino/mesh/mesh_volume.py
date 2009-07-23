@@ -8,16 +8,18 @@ mesh_volume = {
         Returns the approximate volume of one or more closed mesh objects.
     """,
 
-    "syntax_html": """
-        Rhino.MeshVolume (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+        1: ("arrObjects"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of object identifier.
             """

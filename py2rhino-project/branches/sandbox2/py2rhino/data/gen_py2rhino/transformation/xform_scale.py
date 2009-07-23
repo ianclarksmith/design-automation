@@ -8,70 +8,80 @@ xform_scale = {
         Returns a scale transformation matrix.
     """,
 
-    "syntax_html": """
-        Rhino.XformScale (arrPlane, dblXScale, dblYScale, dblZScale)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "dblXScale", "dblYScale", "dblZScale"),
+        1: ("dblXScale", "dblYScale", "dblZScale"),
+        2: ("arrVector"),
+        3: ("arrPoint", "dblScale"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane",
             "doc": """
         The starting plane.
             """
         },
         1: {
-            "name": "XScale",
+            "name": "dblXScale",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "XScale",
             "doc": """
         The scale factor in the x-axis direction.
             """
         },
         2: {
-            "name": "YScale",
+            "name": "dblYScale",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "YScale",
             "doc": """
         The scale factor in the y-axis direction.
             """
         },
         3: {
-            "name": "ZScale",
+            "name": "dblZScale",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "ZScale",
             "doc": """
         The scale factor in the z-axis direction.
             """
         },
         4: {
-            "name": "Vector",
+            "name": "arrVector",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Vector",
             "doc": """
         The ending direction.
             """
         },
         5: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array (3-D Point)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point",
             "doc": """
         The rotation center point.
             """
         },
         6: {
-            "name": "Scale",
+            "name": "dblScale",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Scale",
             "doc": """
         The initial frame X
             """

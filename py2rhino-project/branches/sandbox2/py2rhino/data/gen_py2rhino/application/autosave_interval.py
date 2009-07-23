@@ -8,16 +8,17 @@ autosave_interval = {
         Returns or changes how often the document will be saved when Rhino's automatic file saving mechanism is enabled.
     """,
 
-    "syntax_html": """
-        Rhino.AutosaveInterval ([intMinutes])
-    """,
+    "syntax_html": {
+        0: ("intMinutes"),
+    },
 
     "params_html": {
         0: {
-            "name": "Minutes",
+            "name": "intMinutes",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Minutes",
             "doc": """
         The number of minutes between saves.
             """

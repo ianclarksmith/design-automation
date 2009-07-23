@@ -8,25 +8,27 @@ dim_style_font = {
         Returns or changes the font used by a dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleFont (strDimStyle [, strFont])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle", "strFont"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "Font",
+            "name": "strFont",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Font",
             "doc": """
         The new font face name.  If omitted, the current font is returned.
             """

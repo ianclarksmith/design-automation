@@ -1,13 +1,13 @@
 from win32com.client import Dispatch
 import time 
-"""
+
 from object_grip import ObjectGrip
 from user_interface import UserInterface
 from geometry import Geometry
 from hatch import Hatch
 from layer import Layer
-#from point_and_vector import PointAndVector
-#from utility import Utility
+from point_and_vector import PointAndVector
+from utility import Utility
 from material import Material
 from surface_and_polysurface import SurfaceAndPolysurface
 from object import Object
@@ -26,7 +26,7 @@ from document import Document
 from selection import Selection
 from group import Group
 from linetype import Linetype
-"""
+
 #Connect to Rhino
 app = Dispatch("Rhino4.Interface")
 time.sleep(1)

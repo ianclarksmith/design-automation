@@ -8,25 +8,27 @@ light_direction = {
         Returns or changes the direction of a light object. This function can be used to return or modify the target of spotlights.
     """,
 
-    "syntax_html": """
-        Rhino.LightDirection (strObject [, arrDirection])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrDirection"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The light object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "arrDirection",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Direction",
             "doc": """
         The new end point, or direction.  If omitted, the direction point is returned.
             """

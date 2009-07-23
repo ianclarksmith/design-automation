@@ -8,34 +8,37 @@ extract_iso_curve = {
         Extracts isoparametric curves from a surface.
     """,
 
-    "syntax_html": """
-        Rhino.ExtractIsoCurve (strObject , arrParameter, intDir)
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrParameter", "intDir"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "arrParameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Parameter",
             "doc": """
         An array containing the U,V parameter of the surface to evaluate.
             """
         },
         2: {
-            "name": "Dir",
+            "name": "intDir",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Dir",
             "doc": """
         The direction, either 0 = U, 1 = V, or 2 = Both.
             """

@@ -8,25 +8,27 @@ object_mesh_settings = {
         Returns or sets the render mesh settings of an object's custom render mesh parameters.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectMeshSettings (strObject [, intSettings])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intSettings"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object that has custom render mesh parameters.
             """
         },
         1: {
-            "name": "Settings",
+            "name": "intSettings",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Settings",
             "doc": """
         The render mesh settings, which is a bit-coded number that allows or disallows certain features.  The bits can be added together in any combination to form a value between 0 and 15.  The bit values are as follows:
 		Value

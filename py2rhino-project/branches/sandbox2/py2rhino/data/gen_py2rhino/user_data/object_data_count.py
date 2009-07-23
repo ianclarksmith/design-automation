@@ -8,16 +8,17 @@ object_data_count = {
         Returns the number of RhinoScript user data items on an object's geometry.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectDataCount (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

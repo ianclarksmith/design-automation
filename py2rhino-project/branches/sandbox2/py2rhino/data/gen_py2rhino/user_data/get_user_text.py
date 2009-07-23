@@ -8,34 +8,37 @@ get_user_text = {
         Returns User Text that is stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
     """,
 
-    "syntax_html": """
-        Rhino.GetUserText (strObject [, strKey [, blnAttachToGeometry]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strKey", "blnAttachToGeometry"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Key",
+            "name": "strKey",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Key",
             "doc": """
         The key name.  If omitted or an empty string ("") is specified, all key names for the object are returned.
             """
         },
         2: {
-            "name": "AttachToGeometry",
+            "name": "blnAttachToGeometry",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "AttachToGeometry",
             "doc": """
         The location on the object to retrieve the User Text.
 		Value

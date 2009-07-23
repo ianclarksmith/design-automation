@@ -8,25 +8,27 @@ rename_layer = {
         Renames an existing layer.
     """,
 
-    "syntax_html": """
-        Rhino.RenameLayer (strOldName, strNewName)
-    """,
+    "syntax_html": {
+        0: ("strOldName", "strNewName"),
+    },
 
     "params_html": {
         0: {
-            "name": "OldName",
+            "name": "strOldName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "OldName",
             "doc": """
         The name of an existing layer.
             """
         },
         1: {
-            "name": "NewName",
+            "name": "strNewName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "NewName",
             "doc": """
         The new layer name.
             """

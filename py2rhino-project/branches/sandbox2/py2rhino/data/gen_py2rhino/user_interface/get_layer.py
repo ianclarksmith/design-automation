@@ -8,43 +8,47 @@ get_layer = {
         Displays a dialog box prompting the user to select a layer.
     """,
 
-    "syntax_html": """
-        Rhino.GetLayer ([strTitle [, strLayer [, blnShowNewLayer [, blnShowSetCurrent]]]])
-    """,
+    "syntax_html": {
+        0: ("strTitle", "strLayer", "blnShowNewLayer", "blnShowSetCurrent"),
+    },
 
     "params_html": {
         0: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """
         },
         1: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of a layer to pre-select. If omitted, the current layer will be pre-selected.
             """
         },
         2: {
-            "name": "ShowNewLayer",
+            "name": "blnShowNewLayer",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ShowNewLayer",
             "doc": """
         Display the "New" layer button. If omitted, the button is not displayed.
             """
         },
         3: {
-            "name": "ShowSetCurrent",
+            "name": "blnShowSetCurrent",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ShowSetCurrent",
             "doc": """
         Display the "Set layer current" check box.  If omitted, the check box is not displayed.
             """

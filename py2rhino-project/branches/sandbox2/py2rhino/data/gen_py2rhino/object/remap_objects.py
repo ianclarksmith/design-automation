@@ -8,43 +8,47 @@ remap_objects = {
         Remqps one or more objects from one plane, or coordinate system, to another.
     """,
 
-    "syntax_html": """
-        Rhino.RemapObjects (arrObjects, arrSrcPlane, arrDstPlane [, blnCopy])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrSrcPlane", "arrDstPlane", "blnCopy"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "arrObject",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Object",
             "doc": """
         The identifiers of the objects to remap.
             """
         },
         1: {
-            "name": "SrcPlane",
+            "name": "arrSrcPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "SrcPlane",
             "doc": """
         The source plane to transform from.
             """
         },
         2: {
-            "name": "DstPlane",
+            "name": "arrDstPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "DstPlane",
             "doc": """
         The destination plane to transform to.
             """
         },
         3: {
-            "name": "Copy",
+            "name": "blnCopy",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Copy",
             "doc": """
         Copy the object. If omitted, the object will not be copied (False).
             """

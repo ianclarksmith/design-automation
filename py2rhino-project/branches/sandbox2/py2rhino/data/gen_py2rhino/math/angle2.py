@@ -8,25 +8,27 @@ angle2 = {
         Measures the angle between two lines.
     """,
 
-    "syntax_html": """
-        Rhino.Angle2 (arrLine1, arrLine2)
-    """,
+    "syntax_html": {
+        0: ("arrLine1", "arrLine2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point1",
+            "name": "arrPoint1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point1",
             "doc": """
         An array containing the starting and ending 3-D points of the first line.
             """
         },
         1: {
-            "name": "Point2",
+            "name": "arrPoint2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point2",
             "doc": """
         An array containing the starting and ending 3-D points of the second line.
             """

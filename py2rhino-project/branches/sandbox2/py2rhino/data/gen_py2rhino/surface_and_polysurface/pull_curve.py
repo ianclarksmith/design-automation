@@ -8,34 +8,37 @@ pull_curve = {
         Pulls a curve object to a surface object. For more information, see the Rhino help file for information on the Pull command.
     """,
 
-    "syntax_html": """
-        Rhino.PullCurve (strSurface, strCurve [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strSurface", "strCurve", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Surface",
+            "name": "strSurface",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Surface",
             "doc": """
         The identifier of the surface object that pulls.
             """
         },
         1: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of the curve object to pull.
             """
         },
         2: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete input curve.  If omitted, the input curve will not be deleted (False).
             """

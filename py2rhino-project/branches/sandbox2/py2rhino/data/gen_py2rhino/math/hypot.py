@@ -8,25 +8,27 @@ hypot = {
         Calculates the length of the hypotenuse of a right triangle, given the length of the two sides x and y (in other words, the square root of x2 + y2).
     """,
 
-    "syntax_html": """
-        Rhino.Hypot (dblNumberX, dblNumberY)
-    """,
+    "syntax_html": {
+        0: ("dblNumberX", "dblNumberY"),
+    },
 
     "params_html": {
         0: {
-            "name": "NumberX",
+            "name": "dblNumberX",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "NumberX",
             "doc": """
         The x value.
             """
         },
         1: {
-            "name": "NumberY",
+            "name": "dblNumberY",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "NumberY",
             "doc": """
         The y value.
             """

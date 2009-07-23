@@ -9,16 +9,17 @@ render_mesh_max_edge_length = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.RenderMeshMaxEdgeLength ([dblLength])
-    """,
+    "syntax_html": {
+        0: ("dblLength"),
+    },
 
     "params_html": {
         0: {
-            "name": "Length",
+            "name": "dblLength",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Length",
             "doc": """
         The render mesh maximum edge length.
             """

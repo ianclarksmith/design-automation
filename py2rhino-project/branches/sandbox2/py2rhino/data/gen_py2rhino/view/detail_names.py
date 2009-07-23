@@ -8,25 +8,27 @@ detail_names = {
         Returns the names, or titles, or identifiers of all detail views in a page layout view.
     """,
 
-    "syntax_html": """
-        Rhino.DetailNames (strLayout [,blnReturnNames])
-    """,
+    "syntax_html": {
+        0: ("strLayout", "blnReturnNames"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layout",
+            "name": "strLayout",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layout",
             "doc": """
         The title or identifier of an existing page layout view.
             """
         },
         1: {
-            "name": "ReturnNames",
+            "name": "blnReturnNames",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnNames",
             "doc": """
         If True (default), then the names, or titles, of the detail views are returned. If False, then the identifiers of the detail views are returned.
             """

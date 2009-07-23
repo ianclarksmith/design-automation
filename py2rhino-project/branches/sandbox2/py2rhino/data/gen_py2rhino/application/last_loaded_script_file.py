@@ -8,9 +8,9 @@ last_loaded_script_file = {
         Return the full path to the last RhinoScript file that was loaded using the LoadScript command..
     """,
 
-    "syntax_html": """
-        Rhino.LastLoadedScriptFile ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

@@ -8,34 +8,37 @@ add_rail_rev_srf = {
         Create a surface by revolving a profile curve along a rail curve.
     """,
 
-    "syntax_html": """
-        Rhino.AddRailRevSrf (strProfile, strRail, arrAxis)
-    """,
+    "syntax_html": {
+        0: ("strProfile", "strRail", "arrAxis"),
+    },
 
     "params_html": {
         0: {
-            "name": "Profile",
+            "name": "strProfile",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Profile",
             "doc": """
         The identifier of the profile curve.
             """
         },
         1: {
-            "name": "Rail",
+            "name": "strRail",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Rail",
             "doc": """
         The identifier of the rail curve.
             """
         },
         2: {
-            "name": "Axis",
+            "name": "arrAxis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Axis",
             "doc": """
         An array of two 3-D points identifying the start point and end point of the rail revolve axis.
             """

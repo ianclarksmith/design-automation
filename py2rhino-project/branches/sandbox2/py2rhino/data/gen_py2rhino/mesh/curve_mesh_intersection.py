@@ -8,34 +8,37 @@ curve_mesh_intersection = {
         Calculates the intersection of a curve object and a mesh object.
     """,
 
-    "syntax_html": """
-        Rhino.CurveMeshIntersection (strCurve, strMesh [, blnReturnFaces])
-    """,
+    "syntax_html": {
+        0: ("strCurve", "strMesh", "blnReturnFaces"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of the curve to intersect.
             """
         },
         1: {
-            "name": "Mesh",
+            "name": "strMesh",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Mesh",
             "doc": """
         The identifier of the mesh to intersect.
             """
         },
         2: {
-            "name": "ReturnFaces",
+            "name": "blnReturnFaces",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnFaces",
             "doc": """
         Return both intersection points and face indices.  If omitted or False, then just the intersection points are returned.
             """

@@ -13,88 +13,97 @@ add_sweep1 = {
 		* The shape curves should be passed in order, starting with the curve closest to the starting point of the rail.
     """,
 
-    "syntax_html": """
-        Rhino.AddSweep1 (strRail, arrShapes [, arrStartPt [, arrEndPt [, blnClosed [, intStyle [, vaStyleArg [, intSimplify [, vaSimplifyArg]]]]]]])
-    """,
+    "syntax_html": {
+        0: ("strRail", "arrShapes", "arrStartPt", "arrEndPt", "blnClosed", "intStyle", "vaStyleArg", "intSimplify", "vaSimplifyArg"),
+    },
 
     "params_html": {
         0: {
-            "name": "Rail",
+            "name": "strRail",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Rail",
             "doc": """
         The identifier of the rail curve.
             """
         },
         1: {
-            "name": "Shapes",
+            "name": "arrShapes",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Shapes",
             "doc": """
         An array of strings identifying one or more shape, or cross section, curves.
             """
         },
         2: {
-            "name": "StartPt",
+            "name": "arrStartPt",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartPt",
             "doc": """
         The 3-D starting point of the surface.
             """
         },
         3: {
-            "name": "EndPt",
+            "name": "arrEndPt",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndPt",
             "doc": """
         The 3-D ending point of the surface.
             """
         },
         4: {
-            "name": "Closed",
+            "name": "blnClosed",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Closed",
             "doc": """
         If True, then create a closed surface, continuing the surface past the last curve around to the first curve. This option is only available after you select two cross-section curves.  The default value is False.
             """
         },
         5: {
-            "name": "Style",
+            "name": "intStyle",
             "opt_or_req": "Optional",
             "type": "Integer",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Style",
             "doc": """
         The sweep style, where 0 = Freeform and 1 = Roadlike. The default value is 0 = Freeform.
             """
         },
         6: {
-            "name": "StyleArg",
+            "name": "vaStyleArg",
             "opt_or_req": "Optional",
             "type": "Variant",
-            "type_string": "va",
+            "name_prefix": "va",
+            "name_main": "StyleArg",
             "doc": """
         If intStyle = 1 (Roadlike), then this argument is a 3-D vector identifying the planar up direction for the sweep.
             """
         },
         7: {
-            "name": "Simplify",
+            "name": "intSimplify",
             "opt_or_req": "Optional",
             "type": "Integer",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Simplify",
             "doc": """
         Cross section curve options, where 0 = Do Not Simplify, 1 = Refit, and 2 = Rebuild. The default value is 0 = Do Not Simplify.
             """
         },
         8: {
-            "name": "SimplifyArg",
+            "name": "vaSimplifyArg",
             "opt_or_req": "Optional",
             "type": "Variant",
-            "type_string": "va",
+            "name_prefix": "va",
+            "name_main": "SimplifyArg",
             "doc": """
         If intSimplify = 1 (Refit), then this argument is a number specifying the refit tolerance.  If intSimplify = 2 (Rebuild), then this argument is a number specifying the number of control points to rebuild the shape curves.
             """

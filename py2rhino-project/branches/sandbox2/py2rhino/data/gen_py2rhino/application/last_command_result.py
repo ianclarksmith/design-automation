@@ -8,9 +8,9 @@ last_command_result = {
         Returns the result code for the last executed command.
     """,
 
-    "syntax_html": """
-        Rhino.LastCommandResult ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

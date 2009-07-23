@@ -8,16 +8,17 @@ surface_volume_centroid = {
         Calculates the volume centroid of closed surface or polysurface objects.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceVolumeCentroid (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

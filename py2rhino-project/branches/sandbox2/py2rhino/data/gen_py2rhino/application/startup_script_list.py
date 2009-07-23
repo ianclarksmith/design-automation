@@ -8,9 +8,9 @@ startup_script_list = {
         Returns all of the startup script items in Rhino's startup script list. See "Options RhinoScript" for more details.
     """,
 
-    "syntax_html": """
-        Rhino.StartupScriptList ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

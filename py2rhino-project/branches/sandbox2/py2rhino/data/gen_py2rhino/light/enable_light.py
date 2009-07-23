@@ -8,25 +8,27 @@ enable_light = {
         Enables or disables a light object.
     """,
 
-    "syntax_html": """
-        Rhino.EnableLight (strObject [, blnEnable])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnEnable"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the light object
             """
         },
         1: {
-            "name": "Enable",
+            "name": "blnEnable",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Enable",
             "doc": """
         The light's enabled status.
             """

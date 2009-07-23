@@ -9,25 +9,27 @@ add_object_mesh = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.AddObjectMesh (strObject [, intQuality [, blnEnable]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intQuality", "blnEnable"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a meshable object.
             """
         },
         1: {
-            "name": "Quality",
+            "name": "intQuality",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Quality",
             "doc": """
         The initial settings of the new custom render mesh parameters. The available options are as follows:
 		Value
@@ -40,10 +42,11 @@ add_object_mesh = {
             """
         },
         2: {
-            "name": "Enable",
+            "name": "blnEnable",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Enable",
             "doc": """
         Enable the custom render mesh parameters.  If omitted, the newly added parameters will be enabled (True).
             """

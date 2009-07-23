@@ -8,16 +8,17 @@ print_ex = {
         Prints a string to Rhino's command window.  Use this method, instead of the Print method, if you are using Visual Basic.
     """,
 
-    "syntax_html": """
-        Rhino.PrintEx ([strMessage])
-    """,
+    "syntax_html": {
+        0: ("strMessage"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt, message, or value.
             """

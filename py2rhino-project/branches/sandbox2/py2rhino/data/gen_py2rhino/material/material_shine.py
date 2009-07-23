@@ -8,25 +8,27 @@ material_shine = {
         Returns or modifies a material's shine value.
     """,
 
-    "syntax_html": """
-        Rhino.MaterialShine (intMaterialIndex [, dblShine])
-    """,
+    "syntax_html": {
+        0: ("intMaterialIndex", "dblShine"),
+    },
 
     "params_html": {
         0: {
-            "name": "MaterialIndex",
+            "name": "intMaterialIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "MaterialIndex",
             "doc": """
         The zero-based source material index.
             """
         },
         1: {
-            "name": "Shine",
+            "name": "dblShine",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Shine",
             "doc": """
         The new shine value.  A material's shine value ranges from 0.0 to 255.0, with 0.0 being matte and 255.0 being glossy.  If omitted, the current shine value is returned.
             """

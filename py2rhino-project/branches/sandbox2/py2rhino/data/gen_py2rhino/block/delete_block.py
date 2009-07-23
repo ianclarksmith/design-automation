@@ -8,16 +8,17 @@ delete_block = {
         Deletes a block definition and all of it's inserted instances.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteBlock (strBlock)
-    """,
+    "syntax_html": {
+        0: ("strBlock"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """

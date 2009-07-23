@@ -8,16 +8,17 @@ str2_pt = {
         Converts a formatted string value into a 3-D point value.
     """,
 
-    "syntax_html": """
-        Rhino.Str2Pt (strPoint)
-    """,
+    "syntax_html": {
+        0: ("strPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "strPoint",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Point",
             "doc": """
         A string that contains a delimited point like "1,2,3".
             """

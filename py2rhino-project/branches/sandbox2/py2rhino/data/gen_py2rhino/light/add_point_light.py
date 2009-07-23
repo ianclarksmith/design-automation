@@ -8,16 +8,17 @@ add_point_light = {
         Adds a new point light object  to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddPointLight (arrPoint)
-    """,
+    "syntax_html": {
+        0: ("arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D location point of the light.
             """

@@ -8,16 +8,17 @@ sum = {
         Returns the sum of an array of numbers.
     """,
 
-    "syntax_html": """
-        Rhino.Sum (arrNumbers)
-    """,
+    "syntax_html": {
+        0: ("arrNumbers"),
+    },
 
     "params_html": {
         0: {
-            "name": "Numbers",
+            "name": "arrNumbers",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Numbers",
             "doc": """
         An array of numbers to sum.
             """

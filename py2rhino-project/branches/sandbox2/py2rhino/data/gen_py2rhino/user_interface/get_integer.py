@@ -8,43 +8,47 @@ get_integer = {
         Pauses for user input of a whole number.
     """,
 
-    "syntax_html": """
-        Rhino.GetInteger (strMessage [, intNumber [, intMin [, intMax]]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "intNumber", "intMin", "intMax"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "Number",
+            "name": "intNumber",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Number",
             "doc": """
         A default whole number value.
             """
         },
         2: {
-            "name": "Min",
+            "name": "intMin",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Min",
             "doc": """
         A minimum allowable value.
             """
         },
         3: {
-            "name": "Max",
+            "name": "intMax",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Max",
             "doc": """
         A maximum allowable value.
             """

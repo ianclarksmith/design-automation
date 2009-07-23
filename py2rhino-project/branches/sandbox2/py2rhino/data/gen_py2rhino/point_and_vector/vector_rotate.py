@@ -8,34 +8,37 @@ vector_rotate = {
         Rotates a 3-D vector.
     """,
 
-    "syntax_html": """
-        Rhino.VectorRotate (arrVector, dblAngle, arrAxis)
-    """,
+    "syntax_html": {
+        0: ("arrVector", "dblAngle", "arrAxis"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vector",
+            "name": "arrVector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector",
             "doc": """
         The 3-D vector.
             """
         },
         1: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         The rotation angle in degrees.
             """
         },
         2: {
-            "name": "Axis",
+            "name": "arrAxis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Axis",
             "doc": """
         A 3-D vector defining the axis of rotation.
             """

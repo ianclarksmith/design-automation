@@ -8,43 +8,47 @@ polar = {
         Returns the 3-D point that is a specified angle and distance from a 3-D point.
     """,
 
-    "syntax_html": """
-        Rhino.Polar (arrPoint, dblAngle, dblDistance [, arrPlane])
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "dblAngle", "dblDistance", "arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D point to transform.
             """
         },
         1: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         The angle in degrees.
             """
         },
         2: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The distance.
             """
         },
         3: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane to base the transformation. Of omitted, the world x-y plane is used. The elements of a plane array are as follows:
 		0

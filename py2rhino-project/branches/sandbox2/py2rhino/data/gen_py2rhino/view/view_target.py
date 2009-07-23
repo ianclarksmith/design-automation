@@ -8,25 +8,27 @@ view_target = {
         Returns or sets the target location of the specified view.
     """,
 
-    "syntax_html": """
-        Rhino.ViewTarget ([strView [, arrTarget]])
-    """,
+    "syntax_html": {
+        0: ("strView", "arrTarget"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Target",
+            "name": "arrTarget",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Target",
             "doc": """
         A 3-D point identifying the new target location.  If arrTarget is not specified, the current target location is returned.
             """

@@ -8,16 +8,17 @@ hatch_pattern_description = {
         Returns the description of a hatch pattern. Note, not all hatch patterns have descriptions for descriptions are optional.
     """,
 
-    "syntax_html": """
-        Rhino.HatchPatternDescription (strHatch)
-    """,
+    "syntax_html": {
+        0: ("strHatch"),
+    },
 
     "params_html": {
         0: {
-            "name": "Hatch",
+            "name": "strHatch",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Hatch",
             "doc": """
         The name of an existing hatch pattern.
             """

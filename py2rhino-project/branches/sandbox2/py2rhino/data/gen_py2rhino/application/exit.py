@@ -8,9 +8,9 @@ exit = {
         Closes the Rhino application.
     """,
 
-    "syntax_html": """
-        Rhino.Exit ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

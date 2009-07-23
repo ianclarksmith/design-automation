@@ -8,16 +8,17 @@ is_view = {
         Verifies that the specified view exists.
     """,
 
-    "syntax_html": """
-        Rhino.IsView (strView)
-    """,
+    "syntax_html": {
+        0: ("strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.
             """

@@ -8,25 +8,27 @@ material_texture = {
         Returns or modifies a material's texture bitmap filename.
     """,
 
-    "syntax_html": """
-        Rhino.MaterialTexture (intMaterialIndex [, strFileName])
-    """,
+    "syntax_html": {
+        0: ("intMaterialIndex", "strFileName"),
+    },
 
     "params_html": {
         0: {
-            "name": "MaterialIndex",
+            "name": "intMaterialIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "MaterialIndex",
             "doc": """
         The zero-based source material index.
             """
         },
         1: {
-            "name": "FileName",
+            "name": "strFileName",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "FileName",
             "doc": """
         The texture bitmap filename.
             """

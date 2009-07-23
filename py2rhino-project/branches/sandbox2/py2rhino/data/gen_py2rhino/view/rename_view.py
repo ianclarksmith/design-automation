@@ -8,25 +8,27 @@ rename_view = {
         Renames, or changes the title, of the specified view..
     """,
 
-    "syntax_html": """
-        Rhino.RenameView (strOldTitle, strNewTitle)
-    """,
+    "syntax_html": {
+        0: ("strOldTitle", "strNewTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "OldTitle",
+            "name": "strOldTitle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "OldTitle",
             "doc": """
         The title or identifier of the view to rename.
             """
         },
         1: {
-            "name": "NewTitle",
+            "name": "strNewTitle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "NewTitle",
             "doc": """
         The new title of the view.
             """

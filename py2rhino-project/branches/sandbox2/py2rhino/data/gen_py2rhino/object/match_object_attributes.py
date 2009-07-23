@@ -8,25 +8,28 @@ match_object_attributes = {
         Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
     """,
 
-    "syntax_html": """
-        Rhino.MatchObjectAttributes (strTarget [, strSource])
-    """,
+    "syntax_html": {
+        0: ("strTarget", "strSource"),
+        1: ("arrTargets", "strSource"),
+    },
 
     "params_html": {
         0: {
-            "name": "Targets",
+            "name": "arrTargets",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Targets",
             "doc": """
         An array of strings identifying the target objects.
             """
         },
         1: {
-            "name": "Source",
+            "name": "strSource",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Source",
             "doc": """
         The identifier of the source object.  If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
             """

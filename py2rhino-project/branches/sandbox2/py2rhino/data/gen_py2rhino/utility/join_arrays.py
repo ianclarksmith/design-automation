@@ -8,25 +8,27 @@ join_arrays = {
         Joins two one-dimensional arrays in to a single one-dimensional array.
     """,
 
-    "syntax_html": """
-        Rhino.JoinArrays (arr1, arr2)
-    """,
+    "syntax_html": {
+        0: ("arr1", "arr2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Array1",
+            "name": "arrArray1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_any",
+            "name_prefix": "arr_of_any",
+            "name_main": "Array1",
             "doc": """
         The first one-dimensional array.
             """
         },
         1: {
-            "name": "Array2",
+            "name": "arrArray2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_any",
+            "name_prefix": "arr_of_any",
+            "name_main": "Array2",
             "doc": """
         The second one-dimensional array.
             """

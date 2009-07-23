@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class Hatch(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def add_hatch(self, curve, hatch=None, scale=None, rotation=None):
         """        
@@ -39,19 +48,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [curve, hatch, scale, rotation]
-        params_required = [True, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [curve, hatch, scale, rotation]
+        required = [True, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [curve, hatch, scale, rotation]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(835, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddHatch", None, *params_flattened)
+        return self._ApplyTypes_(835, 1, (VT_VARIANT, 0), magic, u"AddHatch", None, *flattened)
 
     def add_hatch_patterns(self, file_name, replace=None):
         """        
@@ -78,19 +81,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [file_name, replace]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [file_name, replace]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [file_name, replace]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(826, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddHatchPatterns", None, *params_flattened)
+        return self._ApplyTypes_(826, 1, (VT_VARIANT, 0), magic, u"AddHatchPatterns", None, *flattened)
 
     def add_hatches(self, curves, hatch=None, scale=None, rotation=None):
         """        
@@ -99,7 +96,7 @@ class Hatch(IRhinoScript):
         Parameters
         ==========
 
-        curves, Array of ????, Required        
+        curves, Array of Strings, Required        
         An array of strings that identify one or more closed planar curves that defines the boundaries of the hatch objects.
             
         hatch, String, Optional        
@@ -123,19 +120,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [curves, hatch, scale, rotation]
-        params_required = [True, False, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [flatten(curves), hatch, scale, rotation]
+        required = [True, False, False, False]
+        magic = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(curves), hatch, scale, rotation]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(836, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddHatches", None, *params_flattened)
+        return self._ApplyTypes_(836, 1, (VT_VARIANT, 0), magic, u"AddHatches", None, *flattened)
 
     def current_hatch_pattern(self, hatch=None):
         """        
@@ -162,19 +153,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [hatch]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [hatch]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [hatch]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(827, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurrentHatchPattern", None, *params_flattened)
+        return self._ApplyTypes_(827, 1, (VT_VARIANT, 0), magic, u"CurrentHatchPattern", None, *flattened)
 
     def explode_hatch(self, hatch, delete=None):
         """        
@@ -201,19 +186,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [hatch, delete]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [hatch, delete]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [hatch, delete]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(841, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExplodeHatch", None, *params_flattened)
+        return self._ApplyTypes_(841, 1, (VT_VARIANT, 0), magic, u"ExplodeHatch", None, *flattened)
 
     def hatch_pattern(self, object, hatch=None):
         """        
@@ -243,21 +222,15 @@ class Hatch(IRhinoScript):
         """
 
         params = [object, hatch]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, hatch]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, hatch]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(837, 1, (VT_VARIANT, 0), magic, u"HatchPattern", None, *flattened)
 
-        return self._ApplyTypes_(837, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPattern", None, *params_flattened)
-
-    def hatch_pattern_count():
+    def hatch_pattern_count(self):
         """        
         Returns the number of hatch patterns in the document.
     
@@ -272,19 +245,13 @@ class Hatch(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(828, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPatternCount", None, *params_flattened)
+        return self._ApplyTypes_(828, 1, (VT_VARIANT, 0), magic, u"HatchPatternCount", None, *flattened)
 
     def hatch_pattern_description(self, hatch):
         """        
@@ -308,19 +275,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [hatch]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [hatch]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [hatch]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(829, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPatternDescription", None, *params_flattened)
+        return self._ApplyTypes_(829, 1, (VT_VARIANT, 0), magic, u"HatchPatternDescription", None, *flattened)
 
     def hatch_pattern_fill_type(self, hatch):
         """        
@@ -352,21 +313,15 @@ class Hatch(IRhinoScript):
         """
 
         params = [hatch]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [hatch]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [hatch]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(831, 1, (VT_VARIANT, 0), magic, u"HatchPatternFillType", None, *flattened)
 
-        return self._ApplyTypes_(831, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPatternFillType", None, *params_flattened)
-
-    def hatch_pattern_names():
+    def hatch_pattern_names(self):
         """        
         Returns the names of all of the hatch pattern in the document.
     
@@ -384,19 +339,13 @@ class Hatch(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(830, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchPatternNames", None, *params_flattened)
+        return self._ApplyTypes_(830, 1, (VT_VARIANT, 0), magic, u"HatchPatternNames", None, *flattened)
 
     def hatch_rotation(self, object, rotation=None):
         """        
@@ -426,19 +375,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [object, rotation]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, rotation]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, rotation]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(839, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchRotation", None, *params_flattened)
+        return self._ApplyTypes_(839, 1, (VT_VARIANT, 0), magic, u"HatchRotation", None, *flattened)
 
     def hatch_scale(self, object, scale=None):
         """        
@@ -468,19 +411,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [object, scale]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, scale]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, scale]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(838, 1, (VT_VARIANT, 0), params_magic_numbers, u"HatchScale", None, *params_flattened)
+        return self._ApplyTypes_(838, 1, (VT_VARIANT, 0), magic, u"HatchScale", None, *flattened)
 
     def is_hatch(self, object):
         """        
@@ -501,19 +438,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(840, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsHatch", None, *params_flattened)
+        return self._ApplyTypes_(840, 1, (VT_VARIANT, 0), magic, u"IsHatch", None, *flattened)
 
     def is_hatch_pattern(self, hatch):
         """        
@@ -534,19 +465,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [hatch]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [hatch]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [hatch]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(832, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsHatchPattern", None, *params_flattened)
+        return self._ApplyTypes_(832, 1, (VT_VARIANT, 0), magic, u"IsHatchPattern", None, *flattened)
 
     def is_hatch_pattern_current(self, hatch):
         """        
@@ -567,19 +492,13 @@ class Hatch(IRhinoScript):
         """
 
         params = [hatch]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [hatch]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [hatch]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(833, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsHatchPatternCurrent", None, *params_flattened)
+        return self._ApplyTypes_(833, 1, (VT_VARIANT, 0), magic, u"IsHatchPatternCurrent", None, *flattened)
 
     def is_hatch_pattern_reference(self, hatch):
         """        
@@ -600,17 +519,11 @@ class Hatch(IRhinoScript):
         """
 
         params = [hatch]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [hatch]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [hatch]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(834, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsHatchPatternReference", None, *params_flattened)
+        return self._ApplyTypes_(834, 1, (VT_VARIANT, 0), magic, u"IsHatchPatternReference", None, *flattened)
 

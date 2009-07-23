@@ -8,16 +8,17 @@ working_folder = {
         Returns or sets Rhino's working directory, or folder.  The working folder is the default folder for all file operations.
     """,
 
-    "syntax_html": """
-        Rhino.WorkingFolder ([strFolder])
-    """,
+    "syntax_html": {
+        0: ("strFolder"),
+    },
 
     "params_html": {
         0: {
-            "name": "Enable",
+            "name": "blnEnable",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Enable",
             "doc": """
         The new working folder.
             """

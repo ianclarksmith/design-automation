@@ -8,34 +8,37 @@ plane_from_points = {
         Creates a plane from three non-colinear points.
     """,
 
-    "syntax_html": """
-        Rhino.PlaneFromPoints (arrOrigin, arrPointX, arrPointY)
-    """,
+    "syntax_html": {
+        0: ("arrOrigin", "arrPointX", "arrPointY"),
+    },
 
     "params_html": {
         0: {
-            "name": "Origin",
+            "name": "arrOrigin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Origin",
             "doc": """
         The first point, or origin, of the plane.
             """
         },
         1: {
-            "name": "PointX",
+            "name": "arrPointX",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "PointX",
             "doc": """
         A point on the plane's X axis.
             """
         },
         2: {
-            "name": "PointY",
+            "name": "arrPointY",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "PointY",
             "doc": """
         A point on the plane's Y axis.
             """

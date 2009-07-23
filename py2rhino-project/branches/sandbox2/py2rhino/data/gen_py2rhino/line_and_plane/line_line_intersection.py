@@ -10,34 +10,37 @@ line_line_intersection = {
 		But, two lines in three dimensions generally do not intersect at a point. They may be parallel (no intersections) or they may be coincident (infinite intersections). But, most often only their projection onto a plane intersects. When they do not exactly intersect at a point they can be connected by a line segment, the shortest line segment is unique and is often considered to be their intersection in 3-D.
     """,
 
-    "syntax_html": """
-        Rhino.LineLineIntersection (arrLineA, arrLineB [, blnPlanar])
-    """,
+    "syntax_html": {
+        0: ("arrLineA", "arrLineB", "blnPlanar"),
+    },
 
     "params_html": {
         0: {
-            "name": "LineA",
+            "name": "arrLineA",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "LineA",
             "doc": """
         Two 3-D points identifying the starting and ending points of the first line.
             """
         },
         1: {
-            "name": "LineB",
+            "name": "arrLineB",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "LineB",
             "doc": """
         Two 3-D points identifying the starting and ending points of the second line.
             """
         },
         2: {
-            "name": "Planar",
+            "name": "blnPlanar",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Planar",
             "doc": """
         Assume that the two lines are co-planar. The default value is True.
             """

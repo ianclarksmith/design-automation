@@ -8,52 +8,58 @@ add_torus = {
         Adds a torus-shaped revolved surface to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddTorus (arrBase, dblMajorRadius, dblMinorRadius [, arrDirection])
-    """,
+    "syntax_html": {
+        0: ("arrBase", "dblMajorRadius", "dblMinorRadius", "arrDirection"),
+        1: ("arrPlane", "dblMajorRadius", "dblMinorRadius"),
+    },
 
     "params_html": {
         0: {
-            "name": "Base",
+            "name": "arrBase",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Base",
             "doc": """
         The 3-D origin point of the torus.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane",
             "doc": """
         The base plane of the torus.
             """
         },
         2: {
-            "name": "MajorRadius",
+            "name": "dblMajorRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "MajorRadius",
             "doc": """
         The major radius of the torus.  The major radius must be larger than the minor radius.
             """
         },
         3: {
-            "name": "MinorRadius",
+            "name": "dblMinorRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "MinorRadius",
             "doc": """
         The minor radius of the torus.  The minor radius must be greater than zero.
             """
         },
         4: {
-            "name": "Direction",
+            "name": "arrDirection",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Direction",
             "doc": """
         A point that defines the direction of the torus.  If omitted, a torus that is parallel to the world XY plane is created.
             """

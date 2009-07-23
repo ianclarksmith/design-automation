@@ -8,25 +8,27 @@ close_curve = {
         Closes an open curve object by making adjustments to the end points so that they meet at a point.
     """,
 
-    "syntax_html": """
-        Rhino.CloseCurve (strObject [, dblTolerance])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
             """

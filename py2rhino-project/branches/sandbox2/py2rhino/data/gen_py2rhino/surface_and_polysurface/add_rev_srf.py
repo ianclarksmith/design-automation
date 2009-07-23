@@ -8,43 +8,47 @@ add_rev_srf = {
         Create a surface by revolving a curve around an axis.
     """,
 
-    "syntax_html": """
-        Rhino.AddRevSrf (strCurve, arrAxis [, dblStartAngle [, dblEndAngle]])
-    """,
+    "syntax_html": {
+        0: ("strCurve", "arrAxis", "dblStartAngle", "dblEndAngle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Profile",
+            "name": "strProfile",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Profile",
             "doc": """
         The identifier of the curve to revolve.
             """
         },
         1: {
-            "name": "Axis",
+            "name": "arrAxis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Axis",
             "doc": """
         An array of two 3-D points identifying the start point and end point of the rail revolve axis.
             """
         },
         2: {
-            "name": "StartAngle",
+            "name": "dblStartAngle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "StartAngle",
             "doc": """
         The starting angle. If omitted, an angle of 0.0 is used.
             """
         },
         3: {
-            "name": "EndAngle",
+            "name": "dblEndAngle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "EndAngle",
             "doc": """
         The ending angle. If omitted, an angle of 360.0 is used.
             """

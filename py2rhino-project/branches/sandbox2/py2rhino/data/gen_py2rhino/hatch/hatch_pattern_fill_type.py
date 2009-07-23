@@ -16,16 +16,17 @@ hatch_pattern_fill_type = {
 		Gradient, uses fill color definition.
     """,
 
-    "syntax_html": """
-        Rhino.HatchPatternFillType (strHatch)
-    """,
+    "syntax_html": {
+        0: ("strHatch"),
+    },
 
     "params_html": {
         0: {
-            "name": "Hatch",
+            "name": "strHatch",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Hatch",
             "doc": """
         The name of an existing hatch pattern.
             """

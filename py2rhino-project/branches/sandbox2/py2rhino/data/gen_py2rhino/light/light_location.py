@@ -8,25 +8,27 @@ light_location = {
         Returns or changes the location of a light object.
     """,
 
-    "syntax_html": """
-        Rhino.LightLocation (strObject [, arrlocation])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrlocation"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The light object's identifier.
             """
         },
         1: {
-            "name": "location",
+            "name": "arrlocation",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "location",
             "doc": """
         The new start point, or location.  If omitted, the location point is returned.
             """

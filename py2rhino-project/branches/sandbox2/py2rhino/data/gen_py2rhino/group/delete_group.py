@@ -8,16 +8,17 @@ delete_group = {
         Removes an existing group from the document. Reference groups cannot be removed. Deleting a group does not delete the member objects.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteGroup (strGroup)
-    """,
+    "syntax_html": {
+        0: ("strGroup"),
+    },
 
     "params_html": {
         0: {
-            "name": "Group",
+            "name": "strGroup",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Group",
             "doc": """
         The name of an existing group.
             """

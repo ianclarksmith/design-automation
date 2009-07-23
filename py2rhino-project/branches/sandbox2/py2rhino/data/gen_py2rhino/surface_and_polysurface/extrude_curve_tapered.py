@@ -8,61 +8,67 @@ extrude_curve_tapered = {
         Creates a surface by extruding a curve to a taper. Unlike Lofts and Sweeps, the initial orientation of the profile curve is maintained through the extrusion.
     """,
 
-    "syntax_html": """
-        Rhino.ExtrudeCurveTapered (strCurve, dblDistance, arrDirection, arrBasePoint, dblAngle [, intCornerType])
-    """,
+    "syntax_html": {
+        0: ("strCurve", "dblDistance", "arrDirection", "arrBasePoint", "dblAngle", "intCornerType"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of the curve object to extrude.
             """
         },
         1: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The extrusion distance.
             """
         },
         2: {
-            "name": "Direction",
+            "name": "arrDirection",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Direction",
             "doc": """
         A 3-D vector that specifies the extrusion direction.
             """
         },
         3: {
-            "name": "BasePoint",
+            "name": "arrBasePoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "BasePoint",
             "doc": """
         A 3-D point that specifies the base point of the extrusion.
             """
         },
         4: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         The angle of the extrusion.
             """
         },
         5: {
-            "name": "CornerType",
+            "name": "intCornerType",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "CornerType",
             "doc": """
         The corner type of the extrusion, where:
 		Value

@@ -8,16 +8,17 @@ get_color = {
         Displays the Rhino color picker dialog box allowing the user to select an RGB color value.
     """,
 
-    "syntax_html": """
-        Rhino.GetColor ([lngColor])
-    """,
+    "syntax_html": {
+        0: ("lngColor"),
+    },
 
     "params_html": {
         0: {
-            "name": "Color",
+            "name": "lngColor",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Color",
             "doc": """
         A default RGB color value.  If omitted, the default color is black, or RGB(0,0,0).
             """

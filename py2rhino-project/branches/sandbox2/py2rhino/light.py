@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class Light(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def add_directional_light(self, start_point, end_point):
         """        
@@ -15,10 +24,10 @@ class Light(IRhinoScript):
         Parameters
         ==========
 
-        start_point, Array of ????, Required        
+        start_point, Array of Doubles, Required        
         The 3-D starting point of the light.
             
-        end_point, Array of ????, Required        
+        end_point, Array of Doubles, Required        
         The 3-D ending point and direction of the light.
             
         Returns
@@ -33,19 +42,13 @@ class Light(IRhinoScript):
         """
 
         params = [start_point, end_point]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(start_point), flatten(end_point)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(start_point), flatten_params(end_point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(153, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddDirectionalLight", None, *params_flattened)
+        return self._ApplyTypes_(153, 1, (VT_VARIANT, 0), magic, u"AddDirectionalLight", None, *flattened)
 
     def add_linear_light(self, start_point, end_point, width=None):
         """        
@@ -54,10 +57,10 @@ class Light(IRhinoScript):
         Parameters
         ==========
 
-        start_point, Array of ????, Required        
+        start_point, Array of Doubles, Required        
         The 3-D starting point of the light.
             
-        end_point, Array of ????, Required        
+        end_point, Array of Doubles, Required        
         The 3-D ending point and direction of the light.
             
         width, Double, Optional        
@@ -75,19 +78,13 @@ class Light(IRhinoScript):
         """
 
         params = [start_point, end_point, width]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(start_point), flatten(end_point), width]
+        required = [True, True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(start_point), flatten_params(end_point), width]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(154, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddLinearLight", None, *params_flattened)
+        return self._ApplyTypes_(154, 1, (VT_VARIANT, 0), magic, u"AddLinearLight", None, *flattened)
 
     def add_point_light(self, point):
         """        
@@ -96,7 +93,7 @@ class Light(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D location point of the light.
             
         Returns
@@ -111,19 +108,13 @@ class Light(IRhinoScript):
         """
 
         params = [point]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(point)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(155, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddPointLight", None, *params_flattened)
+        return self._ApplyTypes_(155, 1, (VT_VARIANT, 0), magic, u"AddPointLight", None, *flattened)
 
     def add_rectangular_light(self, origin, width, height):
         """        
@@ -132,13 +123,13 @@ class Light(IRhinoScript):
         Parameters
         ==========
 
-        origin, Array of ????, Required        
+        origin, Array of Doubles, Required        
         The 3-D origin point of the light.
             
-        width, Array of ????, Required        
+        width, Array of Doubles, Required        
         The 3-D width and direction point of the light.
             
-        height, Array of ????, Required        
+        height, Array of Doubles, Required        
         The 3-D height and direction point of the light.
             
         Returns
@@ -153,19 +144,13 @@ class Light(IRhinoScript):
         """
 
         params = [origin, width, height]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(origin), flatten(width), flatten(height)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(origin), flatten_params(width), flatten_params(height)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(156, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddRectangularLight", None, *params_flattened)
+        return self._ApplyTypes_(156, 1, (VT_VARIANT, 0), magic, u"AddRectangularLight", None, *flattened)
 
     def add_spot_light(self, origin, radius, apex):
         """        
@@ -174,13 +159,13 @@ class Light(IRhinoScript):
         Parameters
         ==========
 
-        origin, Array of ????, Required        
+        origin, Array of Doubles, Required        
         The 3-D origin point of the light.
             
         radius, Double, Required        
         The radius of the cone.
             
-        apex, Array of ????, Required        
+        apex, Array of Doubles, Required        
         The 3-D apex point of the light.
             
         Returns
@@ -195,19 +180,13 @@ class Light(IRhinoScript):
         """
 
         params = [origin, radius, apex]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(origin), radius, flatten(apex)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(origin), radius, flatten_params(apex)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(157, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSpotLight", None, *params_flattened)
+        return self._ApplyTypes_(157, 1, (VT_VARIANT, 0), magic, u"AddSpotLight", None, *flattened)
 
     def enable_light(self, object, enable=None):
         """        
@@ -237,19 +216,13 @@ class Light(IRhinoScript):
         """
 
         params = [object, enable]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [object, enable]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [object, enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(158, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableLight", None, *params_flattened)
+        return self._ApplyTypes_(158, 1, (VT_VARIANT, 0), magic, u"EnableLight", None, *flattened)
 
     def is_directional_light(self, object):
         """        
@@ -273,19 +246,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(159, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsDirectionalLight", None, *params_flattened)
+        return self._ApplyTypes_(159, 1, (VT_VARIANT, 0), magic, u"IsDirectionalLight", None, *flattened)
 
     def is_light(self, object):
         """        
@@ -309,19 +276,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(160, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLight", None, *params_flattened)
+        return self._ApplyTypes_(160, 1, (VT_VARIANT, 0), magic, u"IsLight", None, *flattened)
 
     def is_light_enabled(self, object):
         """        
@@ -345,19 +306,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(161, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLightEnabled", None, *params_flattened)
+        return self._ApplyTypes_(161, 1, (VT_VARIANT, 0), magic, u"IsLightEnabled", None, *flattened)
 
     def is_light_reference(self, object):
         """        
@@ -381,19 +336,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(162, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLightReference", None, *params_flattened)
+        return self._ApplyTypes_(162, 1, (VT_VARIANT, 0), magic, u"IsLightReference", None, *flattened)
 
     def is_linear_light(self, object):
         """        
@@ -417,19 +366,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(163, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLinearLight", None, *params_flattened)
+        return self._ApplyTypes_(163, 1, (VT_VARIANT, 0), magic, u"IsLinearLight", None, *flattened)
 
     def is_point_light(self, object):
         """        
@@ -453,19 +396,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(164, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsPointLight", None, *params_flattened)
+        return self._ApplyTypes_(164, 1, (VT_VARIANT, 0), magic, u"IsPointLight", None, *flattened)
 
     def is_rectangular_light(self, object):
         """        
@@ -489,19 +426,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(165, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsRectangularLight", None, *params_flattened)
+        return self._ApplyTypes_(165, 1, (VT_VARIANT, 0), magic, u"IsRectangularLight", None, *flattened)
 
     def is_spot_light(self, object):
         """        
@@ -525,19 +456,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(166, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsSpotLight", None, *params_flattened)
+        return self._ApplyTypes_(166, 1, (VT_VARIANT, 0), magic, u"IsSpotLight", None, *flattened)
 
     def light_color(self, object, color=None):
         """        
@@ -567,21 +492,15 @@ class Light(IRhinoScript):
         """
 
         params = [object, color]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1)]
-        params_flattened = [object, color]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I4, 1)]
+        flattened = [object, color]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(167, 1, (VT_VARIANT, 0), magic, u"LightColor", None, *flattened)
 
-        return self._ApplyTypes_(167, 1, (VT_VARIANT, 0), params_magic_numbers, u"LightColor", None, *params_flattened)
-
-    def light_count():
+    def light_count(self):
         """        
         Returns the number of light objects in the document.
     
@@ -596,19 +515,13 @@ class Light(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(168, 1, (VT_VARIANT, 0), params_magic_numbers, u"LightCount", None, *params_flattened)
+        return self._ApplyTypes_(168, 1, (VT_VARIANT, 0), magic, u"LightCount", None, *flattened)
 
     def light_direction(self, object, direction=None):
         """        
@@ -620,7 +533,7 @@ class Light(IRhinoScript):
         object, String, Required        
         The light object's identifier.
             
-        direction, Array of ????, Optional        
+        direction, Array of Doubles, Optional        
         The new end point, or direction.  If omitted, the direction point is returned.
             
         Returns
@@ -638,19 +551,13 @@ class Light(IRhinoScript):
         """
 
         params = [object, direction]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(direction)]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [object, flatten_params(direction)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(491, 1, (VT_VARIANT, 0), params_magic_numbers, u"LightDirection", None, *params_flattened)
+        return self._ApplyTypes_(491, 1, (VT_VARIANT, 0), magic, u"LightDirection", None, *flattened)
 
     def light_location(self, object, location=None):
         """        
@@ -662,7 +569,7 @@ class Light(IRhinoScript):
         object, String, Required        
         The light object's identifier.
             
-        location, Array of ????, Optional        
+        location, Array of Doubles, Optional        
         The new start point, or location.  If omitted, the location point is returned.
             
         Returns
@@ -680,19 +587,13 @@ class Light(IRhinoScript):
         """
 
         params = [object, location]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(location)]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [object, flatten_params(location)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(490, 1, (VT_VARIANT, 0), params_magic_numbers, u"LightLocation", None, *params_flattened)
+        return self._ApplyTypes_(490, 1, (VT_VARIANT, 0), magic, u"LightLocation", None, *flattened)
 
     def light_name(self, object, name=None):
         """        
@@ -722,21 +623,15 @@ class Light(IRhinoScript):
         """
 
         params = [object, name]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, name]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, name]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(169, 1, (VT_VARIANT, 0), magic, u"LightName", None, *flattened)
 
-        return self._ApplyTypes_(169, 1, (VT_VARIANT, 0), params_magic_numbers, u"LightName", None, *params_flattened)
-
-    def light_objects():
+    def light_objects(self):
         """        
         Returns the identifier of light objects in the document.
     
@@ -754,19 +649,13 @@ class Light(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(170, 1, (VT_VARIANT, 0), params_magic_numbers, u"LightObjects", None, *params_flattened)
+        return self._ApplyTypes_(170, 1, (VT_VARIANT, 0), magic, u"LightObjects", None, *flattened)
 
     def rectangular_light_plane(self, object):
         """        
@@ -802,19 +691,13 @@ class Light(IRhinoScript):
         """
 
         params = [object]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [object]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [object]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(776, 1, (VT_VARIANT, 0), params_magic_numbers, u"RectangularLightPlane", None, *params_flattened)
+        return self._ApplyTypes_(776, 1, (VT_VARIANT, 0), magic, u"RectangularLightPlane", None, *flattened)
 
     def spot_light_hardness(self, object, hardness=None):
         """        
@@ -844,19 +727,13 @@ class Light(IRhinoScript):
         """
 
         params = [object, hardness]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, hardness]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, hardness]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(171, 1, (VT_VARIANT, 0), params_magic_numbers, u"SpotLightHardness", None, *params_flattened)
+        return self._ApplyTypes_(171, 1, (VT_VARIANT, 0), magic, u"SpotLightHardness", None, *flattened)
 
     def spot_light_radius(self, object, radius=None):
         """        
@@ -886,19 +763,13 @@ class Light(IRhinoScript):
         """
 
         params = [object, radius]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, radius]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, radius]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(584, 1, (VT_VARIANT, 0), params_magic_numbers, u"SpotLightRadius", None, *params_flattened)
+        return self._ApplyTypes_(584, 1, (VT_VARIANT, 0), magic, u"SpotLightRadius", None, *flattened)
 
     def spot_light_shadow_intensity(self, object, intensity=None):
         """        
@@ -928,17 +799,11 @@ class Light(IRhinoScript):
         """
 
         params = [object, intensity]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [object, intensity]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [object, intensity]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(172, 1, (VT_VARIANT, 0), params_magic_numbers, u"SpotLightShadowIntensity", None, *params_flattened)
+        return self._ApplyTypes_(172, 1, (VT_VARIANT, 0), magic, u"SpotLightShadowIntensity", None, *flattened)
 

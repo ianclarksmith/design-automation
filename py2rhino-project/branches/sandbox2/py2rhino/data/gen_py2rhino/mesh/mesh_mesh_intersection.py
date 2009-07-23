@@ -8,34 +8,37 @@ mesh_mesh_intersection = {
         Calculates the intersection of a mesh object with another mesh object.
     """,
 
-    "syntax_html": """
-        Rhino.MeshMeshIntersection (strMesh1, strMesh2 [, dblTolerance])
-    """,
+    "syntax_html": {
+        0: ("strMesh1", "strMesh2", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mesh1",
+            "name": "strMesh1",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Mesh1",
             "doc": """
         The identifier of the first mesh object.
             """
         },
         1: {
-            "name": "Mesh2",
+            "name": "strMesh2",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Mesh2",
             "doc": """
         The identifier of the second mesh object.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The intersection tolerance. Of omitted, Rhino's internal zero tolerance is used.
             """

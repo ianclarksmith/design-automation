@@ -8,34 +8,38 @@ add_sphere = {
         Adds a spherical surface to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddSphere (arrCenter, dblRadius)
-    """,
+    "syntax_html": {
+        0: ("arrCenter", "dblRadius"),
+        1: ("arrPlane", "dblRadius"),
+    },
 
     "params_html": {
         0: {
-            "name": "Center",
+            "name": "arrCenter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Center",
             "doc": """
         The center point of the sphere.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane",
             "doc": """
         An equatorial plane.  The origin of the plane will be the center point of the sphere.
             """
         },
         2: {
-            "name": "Radius",
+            "name": "dblRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radius",
             "doc": """
         The radius of the sphere in current model units.
             """

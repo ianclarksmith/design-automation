@@ -8,25 +8,27 @@ wallpaper_gray_scale = {
         Returns or sets the grayscale display option of the wallpaper bitmap of the specified view.
     """,
 
-    "syntax_html": """
-        Rhino.WallpaperGrayScale ([strView [, blnGrayScale]])
-    """,
+    "syntax_html": {
+        0: ("strView", "blnGrayScale"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "GrayScale",
+            "name": "blnGrayScale",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "GrayScale",
             "doc": """
         Display the wallpaper bitmap in grayscale (True) or color (False).
             """

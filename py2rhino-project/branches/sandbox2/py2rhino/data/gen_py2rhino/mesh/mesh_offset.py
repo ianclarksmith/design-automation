@@ -8,25 +8,27 @@ mesh_offset = {
         Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
     """,
 
-    "syntax_html": """
-        Rhino.MeshOffset (strMesh, dblDistance)
-    """,
+    "syntax_html": {
+        0: ("strMesh", "dblDistance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mesh",
+            "name": "strMesh",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Mesh",
             "doc": """
         The identifier of a mesh object.
             """
         },
         1: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The distance to offset.
             """

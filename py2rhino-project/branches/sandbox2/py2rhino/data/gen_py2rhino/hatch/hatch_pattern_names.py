@@ -8,9 +8,9 @@ hatch_pattern_names = {
         Returns the names of all of the hatch pattern in the document.
     """,
 
-    "syntax_html": """
-        Rhino.HatchPatternNames ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

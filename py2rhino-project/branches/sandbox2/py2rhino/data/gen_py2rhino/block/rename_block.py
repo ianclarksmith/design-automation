@@ -8,25 +8,27 @@ rename_block = {
         Renames an existing block definition.
     """,
 
-    "syntax_html": """
-        Rhino.RenameBlock (strOldBlock, strNewBlock)
-    """,
+    "syntax_html": {
+        0: ("strOldBlock", "strNewBlock"),
+    },
 
     "params_html": {
         0: {
-            "name": "OldBlock",
+            "name": "strOldBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "OldBlock",
             "doc": """
         The name of an existing block definition.
             """
         },
         1: {
-            "name": "NewBlock",
+            "name": "strNewBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "NewBlock",
             "doc": """
         The new block definition name.
             """

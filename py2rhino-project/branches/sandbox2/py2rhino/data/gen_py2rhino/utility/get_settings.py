@@ -11,34 +11,37 @@ get_settings = {
 		...
     """,
 
-    "syntax_html": """
-        Rhino.GetSettings (strFilename [, strSection [, strEntry]])
-    """,
+    "syntax_html": {
+        0: ("strFilename", "strSection", "strEntry"),
+    },
 
     "params_html": {
         0: {
-            "name": "Filename",
+            "name": "strFilename",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Filename",
             "doc": """
         The name of the initialization file.
             """
         },
         1: {
-            "name": "Section",
+            "name": "strSection",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Section",
             "doc": """
         The section containing the entry.
             """
         },
         2: {
-            "name": "Entry",
+            "name": "strEntry",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Entry",
             "doc": """
         The entry whose associated string is to be returned.
             """

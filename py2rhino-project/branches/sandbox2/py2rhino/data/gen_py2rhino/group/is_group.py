@@ -8,16 +8,17 @@ is_group = {
         Verifies the existence of a group.
     """,
 
-    "syntax_html": """
-        Rhino.IsGroup (strGroup)
-    """,
+    "syntax_html": {
+        0: ("strGroup"),
+    },
 
     "params_html": {
         0: {
-            "name": "Group",
+            "name": "strGroup",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Group",
             "doc": """
         The name of an existing group.
             """

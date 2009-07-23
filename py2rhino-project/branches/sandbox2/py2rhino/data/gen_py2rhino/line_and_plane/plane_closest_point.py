@@ -8,16 +8,17 @@ plane_closest_point = {
         Returns the point on a plane that is closest to a test point.
     """,
 
-    "syntax_html": """
-        Rhino.PlaneClosestPoint (arrPlane, arrPoint [, blnReturnPoint])
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "arrPoint", "blnReturnPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane. The elements of a plane array are as follows:
 		Element
@@ -32,19 +33,21 @@ plane_closest_point = {
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D point to test.
             """
         },
         2: {
-            "name": "ReturnPoint",
+            "name": "blnReturnPoint",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnPoint",
             "doc": """
         If omitted or True, then the point on the plane that is closest to the test point is returned. If False, then the parameter of the point on the plane that is closest to the test point is returned.
             """

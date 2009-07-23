@@ -8,25 +8,28 @@ flash_object = {
         Causes the selection state of one or more objects to change momentarily so the object appears to flash on the screen.
     """,
 
-    "syntax_html": """
-        Rhino.FlashObject (strObject [, blnStyle])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnStyle"),
+        1: ("arrObjects", "blnStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         The identifiers of the objects to flash.
             """
         },
         1: {
-            "name": "Style",
+            "name": "blnStyle",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Style",
             "doc": """
         The flash style.  If True (default), then the objects will flash between their object color and Rhino's selected object color.  If false, then the objects will flash between invisible and visible.
             """

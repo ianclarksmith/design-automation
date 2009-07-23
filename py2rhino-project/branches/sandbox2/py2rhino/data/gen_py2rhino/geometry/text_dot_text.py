@@ -8,25 +8,27 @@ text_dot_text = {
         Returns or modifies the text string of an annotation text dot object.  Annotation dots can be created using Rhino's Dot command.
     """,
 
-    "syntax_html": """
-        Rhino.TextDotText (strObject [, strText])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strText"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Text",
+            "name": "strText",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Text",
             "doc": """
         A new character or text string.
             """

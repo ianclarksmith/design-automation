@@ -8,16 +8,17 @@ message_beep = {
         Plays a system waveform sound.
     """,
 
-    "syntax_html": """
-        Rhino.MessageBeep ([intBeep])
-    """,
+    "syntax_html": {
+        0: ("intBeep"),
+    },
 
     "params_html": {
         0: {
-            "name": "Beep",
+            "name": "intBeep",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Beep",
             "doc": """
         A sound type.  If omitted, a simple beep (0) is played:
 		Value

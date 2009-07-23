@@ -8,25 +8,27 @@ is_detail = {
         Verifies that a detail view exists on a page layout view.
     """,
 
-    "syntax_html": """
-        Rhino.IsDetail (strLayout, strDetail)
-    """,
+    "syntax_html": {
+        0: ("strLayout", "strDetail"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layout",
+            "name": "strLayout",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layout",
             "doc": """
         The title or identifier of an existing page layout view.
             """
         },
         1: {
-            "name": "Detail",
+            "name": "strDetail",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Detail",
             "doc": """
         The title or identifier of an existing detail view.
             """

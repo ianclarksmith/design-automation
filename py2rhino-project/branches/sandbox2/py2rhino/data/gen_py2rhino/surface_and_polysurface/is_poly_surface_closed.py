@@ -8,16 +8,17 @@ is_poly_surface_closed = {
         Verifies a polysurface object is closed.  If the polysurface fully encloses a volume, it is considered a solid.
     """,
 
-    "syntax_html": """
-        Rhino.IsPolySurfaceClosed (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

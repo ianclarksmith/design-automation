@@ -8,16 +8,17 @@ delete_named_c_plane = {
         Removed a new named construction plane from the document.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteNamedCPlane (strName)
-    """,
+    "syntax_html": {
+        0: ("strName"),
+    },
 
     "params_html": {
         0: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The name of the named construction plane to remove.
             """

@@ -8,16 +8,17 @@ simplify_array = {
         Flattens an array of 3-D points into a one-dimensional array of real number. For example, if you had an array containing three 3-D points, this method would return a one-dimensional array containing nine real numbers.
     """,
 
-    "syntax_html": """
-        Rhino.SimplifyArray (arrPoints)
-    """,
+    "syntax_html": {
+        0: ("arrPoints"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points.
             """

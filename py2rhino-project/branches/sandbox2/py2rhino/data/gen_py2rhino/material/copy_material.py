@@ -8,25 +8,27 @@ copy_material = {
         Copies the definition of a source material to a destination material.
     """,
 
-    "syntax_html": """
-        Rhino.CopyMaterial (intSrcIndex, intDstIndex)
-    """,
+    "syntax_html": {
+        0: ("intSrcIndex", "intDstIndex"),
+    },
 
     "params_html": {
         0: {
-            "name": "SrcIndex",
+            "name": "intSrcIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "SrcIndex",
             "doc": """
         The index of the source material.
             """
         },
         1: {
-            "name": "DstIndex",
+            "name": "intDstIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "DstIndex",
             "doc": """
         The index of the destination material.
             """

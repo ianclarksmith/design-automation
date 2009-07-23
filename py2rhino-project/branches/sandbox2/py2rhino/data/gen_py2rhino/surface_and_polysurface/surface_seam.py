@@ -8,34 +8,37 @@ surface_seam = {
         Changes the seam of a closed surface. For more information, see the Rhino help file for the SrfSeam command.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceSeam (strObject, intDirection, dblParameter)
-    """,
+    "syntax_html": {
+        0: ("strObject", "intDirection", "dblParameter"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The parameter direction, where 0 = U and 1 = V.
             """
         },
         2: {
-            "name": "Parameter",
+            "name": "dblParameter",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Parameter",
             "doc": """
         The parameter at which to place the seam.
             """

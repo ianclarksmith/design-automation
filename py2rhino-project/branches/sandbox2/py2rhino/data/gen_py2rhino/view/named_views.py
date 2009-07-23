@@ -8,9 +8,9 @@ named_views = {
         Returns the names of all named views in the document.
     """,
 
-    "syntax_html": """
-        Rhino.NamedViews ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

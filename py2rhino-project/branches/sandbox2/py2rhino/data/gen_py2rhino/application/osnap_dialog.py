@@ -8,16 +8,17 @@ osnap_dialog = {
         Shows or hides Rhino's dockable object snap bar.
     """,
 
-    "syntax_html": """
-        Rhino.OsnapDialog ([blnVisible])
-    """,
+    "syntax_html": {
+        0: ("blnVisible"),
+    },
 
     "params_html": {
         0: {
-            "name": "Visible",
+            "name": "blnVisible",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Visible",
             "doc": """
         The new visibility state, either True or False.
             """

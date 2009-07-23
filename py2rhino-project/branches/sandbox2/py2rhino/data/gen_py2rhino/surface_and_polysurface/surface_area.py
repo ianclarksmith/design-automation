@@ -8,16 +8,17 @@ surface_area = {
         Calculates the area of a surface or polysurface object. The results are based on the current drawing units.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceArea (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

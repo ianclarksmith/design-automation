@@ -8,16 +8,17 @@ remove_object_from_top_group = {
         Removes a single object from it's top-most group.
     """,
 
-    "syntax_html": """
-        Rhino.RemoveObjectFromTopGroup (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """

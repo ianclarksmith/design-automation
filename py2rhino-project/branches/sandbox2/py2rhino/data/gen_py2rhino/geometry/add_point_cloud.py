@@ -8,16 +8,17 @@ add_point_cloud = {
         Adds a point cloud object to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddPointCloud (arrPoints)
-    """,
+    "syntax_html": {
+        0: ("arrPoints"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points.
             """

@@ -8,25 +8,27 @@ block_description = {
         Returns or sets the description of a block definition.
     """,
 
-    "syntax_html": """
-        Rhino.BlockDescription (strBlock [, strText])
-    """,
+    "syntax_html": {
+        0: ("strBlock", "strText"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """
         },
         1: {
-            "name": "Text",
+            "name": "strText",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Text",
             "doc": """
         The new description.  If omitted, the current description is returned.
             """

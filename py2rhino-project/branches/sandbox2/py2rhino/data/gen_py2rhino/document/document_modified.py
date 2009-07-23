@@ -9,16 +9,17 @@ document_modified = {
 		Note, setting the document modified flag to false will prevent the "Do you want to save this file..." from displaying when you close Rhino.
     """,
 
-    "syntax_html": """
-        Rhino.DocumentModified ([blnModified])
-    """,
+    "syntax_html": {
+        0: ("blnModified"),
+    },
 
     "params_html": {
         0: {
-            "name": "Modified",
+            "name": "blnModified",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Modified",
             "doc": """
         The modified state, either True or False.
             """

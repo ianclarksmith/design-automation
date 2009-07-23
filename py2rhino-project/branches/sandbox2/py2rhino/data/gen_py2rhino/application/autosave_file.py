@@ -8,16 +8,17 @@ autosave_file = {
         Returns or changes the file name used by Rhino's automatic file saving mechanism.
     """,
 
-    "syntax_html": """
-        Rhino.AutosaveFile ([strFile])
-    """,
+    "syntax_html": {
+        0: ("strFile"),
+    },
 
     "params_html": {
         0: {
-            "name": "File",
+            "name": "strFile",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "File",
             "doc": """
         The name of the new autosave file.
             """

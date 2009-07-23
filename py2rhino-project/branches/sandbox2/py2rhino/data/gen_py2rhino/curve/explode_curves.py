@@ -9,25 +9,28 @@ explode_curves = {
 		topological order.
     """,
 
-    "syntax_html": """
-        Rhino.ExplodeCurves (strObject [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnDelete"),
+        1: ("arrObjects", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the curve objects to explode.
             """
         },
         1: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete input objects after exploding.  The default is not to delete objects (False).
             """

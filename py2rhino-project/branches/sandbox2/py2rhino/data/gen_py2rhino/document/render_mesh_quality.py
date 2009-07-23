@@ -9,16 +9,17 @@ render_mesh_quality = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.RenderMeshQuality ([intQuality])
-    """,
+    "syntax_html": {
+        0: ("intQuality"),
+    },
 
     "params_html": {
         0: {
-            "name": "Quality",
+            "name": "intQuality",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Quality",
             "doc": """
         The render mesh quality, either:
 		Value

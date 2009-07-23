@@ -8,16 +8,17 @@ mesh_quads_to_triangles = {
         Converts a mesh object's quad faces to triangles.
     """,
 
-    "syntax_html": """
-        Rhino.MeshQuadsToTriangles (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a mesh object.
             """

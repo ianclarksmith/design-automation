@@ -9,16 +9,17 @@ plane_equation = {
 		Ax + By + Cz + D = 0
     """,
 
-    "syntax_html": """
-        Rhino.PlaneEquation (arrPlane)
-    """,
+    "syntax_html": {
+        0: ("arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane. The elements of a plane array are as follows:
 		Element

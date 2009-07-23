@@ -8,16 +8,17 @@ floor = {
         Returns the largest integer less than or equal to the specified number.
     """,
 
-    "syntax_html": """
-        Rhino.Floor (dblNumber)
-    """,
+    "syntax_html": {
+        0: ("dblNumber"),
+    },
 
     "params_html": {
         0: {
-            "name": "Number",
+            "name": "dblNumber",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Number",
             "doc": """
         A number.
             """

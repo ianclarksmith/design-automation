@@ -9,9 +9,9 @@ world_y_z_plane = {
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,1.0,0.0), Array(0.0,0.0,1.0)
     """,
 
-    "syntax_html": """
-        Rhino.WorldYZPlane ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

@@ -8,25 +8,27 @@ a_tan2 = {
         Returns the angle whose tangent is the quotient of two specified numbers.
     """,
 
-    "syntax_html": """
-        Rhino.ATan2 (dblNumberY, dblNumberX)
-    """,
+    "syntax_html": {
+        0: ("dblNumberY", "dblNumberX"),
+    },
 
     "params_html": {
         0: {
-            "name": "NumberY",
+            "name": "dblNumberY",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "NumberY",
             "doc": """
         The y coordinate of a point.
             """
         },
         1: {
-            "name": "NumberX",
+            "name": "dblNumberX",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "NumberX",
             "doc": """
         The x coordinate of a point.
             """

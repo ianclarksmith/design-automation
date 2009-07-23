@@ -8,16 +8,17 @@ delete_alias = {
         Deletes an existing command alias from Rhino.
     """,
 
-    "syntax_html": """
-        Rhino.DeleteAlias (strAlias)
-    """,
+    "syntax_html": {
+        0: ("strAlias"),
+    },
 
     "params_html": {
         0: {
-            "name": "Alias",
+            "name": "strAlias",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Alias",
             "doc": """
         The name of an existing command alias.
             """

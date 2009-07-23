@@ -8,16 +8,17 @@ add_points = {
         Adds one or more point objects to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddPoints (arrPoints)
-    """,
+    "syntax_html": {
+        0: ("arrPoints"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points.
             """

@@ -8,34 +8,37 @@ add_interp_curve_ex = {
         Adds an interpolated curve object to  the document similar to Rhino's InterpCrv command.
     """,
 
-    "syntax_html": """
-        Rhino.AddInterpCurveEx (arrPoints [, intDegree [, intKnotStyle [, blnSharp [, arrStartTangent [, arrEndTangent]]]]])
-    """,
+    "syntax_html": {
+        0: ("arrPoints", "intDegree", "intKnotStyle", "blnSharp", "arrStartTangent", "arrEndTangent"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array containing 3-D points to interpolate. Note, the number of control points must be >= (intDegree+1).
             """
         },
         1: {
-            "name": "Degree",
+            "name": "intDegree",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Degree",
             "doc": """
         The degree of the curve.  If omitted, degree = 3 is used.  The degree of the curve must be >=1.  Periodic curves must have a degree >= 2.  For intKnotStyle = 1 or 2, the degree must be 3.
             """
         },
         2: {
-            "name": "KnotStyle",
+            "name": "intKnotStyle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "KnotStyle",
             "doc": """
         The knot style to use. If omitted, a knot style = 0 is used. The knot style determines how an interpolated curve will be parameterized.
 		Value
@@ -48,28 +51,31 @@ add_interp_curve_ex = {
             """
         },
         3: {
-            "name": "Sharp",
+            "name": "blnSharp",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Sharp",
             "doc": """
         If True, when you create a closed curve, it will have a kink at the start/end point. If False (default), a smooth closure will be created.
             """
         },
         4: {
-            "name": "StartTangent",
+            "name": "arrStartTangent",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartTangent",
             "doc": """
         A 3-D vector that specifies a tangency condition at the beginning of the curve.
             """
         },
         5: {
-            "name": "EndTangent",
+            "name": "arrEndTangent",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndTangent",
             "doc": """
         A 3-D vector that specifies a tangency condition at the end of the curve.
             """

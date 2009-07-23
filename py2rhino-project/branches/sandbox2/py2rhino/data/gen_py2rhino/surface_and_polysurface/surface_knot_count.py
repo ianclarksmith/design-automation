@@ -8,16 +8,17 @@ surface_knot_count = {
         Returns the knot count of a surface object.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceKnotCount (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

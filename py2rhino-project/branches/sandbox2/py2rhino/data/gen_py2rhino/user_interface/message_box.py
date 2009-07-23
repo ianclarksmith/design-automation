@@ -8,25 +8,27 @@ message_box = {
         Displays a Windows message box. A message box contains an application-defined message and title, plus any combination of predefined icons and push buttons.
     """,
 
-    "syntax_html": """
-        Rhino.MessageBox (strMessage [, intButtons [, strTitle]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "intButtons", "strTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "Buttons",
+            "name": "intButtons",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Buttons",
             "doc": """
         The buttons and icon to display.  This parameter can be a combination of the following flags.  If omitted, an OK button and no icon is displayed.
 		Value
@@ -65,10 +67,11 @@ message_box = {
             """
         },
         2: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """

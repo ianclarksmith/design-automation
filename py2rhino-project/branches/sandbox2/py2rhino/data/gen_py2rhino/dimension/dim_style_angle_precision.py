@@ -8,25 +8,27 @@ dim_style_angle_precision = {
         Returns or changes the angle display precision of a dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleAnglePrecision (strDimStyle [, intPrecision])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle", "intPrecision"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "Precision",
+            "name": "intPrecision",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Precision",
             "doc": """
         The new angle precision value.  If omitted, the current angle precision is returned.
             """

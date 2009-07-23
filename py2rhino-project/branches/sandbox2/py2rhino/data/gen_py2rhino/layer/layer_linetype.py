@@ -8,25 +8,27 @@ layer_linetype = {
         Returns or changes the linetype of a layer.
     """,
 
-    "syntax_html": """
-        Rhino.LayerLinetype (strLayer [, strLinetype])
-    """,
+    "syntax_html": {
+        0: ("strLayer", "strLinetype"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.
             """
         },
         1: {
-            "name": "Linetype",
+            "name": "strLinetype",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Linetype",
             "doc": """
         The name of the new linetype.
             """

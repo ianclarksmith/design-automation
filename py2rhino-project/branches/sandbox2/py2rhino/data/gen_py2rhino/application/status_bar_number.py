@@ -8,16 +8,17 @@ status_bar_number = {
         Sets Rhino's status bar number pane.
     """,
 
-    "syntax_html": """
-        Rhino.StatusBarNumber ([dblNumber])
-    """,
+    "syntax_html": {
+        0: ("dblNumber"),
+    },
 
     "params_html": {
         0: {
-            "name": "Number",
+            "name": "dblNumber",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Number",
             "doc": """
         The number to display.
             """

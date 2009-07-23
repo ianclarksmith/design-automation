@@ -8,34 +8,38 @@ bounding_box = {
         Returns either a world axis-aligned or a construction plane axis-aligned bounding box of an object or of several objects.
     """,
 
-    "syntax_html": """
-        Rhino.BoundingBox (strObject [, strView [, blnWorldCoords]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strView", "blnWorldCoords"),
+        1: ("arrObjects", "strView", "blnWorldCoords"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects.
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title of the view that contains the construction plane to which the bounding box should be aligned.  If omitted, a world axis-aligned bounding box will be calculated.
             """
         },
         2: {
-            "name": "WorldCoords",
+            "name": "blnWorldCoords",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "WorldCoords",
             "doc": """
         Whether or not to return the bounding box as world coordinates or construction plane coordinates.  The default is to return world coordinates (True).  Note, this option does not apply to world axis-aligned bounding boxes.
             """

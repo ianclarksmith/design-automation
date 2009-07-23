@@ -8,25 +8,27 @@ view_camera_up = {
         Returns or sets the camera up direction of specified view.
     """,
 
-    "syntax_html": """
-        Rhino.ViewCameraUp ([strView [, arrUpVector]])
-    """,
+    "syntax_html": {
+        0: ("strView", "arrUpVector"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "UpVector",
+            "name": "arrUpVector",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "UpVector",
             "doc": """
         A 3-D vector identifying the new camera location.
             """

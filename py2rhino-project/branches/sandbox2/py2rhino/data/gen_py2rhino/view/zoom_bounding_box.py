@@ -8,34 +8,37 @@ zoom_bounding_box = {
         Zooms to the extents of a specified bounding box in the specified view, or in the active view.
     """,
 
-    "syntax_html": """
-        Rhino.ZoomBoundingBox (arrCorners [, strView [, blnAll]])
-    """,
+    "syntax_html": {
+        0: ("arrCorners", "strView", "blnAll"),
+    },
 
     "params_html": {
         0: {
-            "name": "Corners",
+            "name": "arrCorners",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Corners",
             "doc": """
         An array of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.  Use BoundingBox to obtain the bounding box of objects.
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         2: {
-            "name": "All",
+            "name": "blnAll",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "All",
             "doc": """
         Zoom extents in all views.  If omitted, only the specified view is zoomed (False).
             """

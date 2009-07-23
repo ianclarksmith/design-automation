@@ -8,25 +8,27 @@ point_array_closest_point = {
         Finds the point in an array of 3-D points that is closest to a test point.
     """,
 
-    "syntax_html": """
-        Rhino.PointArrayClosestPoint (arrPoints, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("arrPoints", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points to test.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D test point.
             """

@@ -8,34 +8,37 @@ short_path = {
         Creates the shortest possible curve (geodesic) between two points on a surface. For more details, see the ShortPath command in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.ShortPath (strSurface, arrStart, arrEnd)
-    """,
+    "syntax_html": {
+        0: ("strSurface", "arrStart", "arrEnd"),
+    },
 
     "params_html": {
         0: {
-            "name": "Surface",
+            "name": "strSurface",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Surface",
             "doc": """
         The identifier of the surface object that pulls.
             """
         },
         1: {
-            "name": "Start",
+            "name": "arrStart",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Start",
             "doc": """
         A 3-D surface point identifying the starting point of the short curve.
             """
         },
         2: {
-            "name": "End",
+            "name": "arrEnd",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "End",
             "doc": """
         A 3-D surface point identifying the ending point of the short curve.
             """

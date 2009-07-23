@@ -8,25 +8,27 @@ dim_style_text_height = {
         Returns or changes the text height used by a dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleTextHeight (strDimStyle [, dblHeight])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle", "dblHeight"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "Height",
+            "name": "dblHeight",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Height",
             "doc": """
         The new text height.  If omitted, the current text height is returned.
             """

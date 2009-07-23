@@ -8,9 +8,9 @@ dim_style_count = {
         Returns the number of dimension styles in the document.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

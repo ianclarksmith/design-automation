@@ -8,34 +8,37 @@ get_curve_object = {
         Prompts the user to pick, or select, a single curve object.
     """,
 
-    "syntax_html": """
-        Rhino.GetCurveObject ([strMessage [, blnPreSelect [, blnSelect ]]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "blnPreSelect", "blnSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "PreSelect",
+            "name": "blnPreSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "PreSelect",
             "doc": """
         Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
             """
         },
         2: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the picked objects.  If omitted, the objects that are picked are not selected (False).
             """

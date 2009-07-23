@@ -8,34 +8,37 @@ xform_world_to_screen = {
         Transforms a point from world coordinates to either client-area coordinates of the specified view or screen coordinates. The resulting coordinates are represented as a 2-D point.
     """,
 
-    "syntax_html": """
-        Rhino.XformWorldToScreen (arrPoint [, strView [, blnConvert]])
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "strView", "blnConvert"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point in world coordinates.
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title of the view.  If omitted, the active view is used.
             """
         },
         2: {
-            "name": "Convert",
+            "name": "blnConvert",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Convert",
             "doc": """
         If omitted or False, the function returns the results as client-area coordinates of the specified view. If True, then the results are returned as screen coordinates.
             """

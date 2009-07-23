@@ -8,16 +8,17 @@ is_material_reference = {
         Verifies a material is referenced from another file.
     """,
 
-    "syntax_html": """
-        Rhino.IsMaterialReference (intMaterialIndex)
-    """,
+    "syntax_html": {
+        0: ("intMaterialIndex"),
+    },
 
     "params_html": {
         0: {
-            "name": "MaterialIndex",
+            "name": "intMaterialIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "MaterialIndex",
             "doc": """
         The zero-based material index.
             """

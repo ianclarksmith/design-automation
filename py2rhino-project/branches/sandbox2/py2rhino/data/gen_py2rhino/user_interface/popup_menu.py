@@ -8,25 +8,27 @@ popup_menu = {
         Displays a user-defined, context-style popup menu. The popup menu can appear almost anywhere. And, it can be dismissed by either clicking the left or right mouse buttons.
     """,
 
-    "syntax_html": """
-        Rhino.PopupMenu (arrItems, arrModes, arrPoint, strView)
-    """,
+    "syntax_html": {
+        0: ("arrItems", "arrModes", "arrPoint", "strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "Items",
+            "name": "arrItems",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Items",
             "doc": """
         An array of string representing the menu items. An empty string, or "", will create a menu separator item.
             """
         },
         1: {
-            "name": "Modes",
+            "name": "arrModes",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Modes",
             "doc": """
         A array if numbers identifying the display mode of the corresponding menu items. If omitted, all menu items are enabled. Note, display modes are ignored for menu separators. The display modes are a follows:
 		0
@@ -39,19 +41,21 @@ popup_menu = {
             """
         },
         2: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point where the menu item is to appear. If omitted, the menu item will appear at the current cursor position.
             """
         },
         3: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         If arrPoint is specified, the strView is the view in which the menu is to appear. If arrPoint is specified but strView is omitted, then the menu will be displayed in the active view.
             """

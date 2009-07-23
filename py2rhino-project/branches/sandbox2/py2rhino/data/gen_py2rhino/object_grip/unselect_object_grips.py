@@ -8,16 +8,17 @@ unselect_object_grips = {
         Unselects an object's grips. Note, the grips will not be turned off.
     """,
 
-    "syntax_html": """
-        Rhino.UnselectObjectGrips (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """

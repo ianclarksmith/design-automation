@@ -8,43 +8,47 @@ curve_contour_points = {
         Returns the 3-D point locations calculated by contouring a curve object.
     """,
 
-    "syntax_html": """
-        Rhino.CurveContourPoints (strObject, arrStartPoint, arrEndPoint [, dblInterval])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrStartPoint", "arrEndPoint", "dblInterval"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a curve object.
             """
         },
         1: {
-            "name": "StartPoint",
+            "name": "arrStartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartPoint",
             "doc": """
         The 3-D starting point of a center line.
             """
         },
         2: {
-            "name": "EndPoint",
+            "name": "arrEndPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndPoint",
             "doc": """
         The 3-D ending point of a center line.
             """
         },
         3: {
-            "name": "Interval",
+            "name": "dblInterval",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Interval",
             "doc": """
         The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
             """

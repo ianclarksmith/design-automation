@@ -8,16 +8,17 @@ ellipse_center_point = {
         Returns the center point of an elliptical-shaped curve object.
     """,
 
-    "syntax_html": """
-        Rhino.EllipseCenterPoint (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

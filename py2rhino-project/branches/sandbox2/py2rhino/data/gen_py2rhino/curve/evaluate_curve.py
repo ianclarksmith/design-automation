@@ -8,34 +8,37 @@ evaluate_curve = {
         Evaluates a curve at a parameter.
     """,
 
-    "syntax_html": """
-        Rhino.EvaluateCurve (strObject, dblParameter [, intIndex)
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblParameter", "intIndex"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "dblParameter",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Parameter",
             "doc": """
         The parameter to evaluate.
             """
         },
         2: {
-            "name": "Index",
+            "name": "intIndex",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Index",
             "doc": """
         If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
             """

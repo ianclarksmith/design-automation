@@ -8,16 +8,17 @@ unify_mesh_normals = {
         Fixes inconsistencies in the directions of faces of a mesh object.
     """,
 
-    "syntax_html": """
-        Rhino.UnifyMeshNormals (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a mesh object.
             """

@@ -8,25 +8,27 @@ layer_locked = {
         Returns or changes the locked mode of a layer. This method should be use instead of LayerMode.
     """,
 
-    "syntax_html": """
-        Rhino.LayerLocked (strLayer [, blnLocked])
-    """,
+    "syntax_html": {
+        0: ("strLayer", "blnLocked"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.
             """
         },
         1: {
-            "name": "Visible",
+            "name": "blnVisible",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Visible",
             "doc": """
         The new layer locked mode.  True = Locked, False = Unlocked.
             """

@@ -8,25 +8,27 @@ xform_c_plane_to_world = {
         Transforms a point from construction plane coordinates to world coordinates.
     """,
 
-    "syntax_html": """
-        Rhino.XformCPlaneToWorld (arrPoint, arrPlane)
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point in construction plane coordinates.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The construction plane.  The elements of a plane array are as follows:
 		Elemenet

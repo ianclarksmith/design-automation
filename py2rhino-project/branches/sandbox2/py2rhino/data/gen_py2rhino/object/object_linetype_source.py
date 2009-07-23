@@ -11,25 +11,28 @@ object_linetype_source = {
 		3. Linetype from parent.  For objects with parents, like objects in block instances, use parent's linetype. If no parent, treats as linetype from layer.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectLinetypeSource (strObject [, intSource])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intSource"),
+        1: ("arrObjects", "intSource"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
             """
         },
         1: {
-            "name": "Source",
+            "name": "intSource",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Source",
             "doc": """
         The new linetype source.  If omitted, the current linetype source is returned.  Note, if arrObjects is specified, intSource is required.
 		Value

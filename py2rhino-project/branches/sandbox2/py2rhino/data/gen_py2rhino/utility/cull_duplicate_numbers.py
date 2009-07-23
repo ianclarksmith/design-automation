@@ -8,25 +8,27 @@ cull_duplicate_numbers = {
         Removes duplicates from an array of numbers.
     """,
 
-    "syntax_html": """
-        Rhino.CullDuplicateNumbers (arrNumbers [, dblTolerance])
-    """,
+    "syntax_html": {
+        0: ("arrNumbers", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Numbers",
+            "name": "arrNumbers",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Numbers",
             "doc": """
         An array of numbers.
             """
         },
         1: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The minimum distance between numbers.  Numbers that fall within this tolerance will be discarded.  If omitted, Rhino's internal zero tolerance is used.
             """

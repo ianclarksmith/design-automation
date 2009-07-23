@@ -8,25 +8,27 @@ duplicate_edge_curves = {
         Duplicates the edge curves of a surface or polysurface. For more information, see the Rhino help file for information on the DupEdge command.
     """,
 
-    "syntax_html": """
-        Rhino.DuplicateEdgeCurves (strObject [, blnSelect])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the surface or polysurface object.
             """
         },
         1: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the duplicated edge curves.  The default is not to select (False).
             """

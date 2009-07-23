@@ -8,25 +8,27 @@ pull_curve_to_mesh = {
         Pulls a curve object to a mesh object. The function makes a polyline approximation of the input curve and gets the closest point on the mesh for each point on the mesh.  Then it "connects the points" so  that you have a polyline on the mesh.
     """,
 
-    "syntax_html": """
-        Rhino.PullCurveToMesh (strMesh, strCurve)
-    """,
+    "syntax_html": {
+        0: ("strMesh", "strCurve"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mesh",
+            "name": "strMesh",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Mesh",
             "doc": """
         The identifier of the mesh object that pulls.
             """
         },
         1: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of the curve object to pull.
             """

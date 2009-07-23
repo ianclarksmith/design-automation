@@ -8,16 +8,17 @@ get_plug_in_object = {
         Returns a scriptable object from a specified plug-in. Note, not all plug-ins contain scriptable objects. Check with the manufacturer of your plug-in to see if they support this capability.
     """,
 
-    "syntax_html": """
-        Rhino.GetPlugInObject (strPlugIn)
-    """,
+    "syntax_html": {
+        0: ("strPlugIn"),
+    },
 
     "params_html": {
         0: {
-            "name": "PlugIn",
+            "name": "strPlugIn",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "PlugIn",
             "doc": """
         The name of a registered plug-in that supports scripting.  If the plug-in is registered but not loaded, it will be loaded.
             """

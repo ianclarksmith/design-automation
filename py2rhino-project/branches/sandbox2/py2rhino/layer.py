@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class Layer(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def add_layer(self, layer=None, color=None, visible=None, locked=None, parent=None):
         """        
@@ -42,19 +51,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, color, visible, locked, parent]
-        params_required = [False, False, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BSTR, 1)]
-        params_flattened = [layer, color, visible, locked, parent]
+        required = [False, False, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_I4, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_BSTR, 1)]
+        flattened = [layer, color, visible, locked, parent]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(3, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddLayer", None, *params_flattened)
+        return self._ApplyTypes_(3, 1, (VT_VARIANT, 0), magic, u"AddLayer", None, *flattened)
 
     def current_layer(self, layer=None):
         """        
@@ -81,19 +84,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(5, 1, (VT_VARIANT, 0), params_magic_numbers, u"CurrentLayer", None, *params_flattened)
+        return self._ApplyTypes_(5, 1, (VT_VARIANT, 0), magic, u"CurrentLayer", None, *flattened)
 
     def delete_layer(self, layer):
         """        
@@ -117,19 +114,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(4, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteLayer", None, *params_flattened)
+        return self._ApplyTypes_(4, 1, (VT_VARIANT, 0), magic, u"DeleteLayer", None, *flattened)
 
     def expand_layer(self, layer, expand):
         """        
@@ -156,19 +147,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, expand]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [layer, expand]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [layer, expand]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(690, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExpandLayer", None, *params_flattened)
+        return self._ApplyTypes_(690, 1, (VT_VARIANT, 0), magic, u"ExpandLayer", None, *flattened)
 
     def is_layer(self, layer):
         """        
@@ -189,19 +174,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(6, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayer", None, *params_flattened)
+        return self._ApplyTypes_(6, 1, (VT_VARIANT, 0), magic, u"IsLayer", None, *flattened)
 
     def is_layer_changeable(self, layer):
         """        
@@ -222,19 +201,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(18, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerChangeable", None, *params_flattened)
+        return self._ApplyTypes_(18, 1, (VT_VARIANT, 0), magic, u"IsLayerChangeable", None, *flattened)
 
     def is_layer_child_of(self, layer, test):
         """        
@@ -261,19 +234,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, test]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [layer, test]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [layer, test]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(692, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerChildOf", None, *params_flattened)
+        return self._ApplyTypes_(692, 1, (VT_VARIANT, 0), magic, u"IsLayerChildOf", None, *flattened)
 
     def is_layer_current(self, layer):
         """        
@@ -294,19 +261,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(313, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerCurrent", None, *params_flattened)
+        return self._ApplyTypes_(313, 1, (VT_VARIANT, 0), magic, u"IsLayerCurrent", None, *flattened)
 
     def is_layer_empty(self, layer):
         """        
@@ -327,19 +288,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(7, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerEmpty", None, *params_flattened)
+        return self._ApplyTypes_(7, 1, (VT_VARIANT, 0), magic, u"IsLayerEmpty", None, *flattened)
 
     def is_layer_expanded(self, layer):
         """        
@@ -363,19 +318,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(689, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerExpanded", None, *params_flattened)
+        return self._ApplyTypes_(689, 1, (VT_VARIANT, 0), magic, u"IsLayerExpanded", None, *flattened)
 
     def is_layer_locked(self, layer):
         """        
@@ -396,19 +345,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(8, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerLocked", None, *params_flattened)
+        return self._ApplyTypes_(8, 1, (VT_VARIANT, 0), magic, u"IsLayerLocked", None, *flattened)
 
     def is_layer_on(self, layer):
         """        
@@ -429,19 +372,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(9, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerOn", None, *params_flattened)
+        return self._ApplyTypes_(9, 1, (VT_VARIANT, 0), magic, u"IsLayerOn", None, *flattened)
 
     def is_layer_parent_of(self, layer, test):
         """        
@@ -468,19 +405,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, test]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [layer, test]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [layer, test]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(693, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerParentOf", None, *params_flattened)
+        return self._ApplyTypes_(693, 1, (VT_VARIANT, 0), magic, u"IsLayerParentOf", None, *flattened)
 
     def is_layer_reference(self, layer):
         """        
@@ -501,19 +432,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(10, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerReference", None, *params_flattened)
+        return self._ApplyTypes_(10, 1, (VT_VARIANT, 0), magic, u"IsLayerReference", None, *flattened)
 
     def is_layer_selectable(self, layer):
         """        
@@ -534,19 +459,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(19, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerSelectable", None, *params_flattened)
+        return self._ApplyTypes_(19, 1, (VT_VARIANT, 0), magic, u"IsLayerSelectable", None, *flattened)
 
     def is_layer_visible(self, layer):
         """        
@@ -567,19 +486,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(20, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsLayerVisible", None, *params_flattened)
+        return self._ApplyTypes_(20, 1, (VT_VARIANT, 0), magic, u"IsLayerVisible", None, *flattened)
 
     def layer_child_count(self, layer):
         """        
@@ -603,19 +516,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(694, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerChildCount", None, *params_flattened)
+        return self._ApplyTypes_(694, 1, (VT_VARIANT, 0), magic, u"LayerChildCount", None, *flattened)
 
     def layer_children(self, layer):
         """        
@@ -639,19 +546,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(691, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerChildren", None, *params_flattened)
+        return self._ApplyTypes_(691, 1, (VT_VARIANT, 0), magic, u"LayerChildren", None, *flattened)
 
     def layer_color(self, layer, color=None):
         """        
@@ -681,21 +582,15 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, color]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1)]
-        params_flattened = [layer, color]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I4, 1)]
+        flattened = [layer, color]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(11, 1, (VT_VARIANT, 0), magic, u"LayerColor", None, *flattened)
 
-        return self._ApplyTypes_(11, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerColor", None, *params_flattened)
-
-    def layer_count():
+    def layer_count(self):
         """        
         Returns the number of layers in the document.
     
@@ -710,19 +605,13 @@ class Layer(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(12, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerCount", None, *params_flattened)
+        return self._ApplyTypes_(12, 1, (VT_VARIANT, 0), magic, u"LayerCount", None, *flattened)
 
     def layer_linetype(self, layer, linetype=None):
         """        
@@ -752,19 +641,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, linetype]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [layer, linetype]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [layer, linetype]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(602, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerLinetype", None, *params_flattened)
+        return self._ApplyTypes_(602, 1, (VT_VARIANT, 0), magic, u"LayerLinetype", None, *flattened)
 
     def layer_locked(self, layer, visible=None):
         """        
@@ -794,19 +677,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, visible]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [layer, visible]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [layer, visible]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(601, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerLocked", None, *params_flattened)
+        return self._ApplyTypes_(601, 1, (VT_VARIANT, 0), magic, u"LayerLocked", None, *flattened)
 
     def layer_material_index(self, layer):
         """        
@@ -830,19 +707,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(13, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerMaterialIndex", None, *params_flattened)
+        return self._ApplyTypes_(13, 1, (VT_VARIANT, 0), magic, u"LayerMaterialIndex", None, *flattened)
 
     def layer_mode(self, layer, mode=None):
         """        
@@ -880,19 +751,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, mode]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [layer, mode]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [layer, mode]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(14, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerMode", None, *params_flattened)
+        return self._ApplyTypes_(14, 1, (VT_VARIANT, 0), magic, u"LayerMode", None, *flattened)
 
     def layer_names(self, sort=None):
         """        
@@ -916,19 +781,13 @@ class Layer(IRhinoScript):
         """
 
         params = [sort]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [sort]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [sort]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(15, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerNames", None, *params_flattened)
+        return self._ApplyTypes_(15, 1, (VT_VARIANT, 0), magic, u"LayerNames", None, *flattened)
 
     def layer_order(self, layer):
         """        
@@ -952,19 +811,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(17, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerOrder", None, *params_flattened)
+        return self._ApplyTypes_(17, 1, (VT_VARIANT, 0), magic, u"LayerOrder", None, *flattened)
 
     def layer_print_color(self, layer, color=None):
         """        
@@ -994,19 +847,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, color]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I4, 1)]
-        params_flattened = [layer, color]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I4, 1)]
+        flattened = [layer, color]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(603, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerPrintColor", None, *params_flattened)
+        return self._ApplyTypes_(603, 1, (VT_VARIANT, 0), magic, u"LayerPrintColor", None, *flattened)
 
     def layer_print_width(self, layer, width=None):
         """        
@@ -1036,19 +883,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, width]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1)]
-        params_flattened = [layer, width]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1)]
+        flattened = [layer, width]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(604, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerPrintWidth", None, *params_flattened)
+        return self._ApplyTypes_(604, 1, (VT_VARIANT, 0), magic, u"LayerPrintWidth", None, *flattened)
 
     def layer_visible(self, layer, visible=None):
         """        
@@ -1078,19 +919,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, visible]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [layer, visible]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [layer, visible]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(600, 1, (VT_VARIANT, 0), params_magic_numbers, u"LayerVisible", None, *params_flattened)
+        return self._ApplyTypes_(600, 1, (VT_VARIANT, 0), magic, u"LayerVisible", None, *flattened)
 
     def parent_layer(self, layer, parent=None):
         """        
@@ -1120,19 +955,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer, parent]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [layer, parent]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [layer, parent]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(688, 1, (VT_VARIANT, 0), params_magic_numbers, u"ParentLayer", None, *params_flattened)
+        return self._ApplyTypes_(688, 1, (VT_VARIANT, 0), magic, u"ParentLayer", None, *flattened)
 
     def purge_layer(self, layer):
         """        
@@ -1156,19 +985,13 @@ class Layer(IRhinoScript):
         """
 
         params = [layer]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [layer]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [layer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(291, 1, (VT_VARIANT, 0), params_magic_numbers, u"PurgeLayer", None, *params_flattened)
+        return self._ApplyTypes_(291, 1, (VT_VARIANT, 0), magic, u"PurgeLayer", None, *flattened)
 
     def rename_layer(self, old_name, new_name):
         """        
@@ -1195,17 +1018,11 @@ class Layer(IRhinoScript):
         """
 
         params = [old_name, new_name]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [old_name, new_name]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [old_name, new_name]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(16, 1, (VT_VARIANT, 0), params_magic_numbers, u"RenameLayer", None, *params_flattened)
+        return self._ApplyTypes_(16, 1, (VT_VARIANT, 0), magic, u"RenameLayer", None, *flattened)
 

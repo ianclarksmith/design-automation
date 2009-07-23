@@ -8,16 +8,17 @@ enable_history_recording = {
         Enables or disables Rhino's command history recording. For more information, see the Rhino help file for the History command.
     """,
 
-    "syntax_html": """
-        Rhino.EnableHistoryRecording ([blnEnable])
-    """,
+    "syntax_html": {
+        0: ("blnEnable"),
+    },
 
     "params_html": {
         0: {
-            "name": "Enable",
+            "name": "blnEnable",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Enable",
             "doc": """
         The history recording state to set.
             """

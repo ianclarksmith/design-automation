@@ -30,9 +30,9 @@ arrKnotsU
 
 Required.  Array.  The knot values for the surface in the U direction.  The array must contain arrPointCount(0) + arrDegree(0) - 1 elements.
 
-arrKnotsU 
+arrKnotsV 
 
-Required.  Array.  The knot values for the surface in the U direction.  The array must contain arrPointCount(1) + arrDegree(1) - 1 elements.
+Required.  Array.  The knot values for the surface in the V direction.  The array must contain arrPointCount(1) + arrDegree(1) - 1 elements.
 
 arrDegree 
 

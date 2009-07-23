@@ -8,25 +8,27 @@ object_names = {
         Returns or modifies the user-definable name of one or more objects.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectNames (arrObjects [, arrNames])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrNames"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects.
             """
         },
         1: {
-            "name": "Names",
+            "name": "arrNames",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Names",
             "doc": """
         An array of strings identifying the new user-definable names. This array must have the same upper bounds as arrObjects.  Each element in arrNames will correspond with each element in arrObjects.
             """
