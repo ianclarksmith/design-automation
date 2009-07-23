@@ -15,6 +15,7 @@ material_reflective_color = {
     "params_html": {
         0: {
             "name": "intMaterialIndex",
+            "py_name": "material_index",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -25,6 +26,7 @@ material_reflective_color = {
         },
         1: {
             "name": "lngColor",
+            "py_name": "color",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "lng",

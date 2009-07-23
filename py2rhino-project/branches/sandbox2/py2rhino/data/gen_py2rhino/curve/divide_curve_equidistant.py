@@ -16,6 +16,7 @@ divide_curve_equidistant = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ divide_curve_equidistant = {
         },
         1: {
             "name": "dblDistance",
+            "py_name": "distance",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -36,6 +38,7 @@ divide_curve_equidistant = {
         },
         2: {
             "name": "blnCreate",
+            "py_name": "create",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -46,6 +49,7 @@ divide_curve_equidistant = {
         },
         3: {
             "name": "blnPoints",
+            "py_name": "points",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

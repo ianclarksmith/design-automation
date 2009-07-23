@@ -15,6 +15,7 @@ orient_objects = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ orient_objects = {
         },
         1: {
             "name": "arrReference",
+            "py_name": "reference",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ orient_objects = {
         },
         2: {
             "name": "arrTarget",
+            "py_name": "target",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ orient_objects = {
         },
         3: {
             "name": "intFlags",
+            "py_name": "flags",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -15,6 +15,7 @@ view_radius = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ view_radius = {
         },
         1: {
             "name": "dblRadius",
+            "py_name": "radius",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

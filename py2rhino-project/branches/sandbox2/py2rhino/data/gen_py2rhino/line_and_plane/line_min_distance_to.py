@@ -16,9 +16,10 @@ line_min_distance_to = {
     "params_html": {
         0: {
             "name": "arrLine",
+            "py_name": "line",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Line",
             "doc": """
         Two 3-D points identifying the starting and ending points of the line.
@@ -26,9 +27,10 @@ line_min_distance_to = {
         },
         1: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point",
             "doc": """
         The test point.
@@ -36,9 +38,10 @@ line_min_distance_to = {
         },
         2: {
             "name": "arrLine2",
+            "py_name": "line2",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Line2",
             "doc": """
         Two 3-D points identifying the starting and ending points of the test line (another finite chord).

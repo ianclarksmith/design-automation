@@ -15,6 +15,7 @@ is_block_in_use = {
     "params_html": {
         0: {
             "name": "strBlock",
+            "py_name": "block",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ is_block_in_use = {
         },
         1: {
             "name": "intWhere",
+            "py_name": "where",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

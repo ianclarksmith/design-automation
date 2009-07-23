@@ -15,6 +15,7 @@ linetype_names = {
     "params_html": {
         0: {
             "name": "blnSort",
+            "py_name": "sort",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

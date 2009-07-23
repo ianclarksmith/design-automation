@@ -15,6 +15,7 @@ last_object = {
     "params_html": {
         0: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -25,6 +26,7 @@ last_object = {
         },
         1: {
             "name": "blnIncludeLights",
+            "py_name": "include_lights",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ last_object = {
         },
         2: {
             "name": "blnIncludeGrips",
+            "py_name": "include_grips",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

@@ -15,6 +15,7 @@ add_interp_curve_ex = {
     "params_html": {
         0: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_interp_curve_ex = {
         },
         1: {
             "name": "intDegree",
+            "py_name": "degree",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ add_interp_curve_ex = {
         },
         2: {
             "name": "intKnotStyle",
+            "py_name": "knot_style",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -52,6 +55,7 @@ add_interp_curve_ex = {
         },
         3: {
             "name": "blnSharp",
+            "py_name": "sharp",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -62,6 +66,7 @@ add_interp_curve_ex = {
         },
         4: {
             "name": "arrStartTangent",
+            "py_name": "start_tangent",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -72,6 +77,7 @@ add_interp_curve_ex = {
         },
         5: {
             "name": "arrEndTangent",
+            "py_name": "end_tangent",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

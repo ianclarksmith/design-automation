@@ -15,6 +15,7 @@ delete_alias = {
     "params_html": {
         0: {
             "name": "strAlias",
+            "py_name": "alias",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

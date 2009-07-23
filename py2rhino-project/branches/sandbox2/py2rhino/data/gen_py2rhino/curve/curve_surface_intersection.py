@@ -15,6 +15,7 @@ curve_surface_intersection = {
     "params_html": {
         0: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_surface_intersection = {
         },
         1: {
             "name": "strSurface",
+            "py_name": "surface",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ curve_surface_intersection = {
         },
         2: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ curve_surface_intersection = {
         },
         3: {
             "name": "dblAngleTolerance",
+            "py_name": "angle_tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

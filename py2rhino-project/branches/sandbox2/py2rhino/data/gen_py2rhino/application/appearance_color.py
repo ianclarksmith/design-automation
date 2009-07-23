@@ -15,6 +15,7 @@ appearance_color = {
     "params_html": {
         0: {
             "name": "intItem",
+            "py_name": "item",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -54,6 +55,7 @@ appearance_color = {
         },
         1: {
             "name": "lngColor",
+            "py_name": "color",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "lng",

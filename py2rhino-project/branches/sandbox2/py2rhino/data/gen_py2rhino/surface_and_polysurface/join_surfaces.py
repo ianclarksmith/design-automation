@@ -15,6 +15,7 @@ join_surfaces = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ join_surfaces = {
         },
         1: {
             "name": "blnDelete",
+            "py_name": "delete",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

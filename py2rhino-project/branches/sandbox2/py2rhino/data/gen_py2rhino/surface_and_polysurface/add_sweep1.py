@@ -20,6 +20,7 @@ add_sweep1 = {
     "params_html": {
         0: {
             "name": "strRail",
+            "py_name": "rail",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -30,6 +31,7 @@ add_sweep1 = {
         },
         1: {
             "name": "arrShapes",
+            "py_name": "shapes",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -40,6 +42,7 @@ add_sweep1 = {
         },
         2: {
             "name": "arrStartPt",
+            "py_name": "start_pt",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -50,6 +53,7 @@ add_sweep1 = {
         },
         3: {
             "name": "arrEndPt",
+            "py_name": "end_pt",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -60,6 +64,7 @@ add_sweep1 = {
         },
         4: {
             "name": "blnClosed",
+            "py_name": "closed",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -70,6 +75,7 @@ add_sweep1 = {
         },
         5: {
             "name": "intStyle",
+            "py_name": "style",
             "opt_or_req": "Optional",
             "type": "Integer",
             "name_prefix": "int",
@@ -80,6 +86,7 @@ add_sweep1 = {
         },
         6: {
             "name": "vaStyleArg",
+            "py_name": "style_arg",
             "opt_or_req": "Optional",
             "type": "Variant",
             "name_prefix": "va",
@@ -90,6 +97,7 @@ add_sweep1 = {
         },
         7: {
             "name": "intSimplify",
+            "py_name": "simplify",
             "opt_or_req": "Optional",
             "type": "Integer",
             "name_prefix": "int",
@@ -100,6 +108,7 @@ add_sweep1 = {
         },
         8: {
             "name": "vaSimplifyArg",
+            "py_name": "simplify_arg",
             "opt_or_req": "Optional",
             "type": "Variant",
             "name_prefix": "va",

@@ -21,6 +21,7 @@ simplify_curve = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -31,6 +32,7 @@ simplify_curve = {
         },
         1: {
             "name": "intFlags",
+            "py_name": "flags",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

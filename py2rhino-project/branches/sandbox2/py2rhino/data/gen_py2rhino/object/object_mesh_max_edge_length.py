@@ -16,6 +16,7 @@ object_mesh_max_edge_length = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ object_mesh_max_edge_length = {
         },
         1: {
             "name": "dblLength",
+            "py_name": "length",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

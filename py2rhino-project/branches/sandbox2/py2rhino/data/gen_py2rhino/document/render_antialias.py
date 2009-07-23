@@ -16,6 +16,7 @@ render_antialias = {
     "params_html": {
         0: {
             "name": "intStyle",
+            "py_name": "style",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

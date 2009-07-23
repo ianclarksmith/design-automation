@@ -16,9 +16,10 @@ bounding_box = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects.
@@ -26,6 +27,7 @@ bounding_box = {
         },
         1: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -36,6 +38,7 @@ bounding_box = {
         },
         2: {
             "name": "blnWorldCoords",
+            "py_name": "world_coords",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

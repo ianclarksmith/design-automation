@@ -15,6 +15,7 @@ autosave_file = {
     "params_html": {
         0: {
             "name": "strFile",
+            "py_name": "file",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

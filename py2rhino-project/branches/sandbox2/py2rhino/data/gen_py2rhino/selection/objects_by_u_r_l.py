@@ -15,6 +15,7 @@ objects_by_u_r_l = {
     "params_html": {
         0: {
             "name": "strURL",
+            "py_name": "u_r_l",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ objects_by_u_r_l = {
         },
         1: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ objects_by_u_r_l = {
         },
         2: {
             "name": "blnIncludeLights",
+            "py_name": "include_lights",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

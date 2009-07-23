@@ -15,6 +15,7 @@ extrude_curve_tapered = {
     "params_html": {
         0: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ extrude_curve_tapered = {
         },
         1: {
             "name": "dblDistance",
+            "py_name": "distance",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ extrude_curve_tapered = {
         },
         2: {
             "name": "arrDirection",
+            "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ extrude_curve_tapered = {
         },
         3: {
             "name": "arrBasePoint",
+            "py_name": "base_point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -55,6 +59,7 @@ extrude_curve_tapered = {
         },
         4: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -65,6 +70,7 @@ extrude_curve_tapered = {
         },
         5: {
             "name": "intCornerType",
+            "py_name": "corner_type",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

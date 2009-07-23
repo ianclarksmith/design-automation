@@ -15,6 +15,7 @@ get_boolean = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_boolean = {
         },
         1: {
             "name": "arrItems",
+            "py_name": "items",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -42,6 +44,7 @@ get_boolean = {
         },
         2: {
             "name": "arrDefaults",
+            "py_name": "defaults",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_bln",

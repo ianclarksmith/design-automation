@@ -15,6 +15,7 @@ rename_block = {
     "params_html": {
         0: {
             "name": "strOldBlock",
+            "py_name": "old_block",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ rename_block = {
         },
         1: {
             "name": "strNewBlock",
+            "py_name": "new_block",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

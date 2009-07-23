@@ -15,6 +15,7 @@ add_hatch_patterns = {
     "params_html": {
         0: {
             "name": "strFileName",
+            "py_name": "file_name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ add_hatch_patterns = {
         },
         1: {
             "name": "blnReplace",
+            "py_name": "replace",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

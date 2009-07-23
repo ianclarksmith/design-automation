@@ -15,6 +15,7 @@ background_bitmap = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ background_bitmap = {
         },
         1: {
             "name": "strFileName",
+            "py_name": "file_name",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -48,9 +50,10 @@ background_bitmap = {
         },
         2: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point",
             "doc": """
         A 3-D point the lower left corner of the background bitmap. If omitted, the background bitmap's lower left corner will be located at the world origin, or (0,0,0).
@@ -58,6 +61,7 @@ background_bitmap = {
         },
         3: {
             "name": "dblWidth",
+            "py_name": "width",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

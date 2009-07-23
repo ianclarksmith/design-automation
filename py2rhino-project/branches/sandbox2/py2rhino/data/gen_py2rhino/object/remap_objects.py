@@ -15,6 +15,7 @@ remap_objects = {
     "params_html": {
         0: {
             "name": "arrObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ remap_objects = {
         },
         1: {
             "name": "arrSrcPlane",
+            "py_name": "src_plane",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ remap_objects = {
         },
         2: {
             "name": "arrDstPlane",
+            "py_name": "dst_plane",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ remap_objects = {
         },
         3: {
             "name": "blnCopy",
+            "py_name": "copy",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

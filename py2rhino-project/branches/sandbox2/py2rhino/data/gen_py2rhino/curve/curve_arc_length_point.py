@@ -15,6 +15,7 @@ curve_arc_length_point = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_arc_length_point = {
         },
         1: {
             "name": "dblLength",
+            "py_name": "length",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ curve_arc_length_point = {
         },
         2: {
             "name": "blnFromStart",
+            "py_name": "from_start",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

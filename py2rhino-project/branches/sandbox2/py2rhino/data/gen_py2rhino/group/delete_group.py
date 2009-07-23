@@ -15,6 +15,7 @@ delete_group = {
     "params_html": {
         0: {
             "name": "strGroup",
+            "py_name": "group",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

@@ -15,6 +15,7 @@ get_layer = {
     "params_html": {
         0: {
             "name": "strTitle",
+            "py_name": "title",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_layer = {
         },
         1: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ get_layer = {
         },
         2: {
             "name": "blnShowNewLayer",
+            "py_name": "show_new_layer",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -45,6 +48,7 @@ get_layer = {
         },
         3: {
             "name": "blnShowSetCurrent",
+            "py_name": "show_set_current",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

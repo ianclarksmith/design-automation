@@ -15,6 +15,7 @@ next_object_grip = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ next_object_grip = {
         },
         1: {
             "name": "intIndex",
+            "py_name": "index",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ next_object_grip = {
         },
         2: {
             "name": "intDirection",
+            "py_name": "direction",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -45,6 +48,7 @@ next_object_grip = {
         },
         3: {
             "name": "blnEnable",
+            "py_name": "enable",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

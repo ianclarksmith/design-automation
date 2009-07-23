@@ -15,6 +15,7 @@ delete_startup_script = {
     "params_html": {
         0: {
             "name": "strScriptFile",
+            "py_name": "script_file",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

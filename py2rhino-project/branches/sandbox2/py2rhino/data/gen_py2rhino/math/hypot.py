@@ -15,6 +15,7 @@ hypot = {
     "params_html": {
         0: {
             "name": "dblNumberX",
+            "py_name": "number_x",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -25,6 +26,7 @@ hypot = {
         },
         1: {
             "name": "dblNumberY",
+            "py_name": "number_y",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

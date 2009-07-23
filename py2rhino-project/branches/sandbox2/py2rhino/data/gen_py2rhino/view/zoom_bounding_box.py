@@ -15,6 +15,7 @@ zoom_bounding_box = {
     "params_html": {
         0: {
             "name": "arrCorners",
+            "py_name": "corners",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ zoom_bounding_box = {
         },
         1: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ zoom_bounding_box = {
         },
         2: {
             "name": "blnAll",
+            "py_name": "all",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

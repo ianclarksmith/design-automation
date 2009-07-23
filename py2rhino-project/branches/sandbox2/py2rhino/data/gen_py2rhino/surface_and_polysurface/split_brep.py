@@ -15,6 +15,7 @@ split_brep = {
     "params_html": {
         0: {
             "name": "strBrep",
+            "py_name": "brep",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ split_brep = {
         },
         1: {
             "name": "strCutter",
+            "py_name": "cutter",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ split_brep = {
         },
         2: {
             "name": "blnDelete",
+            "py_name": "delete",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

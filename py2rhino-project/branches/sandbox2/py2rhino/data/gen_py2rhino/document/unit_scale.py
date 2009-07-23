@@ -15,6 +15,7 @@ unit_scale = {
     "params_html": {
         0: {
             "name": "intToSystem",
+            "py_name": "to_system",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -78,6 +79,7 @@ unit_scale = {
         },
         1: {
             "name": "intFromSystem",
+            "py_name": "from_system",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -15,6 +15,7 @@ make_surface_non_periodic = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ make_surface_non_periodic = {
         },
         1: {
             "name": "intDirection",
+            "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ make_surface_non_periodic = {
         },
         2: {
             "name": "blnDelete",
+            "py_name": "delete",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

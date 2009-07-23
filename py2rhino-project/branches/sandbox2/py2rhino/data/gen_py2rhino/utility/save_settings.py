@@ -18,6 +18,7 @@ save_settings = {
     "params_html": {
         0: {
             "name": "strFilename",
+            "py_name": "filename",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -28,6 +29,7 @@ save_settings = {
         },
         1: {
             "name": "strSection",
+            "py_name": "section",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -38,6 +40,7 @@ save_settings = {
         },
         2: {
             "name": "strEntry",
+            "py_name": "entry",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -48,6 +51,7 @@ save_settings = {
         },
         3: {
             "name": "strString",
+            "py_name": "string",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

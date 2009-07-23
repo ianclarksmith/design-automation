@@ -15,6 +15,7 @@ add_cut_plane = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ add_cut_plane = {
         },
         1: {
             "name": "arrStartPoint",
+            "py_name": "start_point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ add_cut_plane = {
         },
         2: {
             "name": "arrEndPoint",
+            "py_name": "end_point",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ add_cut_plane = {
         },
         3: {
             "name": "arrNormal",
+            "py_name": "normal",
             "opt_or_req": "Optional",
             "type": "A vector that will be contained in the returned planar surface",
             "name_prefix": "arr_of_dbl",

@@ -15,6 +15,7 @@ text_object_font = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ text_object_font = {
         },
         1: {
             "name": "strFont",
+            "py_name": "font",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

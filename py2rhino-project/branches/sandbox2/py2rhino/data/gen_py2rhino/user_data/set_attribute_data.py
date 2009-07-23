@@ -15,6 +15,7 @@ set_attribute_data = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ set_attribute_data = {
         },
         1: {
             "name": "strSection",
+            "py_name": "section",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ set_attribute_data = {
         },
         2: {
             "name": "strEntry",
+            "py_name": "entry",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -45,6 +48,7 @@ set_attribute_data = {
         },
         3: {
             "name": "strValue",
+            "py_name": "value",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

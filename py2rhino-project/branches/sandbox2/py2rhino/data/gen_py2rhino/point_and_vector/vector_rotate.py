@@ -15,6 +15,7 @@ vector_rotate = {
     "params_html": {
         0: {
             "name": "arrVector",
+            "py_name": "vector",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ vector_rotate = {
         },
         1: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ vector_rotate = {
         },
         2: {
             "name": "arrAxis",
+            "py_name": "axis",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

@@ -15,6 +15,7 @@ sleep = {
     "params_html": {
         0: {
             "name": "lngMilliseconds",
+            "py_name": "milliseconds",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "lng",

@@ -15,6 +15,7 @@ color_r_g_b_to_h_l_s = {
     "params_html": {
         0: {
             "name": "lngRGB",
+            "py_name": "r_g_b",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "lng",

@@ -16,6 +16,7 @@ offset_curve_on_surface = {
     "params_html": {
         0: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ offset_curve_on_surface = {
         },
         1: {
             "name": "strSurface",
+            "py_name": "surface",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -36,6 +38,7 @@ offset_curve_on_surface = {
         },
         2: {
             "name": "dblDistance",
+            "py_name": "distance",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -46,9 +49,10 @@ offset_curve_on_surface = {
         },
         3: {
             "name": "arrParameter",
+            "py_name": "parameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Parameter",
             "doc": """
         An array containing the surface U,V parameter that the curve will be offset through.

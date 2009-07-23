@@ -15,6 +15,7 @@ show_world_axes = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ show_world_axes = {
         },
         1: {
             "name": "blnShow",
+            "py_name": "show",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

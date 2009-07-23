@@ -188,10 +188,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        plane1, Array of ????, Required        
+        plane1, Array of ???, Required        
         The initial plane.
             
-        plane2, Array of ????, Required        
+        plane2, Array of ???, Required        
         The final plane.
             
         Returns
@@ -221,22 +221,22 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        x0, Array of ????, Required        
+        x0, Array of ???, Required        
         The initial basis X (X0,Y0,Z0 can be any 3-D basis)
             
-        y0, Array of ????, Required        
+        y0, Array of ???, Required        
         The  initial basis Y
             
-        z0, Array of ????, Required        
+        z0, Array of ???, Required        
         The  initial basis Z
             
-        x1, Array of ????, Required        
+        x1, Array of ???, Required        
         The final basis X (X1,Y1,Z1 can be any 3-D basis)
             
-        y1, Array of ????, Required        
+        y1, Array of ???, Required        
         The  final basis Y
             
-        z1, Array of ????, Required        
+        z1, Array of ???, Required        
         The final basis Z
             
         Returns
@@ -537,10 +537,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        plane1, Array of ????, Required        
+        plane1, Array of ???, Required        
         The starting plane.
             
-        plane2, Array of ????, Required        
+        plane2, Array of ???, Required        
         The ending plane.
             
         Returns
@@ -573,10 +573,10 @@ class Transformation(IRhinoScript):
         angle, Double, Required        
         The rotation angle in degrees.
             
-        axis, Array of ????, Required        
+        axis, Array of ???, Required        
         The rotation axis.
             
-        point, Array of ????, Required        
+        point, Array of ???, Required        
         The rotation center point.
             
         Returns
@@ -606,13 +606,13 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        start_dir, Array of ????, Required        
+        start_dir, Array of ???, Required        
         The starting direction.
             
-        end_dir, Array of ????, Required        
+        end_dir, Array of ???, Required        
         The ending direction.
             
-        point, Array of ????, Required        
+        point, Array of ???, Required        
         The rotation center point.
             
         Returns
@@ -642,22 +642,22 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        x0, Array of ????, Required        
+        x0, Array of ???, Required        
         The initial frame X
             
-        y0, Array of ????, Required        
+        y0, Array of ???, Required        
         The initial frame Y.
             
-        z0, Array of ????, Required        
+        z0, Array of ???, Required        
         The initial frame Z.
             
-        x1, Array of ????, Required        
+        x1, Array of ???, Required        
         The final frame X.
             
-        y1, Array of ????, Required        
+        y1, Array of ???, Required        
         The final frame Y.
             
-        z1, Array of ????, Required        
+        z1, Array of ???, Required        
         The final frame Z.
             
         Returns
@@ -687,7 +687,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of ???, Required        
         The starting plane.
             
         x_scale, Double, Required        
@@ -762,7 +762,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of ???, Required        
         The ending direction.
             
         Returns
@@ -792,7 +792,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of ???, Required        
         The rotation center point.
             
         scale, Double, Required        

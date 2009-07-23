@@ -15,6 +15,7 @@ mesh_boolean_union = {
     "params_html": {
         0: {
             "name": "arrInput",
+            "py_name": "input",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ mesh_boolean_union = {
         },
         1: {
             "name": "blnDelete",
+            "py_name": "delete",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

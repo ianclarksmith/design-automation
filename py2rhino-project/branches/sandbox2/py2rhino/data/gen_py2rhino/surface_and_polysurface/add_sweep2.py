@@ -21,6 +21,7 @@ add_sweep2 = {
     "params_html": {
         0: {
             "name": "arrRails",
+            "py_name": "rails",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "arr_of_str",
@@ -31,6 +32,7 @@ add_sweep2 = {
         },
         1: {
             "name": "arrShapes",
+            "py_name": "shapes",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -41,6 +43,7 @@ add_sweep2 = {
         },
         2: {
             "name": "arrStartPt",
+            "py_name": "start_pt",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -51,6 +54,7 @@ add_sweep2 = {
         },
         3: {
             "name": "arrEndPt",
+            "py_name": "end_pt",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -61,6 +65,7 @@ add_sweep2 = {
         },
         4: {
             "name": "blnClosed",
+            "py_name": "closed",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -71,6 +76,7 @@ add_sweep2 = {
         },
         5: {
             "name": "blnSimpleSweep",
+            "py_name": "simple_sweep",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -81,6 +87,7 @@ add_sweep2 = {
         },
         6: {
             "name": "blnMaintainHeight",
+            "py_name": "maintain_height",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -91,6 +98,7 @@ add_sweep2 = {
         },
         7: {
             "name": "intSimplify",
+            "py_name": "simplify",
             "opt_or_req": "Optional",
             "type": "Integer",
             "name_prefix": "int",
@@ -101,6 +109,7 @@ add_sweep2 = {
         },
         8: {
             "name": "vaSimplifyArg",
+            "py_name": "simplify_arg",
             "opt_or_req": "Optional",
             "type": "Variant",
             "name_prefix": "va",

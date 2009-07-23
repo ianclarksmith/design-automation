@@ -15,6 +15,7 @@ view_names = {
     "params_html": {
         0: {
             "name": "blnReturnNames",
+            "py_name": "return_names",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -25,6 +26,7 @@ view_names = {
         },
         1: {
             "name": "intType",
+            "py_name": "type",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

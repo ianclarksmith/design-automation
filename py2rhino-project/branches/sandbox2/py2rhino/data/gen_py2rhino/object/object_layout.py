@@ -15,6 +15,7 @@ object_layout = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ object_layout = {
         },
         1: {
             "name": "strLayout",
+            "py_name": "layout",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ object_layout = {
         },
         2: {
             "name": "blnReturnName",
+            "py_name": "return_name",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

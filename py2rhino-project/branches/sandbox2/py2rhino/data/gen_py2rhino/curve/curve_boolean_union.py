@@ -15,6 +15,7 @@ curve_boolean_union = {
     "params_html": {
         0: {
             "name": "arrCurves",
+            "py_name": "curves",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",

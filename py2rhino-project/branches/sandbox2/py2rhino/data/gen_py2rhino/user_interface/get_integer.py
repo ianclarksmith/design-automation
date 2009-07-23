@@ -15,6 +15,7 @@ get_integer = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_integer = {
         },
         1: {
             "name": "intNumber",
+            "py_name": "number",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ get_integer = {
         },
         2: {
             "name": "intMin",
+            "py_name": "min",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -45,6 +48,7 @@ get_integer = {
         },
         3: {
             "name": "intMax",
+            "py_name": "max",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -15,6 +15,7 @@ enable_light = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ enable_light = {
         },
         1: {
             "name": "blnEnable",
+            "py_name": "enable",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

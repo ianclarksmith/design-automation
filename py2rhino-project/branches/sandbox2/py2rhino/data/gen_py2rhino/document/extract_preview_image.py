@@ -15,6 +15,7 @@ extract_preview_image = {
     "params_html": {
         0: {
             "name": "strFileName",
+            "py_name": "file_name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -38,6 +39,7 @@ extract_preview_image = {
         },
         1: {
             "name": "strModelName",
+            "py_name": "model_name",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

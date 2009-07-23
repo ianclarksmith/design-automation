@@ -15,6 +15,7 @@ rebuild_curve = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ rebuild_curve = {
         },
         1: {
             "name": "intDegree",
+            "py_name": "degree",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ rebuild_curve = {
         },
         2: {
             "name": "intPointCount",
+            "py_name": "point_count",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

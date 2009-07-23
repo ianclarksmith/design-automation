@@ -17,6 +17,7 @@ line_line_intersection = {
     "params_html": {
         0: {
             "name": "arrLineA",
+            "py_name": "line_a",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -27,6 +28,7 @@ line_line_intersection = {
         },
         1: {
             "name": "arrLineB",
+            "py_name": "line_b",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -37,6 +39,7 @@ line_line_intersection = {
         },
         2: {
             "name": "blnPlanar",
+            "py_name": "planar",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

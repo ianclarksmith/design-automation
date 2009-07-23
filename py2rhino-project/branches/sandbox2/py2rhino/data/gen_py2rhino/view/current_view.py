@@ -15,6 +15,7 @@ current_view = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ current_view = {
         },
         1: {
             "name": "blnReturnName",
+            "py_name": "return_name",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

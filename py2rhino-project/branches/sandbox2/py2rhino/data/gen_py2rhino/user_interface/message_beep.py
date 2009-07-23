@@ -15,6 +15,7 @@ message_beep = {
     "params_html": {
         0: {
             "name": "intBeep",
+            "py_name": "beep",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

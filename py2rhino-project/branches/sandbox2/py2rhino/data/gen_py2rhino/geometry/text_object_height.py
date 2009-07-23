@@ -15,6 +15,7 @@ text_object_height = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ text_object_height = {
         },
         1: {
             "name": "dblHeight",
+            "py_name": "height",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

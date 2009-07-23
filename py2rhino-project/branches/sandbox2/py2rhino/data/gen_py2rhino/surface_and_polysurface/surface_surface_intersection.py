@@ -15,6 +15,7 @@ surface_surface_intersection = {
     "params_html": {
         0: {
             "name": "strSurfaceA",
+            "py_name": "surface_a",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ surface_surface_intersection = {
         },
         1: {
             "name": "strSurfaceB",
+            "py_name": "surface_b",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ surface_surface_intersection = {
         },
         2: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ surface_surface_intersection = {
         },
         3: {
             "name": "blnCreate",
+            "py_name": "create",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

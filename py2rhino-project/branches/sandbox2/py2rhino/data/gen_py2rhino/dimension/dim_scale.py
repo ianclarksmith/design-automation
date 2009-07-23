@@ -15,6 +15,7 @@ dim_scale = {
     "params_html": {
         0: {
             "name": "dblScale",
+            "py_name": "scale",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

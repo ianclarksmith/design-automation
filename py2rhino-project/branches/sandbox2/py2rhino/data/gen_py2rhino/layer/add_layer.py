@@ -15,6 +15,7 @@ add_layer = {
     "params_html": {
         0: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ add_layer = {
         },
         1: {
             "name": "lngColor",
+            "py_name": "color",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "lng",
@@ -35,6 +37,7 @@ add_layer = {
         },
         2: {
             "name": "blnVisible",
+            "py_name": "visible",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -45,6 +48,7 @@ add_layer = {
         },
         3: {
             "name": "blnLocked",
+            "py_name": "locked",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -55,6 +59,7 @@ add_layer = {
         },
         4: {
             "name": "strParent",
+            "py_name": "parent",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

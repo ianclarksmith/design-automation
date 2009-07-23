@@ -15,6 +15,7 @@ is_view_current = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

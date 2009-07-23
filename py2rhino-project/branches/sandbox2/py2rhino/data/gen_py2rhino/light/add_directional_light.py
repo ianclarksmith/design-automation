@@ -15,6 +15,7 @@ add_directional_light = {
     "params_html": {
         0: {
             "name": "arrStartPoint",
+            "py_name": "start_point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_directional_light = {
         },
         1: {
             "name": "arrEndPoint",
+            "py_name": "end_point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

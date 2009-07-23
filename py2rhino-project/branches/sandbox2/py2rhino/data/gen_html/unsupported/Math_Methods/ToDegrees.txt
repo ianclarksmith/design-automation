@@ -1,0 +1,53 @@
+ToDegrees
+
+
+
+ToDegrees
+
+
+Converts an angle specified in radians to degrees.
+
+
+Syntax
+
+
+Rhino.ToDegrees (dblRadians)
+
+
+Parameters
+
+
+
+dblRadians 
+
+Required.  Number.  The angle in radians
+
+
+Returns
+
+
+
+Number 
+
+The angle in degrees if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim dblRadians
+
+dblRadians = 0.785398
+
+Rhino.Print Rhino.ToDegrees(dblRadians)
+
+
+Also See
+
+
+ToRadians
+

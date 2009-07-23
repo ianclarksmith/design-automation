@@ -16,6 +16,7 @@ object_mesh_max_aspect_ratio = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ object_mesh_max_aspect_ratio = {
         },
         1: {
             "name": "dblRatio",
+            "py_name": "ratio",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

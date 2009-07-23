@@ -15,6 +15,7 @@ curve_length = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_length = {
         },
         1: {
             "name": "intIndex",
+            "py_name": "index",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ curve_length = {
         },
         2: {
             "name": "arrSubDomain",
+            "py_name": "sub_domain",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_int",

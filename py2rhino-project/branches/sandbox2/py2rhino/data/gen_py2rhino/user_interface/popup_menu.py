@@ -15,6 +15,7 @@ popup_menu = {
     "params_html": {
         0: {
             "name": "arrItems",
+            "py_name": "items",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ popup_menu = {
         },
         1: {
             "name": "arrModes",
+            "py_name": "modes",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -42,6 +44,7 @@ popup_menu = {
         },
         2: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -52,6 +55,7 @@ popup_menu = {
         },
         3: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

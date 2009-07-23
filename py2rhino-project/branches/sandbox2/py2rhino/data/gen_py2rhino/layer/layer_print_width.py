@@ -15,6 +15,7 @@ layer_print_width = {
     "params_html": {
         0: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ layer_print_width = {
         },
         1: {
             "name": "dblWidth",
+            "py_name": "width",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

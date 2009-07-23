@@ -15,6 +15,7 @@ edge_analysis_color = {
     "params_html": {
         0: {
             "name": "lngColor",
+            "py_name": "color",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "lng",

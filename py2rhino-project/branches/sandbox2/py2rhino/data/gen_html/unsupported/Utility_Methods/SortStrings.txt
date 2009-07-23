@@ -1,0 +1,69 @@
+SortStrings
+
+
+
+SortStrings
+
+
+Sorts an array of strings.
+
+
+Syntax
+
+
+Rhino.SortStrings (arrStrings [, blnAscending [, blnNoCase]])
+
+
+Parameters
+
+
+
+arrStrings 
+
+Required.  Array.  An array of string values.
+
+blnAscending 
+
+Optional.  Boolean.  The sorting mode, either ascending or descending.  If omitted or True, the strings are sorted ascending.  If False, the strings are sorted descending.
+
+blnNoCase 
+
+Optional.  Boolean.  The case sensitivity mode.  If omitted or True, a case insensitive sorting is performed.  If False, a case sensitive sorting is performed.
+
+
+Returns
+
+
+
+Array 
+
+An array sorted strings if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arr
+
+arr = Array("A", "B", "C", "D", "a", "b", "c", "d")
+
+Rhino.Print "Ascending = Y, NoCase = Y: " & Join(Rhino.SortStrings(arr, True, True))
+
+Rhino.Print "Ascending = Y, NoCase = N: " & Join(Rhino.SortStrings(arr, True, False))
+
+Rhino.Print "Ascending = N, NoCase = Y: " & Join(Rhino.SortStrings(arr, False, True))
+
+Rhino.Print "Ascending = N, NoCase = N: " & Join(Rhino.SortStrings(arr, False, False))
+
+
+Also See
+
+
+SortNumbers
+
+SortPoints
+

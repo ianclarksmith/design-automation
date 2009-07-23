@@ -785,7 +785,7 @@ class UserInterface(IRhinoScript):
 		Vertical.  A vertical rectangle is created by picking three points.
 		4
             
-        point, Array of ????, Optional        
+        point, Array of ???, Optional        
         A 3-D base point.
             
         prompt1, String, Optional        

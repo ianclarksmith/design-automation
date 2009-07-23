@@ -15,6 +15,7 @@ divide_curve = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ divide_curve = {
         },
         1: {
             "name": "lngSegments",
+            "py_name": "segments",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "lng",
@@ -35,6 +37,7 @@ divide_curve = {
         },
         2: {
             "name": "blnCreate",
+            "py_name": "create",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -45,6 +48,7 @@ divide_curve = {
         },
         3: {
             "name": "blnPoints",
+            "py_name": "points",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

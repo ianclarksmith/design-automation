@@ -19,9 +19,10 @@ object_print_width_source = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
@@ -29,6 +30,7 @@ object_print_width_source = {
         },
         1: {
             "name": "intSource",
+            "py_name": "source",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -16,6 +16,7 @@ object_mesh_density = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ object_mesh_density = {
         },
         1: {
             "name": "dblDensity",
+            "py_name": "density",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

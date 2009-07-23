@@ -15,6 +15,7 @@ curve_deviation = {
     "params_html": {
         0: {
             "name": "strCurveA",
+            "py_name": "curve_a",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_deviation = {
         },
         1: {
             "name": "strCurveB",
+            "py_name": "curve_b",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

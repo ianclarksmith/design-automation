@@ -15,6 +15,7 @@ all_procedures = {
     "params_html": {
         0: {
             "name": "blnAll",
+            "py_name": "all",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

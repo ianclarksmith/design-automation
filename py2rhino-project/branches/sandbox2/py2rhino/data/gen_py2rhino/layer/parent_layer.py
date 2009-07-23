@@ -15,6 +15,7 @@ parent_layer = {
     "params_html": {
         0: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ parent_layer = {
         },
         1: {
             "name": "strParent",
+            "py_name": "parent",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

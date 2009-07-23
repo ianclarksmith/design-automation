@@ -15,6 +15,7 @@ layer_linetype = {
     "params_html": {
         0: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ layer_linetype = {
         },
         1: {
             "name": "strLinetype",
+            "py_name": "linetype",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

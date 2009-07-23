@@ -15,6 +15,7 @@ unit_relative_tolerance = {
     "params_html": {
         0: {
             "name": "dblRelTol",
+            "py_name": "rel_tol",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

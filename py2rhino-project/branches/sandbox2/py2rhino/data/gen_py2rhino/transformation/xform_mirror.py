@@ -15,6 +15,7 @@ xform_mirror = {
     "params_html": {
         0: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ xform_mirror = {
         },
         1: {
             "name": "arrNormal",
+            "py_name": "normal",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

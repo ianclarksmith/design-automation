@@ -15,6 +15,7 @@ edge_analysis_mode = {
     "params_html": {
         0: {
             "name": "intMode",
+            "py_name": "mode",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

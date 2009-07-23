@@ -15,6 +15,7 @@ mesh_polyline = {
     "params_html": {
         0: {
             "name": "strPolyline",
+            "py_name": "polyline",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

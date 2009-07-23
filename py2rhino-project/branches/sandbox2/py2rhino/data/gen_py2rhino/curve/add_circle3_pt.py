@@ -15,6 +15,7 @@ add_circle3_pt = {
     "params_html": {
         0: {
             "name": "arrFirst",
+            "py_name": "first",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_circle3_pt = {
         },
         1: {
             "name": "arrSecond",
+            "py_name": "second",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ add_circle3_pt = {
         },
         2: {
             "name": "arrThird",
+            "py_name": "third",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

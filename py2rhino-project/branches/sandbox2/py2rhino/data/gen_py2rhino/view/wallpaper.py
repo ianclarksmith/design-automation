@@ -15,6 +15,7 @@ wallpaper = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ wallpaper = {
         },
         1: {
             "name": "strFileName",
+            "py_name": "file_name",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

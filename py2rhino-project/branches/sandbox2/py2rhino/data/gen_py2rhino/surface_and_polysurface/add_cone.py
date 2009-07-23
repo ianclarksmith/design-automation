@@ -16,9 +16,10 @@ add_cone = {
     "params_html": {
         0: {
             "name": "arrBase",
+            "py_name": "base",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Base",
             "doc": """
         The 3-D origin point of the cone.
@@ -26,9 +27,10 @@ add_cone = {
         },
         1: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Plane",
             "doc": """
         The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
@@ -36,9 +38,10 @@ add_cone = {
         },
         2: {
             "name": "arrHeight",
+            "py_name": "height",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "dbl",
             "name_main": "Height",
             "doc": """
         The 3-D height point of the cone.  The height point defines the height and direction of the cone.
@@ -46,6 +49,7 @@ add_cone = {
         },
         3: {
             "name": "dblHeight",
+            "py_name": "height",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -56,6 +60,7 @@ add_cone = {
         },
         4: {
             "name": "dblRadius",
+            "py_name": "radius",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -66,6 +71,7 @@ add_cone = {
         },
         5: {
             "name": "blnCap",
+            "py_name": "cap",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

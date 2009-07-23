@@ -16,6 +16,7 @@ render_mesh_density = {
     "params_html": {
         0: {
             "name": "dblDensity",
+            "py_name": "density",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

@@ -15,6 +15,7 @@ add_srf_control_pt_grid = {
     "params_html": {
         0: {
             "name": "arrCount",
+            "py_name": "count",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -25,6 +26,7 @@ add_srf_control_pt_grid = {
         },
         1: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ add_srf_control_pt_grid = {
         },
         2: {
             "name": "arrDegree",
+            "py_name": "degree",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

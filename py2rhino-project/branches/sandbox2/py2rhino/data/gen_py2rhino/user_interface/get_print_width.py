@@ -15,6 +15,7 @@ get_print_width = {
     "params_html": {
         0: {
             "name": "dblPrintWidth",
+            "py_name": "print_width",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

@@ -15,6 +15,7 @@ surface_isocurve_density = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ surface_isocurve_density = {
         },
         1: {
             "name": "intDensity",
+            "py_name": "density",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

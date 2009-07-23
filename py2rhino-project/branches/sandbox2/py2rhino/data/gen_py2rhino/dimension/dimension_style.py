@@ -15,6 +15,7 @@ dimension_style = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ dimension_style = {
         },
         1: {
             "name": "strStyle",
+            "py_name": "style",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

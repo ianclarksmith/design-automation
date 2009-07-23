@@ -16,6 +16,7 @@ render_mesh_quality = {
     "params_html": {
         0: {
             "name": "intQuality",
+            "py_name": "quality",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

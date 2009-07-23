@@ -15,6 +15,7 @@ line_plane = {
     "params_html": {
         0: {
             "name": "arrLine",
+            "py_name": "line",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

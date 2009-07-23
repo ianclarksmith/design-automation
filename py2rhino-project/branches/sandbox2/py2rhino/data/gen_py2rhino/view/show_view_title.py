@@ -15,6 +15,7 @@ show_view_title = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ show_view_title = {
         },
         1: {
             "name": "blnState",
+            "py_name": "state",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

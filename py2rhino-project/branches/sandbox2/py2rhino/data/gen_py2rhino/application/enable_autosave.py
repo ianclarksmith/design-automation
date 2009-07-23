@@ -15,6 +15,7 @@ enable_autosave = {
     "params_html": {
         0: {
             "name": "blnEnable",
+            "py_name": "enable",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

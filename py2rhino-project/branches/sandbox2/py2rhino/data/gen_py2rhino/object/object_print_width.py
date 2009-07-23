@@ -16,9 +16,10 @@ object_print_width = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
@@ -26,6 +27,7 @@ object_print_width = {
         },
         1: {
             "name": "dblWidth",
+            "py_name": "width",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

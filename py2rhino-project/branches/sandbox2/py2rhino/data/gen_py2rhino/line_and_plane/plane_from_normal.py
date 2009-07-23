@@ -15,6 +15,7 @@ plane_from_normal = {
     "params_html": {
         0: {
             "name": "arrOrigin",
+            "py_name": "origin",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ plane_from_normal = {
         },
         1: {
             "name": "arrNormal",
+            "py_name": "normal",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

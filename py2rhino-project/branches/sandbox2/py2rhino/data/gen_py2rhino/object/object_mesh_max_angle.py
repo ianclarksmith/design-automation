@@ -16,6 +16,7 @@ object_mesh_max_angle = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ object_mesh_max_angle = {
         },
         1: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

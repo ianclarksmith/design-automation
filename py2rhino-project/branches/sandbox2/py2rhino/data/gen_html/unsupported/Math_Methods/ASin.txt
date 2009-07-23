@@ -1,0 +1,53 @@
+ASin
+
+
+
+ASin
+
+
+Returns the arcsine, or inverse sine, of a number. The arcsine is the angle whose sine is number. The returned angle is given in radians in the range -PI/2 to PI/2.
+
+
+Syntax
+
+
+Rhino.ASin (dblNumber)
+
+
+Parameters
+
+
+
+dblNumber 
+
+Required.  Number.  A number representing the sine of the angle you want and must be from -1 to 1.
+
+
+Returns
+
+
+
+Number 
+
+An angle, ?, measured in radians, if successful. Note, A positive return value represents a counterclockwise angle from the x-axis; a negative return value represents a clockwise angle. Use ToDegrees to convert from radians to degrees.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+MsgBox Rhino.ASin(0.0)
+
+
+Also See
+
+
+ACos
+
+ATan2
+
+
+

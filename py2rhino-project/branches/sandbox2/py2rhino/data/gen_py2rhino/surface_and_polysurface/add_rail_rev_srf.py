@@ -15,6 +15,7 @@ add_rail_rev_srf = {
     "params_html": {
         0: {
             "name": "strProfile",
+            "py_name": "profile",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ add_rail_rev_srf = {
         },
         1: {
             "name": "strRail",
+            "py_name": "rail",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ add_rail_rev_srf = {
         },
         2: {
             "name": "arrAxis",
+            "py_name": "axis",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

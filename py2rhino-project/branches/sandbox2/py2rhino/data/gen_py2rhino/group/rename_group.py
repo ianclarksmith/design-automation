@@ -15,6 +15,7 @@ rename_group = {
     "params_html": {
         0: {
             "name": "strOldGroup",
+            "py_name": "old_group",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ rename_group = {
         },
         1: {
             "name": "strNewGroup",
+            "py_name": "new_group",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

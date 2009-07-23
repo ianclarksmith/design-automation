@@ -15,6 +15,7 @@ color_blue_value = {
     "params_html": {
         0: {
             "name": "lngRGB",
+            "py_name": "r_g_b",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "lng",

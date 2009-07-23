@@ -15,6 +15,7 @@ unit_distance_display_precision = {
     "params_html": {
         0: {
             "name": "intPrecision",
+            "py_name": "precision",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

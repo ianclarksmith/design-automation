@@ -15,6 +15,7 @@ current_printer = {
     "params_html": {
         0: {
             "name": "strPrinter",
+            "py_name": "printer",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

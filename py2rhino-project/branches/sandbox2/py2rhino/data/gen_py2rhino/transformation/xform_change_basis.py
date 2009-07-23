@@ -16,9 +16,10 @@ xform_change_basis = {
     "params_html": {
         0: {
             "name": "arrPlane1",
+            "py_name": "plane1",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Plane1",
             "doc": """
         The initial plane.
@@ -26,9 +27,10 @@ xform_change_basis = {
         },
         1: {
             "name": "arrPlane2",
+            "py_name": "plane2",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Plane2",
             "doc": """
         The final plane.
@@ -36,9 +38,10 @@ xform_change_basis = {
         },
         2: {
             "name": "arrX0",
+            "py_name": "x0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "X0",
             "doc": """
         The initial basis X (X0,Y0,Z0 can be any 3-D basis)
@@ -46,9 +49,10 @@ xform_change_basis = {
         },
         3: {
             "name": "arrY0",
+            "py_name": "y0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Y0",
             "doc": """
         The  initial basis Y
@@ -56,9 +60,10 @@ xform_change_basis = {
         },
         4: {
             "name": "arrZ0",
+            "py_name": "z0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Z0",
             "doc": """
         The  initial basis Z
@@ -66,9 +71,10 @@ xform_change_basis = {
         },
         5: {
             "name": "arrX1",
+            "py_name": "x1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "X1",
             "doc": """
         The final basis X (X1,Y1,Z1 can be any 3-D basis)
@@ -76,9 +82,10 @@ xform_change_basis = {
         },
         6: {
             "name": "arrY1",
+            "py_name": "y1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Y1",
             "doc": """
         The  final basis Y
@@ -86,9 +93,10 @@ xform_change_basis = {
         },
         7: {
             "name": "arrZ1",
+            "py_name": "z1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Z1",
             "doc": """
         The final basis Z

@@ -18,9 +18,10 @@ project_curve_to_mesh = {
     "params_html": {
         0: {
             "name": "arrCurves",
+            "py_name": "curves",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Curves",
             "doc": """
         The identifiers of one or more curve objects to project.
@@ -28,9 +29,10 @@ project_curve_to_mesh = {
         },
         1: {
             "name": "arrMeshes",
+            "py_name": "meshes",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Meshes",
             "doc": """
         The identifiers of the mesh objects to project onto.
@@ -38,9 +40,10 @@ project_curve_to_mesh = {
         },
         2: {
             "name": "arrDirection",
+            "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Direction",
             "doc": """
         The direction (3-D vector) to project the points.

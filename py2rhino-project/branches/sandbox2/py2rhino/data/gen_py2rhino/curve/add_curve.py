@@ -15,6 +15,7 @@ add_curve = {
     "params_html": {
         0: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_curve = {
         },
         1: {
             "name": "intDegree",
+            "py_name": "degree",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -16,6 +16,7 @@ object_mesh_min_initial_grid_quads = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ object_mesh_min_initial_grid_quads = {
         },
         1: {
             "name": "intQuads",
+            "py_name": "quads",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

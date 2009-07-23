@@ -15,6 +15,7 @@ plug_ins = {
     "params_html": {
         0: {
             "name": "intTypes",
+            "py_name": "types",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -38,6 +39,7 @@ plug_ins = {
         },
         1: {
             "name": "intStatus",
+            "py_name": "status",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -190,6 +190,8 @@ def parse_docs():
                             print "Prefix is missing", file_name, folder_name
                             param_main = param_name
                             param_prefix = 'none'
+                        #get the python version of the name
+                        param_py_name = camel_to_underscore(param_main)
                         #split the next line into the right bits
                         line2 = contents[param_start + 1]
                         line2_word1 = line2[:line2.find(".")].strip()
@@ -205,25 +207,25 @@ def parse_docs():
                         #assign parameters
                         param_req = line2_word1
                         param_vb_type = line2_word2
-                        content_params.append([
-                                               param_name, 
-                                               param_req, 
-                                               param_vb_type, 
-                                               param_prefix, 
-                                               param_main, 
-                                               content_param_help])
-                        
+                        content_params.append({
+                                               'name':param_name, 
+                                               'py_name':param_py_name,
+                                               'opt_or_req':param_req, 
+                                               'type':param_vb_type, 
+                                               'name_prefix':param_prefix, 
+                                               'name_main':param_main, 
+                                               'doc':content_param_help})
                 
                 #now check for duplicate parameters, e.g strObject and arrObjects
                 num_com_params = get_com_num_params(file_name)
                 num_html_params = len(content_params)
                 #print num_html_params, num_com_params
                 if num_html_params>num_com_params:
-                    list_of_param_names = map(lambda i: i[4], content_params)
+                    list_of_param_names = map(lambda i: i['name_main'], content_params)
                     tmp_params = []
                     for param in content_params:
-                        if not (((param[4] + 's') in list_of_param_names) or  
-                            ((param[4] + 'es') in list_of_param_names)):
+                        if not (((param['name_main'] + 's') in list_of_param_names) or  
+                            ((param['name_main'] + 'es') in list_of_param_names)):
                             tmp_params.append(param)
                     content_params = tmp_params         
                 
@@ -233,9 +235,12 @@ def parse_docs():
                 module_methods = types.__dict__[module_name][0] #@UndefinedVariable
                 if method_name in module_methods.keys():
                     for param in content_params:
-                        param[3] = module_methods[method_name][param[4]]
+                        #print param
+                        #print module_methods[method_name]
+                        param['name_prefix'] = module_methods[method_name][param['py_name']]
                             
                 #now get the returns
+                #TODO: get the full test - not just the first line
                 content_returns = []
                 if (line_num_example - line_num_returns) > 2:
                     for line_num in range(line_num_returns+1, line_num_example):
@@ -367,13 +372,14 @@ def write_modules(data):
             for param in html_params:
                 #check if param is required
                 w(f, (str(counter), ": {"), tabs = 2, nls=1, nle=1)
-                w(f, ('"name": "', param[0], '",'), tabs=3, nls=0, nle=1)
-                w(f, ('"opt_or_req": "', param[1], '",'), tabs=3, nls=0, nle=1)
-                w(f, ('"type": "', param[2], '",'), tabs=3, nls=0, nle=1)
-                w(f, ('"name_prefix": "', param[3], '",'), tabs=3, nls=0, nle=1)
-                w(f, ('"name_main": "', param[4], '",'), tabs=3, nls=0, nle=1)
+                w(f, ('"name": "', param['name'], '",'), tabs=3, nls=0, nle=1)
+                w(f, ('"py_name": "', param['py_name'], '",'), tabs=3, nls=0, nle=1)                
+                w(f, ('"opt_or_req": "', param['opt_or_req'], '",'), tabs=3, nls=0, nle=1)
+                w(f, ('"type": "', param['type'], '",'), tabs=3, nls=0, nle=1)
+                w(f, ('"name_prefix": "', param['name_prefix'], '",'), tabs=3, nls=0, nle=1)
+                w(f, ('"name_main": "', param['name_main'], '",'), tabs=3, nls=0, nle=1)
                 w(f, '"doc": """', tabs=3, nls=0, nle=1)   
-                w(f, param[5], tabs = 2,  nls = 0, nle=1)
+                w(f, param['doc'], tabs = 2,  nls = 0, nle=1)
                 w(f, '"""', tabs = 3, nls = 0, nle=1)
                 w(f, ('},'), tabs = 2, nls=0, nle=0)
                 counter += 1

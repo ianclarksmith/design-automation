@@ -15,6 +15,7 @@ plane_from_points = {
     "params_html": {
         0: {
             "name": "arrOrigin",
+            "py_name": "origin",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ plane_from_points = {
         },
         1: {
             "name": "arrPointX",
+            "py_name": "point_x",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ plane_from_points = {
         },
         2: {
             "name": "arrPointY",
+            "py_name": "point_y",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

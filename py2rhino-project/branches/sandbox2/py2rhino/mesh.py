@@ -204,7 +204,7 @@ class Mesh(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the mesh objects to explode.
             
         delete, Boolean, Optional        
@@ -327,7 +327,7 @@ class Mesh(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of object identifier.
             
         Returns
@@ -1121,44 +1121,8 @@ class Mesh(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        vertex_colors, Array of ????, Optional        
+        vertex_colors, Array of ???, Optional        
         An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
-            
-        Returns
-        =======
-
-        array
-        If arrVertexColors  is not specified,  the current vertex color if successful.
-
-        array
-        If arrVertexColors  is specified, the previous vertex colors if successful.
-
-        null
-        If strObject does not have vertex colors, if not successful, or on error.
-
-        """
-
-        params = [object, vertex_colors]
-        required = [True, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        flattened = [object, flatten_params(vertex_colors)]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(699, 1, (VT_VARIANT, 0), magic, u"MeshVertexColors", None, *flattened)
-
-    def mesh_vertex_colors_2(self, object, vertex_colors=None):
-        """        
-        Returns or modifies the  vertex colors of a mesh object
-    
-        Parameters
-        ==========
-
-        object, String, Required        
-        The object's identifier.
-            
-        vertex_colors, Array of ????, Optional        
-        Specifying Null will remove, or purge, any existing vertex colors from the mesh.
             
         Returns
         =======
@@ -1280,7 +1244,7 @@ class Mesh(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of object identifier.
             
         Returns

@@ -15,6 +15,7 @@ unit_system_name = {
     "params_html": {
         0: {
             "name": "blnCapitalize",
+            "py_name": "capitalize",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -25,6 +26,7 @@ unit_system_name = {
         },
         1: {
             "name": "blnSingular",
+            "py_name": "singular",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ unit_system_name = {
         },
         2: {
             "name": "blnAbbreviate",
+            "py_name": "abbreviate",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

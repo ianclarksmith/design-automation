@@ -15,6 +15,7 @@ flip_surface = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ flip_surface = {
         },
         1: {
             "name": "blnFlip",
+            "py_name": "flip",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

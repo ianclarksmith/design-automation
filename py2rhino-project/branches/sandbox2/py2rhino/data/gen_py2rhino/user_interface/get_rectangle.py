@@ -15,6 +15,7 @@ get_rectangle = {
     "params_html": {
         0: {
             "name": "intMode",
+            "py_name": "mode",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -36,9 +37,10 @@ get_rectangle = {
         },
         1: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point",
             "doc": """
         A 3-D base point.
@@ -46,6 +48,7 @@ get_rectangle = {
         },
         2: {
             "name": "strPrompt1",
+            "py_name": "prompt1",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -56,6 +59,7 @@ get_rectangle = {
         },
         3: {
             "name": "strPrompt2",
+            "py_name": "prompt2",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -66,6 +70,7 @@ get_rectangle = {
         },
         4: {
             "name": "strPrompt3",
+            "py_name": "prompt3",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

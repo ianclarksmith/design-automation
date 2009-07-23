@@ -16,6 +16,7 @@ render_mesh_min_edge_length = {
     "params_html": {
         0: {
             "name": "dblLength",
+            "py_name": "length",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

@@ -15,6 +15,7 @@ view_display_modes = {
     "params_html": {
         0: {
             "name": "blnReturnName",
+            "py_name": "return_name",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

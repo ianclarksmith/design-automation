@@ -15,6 +15,7 @@ unit_custom_unit_system = {
     "params_html": {
         0: {
             "name": "dblUnits",
+            "py_name": "units",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -25,6 +26,7 @@ unit_custom_unit_system = {
         },
         1: {
             "name": "blnScale",
+            "py_name": "scale",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ unit_custom_unit_system = {
         },
         2: {
             "name": "strName",
+            "py_name": "name",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

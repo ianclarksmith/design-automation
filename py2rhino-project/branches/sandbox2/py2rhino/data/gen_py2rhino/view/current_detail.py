@@ -15,6 +15,7 @@ current_detail = {
     "params_html": {
         0: {
             "name": "strLayout",
+            "py_name": "layout",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ current_detail = {
         },
         1: {
             "name": "strDetail",
+            "py_name": "detail",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ current_detail = {
         },
         2: {
             "name": "blnReturnNames",
+            "py_name": "return_names",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

@@ -15,6 +15,7 @@ get_points = {
     "params_html": {
         0: {
             "name": "blnDraw",
+            "py_name": "draw",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -25,6 +26,7 @@ get_points = {
         },
         1: {
             "name": "blnPlane",
+            "py_name": "plane",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ get_points = {
         },
         2: {
             "name": "strMessage1",
+            "py_name": "message1",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -45,6 +48,7 @@ get_points = {
         },
         3: {
             "name": "strMessage2",
+            "py_name": "message2",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -55,6 +59,7 @@ get_points = {
         },
         4: {
             "name": "intMaxPoints",
+            "py_name": "max_points",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -65,6 +70,7 @@ get_points = {
         },
         5: {
             "name": "arrBasePoint",
+            "py_name": "base_point",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

@@ -15,6 +15,7 @@ spot_light_shadow_intensity = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ spot_light_shadow_intensity = {
         },
         1: {
             "name": "dblIntensity",
+            "py_name": "intensity",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

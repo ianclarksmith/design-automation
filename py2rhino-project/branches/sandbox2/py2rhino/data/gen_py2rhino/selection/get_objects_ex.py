@@ -15,6 +15,7 @@ get_objects_ex = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_objects_ex = {
         },
         1: {
             "name": "intType",
+            "py_name": "type",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -72,6 +74,7 @@ get_objects_ex = {
         },
         2: {
             "name": "blnGroup",
+            "py_name": "group",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -82,6 +85,7 @@ get_objects_ex = {
         },
         3: {
             "name": "blnPreSelect",
+            "py_name": "pre_select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -92,6 +96,7 @@ get_objects_ex = {
         },
         4: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -102,6 +107,7 @@ get_objects_ex = {
         },
         5: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_str",

@@ -15,6 +15,7 @@ is_command = {
     "params_html": {
         0: {
             "name": "strCommandName",
+            "py_name": "command_name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

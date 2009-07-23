@@ -15,6 +15,7 @@ browse_for_folder = {
     "params_html": {
         0: {
             "name": "strFolder",
+            "py_name": "folder",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ browse_for_folder = {
         },
         1: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ browse_for_folder = {
         },
         2: {
             "name": "strTitle",
+            "py_name": "title",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

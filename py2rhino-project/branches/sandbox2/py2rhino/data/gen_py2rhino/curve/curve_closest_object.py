@@ -16,6 +16,7 @@ curve_closest_object = {
     "params_html": {
         0: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,9 +27,10 @@ curve_closest_object = {
         },
         1: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Objects",
             "doc": """
         The identifiers of one or more point cloud, curve, surface, or polysurface to test against.

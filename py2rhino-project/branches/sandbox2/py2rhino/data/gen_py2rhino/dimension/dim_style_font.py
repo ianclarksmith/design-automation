@@ -15,6 +15,7 @@ dim_style_font = {
     "params_html": {
         0: {
             "name": "strDimStyle",
+            "py_name": "dim_style",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ dim_style_font = {
         },
         1: {
             "name": "strFont",
+            "py_name": "font",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

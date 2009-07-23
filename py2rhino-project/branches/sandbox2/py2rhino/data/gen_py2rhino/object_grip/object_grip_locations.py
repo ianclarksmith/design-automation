@@ -15,6 +15,7 @@ object_grip_locations = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ object_grip_locations = {
         },
         1: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

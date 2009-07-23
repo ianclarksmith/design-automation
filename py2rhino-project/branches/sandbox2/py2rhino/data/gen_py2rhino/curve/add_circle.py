@@ -15,6 +15,7 @@ add_circle = {
     "params_html": {
         0: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_circle = {
         },
         1: {
             "name": "dblRadius",
+            "py_name": "radius",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

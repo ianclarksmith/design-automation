@@ -15,6 +15,7 @@ is_vector_tiny = {
     "params_html": {
         0: {
             "name": "arrVector",
+            "py_name": "vector",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

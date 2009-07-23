@@ -18,9 +18,10 @@ project_point_to_surface = {
     "params_html": {
         0: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Points",
             "doc": """
         An array of 3-D points to project.
@@ -28,9 +29,10 @@ project_point_to_surface = {
         },
         1: {
             "name": "arrSurfaces",
+            "py_name": "surfaces",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Surfaces",
             "doc": """
         The identifiers of the surface or polysurface objects to project onto.
@@ -38,9 +40,10 @@ project_point_to_surface = {
         },
         2: {
             "name": "arrDirection",
+            "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Direction",
             "doc": """
         The direction (3-D vector) to project the points.

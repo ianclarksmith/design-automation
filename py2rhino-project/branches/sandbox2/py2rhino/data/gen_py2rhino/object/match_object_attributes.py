@@ -16,9 +16,10 @@ match_object_attributes = {
     "params_html": {
         0: {
             "name": "arrTargets",
+            "py_name": "targets",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Targets",
             "doc": """
         An array of strings identifying the target objects.
@@ -26,6 +27,7 @@ match_object_attributes = {
         },
         1: {
             "name": "strSource",
+            "py_name": "source",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

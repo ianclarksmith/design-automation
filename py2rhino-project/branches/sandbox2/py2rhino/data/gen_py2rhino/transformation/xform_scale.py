@@ -18,9 +18,10 @@ xform_scale = {
     "params_html": {
         0: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Plane",
             "doc": """
         The starting plane.
@@ -28,6 +29,7 @@ xform_scale = {
         },
         1: {
             "name": "dblXScale",
+            "py_name": "x_scale",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -38,6 +40,7 @@ xform_scale = {
         },
         2: {
             "name": "dblYScale",
+            "py_name": "y_scale",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -48,6 +51,7 @@ xform_scale = {
         },
         3: {
             "name": "dblZScale",
+            "py_name": "z_scale",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -58,9 +62,10 @@ xform_scale = {
         },
         4: {
             "name": "arrVector",
+            "py_name": "vector",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Vector",
             "doc": """
         The ending direction.
@@ -68,9 +73,10 @@ xform_scale = {
         },
         5: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array (3-D Point)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point",
             "doc": """
         The rotation center point.
@@ -78,6 +84,7 @@ xform_scale = {
         },
         6: {
             "name": "dblScale",
+            "py_name": "scale",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "dbl",

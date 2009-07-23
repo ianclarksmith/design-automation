@@ -15,6 +15,7 @@ text_out = {
     "params_html": {
         0: {
             "name": "strText",
+            "py_name": "text",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ text_out = {
         },
         1: {
             "name": "strTitle",
+            "py_name": "title",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

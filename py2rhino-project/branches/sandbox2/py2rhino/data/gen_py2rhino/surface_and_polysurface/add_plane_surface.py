@@ -15,6 +15,7 @@ add_plane_surface = {
     "params_html": {
         0: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_plane_surface = {
         },
         1: {
             "name": "dblDU",
+            "py_name": "d_u",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ add_plane_surface = {
         },
         2: {
             "name": "dblDV",
+            "py_name": "d_v",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

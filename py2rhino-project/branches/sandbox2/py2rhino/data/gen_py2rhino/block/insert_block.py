@@ -16,6 +16,7 @@ insert_block = {
     "params_html": {
         0: {
             "name": "strName",
+            "py_name": "name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,9 +27,10 @@ insert_block = {
         },
         1: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point",
             "doc": """
         The 3-D insertion point of the block.
@@ -36,9 +38,10 @@ insert_block = {
         },
         2: {
             "name": "arrScale",
+            "py_name": "scale",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Scale",
             "doc": """
         An array of three numbers that identify the x,y,z scale factors. If omitted, the block is not scaled.
@@ -46,6 +49,7 @@ insert_block = {
         },
         3: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -56,9 +60,10 @@ insert_block = {
         },
         4: {
             "name": "arrNormal",
+            "py_name": "normal",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Normal",
             "doc": """
         A 3-D vector identifying the axis of rotation. If omitted and dblAngle is specified, the world Z axis is used.
@@ -66,9 +71,10 @@ insert_block = {
         },
         5: {
             "name": "arrXform",
+            "py_name": "xform",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Xform",
             "doc": """
         4x4 transformation matrix to apply.

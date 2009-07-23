@@ -15,6 +15,7 @@ add_arc3_pt = {
     "params_html": {
         0: {
             "name": "arrStart",
+            "py_name": "start",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_arc3_pt = {
         },
         1: {
             "name": "arrEnd",
+            "py_name": "end",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ add_arc3_pt = {
         },
         2: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

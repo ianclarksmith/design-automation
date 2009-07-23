@@ -15,6 +15,7 @@ planar_closed_curve_containment = {
     "params_html": {
         0: {
             "name": "strCurve1",
+            "py_name": "curve1",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ planar_closed_curve_containment = {
         },
         1: {
             "name": "strCurve2",
+            "py_name": "curve2",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ planar_closed_curve_containment = {
         },
         2: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -59,6 +62,7 @@ planar_closed_curve_containment = {
         },
         3: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

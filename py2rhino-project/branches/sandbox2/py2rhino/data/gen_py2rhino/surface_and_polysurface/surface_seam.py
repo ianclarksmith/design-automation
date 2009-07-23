@@ -15,6 +15,7 @@ surface_seam = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ surface_seam = {
         },
         1: {
             "name": "intDirection",
+            "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ surface_seam = {
         },
         2: {
             "name": "dblParameter",
+            "py_name": "parameter",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
