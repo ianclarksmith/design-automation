@@ -8,34 +8,37 @@ add_arc = {
         Adds an arc curve to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddArc (arrPlane, dblRadius, dblAngle)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "dblRadius", "dblAngle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane on which the arc will lie. The origin of the plane will be the center point of the arc. The X-axis of the plane will define the 0 angle direction.
             """
         },
         1: {
-            "name": "Radius",
+            "name": "dblRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radius",
             "doc": """
         The radius arc.
             """
         },
         2: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         A angle or interval, in degrees, of the arc.
             """

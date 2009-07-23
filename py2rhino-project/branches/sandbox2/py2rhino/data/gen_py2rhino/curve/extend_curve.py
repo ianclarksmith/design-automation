@@ -8,25 +8,27 @@ extend_curve = {
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
     """,
 
-    "syntax_html": """
-        Rhino.ExtendCurve (strObject, intType, intSide, arrObjects)
-    """,
+    "syntax_html": {
+        0: ("strObject", "intType", "intSide", "arrObjects"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Type",
+            "name": "intType",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Type",
             "doc": """
         Type of extension.
 		Value
@@ -39,10 +41,11 @@ extend_curve = {
             """
         },
         2: {
-            "name": "Side",
+            "name": "intSide",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Side",
             "doc": """
         The size to  extent.
 		Value
@@ -53,10 +56,11 @@ extend_curve = {
             """
         },
         3: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
             """

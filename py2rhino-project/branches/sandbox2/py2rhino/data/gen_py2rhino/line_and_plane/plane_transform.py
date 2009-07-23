@@ -8,25 +8,27 @@ plane_transform = {
         Transforms a plane.
     """,
 
-    "syntax_html": """
-        Rhino.PlaneTransform (arrPlane, arrXform)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "arrXform"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane to transform.
             """
         },
         1: {
-            "name": "Xform",
+            "name": "arrXform",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Xform",
             "doc": """
         A valid 4x4 transformation matrix.
             """

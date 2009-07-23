@@ -8,25 +8,27 @@ is_visible_in_view = {
         Verifies that an object is visible in a view.
     """,
 
-    "syntax_html": """
-        Rhino.IsVisibleInView (strObject [, strView])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object.
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title of the view.  If omitted, the current active view is used.
             """

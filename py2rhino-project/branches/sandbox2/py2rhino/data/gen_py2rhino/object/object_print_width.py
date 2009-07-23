@@ -8,25 +8,28 @@ object_print_width = {
         Returns or modifies the print width of an object.  Object print widths are measured in millimeters (mm).
     """,
 
-    "syntax_html": """
-        Rhino.ObjectPrintWidth (strObject [, dblWidth])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblWidth"),
+        1: ("arrObjects", "dblWidth"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
             """
         },
         1: {
-            "name": "Width",
+            "name": "dblWidth",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Width",
             "doc": """
         The new print width value in millimeters, where dblWidth = 0.0 means use the default width, and dblWidth < 0.0 means do not print (visible for screen display, but does not show on print).  If omitted, the current object print width is returned.  Note, if arrObjects is specified, dblWidth is required.
             """

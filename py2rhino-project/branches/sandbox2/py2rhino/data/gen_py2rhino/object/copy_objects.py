@@ -8,43 +8,48 @@ copy_objects = {
         Copies one or more objects from one location to another, or in-place.
     """,
 
-    "syntax_html": """
-        Rhino.CopyObjects (arrObjects [, arrStart , arrEnd])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrStart", "arrEnd"),
+        1: ("strObject", "arrTranslation"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to copy.
             """
         },
         1: {
-            "name": "Start",
+            "name": "arrStart",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Start",
             "doc": """
         The 3-D starting, or base, point of the copy operation.  If omitted, the objects are copied in-place.
             """
         },
         2: {
-            "name": "End",
+            "name": "arrEnd",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "End",
             "doc": """
         The 3-D ending point of the copy operation.
             """
         },
         3: {
-            "name": "Translation",
+            "name": "arrTranslation",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Translation",
             "doc": """
         The 3-D translation vector.
             """

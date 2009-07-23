@@ -12,25 +12,28 @@ object_print_color_source = {
 		4. Print color from parent.  For objects with parents, like objects in block instances, use parent's print color.  If no parent, treats as print color from layer.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectPrintColorSource (strObject [, intSource])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intSource"),
+        1: ("arrObjects", "intSource"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
             """
         },
         1: {
-            "name": "Source",
+            "name": "intSource",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Source",
             "doc": """
         The new print color source.  If omitted, the current print color source is returned.  Note, if arrObjects is specified, intSource is required.
 		Value

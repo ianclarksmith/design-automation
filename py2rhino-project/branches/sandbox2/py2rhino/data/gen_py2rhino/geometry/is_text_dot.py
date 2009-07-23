@@ -8,16 +8,17 @@ is_text_dot = {
         Verifies an object is a text dot object.
     """,
 
-    "syntax_html": """
-        Rhino.IsTextDot (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

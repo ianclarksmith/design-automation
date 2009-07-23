@@ -8,34 +8,37 @@ extrude_surface = {
         Creates a surface or solid by extruding a straight along a path curve.
     """,
 
-    "syntax_html": """
-        Rhino.ExtrudeSurface (strSurface, strCurve [, blnCap])
-    """,
+    "syntax_html": {
+        0: ("strSurface", "strCurve", "blnCap"),
+    },
 
     "params_html": {
         0: {
-            "name": "Surface",
+            "name": "strSurface",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Surface",
             "doc": """
         The identifier of the surface object to extrude.
             """
         },
         1: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of the path curve.
             """
         },
         2: {
-            "name": "Cap",
+            "name": "blnCap",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Cap",
             "doc": """
         Extrusion is capped at both ends to make a closed polysurface. The default value is True.
             """

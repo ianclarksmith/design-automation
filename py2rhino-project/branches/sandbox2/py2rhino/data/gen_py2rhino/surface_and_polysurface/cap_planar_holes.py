@@ -8,16 +8,17 @@ cap_planar_holes = {
         Caps planar holes in a surface or polysurface. For more details, see the Cap command in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.CapPlanarHoles (strSurface)
-    """,
+    "syntax_html": {
+        0: ("strSurface"),
+    },
 
     "params_html": {
         0: {
-            "name": "Surface",
+            "name": "strSurface",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Surface",
             "doc": """
         The identifier of the surface or polysurface to cap.
             """

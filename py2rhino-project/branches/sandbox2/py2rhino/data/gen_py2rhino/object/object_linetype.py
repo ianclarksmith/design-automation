@@ -8,25 +8,28 @@ object_linetype = {
         Returns or modifies the linetype of an object.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectLinetype (strObject [, strLinetype])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strLinetype"),
+        1: ("arrObjects", "strLinetype"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
             """
         },
         1: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing linetype.  If omitted, the current object linetype is returned.  Note, if arrObjects is specified, strLinetype is required.
             """

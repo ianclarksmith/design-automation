@@ -8,9 +8,9 @@ screen_size = {
         Returns the current width and height, in pixels, of the screen of the primary display monitor.
     """,
 
-    "syntax_html": """
-        Rhino.ScreenSize ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

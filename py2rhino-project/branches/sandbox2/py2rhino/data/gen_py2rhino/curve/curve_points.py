@@ -8,25 +8,27 @@ curve_points = {
         Returns the control points, or control vertices, of a curve object.  If the curve is a rational NURBS curve, the euclidean control vertices are returned.
     """,
 
-    "syntax_html": """
-        Rhino.CurvePoints (strObject [, intIndex])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intIndex"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Index",
+            "name": "intIndex",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Index",
             "doc": """
         If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
             """

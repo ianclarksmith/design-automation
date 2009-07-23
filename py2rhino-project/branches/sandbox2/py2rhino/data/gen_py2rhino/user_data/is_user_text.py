@@ -8,16 +8,17 @@ is_user_text = {
         Verifies that an object contains user text. For more details on User Text, see the discussion found in the User Data Methods summary.
     """,
 
-    "syntax_html": """
-        Rhino.IsUserText (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

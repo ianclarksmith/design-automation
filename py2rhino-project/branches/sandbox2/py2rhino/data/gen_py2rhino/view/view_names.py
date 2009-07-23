@@ -8,25 +8,27 @@ view_names = {
         Returns the names, or titles, or identifiers of all views in the document.
     """,
 
-    "syntax_html": """
-        Rhino.ViewNames ([blnReturnNames [, intType]])
-    """,
+    "syntax_html": {
+        0: ("blnReturnNames", "intType"),
+    },
 
     "params_html": {
         0: {
-            "name": "ReturnNames",
+            "name": "blnReturnNames",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnNames",
             "doc": """
         If True (default), then the names, or titles, of the views are returned. If False, then the identifiers of the views are returned.
             """
         },
         1: {
-            "name": "Type",
+            "name": "intType",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Type",
             "doc": """
         The type of view to return, where:
 		Value

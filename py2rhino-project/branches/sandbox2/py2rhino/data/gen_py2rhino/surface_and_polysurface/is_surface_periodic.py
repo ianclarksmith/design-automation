@@ -8,25 +8,27 @@ is_surface_periodic = {
         Verifies a surface object is periodic in the specified direction.
     """,
 
-    "syntax_html": """
-        Rhino.IsSurfacePeriodic (strObject, intDirection)
-    """,
+    "syntax_html": {
+        0: ("strObject", "intDirection"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The direction, either 0 = U, or 1 = V.
             """

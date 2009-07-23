@@ -8,34 +8,37 @@ split_brep = {
         Splits a brep.  A brep can be either a surface with a single face or a polysurface.
     """,
 
-    "syntax_html": """
-        Rhino.SplitBrep (strBrep, strCutter [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strBrep", "strCutter", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Brep",
+            "name": "strBrep",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Brep",
             "doc": """
         The identifier of the brep object to split.
             """
         },
         1: {
-            "name": "Cutter",
+            "name": "strCutter",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Cutter",
             "doc": """
         The identifier of the brep object to split with.
             """
         },
         2: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete input brep.  If omitted, the input brep will not be deleted (False).
             """

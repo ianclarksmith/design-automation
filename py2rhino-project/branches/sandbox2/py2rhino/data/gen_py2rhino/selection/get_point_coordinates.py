@@ -8,25 +8,27 @@ get_point_coordinates = {
         Prompts the user to pick or select one or more point objects. Unlike GetObjects, this function does not return an array of point object identifiers. Rather, it returns an array of 3-D point coordinates - one for each selected point object. Note, the array returned is not in any sorted order.
     """,
 
-    "syntax_html": """
-        Rhino.GetPointCoordinates ([strMessage [, blnPreSelect]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "blnPreSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "PreSelect",
+            "name": "blnPreSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "PreSelect",
             "doc": """
         Allow for the selection of pre-selected objects.  If omitted, pre-selected objects are not accepted (False).
             """

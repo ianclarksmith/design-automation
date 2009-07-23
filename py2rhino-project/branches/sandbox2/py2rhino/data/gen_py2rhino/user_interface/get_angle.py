@@ -8,43 +8,47 @@ get_angle = {
         Pauses for user input of an angle.
     """,
 
-    "syntax_html": """
-        Rhino.GetAngle (arrPoint, arrReference, dblAngle, strMessage)
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "arrReference", "dblAngle", "strMessage"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A zero-based, one-dimensional array containing three numbers identifying the starting, or base, point.
             """
         },
         1: {
-            "name": "Reference",
+            "name": "arrReference",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Reference",
             "doc": """
         A zero-based, one-dimensional array containing three numbers identifying a reference point.  If specified, the reference angle is calculated from it and the base point.
             """
         },
         2: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         A default angle value specified in degrees.
             """
         },
         3: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """

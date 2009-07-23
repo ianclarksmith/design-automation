@@ -9,16 +9,17 @@ render_mesh_settings = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.RenderMeshSettings ([intSettings])
-    """,
+    "syntax_html": {
+        0: ("intSettings"),
+    },
 
     "params_html": {
         0: {
-            "name": "Settings",
+            "name": "intSettings",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Settings",
             "doc": """
         The render mesh settings, which is a bit-coded number that allows or disallows certain features.  The bits can be added together in any combination to form a value between 0 and 7.  The bit values are as follows:
 		Value

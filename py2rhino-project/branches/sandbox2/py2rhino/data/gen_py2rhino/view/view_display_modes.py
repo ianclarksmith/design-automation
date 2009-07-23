@@ -8,16 +8,17 @@ view_display_modes = {
         Returns a list of view display modes, including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
     """,
 
-    "syntax_html": """
-        Rhino.ViewDisplayModes ([blnReturnNames])
-    """,
+    "syntax_html": {
+        0: ("blnReturnNames"),
+    },
 
     "params_html": {
         0: {
-            "name": "ReturnName",
+            "name": "blnReturnName",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnName",
             "doc": """
         If True (default), then the names of the display modes are returned. If False, then the identifiers of the display modes are returned.
             """

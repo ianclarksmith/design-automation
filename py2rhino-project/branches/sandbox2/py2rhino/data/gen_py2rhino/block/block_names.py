@@ -8,16 +8,17 @@ block_names = {
         Returns the names of all block definitions in the document.
     """,
 
-    "syntax_html": """
-        Rhino.BlockNames ([blnSort])
-    """,
+    "syntax_html": {
+        0: ("blnSort"),
+    },
 
     "params_html": {
         0: {
-            "name": "Sort",
+            "name": "blnSort",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Sort",
             "doc": """
         Return a sorted array of block definition names.
             """

@@ -8,25 +8,27 @@ flip_surface = {
         Returns or changes the normal direction of a surface. This feature can also be found in Rhino's Dir command.
     """,
 
-    "syntax_html": """
-        Rhino.FlipSurface (strObject [, blnFlip])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnFlip"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a surface object.
             """
         },
         1: {
-            "name": "Flip",
+            "name": "blnFlip",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Flip",
             "doc": """
         The new normal orientation, either flipped (True) or not flipped (False).  If omitted, the current normal orientation is returned.
             """

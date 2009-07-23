@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class LineAndPlane(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def distance_to_plane(self, plane, point):
         """        
@@ -15,7 +24,7 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane.  The elements of a plane array are as follows:
 		Element
 		Description
@@ -27,7 +36,7 @@ class LineAndPlane(IRhinoScript):
 		Required.  The plane's Y axis direction (3-D vector).
 		3
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D point.
             
         Returns
@@ -42,19 +51,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, point]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane), flatten(point)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(plane), flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(628, 1, (VT_VARIANT, 0), params_magic_numbers, u"DistanceToPlane", None, *params_flattened)
+        return self._ApplyTypes_(628, 1, (VT_VARIANT, 0), magic, u"DistanceToPlane", None, *flattened)
 
     def evaluate_plane(self, plane, parameter):
         """        
@@ -63,7 +66,7 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane.  The elements of a plane array are as follows:
 		Element
 		Description
@@ -75,7 +78,7 @@ class LineAndPlane(IRhinoScript):
 		Required.  The plane's Y axis direction (3-D vector).
 		3
             
-        parameter, Array of ????, Required        
+        parameter, Array of Doubles, Required        
         An array containing the U,V parameter to evaluate.
             
         Returns
@@ -90,19 +93,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, parameter]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane), flatten(parameter)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(plane), flatten_params(parameter)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(751, 1, (VT_VARIANT, 0), params_magic_numbers, u"EvaluatePlane", None, *params_flattened)
+        return self._ApplyTypes_(751, 1, (VT_VARIANT, 0), magic, u"EvaluatePlane", None, *flattened)
 
     def intersect_planes(self, plane1, plane2, plane3):
         """        
@@ -111,13 +108,13 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane1, Array of ????, Required        
+        plane1, Array of Doubles, Required        
         The first plane to intersect.
             
-        plane2, Array of ????, Required        
+        plane2, Array of Doubles, Required        
         The second plane to intersect.
             
-        plane3, Array of ????, Required        
+        plane3, Array of Doubles, Required        
         The third plane to intersect.
             
         Returns
@@ -132,19 +129,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane1, plane2, plane3]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane1), flatten(plane2), flatten(plane3)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(plane1), flatten_params(plane2), flatten_params(plane3)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(745, 1, (VT_VARIANT, 0), params_magic_numbers, u"IntersectPlanes", None, *params_flattened)
+        return self._ApplyTypes_(745, 1, (VT_VARIANT, 0), magic, u"IntersectPlanes", None, *flattened)
 
     def line_closest_point(self, line, point):
         """        
@@ -153,10 +144,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The test point.
             
         Returns
@@ -171,21 +162,15 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, point]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(line), flatten(point)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(line), flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(899, 1, (VT_VARIANT, 0), magic, u"LineClosestPoint", None, *flattened)
 
-        return self._ApplyTypes_(899, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineClosestPoint", None, *params_flattened)
-
-    def line_is_farther_than(self, line, distance, point, line2):
+    def line_is_farther_than(self, line, distance, point):
         """        
         Determines if the shortest distance from a line to a point or another line is greater than a specified distance.
     
@@ -201,6 +186,39 @@ class LineAndPlane(IRhinoScript):
         point, Array of ????, Required        
         The test point.
             
+        Returns
+        =======
+
+        boolean
+        True if the shortest distance from the line to the other object is greater than dblDistance, False otherwise.
+
+        null
+        On error.
+
+        """
+
+        params = [line, distance, point]
+        required = [True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(line), distance, flatten_params(point)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(902, 1, (VT_VARIANT, 0), magic, u"LineIsFartherThan", None, *flattened)
+
+    def line_is_farther_than_2(self, line, distance, line2):
+        """        
+        Determines if the shortest distance from a line to a point or another line is greater than a specified distance.
+    
+        Parameters
+        ==========
+
+        line, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the line.
+            
+        distance, Double, Required        
+        The distance.
+            
         line2, Array of ????, Required        
         Two 3-D points identifying the starting and ending points of the test line.
             
@@ -215,20 +233,14 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        params = [line, distance, point, line2]
-        params_required = [True, True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(line), distance, flatten(point), flatten(line2)]
+        params = [line, distance, line2]
+        required = [True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(line), distance, flatten_params(line2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(902, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineIsFartherThan", None, *params_flattened)
+        return self._ApplyTypes_(902, 1, (VT_VARIANT, 0), magic, u"LineIsFartherThan", None, *flattened)
 
     def line_line_intersection(self, line_a, line_b, planar=None):
         """        
@@ -239,10 +251,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line_a, Array of ????, Required        
+        line_a, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the first line.
             
-        line_b, Array of ????, Required        
+        line_b, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the second line.
             
         planar, Boolean, Optional        
@@ -263,21 +275,15 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line_a, line_b, planar]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(line_a), flatten(line_b), planar]
+        required = [True, True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_BOOL, 1)]
+        flattened = [flatten_params(line_a), flatten_params(line_b), planar]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(736, 1, (VT_VARIANT, 0), magic, u"LineLineIntersection", None, *flattened)
 
-        return self._ApplyTypes_(736, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineLineIntersection", None, *params_flattened)
-
-    def line_max_distance_to(self, line, point, line2):
+    def line_max_distance_to(self, line, point):
         """        
         Finds the longest distance between the line, as a finite chord, and a point or another line.
     
@@ -289,6 +295,36 @@ class LineAndPlane(IRhinoScript):
             
         point, Array of ????, Required        
         The test point.
+            
+        Returns
+        =======
+
+        boolean
+        A distance (D) such that if Q is any point on the line and P is any point on the other object, then D >= Rhino.Distance(Q, P).
+
+        null
+        On error.
+
+        """
+
+        params = [line, point]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(line), flatten_params(point)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(901, 1, (VT_VARIANT, 0), magic, u"LineMaxDistanceTo", None, *flattened)
+
+    def line_max_distance_to_2(self, line, line2):
+        """        
+        Finds the longest distance between the line, as a finite chord, and a point or another line.
+    
+        Parameters
+        ==========
+
+        line, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the line.
             
         line2, Array of ????, Required        
         Two 3-D points identifying the starting and ending points of the test line (another finite chord).
@@ -304,22 +340,16 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        params = [line, point, line2]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(line), flatten(point), flatten(line2)]
+        params = [line, line2]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(line), flatten_params(line2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(901, 1, (VT_VARIANT, 0), magic, u"LineMaxDistanceTo", None, *flattened)
 
-        return self._ApplyTypes_(901, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineMaxDistanceTo", None, *params_flattened)
-
-    def line_min_distance_to(self, line, point, line2):
+    def line_min_distance_to(self, line, point):
         """        
         Finds the shortest distance between the line, as a finite chord, and a point or another line.
     
@@ -331,6 +361,36 @@ class LineAndPlane(IRhinoScript):
             
         point, Array of ????, Required        
         The test point.
+            
+        Returns
+        =======
+
+        boolean
+        A distance (D) such that if Q is any point on the line and P is any point on the other object, then D <= Rhino.Distance(Q, P).
+
+        null
+        On error.
+
+        """
+
+        params = [line, point]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(line), flatten_params(point)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(900, 1, (VT_VARIANT, 0), magic, u"LineMinDistanceTo", None, *flattened)
+
+    def line_min_distance_to_2(self, line, line2):
+        """        
+        Finds the shortest distance between the line, as a finite chord, and a point or another line.
+    
+        Parameters
+        ==========
+
+        line, Array of ????, Required        
+        Two 3-D points identifying the starting and ending points of the line.
             
         line2, Array of ????, Required        
         Two 3-D points identifying the starting and ending points of the test line (another finite chord).
@@ -346,20 +406,14 @@ class LineAndPlane(IRhinoScript):
 
         """
 
-        params = [line, point, line2]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(line), flatten(point), flatten(line2)]
+        params = [line, line2]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(line), flatten_params(line2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(900, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineMinDistanceTo", None, *params_flattened)
+        return self._ApplyTypes_(900, 1, (VT_VARIANT, 0), magic, u"LineMinDistanceTo", None, *flattened)
 
     def line_plane(self, line):
         """        
@@ -368,7 +422,7 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
         Returns
@@ -383,19 +437,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(line)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(line)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(898, 1, (VT_VARIANT, 0), params_magic_numbers, u"LinePlane", None, *params_flattened)
+        return self._ApplyTypes_(898, 1, (VT_VARIANT, 0), magic, u"LinePlane", None, *flattened)
 
     def line_plane_intersection(self, line, point):
         """        
@@ -404,10 +452,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line to intersect.
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The plane to intersect.
             
         Returns
@@ -422,19 +470,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, point]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(line), flatten(point)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(line), flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(743, 1, (VT_VARIANT, 0), params_magic_numbers, u"LinePlaneIntersection", None, *params_flattened)
+        return self._ApplyTypes_(743, 1, (VT_VARIANT, 0), magic, u"LinePlaneIntersection", None, *flattened)
 
     def line_transform(self, line, xform):
         """        
@@ -443,10 +485,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A valid 4x4 transformation matrix.
             
         Returns
@@ -461,19 +503,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [line, xform]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(line), flatten(xform)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(line), flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(897, 1, (VT_VARIANT, 0), params_magic_numbers, u"LineTransform", None, *params_flattened)
+        return self._ApplyTypes_(897, 1, (VT_VARIANT, 0), magic, u"LineTransform", None, *flattened)
 
     def move_plane(self, plane, origin):
         """        
@@ -482,7 +518,7 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane.  The elements of a plane array are as follows:
 		Element
 		Description
@@ -494,7 +530,7 @@ class LineAndPlane(IRhinoScript):
 		Required.  The plane's Y axis direction (3-D vector).
 		3
             
-        origin, Array of ????, Required        
+        origin, Array of Doubles, Required        
         A 3-D point identifying the new origin location.
             
         Returns
@@ -509,19 +545,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, origin]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane), flatten(origin)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(plane), flatten_params(origin)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(631, 1, (VT_VARIANT, 0), params_magic_numbers, u"MovePlane", None, *params_flattened)
+        return self._ApplyTypes_(631, 1, (VT_VARIANT, 0), magic, u"MovePlane", None, *flattened)
 
     def plane_closest_point(self, plane, point, return_point=None):
         """        
@@ -530,7 +560,7 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane. The elements of a plane array are as follows:
 		Element
 		Description
@@ -542,7 +572,7 @@ class LineAndPlane(IRhinoScript):
 		Required.  The plane's Y axis direction (3-D vector).
 		3
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D point to test.
             
         return_point, Boolean, Optional        
@@ -560,19 +590,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, point, return_point]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(plane), flatten(point), return_point]
+        required = [True, True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_BOOL, 1)]
+        flattened = [flatten_params(plane), flatten_params(point), return_point]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(629, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneClosestPoint", None, *params_flattened)
+        return self._ApplyTypes_(629, 1, (VT_VARIANT, 0), magic, u"PlaneClosestPoint", None, *flattened)
 
     def plane_equation(self, plane):
         """        
@@ -582,7 +606,7 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane. The elements of a plane array are as follows:
 		Element
 		Description
@@ -606,19 +630,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(plane)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(plane)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(642, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneEquation", None, *params_flattened)
+        return self._ApplyTypes_(642, 1, (VT_VARIANT, 0), magic, u"PlaneEquation", None, *flattened)
 
     def plane_fit_from_points(self, points):
         """        
@@ -627,7 +645,7 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points.
             
         Returns
@@ -642,19 +660,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [points]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(points)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(points)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(725, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFitFromPoints", None, *params_flattened)
+        return self._ApplyTypes_(725, 1, (VT_VARIANT, 0), magic, u"PlaneFitFromPoints", None, *flattened)
 
     def plane_from_frame(self, origin, xaxis, yaxis):
         """        
@@ -663,13 +675,13 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        origin, Array of ????, Required        
+        origin, Array of Doubles, Required        
         A 3-D point identifying the origin of the plane.
             
-        xaxis, Array of ????, Required        
+        xaxis, Array of Doubles, Required        
         A non-zero 3-D vector in the plane that determines the X axis direction.
             
-        yaxis, Array of ????, Required        
+        yaxis, Array of Doubles, Required        
         A non-zero 3-D vector not parallel to arrXaxis that is used to determine the Y axis direction. Note, arrYaxis does not have to be perpendicular to arrXaxis.
             
         Returns
@@ -684,19 +696,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [origin, xaxis, yaxis]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(origin), flatten(xaxis), flatten(yaxis)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(origin), flatten_params(xaxis), flatten_params(yaxis)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(627, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromFrame", None, *params_flattened)
+        return self._ApplyTypes_(627, 1, (VT_VARIANT, 0), magic, u"PlaneFromFrame", None, *flattened)
 
     def plane_from_normal(self, origin, normal):
         """        
@@ -705,10 +711,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        origin, Array of ????, Required        
+        origin, Array of Doubles, Required        
         A 3-D point identifying the origin of the plane.
             
-        normal, Array of ????, Required        
+        normal, Array of Doubles, Required        
         A non-zero 3-D vector identifying the normal direction of the plane.
             
         Returns
@@ -723,19 +729,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [origin, normal]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(origin), flatten(normal)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(origin), flatten_params(normal)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(626, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromNormal", None, *params_flattened)
+        return self._ApplyTypes_(626, 1, (VT_VARIANT, 0), magic, u"PlaneFromNormal", None, *flattened)
 
     def plane_from_points(self, origin, point_x, point_y):
         """        
@@ -744,13 +744,13 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        origin, Array of ????, Required        
+        origin, Array of Doubles, Required        
         The first point, or origin, of the plane.
             
-        point_x, Array of ????, Required        
+        point_x, Array of Doubles, Required        
         A point on the plane's X axis.
             
-        point_y, Array of ????, Required        
+        point_y, Array of Doubles, Required        
         A point on the plane's Y axis.
             
         Returns
@@ -765,19 +765,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [origin, point_x, point_y]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(origin), flatten(point_x), flatten(point_y)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(origin), flatten_params(point_x), flatten_params(point_y)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(649, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneFromPoints", None, *params_flattened)
+        return self._ApplyTypes_(649, 1, (VT_VARIANT, 0), magic, u"PlaneFromPoints", None, *flattened)
 
     def plane_plane_intersection(self, plane1, point2):
         """        
@@ -786,10 +780,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane1, Array of ????, Required        
+        plane1, Array of Doubles, Required        
         The first plane to intersect.
             
-        point2, Array of ????, Required        
+        point2, Array of Doubles, Required        
         The second plane to intersect.
             
         Returns
@@ -804,19 +798,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane1, point2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane1), flatten(point2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(plane1), flatten_params(point2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(744, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlanePlaneIntersection", None, *params_flattened)
+        return self._ApplyTypes_(744, 1, (VT_VARIANT, 0), magic, u"PlanePlaneIntersection", None, *flattened)
 
     def plane_transform(self, plane, xform):
         """        
@@ -825,10 +813,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane to transform.
             
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A valid 4x4 transformation matrix.
             
         Returns
@@ -843,19 +831,13 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, xform]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane), flatten(xform)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(plane), flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(801, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlaneTransform", None, *params_flattened)
+        return self._ApplyTypes_(801, 1, (VT_VARIANT, 0), magic, u"PlaneTransform", None, *flattened)
 
     def rotate_plane(self, plane, angle, axis):
         """        
@@ -864,7 +846,7 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane.  The elements of a plane array are as follows:
 		Element
 		Description
@@ -879,7 +861,7 @@ class LineAndPlane(IRhinoScript):
         angle, Double, Required        
         The rotation angle in degrees.
             
-        axis, Array of ????, Required        
+        axis, Array of Doubles, Required        
         A non-zero 3-D vector identifying the axis of rotation.
             
         Returns
@@ -894,21 +876,15 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = [plane, angle, axis]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane), angle, flatten(axis)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(plane), angle, flatten_params(axis)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(630, 1, (VT_VARIANT, 0), magic, u"RotatePlane", None, *flattened)
 
-        return self._ApplyTypes_(630, 1, (VT_VARIANT, 0), params_magic_numbers, u"RotatePlane", None, *params_flattened)
-
-    def world_x_y_plane():
+    def world_x_y_plane(self):
         """        
         Returns Rhino's world XY plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(1.0,0.0,0.0), Array(0.0,1.0,0.0)
@@ -924,21 +900,15 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(652, 1, (VT_VARIANT, 0), magic, u"WorldXYPlane", None, *flattened)
 
-        return self._ApplyTypes_(652, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldXYPlane", None, *params_flattened)
-
-    def world_y_z_plane():
+    def world_y_z_plane(self):
         """        
         Returns Rhino's world YZ plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,1.0,0.0), Array(0.0,0.0,1.0)
@@ -954,21 +924,15 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(653, 1, (VT_VARIANT, 0), magic, u"WorldYZPlane", None, *flattened)
 
-        return self._ApplyTypes_(653, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldYZPlane", None, *params_flattened)
-
-    def world_z_x_plane():
+    def world_z_x_plane(self):
         """        
         Returns Rhino's world ZX plane. This plane could also be created as follows:
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(0.0,0.0,1.0), Array(1.0,0.0,0.0)
@@ -984,17 +948,11 @@ class LineAndPlane(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(654, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorldZXPlane", None, *params_flattened)
+        return self._ApplyTypes_(654, 1, (VT_VARIANT, 0), magic, u"WorldZXPlane", None, *flattened)
 

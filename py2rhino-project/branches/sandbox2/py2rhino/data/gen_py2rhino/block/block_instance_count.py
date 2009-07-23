@@ -8,16 +8,17 @@ block_instance_count = {
         Counts the number of instances of the block in the document.  Nested instances are not included in the count.
     """,
 
-    "syntax_html": """
-        Rhino.BlockInstanceCount (strBlock)
-    """,
+    "syntax_html": {
+        0: ("strBlock"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """

@@ -8,16 +8,17 @@ show_group = {
         Shows a group of previously hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
     """,
 
-    "syntax_html": """
-        Rhino.ShowGroup (strGroup)
-    """,
+    "syntax_html": {
+        0: ("strGroup"),
+    },
 
     "params_html": {
         0: {
-            "name": "Group",
+            "name": "strGroup",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Group",
             "doc": """
         The name of an existing group.
             """

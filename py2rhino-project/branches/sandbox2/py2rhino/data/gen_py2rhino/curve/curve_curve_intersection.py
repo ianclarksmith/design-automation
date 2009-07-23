@@ -8,34 +8,37 @@ curve_curve_intersection = {
         Calculates the intersection of two curve objects.
     """,
 
-    "syntax_html": """
-        Rhino.CurveCurveIntersection (strObject1 [, strObject2 [, dblTolerance]])
-    """,
+    "syntax_html": {
+        0: ("strObject1", "strObject2", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object1",
+            "name": "strObject1",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object1",
             "doc": """
         The identifier of the first curve object.
             """
         },
         1: {
-            "name": "Object2",
+            "name": "strObject2",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object2",
             "doc": """
         The identifier of the second curve object.  If omitted, the a self-intersection test will be performed on strObject1.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
             """

@@ -8,34 +8,37 @@ add_sub_crv = {
         Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
     """,
 
-    "syntax_html": """
-        Rhino.AddSubCrv (strObject, dblParam0, dblParam1)
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblParam0", "dblParam1"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a closed, planar curve object.
             """
         },
         1: {
-            "name": "Param0",
+            "name": "dblParam0",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Param0",
             "doc": """
         The first parameter on the source curve.
             """
         },
         2: {
-            "name": "Param1",
+            "name": "dblParam1",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Param1",
             "doc": """
         The second parameter on the source curve.
             """

@@ -8,16 +8,17 @@ help = {
         Displays a topic in Rhino's Help file.
     """,
 
-    "syntax_html": """
-        Rhino.Help ([intTopic])
-    """,
+    "syntax_html": {
+        0: ("intTopic"),
+    },
 
     "params_html": {
         0: {
-            "name": "Topic",
+            "name": "intTopic",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Topic",
             "doc": """
         A help topic.
             """

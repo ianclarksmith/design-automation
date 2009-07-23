@@ -8,43 +8,47 @@ set_object_data = {
         Adds or sets a RhinoScript user data item to an object's geometry.
     """,
 
-    "syntax_html": """
-        Rhino.SetObjectData (strObject, strSection, strEntry, strValue)
-    """,
+    "syntax_html": {
+        0: ("strObject", "strSection", "strEntry", "strValue"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Section",
+            "name": "strSection",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Section",
             "doc": """
         The application name.
             """
         },
         2: {
-            "name": "Entry",
+            "name": "strEntry",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Entry",
             "doc": """
         The key name.
             """
         },
         3: {
-            "name": "Value",
+            "name": "strValue",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Value",
             "doc": """
         The string value.
             """

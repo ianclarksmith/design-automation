@@ -8,34 +8,37 @@ rebuild_surface = {
         Rebuilds a surface to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.
     """,
 
-    "syntax_html": """
-        Rhino.RebuildSurface (strObject [, arrDegree [, arrPointCount]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrDegree", "arrPointCount"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Degree",
+            "name": "arrDegree",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Degree",
             "doc": """
         An array of two numbers that identify the surface curve degree in both the U and the V directions. Each degree value must be greater than 1. The default is 3 in each direction.
             """
         },
         2: {
-            "name": "PointCount",
+            "name": "arrPointCount",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "PointCount",
             "doc": """
         An array of two numbers that identify the surface point count in both the U and the V directions.  The point count must be greater than the degree.  The default value is 10 in each direction.
             """

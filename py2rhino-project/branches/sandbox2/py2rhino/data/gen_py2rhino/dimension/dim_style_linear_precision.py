@@ -8,25 +8,27 @@ dim_style_linear_precision = {
         Returns or changes the linear display precision of a dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleLinearPrecision (strDimStyle [, intPrecision])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle", "intPrecision"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "Precision",
+            "name": "intPrecision",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Precision",
             "doc": """
         The new linear precision value.  If omitted, the current linear precision is returned.
             """

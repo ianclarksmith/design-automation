@@ -8,16 +8,17 @@ objects_by_type = {
         Returns the identifiers of all objects based on the objects' geometry type.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectsByType (intType [, blnSelect])
-    """,
+    "syntax_html": {
+        0: ("intType", "blnSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Type",
+            "name": "intType",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Type",
             "doc": """
         The type(s) of geometry objects (points, curves, surfaces, meshes, etc.) that can be selected.  Object types can be added together to filter several different kinds of geometry.
 		Value
@@ -60,10 +61,11 @@ objects_by_type = {
             """
         },
         1: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the objects.  If omitted, the objects are not selected (False).
             """

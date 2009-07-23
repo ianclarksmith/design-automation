@@ -8,34 +8,37 @@ multi_list_box = {
         Displays a list of items in a multiple-selection list box dialog.
     """,
 
-    "syntax_html": """
-        Rhino.MultiListBox (arrItems [, strMessage [, strTitle]])
-    """,
+    "syntax_html": {
+        0: ("arrItems", "strMessage", "strTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Items",
+            "name": "arrItems",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Items",
             "doc": """
         A zero-based, one-dimensional array of string items.
             """
         },
         1: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         2: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """

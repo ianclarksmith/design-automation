@@ -8,25 +8,27 @@ add_circle = {
         Adds a circle curve to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddCircle (arrPlane, dblRadius)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "dblRadius"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane on which the circle will lie. The origin of the plane will be the center point of the circle.
             """
         },
         1: {
-            "name": "Radius",
+            "name": "dblRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radius",
             "doc": """
         The radius of the circle.
             """

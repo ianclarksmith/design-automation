@@ -8,9 +8,9 @@ last_command_name = {
         Returns the name of the last executed command.
     """,
 
-    "syntax_html": """
-        Rhino.LastCommandName ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

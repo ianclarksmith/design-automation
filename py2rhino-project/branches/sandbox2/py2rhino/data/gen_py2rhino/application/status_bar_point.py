@@ -8,16 +8,17 @@ status_bar_point = {
         Sets Rhino's status bar point coordinate panes.
     """,
 
-    "syntax_html": """
-        Rhino.StatusBarPoint ([arrPoint])
-    """,
+    "syntax_html": {
+        0: ("arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point.
             """

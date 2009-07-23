@@ -8,16 +8,17 @@ surface_cone = {
         Returns the definition of a cone surface.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceCone (strSurface)
-    """,
+    "syntax_html": {
+        0: ("strSurface"),
+    },
 
     "params_html": {
         0: {
-            "name": "Surface",
+            "name": "strSurface",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Surface",
             "doc": """
         The surface object's identifier.
             """

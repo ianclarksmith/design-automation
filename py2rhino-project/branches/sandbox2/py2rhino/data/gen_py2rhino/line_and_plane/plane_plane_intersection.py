@@ -8,25 +8,27 @@ plane_plane_intersection = {
         Calculates the intersection of two planes.
     """,
 
-    "syntax_html": """
-        Rhino.PlanePlaneIntersection (arrPlane1, arrPoint2)
-    """,
+    "syntax_html": {
+        0: ("arrPlane1", "arrPoint2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane1",
+            "name": "arrPlane1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane1",
             "doc": """
         The first plane to intersect.
             """
         },
         1: {
-            "name": "Point2",
+            "name": "arrPoint2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point2",
             "doc": """
         The second plane to intersect.
             """

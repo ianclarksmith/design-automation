@@ -8,9 +8,9 @@ build_date = {
         Returns the build date of Rhino.  The build date is a number in the form of YYYYMMDD.
     """,
 
-    "syntax_html": """
-        Rhino.BuildDate ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

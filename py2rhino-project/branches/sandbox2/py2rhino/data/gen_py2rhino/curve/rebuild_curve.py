@@ -8,34 +8,37 @@ rebuild_curve = {
         Rebuilds a curve to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.
     """,
 
-    "syntax_html": """
-        Rhino.RebuildCurve (strObject [, intDegree [, intPointCount]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intDegree", "intPointCount"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Degree",
+            "name": "intDegree",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Degree",
             "doc": """
         The new degree, which must be greater than 1. The default is 3.
             """
         },
         2: {
-            "name": "PointCount",
+            "name": "intPointCount",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "PointCount",
             "doc": """
         The new point count, which must be bigger than the intDegree.  With closed curves, the minimum point count is 3.
             """

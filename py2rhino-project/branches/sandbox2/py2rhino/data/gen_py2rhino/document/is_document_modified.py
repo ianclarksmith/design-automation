@@ -8,9 +8,9 @@ is_document_modified = {
         Verifies that the current document has been modified in some way.
     """,
 
-    "syntax_html": """
-        Rhino.IsDocumentModified ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

@@ -8,25 +8,27 @@ light_name = {
         Returns or modifies the user-definable name of a light object.
     """,
 
-    "syntax_html": """
-        Rhino.LightName (strObject [, strName])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strName"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the light object.
             """
         },
         1: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The new light name.  If omitted, the current light name is returned.
             """

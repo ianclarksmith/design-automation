@@ -8,9 +8,9 @@ alias_count = {
         Returns the number of command alias in Rhino.
     """,
 
-    "syntax_html": """
-        Rhino.AliasCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

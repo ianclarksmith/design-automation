@@ -8,34 +8,37 @@ unit_custom_unit_system = {
         Sets the document's units system to a user-defined system.  This overrides the units system set using the UnitSystem method.  See Rhino's DocumentProperties command (Units window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.UnitCustomUnitSystem (dblUnits [, blnScale [, strName]])
-    """,
+    "syntax_html": {
+        0: ("dblUnits", "blnScale", "strName"),
+    },
 
     "params_html": {
         0: {
-            "name": "Units",
+            "name": "dblUnits",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Units",
             "doc": """
         The number of units per meter.
             """
         },
         1: {
-            "name": "Scale",
+            "name": "blnScale",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Scale",
             "doc": """
         Scale existing geometry based on the new unit system.  If not specified, any existing geometry is not scaled (False).
             """
         },
         2: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The name of the new unit system.  If not specified, the name "Custom" will be assigned.
             """

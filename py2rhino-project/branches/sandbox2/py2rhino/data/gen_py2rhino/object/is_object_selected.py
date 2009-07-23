@@ -8,16 +8,17 @@ is_object_selected = {
         Verifies that an object is currently selected.
     """,
 
-    "syntax_html": """
-        Rhino.IsObjectSelected (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object.
             """

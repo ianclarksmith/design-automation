@@ -8,43 +8,47 @@ add_nurbs_curve = {
         Adds a NURBS curve object to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddNurbsCurve (arrPoints, arrKnots, intDegree [, arrWeights])
-    """,
+    "syntax_html": {
+        0: ("arrPoints", "arrKnots", "intDegree", "arrWeights"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D control points.
             """
         },
         1: {
-            "name": "Knots",
+            "name": "arrKnots",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Knots",
             "doc": """
         The knot values for the curve.  The number of elements in arrKnots must equal the number of elements in arrPoints plus intDegree minus one (1).
             """
         },
         2: {
-            "name": "Degree",
+            "name": "intDegree",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Degree",
             "doc": """
         The degree of the curve.  The degree must be greater than or equal to one (1).
             """
         },
         3: {
-            "name": "Weights",
+            "name": "arrWeights",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Weights",
             "doc": """
         The weight values for the curve.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
             """

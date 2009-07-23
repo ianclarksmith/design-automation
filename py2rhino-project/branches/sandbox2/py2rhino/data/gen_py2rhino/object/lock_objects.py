@@ -8,16 +8,17 @@ lock_objects = {
         Locks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
     """,
 
-    "syntax_html": """
-        Rhino.LockObjects (arrObjects)
-    """,
+    "syntax_html": {
+        0: ("arrObjects"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to lock.
             """

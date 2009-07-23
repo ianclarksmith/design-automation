@@ -8,16 +8,17 @@ get_linetype = {
         Displays a dialog box prompting the user to select a linetype.
     """,
 
-    "syntax_html": """
-        Rhino.GetLinetype ([strLinetype])
-    """,
+    "syntax_html": {
+        0: ("strLinetype"),
+    },
 
     "params_html": {
         0: {
-            "name": "Linetype",
+            "name": "strLinetype",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Linetype",
             "doc": """
         The name of the linetype to select.  If omitted, the current linetype will be selected.
             """

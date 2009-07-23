@@ -8,9 +8,9 @@ exe_folder = {
         Returns the full path to Rhino's executable folder.
     """,
 
-    "syntax_html": """
-        Rhino.ExeFolder ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

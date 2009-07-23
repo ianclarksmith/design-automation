@@ -8,25 +8,27 @@ hatch_rotation = {
         Returns or modifies the rotation applied to the hatch pattern when it is mapped to the hatch's plane.
     """,
 
-    "syntax_html": """
-        Rhino.HatchRotation (strObject [, dblRotation])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblRotation"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a hatch object.
             """
         },
         1: {
-            "name": "Rotation",
+            "name": "dblRotation",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Rotation",
             "doc": """
         The rotation angle in degrees.
             """

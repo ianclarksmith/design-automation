@@ -8,34 +8,37 @@ add_plane_surface = {
         Creates a plane surface.
     """,
 
-    "syntax_html": """
-        Rhino.AddPlaneSurface (arrPlane, dblDU, dblDV)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "dblDU", "dblDV"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane.
             """
         },
         1: {
-            "name": "DU",
+            "name": "dblDU",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "DU",
             "doc": """
         The magnitude in the U direction.
             """
         },
         2: {
-            "name": "DV",
+            "name": "dblDV",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "DV",
             "doc": """
         The magnitude in the V direction.
             """

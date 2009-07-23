@@ -8,25 +8,27 @@ strtok = {
         Returns the tokens in a string.  Use this method as an alternative to the VBScript's Split function.
     """,
 
-    "syntax_html": """
-        Rhino.Strtok (strText [, strDelimiters])
-    """,
+    "syntax_html": {
+        0: ("strText", "strDelimiters"),
+    },
 
     "params_html": {
         0: {
-            "name": "Text",
+            "name": "strText",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Text",
             "doc": """
         A string containing token(s).
             """
         },
         1: {
-            "name": "Delimiters",
+            "name": "strDelimiters",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Delimiters",
             "doc": """
         A set of delimiter characters.  If omitted, a space character (" ") is used.
             """

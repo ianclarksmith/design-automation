@@ -8,43 +8,47 @@ add_cut_plane = {
         Adds a planar surface through objects at a designated location.  For more information, see the Rhino help file for the CutPlane command.
     """,
 
-    "syntax_html": """
-        Rhino.AddCutPlane (arrObjects, arrStartPoint, arrEndPoint [, arrNormal])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrStartPoint", "arrEndPoint", "arrNormal"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         The identifiers of objects that the cutting planes will pass through.
             """
         },
         1: {
-            "name": "StartPoint",
+            "name": "arrStartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartPoint",
             "doc": """
         The start of the line that defines the cutting plane.
             """
         },
         2: {
-            "name": "EndPoint",
+            "name": "arrEndPoint",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndPoint",
             "doc": """
         The end of the line that defines the cutting plane.
             """
         },
         3: {
-            "name": "Normal",
+            "name": "arrNormal",
             "opt_or_req": "Optional",
             "type": "A vector that will be contained in the returned planar surface",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Normal",
             "doc": """
         In the case of Rhino's CutPlane command, this is the normal to, or Z axis of, the active view's construction plane.  If omitted, the world Z axis is used.
             """

@@ -8,25 +8,27 @@ is_curve_closable = {
         Decide if it makes sense to close off the curve by moving  the endpoint to the start based on start-end gap size and length of curve as approximated by chord defined by 6 points.
     """,
 
-    "syntax_html": """
-        Rhino.IsCurveClosable (strObject [, dblTolerance])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
             """

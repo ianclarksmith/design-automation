@@ -8,34 +8,37 @@ insert_curve_knot = {
         Inserts a knot into a curve object.
     """,
 
-    "syntax_html": """
-        Rhino.InsertCurveKnot (strObject, dblParameter [, blnSymmetrical)
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblParameter", "blnSymmetrical"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the curve object.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "dblParameter",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Parameter",
             "doc": """
         The parameter on the curve.
             """
         },
         2: {
-            "name": "Symmetrical",
+            "name": "blnSymmetrical",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Symmetrical",
             "doc": """
         If blnSymmetrical = True, then knots are added on both sides of the center of the curve. The default value is False.
             """

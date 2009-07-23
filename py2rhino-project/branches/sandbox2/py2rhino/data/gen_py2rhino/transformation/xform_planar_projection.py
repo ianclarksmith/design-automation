@@ -8,16 +8,17 @@ xform_planar_projection = {
         Returns a transformation matrix that projects to a plane.
     """,
 
-    "syntax_html": """
-        Rhino.XformPlanarProjection (arrPlane)
-    """,
+    "syntax_html": {
+        0: ("arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane to project to.
             """

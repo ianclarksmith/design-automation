@@ -8,9 +8,8 @@ version = {
         Returns the version of RhinoScript.
     """,
 
-    "syntax_html": """
-        Rhino.Version
-    """,
+    "syntax_html": {
+    },
 
     "params_html": {
     },

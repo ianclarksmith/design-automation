@@ -8,34 +8,37 @@ sort_points = {
         Sorts an array of 3-D points.
     """,
 
-    "syntax_html": """
-        Rhino.SortPoints (arrPoints [, blnAscending [, blnOrder]])
-    """,
+    "syntax_html": {
+        0: ("arrPoints", "blnAscending", "blnOrder"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points.
             """
         },
         1: {
-            "name": "Ascending",
+            "name": "blnAscending",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Ascending",
             "doc": """
         The sorting mode, either ascending or descending.  If omitted, the points are sorted ascending (True).
             """
         },
         2: {
-            "name": "Order",
+            "name": "blnOrder",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Order",
             "doc": """
         The component sort order, where:
 		Value

@@ -8,43 +8,47 @@ get_real = {
         Pauses for user input of a number.
     """,
 
-    "syntax_html": """
-        Rhino.GetReal (strMessage [, dblNumber [, dblMin [, dblMax]]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "dblNumber", "dblMin", "dblMax"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "Number",
+            "name": "dblNumber",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Number",
             "doc": """
         A default number value.
             """
         },
         2: {
-            "name": "Min",
+            "name": "dblMin",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Min",
             "doc": """
         A minimum allowable value.
             """
         },
         3: {
-            "name": "Max",
+            "name": "dblMax",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Max",
             "doc": """
         A maximum allowable value.
             """

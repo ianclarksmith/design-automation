@@ -8,25 +8,27 @@ get_document_data = {
         Returns a RhinoScript user data item from the current document.
     """,
 
-    "syntax_html": """
-        Rhino.GetDocumentData ([strSection [, strEntry]])
-    """,
+    "syntax_html": {
+        0: ("strSection", "strEntry"),
+    },
 
     "params_html": {
         0: {
-            "name": "Section",
+            "name": "strSection",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Section",
             "doc": """
         The section name.  If omitted, all section names are returned.
             """
         },
         1: {
-            "name": "Entry",
+            "name": "strEntry",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Entry",
             "doc": """
         The entry name.  If omitted, all entry names for strSection are returned.
             """

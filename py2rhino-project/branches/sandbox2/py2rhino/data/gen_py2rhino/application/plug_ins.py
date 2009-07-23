@@ -8,16 +8,17 @@ plug_ins = {
         Returns an array of registered Rhino plug-ins.
     """,
 
-    "syntax_html": """
-        Rhino.PlugIns ([intTypes [, intStatus]])
-    """,
+    "syntax_html": {
+        0: ("intTypes", "intStatus"),
+    },
 
     "params_html": {
         0: {
-            "name": "Types",
+            "name": "intTypes",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Types",
             "doc": """
         The type or types of plug-ins to return.  Plug-in types can be added together to filter several different kinds of plug-ins.  If omitted, all plug-in types are returned.
 		Value
@@ -36,10 +37,11 @@ plug_ins = {
             """
         },
         1: {
-            "name": "Status",
+            "name": "intStatus",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Status",
             "doc": """
         The status, either loaded or unloaded, of the plug-ins to return.  If omitted, both loaded and unloaded plug-ins are returned.
 		Value

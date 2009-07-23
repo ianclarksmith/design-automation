@@ -8,34 +8,37 @@ fit_surface = {
         Reduces the number of surface control points while maintaining the surfaces' same general shape.  Use this function for replacing surface with too many control points.  For more information, see the Rhino help file for the FitSrf command.
     """,
 
-    "syntax_html": """
-        Rhino.FitSurface (strObject [, arrDegree [, dblTolerance]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrDegree", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Degree",
+            "name": "arrDegree",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Degree",
             "doc": """
         An array of two numbers that identify the surface curve degree in both the U and the V directions. Each degree value must be greater than 1. The default is 3.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The fitting tolerance.  If dblTolerance is not specified or <= 0.0, the document absolute tolerance is used.
             """

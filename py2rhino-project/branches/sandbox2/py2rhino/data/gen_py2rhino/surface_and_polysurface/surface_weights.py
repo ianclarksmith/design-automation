@@ -8,16 +8,17 @@ surface_weights = {
         Returns an array of weight values that are assigned to the control points of a surface.  The number of weights returned will be equal to the number of control points in the U and V directions.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceWeights (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

@@ -8,16 +8,17 @@ render_resolution = {
         Returns or sets the render resolution. Resolution is measured in pixels. See Rhino's DocumentProperties command (Rhino Render window) for details. Note, if the render resolution is set to "viewport", then the size of the active viewt is returned.
     """,
 
-    "syntax_html": """
-        Rhino.RenderResolution ([arrResolution])
-    """,
+    "syntax_html": {
+        0: ("arrResolution"),
+    },
 
     "params_html": {
         0: {
-            "name": "Resolution",
+            "name": "arrResolution",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Resolution",
             "doc": """
         An array containing two numbers identifying the resolution width and height in pixels.
             """

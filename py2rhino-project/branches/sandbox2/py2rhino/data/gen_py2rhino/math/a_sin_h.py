@@ -8,16 +8,17 @@ a_sin_h = {
         Returns the inverse hyperbolic sine of a number. The inverse hyperbolic sine is the value whose hyperbolic sine is number, so ASinH(SinH(number)) equals number.
     """,
 
-    "syntax_html": """
-        Rhino.ASinH (dblNumber)
-    """,
+    "syntax_html": {
+        0: ("dblNumber"),
+    },
 
     "params_html": {
         0: {
-            "name": "Number",
+            "name": "dblNumber",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Number",
             "doc": """
         Any real number.
             """

@@ -8,9 +8,9 @@ light_objects = {
         Returns the identifier of light objects in the document.
     """,
 
-    "syntax_html": """
-        Rhino.LightObjects ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

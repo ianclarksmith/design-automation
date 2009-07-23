@@ -8,34 +8,37 @@ tilt_view = {
         Tilts a view by rotating the camera up vector.  See the TiltView command in the Rhino help file for more details.
     """,
 
-    "syntax_html": """
-        Rhino.TiltView ([strview [, intDirection [, dblAngle]]])
-    """,
+    "syntax_html": {
+        0: ("strview", "intDirection", "dblAngle"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Optional",
             "type": "Number, The direction to rotate the camera where 0 = right and 1 = left",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         
             """
         },
         2: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         The angle to rotate. If omitted, the angle of rotation is specified by the "Increment in divisions of a circle" parameter specified in Options command's View tab.
             """

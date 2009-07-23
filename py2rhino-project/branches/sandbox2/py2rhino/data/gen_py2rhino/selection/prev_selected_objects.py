@@ -8,16 +8,17 @@ prev_selected_objects = {
         Returns the identifiers of the previously selected objects.  The operation of this function is similar to that of Rhino's SelPrev command.
     """,
 
-    "syntax_html": """
-        Rhino.PrevSelectedObjects ([blnSelect])
-    """,
+    "syntax_html": {
+        0: ("blnSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the object.  If omitted, the object is not selected (False).
             """

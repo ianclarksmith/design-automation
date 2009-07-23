@@ -8,16 +8,17 @@ layer_material_index = {
         Returns the material index of a layer.  A material index of -1 indicates that no material has been assigned to the layer.  Thus, the layer will use Rhino's default layer material.
     """,
 
-    "syntax_html": """
-        Rhino.LayerMaterialIndex (strLayer)
-    """,
+    "syntax_html": {
+        0: ("strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.
             """

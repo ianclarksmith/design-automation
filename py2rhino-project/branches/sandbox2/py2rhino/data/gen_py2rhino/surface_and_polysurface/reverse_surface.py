@@ -9,25 +9,27 @@ reverse_surface = {
 		To reverse the normal direction of a surface, use the FlipSurface method.
     """,
 
-    "syntax_html": """
-        Rhino.ReverseSurface (strObject, intDirection)
-    """,
+    "syntax_html": {
+        0: ("strObject", "intDirection"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The direction to reverse. Values can be added together so as to reverse more than one direction.
 		Value

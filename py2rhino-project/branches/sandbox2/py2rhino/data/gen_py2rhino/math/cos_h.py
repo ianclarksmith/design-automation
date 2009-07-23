@@ -8,16 +8,17 @@ cos_h = {
         Returns the hyperbolic cosine of the specified angle.
     """,
 
-    "syntax_html": """
-        Rhino.CosH (dblAngle)
-    """,
+    "syntax_html": {
+        0: ("dblAngle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         An angle, measured in radians.
             """

@@ -8,61 +8,68 @@ add_cone = {
         Adds a cone-shaped polysurface to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddCone (arrBase, arrHeight, dblRadius [, blnCap])
-    """,
+    "syntax_html": {
+        0: ("arrBase", "arrHeight", "dblRadius", "blnCap"),
+        1: ("arrPlane", "dblHeight", "dblRadius", "blnCap"),
+    },
 
     "params_html": {
         0: {
-            "name": "Base",
+            "name": "arrBase",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Base",
             "doc": """
         The 3-D origin point of the cone.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane",
             "doc": """
         The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
             """
         },
         2: {
-            "name": "Height",
+            "name": "arrHeight",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Height",
             "doc": """
         The 3-D height point of the cone.  The height point defines the height and direction of the cone.
             """
         },
         3: {
-            "name": "Height",
+            "name": "dblHeight",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Height",
             "doc": """
         The height of the cone.  If arrPlane is specified, then the center of the arrPlane is height * the plane's z-axis.
             """
         },
         4: {
-            "name": "Radius",
+            "name": "dblRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radius",
             "doc": """
         The radius at the base of the cone.  Note, tan(cone_angle) = dblRadius/ dblHeight.
             """
         },
         5: {
-            "name": "Cap",
+            "name": "blnCap",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Cap",
             "doc": """
         Cap the base of the cone.  The default is to cap the cone (True).
             """

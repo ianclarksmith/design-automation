@@ -8,25 +8,27 @@ show_world_axes = {
         Shows or hides a view's world axes icon.
     """,
 
-    "syntax_html": """
-        Rhino.ShowWorldAxes ([strView [, blnShow]])
-    """,
+    "syntax_html": {
+        0: ("strView", "blnShow"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view to modify.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Show",
+            "name": "blnShow",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Show",
             "doc": """
         The world axes icon display state to set.  If omitted, the current world axes icon display state is returned.
             """

@@ -8,61 +8,67 @@ get_points = {
         Pauses for user input of one or more points.
     """,
 
-    "syntax_html": """
-        Rhino.GetPoints ([blnDraw [, blnPlane [, strMessage1 [, strMessage2 [, intMaxPoints [, arrBasePoint]]]]]])
-    """,
+    "syntax_html": {
+        0: ("blnDraw", "blnPlane", "strMessage1", "strMessage2", "intMaxPoints", "arrBasePoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Draw",
+            "name": "blnDraw",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Draw",
             "doc": """
         Draw lines between points.  The default is not to draw lines between points (False).
             """
         },
         1: {
-            "name": "Plane",
+            "name": "blnPlane",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Plane",
             "doc": """
         Constrain the point selection to the active construction plane.  The default is not to constrain points to the active construction plane (False).
             """
         },
         2: {
-            "name": "Message1",
+            "name": "strMessage1",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message1",
             "doc": """
         A prompt or message for the first point.
             """
         },
         3: {
-            "name": "Message2",
+            "name": "strMessage2",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message2",
             "doc": """
         A prompt or message for the next points.
             """
         },
         4: {
-            "name": "MaxPoints",
+            "name": "intMaxPoints",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "MaxPoints",
             "doc": """
         The maximum number of points to pick.  If not specified, an unlimited number of points can be picked.
             """
         },
         5: {
-            "name": "BasePoint",
+            "name": "arrBasePoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "BasePoint",
             "doc": """
         A starting, or base, point.
             """

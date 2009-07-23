@@ -8,61 +8,68 @@ add_text = {
         Adds a text string to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddText (strText, arrPoint [, dblHeight [, strFont [, intStyle]]])
-    """,
+    "syntax_html": {
+        0: ("strText", "arrPoint", "dblHeight", "strFont", "intStyle"),
+        1: ("strText", "arrPlane", "dblHeight", "strFont", "intStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Text",
+            "name": "strText",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Text",
             "doc": """
         The text to display.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point",
             "doc": """
         A 3-D point.
             """
         },
         2: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane",
             "doc": """
         The plane on which the text will lie.  The origin of the plane will be the origin point of the text.
             """
         },
         3: {
-            "name": "Height",
+            "name": "dblHeight",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Height",
             "doc": """
         The text height.  If omitted, a height of 1.0 units is used.
             """
         },
         4: {
-            "name": "Font",
+            "name": "strFont",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Font",
             "doc": """
         The text font.  If omitted, the Arial font is used.
             """
         },
         5: {
-            "name": "Style",
+            "name": "intStyle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Style",
             "doc": """
         The font style.  If omitted, a normal font style (0) is used.  The font style can be any number of the following flags:
 		Value

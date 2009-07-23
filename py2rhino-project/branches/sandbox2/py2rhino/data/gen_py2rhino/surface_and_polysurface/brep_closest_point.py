@@ -8,25 +8,27 @@ brep_closest_point = {
         Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.
     """,
 
-    "syntax_html": """
-        Rhino.BrepClosestPoint (strObject, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The test, or sampling, point.
             """

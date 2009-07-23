@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class Transformation(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def is_xform_identity(self, xform):
         """        
@@ -31,7 +40,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A 4x4 transformation matrix.
             
         Returns
@@ -46,19 +55,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [xform]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(xform)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(786, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsXformIdentity", None, *params_flattened)
+        return self._ApplyTypes_(786, 1, (VT_VARIANT, 0), magic, u"IsXformIdentity", None, *flattened)
 
     def is_xform_similarity(self, xform):
         """        
@@ -67,7 +70,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A 4x4 transformation matrix.
             
         Returns
@@ -82,19 +85,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [xform]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(xform)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(787, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsXformSimilarity", None, *params_flattened)
+        return self._ApplyTypes_(787, 1, (VT_VARIANT, 0), magic, u"IsXformSimilarity", None, *flattened)
 
     def is_xform_zero(self, xform):
         """        
@@ -119,7 +116,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A 4x4 transformation matrix.
             
         Returns
@@ -134,19 +131,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [xform]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(xform)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(785, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsXformZero", None, *params_flattened)
+        return self._ApplyTypes_(785, 1, (VT_VARIANT, 0), magic, u"IsXformZero", None, *flattened)
 
     def xform_c_plane_to_world(self, point, plane):
         """        
@@ -155,10 +146,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         A 3-D point in construction plane coordinates.
             
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The construction plane.  The elements of a plane array are as follows:
 		Elemenet
 		Description
@@ -182,21 +173,15 @@ class Transformation(IRhinoScript):
         """
 
         params = [point, plane]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point), flatten(plane)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point), flatten_params(plane)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(131, 1, (VT_VARIANT, 0), magic, u"XformCPlaneToWorld", None, *flattened)
 
-        return self._ApplyTypes_(131, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformCPlaneToWorld", None, *params_flattened)
-
-    def xform_change_basis(self, plane1, plane2, x0, y0, z0, x1, y1, z1):
+    def xform_change_basis(self, plane1, plane2):
         """        
         Returns a change of basis transformation matrix.
     
@@ -209,6 +194,33 @@ class Transformation(IRhinoScript):
         plane2, Array of ????, Required        
         The final plane.
             
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        params = [plane1, plane2]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(plane1), flatten_params(plane2)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(796, 1, (VT_VARIANT, 0), magic, u"XformChangeBasis", None, *flattened)
+
+    def xform_change_basis_2(self, x0, y0, z0, x1, y1, z1):
+        """        
+        Returns a change of basis transformation matrix.
+    
+        Parameters
+        ==========
+
         x0, Array of ????, Required        
         The initial basis X (X0,Y0,Z0 can be any 3-D basis)
             
@@ -238,20 +250,14 @@ class Transformation(IRhinoScript):
 
         """
 
-        params = [plane1, plane2, x0, y0, z0, x1, y1, z1]
-        params_required = [True, True, True, True, True, True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane1), flatten(plane2), flatten(x0), flatten(y0), flatten(z0), flatten(x1), flatten(y1), flatten(z1)]
+        params = [x0, y0, z0, x1, y1, z1]
+        required = [True, True, True, True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(x0), flatten_params(y0), flatten_params(z0), flatten_params(x1), flatten_params(y1), flatten_params(z1)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(796, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformChangeBasis", None, *params_flattened)
+        return self._ApplyTypes_(796, 1, (VT_VARIANT, 0), magic, u"XformChangeBasis", None, *flattened)
 
     def xform_compare(self, xform1, xform2):
         """        
@@ -260,10 +266,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        xform1, Array of ????, Required        
+        xform1, Array of Doubles, Required        
         The first 4x4 transformation matrix to compare.
             
-        xform2, Array of ????, Required        
+        xform2, Array of Doubles, Required        
         The second 4x4 transformation matrix to compare.
             
         Returns
@@ -275,19 +281,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [xform1, xform2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(xform1), flatten(xform2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(xform1), flatten_params(xform2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(789, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformCompare", None, *params_flattened)
+        return self._ApplyTypes_(789, 1, (VT_VARIANT, 0), magic, u"XformCompare", None, *flattened)
 
     def xform_determinant(self, xform):
         """        
@@ -296,7 +296,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A 4x4 transformation matrix.
             
         Returns
@@ -311,19 +311,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [xform]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(xform)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(818, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformDeterminant", None, *params_flattened)
+        return self._ApplyTypes_(818, 1, (VT_VARIANT, 0), magic, u"XformDeterminant", None, *flattened)
 
     def xform_diagonal(self, value):
         """        
@@ -363,21 +357,15 @@ class Transformation(IRhinoScript):
         """
 
         params = [value]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [value]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [value]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(784, 1, (VT_VARIANT, 0), magic, u"XformDiagonal", None, *flattened)
 
-        return self._ApplyTypes_(784, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformDiagonal", None, *params_flattened)
-
-    def xform_identity():
+    def xform_identity(self):
         """        
         Returns the identity transformation matrix.
 		1
@@ -408,19 +396,13 @@ class Transformation(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(783, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformIdentity", None, *params_flattened)
+        return self._ApplyTypes_(783, 1, (VT_VARIANT, 0), magic, u"XformIdentity", None, *flattened)
 
     def xform_inverse(self, xform):
         """        
@@ -429,7 +411,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A 4x4 transformation matrix.
             
         Returns
@@ -444,19 +426,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [xform]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(xform)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(817, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformInverse", None, *params_flattened)
+        return self._ApplyTypes_(817, 1, (VT_VARIANT, 0), magic, u"XformInverse", None, *flattened)
 
     def xform_mirror(self, point, normal):
         """        
@@ -465,10 +441,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         A 3-D point on mirror plane.
             
-        normal, Array of ????, Required        
+        normal, Array of Doubles, Required        
         A 3-D vector that is normal to mirror plane.
             
         Returns
@@ -483,19 +459,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [point, normal]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point), flatten(normal)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point), flatten_params(normal)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(795, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformMirror", None, *params_flattened)
+        return self._ApplyTypes_(795, 1, (VT_VARIANT, 0), magic, u"XformMirror", None, *flattened)
 
     def xform_multiply(self, xform1, xform2):
         """        
@@ -504,10 +474,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        xform1, Array of ????, Required        
+        xform1, Array of Doubles, Required        
         The first 4x4 transformation matrix to multiply.
             
-        xform2, Array of ????, Required        
+        xform2, Array of Doubles, Required        
         The second 4x4 transformation matrix to multiply.
             
         Returns
@@ -522,19 +492,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [xform1, xform2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(xform1), flatten(xform2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(xform1), flatten_params(xform2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(788, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformMultiply", None, *params_flattened)
+        return self._ApplyTypes_(788, 1, (VT_VARIANT, 0), magic, u"XformMultiply", None, *flattened)
 
     def xform_planar_projection(self, plane):
         """        
@@ -543,7 +507,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane to project to.
             
         Returns
@@ -558,21 +522,15 @@ class Transformation(IRhinoScript):
         """
 
         params = [plane]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(plane)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(plane)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(793, 1, (VT_VARIANT, 0), magic, u"XformPlanarProjection", None, *flattened)
 
-        return self._ApplyTypes_(793, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformPlanarProjection", None, *params_flattened)
-
-    def xform_rotation(self, plane1, plane2, angle, axis, start_dir, end_dir, point, x0, y0, z0, x1, y1, z1):
+    def xform_rotation(self, plane1, plane2):
         """        
         Returns a rotation transformation matrix. The XformRotation provides several ways to compute a rotation transformation.  A positive rotation angle indicates a counter-clockwise (right hand rule) rotation about the axis of rotation.
     
@@ -585,12 +543,69 @@ class Transformation(IRhinoScript):
         plane2, Array of ????, Required        
         The ending plane.
             
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix.
+
+        null
+        On error.
+
+        """
+
+        params = [plane1, plane2]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(plane1), flatten_params(plane2)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(794, 1, (VT_VARIANT, 0), magic, u"XformRotation", None, *flattened)
+
+    def xform_rotation_2(self, angle, axis, point):
+        """        
+        Returns a rotation transformation matrix. The XformRotation provides several ways to compute a rotation transformation.  A positive rotation angle indicates a counter-clockwise (right hand rule) rotation about the axis of rotation.
+    
+        Parameters
+        ==========
+
         angle, Double, Required        
         The rotation angle in degrees.
             
         axis, Array of ????, Required        
         The rotation axis.
             
+        point, Array of ????, Required        
+        The rotation center point.
+            
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix.
+
+        null
+        On error.
+
+        """
+
+        params = [angle, axis, point]
+        required = [True, True, True]
+        magic = [(VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [angle, flatten_params(axis), flatten_params(point)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(794, 1, (VT_VARIANT, 0), magic, u"XformRotation", None, *flattened)
+
+    def xform_rotation_3(self, start_dir, end_dir, point):
+        """        
+        Returns a rotation transformation matrix. The XformRotation provides several ways to compute a rotation transformation.  A positive rotation angle indicates a counter-clockwise (right hand rule) rotation about the axis of rotation.
+    
+        Parameters
+        ==========
+
         start_dir, Array of ????, Required        
         The starting direction.
             
@@ -600,6 +615,33 @@ class Transformation(IRhinoScript):
         point, Array of ????, Required        
         The rotation center point.
             
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix.
+
+        null
+        On error.
+
+        """
+
+        params = [start_dir, end_dir, point]
+        required = [True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(start_dir), flatten_params(end_dir), flatten_params(point)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(794, 1, (VT_VARIANT, 0), magic, u"XformRotation", None, *flattened)
+
+    def xform_rotation_4(self, x0, y0, z0, x1, y1, z1):
+        """        
+        Returns a rotation transformation matrix. The XformRotation provides several ways to compute a rotation transformation.  A positive rotation angle indicates a counter-clockwise (right hand rule) rotation about the axis of rotation.
+    
+        Parameters
+        ==========
+
         x0, Array of ????, Required        
         The initial frame X
             
@@ -629,22 +671,16 @@ class Transformation(IRhinoScript):
 
         """
 
-        params = [plane1, plane2, angle, axis, start_dir, end_dir, point, x0, y0, z0, x1, y1, z1]
-        params_required = [True, True, True, True, True, True, True, True, True, True, True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane1), flatten(plane2), angle, flatten(axis), flatten(start_dir), flatten(end_dir), flatten(point), flatten(x0), flatten(y0), flatten(z0), flatten(x1), flatten(y1), flatten(z1)]
+        params = [x0, y0, z0, x1, y1, z1]
+        required = [True, True, True, True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(x0), flatten_params(y0), flatten_params(z0), flatten_params(x1), flatten_params(y1), flatten_params(z1)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(794, 1, (VT_VARIANT, 0), magic, u"XformRotation", None, *flattened)
 
-        return self._ApplyTypes_(794, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformRotation", None, *params_flattened)
-
-    def xform_scale(self, plane, x_scale, y_scale, z_scale, vector, point, scale):
+    def xform_scale(self, plane, x_scale, y_scale, z_scale):
         """        
         Returns a scale transformation matrix.
     
@@ -663,9 +699,99 @@ class Transformation(IRhinoScript):
         z_scale, Double, Required        
         The scale factor in the z-axis direction.
             
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix.
+
+        null
+        On error.
+
+        """
+
+        params = [plane, x_scale, y_scale, z_scale]
+        required = [True, True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(plane), x_scale, y_scale, z_scale]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(790, 1, (VT_VARIANT, 0), magic, u"XformScale", None, *flattened)
+
+    def xform_scale_2(self, x_scale, y_scale, z_scale):
+        """        
+        Returns a scale transformation matrix.
+    
+        Parameters
+        ==========
+
+        x_scale, Double, Required        
+        The scale factor in the x-axis direction.
+            
+        y_scale, Double, Required        
+        The scale factor in the y-axis direction.
+            
+        z_scale, Double, Required        
+        The scale factor in the z-axis direction.
+            
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix.
+
+        null
+        On error.
+
+        """
+
+        params = [x_scale, y_scale, z_scale]
+        required = [True, True, True]
+        magic = [(VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [x_scale, y_scale, z_scale]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(790, 1, (VT_VARIANT, 0), magic, u"XformScale", None, *flattened)
+
+    def xform_scale_3(self, vector):
+        """        
+        Returns a scale transformation matrix.
+    
+        Parameters
+        ==========
+
         vector, Array of ????, Required        
         The ending direction.
             
+        Returns
+        =======
+
+        array
+        The 4x4 transformation matrix.
+
+        null
+        On error.
+
+        """
+
+        params = [vector]
+        required = [True]
+        magic = [(VT_VARIANT, 1),]
+        flattened = [flatten_params(vector)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(790, 1, (VT_VARIANT, 0), magic, u"XformScale", None, *flattened)
+
+    def xform_scale_4(self, point, scale):
+        """        
+        Returns a scale transformation matrix.
+    
+        Parameters
+        ==========
+
         point, Array of ????, Required        
         The rotation center point.
             
@@ -683,20 +809,14 @@ class Transformation(IRhinoScript):
 
         """
 
-        params = [plane, x_scale, y_scale, z_scale, vector, point, scale]
-        params_required = [True, True, True, True, True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(plane), x_scale, y_scale, z_scale, flatten(vector), flatten(point), scale]
+        params = [point, scale]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_R8, 1)]
+        flattened = [flatten_params(point), scale]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(790, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformScale", None, *params_flattened)
+        return self._ApplyTypes_(790, 1, (VT_VARIANT, 0), magic, u"XformScale", None, *flattened)
 
     def xform_screen_to_world(self, point, view=None, convert=None):
         """        
@@ -705,7 +825,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         A 2-D point in either client-area coordinates of a specified view or screen coordinates.
             
         view, String, Optional        
@@ -726,19 +846,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [point, view, convert]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(point), view, convert]
+        required = [True, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [flatten_params(point), view, convert]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(581, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformScreenToWorld", None, *params_flattened)
+        return self._ApplyTypes_(581, 1, (VT_VARIANT, 0), magic, u"XformScreenToWorld", None, *flattened)
 
     def xform_shear(self, plane, x1, y1, z1):
         """        
@@ -747,16 +861,16 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The plane, where arrPlane(0) is the fixed point.
             
-        x1, Array of ????, Required        
+        x1, Array of Doubles, Required        
         The x-axis scale factor.
             
-        y1, Array of ????, Required        
+        y1, Array of Doubles, Required        
         The y-axis scale factor.
             
-        z1, Array of ????, Required        
+        z1, Array of Doubles, Required        
         The z-axis scale factor.
             
         Returns
@@ -771,19 +885,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [plane, x1, y1, z1]
-        params_required = [True, True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(plane), flatten(x1), flatten(y1), flatten(z1)]
+        required = [True, True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(plane), flatten_params(x1), flatten_params(y1), flatten_params(z1)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(791, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformShear", None, *params_flattened)
+        return self._ApplyTypes_(791, 1, (VT_VARIANT, 0), magic, u"XformShear", None, *flattened)
 
     def xform_translation(self, vector):
         """        
@@ -792,7 +900,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         A 3-D translation vector.
             
         Returns
@@ -807,19 +915,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [vector]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(vector)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(vector)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(792, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformTranslation", None, *params_flattened)
+        return self._ApplyTypes_(792, 1, (VT_VARIANT, 0), magic, u"XformTranslation", None, *flattened)
 
     def xform_world_to_c_plane(self, point, plane):
         """        
@@ -828,10 +930,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         A 3-D point in world coordinates.
             
-        plane, Array of ????, Required        
+        plane, Array of Doubles, Required        
         The construction plane.  The elements of a plane array are as follows:
 		Element
 		Description
@@ -855,19 +957,13 @@ class Transformation(IRhinoScript):
         """
 
         params = [point, plane]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point), flatten(plane)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point), flatten_params(plane)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(132, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformWorldToCPlane", None, *params_flattened)
+        return self._ApplyTypes_(132, 1, (VT_VARIANT, 0), magic, u"XformWorldToCPlane", None, *flattened)
 
     def xform_world_to_screen(self, point, view=None, convert=None):
         """        
@@ -876,7 +972,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         A 3-D point in world coordinates.
             
         view, String, Optional        
@@ -900,21 +996,15 @@ class Transformation(IRhinoScript):
         """
 
         params = [point, view, convert]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(point), view, convert]
+        required = [True, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [flatten_params(point), view, convert]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(582, 1, (VT_VARIANT, 0), magic, u"XformWorldToScreen", None, *flattened)
 
-        return self._ApplyTypes_(582, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformWorldToScreen", None, *params_flattened)
-
-    def xform_zero():
+    def xform_zero(self):
         """        
         Returns a zero transformation matrix.
 		0
@@ -945,17 +1035,11 @@ class Transformation(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(782, 1, (VT_VARIANT, 0), params_magic_numbers, u"XformZero", None, *params_flattened)
+        return self._ApplyTypes_(782, 1, (VT_VARIANT, 0), magic, u"XformZero", None, *flattened)
 

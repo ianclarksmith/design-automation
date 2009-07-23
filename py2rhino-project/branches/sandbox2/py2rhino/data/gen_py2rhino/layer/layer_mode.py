@@ -9,25 +9,27 @@ layer_mode = {
 		Returns or changes the mode of a layer.
     """,
 
-    "syntax_html": """
-        Rhino.LayerMode (strLayer [, intMode])
-    """,
+    "syntax_html": {
+        0: ("strLayer", "intMode"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.
             """
         },
         1: {
-            "name": "Mode",
+            "name": "intMode",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Mode",
             "doc": """
         The new layer mode.  The layer modes are as follows:
 		Value

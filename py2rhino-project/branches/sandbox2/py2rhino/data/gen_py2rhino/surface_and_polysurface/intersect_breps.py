@@ -8,34 +8,37 @@ intersect_breps = {
         Intersects a brep object with another  brep object. Note, unlike the SurfaceSurfaceIntersection function this function works on trimmed surfaces.
     """,
 
-    "syntax_html": """
-        Rhino.IntersectBreps (strBrep1, strBrep2 [, dblTolerance])
-    """,
+    "syntax_html": {
+        0: ("strBrep1", "strBrep2", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Brep1",
+            "name": "strBrep1",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Brep1",
             "doc": """
         The first brep object's identifier.
             """
         },
         1: {
-            "name": "Brep2",
+            "name": "strBrep2",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Brep2",
             "doc": """
         The second  brep object's identifier.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The distance tolerance at segment midpoints.  If omitted, the current absolute tolerance is used..
             """

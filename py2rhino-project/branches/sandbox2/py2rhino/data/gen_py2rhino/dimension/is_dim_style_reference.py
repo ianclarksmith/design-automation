@@ -8,16 +8,17 @@ is_dim_style_reference = {
         Verifies that an existing dimension style is from a reference file.
     """,
 
-    "syntax_html": """
-        Rhino.IsDimStyleReference (strDimStyle)
-    """,
+    "syntax_html": {
+        0: ("strDimStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """

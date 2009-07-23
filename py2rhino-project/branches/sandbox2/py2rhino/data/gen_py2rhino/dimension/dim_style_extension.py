@@ -8,25 +8,27 @@ dim_style_extension = {
         Returns or changes the extension line extension of a dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleExtension (strDimStyle [, dblExtension])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle", "dblExtension"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "Extension",
+            "name": "dblExtension",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Extension",
             "doc": """
         The new extension line extension.  If omitted, the current extension line extension is returned.
             """

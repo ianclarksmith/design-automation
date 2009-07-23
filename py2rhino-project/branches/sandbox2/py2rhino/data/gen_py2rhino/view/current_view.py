@@ -8,25 +8,27 @@ current_view = {
         Returns or sets the currently active view.
     """,
 
-    "syntax_html": """
-        Rhino.CurrentView ([strView [, bReturnName]])
-    """,
+    "syntax_html": {
+        0: ("strView", "bReturnName"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view to set current.  If omitted, only the title or identifier of the current view is returned.
             """
         },
         1: {
-            "name": "ReturnName",
+            "name": "blnReturnName",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnName",
             "doc": """
         If True (default), then the name, or title, of the view is returned. If False, then the identifier of the view is returned.
             """

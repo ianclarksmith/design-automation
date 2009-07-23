@@ -8,16 +8,17 @@ selected_object_grips = {
         Returns an array of grip indices identifying an object's selected grips.
     """,
 
-    "syntax_html": """
-        Rhino.SelectedObjectGrips (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """

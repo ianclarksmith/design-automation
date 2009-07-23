@@ -8,16 +8,17 @@ purge_layer = {
         Removes an existing layer from the document.  Unlike the DeleteLayer method, PurgeLayer will remove the layer even if contains geometry objects.  The layer to be removed cannot be the current layer.
     """,
 
-    "syntax_html": """
-        Rhino.PurgeLayer (strLayer)
-    """,
+    "syntax_html": {
+        0: ("strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of the layer to purge.
             """

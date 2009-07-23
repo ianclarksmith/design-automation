@@ -8,34 +8,37 @@ browse_for_folder = {
         Displays the Windows browse-for-folder dialog box allowing the user to select a folder.
     """,
 
-    "syntax_html": """
-        Rhino.BrowseForFolder ([strFolder [, strMessage [, strTitle]]])
-    """,
+    "syntax_html": {
+        0: ("strFolder", "strMessage", "strTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Folder",
+            "name": "strFolder",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Folder",
             "doc": """
         A default folder.
             """
         },
         1: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         2: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """

@@ -8,16 +8,17 @@ appearance_color = {
         Returns or modifies an application interface item's color.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     """,
 
-    "syntax_html": """
-        Rhino.AppearanceColor (intItem [, lngColor])
-    """,
+    "syntax_html": {
+        0: ("intItem", "lngColor"),
+    },
 
     "params_html": {
         0: {
-            "name": "Item",
+            "name": "intItem",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Item",
             "doc": """
         Item number to either query or modify.  The available items are as follows:
 		Value
@@ -52,10 +53,11 @@ appearance_color = {
             """
         },
         1: {
-            "name": "Color",
+            "name": "lngColor",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Color",
             "doc": """
         The new color value.  If omitted, the current item color is returned.
             """

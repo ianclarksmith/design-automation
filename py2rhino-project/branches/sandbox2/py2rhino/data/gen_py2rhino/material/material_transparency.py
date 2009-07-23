@@ -8,25 +8,27 @@ material_transparency = {
         Returns or modifies a material's transparency value.
     """,
 
-    "syntax_html": """
-        Rhino.MaterialTransparency (intMaterialIndex [, dblTransparency])
-    """,
+    "syntax_html": {
+        0: ("intMaterialIndex", "dblTransparency"),
+    },
 
     "params_html": {
         0: {
-            "name": "MaterialIndex",
+            "name": "intMaterialIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "MaterialIndex",
             "doc": """
         The zero-based source material index.
             """
         },
         1: {
-            "name": "Transparency",
+            "name": "dblTransparency",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Transparency",
             "doc": """
         The new transparency value.  A material's transparency value ranges from 0.0 to 1.0, with 0.0 being opaque and 1.0 being transparent.  If omitted, the current transparency value is returned.
             """

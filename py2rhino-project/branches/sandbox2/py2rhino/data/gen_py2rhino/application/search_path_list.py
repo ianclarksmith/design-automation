@@ -8,9 +8,9 @@ search_path_list = {
         Returns all of the path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.
     """,
 
-    "syntax_html": """
-        Rhino.SearchPathList ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

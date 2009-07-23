@@ -8,43 +8,47 @@ xform_shear = {
         Returns a scale transformation matrix.
     """,
 
-    "syntax_html": """
-        Rhino.XformShear (arrPlane, arrX1, arrY1, arrZ1)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "arrX1", "arrY1", "arrZ1"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane, where arrPlane(0) is the fixed point.
             """
         },
         1: {
-            "name": "X1",
+            "name": "arrX1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "X1",
             "doc": """
         The x-axis scale factor.
             """
         },
         2: {
-            "name": "Y1",
+            "name": "arrY1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Y1",
             "doc": """
         The y-axis scale factor.
             """
         },
         3: {
-            "name": "Z1",
+            "name": "arrZ1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Z1",
             "doc": """
         The z-axis scale factor.
             """

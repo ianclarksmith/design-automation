@@ -8,16 +8,17 @@ surface_curvature_analysis = {
         Returns the curvature of a surface.  See the Rhino help file for details on surface curvature analysis.
     """,
 
-    "syntax_html": """
-        Rhino.SurfaceCurvatureAnalysis (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """

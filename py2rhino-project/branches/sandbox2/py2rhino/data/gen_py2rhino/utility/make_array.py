@@ -8,16 +8,17 @@ make_array = {
         Creates a new, initialized one-dimensional array of a user-specified bounds.
     """,
 
-    "syntax_html": """
-        Rhino.MakeArray (nUpperBound [, vVariant)
-    """,
+    "syntax_html": {
+        0: ("nUpperBound", "vVariant"),
+    },
 
     "params_html": {
         0: {
-            "name": "UpperBound",
+            "name": "nUpperBound",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "n",
+            "name_prefix": "n",
+            "name_main": "UpperBound",
             "doc": """
         The upper bounds of the new array.
             """
@@ -26,7 +27,8 @@ make_array = {
             "name": "vVariant",
             "opt_or_req": "Optional",
             "type": "Variant",
-            "type_string": "n",
+            "name_prefix": "none",
+            "name_main": "vVariant",
             "doc": """
         The value to initialize every array element.  If omitted, every array element will be initialized as Empty.  Note, the Empty VBScript keyword is used to indicate an uninitialized variable value.  This is not the same thing as Null.
             """

@@ -8,16 +8,17 @@ block_instances = {
         Returns the identifiers of the inserted instances of a block.
     """,
 
-    "syntax_html": """
-        Rhino.BlockInstances (strBlock)
-    """,
+    "syntax_html": {
+        0: ("strBlock"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """

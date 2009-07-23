@@ -55,7 +55,7 @@ VT_ILLEGAL = 65535
 VT_ILLEGALMASKED = 4095
 VT_TYPEMASK = 4095
 
-def flatten(arrIn):
+def flatten_params(arrIn):
     """helper method to flatten any arrays into one-dimensional arrays compatible with RhinoScript"""
     if arrIn == None:
         return None
@@ -72,6 +72,17 @@ def flatten(arrIn):
     else:
         return [arrIn,]
 
+def select_params(params, params_required, params_magic_numbers, params_flattened):
+    tmp_params_magic_numbers = []
+    tmp_params_flattened = []
+    
+    for i in range(len(params)):
+        if params_required[i] or (not params_required[i] and params[i] != None):
+            tmp_params_magic_numbers.append(params_magic_numbers[i])
+            tmp_params_flattened.append(params_flattened[i])
+    
+    return (tuple(tmp_params_magic_numbers), tuple(tmp_params_flattened))
+            
 #===============================================================================
 # Run some test
 #===============================================================================

@@ -8,25 +8,27 @@ material_name = {
         Returns or modifies a material's user-definable name.
     """,
 
-    "syntax_html": """
-        Rhino.MaterialName (intMaterialIndex [, strName])
-    """,
+    "syntax_html": {
+        0: ("intMaterialIndex", "strName"),
+    },
 
     "params_html": {
         0: {
-            "name": "MaterialIndex",
+            "name": "intMaterialIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "MaterialIndex",
             "doc": """
         The zero-based source material index.
             """
         },
         1: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The new name.  If omitted, the current name is returned.
             """

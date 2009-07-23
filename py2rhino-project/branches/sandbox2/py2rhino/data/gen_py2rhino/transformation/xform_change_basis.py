@@ -8,79 +8,88 @@ xform_change_basis = {
         Returns a change of basis transformation matrix.
     """,
 
-    "syntax_html": """
-        Rhino.XformChangeBasis (arrPlane1, arrPlane2)
-    """,
+    "syntax_html": {
+        0: ("arrPlane1", "arrPlane2"),
+        1: ("arrX0", "arrY0", "arrZ0", "arrX1", "arrY1", "arrZ1"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane1",
+            "name": "arrPlane1",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane1",
             "doc": """
         The initial plane.
             """
         },
         1: {
-            "name": "Plane2",
+            "name": "arrPlane2",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane2",
             "doc": """
         The final plane.
             """
         },
         2: {
-            "name": "X0",
+            "name": "arrX0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "X0",
             "doc": """
         The initial basis X (X0,Y0,Z0 can be any 3-D basis)
             """
         },
         3: {
-            "name": "Y0",
+            "name": "arrY0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Y0",
             "doc": """
         The  initial basis Y
             """
         },
         4: {
-            "name": "Z0",
+            "name": "arrZ0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Z0",
             "doc": """
         The  initial basis Z
             """
         },
         5: {
-            "name": "X1",
+            "name": "arrX1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "X1",
             "doc": """
         The final basis X (X1,Y1,Z1 can be any 3-D basis)
             """
         },
         6: {
-            "name": "Y1",
+            "name": "arrY1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Y1",
             "doc": """
         The  final basis Y
             """
         },
         7: {
-            "name": "Z1",
+            "name": "arrZ1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Z1",
             "doc": """
         The final basis Z
             """

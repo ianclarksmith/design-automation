@@ -8,25 +8,27 @@ curve_boolean_intersection = {
         Calculates the intersection of two closed, planar curves and adds the results to the document. Note, curves must be coplanar.
     """,
 
-    "syntax_html": """
-        Rhino.CurveBooleanIntersection (strCurveA, strCurveB)
-    """,
+    "syntax_html": {
+        0: ("strCurveA", "strCurveB"),
+    },
 
     "params_html": {
         0: {
-            "name": "CurveA",
+            "name": "strCurveA",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "CurveA",
             "doc": """
         The identifier of the first curve object.
             """
         },
         1: {
-            "name": "CurveB",
+            "name": "strCurveB",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "CurveB",
             "doc": """
         The identifier of the second curve object.
             """

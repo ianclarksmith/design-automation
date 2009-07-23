@@ -8,16 +8,17 @@ unit_distance_display_mode = {
         Returns or sets the document's distance display mode parameter.  See Rhino's DocumentProperties command (Units window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.UnitDistanceDisplayMode ([intMode])
-    """,
+    "syntax_html": {
+        0: ("intMode"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mode",
+            "name": "intMode",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Mode",
             "doc": """
         The distance display mode.  The available distance display modes are as follows:
 		Value

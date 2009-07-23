@@ -8,25 +8,27 @@ get_boolean = {
         Pauses for user input of one or more boolean values. Boolean values are displayed as click-able command-line option toggles.
     """,
 
-    "syntax_html": """
-        Rhino.GetBoolean (strMessage, arrItems, arrDefaults)
-    """,
+    "syntax_html": {
+        0: ("strMessage", "arrItems", "arrDefaults"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "Items",
+            "name": "arrItems",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Items",
             "doc": """
         An array of strings that describe the boolean items that will appear as command-line option toggles. Each boolean item consists of three strings.
 		Element
@@ -39,10 +41,11 @@ get_boolean = {
             """
         },
         2: {
-            "name": "Defaults",
+            "name": "arrDefaults",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_bln",
+            "name_prefix": "arr_of_bln",
+            "name_main": "Defaults",
             "doc": """
         A array of boolean values to be used as default, or starting values.
             """

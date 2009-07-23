@@ -8,16 +8,17 @@ extract_preview_image = {
         Extracts the bitmap preview image from the specified model (.3dm).
     """,
 
-    "syntax_html": """
-        Rhino.ExtractPreviewImage (strFileName [, strModelName])
-    """,
+    "syntax_html": {
+        0: ("strFileName", "strModelName"),
+    },
 
     "params_html": {
         0: {
-            "name": "FileName",
+            "name": "strFileName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "FileName",
             "doc": """
         The name of the bitmap file to create.  The extension of the filename controls the format of the bitmap file created.
 		Type
@@ -36,10 +37,11 @@ extract_preview_image = {
             """
         },
         1: {
-            "name": "ModelName",
+            "name": "strModelName",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "ModelName",
             "doc": """
         The model (.3dm) from which to extract the preview image.  If omitted, the currently loaded model is used.
             """

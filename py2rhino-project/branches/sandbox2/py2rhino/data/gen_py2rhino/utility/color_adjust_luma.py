@@ -8,34 +8,37 @@ color_adjust_luma = {
         Changes the luminance of a red-green-blue (RGB) value. Hue and saturation are not affected.
     """,
 
-    "syntax_html": """
-        Rhino.ColorAdjustLuma (lngRGB, intLuma [, bScale])
-    """,
+    "syntax_html": {
+        0: ("lngRGB", "intLuma", "bScale"),
+    },
 
     "params_html": {
         0: {
-            "name": "RGB",
+            "name": "lngRGB",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "RGB",
             "doc": """
         The initial RGB color value.
             """
         },
         1: {
-            "name": "Luma",
+            "name": "intLuma",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Luma",
             "doc": """
         The luminance in units of 0.1 percent of the total range.  For example, a value of intLuma = 50 corresponds to 5 percent of the maximum luminance.
             """
         },
         2: {
-            "name": "bScale",
+            "name": "blnScale",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "int",
+            "name_prefix": "bln",
+            "name_main": "Scale",
             "doc": """
         If bScale is set to True, intLuma specifies how much to increment or decrement the current luminance.  If bScale is set to FALSE, intLuma specifies the absolute luminance.  The default value is False.
 		If bScale is set to TRUE, intLuma can range from -1000 to +1000.

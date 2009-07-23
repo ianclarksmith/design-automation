@@ -8,43 +8,47 @@ mirror_objects = {
         Mirrors one or more objects.
     """,
 
-    "syntax_html": """
-        Rhino.MirrorObjects (arrObjects, arrStartPt, arrEndPt [, blnCopy])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrStartPt", "arrEndPt", "blnCopy"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to mirror.
             """
         },
         1: {
-            "name": "StartPt",
+            "name": "arrStartPt",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartPt",
             "doc": """
         The start of the mirror plane.
             """
         },
         2: {
-            "name": "EndPt",
+            "name": "arrEndPt",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndPt",
             "doc": """
         The end of the mirror plane.
             """
         },
         3: {
-            "name": "Copy",
+            "name": "blnCopy",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Copy",
             "doc": """
         Copy the objects. If omitted, the objects will not be copied (False).
             """

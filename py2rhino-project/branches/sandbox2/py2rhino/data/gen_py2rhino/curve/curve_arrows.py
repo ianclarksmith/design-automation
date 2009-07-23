@@ -8,25 +8,27 @@ curve_arrows = {
         Enables or disabled a curve object's annotation arrows.
     """,
 
-    "syntax_html": """
-        Rhino.CurveArrows (strObject [, intStyle])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Style",
+            "name": "intStyle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Style",
             "doc": """
         The style of annotation arrows to be displayed.  The styles are as follows:
 		Value

@@ -8,16 +8,17 @@ unit_relative_tolerance = {
         Returns or sets the document's relative tolerance parameter.  Relative tolerance is measured in percent. See Rhino's DocumentProperties command (Units window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.UnitRelativeTolerance ([dblRelTol])
-    """,
+    "syntax_html": {
+        0: ("dblRelTol"),
+    },
 
     "params_html": {
         0: {
-            "name": "RelTol",
+            "name": "dblRelTol",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "RelTol",
             "doc": """
         The relative tolerance in percent.
             """

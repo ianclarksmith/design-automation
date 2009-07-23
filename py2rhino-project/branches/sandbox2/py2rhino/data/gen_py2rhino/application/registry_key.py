@@ -8,9 +8,9 @@ registry_key = {
         Returns Rhino's Windows Registry key.
     """,
 
-    "syntax_html": """
-        Rhino.RegistryKey ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

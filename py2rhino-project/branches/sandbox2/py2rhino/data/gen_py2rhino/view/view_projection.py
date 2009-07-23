@@ -8,25 +8,27 @@ view_projection = {
         Returns or sets a view's projection mode.  A view's projection mode can be either parallel or perspective.
     """,
 
-    "syntax_html": """
-        Rhino.ViewProjection ([strView [, intMode]])
-    """,
+    "syntax_html": {
+        0: ("strView", "intMode"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Mode",
+            "name": "intMode",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Mode",
             "doc": """
         The projection mode.  The projection modes are as follows:
 		Value

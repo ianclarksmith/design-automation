@@ -8,16 +8,17 @@ a_sin = {
         Returns the arcsine, or inverse sine, of a number. The arcsine is the angle whose sine is number. The returned angle is given in radians in the range -PI/2 to PI/2.
     """,
 
-    "syntax_html": """
-        Rhino.ASin (dblNumber)
-    """,
+    "syntax_html": {
+        0: ("dblNumber"),
+    },
 
     "params_html": {
         0: {
-            "name": "Number",
+            "name": "dblNumber",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Number",
             "doc": """
         A number representing the sine of the angle you want and must be from -1 to 1.
             """

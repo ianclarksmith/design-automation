@@ -8,16 +8,17 @@ current_layer = {
         Returns or changes the current layer.
     """,
 
-    "syntax_html": """
-        Rhino.CurrentLayer ([strLayer])
-    """,
+    "syntax_html": {
+        0: ("strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer to make current.
             """

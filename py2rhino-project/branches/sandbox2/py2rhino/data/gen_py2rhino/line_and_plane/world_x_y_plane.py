@@ -9,9 +9,9 @@ world_x_y_plane = {
 		Rhino.PlaneFromFrame Array(0.0,0.0,0.0), Array(1.0,0.0,0.0), Array(0.0,1.0,0.0)
     """,
 
-    "syntax_html": """
-        Rhino.WorldXYPlane ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

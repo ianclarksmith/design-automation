@@ -8,25 +8,27 @@ extend_curve_length = {
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
     """,
 
-    "syntax_html": """
-        Rhino.ExtendCurveLength (strObject, intType, intSide, dblLength)
-    """,
+    "syntax_html": {
+        0: ("strObject", "intType", "intSide", "dblLength"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Type",
+            "name": "intType",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Type",
             "doc": """
         Type of extension.
 		Value
@@ -39,10 +41,11 @@ extend_curve_length = {
             """
         },
         2: {
-            "name": "Side",
+            "name": "intSide",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Side",
             "doc": """
         The size to  extent.
 		Value
@@ -55,10 +58,11 @@ extend_curve_length = {
             """
         },
         3: {
-            "name": "Length",
+            "name": "dblLength",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Length",
             "doc": """
         The distance to extend the curve.
             """

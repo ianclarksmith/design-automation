@@ -8,16 +8,17 @@ unit_absolute_tolerance = {
         Returns or sets the document's absolute tolerance parameter.  Absolute tolerance is measured in drawing units. See Rhino's DocumentProperties command (Units window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.UnitAbsoluteTolerance ([dblAbsTol])
-    """,
+    "syntax_html": {
+        0: ("dblAbsTol"),
+    },
 
     "params_html": {
         0: {
-            "name": "AbsTol",
+            "name": "dblAbsTol",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "AbsTol",
             "doc": """
         The absolute tolerance in drawing units.
             """

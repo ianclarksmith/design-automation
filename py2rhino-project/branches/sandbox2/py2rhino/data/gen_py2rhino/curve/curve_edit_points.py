@@ -8,34 +8,37 @@ curve_edit_points = {
         Returns the edit, or Greville, points of a curve object.  For each curve control point, there is a corresponding edit point.
     """,
 
-    "syntax_html": """
-        Rhino.CurveEditPoints (strObject [, blnReturnParameters [, intIndex]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnReturnParameters", "intIndex"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "ReturnParameters",
+            "name": "blnReturnParameters",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnParameters",
             "doc": """
         Return the edit points as an array of parameter values.  If omitted, the edit points are returned as an array of 3-D points.
             """
         },
         2: {
-            "name": "Index",
+            "name": "intIndex",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Index",
             "doc": """
         If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
             """

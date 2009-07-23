@@ -8,16 +8,17 @@ layer_child_count = {
         Returns the number of immediate child layers of a layer.
     """,
 
-    "syntax_html": """
-        Rhino.LayerChildCount (strLayer)
-    """,
+    "syntax_html": {
+        0: ("strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of the layer.
             """

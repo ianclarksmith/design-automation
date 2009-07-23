@@ -8,25 +8,27 @@ sort_numbers = {
         Sorts an array of numbers.
     """,
 
-    "syntax_html": """
-        Rhino.SortNumbers (arrNumbers [, blnAscending])
-    """,
+    "syntax_html": {
+        0: ("arrNumbers", "blnAscending"),
+    },
 
     "params_html": {
         0: {
-            "name": "Numbers",
+            "name": "arrNumbers",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Numbers",
             "doc": """
         An array of numeric values.
             """
         },
         1: {
-            "name": "Ascending",
+            "name": "blnAscending",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Ascending",
             "doc": """
         The sorting mode, either ascending or descending.  If omitted, the numbers are sorted ascending.
             """

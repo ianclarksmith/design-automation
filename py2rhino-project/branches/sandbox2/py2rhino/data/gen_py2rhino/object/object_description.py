@@ -8,16 +8,17 @@ object_description = {
         Returns a short text description of an object.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectDescription (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """

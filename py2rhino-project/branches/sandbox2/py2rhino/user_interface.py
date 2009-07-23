@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class UserInterface(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def browse_for_folder(self, folder=None, message=None, title=None):
         """        
@@ -36,19 +45,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [folder, message, title]
-        params_required = [False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [folder, message, title]
+        required = [False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [folder, message, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(146, 1, (VT_VARIANT, 0), params_magic_numbers, u"BrowseForFolder", None, *params_flattened)
+        return self._ApplyTypes_(146, 1, (VT_VARIANT, 0), magic, u"BrowseForFolder", None, *flattened)
 
     def check_list_box(self, items, values, message=None, title=None):
         """        
@@ -57,10 +60,10 @@ class UserInterface(IRhinoScript):
         Parameters
         ==========
 
-        items, Array of ????, Required        
+        items, Array of Strings, Required        
         A zero-based, one-dimensional array of string items.
             
-        values, Array of ????, Required        
+        values, Array of Booleans, Required        
         A zero-based, one-dimensional array of boolean values indicating the checked state of each item in the list.
             
         message, String, Optional        
@@ -81,19 +84,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, values, message, title]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(items), flatten(values), message, title]
+        required = [True, True, False, False]
+        magic = [(VT_VARIANT, 1), (VT_ARRAY + VT_BOOL, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(items), flatten_params(values), message, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(52, 1, (VT_VARIANT, 0), params_magic_numbers, u"CheckListBox", None, *params_flattened)
+        return self._ApplyTypes_(52, 1, (VT_VARIANT, 0), magic, u"CheckListBox", None, *flattened)
 
     def combo_list_box(self, items, message=None, title=None):
         """        
@@ -102,7 +99,7 @@ class UserInterface(IRhinoScript):
         Parameters
         ==========
 
-        items, Array of ????, Required        
+        items, Array of Strings, Required        
         A zero-based, one-dimensional array of string items.
             
         message, String, Optional        
@@ -123,19 +120,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, message, title]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(items), message, title]
+        required = [True, False, False]
+        magic = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(items), message, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(53, 1, (VT_VARIANT, 0), params_magic_numbers, u"ComboListBox", None, *params_flattened)
+        return self._ApplyTypes_(53, 1, (VT_VARIANT, 0), magic, u"ComboListBox", None, *flattened)
 
     def edit_box(self, string=None, message=None, title=None):
         """        
@@ -165,19 +156,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [string, message, title]
-        params_required = [False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [string, message, title]
+        required = [False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [string, message, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(54, 1, (VT_VARIANT, 0), params_magic_numbers, u"EditBox", None, *params_flattened)
+        return self._ApplyTypes_(54, 1, (VT_VARIANT, 0), magic, u"EditBox", None, *flattened)
 
     def get_angle(self, point=None, reference=None, angle=None, message=None):
         """        
@@ -186,10 +171,10 @@ class UserInterface(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Optional        
+        point, Array of Doubles, Optional        
         A zero-based, one-dimensional array containing three numbers identifying the starting, or base, point.
             
-        reference, Array of ????, Optional        
+        reference, Array of Doubles, Optional        
         A zero-based, one-dimensional array containing three numbers identifying a reference point.  If specified, the reference angle is calculated from it and the base point.
             
         angle, Double, Optional        
@@ -210,19 +195,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [point, reference, angle, message]
-        params_required = [False, False, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(point), flatten(reference), angle, message]
+        required = [False, False, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(point), flatten_params(reference), angle, message]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(277, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetAngle", None, *params_flattened)
+        return self._ApplyTypes_(277, 1, (VT_VARIANT, 0), magic, u"GetAngle", None, *flattened)
 
     def get_boolean(self, message, items, defaults):
         """        
@@ -234,7 +213,7 @@ class UserInterface(IRhinoScript):
         message, String, Required        
         A prompt or message.
             
-        items, Array of ????, Required        
+        items, Array of Strings, Required        
         An array of strings that describe the boolean items that will appear as command-line option toggles. Each boolean item consists of three strings.
 		Element
 		Description
@@ -244,7 +223,7 @@ class UserInterface(IRhinoScript):
 		A string identifying the False value.
 		2
             
-        defaults, Array of ????, Required        
+        defaults, Array of Booleans, Required        
         A array of boolean values to be used as default, or starting values.
             
         Returns
@@ -259,19 +238,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, items, defaults]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [message, flatten(items), flatten(defaults)]
+        required = [True, True, True]
+        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_ARRAY + VT_BOOL, 1)]
+        flattened = [message, flatten_params(items), flatten_params(defaults)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(622, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetBoolean", None, *params_flattened)
+        return self._ApplyTypes_(622, 1, (VT_VARIANT, 0), magic, u"GetBoolean", None, *flattened)
 
     def get_box(self, mode=None, point=None, prompt1=None, prompt2=None, prompt3=None):
         """        
@@ -294,7 +267,7 @@ class UserInterface(IRhinoScript):
 		Vertical.  The base vertical rectangle is created by picking three points.
 		4
             
-        point, Array of ????, Optional        
+        point, Array of Doubles, Optional        
         A 3-D base point.
             
         prompt1, String, Optional        
@@ -318,19 +291,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [mode, point, prompt1, prompt2, prompt3]
-        params_required = [False, False, False, False, False]
-        params_magic_numbers = [(VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [mode, flatten(point), prompt1, prompt2, prompt3]
+        required = [False, False, False, False, False]
+        magic = [(VT_I2, 1), (VT_ARRAY + VT_R8, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [mode, flatten_params(point), prompt1, prompt2, prompt3]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(342, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetBox", None, *params_flattened)
+        return self._ApplyTypes_(342, 1, (VT_VARIANT, 0), magic, u"GetBox", None, *flattened)
 
     def get_color(self, color=None):
         """        
@@ -354,19 +321,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [color]
-        params_required = [False]
-        params_magic_numbers = [(VT_I4, 1),]
-        params_flattened = [color]
+        required = [False]
+        magic = [(VT_I4, 1),]
+        flattened = [color]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(65, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetColor", None, *params_flattened)
+        return self._ApplyTypes_(65, 1, (VT_VARIANT, 0), magic, u"GetColor", None, *flattened)
 
     def get_distance(self, point=None, distance=None, message1=None, message2=None):
         """        
@@ -375,7 +336,7 @@ class UserInterface(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Optional        
+        point, Array of Doubles, Optional        
         A zero-based, one-dimensional array containing three numbers identifying the first distance point.
             
         distance, Double, Optional        
@@ -399,19 +360,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [point, distance, message1, message2]
-        params_required = [False, False, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(point), distance, message1, message2]
+        required = [False, False, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(point), distance, message1, message2]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(66, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetDistance", None, *params_flattened)
+        return self._ApplyTypes_(66, 1, (VT_VARIANT, 0), magic, u"GetDistance", None, *flattened)
 
     def get_integer(self, message=None, number=None, min=None, max=None):
         """        
@@ -444,19 +399,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, number, min, max]
-        params_required = [False, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_I2, 1)]
-        params_flattened = [message, number, min, max]
+        required = [False, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_I2, 1), (VT_I2, 1)]
+        flattened = [message, number, min, max]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(64, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetInteger", None, *params_flattened)
+        return self._ApplyTypes_(64, 1, (VT_VARIANT, 0), magic, u"GetInteger", None, *flattened)
 
     def get_layer(self, title=None, layer=None, show_new_layer=None, show_set_current=None):
         """        
@@ -489,19 +438,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [title, layer, show_new_layer, show_set_current]
-        params_required = [False, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
-        params_flattened = [title, layer, show_new_layer, show_set_current]
+        required = [False, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
+        flattened = [title, layer, show_new_layer, show_set_current]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(672, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetLayer", None, *params_flattened)
+        return self._ApplyTypes_(672, 1, (VT_VARIANT, 0), magic, u"GetLayer", None, *flattened)
 
     def get_linetype(self, linetype=None):
         """        
@@ -525,19 +468,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [linetype]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [linetype]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [linetype]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(673, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetLinetype", None, *params_flattened)
+        return self._ApplyTypes_(673, 1, (VT_VARIANT, 0), magic, u"GetLinetype", None, *flattened)
 
     def get_point_on_curve(self, object, message=None):
         """        
@@ -564,19 +501,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [object, message]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, message]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, message]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(147, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnCurve", None, *params_flattened)
+        return self._ApplyTypes_(147, 1, (VT_VARIANT, 0), magic, u"GetPointOnCurve", None, *flattened)
 
     def get_point_on_line(self, message, start, end, track=None):
         """        
@@ -588,10 +519,10 @@ class UserInterface(IRhinoScript):
         message, String, Required        
         A prompt or message.
             
-        start, Array of ????, Required        
+        start, Array of Doubles, Required        
         The starting point of the line.
             
-        end, Array of ????, Required        
+        end, Array of Doubles, Required        
         The ending point of the line.
             
         track, Boolean, Optional        
@@ -609,19 +540,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, start, end, track]
-        params_required = [True, True, True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [message, flatten(start), flatten(end), track]
+        required = [True, True, True, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_BOOL, 1)]
+        flattened = [message, flatten_params(start), flatten_params(end), track]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(798, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnLine", None, *params_flattened)
+        return self._ApplyTypes_(798, 1, (VT_VARIANT, 0), magic, u"GetPointOnLine", None, *flattened)
 
     def get_point_on_mesh(self, object, message=None):
         """        
@@ -648,19 +573,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [object, message]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, message]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, message]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(401, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnMesh", None, *params_flattened)
+        return self._ApplyTypes_(401, 1, (VT_VARIANT, 0), magic, u"GetPointOnMesh", None, *flattened)
 
     def get_point_on_plane(self, message=None, plane=None, point=None):
         """        
@@ -672,10 +591,10 @@ class UserInterface(IRhinoScript):
         message, String, Optional        
         A prompt or message.
             
-        plane, Array of ????, Optional        
+        plane, Array of Doubles, Optional        
         The plane to constrain the point to.
             
-        point, Array of ????, Optional        
+        point, Array of Doubles, Optional        
         A 3-D point from with to draw a tracking line. If omitted, a tracking line will not be drawn.
             
         Returns
@@ -690,19 +609,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, plane, point]
-        params_required = [False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [message, flatten(plane), flatten(point)]
+        required = [False, False, False]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [message, flatten_params(plane), flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(797, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnPlane", None, *params_flattened)
+        return self._ApplyTypes_(797, 1, (VT_VARIANT, 0), magic, u"GetPointOnPlane", None, *flattened)
 
     def get_point_on_surface(self, object, message=None):
         """        
@@ -729,19 +642,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [object, message]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, message]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, message]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(148, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPointOnSurface", None, *params_flattened)
+        return self._ApplyTypes_(148, 1, (VT_VARIANT, 0), magic, u"GetPointOnSurface", None, *flattened)
 
     def get_points(self, draw=None, plane=None, message1=None, message2=None, max_points=None, base_point=None):
         """        
@@ -765,7 +672,7 @@ class UserInterface(IRhinoScript):
         max_points, Integer, Optional        
         The maximum number of points to pick.  If not specified, an unlimited number of points can be picked.
             
-        base_point, Array of ????, Optional        
+        base_point, Array of Doubles, Optional        
         A starting, or base, point.
             
         Returns
@@ -780,19 +687,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [draw, plane, message1, message2, max_points, base_point]
-        params_required = [False, False, False, False, False, False]
-        params_magic_numbers = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1)]
-        params_flattened = [draw, plane, message1, message2, max_points, flatten(base_point)]
+        required = [False, False, False, False, False, False]
+        magic = [(VT_BOOL, 1), (VT_BOOL, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_I2, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [draw, plane, message1, message2, max_points, flatten_params(base_point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(67, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPoints", None, *params_flattened)
+        return self._ApplyTypes_(67, 1, (VT_VARIANT, 0), magic, u"GetPoints", None, *flattened)
 
     def get_print_width(self, print_width=None):
         """        
@@ -816,19 +717,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [print_width]
-        params_required = [False]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [print_width]
+        required = [False]
+        magic = [(VT_R8, 1),]
+        flattened = [print_width]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(674, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPrintWidth", None, *params_flattened)
+        return self._ApplyTypes_(674, 1, (VT_VARIANT, 0), magic, u"GetPrintWidth", None, *flattened)
 
     def get_real(self, message=None, number=None, min=None, max=None):
         """        
@@ -861,19 +756,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, number, min, max]
-        params_required = [False, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [message, number, min, max]
+        required = [False, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
+        flattened = [message, number, min, max]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(63, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetReal", None, *params_flattened)
+        return self._ApplyTypes_(63, 1, (VT_VARIANT, 0), magic, u"GetReal", None, *flattened)
 
     def get_rectangle(self, mode=None, point=None, prompt1=None, prompt2=None, prompt3=None):
         """        
@@ -920,19 +809,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [mode, point, prompt1, prompt2, prompt3]
-        params_required = [False, False, False, False, False]
-        params_magic_numbers = [(VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [mode, flatten(point), prompt1, prompt2, prompt3]
+        required = [False, False, False, False, False]
+        magic = [(VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [mode, flatten_params(point), prompt1, prompt2, prompt3]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(341, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetRectangle", None, *params_flattened)
+        return self._ApplyTypes_(341, 1, (VT_VARIANT, 0), magic, u"GetRectangle", None, *flattened)
 
     def get_string(self, message=None, string=None, strings=None):
         """        
@@ -947,7 +830,7 @@ class UserInterface(IRhinoScript):
         string, String, Optional        
         A default value.
             
-        strings, Array of ????, Optional        
+        strings, Array of Strings, Optional        
         A array of strings to be displayed as click-able command options. Note, strings cannot begin with a numeric character.
             
         Returns
@@ -962,19 +845,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, string, strings]
-        params_required = [False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [message, string, flatten(strings)]
+        required = [False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        flattened = [message, string, flatten_params(strings)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(62, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetString", None, *params_flattened)
+        return self._ApplyTypes_(62, 1, (VT_VARIANT, 0), magic, u"GetString", None, *flattened)
 
     def get_surface_iso_param_point(self, object, message=None):
         """        
@@ -1001,19 +878,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [object, message]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [object, message]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [object, message]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(775, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetSurfaceIsoParamPoint", None, *params_flattened)
+        return self._ApplyTypes_(775, 1, (VT_VARIANT, 0), magic, u"GetSurfaceIsoParamPoint", None, *flattened)
 
     def html_box(self, file_name, arguments=None, options=None, modal=None):
         """        
@@ -1071,19 +942,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [file_name, arguments, options, modal]
-        params_required = [True, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [file_name, arguments, options, modal]
+        required = [True, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [file_name, arguments, options, modal]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(276, 1, (VT_VARIANT, 0), params_magic_numbers, u"HtmlBox", None, *params_flattened)
+        return self._ApplyTypes_(276, 1, (VT_VARIANT, 0), magic, u"HtmlBox", None, *flattened)
 
     def integer_box(self, message=None, number=None, title=None):
         """        
@@ -1113,19 +978,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, number, title]
-        params_required = [False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)]
-        params_flattened = [message, number, title]
+        required = [False, False, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)]
+        flattened = [message, number, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(55, 1, (VT_VARIANT, 0), params_magic_numbers, u"IntegerBox", None, *params_flattened)
+        return self._ApplyTypes_(55, 1, (VT_VARIANT, 0), magic, u"IntegerBox", None, *flattened)
 
     def list_box(self, items, message=None, title=None):
         """        
@@ -1134,7 +993,7 @@ class UserInterface(IRhinoScript):
         Parameters
         ==========
 
-        items, Array of ????, Required        
+        items, Array of Strings, Required        
         A zero-based, one-dimensional array of string items.
             
         message, String, Optional        
@@ -1155,19 +1014,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, message, title]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(items), message, title]
+        required = [True, False, False]
+        magic = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(items), message, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(56, 1, (VT_VARIANT, 0), params_magic_numbers, u"ListBox", None, *params_flattened)
+        return self._ApplyTypes_(56, 1, (VT_VARIANT, 0), magic, u"ListBox", None, *flattened)
 
     def message_beep(self, beep=None):
         """        
@@ -1198,19 +1051,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [beep]
-        params_required = [False]
-        params_magic_numbers = [(VT_I2, 1),]
-        params_flattened = [beep]
+        required = [False]
+        magic = [(VT_I2, 1),]
+        flattened = [beep]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(149, 1, (VT_VARIANT, 0), params_magic_numbers, u"MessageBeep", None, *params_flattened)
+        return self._ApplyTypes_(149, 1, (VT_VARIANT, 0), magic, u"MessageBeep", None, *flattened)
 
     def message_box(self, message, buttons=None, title=None):
         """        
@@ -1270,19 +1117,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, buttons, title]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)]
-        params_flattened = [message, buttons, title]
+        required = [True, False, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1), (VT_BSTR, 1)]
+        flattened = [message, buttons, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(150, 1, (VT_VARIANT, 0), params_magic_numbers, u"MessageBox", None, *params_flattened)
+        return self._ApplyTypes_(150, 1, (VT_VARIANT, 0), magic, u"MessageBox", None, *flattened)
 
     def multi_list_box(self, items, message=None, title=None):
         """        
@@ -1291,7 +1132,7 @@ class UserInterface(IRhinoScript):
         Parameters
         ==========
 
-        items, Array of ????, Required        
+        items, Array of Strings, Required        
         A zero-based, one-dimensional array of string items.
             
         message, String, Optional        
@@ -1312,19 +1153,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, message, title]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(items), message, title]
+        required = [True, False, False]
+        magic = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(items), message, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(57, 1, (VT_VARIANT, 0), params_magic_numbers, u"MultiListBox", None, *params_flattened)
+        return self._ApplyTypes_(57, 1, (VT_VARIANT, 0), magic, u"MultiListBox", None, *flattened)
 
     def open_file_names(self, title=None, filter=None, folder=None, filename=None, extension=None):
         """        
@@ -1360,19 +1195,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [title, filter, folder, filename, extension]
-        params_required = [False, False, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [title, filter, folder, filename, extension]
+        required = [False, False, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [title, filter, folder, filename, extension]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(821, 1, (VT_VARIANT, 0), params_magic_numbers, u"OpenFileNames", None, *params_flattened)
+        return self._ApplyTypes_(821, 1, (VT_VARIANT, 0), magic, u"OpenFileNames", None, *flattened)
 
     def popup_menu(self, items, modes=None, point=None, view=None):
         """        
@@ -1381,10 +1210,10 @@ class UserInterface(IRhinoScript):
         Parameters
         ==========
 
-        items, Array of ????, Required        
+        items, Array of Strings, Required        
         An array of string representing the menu items. An empty string, or "", will create a menu separator item.
             
-        modes, Array of ????, Optional        
+        modes, Array of Integers, Optional        
         A array if numbers identifying the display mode of the corresponding menu items. If omitted, all menu items are enabled. Note, display modes are ignored for menu separators. The display modes are a follows:
 		0
 		The menu item is enabled.
@@ -1394,7 +1223,7 @@ class UserInterface(IRhinoScript):
 		The menu item is checked.
 		3
             
-        point, Array of ????, Optional        
+        point, Array of Doubles, Optional        
         A 3-D point where the menu item is to appear. If omitted, the menu item will appear at the current cursor position.
             
         view, String, Optional        
@@ -1415,19 +1244,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, modes, point, view]
-        params_required = [True, False, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(items), flatten(modes), flatten(point), view]
+        required = [True, False, False, False]
+        magic = [(VT_VARIANT, 1), (VT_ARRAY + VT_I2, 1), (VT_ARRAY + VT_R8, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(items), flatten_params(modes), flatten_params(point), view]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(595, 1, (VT_VARIANT, 0), params_magic_numbers, u"PopupMenu", None, *params_flattened)
+        return self._ApplyTypes_(595, 1, (VT_VARIANT, 0), magic, u"PopupMenu", None, *flattened)
 
     def property_list_box(self, items, values, message=None, title=None):
         """        
@@ -1436,10 +1259,10 @@ class UserInterface(IRhinoScript):
         Parameters
         ==========
 
-        items, Array of ????, Required        
+        items, Array of Strings, Required        
         A zero-based, one-dimensional array of string items.
             
-        values, Array of ????, Required        
+        values, Array of Strings, Required        
         A zero-based, one-dimensional array of strings indicating the value of each item in the list.
             
         message, String, Optional        
@@ -1460,19 +1283,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [items, values, message, title]
-        params_required = [True, True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [flatten(items), flatten(values), message, title]
+        required = [True, True, False, False]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [flatten_params(items), flatten_params(values), message, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(58, 1, (VT_VARIANT, 0), params_magic_numbers, u"PropertyListBox", None, *params_flattened)
+        return self._ApplyTypes_(58, 1, (VT_VARIANT, 0), magic, u"PropertyListBox", None, *flattened)
 
     def real_box(self, message=None, number=None, title=None):
         """        
@@ -1502,19 +1319,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, number, title]
-        params_required = [False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_R8, 1), (VT_BSTR, 1)]
-        params_flattened = [message, number, title]
+        required = [False, False, False]
+        magic = [(VT_BSTR, 1), (VT_R8, 1), (VT_BSTR, 1)]
+        flattened = [message, number, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(59, 1, (VT_VARIANT, 0), params_magic_numbers, u"RealBox", None, *params_flattened)
+        return self._ApplyTypes_(59, 1, (VT_VARIANT, 0), magic, u"RealBox", None, *flattened)
 
     def save_file_name(self, title=None, filter=None, folder=None, filename=None, extension=None):
         """        
@@ -1550,19 +1361,13 @@ class UserInterface(IRhinoScript):
         """
 
         params = [title, filter, folder, filename, extension]
-        params_required = [False, False, False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [title, filter, folder, filename, extension]
+        required = [False, False, False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [title, filter, folder, filename, extension]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(152, 1, (VT_VARIANT, 0), params_magic_numbers, u"SaveFileName", None, *params_flattened)
+        return self._ApplyTypes_(152, 1, (VT_VARIANT, 0), magic, u"SaveFileName", None, *flattened)
 
     def string_box(self, message=None, string=None, title=None):
         """        
@@ -1592,17 +1397,11 @@ class UserInterface(IRhinoScript):
         """
 
         params = [message, string, title]
-        params_required = [False, False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [message, string, title]
+        required = [False, False, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [message, string, title]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(60, 1, (VT_VARIANT, 0), params_magic_numbers, u"StringBox", None, *params_flattened)
+        return self._ApplyTypes_(60, 1, (VT_VARIANT, 0), magic, u"StringBox", None, *flattened)
 

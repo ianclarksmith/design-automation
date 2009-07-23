@@ -8,16 +8,17 @@ add_group = {
         Adds a new empty group to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddGroup ([strGroup])
-    """,
+    "syntax_html": {
+        0: ("strGroup"),
+    },
 
     "params_html": {
         0: {
-            "name": "Group",
+            "name": "strGroup",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Group",
             "doc": """
         The name of the new group.  If omitted, Rhino automatically generates the group name.
             """

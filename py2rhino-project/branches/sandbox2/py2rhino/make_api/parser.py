@@ -3,7 +3,7 @@ import keyword
 import os
 import string
 from py2rhino.data.gen_comtypes import rhinoscript as ct_rs
-from util import *
+from util import * #@UnusedWildImport
 
 from py2rhino.data.gen_py2rhino import _array_type_strings_updated as types
 
@@ -114,8 +114,21 @@ def parse_docs():
                 content_help = "\n\t\t".join(content_help)
 
                 #get the first line of the syntax
-                #TO DO: get all syntax lines
                 content_syntax = contents[line_num_syntax + 1]
+                content_syntax = []
+                if (line_num_params - line_num_syntax) > 1:
+                    for line_num in range(line_num_syntax+1, line_num_params):
+                        assert contents[line_num].startswith('Rhino.')
+                        #strip out [ and ]
+                        line = filter(lambda i: (i!='[' and i!=']'), contents[line_num])
+                        if line.count('(') == 1:
+                            start_of_args = line.index('(')
+                            end_of_args = line.index(')')
+                            args = line[start_of_args+1: end_of_args]
+                            args = args.split(',')
+                            args = map(lambda i: i.strip(), args)
+                            content_syntax.append(args)
+                        
                 
                 #now get the parameters
                 content_params = []                
@@ -148,30 +161,35 @@ def parse_docs():
                             param_end = line_num_each_param[param_num + 1] - 1
                         #get the type from the param name
                         param_name = contents[param_start].strip()
+                        
                         if param_name.startswith("bln"): 
-                            param_name = param_name[3:]
+                            param_main = param_name[3:]
                             param_prefix = "bln"
                         elif param_name.startswith("int"): 
-                            param_name = param_name[3:]
+                            param_main = param_name[3:]
                             param_prefix = "int"
                         elif param_name.startswith("lng"): 
-                            param_name = param_name[3:]
+                            param_main = param_name[3:]
                             param_prefix = "lng"
                         elif param_name.startswith("dbl"): 
-                            param_name = param_name[3:]
+                            param_main = param_name[3:]
                             param_prefix = "dbl"
                         elif param_name.startswith("str"): 
-                            param_name = param_name[3:]
+                            param_main = param_name[3:]
                             param_prefix = "str"
                         elif param_name.startswith("va"): 
-                            param_name = param_name[2:]
+                            param_main = param_name[2:]
                             param_prefix = "va"
                         elif param_name.startswith("n"): 
-                            param_name = param_name[1:]
+                            param_main = param_name[1:]
                             param_prefix = "n"
                         elif param_name.startswith("arr"): 
-                            param_name = param_name[3:]
+                            param_main = param_name[3:]
                             param_prefix = "arr"
+                        else:
+                            print "Prefix is missing", file_name, folder_name
+                            param_main = param_name
+                            param_prefix = 'none'
                         #split the next line into the right bits
                         line2 = contents[param_start + 1]
                         line2_word1 = line2[:line2.find(".")].strip()
@@ -187,7 +205,13 @@ def parse_docs():
                         #assign parameters
                         param_req = line2_word1
                         param_vb_type = line2_word2
-                        content_params.append([param_name, param_req, param_vb_type, param_prefix, content_param_help])
+                        content_params.append([
+                                               param_name, 
+                                               param_req, 
+                                               param_vb_type, 
+                                               param_prefix, 
+                                               param_main, 
+                                               content_param_help])
                         
                 
                 #now check for duplicate parameters, e.g strObject and arrObjects
@@ -195,30 +219,21 @@ def parse_docs():
                 num_html_params = len(content_params)
                 #print num_html_params, num_com_params
                 if num_html_params>num_com_params:
-                    list_of_param_names = map(lambda i: i[0], content_params)
-                    dups_to_be_removed = []
-                    counter = 0
+                    list_of_param_names = map(lambda i: i[4], content_params)
+                    tmp_params = []
                     for param in content_params:
-                        if (param[0] + 's') in list_of_param_names:
-                            dups_to_be_removed.append(counter)
-                            #print "found plural 's' parameter"
-                            #print file_name, folder_name
-                        if (param[0] + 'es') in list_of_param_names:
-                            dups_to_be_removed.append(counter)
-                            #print "found plural 'es' parameter"
-                            #print file_name, folder_name
-                        counter += 1
-                    if dups_to_be_removed:
-                        for i in dups_to_be_removed:
-                            content_params.pop(i)               
+                        if not (((param[4] + 's') in list_of_param_names) or  
+                            ((param[4] + 'es') in list_of_param_names)):
+                            tmp_params.append(param)
+                    content_params = tmp_params         
                 
                 #now check to see if there are any changes specified in the types file
                 module_name = folder_name[:-8].lower() #TODO: fix this naming - this is getting messy
                 method_name = camel_to_underscore(file_name)
-                module_methods = types.__dict__[module_name][0]
+                module_methods = types.__dict__[module_name][0] #@UndefinedVariable
                 if method_name in module_methods.keys():
                     for param in content_params:
-                        param[3] = module_methods[method_name][param[0]]
+                        param[3] = module_methods[method_name][param[4]]
                             
                 #now get the returns
                 content_returns = []
@@ -243,25 +258,25 @@ def parse_docs():
 #===============================================================================
 
 def get_com_name_by_id(id):
-    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]: #@UndefinedVariable
         if id == i[2][0]:
             return i[1]
     return None
 
 def get_com_id_by_name(name):
-    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]: #@UndefinedVariable
         if name == i[1]:
             return i[2][0]
     return None
 
 def get_com_num_params(name):
-    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]: #@UndefinedVariable
         if name == i[1]:
             return len(i[-1])
     return None
 
 def get_com_params(name):
-    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]: #@UndefinedVariable
         if name == i[1]:
             params = []
             for j in i[-1]:
@@ -274,7 +289,7 @@ def get_com_params(name):
     return None
 
 def get_com_returns(name):
-    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]:
+    for i in ct_rs.IRhinoScript.__dict__["_disp_methods_"]: #@UndefinedVariable
         if name == i[1]:
             return i[3].__name__
     return None
@@ -331,10 +346,20 @@ def write_modules(data):
             w(f, '"doc_html": """', tabs = 1, nls = 2, nle=1)
             w(f, data[folder_name][file_name]['help'], tabs = 2, nle=1)
             w(f, '""",', tabs = 1, nls = 0, nle=0)
+            
             #write syntax
-            w(f, '"syntax_html": """', tabs = 1, nls = 2, nle=1)
-            w(f, data[folder_name][file_name]['syntax'], tabs = 2, nle=1)
-            w(f, '""",', tabs = 1, nls = 0, nle=0)
+            w(f, '"syntax_html": {', tabs = 1, nls = 2, nle=1)
+            sig_num = 0
+            
+            for signature in data[folder_name][file_name]['syntax']:
+                #sig_strs = map(lambda i:str(i), signature)
+                w(f, (str(sig_num), ': ('), tabs = 2, nle=0)
+                if data[folder_name][file_name]['params']:
+                    w(f, ('"','", "'.join(signature), '"'), tabs = 0, nle=0)
+                w(f, '),', tabs = 0, nle=1)
+                sig_num += 1
+            w(f, '},', tabs = 1, nls = 0, nle=0)
+            
             #write parameters extracted from html docs
             w(f, '"params_html": {', tabs = 1, nls = 2, nle=0)
             counter = 0
@@ -345,13 +370,15 @@ def write_modules(data):
                 w(f, ('"name": "', param[0], '",'), tabs=3, nls=0, nle=1)
                 w(f, ('"opt_or_req": "', param[1], '",'), tabs=3, nls=0, nle=1)
                 w(f, ('"type": "', param[2], '",'), tabs=3, nls=0, nle=1)
-                w(f, ('"type_string": "', param[3], '",'), tabs=3, nls=0, nle=1)
+                w(f, ('"name_prefix": "', param[3], '",'), tabs=3, nls=0, nle=1)
+                w(f, ('"name_main": "', param[4], '",'), tabs=3, nls=0, nle=1)
                 w(f, '"doc": """', tabs=3, nls=0, nle=1)   
-                w(f, param[4], tabs = 2,  nls = 0, nle=1)
+                w(f, param[5], tabs = 2,  nls = 0, nle=1)
                 w(f, '"""', tabs = 3, nls = 0, nle=1)
                 w(f, ('},'), tabs = 2, nls=0, nle=0)
                 counter += 1
             w(f, '},', tabs = 1, nls = 1, nle=0)
+            
             #write returns extracted from html docs
             w(f, '"returns_html": {', tabs = 1, nls = 2, nle=0)
             counter = 0
@@ -362,9 +389,11 @@ def write_modules(data):
                 w(f, ('},'), tabs = 2, nls=0, nle=0)
                 counter += 1
             w(f, '},', tabs = 1, nls = 1, nle=0)
+            
             #write id extracted from com interface (via comtypes)
             com_id = get_com_id_by_name(file_name)
             w(f, ('"id_com": ', str(com_id), ','), tabs = 1, nls = 2, nle=0)
+            
             #write params extracted from com interface (via comtypes)
             w(f, '"params_com": {', tabs = 1, nls = 2, nle=0)
             counter = 0

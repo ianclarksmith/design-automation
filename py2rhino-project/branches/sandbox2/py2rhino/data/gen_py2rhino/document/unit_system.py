@@ -8,16 +8,17 @@ unit_system = {
         Returns or sets the document's units system.  See Rhino's DocumentProperties command (Units window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.UnitSystem ([intSystem [, blnScale]])
-    """,
+    "syntax_html": {
+        0: ("intSystem", "blnScale"),
+    },
 
     "params_html": {
         0: {
-            "name": "System",
+            "name": "intSystem",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "System",
             "doc": """
         The units system.  The available units systems are as follows:
 		Value
@@ -76,10 +77,11 @@ unit_system = {
             """
         },
         1: {
-            "name": "Scale",
+            "name": "blnScale",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Scale",
             "doc": """
         Scale existing geometry based on the new unit system.  If not specified, any existing geometry is not scaled (False).
             """

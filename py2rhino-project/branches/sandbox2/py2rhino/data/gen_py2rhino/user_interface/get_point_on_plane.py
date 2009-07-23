@@ -8,34 +8,37 @@ get_point_on_plane = {
         Pauses for user input of a point constrained to a plane.
     """,
 
-    "syntax_html": """
-        Rhino.GetPointOnPlane (strMessage, arrPlane [, arrPoint])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "arrPlane", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane to constrain the point to.
             """
         },
         2: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point from with to draw a tracking line. If omitted, a tracking line will not be drawn.
             """

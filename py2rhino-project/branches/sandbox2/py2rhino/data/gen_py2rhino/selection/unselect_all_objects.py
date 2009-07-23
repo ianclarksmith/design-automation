@@ -8,9 +8,8 @@ unselect_all_objects = {
         Unselects all objects in the document.
     """,
 
-    "syntax_html": """
-        Rhino.UnselectAllObjects
-    """,
+    "syntax_html": {
+    },
 
     "params_html": {
     },

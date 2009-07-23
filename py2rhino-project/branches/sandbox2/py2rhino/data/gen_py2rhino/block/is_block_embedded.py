@@ -8,16 +8,17 @@ is_block_embedded = {
         Verifies that a block definition is embedded, or linked, from an external file.
     """,
 
-    "syntax_html": """
-        Rhino.IsBlockEmbedded (strBlock)
-    """,
+    "syntax_html": {
+        0: ("strBlock"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """

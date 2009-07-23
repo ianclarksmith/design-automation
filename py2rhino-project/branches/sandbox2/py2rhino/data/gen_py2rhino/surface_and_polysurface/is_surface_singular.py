@@ -8,25 +8,27 @@ is_surface_singular = {
         Verifies a surface object is singular in the specified direction.  Surfaces are considered singular if a side collapses to a point.
     """,
 
-    "syntax_html": """
-        Rhino.IsSurfaceSingular (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The direction, either 0 = south, 1 = east, 2 = north, or 3 = west.
             """

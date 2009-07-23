@@ -8,25 +8,27 @@ curve_perp_frame = {
         Returns the perpendicular plane at a parameter of a curve.  The result is relatively parallel (zero-twisting) plane.
     """,
 
-    "syntax_html": """
-        Rhino.CurvePerpFrame (strObject, dblParameter)
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblParameter"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "dblParameter",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Parameter",
             "doc": """
         The parameter to evaluate.
             """

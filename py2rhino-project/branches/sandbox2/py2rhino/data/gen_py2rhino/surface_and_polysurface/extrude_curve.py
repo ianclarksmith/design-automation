@@ -8,25 +8,27 @@ extrude_curve = {
         Creates a surface by extruding a curve along a path curve.
     """,
 
-    "syntax_html": """
-        Rhino.ExtrudeCurve (strCurve, strPath)
-    """,
+    "syntax_html": {
+        0: ("strCurve", "strPath"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of the curve object to extrude.
             """
         },
         1: {
-            "name": "Path",
+            "name": "strPath",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Path",
             "doc": """
         The identifier of the path curve.
             """

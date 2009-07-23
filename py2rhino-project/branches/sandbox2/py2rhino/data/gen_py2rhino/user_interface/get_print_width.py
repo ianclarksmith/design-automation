@@ -8,16 +8,17 @@ get_print_width = {
         Displays a dialog box prompting the user to select a print width.
     """,
 
-    "syntax_html": """
-        Rhino.GetPrintWidth ([dblPrintWidth])
-    """,
+    "syntax_html": {
+        0: ("dblPrintWidth"),
+    },
 
     "params_html": {
         0: {
-            "name": "PrintWidth",
+            "name": "dblPrintWidth",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "PrintWidth",
             "doc": """
         The print width to select.  If omitted, the default print width will be selected.
             """

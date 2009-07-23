@@ -8,34 +8,37 @@ last_object = {
         Returns the identifier of the last object in the document.  The last object in the document is the first object created by the user.
     """,
 
-    "syntax_html": """
-        Rhino.LastObject ([blnSelect [, blnIncludeLights [, blnIncludeGrips]]])
-    """,
+    "syntax_html": {
+        0: ("blnSelect", "blnIncludeLights", "blnIncludeGrips"),
+    },
 
     "params_html": {
         0: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the object.  If omitted, the object is not selected (False).
             """
         },
         1: {
-            "name": "IncludeLights",
+            "name": "blnIncludeLights",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeLights",
             "doc": """
         Include light objects.  If omitted, light objects are not returned (False).
             """
         },
         2: {
-            "name": "IncludeGrips",
+            "name": "blnIncludeGrips",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeGrips",
             "doc": """
         Include grips objects.  If omitted, grips objects are not returned (False).
             """

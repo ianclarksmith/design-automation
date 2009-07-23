@@ -8,25 +8,27 @@ vector_transform = {
         Transforms a 3-D vector.
     """,
 
-    "syntax_html": """
-        Rhino.VectorTransform (arrVector, arrXform)
-    """,
+    "syntax_html": {
+        0: ("arrVector", "arrXform"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vector",
+            "name": "arrVector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector",
             "doc": """
         The 3-D vector to transform.
             """
         },
         1: {
-            "name": "Xform",
+            "name": "arrXform",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Xform",
             "doc": """
         A valid 4x4 transformation matrix.
             """

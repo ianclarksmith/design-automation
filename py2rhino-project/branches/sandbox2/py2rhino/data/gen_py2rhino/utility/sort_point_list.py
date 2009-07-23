@@ -8,25 +8,27 @@ sort_point_list = {
         Sorts an array of 3-D points so they will be connected in "reasonable" polyline order.
     """,
 
-    "syntax_html": """
-        Rhino.SortPointList (arrPoints [, dblTolerance])
-    """,
+    "syntax_html": {
+        0: ("arrPoints", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points.
             """
         },
         1: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The minimum distance between points.  Points that fall within this tolerance will be discarded.  If omitted, Rhino's internal zero tolerance is used.
             """

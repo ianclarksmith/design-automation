@@ -8,25 +8,27 @@ enable_object_grips = {
         Enables or disables an object's grips. For curves and surfaces, these are also called control points.
     """,
 
-    "syntax_html": """
-        Rhino.EnableObjectGrips (strObject [, blnEnable])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnEnable"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Enable",
+            "name": "blnEnable",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Enable",
             "doc": """
         If True (default), the specified object's grips will be turned on. Otherwise, they will be turned off.
             """

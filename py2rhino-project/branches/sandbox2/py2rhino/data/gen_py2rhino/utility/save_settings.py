@@ -11,43 +11,47 @@ save_settings = {
 		...
     """,
 
-    "syntax_html": """
-        Rhino.SaveSettings (strFilename [, strSection [, strEntry [, strString]]])
-    """,
+    "syntax_html": {
+        0: ("strFilename", "strSection", "strEntry", "strString"),
+    },
 
     "params_html": {
         0: {
-            "name": "Filename",
+            "name": "strFilename",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Filename",
             "doc": """
         The name of the initialization file.  If strFilename does not exist, the file will be created.  The specified directory must already exist.
             """
         },
         1: {
-            "name": "Section",
+            "name": "strSection",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Section",
             "doc": """
         The section to which strString will be copied.  If strSection does not exist, it is created.
             """
         },
         2: {
-            "name": "Entry",
+            "name": "strEntry",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Entry",
             "doc": """
         The name of the entry to be associated with strString.  If strEntry does not exist in the specified section, it is created.  If strEntry is nil, the entire section, including all entries within the section, is deleted.
             """
         },
         3: {
-            "name": "String",
+            "name": "strString",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "String",
             "doc": """
         The string to be written to the file.  If omitted, the entry pointed to by strEntry is deleted.
             """

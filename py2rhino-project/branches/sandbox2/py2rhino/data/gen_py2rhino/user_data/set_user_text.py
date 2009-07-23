@@ -8,43 +8,47 @@ set_user_text = {
         Sets or removes user text stored on an object. For more details on User Text, see the discussion found in the User Data Methods summary.
     """,
 
-    "syntax_html": """
-        Rhino.SetUserText (strObject, strKey [, strValue [, blnAttachToGeometry]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strKey", "strValue", "blnAttachToGeometry"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Key",
+            "name": "strKey",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Key",
             "doc": """
         The key name to set.
             """
         },
         2: {
-            "name": "Value",
+            "name": "strValue",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Value",
             "doc": """
         The string value to set. If omitted the key/value pair specified by strKey will be deleted.
             """
         },
         3: {
-            "name": "AttachToGeometry",
+            "name": "blnAttachToGeometry",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "AttachToGeometry",
             "doc": """
         The location on the object to store the User Text.
 		Value

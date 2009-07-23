@@ -8,25 +8,27 @@ make_curve_non_periodic = {
         Makes a periodic curve non-periodic.  Non-periodic curves can develop kinks when deformed.
     """,
 
-    "syntax_html": """
-        Rhino.MakeCurveNonPeriodic (strObject [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete input curve.  If omitted, the input curve will not be deleted (False).
             """

@@ -8,25 +8,27 @@ spot_light_hardness = {
         Returns or changes the hardness of a spot light.  Spotlight hardness controls the fully illuminated region.
     """,
 
-    "syntax_html": """
-        Rhino.SpotLightHardness (strObject [, dblHardness])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblHardness"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The light object's identifier.
             """
         },
         1: {
-            "name": "Hardness",
+            "name": "dblHardness",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Hardness",
             "doc": """
         The new hardness value.  A spot light's hardness values ranges from 0.0 to 1.0.  If omitted, the current hardness value is returned.
             """

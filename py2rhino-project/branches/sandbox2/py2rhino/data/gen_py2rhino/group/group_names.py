@@ -8,9 +8,9 @@ group_names = {
         Returns the name of all the groups in the document.
     """,
 
-    "syntax_html": """
-        Rhino.GroupNames ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

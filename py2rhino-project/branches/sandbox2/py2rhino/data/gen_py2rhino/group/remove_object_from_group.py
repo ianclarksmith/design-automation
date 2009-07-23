@@ -8,25 +8,27 @@ remove_object_from_group = {
         Removes a single object from an existing group.
     """,
 
-    "syntax_html": """
-        Rhino.RemoveObjectFromGroup (strObject, strGroup)
-    """,
+    "syntax_html": {
+        0: ("strObject", "strGroup"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Group",
+            "name": "strGroup",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Group",
             "doc": """
         The name of an existing group.
             """

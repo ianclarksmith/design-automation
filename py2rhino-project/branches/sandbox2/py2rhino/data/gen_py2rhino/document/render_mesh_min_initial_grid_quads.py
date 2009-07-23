@@ -9,16 +9,17 @@ render_mesh_min_initial_grid_quads = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.RenderMeshMinInitialGridQuads ([intQuads])
-    """,
+    "syntax_html": {
+        0: ("intQuads"),
+    },
 
     "params_html": {
         0: {
-            "name": "Quads",
+            "name": "intQuads",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Quads",
             "doc": """
         The render mesh minimum initial grid quads.  The suggested range is from 0 to 10000.
             """

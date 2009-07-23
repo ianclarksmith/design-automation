@@ -8,43 +8,47 @@ scale_objects = {
         Scales one or more objects. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
     """,
 
-    "syntax_html": """
-        Rhino.ScaleObjects (arrObjects, arrOrigin, arrScale [, blnCopy])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrOrigin", "arrScale", "blnCopy"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to scale.
             """
         },
         1: {
-            "name": "Origin",
+            "name": "arrOrigin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Origin",
             "doc": """
         The origin of the scale transformation.
             """
         },
         2: {
-            "name": "Scale",
+            "name": "arrScale",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Scale",
             "doc": """
         An array of three numbers that identify the X axis, Y axis, and Z axis scale factors to apply. Scaling is based on the active construction plane.
             """
         },
         3: {
-            "name": "Copy",
+            "name": "blnCopy",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Copy",
             "doc": """
         Copy the objects. If omitted, the objects will not be copied (False).
             """

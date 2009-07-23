@@ -8,25 +8,27 @@ curve_deviation = {
         Returns the minimum and maximum deviation between two curve objects. For more information on curve deviation, see the Rhino help file for the CrvDeviation command.
     """,
 
-    "syntax_html": """
-        Rhino.CurveDeviation (strCurveA, strCurveB)
-    """,
+    "syntax_html": {
+        0: ("strCurveA", "strCurveB"),
+    },
 
     "params_html": {
         0: {
-            "name": "CurveA",
+            "name": "strCurveA",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "CurveA",
             "doc": """
         The identifier of the first curve object.
             """
         },
         1: {
-            "name": "CurveB",
+            "name": "strCurveB",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "CurveB",
             "doc": """
         The identifier of the second curve object.
             """

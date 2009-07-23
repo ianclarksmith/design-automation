@@ -8,34 +8,37 @@ edit_box = {
         Displays a dialog box prompting the user to enter a string value.  The string value may span multiple lines.
     """,
 
-    "syntax_html": """
-        Rhino.EditBox ([strString [, strMessage [, strTitle]]])
-    """,
+    "syntax_html": {
+        0: ("strString", "strMessage", "strTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "String",
+            "name": "strString",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "String",
             "doc": """
         A default string value.
             """
         },
         1: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         2: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box  title.
             """

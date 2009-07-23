@@ -11,43 +11,47 @@ add_loft_srf = {
 		* This function will not adjust the seams of closed curves. Use CurveSeam to adjust the seam of closed curves.
     """,
 
-    "syntax_html": """
-        Rhino.AddLoftSrf (arrObjects [, arrStartPt [, arrEndPt [, intType [, intStyle [, nValue [, blnClosed]]]]]])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrStartPt", "arrEndPt", "intType", "intStyle", "nValue", "blnClosed"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An ordered array of strings identifying the curve objects to loft.
             """
         },
         1: {
-            "name": "StartPt",
+            "name": "arrStartPt",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartPt",
             "doc": """
         The starting point of the loft.
             """
         },
         2: {
-            "name": "EndPt",
+            "name": "arrEndPt",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndPt",
             "doc": """
         The ending point of the loft.
             """
         },
         3: {
-            "name": "Type",
+            "name": "intType",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Type",
             "doc": """
         The type of loft. The default loft type is Normal (0). The possible loft types are as follows:
 		Value
@@ -64,10 +68,11 @@ add_loft_srf = {
             """
         },
         4: {
-            "name": "Style",
+            "name": "intStyle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Style",
             "doc": """
         The simplify method of the loft. The default value is None (0). The possible loft simplify methods are as follows:
 		Value
@@ -80,19 +85,21 @@ add_loft_srf = {
             """
         },
         5: {
-            "name": "Value",
+            "name": "nValue",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "n",
+            "name_prefix": "n",
+            "name_main": "Value",
             "doc": """
         A value based on the specified intStyle. If intStyle=1 (Rebuild), then nValue is the number of control point used to rebuild. If intstyle=1 is specified and this argument is omitted, then curves will be rebuilt using 10 control points. If intStyle=2 (Refit), then nValue is the tolerance used to rebuild. If intstyle=2 is specified and this argument is omitted, then the document's absolute tolerance us used for refitting.
             """
         },
         6: {
-            "name": "Closed",
+            "name": "blnClosed",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Closed",
             "doc": """
         Creates a closed surface, continuing the surface past the last curve around to the first curve. Available when you have selected three shape curves. The default value is not to create a closed surface (False).
             """

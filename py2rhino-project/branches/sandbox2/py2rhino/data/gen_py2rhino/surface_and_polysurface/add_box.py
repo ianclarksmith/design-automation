@@ -8,16 +8,17 @@ add_box = {
         Adds a new box-shaped polysurface to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddBox (arrCorners)
-    """,
+    "syntax_html": {
+        0: ("arrCorners"),
+    },
 
     "params_html": {
         0: {
-            "name": "Corners",
+            "name": "arrCorners",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Corners",
             "doc": """
         An array of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.
             """

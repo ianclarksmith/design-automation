@@ -35,33 +35,44 @@ def write_class(module_name, module_dict):
     #open, write, and close
     f = open(out_folder + module_name + '.py', mode='w')
     write_class_header(underscore_to_camel(module_name), f)
+    write_init(f)
     for method_name in sorted(module_dict.keys()):
-        #write_init(f)
-        write_class_method(module_dict[method_name], f)
+        if len(module_dict[method_name]['params_html']) != len(module_dict[method_name]['params_com']):
+            for method_num in range(len(module_dict[method_name]['syntax_html'])):
+                write_class_method(module_dict[method_name], method_num, f)
+        else:
+            write_class_method(module_dict[method_name], -1, f)
     f.close()
     
 def write_class_header(class_name, f):
     w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
     w(f,'import exceptions')
+    w(f,'import pythoncom')
+    w(f,'import py2rhino')        
     w(f,'from py2rhino._util import *')
     w(f,'from py2rhino._rhinoscript import IRhinoScript', nle=2)
-    w(f,'class %s(IRhinoScript):' % class_name, nle=4)
+    w(f,'class %s(IRhinoScript):' % class_name, nle=2)
 
 def write_init(f):
     w(f,'# Class constructor', tabs=1, nls=0, nle=1)
     w(f,'def __init__(self):', tabs=1, nls=0, nle=1)
-    
-    
+    w(f,'if py2rhino._rso is None:', tabs=2, nls=0, nle=1)
+    w(f,'raise exceptions.Exception', tabs=3, nls=0, nle=1)
+    w(f,'# initialisation code coped from win32com.client.DispatchBaseClass', tabs=2, nls=0, nle=1)
+    w(f,'oobj = py2rhino._rso', tabs=2, nls=0, nle=1)
+    w(f,'oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)', tabs=2, nls=0, nle=1)
+    w(f,'self.__dict__["_oleobj_"] = oobj', tabs=2, nls=0, nle=2)
     
 
-def write_class_method(method_dict, f):
+def write_class_method(method_dict, method_num, f):
 
     #get the method name in py format
     py_method_name = method_dict['output_module_name']
+    if method_num > 0:
+        py_method_name = py_method_name + '_' + str(method_num + 1)
     vb_method_name = method_dict['input_file_name']
     if keyword.iskeyword(py_method_name):
         py_method_name += '_'    
-    
     
     """
     
@@ -83,11 +94,12 @@ def write_class_method(method_dict, f):
         "lng":"Integer",
         "dbl":"Double",
         "str":"String",
-        "arrbln":"Array of Booleans",
-        "arrint":"Array of Integers",
-        "arrlng":"Array of Integers",        
-        "arrdbl":"Array of Doubles",
-        "arrstr":"Array of Strings",       
+        "arr_of_bln":"Array of Booleans",
+        "arr_of_int":"Array of Integers",
+        "arr_of_lng":"Array of Integers",        
+        "arr_of_dbl":"Array of Doubles",
+        "arr_of_str":"Array of Strings",       
+        "arr_of_any":"Array of Generic Objects",        
         "va":"Variant",
         "n":"Integer",
         "arr":"Array of ????"
@@ -104,11 +116,12 @@ def write_class_method(method_dict, f):
         "lng":"VT_I4",
         "dbl":"VT_R8",
         "str":"VT_BSTR",
-        "arrbln":"VT_ARRAY + VT_BOOL",
-        "arrint":"VT_ARRAY + VT_I2",
-        "arrlng":"VT_ARRAY + VT_I4",  
-        "arrdbl":"VT_ARRAY + VT_R8",
-        "arrstr":"VT_ARRAY + VT_BSTR",       
+        "arr_of_bln":"VT_ARRAY + VT_BOOL",
+        "arr_of_int":"VT_ARRAY + VT_I2",
+        "arr_of_lng":"VT_ARRAY + VT_I4",  
+        "arr_of_dbl":"VT_ARRAY + VT_R8",
+        "arr_of_str":"VT_VARIANT",
+        "arr_of_any":"VT_VARIANT",          
         "va":"VT_VARIANT",
         "n":"VT_I2",
         "arr":"VT_VARIANT"
@@ -122,30 +135,29 @@ def write_class_method(method_dict, f):
     params_required = []    
     params_doc = []
     params_magic_numbers = []
-    num_params = 0
-    if method_dict['params_html']:
-        num_params = len(method_dict['params_html']) 
-    if num_params > 0:
+    if len(method_dict['params_html']) > 0:
         for param_num in method_dict['params_html'].keys():
             param_dict = method_dict['params_html'][param_num]
-            param_name = camel_to_underscore(param_dict['name'])
-            if keyword.iskeyword(param_name):
-                param_name += "_"
-            param_flattened = param_name
-            if param_dict['type_string'].startswith('arr'):
-                param_flattened = 'flatten(' + param_name + ')'
-            param_required = 'False'
-            if param_dict['opt_or_req'] == 'Required':
-                param_required = 'True'
-            #add data to the lsists
-            params_name.append(param_name)
-            params_type.append(string_to_type_map[param_dict['type_string']])
-            params_flattened.append(param_flattened)
-            params_opt_or_req.append( param_dict['opt_or_req'])
-            params_required.append(param_required)
-            params_doc.append(param_dict['doc'])
-            params_magic_numbers.append( '(' + str(string_to_magic_map[param_dict['type_string']]) + ', 1)')
-            
+            if (method_num == -1) or (param_dict['name'] in method_dict['syntax_html'][method_num]):
+                param_main = camel_to_underscore(param_dict['name_main'])
+                if keyword.iskeyword(param_main):
+                    param_main += "_"
+                param_flattened = param_main
+                if param_dict['name_prefix'].startswith('arr'):
+                    param_flattened = 'flatten_params(' + param_main + ')'
+                param_required = 'False'
+                if param_dict['opt_or_req'] == 'Required':
+                    param_required = 'True'
+                #add data to the lsists
+                params_name.append(param_main)
+                params_type.append(string_to_type_map[param_dict['name_prefix']])
+                params_flattened.append(param_flattened)
+                params_opt_or_req.append( param_dict['opt_or_req'])
+                params_required.append(param_required)
+                params_doc.append(param_dict['doc'])
+                params_magic_numbers.append( '(' + str(string_to_magic_map[param_dict['name_prefix']]) + ', 1)')
+    num_params = len(params_name)
+    
     #create the method signature
     w(f, ('def ', py_method_name), tabs=1, nle=0)
     if num_params > 0:
@@ -158,7 +170,7 @@ def write_class_method(method_dict, f):
         param_list = param_list[:-2]
         w(f, ('(self, ', param_list, '):'), tabs=0, nle=1)
     else:
-        w(f, '():', tabs=0, nle=1)
+        w(f, '(self):', tabs=0, nle=1)
 
 
     
@@ -197,24 +209,14 @@ def write_class_method(method_dict, f):
     params_flattened = ', '.join(params_flattened)
     
     w(f, ('params = [', ', '.join(params_name), ']'), tabs=2, nls=1, nle=0)
-    w(f, ('params_required = [', ', '.join(params_required), ']'), tabs=2, nls=1, nle=0)
-    w(f, ('params_magic_numbers = [', params_magic_numbers, ']'), tabs=2, nls=1, nle=0)
-    w(f, ('params_flattened = [', params_flattened, ']'), tabs=2, nls=1, nle=1)
-    
-    w(f, ('for i in range(len(params)):'), tabs=2, nls=1, nle=0)
-    w(f, ('if (params[i] == None) and (not params_required[i]):'), tabs=3, nls=1, nle=0)
-    w(f, ('params_magic_numbers.pop(i)'), tabs=4, nls=1, nle=0)
-    w(f, ('params_flattened.pop(i)'), tabs=4, nls=1, nle=1)
-    
-    w(f, ('params_magic_numbers = tuple(params_magic_numbers)'), tabs=2, nls=1, nle=0)
-    w(f, ('params_flattened = tuple(params_flattened)'), tabs=2, nls=1, nle=1)
-    
+    w(f, ('required = [', ', '.join(params_required), ']'), tabs=2, nls=1, nle=0)
+    w(f, ('magic = [', params_magic_numbers, ']'), tabs=2, nls=1, nle=0)
+    w(f, ('flattened = [', params_flattened, ']'), tabs=2, nls=1, nle=1)
+    w(f, ('magic, flattened = select_params(params, required, magic, flattened)'), tabs=2, nls=1, nle=1)
+
     #now write the function    
-    magic = str(magic_id) + ', 1, '+returns_magic_numbers+', params_magic_numbers'
-    w(f, ['return self._ApplyTypes_(', magic,', u"', vb_method_name,'", None, *params_flattened)'], tabs=2, nls=1, nle=2)
-
-
-
+    magic_str = str(magic_id) + ', 1, '+returns_magic_numbers+', magic'
+    w(f, ['return self._ApplyTypes_(', magic_str,', u"', vb_method_name,'", None, *flattened)'], tabs=2, nls=1, nle=2)
 
 #===============================================================================
 # Run

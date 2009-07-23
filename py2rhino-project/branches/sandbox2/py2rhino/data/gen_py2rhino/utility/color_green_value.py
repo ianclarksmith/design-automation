@@ -8,16 +8,17 @@ color_green_value = {
         Retrieves an intensity value for the green component of a red-green-blue (RGB) value.
     """,
 
-    "syntax_html": """
-        Rhino.ColorGreenValue (lngRGB)
-    """,
+    "syntax_html": {
+        0: ("lngRGB"),
+    },
 
     "params_html": {
         0: {
-            "name": "RGB",
+            "name": "lngRGB",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "RGB",
             "doc": """
         The RGB color value.
             """

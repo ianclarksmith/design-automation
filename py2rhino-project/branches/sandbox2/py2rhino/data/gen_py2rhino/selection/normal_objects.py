@@ -8,25 +8,27 @@ normal_objects = {
         Returns the identifiers of all normal objects in the document.  Normal objects are visible, can be snapped to, and are independent of selection state.
     """,
 
-    "syntax_html": """
-        Rhino.NormalObjects ([blnIncludeLights [, blnIncludeGrips]])
-    """,
+    "syntax_html": {
+        0: ("blnIncludeLights", "blnIncludeGrips"),
+    },
 
     "params_html": {
         0: {
-            "name": "IncludeLights",
+            "name": "blnIncludeLights",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeLights",
             "doc": """
         Include light objects.  If omitted, light objects are not returned (False).
             """
         },
         1: {
-            "name": "IncludeGrips",
+            "name": "blnIncludeGrips",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeGrips",
             "doc": """
         Include grips objects.  If omitted, grips objects are not returned (False).
             """

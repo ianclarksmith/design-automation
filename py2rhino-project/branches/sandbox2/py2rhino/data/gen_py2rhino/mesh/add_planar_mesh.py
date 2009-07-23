@@ -8,25 +8,27 @@ add_planar_mesh = {
         Creates a planar mesh from a closed, planar curve.
     """,
 
-    "syntax_html": """
-        Rhino.AddPlanarMesh (strObject [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a closed, planar curve object.
             """
         },
         1: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Required",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         If True, then the input curve will be deleted. If not specified or False (default), then the input curve will not be deleted.
             """

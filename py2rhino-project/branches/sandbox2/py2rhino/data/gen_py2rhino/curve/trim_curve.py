@@ -8,34 +8,37 @@ trim_curve = {
         Trims a curve by removing portions of the curve outside the specified interval.
     """,
 
-    "syntax_html": """
-        Rhino.TrimCurve (strObject , arrInterval [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrInterval", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Interval",
+            "name": "arrInterval",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Interval",
             "doc": """
         An array of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
             """
         },
         2: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete the input curve. The default is to delete the input curve (True).
             """

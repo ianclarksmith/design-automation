@@ -8,16 +8,17 @@ add_dim_style = {
         Adds a new dimension style to the document.  The new dimension style will be initialized with the current default dimension style properties.
     """,
 
-    "syntax_html": """
-        Rhino.AddDimStyle ([strDimStyle])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of the new dimension style.  If omitted, Rhino automatically generates the dimension style name.
             """

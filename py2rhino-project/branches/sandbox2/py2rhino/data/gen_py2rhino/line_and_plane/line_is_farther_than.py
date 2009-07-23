@@ -8,43 +8,48 @@ line_is_farther_than = {
         Determines if the shortest distance from a line to a point or another line is greater than a specified distance.
     """,
 
-    "syntax_html": """
-        Rhino.LineIsFartherThan (arrLine, dblDistance, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("arrLine", "dblDistance", "arrPoint"),
+        1: ("arrLine", "dblDistance", "arrLine2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Line",
+            "name": "arrLine",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Line",
             "doc": """
         Two 3-D points identifying the starting and ending points of the line.
             """
         },
         1: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The distance.
             """
         },
         2: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point",
             "doc": """
         The test point.
             """
         },
         3: {
-            "name": "Line2",
+            "name": "arrLine2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Line2",
             "doc": """
         Two 3-D points identifying the starting and ending points of the test line.
             """

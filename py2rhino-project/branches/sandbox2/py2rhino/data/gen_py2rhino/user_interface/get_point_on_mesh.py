@@ -8,25 +8,27 @@ get_point_on_mesh = {
         Pauses for user input of a point constrained to a mesh object.
     """,
 
-    "syntax_html": """
-        Rhino.GetPointOnMesh (strObject [, strMessage])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strMessage"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """

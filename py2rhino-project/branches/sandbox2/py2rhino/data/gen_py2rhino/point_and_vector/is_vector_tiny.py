@@ -8,16 +8,17 @@ is_vector_tiny = {
         Verifies that a vector is very short, or tiny - the x,y,z  elements are less than or equal to 1.0e-12.
     """,
 
-    "syntax_html": """
-        Rhino.IsVectorTiny (arrVector)
-    """,
+    "syntax_html": {
+        0: ("arrVector"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vector",
+            "name": "arrVector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector",
             "doc": """
         The 3-D vector to test.
             """

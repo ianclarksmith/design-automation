@@ -8,16 +8,17 @@ is_hatch_pattern_reference = {
         Verifies that a hatch pattern is from a reference file.
     """,
 
-    "syntax_html": """
-        Rhino.IsHatchPatternReference (strHatch)
-    """,
+    "syntax_html": {
+        0: ("strHatch"),
+    },
 
     "params_html": {
         0: {
-            "name": "Hatch",
+            "name": "strHatch",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Hatch",
             "doc": """
         The name of an existing hatch pattern.
             """

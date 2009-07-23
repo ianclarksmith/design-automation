@@ -8,16 +8,17 @@ dim_scale = {
         Returns or changes the document's global dimension scale.
     """,
 
-    "syntax_html": """
-        Rhino.DimScale ([dblScale])
-    """,
+    "syntax_html": {
+        0: ("dblScale"),
+    },
 
     "params_html": {
         0: {
-            "name": "Scale",
+            "name": "dblScale",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Scale",
             "doc": """
         The new global dimension scale value.  If omitted, the current dimension scale will be returned.
             """

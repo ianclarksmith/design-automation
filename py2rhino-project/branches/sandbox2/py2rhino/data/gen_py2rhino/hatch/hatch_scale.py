@@ -8,25 +8,27 @@ hatch_scale = {
         Returns or modifies the scale applied to the hatch pattern when it is mapped to the hatch's plane.
     """,
 
-    "syntax_html": """
-        Rhino.HatchScale (strObject [, dblScale])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblScale"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a hatch object.
             """
         },
         1: {
-            "name": "Scale",
+            "name": "dblScale",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Scale",
             "doc": """
         The scale factor.
             """

@@ -8,16 +8,17 @@ object_top_group = {
         Returns the top most group name that an object is assigned.  This function primarily applies to objects that are members of nested groups.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectTopGroup (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """

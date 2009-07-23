@@ -8,43 +8,47 @@ curve_surface_intersection = {
         Calculates the intersection of a curve object with a surface object. Note, this function works on the untrimmed portion of the surface.
     """,
 
-    "syntax_html": """
-        Rhino.CurveSurfaceIntersection (strCurve, strSurface [, dblTolerance [, dblAngleTolerance]])
-    """,
+    "syntax_html": {
+        0: ("strCurve", "strSurface", "dblTolerance", "dblAngleTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of a curve object.
             """
         },
         1: {
-            "name": "Surface",
+            "name": "strSurface",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Surface",
             "doc": """
         The identifier of a surface object.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
             """
         },
         3: {
-            "name": "AngleTolerance",
+            "name": "dblAngleTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "AngleTolerance",
             "doc": """
         The angle tolerance in degrees.  The angle tolerance is used to determine when the curve is tangent to the surface.  If omitted, the document's current angle tolerance is used.
             """

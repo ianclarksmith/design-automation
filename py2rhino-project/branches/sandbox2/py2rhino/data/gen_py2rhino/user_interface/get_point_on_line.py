@@ -8,43 +8,47 @@ get_point_on_line = {
         Pauses for user input of a point constrained to an infinite line.
     """,
 
-    "syntax_html": """
-        Rhino.GetPointOnLine (strMessage, arrStart, arrEnd [, blnTrack])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "arrStart", "arrEnd", "blnTrack"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "Start",
+            "name": "arrStart",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Start",
             "doc": """
         The starting point of the line.
             """
         },
         2: {
-            "name": "End",
+            "name": "arrEnd",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "End",
             "doc": """
         The ending point of the line.
             """
         },
         3: {
-            "name": "Track",
+            "name": "blnTrack",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Track",
             "doc": """
         Draw a tracking line from arrStart. If omitted, a tracking line is drawn (True).
             """

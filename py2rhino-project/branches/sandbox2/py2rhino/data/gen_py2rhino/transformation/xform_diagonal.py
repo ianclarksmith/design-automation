@@ -24,16 +24,17 @@ xform_diagonal = {
 		1
     """,
 
-    "syntax_html": """
-        Rhino.XformDiagonal (dblValue)
-    """,
+    "syntax_html": {
+        0: ("dblValue"),
+    },
 
     "params_html": {
         0: {
-            "name": "Value",
+            "name": "dblValue",
             "opt_or_req": "Required",
             "type": "number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Value",
             "doc": """
         The diagonal value.
             """

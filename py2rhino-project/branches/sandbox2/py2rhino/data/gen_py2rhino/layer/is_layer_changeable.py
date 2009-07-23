@@ -8,16 +8,17 @@ is_layer_changeable = {
         Verifies that the objects on a layer can be changed (normal).
     """,
 
-    "syntax_html": """
-        Rhino.IsLayerChangeable (strLayer)
-    """,
+    "syntax_html": {
+        0: ("strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of an existing layer.
             """

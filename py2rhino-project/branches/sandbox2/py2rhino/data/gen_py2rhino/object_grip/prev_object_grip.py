@@ -8,43 +8,47 @@ prev_object_grip = {
         Returns the previous grip index from a specified grip index of an object.
     """,
 
-    "syntax_html": """
-        Rhino.PrevObjectGrip (strObject, intIndex [, intDirection [, blnSelect]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intIndex", "intDirection", "blnSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Index",
+            "name": "intIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Index",
             "doc": """
         The zero-based grip index from which to get the previous grip index.
             """
         },
         2: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The direction to get the previous grip index, either 0=U or 1=V. The default value is 0. Note, this argument only applies when dealing with surfaces.
             """
         },
         3: {
-            "name": "Enable",
+            "name": "blnEnable",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Enable",
             "doc": """
         If True (default), the previous grip index found will be selected. Otherwise, it will not be selected.
             """

@@ -8,25 +8,28 @@ object_u_r_l = {
         Returns or modifies the user-definable URL of an object.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectURL (strObject [, strURL])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strURL"),
+        1: ("arrObjects", "strURL"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
             """
         },
         1: {
-            "name": "URL",
+            "name": "strURL",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "URL",
             "doc": """
         The new object URL.  If omitted, the current object URL is returned.  Note, if arrObjects is specified, strURL is required.
             """

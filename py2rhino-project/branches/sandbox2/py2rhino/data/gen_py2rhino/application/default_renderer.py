@@ -8,16 +8,17 @@ default_renderer = {
         Returns or changes Rhino's current, or default, render plug-in.  Use the PlugIns method to get a list of available render plug-ins.
     """,
 
-    "syntax_html": """
-        Rhino.DefaultRenderer ([strRenderer])
-    """,
+    "syntax_html": {
+        0: ("strRenderer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Renderer",
+            "name": "strRenderer",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Renderer",
             "doc": """
         The name of a render plug-in to set as default.
             """

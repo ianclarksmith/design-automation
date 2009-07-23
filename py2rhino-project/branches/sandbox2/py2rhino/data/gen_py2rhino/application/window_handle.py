@@ -8,9 +8,8 @@ window_handle = {
         Returns the Windows handle of Rhino's main window.
     """,
 
-    "syntax_html": """
-        Rhino.WindowHandle
-    """,
+    "syntax_html": {
+    },
 
     "params_html": {
     },

@@ -24,34 +24,37 @@ transform_objects = {
 		1
     """,
 
-    "syntax_html": """
-        Rhino.TransformObjects (arrObjects, arrMatrix [, blnCopy])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrMatrix", "blnCopy"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to transform.
             """
         },
         1: {
-            "name": "Matrix",
+            "name": "arrMatrix",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Matrix",
             "doc": """
         The transformation matrix (4x4 array of numbers).
             """
         },
         2: {
-            "name": "Copy",
+            "name": "blnCopy",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Copy",
             "doc": """
         Copy the objects. If omitted, the objects will not be copied (False).
             """

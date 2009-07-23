@@ -8,16 +8,17 @@ is_material_default = {
         Verifies that a material is a copy of Rhino's built-in "default" material.  The default material is used by objects and layers that have not been assigned a material.
     """,
 
-    "syntax_html": """
-        Rhino.IsMaterialDefault (intMaterialIndex)
-    """,
+    "syntax_html": {
+        0: ("intMaterialIndex"),
+    },
 
     "params_html": {
         0: {
-            "name": "MaterialIndex",
+            "name": "intMaterialIndex",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "MaterialIndex",
             "doc": """
         The zero-based material index.
             """

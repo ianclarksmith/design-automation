@@ -8,16 +8,17 @@ create_preview_image = {
         Creates a bitmap preview image of the current model.
     """,
 
-    "syntax_html": """
-        Rhino.CreatePreviewImage (strFile [, strView [, arrSize [, intFlags [, blnWireframe]]]])
-    """,
+    "syntax_html": {
+        0: ("strFile", "strView", "arrSize", "intFlags", "blnWireframe"),
+    },
 
     "params_html": {
         0: {
-            "name": "File",
+            "name": "strFile",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "File",
             "doc": """
         The name of the bitmap file to create.  The extension of the filename controls the format of the bitmap file created.
 		Type
@@ -36,28 +37,31 @@ create_preview_image = {
             """
         },
         1: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title of the view.  If omitted, the current active view is used.
             """
         },
         2: {
-            "name": "Size",
+            "name": "arrSize",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Size",
             "doc": """
         An array of two integers that specify the width and height of the bitmap in pixels.
             """
         },
         3: {
-            "name": "Flags",
+            "name": "intFlags",
             "opt_or_req": "Optional",
             "type": "Integer",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Flags",
             "doc": """
         The bitmap creation flags. This parameter can be a combination of the following:
 		Value
@@ -70,10 +74,11 @@ create_preview_image = {
             """
         },
         4: {
-            "name": "Wireframe",
+            "name": "blnWireframe",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Wireframe",
             "doc": """
         If specified and True, then a wireframe preview image, instead of a rendered image, will be created. Note, if this option is specified and True, then the ghosted shading flag is ignored.  The default value is False.
             """

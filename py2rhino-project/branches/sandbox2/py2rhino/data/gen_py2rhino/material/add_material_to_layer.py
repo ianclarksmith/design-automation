@@ -8,16 +8,17 @@ add_material_to_layer = {
         Adds a material to a layer and returns the new material's index.  If the layer already has a material, then the layer's current material index is returned.
     """,
 
-    "syntax_html": """
-        Rhino.AddMaterialToLayer (strLayer)
-    """,
+    "syntax_html": {
+        0: ("strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The name of an existing layer.
             """

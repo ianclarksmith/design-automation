@@ -8,34 +8,37 @@ mesh_closest_point = {
         Returns the point on a mesh that is closest to a test point.
     """,
 
-    "syntax_html": """
-        Rhino.MeshClosestPoint (strObject, arrPoint [, dblTolerance])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrPoint", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a mesh object.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point to test.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The tolerance. Of omitted, a default tolerance of 0.0 is used.
             """

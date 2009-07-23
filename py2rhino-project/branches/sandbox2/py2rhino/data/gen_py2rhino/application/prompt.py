@@ -8,16 +8,17 @@ prompt = {
         Changes Rhino's command window prompt.
     """,
 
-    "syntax_html": """
-        Rhino.Prompt ([strPrompt])
-    """,
+    "syntax_html": {
+        0: ("strPrompt"),
+    },
 
     "params_html": {
         0: {
-            "name": "Prompt",
+            "name": "strPrompt",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Prompt",
             "doc": """
         A prompt.
             """

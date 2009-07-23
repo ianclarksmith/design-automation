@@ -8,16 +8,17 @@ document_u_r_l = {
         Returns or sets the uniform resource locator (URL) of the currently loaded Rhino document (3DM file).
     """,
 
-    "syntax_html": """
-        Rhino.DocumentURL ([strURL])
-    """,
+    "syntax_html": {
+        0: ("strURL"),
+    },
 
     "params_html": {
         0: {
-            "name": "URL",
+            "name": "strURL",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "URL",
             "doc": """
         The URL.
             """

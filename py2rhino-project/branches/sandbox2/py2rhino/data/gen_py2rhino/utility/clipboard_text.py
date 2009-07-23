@@ -8,16 +8,17 @@ clipboard_text = {
         Returns or sets a text string to the Windows clipboard.
     """,
 
-    "syntax_html": """
-        Rhino.ClipboardText (strText)
-    """,
+    "syntax_html": {
+        0: ("strText"),
+    },
 
     "params_html": {
         0: {
-            "name": "Text",
+            "name": "strText",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Text",
             "doc": """
         A text string.
             """

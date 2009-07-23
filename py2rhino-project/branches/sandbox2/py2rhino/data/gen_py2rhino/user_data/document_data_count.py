@@ -8,9 +8,9 @@ document_data_count = {
         Returns the number of RhinoScript user data items in the current document.
     """,
 
-    "syntax_html": """
-        Rhino.DocumentDataCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

@@ -8,25 +8,27 @@ view_camera_lens = {
         Returns or sets the 35mm camera lens length of the specified perspective projection view.
     """,
 
-    "syntax_html": """
-        Rhino.ViewCameraLens ([strView [, dblLength]])
-    """,
+    "syntax_html": {
+        0: ("strView", "dblLength"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Length",
+            "name": "dblLength",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Length",
             "doc": """
         The new 35mm camera lens length.  If omitted, the previous 35mm camera lens length is returned.
             """

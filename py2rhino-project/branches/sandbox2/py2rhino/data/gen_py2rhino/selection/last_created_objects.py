@@ -8,16 +8,17 @@ last_created_objects = {
         Returns the identifiers of the objects that were most recently created or changed by scripting a Rhino command using the Command function.  It is important to call this function immediately after calling the Command function as only the most recently created or changed object identifiers will be returned.
     """,
 
-    "syntax_html": """
-        Rhino.LastCreatedObjects ([blnSelect])
-    """,
+    "syntax_html": {
+        0: ("blnSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the object.  If omitted, the object is not selected (False).
             """

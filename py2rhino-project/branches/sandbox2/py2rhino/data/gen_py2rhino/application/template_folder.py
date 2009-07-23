@@ -8,16 +8,17 @@ template_folder = {
         Returns or sets the location of Rhino's template files.
     """,
 
-    "syntax_html": """
-        Rhino.TemplateFolder ([strFolder])
-    """,
+    "syntax_html": {
+        0: ("strFolder"),
+    },
 
     "params_html": {
         0: {
-            "name": "Folder",
+            "name": "strFolder",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Folder",
             "doc": """
         The location of Rhino's template files. Note, the location, or folder, must exist.
             """

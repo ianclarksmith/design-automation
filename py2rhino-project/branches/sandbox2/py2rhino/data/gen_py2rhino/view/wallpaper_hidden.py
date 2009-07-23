@@ -8,25 +8,27 @@ wallpaper_hidden = {
         Returns or sets the visibility of the wallpaper bitmap of the specified view.
     """,
 
-    "syntax_html": """
-        Rhino.WallpaperHidden ([strView [, blnHidden]])
-    """,
+    "syntax_html": {
+        0: ("strView", "blnHidden"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Hidden",
+            "name": "blnHidden",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Hidden",
             "doc": """
         Hide the wallpaper bitmap (True) or show the wallpaper bitmap (False).
             """

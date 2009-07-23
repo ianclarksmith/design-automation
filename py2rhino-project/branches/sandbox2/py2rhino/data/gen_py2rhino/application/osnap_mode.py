@@ -8,16 +8,17 @@ osnap_mode = {
         Returns or sets the object snap mode. Object snaps are tools for specifying points on existing objects.
     """,
 
-    "syntax_html": """
-        Rhino.OsnapMode ([intMode])
-    """,
+    "syntax_html": {
+        0: ("intMode"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mode",
+            "name": "intMode",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Mode",
             "doc": """
         The object snap mode or modes to set.  Object snap modes can be added together to set multiple modes.
 		Value

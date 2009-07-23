@@ -8,16 +8,17 @@ a_tan_h = {
         Returns the inverse hyperbolic tangent of a number. Number must be between -1 and 1 (excluding -1 and 1). The inverse hyperbolic tangent is the value whose hyperbolic tangent is number; ATanH(TanH(number)) equals number.
     """,
 
-    "syntax_html": """
-        Rhino.ATanH (dblNumber)
-    """,
+    "syntax_html": {
+        0: ("dblNumber"),
+    },
 
     "params_html": {
         0: {
-            "name": "Number",
+            "name": "dblNumber",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Number",
             "doc": """
         A number between -1 and 1.
             """

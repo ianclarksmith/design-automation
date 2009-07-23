@@ -8,43 +8,48 @@ offset_curve_on_surface = {
         Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
     """,
 
-    "syntax_html": """
-        Rhino.OffsetCurveOnSurface (strCurve, strSurface, dblDistance)
-    """,
+    "syntax_html": {
+        0: ("strCurve", "strSurface", "dblDistance"),
+        1: ("strCurve", "strSurface", "arrParameter"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The curve object's identifier. Note, the curve must lie on the surface.
             """
         },
         1: {
-            "name": "Surface",
+            "name": "strSurface",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Surface",
             "doc": """
         The surface object's identifier.
             """
         },
         2: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
             """
         },
         3: {
-            "name": "Parameter",
+            "name": "arrParameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Parameter",
             "doc": """
         An array containing the surface U,V parameter that the curve will be offset through.
             """

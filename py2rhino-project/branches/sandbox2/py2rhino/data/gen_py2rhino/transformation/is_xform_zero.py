@@ -24,16 +24,17 @@ is_xform_zero = {
 		0
     """,
 
-    "syntax_html": """
-        Rhino.IsXformZero (arrXform)
-    """,
+    "syntax_html": {
+        0: ("arrXform"),
+    },
 
     "params_html": {
         0: {
-            "name": "Xform",
+            "name": "arrXform",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Xform",
             "doc": """
         A 4x4 transformation matrix.
             """

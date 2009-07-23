@@ -8,43 +8,48 @@ add_clipping_plane = {
         Creates a clipping plane. A clipping plane is a plane for visibly clipping away geometry in a specific view. Note, clipping planes are infinite.
     """,
 
-    "syntax_html": """
-        Rhino.AddClippingPlane (arrPlane, dblDU, dblDV, [strView])
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "dblDU", "dblDV", "strView"),
+        1: ("arrPlane", "dblDU", "dblDV", "arrViews"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane",
             "doc": """
         The plane.
             """
         },
         1: {
-            "name": "DU",
+            "name": "dblDU",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "DU",
             "doc": """
         The magnitude in the U direction.
             """
         },
         2: {
-            "name": "DV",
+            "name": "dblDV",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "DV",
             "doc": """
         The magnitude in the V direction.
             """
         },
         3: {
-            "name": "Views",
+            "name": "arrViews",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Views",
             "doc": """
         The titles of the views to clip.  If omitted, the current active view is used.
             """

@@ -8,25 +8,27 @@ spool_to_printer = {
         Spools, or sends, a text file or a print/plot file to a Windows printer.
     """,
 
-    "syntax_html": """
-        Rhino.SpoolToPrinter (strFile, strPrinter)
-    """,
+    "syntax_html": {
+        0: ("strFile", "strPrinter"),
+    },
 
     "params_html": {
         0: {
-            "name": "File",
+            "name": "strFile",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "File",
             "doc": """
         The full path to the file to spool
             """
         },
         1: {
-            "name": "Printer",
+            "name": "strPrinter",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Printer",
             "doc": """
         The name of a Windows printer as returned by either the CurrentPrinter or by the PrinterNames method.
             """

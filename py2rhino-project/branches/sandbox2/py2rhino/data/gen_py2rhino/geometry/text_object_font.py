@@ -8,25 +8,27 @@ text_object_font = {
         Returns or modifies the font used by text object.
     """,
 
-    "syntax_html": """
-        Rhino.TextObjectFont (strObject [, strFont])
-    """,
+    "syntax_html": {
+        0: ("strObject", "strFont"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Font",
+            "name": "strFont",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Font",
             "doc": """
         The new font face name.  If omitted, the current font is returned.
             """

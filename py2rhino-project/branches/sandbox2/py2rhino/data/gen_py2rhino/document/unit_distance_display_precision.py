@@ -8,16 +8,17 @@ unit_distance_display_precision = {
         Returns or sets the document's distance display precision parameter.  See Rhino's DocumentProperties command (Units window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.UnitDistanceDisplayPrecision ([intPrecision])
-    """,
+    "syntax_html": {
+        0: ("intPrecision"),
+    },
 
     "params_html": {
         0: {
-            "name": "Precision",
+            "name": "intPrecision",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Precision",
             "doc": """
         The distance display precision.  If the current distance display mode is Decimal, then intPrecision is the number of decimal places.  If the current distance display mode is Fractional (including Feet and Inches), then the denominator = (1/2)^intPrecision.  Use UnitDistanceDisplayMode to get the current distance display mode.
             """

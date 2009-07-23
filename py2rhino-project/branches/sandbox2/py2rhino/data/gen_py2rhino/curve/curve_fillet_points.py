@@ -9,52 +9,57 @@ curve_fillet_points = {
 		Of all possible fillet points, this function returns the one which is the closest to the base point arrBasePoint0, arrBasePoint1.  Distance from the base point is measured by the sum of arc lengths along the two curves.
     """,
 
-    "syntax_html": """
-        Rhino.CurveFilletPoints (strCurve0, strCurve1 [, dblRadius [, arrBasePoint0 [, arrBasePoint1]]])
-    """,
+    "syntax_html": {
+        0: ("strCurve0", "strCurve1", "dblRadius", "arrBasePoint0", "arrBasePoint1"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve0",
+            "name": "strCurve0",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve0",
             "doc": """
         The identifier of the first curve object.
             """
         },
         1: {
-            "name": "Curve1",
+            "name": "strCurve1",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve1",
             "doc": """
         The identifier of the second curve object.
             """
         },
         2: {
-            "name": "Radius",
+            "name": "dblRadius",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radius",
             "doc": """
         The fillet radius. If omitted, a radius of 1.0 is specified.
             """
         },
         3: {
-            "name": "BasePoint0",
+            "name": "arrBasePoint0",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "BasePoint0",
             "doc": """
         The base point on the first curve. If omitted, the starting point of the curve is used.
             """
         },
         4: {
-            "name": "BasePoint1",
+            "name": "arrBasePoint1",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "BasePoint1",
             "doc": """
         The base point on the second curve. If omitted, the starting point of the curve is used.
             """

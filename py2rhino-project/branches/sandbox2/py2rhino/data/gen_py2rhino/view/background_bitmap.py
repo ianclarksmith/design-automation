@@ -8,25 +8,27 @@ background_bitmap = {
         Returns or sets the background bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
     """,
 
-    "syntax_html": """
-        Rhino.BackgroundBitmap ([strView [, strFileName [, arrPoint [, dblWidth]]]])
-    """,
+    "syntax_html": {
+        0: ("strView", "strFileName", "arrPoint", "dblWidth"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "FileName",
+            "name": "strFileName",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "FileName",
             "doc": """
         The name of the bitmap file to set as the background bitmap.  The supported bitmap file formats are as follows:
 		Type
@@ -45,19 +47,21 @@ background_bitmap = {
             """
         },
         2: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point",
             "doc": """
         A 3-D point the lower left corner of the background bitmap. If omitted, the background bitmap's lower left corner will be located at the world origin, or (0,0,0).
             """
         },
         3: {
-            "name": "Width",
+            "name": "dblWidth",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Width",
             "doc": """
         The width of the background bitmap. If omitted, the actual width of the bitmap will be used.
             """

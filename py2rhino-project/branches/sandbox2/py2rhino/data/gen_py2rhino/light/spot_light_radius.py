@@ -8,25 +8,27 @@ spot_light_radius = {
         Returns or changes the radius of a spot light.
     """,
 
-    "syntax_html": """
-        Rhino.SpotLightRadius (strObject [, dblRadius])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblRadius"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The light object's identifier.
             """
         },
         1: {
-            "name": "Radius",
+            "name": "dblRadius",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radius",
             "doc": """
         The new radius value.  If omitted, the current radius value is returned.
             """

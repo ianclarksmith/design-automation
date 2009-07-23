@@ -8,25 +8,27 @@ add_directional_light = {
         Adds a new directional light object  to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddDirectionalLight (arrStartPoint, arrEndPoint)
-    """,
+    "syntax_html": {
+        0: ("arrStartPoint", "arrEndPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "StartPoint",
+            "name": "arrStartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartPoint",
             "doc": """
         The 3-D starting point of the light.
             """
         },
         1: {
-            "name": "EndPoint",
+            "name": "arrEndPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndPoint",
             "doc": """
         The 3-D ending point and direction of the light.
             """

@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class Application(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def add_alias(self, alias, macro):
         """        
@@ -33,19 +42,13 @@ class Application(IRhinoScript):
         """
 
         params = [alias, macro]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [alias, macro]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [alias, macro]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(709, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddAlias", None, *params_flattened)
+        return self._ApplyTypes_(709, 1, (VT_VARIANT, 0), magic, u"AddAlias", None, *flattened)
 
     def add_search_path(self, folder, index=None):
         """        
@@ -72,19 +75,13 @@ class Application(IRhinoScript):
         """
 
         params = [folder, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [folder, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [folder, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(511, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddSearchPath", None, *params_flattened)
+        return self._ApplyTypes_(511, 1, (VT_VARIANT, 0), magic, u"AddSearchPath", None, *flattened)
 
     def add_startup_script(self, script_file, index=None):
         """        
@@ -111,21 +108,15 @@ class Application(IRhinoScript):
         """
 
         params = [script_file, index]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_I2, 1)]
-        params_flattened = [script_file, index]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_I2, 1)]
+        flattened = [script_file, index]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(714, 1, (VT_VARIANT, 0), magic, u"AddStartupScript", None, *flattened)
 
-        return self._ApplyTypes_(714, 1, (VT_VARIANT, 0), params_magic_numbers, u"AddStartupScript", None, *params_flattened)
-
-    def alias_count():
+    def alias_count(self):
         """        
         Returns the number of command alias in Rhino.
     
@@ -140,19 +131,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(706, 1, (VT_VARIANT, 0), params_magic_numbers, u"AliasCount", None, *params_flattened)
+        return self._ApplyTypes_(706, 1, (VT_VARIANT, 0), magic, u"AliasCount", None, *flattened)
 
     def alias_macro(self, alias, macro=None):
         """        
@@ -182,21 +167,15 @@ class Application(IRhinoScript):
         """
 
         params = [alias, macro]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BSTR, 1)]
-        params_flattened = [alias, macro]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1)]
+        flattened = [alias, macro]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(708, 1, (VT_VARIANT, 0), magic, u"AliasMacro", None, *flattened)
 
-        return self._ApplyTypes_(708, 1, (VT_VARIANT, 0), params_magic_numbers, u"AliasMacro", None, *params_flattened)
-
-    def alias_names():
+    def alias_names(self):
         """        
         Returns a list of command alias names.
     
@@ -211,19 +190,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(707, 1, (VT_VARIANT, 0), params_magic_numbers, u"AliasNames", None, *params_flattened)
+        return self._ApplyTypes_(707, 1, (VT_VARIANT, 0), magic, u"AliasNames", None, *flattened)
 
     def appearance_color(self, item, color=None):
         """        
@@ -282,19 +255,13 @@ class Application(IRhinoScript):
         """
 
         params = [item, color]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_I2, 1), (VT_I4, 1)]
-        params_flattened = [item, color]
+        required = [True, False]
+        magic = [(VT_I2, 1), (VT_I4, 1)]
+        flattened = [item, color]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(335, 1, (VT_VARIANT, 0), params_magic_numbers, u"AppearanceColor", None, *params_flattened)
+        return self._ApplyTypes_(335, 1, (VT_VARIANT, 0), magic, u"AppearanceColor", None, *flattened)
 
     def appearance_display(self, item, show=None):
         """        
@@ -339,19 +306,13 @@ class Application(IRhinoScript):
         """
 
         params = [item, show]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_I2, 1), (VT_BOOL, 1)]
-        params_flattened = [item, show]
+        required = [True, False]
+        magic = [(VT_I2, 1), (VT_BOOL, 1)]
+        flattened = [item, show]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(752, 1, (VT_VARIANT, 0), params_magic_numbers, u"AppearanceDisplay", None, *params_flattened)
+        return self._ApplyTypes_(752, 1, (VT_VARIANT, 0), magic, u"AppearanceDisplay", None, *flattened)
 
     def autosave_file(self, file=None):
         """        
@@ -378,19 +339,13 @@ class Application(IRhinoScript):
         """
 
         params = [file]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [file]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [file]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(428, 1, (VT_VARIANT, 0), params_magic_numbers, u"AutosaveFile", None, *params_flattened)
+        return self._ApplyTypes_(428, 1, (VT_VARIANT, 0), magic, u"AutosaveFile", None, *flattened)
 
     def autosave_interval(self, minutes=None):
         """        
@@ -417,21 +372,15 @@ class Application(IRhinoScript):
         """
 
         params = [minutes]
-        params_required = [False]
-        params_magic_numbers = [(VT_I2, 1),]
-        params_flattened = [minutes]
+        required = [False]
+        magic = [(VT_I2, 1),]
+        flattened = [minutes]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(429, 1, (VT_VARIANT, 0), magic, u"AutosaveInterval", None, *flattened)
 
-        return self._ApplyTypes_(429, 1, (VT_VARIANT, 0), params_magic_numbers, u"AutosaveInterval", None, *params_flattened)
-
-    def build_date():
+    def build_date(self):
         """        
         Returns the build date of Rhino.  The build date is a number in the form of YYYYMMDD.
     
@@ -449,21 +398,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(360, 1, (VT_VARIANT, 0), magic, u"BuildDate", None, *flattened)
 
-        return self._ApplyTypes_(360, 1, (VT_VARIANT, 0), params_magic_numbers, u"BuildDate", None, *params_flattened)
-
-    def clear_command_history():
+    def clear_command_history(self):
         """        
         Clears the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
     
@@ -475,19 +418,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(592, 1, (VT_VARIANT, 0), params_magic_numbers, u"ClearCommandHistory", None, *params_flattened)
+        return self._ApplyTypes_(592, 1, (VT_VARIANT, 0), magic, u"ClearCommandHistory", None, *flattened)
 
     def command(self, command, echo=None):
         """        
@@ -528,21 +465,15 @@ class Application(IRhinoScript):
         """
 
         params = [command, echo]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [command, echo]
+        required = [True, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [command, echo]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(1, 1, (VT_VARIANT, 0), magic, u"Command", None, *flattened)
 
-        return self._ApplyTypes_(1, 1, (VT_VARIANT, 0), params_magic_numbers, u"Command", None, *params_flattened)
-
-    def command_history():
+    def command_history(self):
         """        
         Returns the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
     
@@ -560,19 +491,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(591, 1, (VT_VARIANT, 0), params_magic_numbers, u"CommandHistory", None, *params_flattened)
+        return self._ApplyTypes_(591, 1, (VT_VARIANT, 0), magic, u"CommandHistory", None, *flattened)
 
     def default_renderer(self, renderer=None):
         """        
@@ -599,19 +524,13 @@ class Application(IRhinoScript):
         """
 
         params = [renderer]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [renderer]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [renderer]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(316, 1, (VT_VARIANT, 0), params_magic_numbers, u"DefaultRenderer", None, *params_flattened)
+        return self._ApplyTypes_(316, 1, (VT_VARIANT, 0), magic, u"DefaultRenderer", None, *flattened)
 
     def delete_alias(self, alias):
         """        
@@ -635,19 +554,13 @@ class Application(IRhinoScript):
         """
 
         params = [alias]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [alias]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [alias]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(710, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteAlias", None, *params_flattened)
+        return self._ApplyTypes_(710, 1, (VT_VARIANT, 0), magic, u"DeleteAlias", None, *flattened)
 
     def delete_search_path(self, folder):
         """        
@@ -671,19 +584,13 @@ class Application(IRhinoScript):
         """
 
         params = [folder]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [folder]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [folder]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(512, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteSearchPath", None, *params_flattened)
+        return self._ApplyTypes_(512, 1, (VT_VARIANT, 0), magic, u"DeleteSearchPath", None, *flattened)
 
     def delete_startup_script(self, script_file):
         """        
@@ -707,19 +614,13 @@ class Application(IRhinoScript):
         """
 
         params = [script_file]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [script_file]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [script_file]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(715, 1, (VT_VARIANT, 0), params_magic_numbers, u"DeleteStartupScript", None, *params_flattened)
+        return self._ApplyTypes_(715, 1, (VT_VARIANT, 0), magic, u"DeleteStartupScript", None, *flattened)
 
     def display_ole_alerts(self, display):
         """        
@@ -743,19 +644,13 @@ class Application(IRhinoScript):
         """
 
         params = [display]
-        params_required = [True]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [display]
+        required = [True]
+        magic = [(VT_BOOL, 1),]
+        flattened = [display]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(896, 1, (VT_VARIANT, 0), params_magic_numbers, u"DisplayOleAlerts", None, *params_flattened)
+        return self._ApplyTypes_(896, 1, (VT_VARIANT, 0), magic, u"DisplayOleAlerts", None, *flattened)
 
     def edge_analysis_color(self, color=None):
         """        
@@ -782,19 +677,13 @@ class Application(IRhinoScript):
         """
 
         params = [color]
-        params_required = [False]
-        params_magic_numbers = [(VT_I4, 1),]
-        params_flattened = [color]
+        required = [False]
+        magic = [(VT_I4, 1),]
+        flattened = [color]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(449, 1, (VT_VARIANT, 0), params_magic_numbers, u"EdgeAnalysisColor", None, *params_flattened)
+        return self._ApplyTypes_(449, 1, (VT_VARIANT, 0), magic, u"EdgeAnalysisColor", None, *flattened)
 
     def edge_analysis_mode(self, mode=None):
         """        
@@ -824,19 +713,13 @@ class Application(IRhinoScript):
         """
 
         params = [mode]
-        params_required = [False]
-        params_magic_numbers = [(VT_I2, 1),]
-        params_flattened = [mode]
+        required = [False]
+        magic = [(VT_I2, 1),]
+        flattened = [mode]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(448, 1, (VT_VARIANT, 0), params_magic_numbers, u"EdgeAnalysisMode", None, *params_flattened)
+        return self._ApplyTypes_(448, 1, (VT_VARIANT, 0), magic, u"EdgeAnalysisMode", None, *flattened)
 
     def enable_autosave(self, enable=None):
         """        
@@ -857,19 +740,13 @@ class Application(IRhinoScript):
         """
 
         params = [enable]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [enable]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(430, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableAutosave", None, *params_flattened)
+        return self._ApplyTypes_(430, 1, (VT_VARIANT, 0), magic, u"EnableAutosave", None, *flattened)
 
     def enable_history_recording(self, enable=None):
         """        
@@ -893,21 +770,15 @@ class Application(IRhinoScript):
         """
 
         params = [enable]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [enable]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(735, 1, (VT_VARIANT, 0), magic, u"EnableHistoryRecording", None, *flattened)
 
-        return self._ApplyTypes_(735, 1, (VT_VARIANT, 0), params_magic_numbers, u"EnableHistoryRecording", None, *params_flattened)
-
-    def exe_folder():
+    def exe_folder(self):
         """        
         Returns the full path to Rhino's executable folder.
     
@@ -925,21 +796,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(21, 1, (VT_VARIANT, 0), magic, u"ExeFolder", None, *flattened)
 
-        return self._ApplyTypes_(21, 1, (VT_VARIANT, 0), params_magic_numbers, u"ExeFolder", None, *params_flattened)
-
-    def exit():
+    def exit(self):
         """        
         Closes the Rhino application.
     
@@ -951,19 +816,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(537, 1, (VT_VARIANT, 0), params_magic_numbers, u"Exit", None, *params_flattened)
+        return self._ApplyTypes_(537, 1, (VT_VARIANT, 0), magic, u"Exit", None, *flattened)
 
     def find_file(self, filename):
         """        
@@ -990,19 +849,13 @@ class Application(IRhinoScript):
         """
 
         params = [filename]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [filename]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [filename]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(81, 1, (VT_VARIANT, 0), params_magic_numbers, u"FindFile", None, *params_flattened)
+        return self._ApplyTypes_(81, 1, (VT_VARIANT, 0), magic, u"FindFile", None, *flattened)
 
     def get_plug_in_object(self, plug_in):
         """        
@@ -1023,19 +876,13 @@ class Application(IRhinoScript):
         """
 
         params = [plug_in]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [plug_in]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [plug_in]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(636, 1, (VT_VARIANT, 0), params_magic_numbers, u"GetPlugInObject", None, *params_flattened)
+        return self._ApplyTypes_(636, 1, (VT_VARIANT, 0), magic, u"GetPlugInObject", None, *flattened)
 
     def help(self, topic=None):
         """        
@@ -1056,19 +903,13 @@ class Application(IRhinoScript):
         """
 
         params = [topic]
-        params_required = [False]
-        params_magic_numbers = [(VT_I2, 1),]
-        params_flattened = [topic]
+        required = [False]
+        magic = [(VT_I2, 1),]
+        flattened = [topic]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(22, 1, (VT_VARIANT, 0), params_magic_numbers, u"Help", None, *params_flattened)
+        return self._ApplyTypes_(22, 1, (VT_VARIANT, 0), magic, u"Help", None, *flattened)
 
     def in_command(self, ignore_runners=None):
         """        
@@ -1089,21 +930,15 @@ class Application(IRhinoScript):
         """
 
         params = [ignore_runners]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [ignore_runners]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [ignore_runners]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(596, 1, (VT_VARIANT, 0), magic, u"InCommand", None, *flattened)
 
-        return self._ApplyTypes_(596, 1, (VT_VARIANT, 0), params_magic_numbers, u"InCommand", None, *params_flattened)
-
-    def install_folder():
+    def install_folder(self):
         """        
         Returns the full path to Rhino's installation folder.
     
@@ -1121,19 +956,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(23, 1, (VT_VARIANT, 0), params_magic_numbers, u"InstallFolder", None, *params_flattened)
+        return self._ApplyTypes_(23, 1, (VT_VARIANT, 0), magic, u"InstallFolder", None, *flattened)
 
     def is_alias(self, alias):
         """        
@@ -1157,19 +986,13 @@ class Application(IRhinoScript):
         """
 
         params = [alias]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [alias]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [alias]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(711, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsAlias", None, *params_flattened)
+        return self._ApplyTypes_(711, 1, (VT_VARIANT, 0), magic, u"IsAlias", None, *flattened)
 
     def is_command(self, command_name):
         """        
@@ -1193,21 +1016,15 @@ class Application(IRhinoScript):
         """
 
         params = [command_name]
-        params_required = [True]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [command_name]
+        required = [True]
+        magic = [(VT_BSTR, 1),]
+        flattened = [command_name]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(530, 1, (VT_VARIANT, 0), magic, u"IsCommand", None, *flattened)
 
-        return self._ApplyTypes_(530, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsCommand", None, *params_flattened)
-
-    def last_command_name():
+    def last_command_name(self):
         """        
         Returns the name of the last executed command.
     
@@ -1222,21 +1039,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(594, 1, (VT_VARIANT, 0), magic, u"LastCommandName", None, *flattened)
 
-        return self._ApplyTypes_(594, 1, (VT_VARIANT, 0), params_magic_numbers, u"LastCommandName", None, *params_flattened)
-
-    def last_command_result():
+    def last_command_result(self):
         """        
         Returns the result code for the last executed command.
     
@@ -1251,21 +1062,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(292, 1, (VT_VARIANT, 0), magic, u"LastCommandResult", None, *flattened)
 
-        return self._ApplyTypes_(292, 1, (VT_VARIANT, 0), params_magic_numbers, u"LastCommandResult", None, *params_flattened)
-
-    def last_loaded_script_file():
+    def last_loaded_script_file(self):
         """        
         Return the full path to the last RhinoScript file that was loaded using the LoadScript command..
     
@@ -1283,21 +1088,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(373, 1, (VT_VARIANT, 0), magic, u"LastLoadedScriptFile", None, *flattened)
 
-        return self._ApplyTypes_(373, 1, (VT_VARIANT, 0), params_magic_numbers, u"LastLoadedScriptFile", None, *params_flattened)
-
-    def locale_i_d():
+    def locale_i_d(self):
         """        
         Returns the language used for the Rhino interface.  The current language is returned as a locale ID, or LCID, value.
     
@@ -1312,19 +1111,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(450, 1, (VT_VARIANT, 0), params_magic_numbers, u"LocaleID", None, *params_flattened)
+        return self._ApplyTypes_(450, 1, (VT_VARIANT, 0), magic, u"LocaleID", None, *flattened)
 
     def ortho(self, enable=None):
         """        
@@ -1348,19 +1141,13 @@ class Application(IRhinoScript):
         """
 
         params = [enable]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [enable]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(345, 1, (VT_VARIANT, 0), params_magic_numbers, u"Ortho", None, *params_flattened)
+        return self._ApplyTypes_(345, 1, (VT_VARIANT, 0), magic, u"Ortho", None, *flattened)
 
     def osnap(self, enable=None):
         """        
@@ -1384,19 +1171,13 @@ class Application(IRhinoScript):
         """
 
         params = [enable]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [enable]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(347, 1, (VT_VARIANT, 0), params_magic_numbers, u"Osnap", None, *params_flattened)
+        return self._ApplyTypes_(347, 1, (VT_VARIANT, 0), magic, u"Osnap", None, *flattened)
 
     def osnap_dialog(self, visible=None):
         """        
@@ -1420,19 +1201,13 @@ class Application(IRhinoScript):
         """
 
         params = [visible]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [visible]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [visible]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(349, 1, (VT_VARIANT, 0), params_magic_numbers, u"OsnapDialog", None, *params_flattened)
+        return self._ApplyTypes_(349, 1, (VT_VARIANT, 0), magic, u"OsnapDialog", None, *flattened)
 
     def osnap_mode(self, mode=None):
         """        
@@ -1484,19 +1259,13 @@ class Application(IRhinoScript):
         """
 
         params = [mode]
-        params_required = [False]
-        params_magic_numbers = [(VT_I2, 1),]
-        params_flattened = [mode]
+        required = [False]
+        magic = [(VT_I2, 1),]
+        flattened = [mode]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(343, 1, (VT_VARIANT, 0), params_magic_numbers, u"OsnapMode", None, *params_flattened)
+        return self._ApplyTypes_(343, 1, (VT_VARIANT, 0), magic, u"OsnapMode", None, *flattened)
 
     def planar(self, enable=None):
         """        
@@ -1520,19 +1289,13 @@ class Application(IRhinoScript):
         """
 
         params = [enable]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [enable]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(346, 1, (VT_VARIANT, 0), params_magic_numbers, u"Planar", None, *params_flattened)
+        return self._ApplyTypes_(346, 1, (VT_VARIANT, 0), magic, u"Planar", None, *flattened)
 
     def plug_ins(self, types=None, status=None):
         """        
@@ -1579,19 +1342,13 @@ class Application(IRhinoScript):
         """
 
         params = [types, status]
-        params_required = [False, False]
-        params_magic_numbers = [(VT_I2, 1), (VT_I2, 1)]
-        params_flattened = [types, status]
+        required = [False, False]
+        magic = [(VT_I2, 1), (VT_I2, 1)]
+        flattened = [types, status]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(315, 1, (VT_VARIANT, 0), params_magic_numbers, u"PlugIns", None, *params_flattened)
+        return self._ApplyTypes_(315, 1, (VT_VARIANT, 0), magic, u"PlugIns", None, *flattened)
 
     def print_(self, message=None):
         """        
@@ -1609,19 +1366,13 @@ class Application(IRhinoScript):
         """
 
         params = [message]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [message]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [message]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(2, 1, (VT_VARIANT, 0), params_magic_numbers, u"Print", None, *params_flattened)
+        return self._ApplyTypes_(2, 1, (VT_VARIANT, 0), magic, u"Print", None, *flattened)
 
     def print_ex(self, message=None):
         """        
@@ -1639,19 +1390,13 @@ class Application(IRhinoScript):
         """
 
         params = [message]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [message]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [message]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(370, 1, (VT_VARIANT, 0), params_magic_numbers, u"PrintEx", None, *params_flattened)
+        return self._ApplyTypes_(370, 1, (VT_VARIANT, 0), magic, u"PrintEx", None, *flattened)
 
     def project_osnaps(self, enable=None):
         """        
@@ -1675,19 +1420,13 @@ class Application(IRhinoScript):
         """
 
         params = [enable]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [enable]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(348, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectOsnaps", None, *params_flattened)
+        return self._ApplyTypes_(348, 1, (VT_VARIANT, 0), magic, u"ProjectOsnaps", None, *flattened)
 
     def prompt(self, prompt=None):
         """        
@@ -1705,21 +1444,15 @@ class Application(IRhinoScript):
         """
 
         params = [prompt]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [prompt]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [prompt]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(24, 1, (VT_VARIANT, 0), magic, u"Prompt", None, *flattened)
 
-        return self._ApplyTypes_(24, 1, (VT_VARIANT, 0), params_magic_numbers, u"Prompt", None, *params_flattened)
-
-    def registry_key():
+    def registry_key(self):
         """        
         Returns Rhino's Windows Registry key.
     
@@ -1737,21 +1470,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(25, 1, (VT_VARIANT, 0), magic, u"RegistryKey", None, *flattened)
 
-        return self._ApplyTypes_(25, 1, (VT_VARIANT, 0), params_magic_numbers, u"RegistryKey", None, *params_flattened)
-
-    def screen_size():
+    def screen_size(self):
         """        
         Returns the current width and height, in pixels, of the screen of the primary display monitor.
     
@@ -1769,21 +1496,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(553, 1, (VT_VARIANT, 0), magic, u"ScreenSize", None, *flattened)
 
-        return self._ApplyTypes_(553, 1, (VT_VARIANT, 0), params_magic_numbers, u"ScreenSize", None, *params_flattened)
-
-    def sdk_version():
+    def sdk_version(self):
         """        
         Returns the version of the Rhino SDK supported by the running version of Rhino.  Rhino SDK versions are 9 digit numbers in the form of YYYYMMDDn.
     
@@ -1801,21 +1522,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(359, 1, (VT_VARIANT, 0), magic, u"SdkVersion", None, *flattened)
 
-        return self._ApplyTypes_(359, 1, (VT_VARIANT, 0), params_magic_numbers, u"SdkVersion", None, *params_flattened)
-
-    def search_path_count():
+    def search_path_count(self):
         """        
         Returns the number of path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.
     
@@ -1830,21 +1545,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(509, 1, (VT_VARIANT, 0), magic, u"SearchPathCount", None, *flattened)
 
-        return self._ApplyTypes_(509, 1, (VT_VARIANT, 0), params_magic_numbers, u"SearchPathCount", None, *params_flattened)
-
-    def search_path_list():
+    def search_path_list(self):
         """        
         Returns all of the path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.
     
@@ -1859,19 +1568,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(510, 1, (VT_VARIANT, 0), params_magic_numbers, u"SearchPathList", None, *params_flattened)
+        return self._ApplyTypes_(510, 1, (VT_VARIANT, 0), magic, u"SearchPathList", None, *flattened)
 
     def send_keystrokes(self, keys=None, add_return=None):
         """        
@@ -1892,19 +1595,13 @@ class Application(IRhinoScript):
         """
 
         params = [keys, add_return]
-        params_required = [False, False]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [keys, add_return]
+        required = [False, False]
+        magic = [(VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [keys, add_return]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(496, 1, (VT_VARIANT, 0), params_magic_numbers, u"SendKeystrokes", None, *params_flattened)
+        return self._ApplyTypes_(496, 1, (VT_VARIANT, 0), magic, u"SendKeystrokes", None, *flattened)
 
     def snap(self, enable=None):
         """        
@@ -1928,21 +1625,15 @@ class Application(IRhinoScript):
         """
 
         params = [enable]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [enable]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(344, 1, (VT_VARIANT, 0), magic, u"Snap", None, *flattened)
 
-        return self._ApplyTypes_(344, 1, (VT_VARIANT, 0), params_magic_numbers, u"Snap", None, *params_flattened)
-
-    def startup_script_count():
+    def startup_script_count(self):
         """        
         Returns the number of startup script items in RhinoScript's startup script list. See "Options RhinoScript" for more details.
     
@@ -1957,21 +1648,15 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(712, 1, (VT_VARIANT, 0), magic, u"StartupScriptCount", None, *flattened)
 
-        return self._ApplyTypes_(712, 1, (VT_VARIANT, 0), params_magic_numbers, u"StartupScriptCount", None, *params_flattened)
-
-    def startup_script_list():
+    def startup_script_list(self):
         """        
         Returns all of the startup script items in Rhino's startup script list. See "Options RhinoScript" for more details.
     
@@ -1986,19 +1671,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(713, 1, (VT_VARIANT, 0), params_magic_numbers, u"StartupScriptList", None, *params_flattened)
+        return self._ApplyTypes_(713, 1, (VT_VARIANT, 0), magic, u"StartupScriptList", None, *flattened)
 
     def status_bar_distance(self, distance=None):
         """        
@@ -2016,19 +1695,13 @@ class Application(IRhinoScript):
         """
 
         params = [distance]
-        params_required = [False]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [distance]
+        required = [False]
+        magic = [(VT_R8, 1),]
+        flattened = [distance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(26, 1, (VT_VARIANT, 0), params_magic_numbers, u"StatusBarDistance", None, *params_flattened)
+        return self._ApplyTypes_(26, 1, (VT_VARIANT, 0), magic, u"StatusBarDistance", None, *flattened)
 
     def status_bar_message(self, message=None):
         """        
@@ -2046,19 +1719,13 @@ class Application(IRhinoScript):
         """
 
         params = [message]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [message]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [message]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(28, 1, (VT_VARIANT, 0), params_magic_numbers, u"StatusBarMessage", None, *params_flattened)
+        return self._ApplyTypes_(28, 1, (VT_VARIANT, 0), magic, u"StatusBarMessage", None, *flattened)
 
     def status_bar_number(self, number=None):
         """        
@@ -2076,19 +1743,13 @@ class Application(IRhinoScript):
         """
 
         params = [number]
-        params_required = [False]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [False]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(312, 1, (VT_VARIANT, 0), params_magic_numbers, u"StatusBarNumber", None, *params_flattened)
+        return self._ApplyTypes_(312, 1, (VT_VARIANT, 0), magic, u"StatusBarNumber", None, *flattened)
 
     def status_bar_point(self, point=None):
         """        
@@ -2097,7 +1758,7 @@ class Application(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Optional        
+        point, Array of Doubles, Optional        
         A 3-D point.
             
         No returns
@@ -2106,19 +1767,13 @@ class Application(IRhinoScript):
         """
 
         params = [point]
-        params_required = [False]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(point)]
+        required = [False]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(27, 1, (VT_VARIANT, 0), params_magic_numbers, u"StatusBarPoint", None, *params_flattened)
+        return self._ApplyTypes_(27, 1, (VT_VARIANT, 0), magic, u"StatusBarPoint", None, *flattened)
 
     def template_file(self, filename=None):
         """        
@@ -2142,19 +1797,13 @@ class Application(IRhinoScript):
         """
 
         params = [filename]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [filename]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [filename]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(529, 1, (VT_VARIANT, 0), params_magic_numbers, u"TemplateFile", None, *params_flattened)
+        return self._ApplyTypes_(529, 1, (VT_VARIANT, 0), magic, u"TemplateFile", None, *flattened)
 
     def template_folder(self, folder=None):
         """        
@@ -2178,21 +1827,15 @@ class Application(IRhinoScript):
         """
 
         params = [folder]
-        params_required = [False]
-        params_magic_numbers = [(VT_BSTR, 1),]
-        params_flattened = [folder]
+        required = [False]
+        magic = [(VT_BSTR, 1),]
+        flattened = [folder]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(528, 1, (VT_VARIANT, 0), magic, u"TemplateFolder", None, *flattened)
 
-        return self._ApplyTypes_(528, 1, (VT_VARIANT, 0), params_magic_numbers, u"TemplateFolder", None, *params_flattened)
-
-    def window_handle():
+    def window_handle(self):
         """        
         Returns the Windows handle of Rhino's main window.
     
@@ -2207,19 +1850,13 @@ class Application(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(29, 1, (VT_VARIANT, 0), params_magic_numbers, u"WindowHandle", None, *params_flattened)
+        return self._ApplyTypes_(29, 1, (VT_VARIANT, 0), magic, u"WindowHandle", None, *flattened)
 
     def working_folder(self, enable=None):
         """        
@@ -2243,17 +1880,11 @@ class Application(IRhinoScript):
         """
 
         params = [enable]
-        params_required = [False]
-        params_magic_numbers = [(VT_BOOL, 1),]
-        params_flattened = [enable]
+        required = [False]
+        magic = [(VT_BOOL, 1),]
+        flattened = [enable]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(439, 1, (VT_VARIANT, 0), params_magic_numbers, u"WorkingFolder", None, *params_flattened)
+        return self._ApplyTypes_(439, 1, (VT_VARIANT, 0), magic, u"WorkingFolder", None, *flattened)
 

@@ -8,52 +8,57 @@ rotate_objects = {
         Rotates one or more objects. Rotation is based on the active construction plane.
     """,
 
-    "syntax_html": """
-        Rhino.RotateObjects (arrObjects, arrPoint, dblAngle [, arrAxis [, blnCopy]])
-    """,
+    "syntax_html": {
+        0: ("arrObjects", "arrPoint", "dblAngle", "arrAxis", "blnCopy"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to rotate.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The 3-D center point of the rotation.
             """
         },
         2: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         The rotation angle in degrees.
             """
         },
         3: {
-            "name": "Axis",
+            "name": "arrAxis",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Axis",
             "doc": """
         A 3-D vector that identifies the axis of rotation. If omitted, the Z axis of the active construction plane is used as the rotation axis.
             """
         },
         4: {
-            "name": "Copy",
+            "name": "blnCopy",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Copy",
             "doc": """
         Copy the object. If omitted, the objects will not be copied (False).
             """

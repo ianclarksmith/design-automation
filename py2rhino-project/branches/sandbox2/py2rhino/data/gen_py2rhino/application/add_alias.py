@@ -8,25 +8,27 @@ add_alias = {
         Adds a new command alias to Rhino. Command aliases can be added manually by using Rhino's Options command and modifying the contents of the Aliases tab. See "Options Aliases" in the Rhino help file for more details.
     """,
 
-    "syntax_html": """
-        Rhino.AddAlias (strAlias, strMacro)
-    """,
+    "syntax_html": {
+        0: ("strAlias", "strMacro"),
+    },
 
     "params_html": {
         0: {
-            "name": "Alias",
+            "name": "strAlias",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Alias",
             "doc": """
         The name of the new command alias. The name cannot match command names or existing aliases.
             """
         },
         1: {
-            "name": "Macro",
+            "name": "strMacro",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Macro",
             "doc": """
         The macro to run when the alias is executed.
             """

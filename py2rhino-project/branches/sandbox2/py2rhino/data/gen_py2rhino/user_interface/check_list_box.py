@@ -8,43 +8,47 @@ check_list_box = {
         Displays a list of items in a checkable-style list box dialog.
     """,
 
-    "syntax_html": """
-        Rhino.CheckListBox (arrItems, arrValues [, strMessage [, strTitle]])
-    """,
+    "syntax_html": {
+        0: ("arrItems", "arrValues", "strMessage", "strTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Items",
+            "name": "arrItems",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Items",
             "doc": """
         A zero-based, one-dimensional array of string items.
             """
         },
         1: {
-            "name": "Values",
+            "name": "arrValues",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_bln",
+            "name_prefix": "arr_of_bln",
+            "name_main": "Values",
             "doc": """
         A zero-based, one-dimensional array of boolean values indicating the checked state of each item in the list.
             """
         },
         2: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         3: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """

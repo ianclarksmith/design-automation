@@ -8,25 +8,27 @@ add_curve = {
         Adds a control points curve object to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddCurve (arrPoints [, intDegree])
-    """,
+    "syntax_html": {
+        0: ("arrPoints", "intDegree"),
+    },
 
     "params_html": {
         0: {
-            "name": "Points",
+            "name": "arrPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Points",
             "doc": """
         An array of 3-D points.
             """
         },
         1: {
-            "name": "Degree",
+            "name": "intDegree",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Degree",
             "doc": """
         The degree of the curve.  If omitted, a degree 3 curve is created.
             """

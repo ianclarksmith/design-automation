@@ -8,9 +8,9 @@ light_count = {
         Returns the number of light objects in the document.
     """,
 
-    "syntax_html": """
-        Rhino.LightCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

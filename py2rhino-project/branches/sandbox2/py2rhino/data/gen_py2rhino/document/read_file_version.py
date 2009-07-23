@@ -8,9 +8,9 @@ read_file_version = {
         Returns the file version of the current document.  Use this function to determine which version of Rhino last saved the document. Note, this function will not return values from referenced or merged files.
     """,
 
-    "syntax_html": """
-        Rhino.ReadFileVersion ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

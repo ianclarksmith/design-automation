@@ -8,25 +8,27 @@ view_c_plane = {
         Returns or sets the specified view's construction plane.
     """,
 
-    "syntax_html": """
-        Rhino.ViewCPlane ([strView [, arrPlane]])
-    """,
+    "syntax_html": {
+        0: ("strView", "arrPlane"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The new construction plane.  The elements of a plane array are as follows:
 		Element

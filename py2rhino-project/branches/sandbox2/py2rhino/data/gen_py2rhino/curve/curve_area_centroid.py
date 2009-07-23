@@ -8,16 +8,18 @@ curve_area_centroid = {
         Returns that area centroid of closed, planar curves. The results are based on the current drawing units.
     """,
 
-    "syntax_html": """
-        Rhino.CurveAreaCentroid (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+        1: ("arrObjects"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings containing the identifiers of one or more closed, planar curve objects.
             """

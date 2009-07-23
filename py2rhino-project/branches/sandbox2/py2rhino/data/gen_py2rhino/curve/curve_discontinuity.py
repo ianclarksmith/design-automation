@@ -8,25 +8,27 @@ curve_discontinuity = {
         Search for a derivatitive, tangent, or curvature discontinuity in a curve object.
     """,
 
-    "syntax_html": """
-        Rhino.CurveDiscontinuity (strObject [, intType])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intType"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Style",
+            "name": "intStyle",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Style",
             "doc": """
         The type of continuity to test for.  The types of continuity are as follows:
 		Value

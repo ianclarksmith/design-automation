@@ -8,16 +8,17 @@ move_plane = {
         Moves the origin of a plane.
     """,
 
-    "syntax_html": """
-        Rhino.MovePlane (arrPlane, arrOrigin)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "arrOrigin"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane.  The elements of a plane array are as follows:
 		Element
@@ -32,10 +33,11 @@ move_plane = {
             """
         },
         1: {
-            "name": "Origin",
+            "name": "arrOrigin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Origin",
             "doc": """
         A 3-D point identifying the new origin location.
             """

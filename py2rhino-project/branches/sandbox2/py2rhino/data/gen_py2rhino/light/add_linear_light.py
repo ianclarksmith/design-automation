@@ -8,34 +8,37 @@ add_linear_light = {
         Adds a new linear light object  to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddLinearLight (arrStartPoint, arrEndPoint [, dblWidth])
-    """,
+    "syntax_html": {
+        0: ("arrStartPoint", "arrEndPoint", "dblWidth"),
+    },
 
     "params_html": {
         0: {
-            "name": "StartPoint",
+            "name": "arrStartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartPoint",
             "doc": """
         The 3-D starting point of the light.
             """
         },
         1: {
-            "name": "EndPoint",
+            "name": "arrEndPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndPoint",
             "doc": """
         The 3-D ending point and direction of the light.
             """
         },
         2: {
-            "name": "Width",
+            "name": "dblWidth",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Width",
             "doc": """
         The width of the light.
             """

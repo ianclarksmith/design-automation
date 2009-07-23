@@ -8,25 +8,27 @@ reference_objects = {
         Returns the identifiers of all reference objects attached to the document.  An object from a work session reference model is a reference object.  A reference object cannot be modified.  An object is a reference object if, and only if, it is on a reference layer.
     """,
 
-    "syntax_html": """
-        Rhino.ReferenceObjects ([blnIncludeLights [, blnIncludeGrips]])
-    """,
+    "syntax_html": {
+        0: ("blnIncludeLights", "blnIncludeGrips"),
+    },
 
     "params_html": {
         0: {
-            "name": "IncludeLights",
+            "name": "blnIncludeLights",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeLights",
             "doc": """
         Include light objects.  If omitted, light objects are not returned (False).
             """
         },
         1: {
-            "name": "IncludeGrips",
+            "name": "blnIncludeGrips",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeGrips",
             "doc": """
         Include grips objects.  If omitted, grips objects are not returned (False).
             """

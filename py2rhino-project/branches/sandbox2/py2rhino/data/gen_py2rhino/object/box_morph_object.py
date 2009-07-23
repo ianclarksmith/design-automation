@@ -8,34 +8,38 @@ box_morph_object = {
         Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
     """,
 
-    "syntax_html": """
-        Rhino.BoxMorphObject (strObject, arrBoxPoints [, blnCopy])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrBoxPoints", "blnCopy"),
+        1: ("arrObjects", "arrBoxPoints", "blnCopy"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to morph.
             """
         },
         1: {
-            "name": "BoxPoints",
+            "name": "arrBoxPoints",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "BoxPoints",
             "doc": """
         An array of eight 3-D points that contain the modified bounding box points.
             """
         },
         2: {
-            "name": "Copy",
+            "name": "blnCopy",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Copy",
             "doc": """
         Copy the object. If omitted, the object will not be copied (False).
             """

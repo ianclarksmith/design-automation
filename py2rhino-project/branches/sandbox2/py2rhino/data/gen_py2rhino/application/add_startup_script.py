@@ -8,25 +8,27 @@ add_startup_script = {
         Adds a new startup script to RhinoScript's startup script list. Startup script  items can be added manually by using Rhino's Options command and modifying the contents of the RhinoScript tab.
     """,
 
-    "syntax_html": """
-        Rhino.AddStartupScript (strScriptFile [, intIndex])
-    """,
+    "syntax_html": {
+        0: ("strScriptFile", "intIndex"),
+    },
 
     "params_html": {
         0: {
-            "name": "ScriptFile",
+            "name": "strScriptFile",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "ScriptFile",
             "doc": """
         A valid path to a RhinoScript .RVB file.
             """
         },
         1: {
-            "name": "Index",
+            "name": "intIndex",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Index",
             "doc": """
         A zero-based position index in the startup script list to insert the string. If omitted, the path will be appended to the end of the startup script list.
             """

@@ -8,16 +8,17 @@ xform_translation = {
         Creates a translation transformation matrix.
     """,
 
-    "syntax_html": """
-        Rhino.XformTranslation (arrVector)
-    """,
+    "syntax_html": {
+        0: ("arrVector"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vector",
+            "name": "arrVector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector",
             "doc": """
         A 3-D translation vector.
             """

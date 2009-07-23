@@ -8,16 +8,17 @@ view_display_mode_name = {
         Returns the name of a display mode given a display mode's identifier.
     """,
 
-    "syntax_html": """
-        Rhino.ViewDisplayModeName (strMode])
-    """,
+    "syntax_html": {
+        0: ("strMode"),
+    },
 
     "params_html": {
         0: {
-            "name": "Mode",
+            "name": "strMode",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Mode",
             "doc": """
         The identifier of the display mode obtained from the ViewDisplayModes method.
             """

@@ -8,34 +8,37 @@ sort_strings = {
         Sorts an array of strings.
     """,
 
-    "syntax_html": """
-        Rhino.SortStrings (arrStrings [, blnAscending [, blnNoCase]])
-    """,
+    "syntax_html": {
+        0: ("arrStrings", "blnAscending", "blnNoCase"),
+    },
 
     "params_html": {
         0: {
-            "name": "Strings",
+            "name": "arrStrings",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Strings",
             "doc": """
         An array of string values.
             """
         },
         1: {
-            "name": "Ascending",
+            "name": "blnAscending",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Ascending",
             "doc": """
         The sorting mode, either ascending or descending.  If omitted or True, the strings are sorted ascending.  If False, the strings are sorted descending.
             """
         },
         2: {
-            "name": "NoCase",
+            "name": "blnNoCase",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "NoCase",
             "doc": """
         The case sensitivity mode.  If omitted or True, a case insensitive sorting is performed.  If False, a case sensitive sorting is performed.
             """

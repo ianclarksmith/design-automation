@@ -8,25 +8,27 @@ object_mesh_quality = {
         Returns or sets the render mesh quality of an object's custom render mesh parameters.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectMeshQuality (strObject [, intQuality])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intQuality"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "Object",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object that has custom render mesh parameters.
             """
         },
         1: {
-            "name": "Quality",
+            "name": "intQuality",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Quality",
             "doc": """
         The render mesh quality, either:
 		Value

@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class Math(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def a_cos(self, number):
         """        
@@ -30,19 +39,13 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(757, 1, (VT_VARIANT, 0), params_magic_numbers, u"ACos", None, *params_flattened)
+        return self._ApplyTypes_(757, 1, (VT_VARIANT, 0), magic, u"ACos", None, *flattened)
 
     def a_cos_h(self, number):
         """        
@@ -66,19 +69,13 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(763, 1, (VT_VARIANT, 0), params_magic_numbers, u"ACosH", None, *params_flattened)
+        return self._ApplyTypes_(763, 1, (VT_VARIANT, 0), magic, u"ACosH", None, *flattened)
 
     def a_sin(self, number):
         """        
@@ -102,19 +99,13 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(756, 1, (VT_VARIANT, 0), params_magic_numbers, u"ASin", None, *params_flattened)
+        return self._ApplyTypes_(756, 1, (VT_VARIANT, 0), magic, u"ASin", None, *flattened)
 
     def a_sin_h(self, number):
         """        
@@ -138,19 +129,13 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(762, 1, (VT_VARIANT, 0), params_magic_numbers, u"ASinH", None, *params_flattened)
+        return self._ApplyTypes_(762, 1, (VT_VARIANT, 0), magic, u"ASinH", None, *flattened)
 
     def a_tan2(self, number_y, number_x):
         """        
@@ -177,19 +162,13 @@ class Math(IRhinoScript):
         """
 
         params = [number_y, number_x]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [number_y, number_x]
+        required = [True, True]
+        magic = [(VT_R8, 1), (VT_R8, 1)]
+        flattened = [number_y, number_x]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(758, 1, (VT_VARIANT, 0), params_magic_numbers, u"ATan2", None, *params_flattened)
+        return self._ApplyTypes_(758, 1, (VT_VARIANT, 0), magic, u"ATan2", None, *flattened)
 
     def a_tan_h(self, number):
         """        
@@ -213,19 +192,13 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(764, 1, (VT_VARIANT, 0), params_magic_numbers, u"ATanH", None, *params_flattened)
+        return self._ApplyTypes_(764, 1, (VT_VARIANT, 0), magic, u"ATanH", None, *flattened)
 
     def angle(self, point1, point2, world=None):
         """        
@@ -234,10 +207,10 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ????, Required        
+        point1, Array of Doubles, Required        
         The first 3-D point.
             
-        point2, Array of ????, Required        
+        point2, Array of Doubles, Required        
         The second 3-D point.
             
         world, Boolean, Optional        
@@ -255,19 +228,13 @@ class Math(IRhinoScript):
         """
 
         params = [point1, point2, world]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(point1), flatten(point2), world]
+        required = [True, True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_BOOL, 1)]
+        flattened = [flatten_params(point1), flatten_params(point2), world]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(115, 1, (VT_VARIANT, 0), params_magic_numbers, u"Angle", None, *params_flattened)
+        return self._ApplyTypes_(115, 1, (VT_VARIANT, 0), magic, u"Angle", None, *flattened)
 
     def angle2(self, point1, point2):
         """        
@@ -276,10 +243,10 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ????, Required        
+        point1, Array of Doubles, Required        
         An array containing the starting and ending 3-D points of the first line.
             
-        point2, Array of ????, Required        
+        point2, Array of Doubles, Required        
         An array containing the starting and ending 3-D points of the second line.
             
         Returns
@@ -294,19 +261,13 @@ class Math(IRhinoScript):
         """
 
         params = [point1, point2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point1), flatten(point2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point1), flatten_params(point2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(116, 1, (VT_VARIANT, 0), params_magic_numbers, u"Angle2", None, *params_flattened)
+        return self._ApplyTypes_(116, 1, (VT_VARIANT, 0), magic, u"Angle2", None, *flattened)
 
     def ceil(self, number):
         """        
@@ -330,19 +291,13 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(766, 1, (VT_VARIANT, 0), params_magic_numbers, u"Ceil", None, *params_flattened)
+        return self._ApplyTypes_(766, 1, (VT_VARIANT, 0), magic, u"Ceil", None, *flattened)
 
     def cos_h(self, angle):
         """        
@@ -366,19 +321,13 @@ class Math(IRhinoScript):
         """
 
         params = [angle]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [angle]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [angle]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(760, 1, (VT_VARIANT, 0), params_magic_numbers, u"CosH", None, *params_flattened)
+        return self._ApplyTypes_(760, 1, (VT_VARIANT, 0), magic, u"CosH", None, *flattened)
 
     def deviation(self, numbers):
         """        
@@ -387,7 +336,7 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        numbers, Array of ????, Required        
+        numbers, Array of Integers, Required        
         An array of numbers to analyze.
             
         Returns
@@ -402,21 +351,15 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(numbers)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_I2, 1),]
+        flattened = [flatten_params(numbers)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(773, 1, (VT_VARIANT, 0), magic, u"Deviation", None, *flattened)
 
-        return self._ApplyTypes_(773, 1, (VT_VARIANT, 0), params_magic_numbers, u"Deviation", None, *params_flattened)
-
-    def distance(self, point1, point2, point_array):
+    def distance(self, point1, point2):
         """        
         Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.
     
@@ -428,6 +371,39 @@ class Math(IRhinoScript):
             
         point2, Array of ????, Required        
         The second 3-D point.
+            
+        Returns
+        =======
+
+        number
+        If arrPoint1 and arrPoint2 are specified, then the distance is successful.
+
+        array
+        If arrPoint1 and arrPointArray are specified, then an array of distances if successful.
+
+        null
+        If not successful, or on error.
+
+        """
+
+        params = [point1, point2]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(point1), flatten_params(point2)]
+
+        magic, flattened = select_params(params, required, magic, flattened)
+
+        return self._ApplyTypes_(118, 1, (VT_VARIANT, 0), magic, u"Distance", None, *flattened)
+
+    def distance_2(self, point1, point_array):
+        """        
+        Measures the distance between two 3-D points, or between a 3-D point and an array of 3-D points.
+    
+        Parameters
+        ==========
+
+        point1, Array of ????, Required        
+        The first 3-D point.
             
         point_array, Array of ????, Required        
         An array of 3-D points.
@@ -446,22 +422,16 @@ class Math(IRhinoScript):
 
         """
 
-        params = [point1, point2, point_array]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point1), flatten(point2), flatten(point_array)]
+        params = [point1, point_array]
+        required = [True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(point1), flatten_params(point_array)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(118, 1, (VT_VARIANT, 0), magic, u"Distance", None, *flattened)
 
-        return self._ApplyTypes_(118, 1, (VT_VARIANT, 0), params_magic_numbers, u"Distance", None, *params_flattened)
-
-    def e():
+    def e(self):
         """        
         Returns the value of the base of the natural system of logarithms (e).
     
@@ -476,19 +446,13 @@ class Math(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(774, 1, (VT_VARIANT, 0), params_magic_numbers, u"E", None, *params_flattened)
+        return self._ApplyTypes_(774, 1, (VT_VARIANT, 0), magic, u"E", None, *flattened)
 
     def floor(self, number):
         """        
@@ -512,19 +476,13 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(767, 1, (VT_VARIANT, 0), params_magic_numbers, u"Floor", None, *params_flattened)
+        return self._ApplyTypes_(767, 1, (VT_VARIANT, 0), magic, u"Floor", None, *flattened)
 
     def hypot(self, number_x, number_y):
         """        
@@ -551,19 +509,13 @@ class Math(IRhinoScript):
         """
 
         params = [number_x, number_y]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_R8, 1), (VT_R8, 1)]
-        params_flattened = [number_x, number_y]
+        required = [True, True]
+        magic = [(VT_R8, 1), (VT_R8, 1)]
+        flattened = [number_x, number_y]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(765, 1, (VT_VARIANT, 0), params_magic_numbers, u"Hypot", None, *params_flattened)
+        return self._ApplyTypes_(765, 1, (VT_VARIANT, 0), magic, u"Hypot", None, *flattened)
 
     def log10(self, number):
         """        
@@ -587,19 +539,13 @@ class Math(IRhinoScript):
         """
 
         params = [number]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [number]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [number]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(777, 1, (VT_VARIANT, 0), params_magic_numbers, u"Log10", None, *params_flattened)
+        return self._ApplyTypes_(777, 1, (VT_VARIANT, 0), magic, u"Log10", None, *flattened)
 
     def max(self, numbers):
         """        
@@ -608,7 +554,7 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        numbers, Array of ????, Required        
+        numbers, Array of Integers, Required        
         An array of numbers to analyze.
             
         Returns
@@ -623,19 +569,13 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(numbers)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_I2, 1),]
+        flattened = [flatten_params(numbers)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(768, 1, (VT_VARIANT, 0), params_magic_numbers, u"Max", None, *params_flattened)
+        return self._ApplyTypes_(768, 1, (VT_VARIANT, 0), magic, u"Max", None, *flattened)
 
     def mean(self, numbers):
         """        
@@ -644,7 +584,7 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        numbers, Array of ????, Required        
+        numbers, Array of Integers, Required        
         An array of numbers to analyze.
             
         Returns
@@ -659,19 +599,13 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(numbers)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_I2, 1),]
+        flattened = [flatten_params(numbers)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(771, 1, (VT_VARIANT, 0), params_magic_numbers, u"Mean", None, *params_flattened)
+        return self._ApplyTypes_(771, 1, (VT_VARIANT, 0), magic, u"Mean", None, *flattened)
 
     def median(self, numbers):
         """        
@@ -680,7 +614,7 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        numbers, Array of ????, Required        
+        numbers, Array of Integers, Required        
         An array of numbers to analyze.
             
         Returns
@@ -695,19 +629,13 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(numbers)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_I2, 1),]
+        flattened = [flatten_params(numbers)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(772, 1, (VT_VARIANT, 0), params_magic_numbers, u"Median", None, *params_flattened)
+        return self._ApplyTypes_(772, 1, (VT_VARIANT, 0), magic, u"Median", None, *flattened)
 
     def min(self, numbers):
         """        
@@ -716,7 +644,7 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        numbers, Array of ????, Required        
+        numbers, Array of Integers, Required        
         An array of numbers to analyze.
             
         Returns
@@ -731,21 +659,15 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(numbers)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_I2, 1),]
+        flattened = [flatten_params(numbers)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(769, 1, (VT_VARIANT, 0), magic, u"Min", None, *flattened)
 
-        return self._ApplyTypes_(769, 1, (VT_VARIANT, 0), params_magic_numbers, u"Min", None, *params_flattened)
-
-    def p_i():
+    def p_i(self):
         """        
         Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793238462643.
     
@@ -760,19 +682,13 @@ class Math(IRhinoScript):
         """
 
         params = []
-        params_required = []
-        params_magic_numbers = []
-        params_flattened = []
+        required = []
+        magic = []
+        flattened = []
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(663, 1, (VT_VARIANT, 0), params_magic_numbers, u"PI", None, *params_flattened)
+        return self._ApplyTypes_(663, 1, (VT_VARIANT, 0), magic, u"PI", None, *flattened)
 
     def polar(self, point, angle, distance, plane=None):
         """        
@@ -781,7 +697,7 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D point to transform.
             
         angle, Double, Required        
@@ -790,7 +706,7 @@ class Math(IRhinoScript):
         distance, Double, Required        
         The distance.
             
-        plane, Array of ????, Optional        
+        plane, Array of Doubles, Optional        
         The plane to base the transformation. Of omitted, the world x-y plane is used. The elements of a plane array are as follows:
 		0
 		Required.  The plane's origin (3-D point).
@@ -812,19 +728,13 @@ class Math(IRhinoScript):
         """
 
         params = [point, angle, distance, plane]
-        params_required = [True, True, True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point), angle, distance, flatten(plane)]
+        required = [True, True, True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point), angle, distance, flatten_params(plane)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(662, 1, (VT_VARIANT, 0), params_magic_numbers, u"Polar", None, *params_flattened)
+        return self._ApplyTypes_(662, 1, (VT_VARIANT, 0), magic, u"Polar", None, *flattened)
 
     def sin_h(self, angle):
         """        
@@ -848,19 +758,13 @@ class Math(IRhinoScript):
         """
 
         params = [angle]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [angle]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [angle]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(759, 1, (VT_VARIANT, 0), params_magic_numbers, u"SinH", None, *params_flattened)
+        return self._ApplyTypes_(759, 1, (VT_VARIANT, 0), magic, u"SinH", None, *flattened)
 
     def sum(self, numbers):
         """        
@@ -869,7 +773,7 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        numbers, Array of ????, Required        
+        numbers, Array of Integers, Required        
         An array of numbers to sum.
             
         Returns
@@ -884,19 +788,13 @@ class Math(IRhinoScript):
         """
 
         params = [numbers]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(numbers)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_I2, 1),]
+        flattened = [flatten_params(numbers)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(770, 1, (VT_VARIANT, 0), params_magic_numbers, u"Sum", None, *params_flattened)
+        return self._ApplyTypes_(770, 1, (VT_VARIANT, 0), magic, u"Sum", None, *flattened)
 
     def tan_h(self, angle):
         """        
@@ -920,19 +818,13 @@ class Math(IRhinoScript):
         """
 
         params = [angle]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [angle]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [angle]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(761, 1, (VT_VARIANT, 0), params_magic_numbers, u"TanH", None, *params_flattened)
+        return self._ApplyTypes_(761, 1, (VT_VARIANT, 0), magic, u"TanH", None, *flattened)
 
     def to_degrees(self, radians):
         """        
@@ -956,19 +848,13 @@ class Math(IRhinoScript):
         """
 
         params = [radians]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [radians]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [radians]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(664, 1, (VT_VARIANT, 0), params_magic_numbers, u"ToDegrees", None, *params_flattened)
+        return self._ApplyTypes_(664, 1, (VT_VARIANT, 0), magic, u"ToDegrees", None, *flattened)
 
     def to_radians(self, degrees):
         """        
@@ -992,17 +878,11 @@ class Math(IRhinoScript):
         """
 
         params = [degrees]
-        params_required = [True]
-        params_magic_numbers = [(VT_R8, 1),]
-        params_flattened = [degrees]
+        required = [True]
+        magic = [(VT_R8, 1),]
+        flattened = [degrees]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(665, 1, (VT_VARIANT, 0), params_magic_numbers, u"ToRadians", None, *params_flattened)
+        return self._ApplyTypes_(665, 1, (VT_VARIANT, 0), magic, u"ToRadians", None, *flattened)
 

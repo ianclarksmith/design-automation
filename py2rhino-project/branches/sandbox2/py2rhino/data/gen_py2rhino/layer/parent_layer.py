@@ -8,25 +8,27 @@ parent_layer = {
         Returns or modifies the parent layer of a layer.
     """,
 
-    "syntax_html": """
-        Rhino.ParentLayer (strLayer [, strParent])
-    """,
+    "syntax_html": {
+        0: ("strLayer", "strParent"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of the layer.
             """
         },
         1: {
-            "name": "Parent",
+            "name": "strParent",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Parent",
             "doc": """
         The name of the new parent layer. To remove the parent layer, thus making a root-level layer, specify either Null or an empty string, or "".
             """

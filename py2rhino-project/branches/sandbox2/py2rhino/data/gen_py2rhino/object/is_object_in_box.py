@@ -8,34 +8,37 @@ is_object_in_box = {
         Verifies an object's bounding box is inside of another bounding box.
     """,
 
-    "syntax_html": """
-        Rhino.IsObjectInBox (strObject, arrBox, [blnMode])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrBox", "blnMode"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an object.
             """
         },
         1: {
-            "name": "Box",
+            "name": "arrBox",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Box",
             "doc": """
         The bounding box to test against. A bounding box is an array of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.
             """
         },
         2: {
-            "name": "Mode",
+            "name": "blnMode",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Mode",
             "doc": """
         The test mode.
 		Value

@@ -8,43 +8,47 @@ divide_curve = {
         Divides a curve object into a specified number of segments.
     """,
 
-    "syntax_html": """
-        Rhino.DivideCurve (strObject, lngSegments [, blnCreate [, blnPoints]])
-    """,
+    "syntax_html": {
+        0: ("strObject", "lngSegments", "blnCreate", "blnPoints"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Segments",
+            "name": "lngSegments",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Segments",
             "doc": """
         The number of segments.
             """
         },
         2: {
-            "name": "Create",
+            "name": "blnCreate",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Create",
             "doc": """
         Create the division points. If omitted or False, points are not created.
             """
         },
         3: {
-            "name": "Points",
+            "name": "blnPoints",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Points",
             "doc": """
         Return an array of 3-D points. If omitted or True, points are returned. If False, then an array of curve parameters are returned.
             """

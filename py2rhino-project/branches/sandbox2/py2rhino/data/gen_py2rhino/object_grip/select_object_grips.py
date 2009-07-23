@@ -8,16 +8,17 @@ select_object_grips = {
         Selects an object's grips. If the object's grips are not turned on, they will not be selected.
     """,
 
-    "syntax_html": """
-        Rhino.SelectObjectGrips (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """

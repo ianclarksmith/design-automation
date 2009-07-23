@@ -8,25 +8,27 @@ line_closest_point = {
         Finds the point on an infinite line that is closest to a test point.
     """,
 
-    "syntax_html": """
-        Rhino.LineClosestPoint (arrLine, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("arrLine", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Line",
+            "name": "arrLine",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Line",
             "doc": """
         Two 3-D points identifying the starting and ending points of the line.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         The test point.
             """

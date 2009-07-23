@@ -11,16 +11,17 @@ display_ole_alerts = {
 		Note, the display of OLE Server Busy/Not Responding dialog boxes will be re-enabled whenever the script engine is reset, either by running the ResetRhinoScript command or by having the Reinitialize option enabled in Tools->Options->RhinoScript.
     """,
 
-    "syntax_html": """
-        Rhino.DisplayOleAlerts (blnDisplay)
-    """,
+    "syntax_html": {
+        0: ("blnDisplay"),
+    },
 
     "params_html": {
         0: {
-            "name": "Display",
+            "name": "blnDisplay",
             "opt_or_req": "Required",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Display",
             "doc": """
         Enable or disable the display of OLE alert dialog boxes.
             """

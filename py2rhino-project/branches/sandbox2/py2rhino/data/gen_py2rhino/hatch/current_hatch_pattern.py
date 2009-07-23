@@ -8,16 +8,17 @@ current_hatch_pattern = {
         Returns or sets the current hatch pattern file.
     """,
 
-    "syntax_html": """
-        Rhino.CurrentHatchPattern ([strHatch])
-    """,
+    "syntax_html": {
+        0: ("strHatch"),
+    },
 
     "params_html": {
         0: {
-            "name": "Hatch",
+            "name": "strHatch",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Hatch",
             "doc": """
         The name of an existing hatch pattern to make current.
             """

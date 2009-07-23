@@ -8,16 +8,17 @@ vector_unitize = {
         Unitizes, or normalizes, a 3-D vector. Note, zero vectors cannot be unitized.
     """,
 
-    "syntax_html": """
-        Rhino.VectorUnitize (arrVector)
-    """,
+    "syntax_html": {
+        0: ("arrVector"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vector",
+            "name": "arrVector",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector",
             "doc": """
         The 3-D vector to unitize.
             """

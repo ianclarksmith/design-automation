@@ -8,25 +8,27 @@ text_out = {
         Displays a text output window.
     """,
 
-    "syntax_html": """
-        Rhino.TextOut (strText [, strTitle]])
-    """,
+    "syntax_html": {
+        0: ("strText", "strTitle"),
+    },
 
     "params_html": {
         0: {
-            "name": "Text",
+            "name": "strText",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Text",
             "doc": """
         A text string to display.
             """
         },
         1: {
-            "name": "Title",
+            "name": "strTitle",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Title",
             "doc": """
         A dialog box title.
             """

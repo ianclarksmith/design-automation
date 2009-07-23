@@ -8,61 +8,68 @@ insert_block = {
         Inserts a block whose definition already exists in the document.
     """,
 
-    "syntax_html": """
-        Rhino.InsertBlock (strName, arrPoint [, arrScale [, dblAngle [, arrNormal]]])
-    """,
+    "syntax_html": {
+        0: ("strName", "arrPoint", "arrScale", "dblAngle", "arrNormal"),
+        1: ("strName", "arrXform"),
+    },
 
     "params_html": {
         0: {
-            "name": "Name",
+            "name": "strName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Name",
             "doc": """
         The name of the block definition to insert.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point",
             "doc": """
         The 3-D insertion point of the block.
             """
         },
         2: {
-            "name": "Scale",
+            "name": "arrScale",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Scale",
             "doc": """
         An array of three numbers that identify the x,y,z scale factors. If omitted, the block is not scaled.
             """
         },
         3: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         The rotation angle in degrees. If omitted, the block is not rotated.
             """
         },
         4: {
-            "name": "Normal",
+            "name": "arrNormal",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Normal",
             "doc": """
         A 3-D vector identifying the axis of rotation. If omitted and dblAngle is specified, the world Z axis is used.
             """
         },
         5: {
-            "name": "Xform",
+            "name": "arrXform",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Xform",
             "doc": """
         4x4 transformation matrix to apply.
             """

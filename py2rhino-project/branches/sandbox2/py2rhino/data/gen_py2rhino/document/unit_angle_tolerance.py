@@ -8,16 +8,17 @@ unit_angle_tolerance = {
         Returns or sets the document's angle tolerance parameter.  Angle tolerance is measured degrees.  See Rhino's DocumentProperties command (Units window) for details.
     """,
 
-    "syntax_html": """
-        Rhino.UnitAngleTolerance ([dblAngleTol])
-    """,
+    "syntax_html": {
+        0: ("dblAngleTol"),
+    },
 
     "params_html": {
         0: {
-            "name": "AngleTol",
+            "name": "dblAngleTol",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "AngleTol",
             "doc": """
         The angle tolerance in degrees.
             """

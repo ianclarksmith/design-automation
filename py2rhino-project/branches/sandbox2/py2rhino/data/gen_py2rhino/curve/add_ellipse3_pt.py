@@ -8,34 +8,37 @@ add_ellipse3_pt = {
         Adds a 3 point elliptical curve to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddEllipse3Pt (arrCenter, arrSecond, arrThird)
-    """,
+    "syntax_html": {
+        0: ("arrCenter", "arrSecond", "arrThird"),
+    },
 
     "params_html": {
         0: {
-            "name": "Center",
+            "name": "arrCenter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Center",
             "doc": """
         The center point of the ellipse.
             """
         },
         1: {
-            "name": "Second",
+            "name": "arrSecond",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Second",
             "doc": """
         The end point of the X-axis.
             """
         },
         2: {
-            "name": "Third",
+            "name": "arrThird",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Third",
             "doc": """
         The end point of the Y-axis.
             """

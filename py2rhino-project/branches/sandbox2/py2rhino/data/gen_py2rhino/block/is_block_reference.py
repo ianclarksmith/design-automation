@@ -8,16 +8,17 @@ is_block_reference = {
         Verifies that a block definition is from a reference file.
     """,
 
-    "syntax_html": """
-        Rhino.IsBlockReference (strBlock)
-    """,
+    "syntax_html": {
+        0: ("strBlock"),
+    },
 
     "params_html": {
         0: {
-            "name": "Block",
+            "name": "strBlock",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Block",
             "doc": """
         The name of an existing block definition.
             """

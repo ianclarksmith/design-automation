@@ -8,34 +8,37 @@ plane_from_frame = {
         Construct a plane from a point, and two vectors in the plane.
     """,
 
-    "syntax_html": """
-        Rhino.PlaneFromFrame (arrOrigin, arrXaxis, arrYaxis)
-    """,
+    "syntax_html": {
+        0: ("arrOrigin", "arrXaxis", "arrYaxis"),
+    },
 
     "params_html": {
         0: {
-            "name": "Origin",
+            "name": "arrOrigin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Origin",
             "doc": """
         A 3-D point identifying the origin of the plane.
             """
         },
         1: {
-            "name": "Xaxis",
+            "name": "arrXaxis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Xaxis",
             "doc": """
         A non-zero 3-D vector in the plane that determines the X axis direction.
             """
         },
         2: {
-            "name": "Yaxis",
+            "name": "arrYaxis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Yaxis",
             "doc": """
         A non-zero 3-D vector not parallel to arrXaxis that is used to determine the Y axis direction. Note, arrYaxis does not have to be perpendicular to arrXaxis.
             """

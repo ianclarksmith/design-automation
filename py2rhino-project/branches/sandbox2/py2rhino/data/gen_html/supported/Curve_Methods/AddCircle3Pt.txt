@@ -18,15 +18,15 @@ Parameters
 
 
 
-arrStart 
+arrFirst 
 
 Required.  Array. The first point of the circle.
 
-arrEnd 
+arrSecond 
 
 Required.  Array.  The second point of the circle.
 
-arrPoint 
+arrThird 
 
 Required.  Array.  The third point of the circle.
 

@@ -22,25 +22,27 @@ command = {
 		After the command script has run, you can obtain the identifiers of most recently created or changed object by calling LastCreatedObjects.
     """,
 
-    "syntax_html": """
-        Rhino.Command (strCommand [, blnEcho])
-    """,
+    "syntax_html": {
+        0: ("strCommand", "blnEcho"),
+    },
 
     "params_html": {
         0: {
-            "name": "Command",
+            "name": "strCommand",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Command",
             "doc": """
         A Rhino command including any arguments.
             """
         },
         1: {
-            "name": "Echo",
+            "name": "blnEcho",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Echo",
             "doc": """
         The command echo mode.  If omitted, command prompts are echoed (True).
             """

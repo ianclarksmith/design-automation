@@ -8,16 +8,17 @@ maximize_restore_view = {
         Toggles a view's maximized/restore window state of the specified view.
     """,
 
-    "syntax_html": """
-        Rhino.MaximizeRestoreView (strView)
-    """,
+    "syntax_html": {
+        0: ("strView"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """

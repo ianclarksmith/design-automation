@@ -8,34 +8,37 @@ current_detail = {
         Returns or changes the current detail view in a page layout view.
     """,
 
-    "syntax_html": """
-        Rhino.CurrentDetail (strLayout [, strDetail [, blnReturnNames]])
-    """,
+    "syntax_html": {
+        0: ("strLayout", "strDetail", "blnReturnNames"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layout",
+            "name": "strLayout",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layout",
             "doc": """
         The title or identifier of an existing page layout view.
             """
         },
         1: {
-            "name": "Detail",
+            "name": "strDetail",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Detail",
             "doc": """
         The title identifier of the detail view to set current.  If omitted, identifier of the current detail view is returned.  Note, if no detail views are active, then the title or identifier of the page layout view is returned. Also, to set the page layout view current, simply user strLayout as the value you pass to strDetail.
             """
         },
         2: {
-            "name": "ReturnNames",
+            "name": "blnReturnNames",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnNames",
             "doc": """
         If True (default), then the name, or title, of the detail view is returned. If False, then the identifier of the detail view is returned.
             """

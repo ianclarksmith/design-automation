@@ -8,9 +8,8 @@ e = {
         Returns the value of the base of the natural system of logarithms (e).
     """,
 
-    "syntax_html": """
-        Rhino.E
-    """,
+    "syntax_html": {
+    },
 
     "params_html": {
     },

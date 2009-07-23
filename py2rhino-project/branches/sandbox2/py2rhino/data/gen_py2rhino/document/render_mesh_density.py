@@ -9,16 +9,17 @@ render_mesh_density = {
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
     """,
 
-    "syntax_html": """
-        Rhino.RenderMeshDensity ([dblDensity])
-    """,
+    "syntax_html": {
+        0: ("dblDensity"),
+    },
 
     "params_html": {
         0: {
-            "name": "Density",
+            "name": "dblDensity",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Density",
             "doc": """
         The render mesh density, which is a number between 0.0 and 1.0.
             """

@@ -8,25 +8,27 @@ spot_light_shadow_intensity = {
         Returns or modifies the shadow intensity of a spot light.
     """,
 
-    "syntax_html": """
-        Rhino.SpotLightShadowIntensity (strObject [, dblIntensity])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblIntensity"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The light object's identifier.
             """
         },
         1: {
-            "name": "Intensity",
+            "name": "dblIntensity",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Intensity",
             "doc": """
         The new shadow intensity.  A spot light's shadow intensity ranges from 0.0 to 1.0.  If set to 0.0, the spot light will cast no shadows.  If set to 1.0, the spot light will cast black shadows.  If omitted, the current shadow intensity is returned.
             """

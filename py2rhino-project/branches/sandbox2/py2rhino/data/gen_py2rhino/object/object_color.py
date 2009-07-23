@@ -8,25 +8,28 @@ object_color = {
         Returns or modifies the color of an object.  Object colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     """,
 
-    "syntax_html": """
-        Rhino.ObjectColor (strObject [, lngColor])
-    """,
+    "syntax_html": {
+        0: ("strObject", "lngColor"),
+        1: ("arrObjects", "lngColor"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
             """
         },
         1: {
-            "name": "Color",
+            "name": "lngColor",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Color",
             "doc": """
         The new color value.  If omitted, the current object color is returned.  Note, if arrObjects is specified, lngColor is required.
             """

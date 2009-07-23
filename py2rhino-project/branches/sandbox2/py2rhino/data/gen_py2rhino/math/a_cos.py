@@ -8,16 +8,17 @@ a_cos = {
         Returns the arccosine, or inverse cosine, of a number. The arccosine is the angle whose cosine is number. The returned angle is given in radians in the range 0 (zero) to PI.
     """,
 
-    "syntax_html": """
-        Rhino.ACos (dblNumber)
-    """,
+    "syntax_html": {
+        0: ("dblNumber"),
+    },
 
     "params_html": {
         0: {
-            "name": "Number",
+            "name": "dblNumber",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Number",
             "doc": """
         A number representing the cosine of the angle you want and must be from -1 to 1.
             """

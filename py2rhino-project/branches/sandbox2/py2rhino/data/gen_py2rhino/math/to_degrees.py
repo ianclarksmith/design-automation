@@ -8,16 +8,17 @@ to_degrees = {
         Converts an angle specified in radians to degrees.
     """,
 
-    "syntax_html": """
-        Rhino.ToDegrees (dblRadians)
-    """,
+    "syntax_html": {
+        0: ("dblRadians"),
+    },
 
     "params_html": {
         0: {
-            "name": "Radians",
+            "name": "dblRadians",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radians",
             "doc": """
         The angle in radians
             """

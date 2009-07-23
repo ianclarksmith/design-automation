@@ -14,25 +14,28 @@ object_material_source = {
 		The default rendering material source for new objects is "material by layer."
     """,
 
-    "syntax_html": """
-        Rhino.ObjectMaterialSource (strObject [, intSource])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intSource"),
+        1: ("arrObjects", "intSource"),
+    },
 
     "params_html": {
         0: {
-            "name": "Objects",
+            "name": "arrObjects",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.
             """
         },
         1: {
-            "name": "Source",
+            "name": "intSource",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Source",
             "doc": """
         The new rendering material source.  If omitted, the current material source is returned.  Note, if arrObjects is specified, intSource is required.
 		Value

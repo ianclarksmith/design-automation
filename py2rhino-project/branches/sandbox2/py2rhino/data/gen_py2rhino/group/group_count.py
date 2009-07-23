@@ -8,9 +8,9 @@ group_count = {
         Returns the number of groups in the document.
     """,
 
-    "syntax_html": """
-        Rhino.GroupCount ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

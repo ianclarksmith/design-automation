@@ -8,34 +8,37 @@ html_box = {
         Displays a custom, modal HTML dialog page. A modal dialog box retains the input focus while open. The user cannot switch windows until the dialog box is closed.
     """,
 
-    "syntax_html": """
-        Rhino.HtmlBox (strFileName [, arrArguments [, strOptions [, blnModal]]])
-    """,
+    "syntax_html": {
+        0: ("strFileName", "arrArguments", "strOptions", "blnModal"),
+    },
 
     "params_html": {
         0: {
-            "name": "FileName",
+            "name": "strFileName",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "FileName",
             "doc": """
         The filename the HTML dialog page to display.
             """
         },
         1: {
-            "name": "Arguments",
+            "name": "vaArguments",
             "opt_or_req": "Optional",
             "type": "Variant",
-            "type_string": "va",
+            "name_prefix": "va",
+            "name_main": "Arguments",
             "doc": """
         An argument, or a zero-based, one-dimensional array of arguments, to pass to the HTML-dialog page.
             """
         },
         2: {
-            "name": "Options",
+            "name": "strOptions",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Options",
             "doc": """
         The window ornaments for the dialog box, using one or more of the following semicolon-delimited values:
 		Value
@@ -66,10 +69,11 @@ html_box = {
             """
         },
         3: {
-            "name": "Modal",
+            "name": "blnModal",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Modal",
             "doc": """
         If omitted or True, a modal dialog will be displayed.  If False, a modeless dialog box will be displayed.
             """

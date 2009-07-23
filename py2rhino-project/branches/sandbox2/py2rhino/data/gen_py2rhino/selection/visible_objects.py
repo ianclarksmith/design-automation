@@ -8,43 +8,47 @@ visible_objects = {
         Returns the identifiers of all objects that are visible in a specified view.
     """,
 
-    "syntax_html": """
-        Rhino.VisibleObjects ([strView [, blnSelect [, blnIncludeLights [, blnIncludeGrips]]]])
-    """,
+    "syntax_html": {
+        0: ("strView", "blnSelect", "blnIncludeLights", "blnIncludeGrips"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the objects.  If omitted, the object is not selected (False).
             """
         },
         2: {
-            "name": "IncludeLights",
+            "name": "blnIncludeLights",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeLights",
             "doc": """
         Include light objects.  If omitted, light objects are not returned (False).
             """
         },
         3: {
-            "name": "IncludeGrips",
+            "name": "blnIncludeGrips",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "IncludeGrips",
             "doc": """
         Include grips objects.  If omitted, grips objects are not returned (False).
             """

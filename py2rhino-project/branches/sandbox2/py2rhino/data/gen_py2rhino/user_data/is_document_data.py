@@ -8,9 +8,9 @@ is_document_data = {
         Verifies that the current document contains RhinoScript user data.
     """,
 
-    "syntax_html": """
-        Rhino.IsDocumentData ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

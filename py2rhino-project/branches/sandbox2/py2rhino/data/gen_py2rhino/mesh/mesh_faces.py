@@ -8,25 +8,27 @@ mesh_faces = {
         Returns the face vertices of a mesh object.
     """,
 
-    "syntax_html": """
-        Rhino.MeshFaces (strObject, blnFaceType)
-    """,
+    "syntax_html": {
+        0: ("strObject", "blnFaceType"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a mesh object.
             """
         },
         1: {
-            "name": "FaceType",
+            "name": "blnFaceType",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "FaceType",
             "doc": """
         The face type to be returned.  If omitted, both triangles and quads are returned (True)
 		Value

@@ -8,43 +8,47 @@ get_distance = {
         Pauses for user input of a distance.
     """,
 
-    "syntax_html": """
-        Rhino.GetDistance ([arrPoint [, dblDistance [, strMessage1 [, strMessage2]]]])
-    """,
+    "syntax_html": {
+        0: ("arrPoint", "dblDistance", "strMessage1", "strMessage2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A zero-based, one-dimensional array containing three numbers identifying the first distance point.
             """
         },
         1: {
-            "name": "Distance",
+            "name": "dblDistance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Distance",
             "doc": """
         A default distance value.
             """
         },
         2: {
-            "name": "Message1",
+            "name": "strMessage1",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message1",
             "doc": """
         A prompt or message for the first distance point.
             """
         },
         3: {
-            "name": "Message2",
+            "name": "strMessage2",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message2",
             "doc": """
         A prompt or message for the second distance point.
             """

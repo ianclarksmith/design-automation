@@ -8,16 +8,17 @@ is_dim_style = {
         Verifies the existence of a dimension style in the document.
     """,
 
-    "syntax_html": """
-        Rhino.IsDimStyle (strDimStyle)
-    """,
+    "syntax_html": {
+        0: ("strDimStyle"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of a dimension style to test.
             """

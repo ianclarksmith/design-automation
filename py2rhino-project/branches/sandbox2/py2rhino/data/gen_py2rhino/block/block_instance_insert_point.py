@@ -8,16 +8,17 @@ block_instance_insert_point = {
         Returns the insertion point of a block instance.
     """,
 
-    "syntax_html": """
-        Rhino.BlockInstanceInsertPoint (strObject)
-    """,
+    "syntax_html": {
+        0: ("strObject"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of an existing block insertion object.
             """

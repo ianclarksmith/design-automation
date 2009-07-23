@@ -8,34 +8,37 @@ make_surface_non_periodic = {
         Makes a periodic surface non-periodic. Non-periodic surfaces can develop kinks when deformed.
     """,
 
-    "syntax_html": """
-        Rhino.MakeSurfaceNonPeriodic (strObject, intDirection [, blnDelete])
-    """,
+    "syntax_html": {
+        0: ("strObject", "intDirection", "blnDelete"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The direction to make non-periodic, either 0 = U, or 1 = V.
             """
         },
         2: {
-            "name": "Delete",
+            "name": "blnDelete",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Delete",
             "doc": """
         Delete input surface.  If omitted, the input surface will not be deleted (False).
             """

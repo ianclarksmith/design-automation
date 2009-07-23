@@ -8,34 +8,37 @@ view_display_mode_ex = {
         Returns or sets a view's display mode.  Unlike the ViewDisplayMode method, which only allows you to set a view to wireframe, shaded, or render preview, this method allows you to set a view to any display mode including those listed in the Advanced Display Modes section of Rhino's Options dialog box.
     """,
 
-    "syntax_html": """
-        Rhino.ViewDisplayModeEx ([strView [, strMode [, blnReturnNames]]])
-    """,
+    "syntax_html": {
+        0: ("strView", "strMode", "blnReturnNames"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Mode",
+            "name": "strMode",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Mode",
             "doc": """
         The name or identifier of the display mode obtained from the ViewDisplayModes method.
             """
         },
         2: {
-            "name": "ReturnNames",
+            "name": "blnReturnNames",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "ReturnNames",
             "doc": """
         If True (default), then the name the display mode is returned. If False, then the identifier of the display mode is returned.
             """

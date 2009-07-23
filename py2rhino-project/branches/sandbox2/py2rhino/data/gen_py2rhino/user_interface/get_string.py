@@ -8,34 +8,37 @@ get_string = {
         Pauses for user input of string value.
     """,
 
-    "syntax_html": """
-        Rhino.GetString ([strMessage [, strString [, arrStrings]]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "strString", "arrStrings"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "String",
+            "name": "strString",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "String",
             "doc": """
         A default value.
             """
         },
         2: {
-            "name": "Strings",
+            "name": "arrStrings",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_str",
+            "name_prefix": "arr_of_str",
+            "name_main": "Strings",
             "doc": """
         A array of strings to be displayed as click-able command options. Note, strings cannot begin with a numeric character.
             """

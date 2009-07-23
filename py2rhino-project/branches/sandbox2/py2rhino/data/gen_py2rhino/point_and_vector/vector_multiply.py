@@ -8,25 +8,27 @@ vector_multiply = {
         Multiplies two 3-D vectors.
     """,
 
-    "syntax_html": """
-        Rhino.VectorMultiply (arrVector1, arrVector2)
-    """,
+    "syntax_html": {
+        0: ("arrVector1", "arrVector2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Vector1",
+            "name": "arrVector1",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector1",
             "doc": """
         The first 3-D vector.
             """
         },
         1: {
-            "name": "Vector2",
+            "name": "arrVector2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Vector2",
             "doc": """
         The second 3-D vector.
             """

@@ -8,25 +8,27 @@ text_dot_point = {
         Returns or modifies the location, or insertion point, of an annotation text dot object.
     """,
 
-    "syntax_html": """
-        Rhino.TextDotPoint (strObject [, arrPoint])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the object.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A 3-D point identifying the new location point.
             """

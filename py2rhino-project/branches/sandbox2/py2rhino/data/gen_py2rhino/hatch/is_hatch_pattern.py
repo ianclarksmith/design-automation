@@ -8,16 +8,17 @@ is_hatch_pattern = {
         Verifies the existence of a hatch pattern in the document.
     """,
 
-    "syntax_html": """
-        Rhino.IsHatchPattern (strHatch)
-    """,
+    "syntax_html": {
+        0: ("strHatch"),
+    },
 
     "params_html": {
         0: {
-            "name": "Hatch",
+            "name": "strHatch",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Hatch",
             "doc": """
         The name of a hatch pattern.
             """

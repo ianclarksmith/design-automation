@@ -8,34 +8,38 @@ line_max_distance_to = {
         Finds the longest distance between the line, as a finite chord, and a point or another line.
     """,
 
-    "syntax_html": """
-        Rhino.LineMaxDistanceTo (arrLine, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("arrLine", "arrPoint"),
+        1: ("arrLine", "arrLine2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Line",
+            "name": "arrLine",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Line",
             "doc": """
         Two 3-D points identifying the starting and ending points of the line.
             """
         },
         1: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Point",
             "doc": """
         The test point.
             """
         },
         2: {
-            "name": "Line2",
+            "name": "arrLine2",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Line2",
             "doc": """
         Two 3-D points identifying the starting and ending points of the test line (another finite chord).
             """

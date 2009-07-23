@@ -8,9 +8,9 @@ command_history = {
         Returns the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
     """,
 
-    "syntax_html": """
-        Rhino.CommandHistory ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

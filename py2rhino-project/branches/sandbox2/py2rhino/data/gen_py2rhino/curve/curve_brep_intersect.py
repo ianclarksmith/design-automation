@@ -8,34 +8,37 @@ curve_brep_intersect = {
         Intersects a curve object with a brep object. Note, unlike the CurveSurfaceIntersection function, this function works on trimmed surfaces.
     """,
 
-    "syntax_html": """
-        Rhino.CurveBrepIntersect (strCurve, strBrep [, dblTolerance])
-    """,
+    "syntax_html": {
+        0: ("strCurve", "strBrep", "dblTolerance"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The curve object's identifier.
             """
         },
         1: {
-            "name": "Brep",
+            "name": "strBrep",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Brep",
             "doc": """
         The brep object's identifier.
             """
         },
         2: {
-            "name": "Tolerance",
+            "name": "dblTolerance",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Tolerance",
             "doc": """
         The distance tolerance at segment midpoints.  If omitted, the current absolute tolerance is used..
             """

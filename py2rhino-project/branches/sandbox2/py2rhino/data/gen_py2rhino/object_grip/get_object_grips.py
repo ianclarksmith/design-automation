@@ -8,34 +8,37 @@ get_object_grips = {
         Prompts the user to pick or select one or more object grips from one or more objects.
     """,
 
-    "syntax_html": """
-        Rhino.GetObjectGrips ([strMessage [, blnPreSelect [, blnSelect]]])
-    """,
+    "syntax_html": {
+        0: ("strMessage", "blnPreSelect", "blnSelect"),
+    },
 
     "params_html": {
         0: {
-            "name": "Message",
+            "name": "strMessage",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Message",
             "doc": """
         A prompt or message.
             """
         },
         1: {
-            "name": "PreSelect",
+            "name": "blnPreSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "PreSelect",
             "doc": """
         Allow for the selection of a pre-selected object grips.  If omitted, pre-selected object grips are not accepted (False).
             """
         },
         2: {
-            "name": "Select",
+            "name": "blnSelect",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Select",
             "doc": """
         Select the picked object grips.  If omitted, the object grips that are picked is not selected (False).
             """

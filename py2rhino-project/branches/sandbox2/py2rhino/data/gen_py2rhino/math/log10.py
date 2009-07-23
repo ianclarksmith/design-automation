@@ -8,16 +8,17 @@ log10 = {
         Returns the base-10 logarithm of a number.
     """,
 
-    "syntax_html": """
-        Rhino.Log10 (dblNumber)
-    """,
+    "syntax_html": {
+        0: ("dblNumber"),
+    },
 
     "params_html": {
         0: {
-            "name": "Number",
+            "name": "dblNumber",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Number",
             "doc": """
         The positive real number for which you want the base-10 logarithm.
             """

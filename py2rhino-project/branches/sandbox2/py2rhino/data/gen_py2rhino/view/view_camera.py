@@ -8,25 +8,27 @@ view_camera = {
         Returns or sets the camera location of the specified view.
     """,
 
-    "syntax_html": """
-        Rhino.ViewCamera ([strView [, arrCamera]])
-    """,
+    "syntax_html": {
+        0: ("strView", "arrCamera"),
+    },
 
     "params_html": {
         0: {
-            "name": "View",
+            "name": "strView",
             "opt_or_req": "Optional",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "View",
             "doc": """
         The title or identifier of the view.  If omitted, the current active view is used.
             """
         },
         1: {
-            "name": "Camera",
+            "name": "arrCamera",
             "opt_or_req": "Optional",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Camera",
             "doc": """
         A 3-D point identifying the new camera location.  If arrCamera is not specified, the current camera location is returned.
             """

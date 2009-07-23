@@ -8,34 +8,37 @@ extrude_curve_straight = {
         Creates a surface by extruding a curve straight along two points that define a line.
     """,
 
-    "syntax_html": """
-        Rhino.ExtrudeCurveStraight (strCurve, arrStartPoint, arrEndPoint)
-    """,
+    "syntax_html": {
+        0: ("strCurve", "arrStartPoint", "arrEndPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Curve",
+            "name": "strCurve",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Curve",
             "doc": """
         The identifier of the curve object to extrude.
             """
         },
         1: {
-            "name": "StartPoint",
+            "name": "arrStartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "StartPoint",
             "doc": """
         A starting point.
             """
         },
         2: {
-            "name": "EndPoint",
+            "name": "arrEndPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "EndPoint",
             "doc": """
         A ending point.
             """

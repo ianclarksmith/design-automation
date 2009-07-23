@@ -8,25 +8,27 @@ is_surface_closed = {
         Verifies a surface object is closed in the specified direction.  If the surface fully encloses a volume, it is considered a solid.
     """,
 
-    "syntax_html": """
-        Rhino.IsSurfaceClosed (strObject, intDirection)
-    """,
+    "syntax_html": {
+        0: ("strObject", "intDirection"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The direction, either 0 = U, or 1 = V.
             """

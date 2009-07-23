@@ -8,61 +8,68 @@ add_cylinder = {
         Adds a cylinder-shaped polysurface to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddCylinder (arrBase, arrHeight, dblRadius [, blnCap])
-    """,
+    "syntax_html": {
+        0: ("arrBase", "arrHeight", "dblRadius", "blnCap"),
+        1: ("arrPlane", "dblHeight", "dblRadius", "blnCap"),
+    },
 
     "params_html": {
         0: {
-            "name": "Base",
+            "name": "arrBase",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Base",
             "doc": """
         The 3-D base point of the cylinder.
             """
         },
         1: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane",
             "doc": """
         The base plane of the cylinder.
             """
         },
         2: {
-            "name": "Height",
+            "name": "arrHeight",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Height",
             "doc": """
         The 3-D height point of the cylinder.  The height point defines the height and direction of the cylinder.
             """
         },
         3: {
-            "name": "Height",
+            "name": "dblHeight",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Height",
             "doc": """
         The height of the cylinder.
             """
         },
         4: {
-            "name": "Radius",
+            "name": "dblRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radius",
             "doc": """
         The radius of the cylinder.
             """
         },
         5: {
-            "name": "Cap",
+            "name": "blnCap",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Cap",
             "doc": """
         Cap the ends of the cylinder.  If omitted, the ends of the cylinder will be capped (True).
             """

@@ -8,16 +8,17 @@ edge_analysis_color = {
         Returns or modifies edge analysis color displayed by the ShowEdges command.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
     """,
 
-    "syntax_html": """
-        Rhino.EdgeAnalysisColor ([lngColor])
-    """,
+    "syntax_html": {
+        0: ("lngColor"),
+    },
 
     "params_html": {
         0: {
-            "name": "Color",
+            "name": "lngColor",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "lng",
+            "name_prefix": "lng",
+            "name_main": "Color",
             "doc": """
         The new color value.  If omitted, the current item color is returned.
             """

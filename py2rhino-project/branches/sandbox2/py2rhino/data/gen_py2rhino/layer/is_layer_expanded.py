@@ -8,16 +8,17 @@ is_layer_expanded = {
         Verifies that a layer is expanded. Expanded layers can be viewed in Rhino's Layer dialog.
     """,
 
-    "syntax_html": """
-        Rhino.IsLayerExpanded (strLayer)
-    """,
+    "syntax_html": {
+        0: ("strLayer"),
+    },
 
     "params_html": {
         0: {
-            "name": "Layer",
+            "name": "strLayer",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Layer",
             "doc": """
         The name of the layer to test.
             """

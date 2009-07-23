@@ -8,52 +8,58 @@ add_srf_contour_crvs = {
         Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.
     """,
 
-    "syntax_html": """
-        Rhino.AddSrfContourCrvs (strObject, arrStartPoint, arrEndPoint [, dblInterval])
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrStartPoint", "arrEndPoint", "dblInterval"),
+        1: ("strObject", "arrPlane", "dblInterval"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of a surface or polysurface object.
             """
         },
         1: {
-            "name": "StartPoint",
+            "name": "arrStartPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "StartPoint",
             "doc": """
         The 3-D starting point of a center line.
             """
         },
         2: {
-            "name": "EndPoint",
+            "name": "arrEndPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "EndPoint",
             "doc": """
         The 3-D ending point of a center line.
             """
         },
         3: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr",
+            "name_prefix": "arr",
+            "name_main": "Plane",
             "doc": """
         A plane that defines the cutting plane.
             """
         },
         4: {
-            "name": "Interval",
+            "name": "dblInterval",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Interval",
             "doc": """
         The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
             """

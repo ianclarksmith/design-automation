@@ -8,34 +8,37 @@ add_spot_light = {
         Adds a new spot light object  to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddSpotLight (arrOrigin, dblRadius, arrApex)
-    """,
+    "syntax_html": {
+        0: ("arrOrigin", "dblRadius", "arrApex"),
+    },
 
     "params_html": {
         0: {
-            "name": "Origin",
+            "name": "arrOrigin",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Origin",
             "doc": """
         The 3-D origin point of the light.
             """
         },
         1: {
-            "name": "Radius",
+            "name": "dblRadius",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Radius",
             "doc": """
         The radius of the cone.
             """
         },
         2: {
-            "name": "Apex",
+            "name": "arrApex",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Apex",
             "doc": """
         The 3-D apex point of the light.
             """

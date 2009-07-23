@@ -8,25 +8,27 @@ compare_geometry = {
         Compares two objects to determine if they are geometrically identical.
     """,
 
-    "syntax_html": """
-        Rhino.CompareGeometry (strObject1, strObject2)
-    """,
+    "syntax_html": {
+        0: ("strObject1", "strObject2"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object1",
+            "name": "strObject1",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object1",
             "doc": """
         The identifier of the first object to compare.
             """
         },
         1: {
-            "name": "Object2",
+            "name": "strObject2",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object2",
             "doc": """
         The identifier of the second object to compare.
             """

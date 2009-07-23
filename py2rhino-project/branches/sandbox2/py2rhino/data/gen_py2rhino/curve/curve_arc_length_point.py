@@ -8,34 +8,37 @@ curve_arc_length_point = {
         Returns the point on the curve that is a specified arc length from the start of the curve.
     """,
 
-    "syntax_html": """
-        Rhino.CurveArcLengthPoint (strObject, dblLength [, blnFromStart])
-    """,
+    "syntax_html": {
+        0: ("strObject", "dblLength", "blnFromStart"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The object's identifier.
             """
         },
         1: {
-            "name": "Length",
+            "name": "dblLength",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Length",
             "doc": """
         The arc length from the start of the curve to evaluate.
             """
         },
         2: {
-            "name": "FromStart",
+            "name": "blnFromStart",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "FromStart",
             "doc": """
         If not specified or True, then the arc length point is calculated from the start of the curve. If False, the arc length point is calculated from the end of the curve.
             """

@@ -8,16 +8,17 @@ rotate_plane = {
         Rotates a plane.
     """,
 
-    "syntax_html": """
-        Rhino.RotatePlane (arrPlane, dblAngle, arrAxis)
-    """,
+    "syntax_html": {
+        0: ("arrPlane", "dblAngle", "arrAxis"),
+    },
 
     "params_html": {
         0: {
-            "name": "Plane",
+            "name": "arrPlane",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Plane",
             "doc": """
         The plane.  The elements of a plane array are as follows:
 		Element
@@ -32,19 +33,21 @@ rotate_plane = {
             """
         },
         1: {
-            "name": "Angle",
+            "name": "dblAngle",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Angle",
             "doc": """
         The rotation angle in degrees.
             """
         },
         2: {
-            "name": "Axis",
+            "name": "arrAxis",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Axis",
             "doc": """
         A non-zero 3-D vector identifying the axis of rotation.
             """

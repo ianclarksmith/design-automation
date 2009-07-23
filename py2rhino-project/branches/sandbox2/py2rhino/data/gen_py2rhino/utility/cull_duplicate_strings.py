@@ -8,25 +8,27 @@ cull_duplicate_strings = {
         Removes duplicates from an array of strings.
     """,
 
-    "syntax_html": """
-        Rhino.CullDuplicateStrings (arrStrings [, blnCaseSensitive)
-    """,
+    "syntax_html": {
+        0: ("arrStrings", "blnCaseSensitive"),
+    },
 
     "params_html": {
         0: {
-            "name": "Strings",
+            "name": "arrStrings",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_int",
+            "name_prefix": "arr_of_int",
+            "name_main": "Strings",
             "doc": """
         An array of numbers.
             """
         },
         1: {
-            "name": "CaseSensitive",
+            "name": "blnCaseSensitive",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "CaseSensitive",
             "doc": """
         Use case sensitivity when culling.  The default is to cull with case sensitivity (True).
             """

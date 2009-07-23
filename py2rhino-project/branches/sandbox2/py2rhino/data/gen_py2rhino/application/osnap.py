@@ -8,16 +8,17 @@ osnap = {
         Enables or disables Rhino's object snap modeling aid.  Object snaps are tools for specifying points on existing objects.
     """,
 
-    "syntax_html": """
-        Rhino.Osnap ([blnEnable])
-    """,
+    "syntax_html": {
+        0: ("blnEnable"),
+    },
 
     "params_html": {
         0: {
-            "name": "Enable",
+            "name": "blnEnable",
             "opt_or_req": "Optional",
             "type": "Boolean",
-            "type_string": "bln",
+            "name_prefix": "bln",
+            "name_main": "Enable",
             "doc": """
         The new enabled status, either True or False.
             """

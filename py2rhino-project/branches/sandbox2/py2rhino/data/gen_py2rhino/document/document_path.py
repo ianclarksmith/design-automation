@@ -8,9 +8,9 @@ document_path = {
         Returns the path of the currently loaded Rhino document (3DM file).
     """,
 
-    "syntax_html": """
-        Rhino.DocumentPath ()
-    """,
+    "syntax_html": {
+        0: (),
+    },
 
     "params_html": {
     },

@@ -8,34 +8,37 @@ add_arc3_pt = {
         Adds a 3-point arc curve to the document.
     """,
 
-    "syntax_html": """
-        Rhino.AddArc3Pt (arrStart, arrEnd, arrPoint)
-    """,
+    "syntax_html": {
+        0: ("arrStart", "arrEnd", "arrPoint"),
+    },
 
     "params_html": {
         0: {
-            "name": "Start",
+            "name": "arrStart",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Start",
             "doc": """
         The starting point of the arc.
             """
         },
         1: {
-            "name": "End",
+            "name": "arrEnd",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "End",
             "doc": """
         The ending point of the arc.
             """
         },
         2: {
-            "name": "Point",
+            "name": "arrPoint",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "arr_of_dbl",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "Point",
             "doc": """
         A point on the arc.
             """

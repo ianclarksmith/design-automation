@@ -8,34 +8,37 @@ remove_surface_knot = {
         Deletes a knot-line from a surface object.
     """,
 
-    "syntax_html": """
-        Rhino.RemoveSurfaceKnot (strObject, arrParameter, intDirection)
-    """,
+    "syntax_html": {
+        0: ("strObject", "arrParameter", "intDirection"),
+    },
 
     "params_html": {
         0: {
-            "name": "Object",
+            "name": "strObject",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "Object",
             "doc": """
         The identifier of the surface object.
             """
         },
         1: {
-            "name": "Parameter",
+            "name": "dblParameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "type_string": "dbl",
+            "name_prefix": "dbl",
+            "name_main": "Parameter",
             "doc": """
         An array containing a U,V parameter on the surface.  Note, if the parameter is not equal to one of the existing knots, then the knot closest to the specified parameter will be removed.
             """
         },
         2: {
-            "name": "Direction",
+            "name": "intDirection",
             "opt_or_req": "Required",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Direction",
             "doc": """
         The direction for knot insertion, either 0 = U, or 1 = V.
             """

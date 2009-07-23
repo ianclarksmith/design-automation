@@ -8,25 +8,27 @@ dim_style_text_alignment = {
         Returns or changes the text alignment mode of a dimension style.
     """,
 
-    "syntax_html": """
-        Rhino.DimStyleTextAlignment (strDimStyle [, intAlignment])
-    """,
+    "syntax_html": {
+        0: ("strDimStyle", "intAlignment"),
+    },
 
     "params_html": {
         0: {
-            "name": "DimStyle",
+            "name": "strDimStyle",
             "opt_or_req": "Required",
             "type": "String",
-            "type_string": "str",
+            "name_prefix": "str",
+            "name_main": "DimStyle",
             "doc": """
         The name of an existing dimension style.
             """
         },
         1: {
-            "name": "Alignment",
+            "name": "intAlignment",
             "opt_or_req": "Optional",
             "type": "Number",
-            "type_string": "int",
+            "name_prefix": "int",
+            "name_main": "Alignment",
             "doc": """
         The new text alignment.  If omitted, the current text alignment is returned.  The text alignment values are as follows:
 		Value

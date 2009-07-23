@@ -1,12 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import exceptions
+import pythoncom
+import py2rhino
 from py2rhino._util import *
 from py2rhino._rhinoscript import IRhinoScript
 
 class PointAndVector(IRhinoScript):
 
-
+    # Class constructor
+    def __init__(self):
+        if py2rhino._rso is None:
+            raise exceptions.Exception
+        # initialisation code coped from win32com.client.DispatchBaseClass
+        oobj = py2rhino._rso
+        oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
+        self.__dict__["_oleobj_"] = oobj
 
     def is_vector_parallel_to(self, vector1, vector2):
         """        
@@ -15,10 +24,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector1, Array of ????, Required        
+        vector1, Array of Doubles, Required        
         The 3-D vector.
             
-        vector2, Array of ????, Required        
+        vector2, Array of Doubles, Required        
         The 3-D vector to compare to.
             
         Returns
@@ -33,19 +42,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector1), flatten(vector2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector1), flatten_params(vector2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(660, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVectorParallelTo", None, *params_flattened)
+        return self._ApplyTypes_(660, 1, (VT_VARIANT, 0), magic, u"IsVectorParallelTo", None, *flattened)
 
     def is_vector_perpendicular_to(self, vector1, vector2):
         """        
@@ -54,10 +57,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector1, Array of ????, Required        
+        vector1, Array of Doubles, Required        
         The 3-D vector.
             
-        vector2, Array of ????, Required        
+        vector2, Array of Doubles, Required        
         The 3-D vector to compare to.
             
         Returns
@@ -72,19 +75,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector1), flatten(vector2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector1), flatten_params(vector2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(661, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVectorPerpendicularTo", None, *params_flattened)
+        return self._ApplyTypes_(661, 1, (VT_VARIANT, 0), magic, u"IsVectorPerpendicularTo", None, *flattened)
 
     def is_vector_tiny(self, vector):
         """        
@@ -93,7 +90,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector to test.
             
         Returns
@@ -108,19 +105,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(vector)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(vector)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(610, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVectorTiny", None, *params_flattened)
+        return self._ApplyTypes_(610, 1, (VT_VARIANT, 0), magic, u"IsVectorTiny", None, *flattened)
 
     def is_vector_zero(self, vector):
         """        
@@ -129,7 +120,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector to test.
             
         Returns
@@ -144,19 +135,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(vector)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(vector)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(611, 1, (VT_VARIANT, 0), params_magic_numbers, u"IsVectorZero", None, *params_flattened)
+        return self._ApplyTypes_(611, 1, (VT_VARIANT, 0), magic, u"IsVectorZero", None, *flattened)
 
     def point_add(self, point1, point2):
         """        
@@ -165,10 +150,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ????, Required        
+        point1, Array of Doubles, Required        
         The 3-D point to add to.
             
-        point2, Array of ????, Required        
+        point2, Array of Doubles, Required        
         The 3-D point or a 3-D vector to add.
             
         Returns
@@ -183,19 +168,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point1, point2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point1), flatten(point2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point1), flatten_params(point2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(666, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointAdd", None, *params_flattened)
+        return self._ApplyTypes_(666, 1, (VT_VARIANT, 0), magic, u"PointAdd", None, *flattened)
 
     def point_array_bounding_box(self, points, view=None, world_coords=None):
         """        
@@ -204,7 +183,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points.
             
         view, String, Optional        
@@ -225,19 +204,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, view, world_coords]
-        params_required = [True, False, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
-        params_flattened = [flatten(points), view, world_coords]
+        required = [True, False, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_BSTR, 1), (VT_BOOL, 1)]
+        flattened = [flatten_params(points), view, world_coords]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(746, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointArrayBoundingBox", None, *params_flattened)
+        return self._ApplyTypes_(746, 1, (VT_VARIANT, 0), magic, u"PointArrayBoundingBox", None, *flattened)
 
     def point_array_closest_point(self, points, point):
         """        
@@ -246,10 +219,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points to test.
             
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D test point.
             
         Returns
@@ -264,19 +237,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, point]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), flatten(point)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(points), flatten_params(point)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(742, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointArrayClosestPoint", None, *params_flattened)
+        return self._ApplyTypes_(742, 1, (VT_VARIANT, 0), magic, u"PointArrayClosestPoint", None, *flattened)
 
     def point_array_transform(self, points, xform):
         """        
@@ -285,10 +252,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points to transform.
             
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A valid 4x4 transformation matrix.
             
         Returns
@@ -303,19 +270,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, xform]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), flatten(xform)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(points), flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(802, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointArrayTransform", None, *params_flattened)
+        return self._ApplyTypes_(802, 1, (VT_VARIANT, 0), magic, u"PointArrayTransform", None, *flattened)
 
     def point_compare(self, point1, point2, tolerance=None):
         """        
@@ -324,10 +285,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ????, Required        
+        point1, Array of Doubles, Required        
         The first 3-D point to compare.
             
-        point2, Array of ????, Required        
+        point2, Array of Doubles, Required        
         The second 3-D point to compare.
             
         tolerance, Double, Optional        
@@ -345,19 +306,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point1, point2, tolerance]
-        params_required = [True, True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(point1), flatten(point2), tolerance]
+        required = [True, True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(point1), flatten_params(point2), tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(667, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointCompare", None, *params_flattened)
+        return self._ApplyTypes_(667, 1, (VT_VARIANT, 0), magic, u"PointCompare", None, *flattened)
 
     def point_divide(self, point, scale):
         """        
@@ -366,7 +321,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D point to divide.
             
         scale, Double, Required        
@@ -384,19 +339,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point, scale]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(point), scale]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(point), scale]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(668, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointDivide", None, *params_flattened)
+        return self._ApplyTypes_(668, 1, (VT_VARIANT, 0), magic, u"PointDivide", None, *flattened)
 
     def point_scale(self, point, scale):
         """        
@@ -405,7 +354,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D point to scale.
             
         scale, Double, Required        
@@ -423,19 +372,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point, scale]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(point), scale]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(point), scale]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(669, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointScale", None, *params_flattened)
+        return self._ApplyTypes_(669, 1, (VT_VARIANT, 0), magic, u"PointScale", None, *flattened)
 
     def point_subtract(self, point1, point2):
         """        
@@ -444,10 +387,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ????, Required        
+        point1, Array of Doubles, Required        
         The 3-D point to subtract from.
             
-        point2, Array of ????, Required        
+        point2, Array of Doubles, Required        
         The 3-D point or a 3-D vector to subtract.
             
         Returns
@@ -462,19 +405,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point1, point2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point1), flatten(point2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point1), flatten_params(point2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(670, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointSubtract", None, *params_flattened)
+        return self._ApplyTypes_(670, 1, (VT_VARIANT, 0), magic, u"PointSubtract", None, *flattened)
 
     def point_transform(self, point, xform):
         """        
@@ -483,10 +420,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ????, Required        
+        point, Array of Doubles, Required        
         The 3-D point to transform.
             
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A valid 4x4 transformation matrix.
             
         Returns
@@ -501,19 +438,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point, xform]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point), flatten(xform)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point), flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(671, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointTransform", None, *params_flattened)
+        return self._ApplyTypes_(671, 1, (VT_VARIANT, 0), magic, u"PointTransform", None, *flattened)
 
     def points_are_coplanar(self, points, tolerance=None):
         """        
@@ -522,7 +453,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points.
             
         tolerance, Double, Optional        
@@ -540,21 +471,15 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [points, tolerance]
-        params_required = [True, False]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(points), tolerance]
+        required = [True, False]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(points), tolerance]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(593, 1, (VT_VARIANT, 0), magic, u"PointsAreCoplanar", None, *flattened)
 
-        return self._ApplyTypes_(593, 1, (VT_VARIANT, 0), params_magic_numbers, u"PointsAreCoplanar", None, *params_flattened)
-
-    def project_point_to_mesh(self, points, mesh, direction):
+    def project_point_to_mesh(self, points, meshes, direction):
         """        
         Projects one or more points onto one or more meshes.
     
@@ -564,8 +489,8 @@ class PointAndVector(IRhinoScript):
         points, Array of ????, Required        
         An array of 3-D points to project.
             
-        mesh, String, Required        
-        The identifier of the mesh object to project onto.
+        meshes, Array of ????, Required        
+        The identifiers of the mesh objects to project onto.
             
         direction, Array of ????, Required        
         The direction (3-D vector) to project the points.
@@ -581,22 +506,16 @@ class PointAndVector(IRhinoScript):
 
         """
 
-        params = [points, mesh, direction]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), mesh, flatten(direction)]
+        params = [points, meshes, direction]
+        required = [True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(points), flatten_params(meshes), flatten_params(direction)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
+        return self._ApplyTypes_(912, 1, (VT_VARIANT, 0), magic, u"ProjectPointToMesh", None, *flattened)
 
-        return self._ApplyTypes_(912, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectPointToMesh", None, *params_flattened)
-
-    def project_point_to_surface(self, points, surface, direction):
+    def project_point_to_surface(self, points, surfaces, direction):
         """        
         Projects one or more points onto one or more surfaces or polysurfaces.
     
@@ -606,8 +525,8 @@ class PointAndVector(IRhinoScript):
         points, Array of ????, Required        
         An array of 3-D points to project.
             
-        surface, String, Required        
-        The identifier of the surface or polysurface object to project onto.
+        surfaces, Array of ????, Required        
+        The identifiers of the surface or polysurface objects to project onto.
             
         direction, Array of ????, Required        
         The direction (3-D vector) to project the points.
@@ -623,20 +542,14 @@ class PointAndVector(IRhinoScript):
 
         """
 
-        params = [points, surface, direction]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(points), surface, flatten(direction)]
+        params = [points, surfaces, direction]
+        required = [True, True, True]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        flattened = [flatten_params(points), flatten_params(surfaces), flatten_params(direction)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(892, 1, (VT_VARIANT, 0), params_magic_numbers, u"ProjectPointToSurface", None, *params_flattened)
+        return self._ApplyTypes_(892, 1, (VT_VARIANT, 0), magic, u"ProjectPointToSurface", None, *flattened)
 
     def pull_points(self, object, points):
         """        
@@ -648,7 +561,7 @@ class PointAndVector(IRhinoScript):
         object, String, Required        
         The identifier of the surface or mesh object that pulls.
             
-        points, Array of ????, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points to pull.
             
         Returns
@@ -663,19 +576,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [object, points]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_BSTR, 1), (VT_VARIANT, 1)]
-        params_flattened = [object, flatten(points)]
+        required = [True, True]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [object, flatten_params(points)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(716, 1, (VT_VARIANT, 0), params_magic_numbers, u"PullPoints", None, *params_flattened)
+        return self._ApplyTypes_(716, 1, (VT_VARIANT, 0), magic, u"PullPoints", None, *flattened)
 
     def vector_add(self, vector1, vector2):
         """        
@@ -684,10 +591,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector1, Array of ????, Required        
+        vector1, Array of Doubles, Required        
         The 3-D vector to add to.
             
-        vector2, Array of ????, Required        
+        vector2, Array of Doubles, Required        
         The 3-D vector to add.
             
         Returns
@@ -702,19 +609,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector1), flatten(vector2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector1), flatten_params(vector2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(612, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorAdd", None, *params_flattened)
+        return self._ApplyTypes_(612, 1, (VT_VARIANT, 0), magic, u"VectorAdd", None, *flattened)
 
     def vector_compare(self, vector1, vector2):
         """        
@@ -723,10 +624,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector1, Array of ????, Required        
+        vector1, Array of Doubles, Required        
         The first 3-D vector to compare.
             
-        vector2, Array of ????, Required        
+        vector2, Array of Doubles, Required        
         The second 3-D vector to compare.
             
         Returns
@@ -738,19 +639,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector1), flatten(vector2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector1), flatten_params(vector2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(613, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorCompare", None, *params_flattened)
+        return self._ApplyTypes_(613, 1, (VT_VARIANT, 0), magic, u"VectorCompare", None, *flattened)
 
     def vector_create(self, point1, point2):
         """        
@@ -759,10 +654,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ????, Required        
+        point1, Array of Doubles, Required        
         The first 3-D point.
             
-        point2, Array of ????, Required        
+        point2, Array of Doubles, Required        
         The second 3-D point.
             
         Returns
@@ -777,19 +672,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [point1, point2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(point1), flatten(point2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(point1), flatten_params(point2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(614, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorCreate", None, *params_flattened)
+        return self._ApplyTypes_(614, 1, (VT_VARIANT, 0), magic, u"VectorCreate", None, *flattened)
 
     def vector_cross_product(self, vector1, vector2):
         """        
@@ -798,10 +687,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector1, Array of ????, Required        
+        vector1, Array of Doubles, Required        
         The first 3-D vector.
             
-        vector2, Array of ????, Required        
+        vector2, Array of Doubles, Required        
         The second 3-D vector.
             
         Returns
@@ -816,19 +705,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector1), flatten(vector2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector1), flatten_params(vector2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(615, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorCrossProduct", None, *params_flattened)
+        return self._ApplyTypes_(615, 1, (VT_VARIANT, 0), magic, u"VectorCrossProduct", None, *flattened)
 
     def vector_divide(self, vector, divide):
         """        
@@ -837,7 +720,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector to divide.
             
         divide, Double, Required        
@@ -855,19 +738,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector, divide]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(vector), divide]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(vector), divide]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(625, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorDivide", None, *params_flattened)
+        return self._ApplyTypes_(625, 1, (VT_VARIANT, 0), magic, u"VectorDivide", None, *flattened)
 
     def vector_dot_product(self, vector1, vector2):
         """        
@@ -876,10 +753,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector1, Array of ????, Required        
+        vector1, Array of Doubles, Required        
         The first 3-D vector.
             
-        vector2, Array of ????, Required        
+        vector2, Array of Doubles, Required        
         The second 3-D vector.
             
         Returns
@@ -891,19 +768,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector1), flatten(vector2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector1), flatten_params(vector2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(616, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorDotProduct", None, *params_flattened)
+        return self._ApplyTypes_(616, 1, (VT_VARIANT, 0), magic, u"VectorDotProduct", None, *flattened)
 
     def vector_length(self, vector):
         """        
@@ -912,7 +783,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector.
             
         Returns
@@ -924,19 +795,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(vector)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(vector)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(617, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorLength", None, *params_flattened)
+        return self._ApplyTypes_(617, 1, (VT_VARIANT, 0), magic, u"VectorLength", None, *flattened)
 
     def vector_multiply(self, vector1, vector2):
         """        
@@ -945,10 +810,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector1, Array of ????, Required        
+        vector1, Array of Doubles, Required        
         The first 3-D vector.
             
-        vector2, Array of ????, Required        
+        vector2, Array of Doubles, Required        
         The second 3-D vector.
             
         Returns
@@ -963,19 +828,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector1), flatten(vector2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector1), flatten_params(vector2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(624, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorMultiply", None, *params_flattened)
+        return self._ApplyTypes_(624, 1, (VT_VARIANT, 0), magic, u"VectorMultiply", None, *flattened)
 
     def vector_reverse(self, vector):
         """        
@@ -984,7 +843,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector.
             
         Returns
@@ -999,19 +858,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(vector)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(vector)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(618, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorReverse", None, *params_flattened)
+        return self._ApplyTypes_(618, 1, (VT_VARIANT, 0), magic, u"VectorReverse", None, *flattened)
 
     def vector_rotate(self, vector, angle, axis):
         """        
@@ -1020,13 +873,13 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector.
             
         angle, Double, Required        
         The rotation angle in degrees.
             
-        axis, Array of ????, Required        
+        axis, Array of Doubles, Required        
         A 3-D vector defining the axis of rotation.
             
         Returns
@@ -1041,19 +894,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector, angle, axis]
-        params_required = [True, True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector), angle, flatten(axis)]
+        required = [True, True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector), angle, flatten_params(axis)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(678, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorRotate", None, *params_flattened)
+        return self._ApplyTypes_(678, 1, (VT_VARIANT, 0), magic, u"VectorRotate", None, *flattened)
 
     def vector_scale(self, vector, scale):
         """        
@@ -1062,7 +909,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector to scale.
             
         scale, Double, Required        
@@ -1080,19 +927,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector, scale]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_R8, 1)]
-        params_flattened = [flatten(vector), scale]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
+        flattened = [flatten_params(vector), scale]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(619, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorScale", None, *params_flattened)
+        return self._ApplyTypes_(619, 1, (VT_VARIANT, 0), magic, u"VectorScale", None, *flattened)
 
     def vector_subtract(self, vector1, vector2):
         """        
@@ -1101,10 +942,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector1, Array of ????, Required        
+        vector1, Array of Doubles, Required        
         The 3-D vector to subtract from.
             
-        vector2, Array of ????, Required        
+        vector2, Array of Doubles, Required        
         The 3-D vector to subtract.
             
         Returns
@@ -1119,19 +960,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector1, vector2]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector1), flatten(vector2)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector1), flatten_params(vector2)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(620, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorSubtract", None, *params_flattened)
+        return self._ApplyTypes_(620, 1, (VT_VARIANT, 0), magic, u"VectorSubtract", None, *flattened)
 
     def vector_transform(self, vector, xform):
         """        
@@ -1140,10 +975,10 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector to transform.
             
-        xform, Array of ????, Required        
+        xform, Array of Doubles, Required        
         A valid 4x4 transformation matrix.
             
         Returns
@@ -1158,19 +993,13 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector, xform]
-        params_required = [True, True]
-        params_magic_numbers = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        params_flattened = [flatten(vector), flatten(xform)]
+        required = [True, True]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
+        flattened = [flatten_params(vector), flatten_params(xform)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(800, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorTransform", None, *params_flattened)
+        return self._ApplyTypes_(800, 1, (VT_VARIANT, 0), magic, u"VectorTransform", None, *flattened)
 
     def vector_unitize(self, vector):
         """        
@@ -1179,7 +1008,7 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ????, Required        
+        vector, Array of Doubles, Required        
         The 3-D vector to unitize.
             
         Returns
@@ -1194,17 +1023,11 @@ class PointAndVector(IRhinoScript):
         """
 
         params = [vector]
-        params_required = [True]
-        params_magic_numbers = [(VT_VARIANT, 1),]
-        params_flattened = [flatten(vector)]
+        required = [True]
+        magic = [(VT_ARRAY + VT_R8, 1),]
+        flattened = [flatten_params(vector)]
 
-        for i in range(len(params)):
-            if (params[i] == None) and (not params_required[i]):
-                params_magic_numbers.pop(i)
-                params_flattened.pop(i)
+        magic, flattened = select_params(params, required, magic, flattened)
 
-        params_magic_numbers = tuple(params_magic_numbers)
-        params_flattened = tuple(params_flattened)
-
-        return self._ApplyTypes_(621, 1, (VT_VARIANT, 0), params_magic_numbers, u"VectorUnitize", None, *params_flattened)
+        return self._ApplyTypes_(621, 1, (VT_VARIANT, 0), magic, u"VectorUnitize", None, *flattened)
 
