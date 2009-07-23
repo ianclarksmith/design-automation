@@ -2847,7 +2847,7 @@ class Zone(object):
     
     upper_band = property(fget = get_upper_band, fset = set_upper_band, 
                         doc = "The specified zone's current value for the upper"
-                        " comfort band (deg celsius).")
+                        " comfort band (deg celsius)")
     
     uvalue = property(fget = get_uvalue, fset = set_uvalue, 
                         doc = "The specified zone's current value for the total"
@@ -2860,12 +2860,62 @@ class Zone(object):
     
     volume = property(fget = get_volume, fset = set_volume, 
                         doc = "The specified zone's current value for the"
-                        " internal zone volume (m^3). ") 
+                        " internal zone volume (m^3)") 
     
     window_area = property(fget = get_window_area, fset = set_window_area, 
                         doc = "The specified zone's current value for the total"
-                        " exposed WINDOW area (m^2). ") 
-     
+                        " exposed WINDOW area (m^2)") 
+    
+    floor_area = property(fget = get_floor_area, fset = set_floor_area, 
+                        doc = "The specified zone's current value for"
+                        " the total zone floor area (m^2)")
+    
+    hidden = property(fget = get_hidden, fset = set_hidden, 
+                        doc = "The current hidden state of the specified zone."
+                        " Hidden zones still take part in all analytical"
+                        " calculations, but are not visible in the"
+                        " current model view")
+    
+    infiltration_rate = property(fget = get_infiltration_rate, fset = set_infiltration_rate, 
+                        doc = "The specified zone's current value for the air"
+                        " infiltration rate (ac/h)")
+    
+    internal_gains = property(fget = get_internal_gains, fset = set_internal_gains, 
+                        doc = "The specified zone's current value for the total"
+                        " internally generated heat gains (W)")
+    
+    interzonal_gains = property(fget = get_interzonal_gains, doc = "The"
+                                " specified zone's current value for the total"
+                                " gains flowing to/from other adjacent zones (W)")
+    
+    latent_gains = property(fget = get_latent_gains, fset = set_latent_gains, 
+                        doc = "The specified zone's current value for the"
+                        " latent internal heat gains (W/m^2)")
+    
+    lighting_energy = property(fget = get_lighting_energy, fset = set_lighting_energy, 
+                        doc = "The specified zone's current value for the total"
+                        " energy gain from LIGHT objects") 
+    
+    locked = property(fget = get_locked, fset = set_locked, 
+                        doc = "The current locked state of the specified zone."
+                        " Locked zones are still displayed and take part in"
+                        " calculations, but the user cannot interactively"
+                        " select or manipulate them")
+    
+    lower_band = property(fget = get_lower_band, fset = set_lower_band, 
+                        doc = "The specified zone's current value for the lower"
+                        " comfort band (deg celsius)")
+    
+    lux = property(fget = get_lux, fset = set_lux, 
+                        doc = "The specified zone's current value for the"
+                        " design internal lighting level (lux)")
+    
+    method_reverb = property(fget = get_method_reverb, fset = set_method_reverb, 
+                        doc = "The specified zone's current value for the"
+                        " reverberation calculation method")
+    
+    name = property(fget = get_name, fset = set_name, 
+                        doc = "The specified zone's name")
      
     """ = property(fget = get_, fset = set_, 
                         doc = "")"""
