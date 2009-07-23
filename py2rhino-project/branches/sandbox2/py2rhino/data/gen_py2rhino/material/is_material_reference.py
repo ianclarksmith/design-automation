@@ -15,6 +15,7 @@ is_material_reference = {
     "params_html": {
         0: {
             "name": "intMaterialIndex",
+            "py_name": "material_index",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",

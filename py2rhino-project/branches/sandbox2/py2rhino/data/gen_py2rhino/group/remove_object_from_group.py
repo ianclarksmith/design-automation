@@ -15,6 +15,7 @@ remove_object_from_group = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ remove_object_from_group = {
         },
         1: {
             "name": "strGroup",
+            "py_name": "group",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

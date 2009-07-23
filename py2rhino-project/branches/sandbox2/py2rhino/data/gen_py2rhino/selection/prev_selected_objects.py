@@ -15,6 +15,7 @@ prev_selected_objects = {
     "params_html": {
         0: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

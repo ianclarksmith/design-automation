@@ -17,189 +17,6 @@ class Math(IRhinoScript):
         oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
         self.__dict__["_oleobj_"] = oobj
 
-    def a_cos(self, number):
-        """        
-        Returns the arccosine, or inverse cosine, of a number. The arccosine is the angle whose cosine is number. The returned angle is given in radians in the range 0 (zero) to PI.
-    
-        Parameters
-        ==========
-
-        number, Double, Required        
-        A number representing the cosine of the angle you want and must be from -1 to 1.
-            
-        Returns
-        =======
-
-        number
-        An angle, ?, measured in radians, such that 0 = ? = PI. Use ToDegrees to convert from radians to degrees.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [number]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(757, 1, (VT_VARIANT, 0), magic, u"ACos", None, *flattened)
-
-    def a_cos_h(self, number):
-        """        
-        Returns the inverse hyperbolic cosine of a number. Number must be greater than or equal to 1. The inverse hyperbolic cosine is the value whose hyperbolic cosine is number, so ACosH(CosH(number)) equals the number.
-    
-        Parameters
-        ==========
-
-        number, Double, Required        
-        A number equal to or greater than 1.
-            
-        Returns
-        =======
-
-        number
-        The inverse hyperbolic cosine of a number if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [number]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(763, 1, (VT_VARIANT, 0), magic, u"ACosH", None, *flattened)
-
-    def a_sin(self, number):
-        """        
-        Returns the arcsine, or inverse sine, of a number. The arcsine is the angle whose sine is number. The returned angle is given in radians in the range -PI/2 to PI/2.
-    
-        Parameters
-        ==========
-
-        number, Double, Required        
-        A number representing the sine of the angle you want and must be from -1 to 1.
-            
-        Returns
-        =======
-
-        number
-        An angle, ?, measured in radians, if successful. Note, A positive return value represents a counterclockwise angle from the x-axis; a negative return value represents a clockwise angle. Use ToDegrees to convert from radians to degrees.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [number]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(756, 1, (VT_VARIANT, 0), magic, u"ASin", None, *flattened)
-
-    def a_sin_h(self, number):
-        """        
-        Returns the inverse hyperbolic sine of a number. The inverse hyperbolic sine is the value whose hyperbolic sine is number, so ASinH(SinH(number)) equals number.
-    
-        Parameters
-        ==========
-
-        number, Double, Required        
-        Any real number.
-            
-        Returns
-        =======
-
-        number
-        The inverse hyperbolic sine of a number if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [number]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(762, 1, (VT_VARIANT, 0), magic, u"ASinH", None, *flattened)
-
-    def a_tan2(self, number_y, number_x):
-        """        
-        Returns the angle whose tangent is the quotient of two specified numbers.
-    
-        Parameters
-        ==========
-
-        number_y, Double, Required        
-        The y coordinate of a point.
-            
-        number_x, Double, Required        
-        The x coordinate of a point.
-            
-        Returns
-        =======
-
-        number
-        An angle, ?, measured in radians, such that -PI = ? = PI, and Tan(?) = y / x, where (x, y) is a point in the Cartesian plane.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number_y, number_x]
-        required = [True, True]
-        magic = [(VT_R8, 1), (VT_R8, 1)]
-        flattened = [number_y, number_x]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(758, 1, (VT_VARIANT, 0), magic, u"ATan2", None, *flattened)
-
-    def a_tan_h(self, number):
-        """        
-        Returns the inverse hyperbolic tangent of a number. Number must be between -1 and 1 (excluding -1 and 1). The inverse hyperbolic tangent is the value whose hyperbolic tangent is number; ATanH(TanH(number)) equals number.
-    
-        Parameters
-        ==========
-
-        number, Double, Required        
-        A number between -1 and 1.
-            
-        Returns
-        =======
-
-        number
-        The inverse hyperbolic tangent of a number if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [number]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(764, 1, (VT_VARIANT, 0), magic, u"ATanH", None, *flattened)
-
     def angle(self, point1, point2, world=None):
         """        
         Measures the angle between two points.
@@ -269,66 +86,6 @@ class Math(IRhinoScript):
 
         return self._ApplyTypes_(116, 1, (VT_VARIANT, 0), magic, u"Angle2", None, *flattened)
 
-    def ceil(self, number):
-        """        
-        Returns the smallest integer greater than or equal to the specified number.
-    
-        Parameters
-        ==========
-
-        number, Double, Required        
-        A number.
-            
-        Returns
-        =======
-
-        number
-        The ceiling if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [number]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(766, 1, (VT_VARIANT, 0), magic, u"Ceil", None, *flattened)
-
-    def cos_h(self, angle):
-        """        
-        Returns the hyperbolic cosine of the specified angle.
-    
-        Parameters
-        ==========
-
-        angle, Double, Required        
-        An angle, measured in radians.
-            
-        Returns
-        =======
-
-        number
-        The hyperbolic cosine of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [angle]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [angle]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(760, 1, (VT_VARIANT, 0), magic, u"CosH", None, *flattened)
-
     def deviation(self, numbers):
         """        
         Returns the standard deviation from an array of numbers.
@@ -366,10 +123,10 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ????, Required        
+        point1, Array of ???, Required        
         The first 3-D point.
             
-        point2, Array of ????, Required        
+        point2, Array of ???, Required        
         The second 3-D point.
             
         Returns
@@ -402,10 +159,10 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ????, Required        
+        point1, Array of ???, Required        
         The first 3-D point.
             
-        point_array, Array of ????, Required        
+        point_array, Array of ???, Required        
         An array of 3-D points.
             
         Returns
@@ -430,59 +187,6 @@ class Math(IRhinoScript):
         magic, flattened = select_params(params, required, magic, flattened)
 
         return self._ApplyTypes_(118, 1, (VT_VARIANT, 0), magic, u"Distance", None, *flattened)
-
-    def e(self):
-        """        
-        Returns the value of the base of the natural system of logarithms (e).
-    
-        No parameters
-
-        Returns
-        =======
-
-        number
-        2.71828182845904523536028747135
-
-        """
-
-        params = []
-        required = []
-        magic = []
-        flattened = []
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(774, 1, (VT_VARIANT, 0), magic, u"E", None, *flattened)
-
-    def floor(self, number):
-        """        
-        Returns the largest integer less than or equal to the specified number.
-    
-        Parameters
-        ==========
-
-        number, Double, Required        
-        A number.
-            
-        Returns
-        =======
-
-        number
-        The floor if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [number]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(767, 1, (VT_VARIANT, 0), magic, u"Floor", None, *flattened)
 
     def hypot(self, number_x, number_y):
         """        
@@ -516,36 +220,6 @@ class Math(IRhinoScript):
         magic, flattened = select_params(params, required, magic, flattened)
 
         return self._ApplyTypes_(765, 1, (VT_VARIANT, 0), magic, u"Hypot", None, *flattened)
-
-    def log10(self, number):
-        """        
-        Returns the base-10 logarithm of a number.
-    
-        Parameters
-        ==========
-
-        number, Double, Required        
-        The positive real number for which you want the base-10 logarithm.
-            
-        Returns
-        =======
-
-        number
-        The base-10 logarithm of the number if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [number]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [number]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(777, 1, (VT_VARIANT, 0), magic, u"Log10", None, *flattened)
 
     def max(self, numbers):
         """        
@@ -667,29 +341,6 @@ class Math(IRhinoScript):
 
         return self._ApplyTypes_(769, 1, (VT_VARIANT, 0), magic, u"Min", None, *flattened)
 
-    def p_i(self):
-        """        
-        Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793238462643.
-    
-        No parameters
-
-        Returns
-        =======
-
-        number
-        3.141592653589793238462643
-
-        """
-
-        params = []
-        required = []
-        magic = []
-        flattened = []
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(663, 1, (VT_VARIANT, 0), magic, u"PI", None, *flattened)
-
     def polar(self, point, angle, distance, plane=None):
         """        
         Returns the 3-D point that is a specified angle and distance from a 3-D point.
@@ -735,154 +386,4 @@ class Math(IRhinoScript):
         magic, flattened = select_params(params, required, magic, flattened)
 
         return self._ApplyTypes_(662, 1, (VT_VARIANT, 0), magic, u"Polar", None, *flattened)
-
-    def sin_h(self, angle):
-        """        
-        Returns the hyperbolic sine of the specified angle.
-    
-        Parameters
-        ==========
-
-        angle, Double, Required        
-        An angle, measured in radians.
-            
-        Returns
-        =======
-
-        number
-        The hyperbolic sine of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [angle]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [angle]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(759, 1, (VT_VARIANT, 0), magic, u"SinH", None, *flattened)
-
-    def sum(self, numbers):
-        """        
-        Returns the sum of an array of numbers.
-    
-        Parameters
-        ==========
-
-        numbers, Array of Integers, Required        
-        An array of numbers to sum.
-            
-        Returns
-        =======
-
-        number
-        The sum of the array if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [numbers]
-        required = [True]
-        magic = [(VT_ARRAY + VT_I2, 1),]
-        flattened = [flatten_params(numbers)]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(770, 1, (VT_VARIANT, 0), magic, u"Sum", None, *flattened)
-
-    def tan_h(self, angle):
-        """        
-        Returns the hyperbolic tangent of the specified angle.
-    
-        Parameters
-        ==========
-
-        angle, Double, Required        
-        An angle, measured in radians.
-            
-        Returns
-        =======
-
-        number
-        The hyperbolic tangent of dblAngle if successful. Use ToDegrees to convert from radians to degrees.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [angle]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [angle]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(761, 1, (VT_VARIANT, 0), magic, u"TanH", None, *flattened)
-
-    def to_degrees(self, radians):
-        """        
-        Converts an angle specified in radians to degrees.
-    
-        Parameters
-        ==========
-
-        radians, Double, Required        
-        The angle in radians
-            
-        Returns
-        =======
-
-        number
-        The angle in degrees if successful.
-
-        null
-        On error.
-
-        """
-
-        params = [radians]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [radians]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(664, 1, (VT_VARIANT, 0), magic, u"ToDegrees", None, *flattened)
-
-    def to_radians(self, degrees):
-        """        
-        Converts an angle specified in degrees to radians.
-    
-        Parameters
-        ==========
-
-        degrees, Double, Required        
-        The angle in degrees
-            
-        Returns
-        =======
-
-        number
-        The angle in radians if successful.
-
-        null
-        On error.
-
-        """
-
-        params = [degrees]
-        required = [True]
-        magic = [(VT_R8, 1),]
-        flattened = [degrees]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(665, 1, (VT_VARIANT, 0), magic, u"ToRadians", None, *flattened)
 

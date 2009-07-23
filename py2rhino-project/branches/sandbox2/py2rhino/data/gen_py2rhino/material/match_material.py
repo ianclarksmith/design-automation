@@ -16,6 +16,7 @@ match_material = {
     "params_html": {
         0: {
             "name": "intSrcMaterialIndex",
+            "py_name": "src_material_index",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -26,6 +27,7 @@ match_material = {
         },
         1: {
             "name": "strSrcObject",
+            "py_name": "src_object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -36,9 +38,10 @@ match_material = {
         },
         2: {
             "name": "arrDestObjects",
+            "py_name": "dest_objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "DestObjects",
             "doc": """
         An array of destination object identifiers.  If the objects' material sources are set to "By Layer", they will be changed to "By Object."

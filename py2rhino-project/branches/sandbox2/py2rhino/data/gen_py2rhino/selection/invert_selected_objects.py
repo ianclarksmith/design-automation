@@ -15,6 +15,7 @@ invert_selected_objects = {
     "params_html": {
         0: {
             "name": "blnIncludeLights",
+            "py_name": "include_lights",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -25,6 +26,7 @@ invert_selected_objects = {
         },
         1: {
             "name": "blnIncludeGrips",
+            "py_name": "include_grips",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

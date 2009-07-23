@@ -15,6 +15,7 @@ str2_pt_array = {
     "params_html": {
         0: {
             "name": "strPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

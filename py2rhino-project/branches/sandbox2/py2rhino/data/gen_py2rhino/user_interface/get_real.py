@@ -15,6 +15,7 @@ get_real = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_real = {
         },
         1: {
             "name": "dblNumber",
+            "py_name": "number",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ get_real = {
         },
         2: {
             "name": "dblMin",
+            "py_name": "min",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ get_real = {
         },
         3: {
             "name": "dblMax",
+            "py_name": "max",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

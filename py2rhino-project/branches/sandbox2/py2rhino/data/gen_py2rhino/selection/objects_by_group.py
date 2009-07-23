@@ -15,6 +15,7 @@ objects_by_group = {
     "params_html": {
         0: {
             "name": "strGroup",
+            "py_name": "group",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ objects_by_group = {
         },
         1: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

@@ -16,6 +16,7 @@ add_object_mesh = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ add_object_mesh = {
         },
         1: {
             "name": "intQuality",
+            "py_name": "quality",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -43,6 +45,7 @@ add_object_mesh = {
         },
         2: {
             "name": "blnEnable",
+            "py_name": "enable",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

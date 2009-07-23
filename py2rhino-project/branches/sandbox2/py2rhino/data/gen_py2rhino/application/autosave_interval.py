@@ -15,6 +15,7 @@ autosave_interval = {
     "params_html": {
         0: {
             "name": "intMinutes",
+            "py_name": "minutes",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -16,6 +16,7 @@ object_mesh_max_dist_edge_to_srf = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ object_mesh_max_dist_edge_to_srf = {
         },
         1: {
             "name": "dblDistance",
+            "py_name": "distance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

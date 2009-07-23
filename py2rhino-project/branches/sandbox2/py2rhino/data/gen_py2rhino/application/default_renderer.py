@@ -15,6 +15,7 @@ default_renderer = {
     "params_html": {
         0: {
             "name": "strRenderer",
+            "py_name": "renderer",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

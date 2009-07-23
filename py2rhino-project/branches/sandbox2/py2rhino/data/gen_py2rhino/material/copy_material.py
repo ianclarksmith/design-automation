@@ -15,6 +15,7 @@ copy_material = {
     "params_html": {
         0: {
             "name": "intSrcIndex",
+            "py_name": "src_index",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -25,6 +26,7 @@ copy_material = {
         },
         1: {
             "name": "intDstIndex",
+            "py_name": "dst_index",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",

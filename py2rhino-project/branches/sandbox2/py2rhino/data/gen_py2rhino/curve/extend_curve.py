@@ -15,6 +15,7 @@ extend_curve = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ extend_curve = {
         },
         1: {
             "name": "intType",
+            "py_name": "type",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -42,6 +44,7 @@ extend_curve = {
         },
         2: {
             "name": "intSide",
+            "py_name": "side",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -57,6 +60,7 @@ extend_curve = {
         },
         3: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",

@@ -15,6 +15,7 @@ add_rectangular_light = {
     "params_html": {
         0: {
             "name": "arrOrigin",
+            "py_name": "origin",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_rectangular_light = {
         },
         1: {
             "name": "arrWidth",
+            "py_name": "width",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ add_rectangular_light = {
         },
         2: {
             "name": "arrHeight",
+            "py_name": "height",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

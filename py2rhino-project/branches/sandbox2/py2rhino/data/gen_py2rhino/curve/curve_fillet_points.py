@@ -16,6 +16,7 @@ curve_fillet_points = {
     "params_html": {
         0: {
             "name": "strCurve0",
+            "py_name": "curve0",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ curve_fillet_points = {
         },
         1: {
             "name": "strCurve1",
+            "py_name": "curve1",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -36,6 +38,7 @@ curve_fillet_points = {
         },
         2: {
             "name": "dblRadius",
+            "py_name": "radius",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -46,6 +49,7 @@ curve_fillet_points = {
         },
         3: {
             "name": "arrBasePoint0",
+            "py_name": "base_point0",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -56,6 +60,7 @@ curve_fillet_points = {
         },
         4: {
             "name": "arrBasePoint1",
+            "py_name": "base_point1",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

@@ -15,6 +15,7 @@ rename_view = {
     "params_html": {
         0: {
             "name": "strOldTitle",
+            "py_name": "old_title",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ rename_view = {
         },
         1: {
             "name": "strNewTitle",
+            "py_name": "new_title",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

@@ -15,6 +15,7 @@ unit_angle_tolerance = {
     "params_html": {
         0: {
             "name": "dblAngleTol",
+            "py_name": "angle_tol",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

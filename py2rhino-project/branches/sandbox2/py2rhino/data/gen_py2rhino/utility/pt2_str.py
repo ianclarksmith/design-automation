@@ -15,6 +15,7 @@ pt2_str = {
     "params_html": {
         0: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ pt2_str = {
         },
         1: {
             "name": "nPrecision",
+            "py_name": "precision",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "n",
@@ -35,6 +37,7 @@ pt2_str = {
         },
         2: {
             "name": "blnSpace",
+            "py_name": "space",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

@@ -15,6 +15,7 @@ get_box = {
     "params_html": {
         0: {
             "name": "intMode",
+            "py_name": "mode",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -36,6 +37,7 @@ get_box = {
         },
         1: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -46,6 +48,7 @@ get_box = {
         },
         2: {
             "name": "strPrompt1",
+            "py_name": "prompt1",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -56,6 +59,7 @@ get_box = {
         },
         3: {
             "name": "strPrompt2",
+            "py_name": "prompt2",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -66,6 +70,7 @@ get_box = {
         },
         4: {
             "name": "strPrompt3",
+            "py_name": "prompt3",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

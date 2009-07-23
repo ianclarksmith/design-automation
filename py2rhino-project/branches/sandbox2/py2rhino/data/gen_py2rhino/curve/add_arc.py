@@ -15,6 +15,7 @@ add_arc = {
     "params_html": {
         0: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_arc = {
         },
         1: {
             "name": "dblRadius",
+            "py_name": "radius",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ add_arc = {
         },
         2: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

@@ -15,6 +15,7 @@ mirror_objects = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ mirror_objects = {
         },
         1: {
             "name": "arrStartPt",
+            "py_name": "start_pt",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ mirror_objects = {
         },
         2: {
             "name": "arrEndPt",
+            "py_name": "end_pt",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ mirror_objects = {
         },
         3: {
             "name": "blnCopy",
+            "py_name": "copy",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

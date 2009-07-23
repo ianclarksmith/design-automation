@@ -15,6 +15,7 @@ shear_objects = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ shear_objects = {
         },
         1: {
             "name": "arrOrigin",
+            "py_name": "origin",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ shear_objects = {
         },
         2: {
             "name": "arrRefPt",
+            "py_name": "ref_pt",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ shear_objects = {
         },
         3: {
             "name": "arrScale",
+            "py_name": "scale",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "arr_of_int",
@@ -55,6 +59,7 @@ shear_objects = {
         },
         4: {
             "name": "blnCopy",
+            "py_name": "copy",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

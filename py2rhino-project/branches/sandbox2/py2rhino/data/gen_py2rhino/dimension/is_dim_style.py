@@ -15,6 +15,7 @@ is_dim_style = {
     "params_html": {
         0: {
             "name": "strDimStyle",
+            "py_name": "dim_style",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

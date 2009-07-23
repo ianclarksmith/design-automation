@@ -15,6 +15,7 @@ appearance_display = {
     "params_html": {
         0: {
             "name": "intItem",
+            "py_name": "item",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -40,6 +41,7 @@ appearance_display = {
         },
         1: {
             "name": "blnShow",
+            "py_name": "show",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

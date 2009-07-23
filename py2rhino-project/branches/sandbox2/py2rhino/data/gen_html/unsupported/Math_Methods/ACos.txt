@@ -1,0 +1,53 @@
+ACos
+
+
+
+ACos
+
+
+Returns the arccosine, or inverse cosine, of a number. The arccosine is the angle whose cosine is number. The returned angle is given in radians in the range 0 (zero) to PI.
+
+
+Syntax
+
+
+Rhino.ACos (dblNumber)
+
+
+Parameters
+
+
+
+dblNumber 
+
+Required.  Number.  A number representing the cosine of the angle you want and must be from -1 to 1.
+
+
+Returns
+
+
+
+Number 
+
+An angle, ?, measured in radians, such that 0 = ? = PI. Use ToDegrees to convert from radians to degrees.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+MsgBox Rhino.ACos(0.0)
+
+
+Also See
+
+
+ASin
+
+ATan2
+
+
+

@@ -15,6 +15,7 @@ detail_names = {
     "params_html": {
         0: {
             "name": "strLayout",
+            "py_name": "layout",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ detail_names = {
         },
         1: {
             "name": "blnReturnNames",
+            "py_name": "return_names",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

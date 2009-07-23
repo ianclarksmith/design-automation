@@ -15,6 +15,7 @@ add_ellipse = {
     "params_html": {
         0: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_ellipse = {
         },
         1: {
             "name": "dblXRadius",
+            "py_name": "x_radius",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ add_ellipse = {
         },
         2: {
             "name": "dblYRadius",
+            "py_name": "y_radius",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

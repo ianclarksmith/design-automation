@@ -15,6 +15,7 @@ notes = {
     "params_html": {
         0: {
             "name": "strNotes",
+            "py_name": "notes",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

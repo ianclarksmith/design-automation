@@ -15,6 +15,7 @@ xform_shear = {
     "params_html": {
         0: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ xform_shear = {
         },
         1: {
             "name": "arrX1",
+            "py_name": "x1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ xform_shear = {
         },
         2: {
             "name": "arrY1",
+            "py_name": "y1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ xform_shear = {
         },
         3: {
             "name": "arrZ1",
+            "py_name": "z1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",

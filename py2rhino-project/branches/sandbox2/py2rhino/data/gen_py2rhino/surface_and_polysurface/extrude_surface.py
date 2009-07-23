@@ -15,6 +15,7 @@ extrude_surface = {
     "params_html": {
         0: {
             "name": "strSurface",
+            "py_name": "surface",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ extrude_surface = {
         },
         1: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ extrude_surface = {
         },
         2: {
             "name": "blnCap",
+            "py_name": "cap",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

@@ -1,0 +1,42 @@
+PI
+
+
+
+PI
+
+
+Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793238462643.
+
+
+Syntax
+
+
+Rhino.PI
+
+
+Parameters
+
+
+n/a
+
+
+Returns
+
+
+
+Number 
+
+3.141592653589793238462643
+
+
+Example
+
+
+MsgBox Rhino.PI
+
+
+Also See
+
+
+E
+

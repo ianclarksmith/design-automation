@@ -29,6 +29,7 @@ command = {
     "params_html": {
         0: {
             "name": "strCommand",
+            "py_name": "command",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -39,6 +40,7 @@ command = {
         },
         1: {
             "name": "blnEcho",
+            "py_name": "echo",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

@@ -15,6 +15,7 @@ add_sub_crv = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ add_sub_crv = {
         },
         1: {
             "name": "dblParam0",
+            "py_name": "param0",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ add_sub_crv = {
         },
         2: {
             "name": "dblParam1",
+            "py_name": "param1",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

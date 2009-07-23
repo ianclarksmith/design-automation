@@ -15,6 +15,7 @@ delete_named_view = {
     "params_html": {
         0: {
             "name": "strName",
+            "py_name": "name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

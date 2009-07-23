@@ -15,6 +15,7 @@ spot_light_hardness = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ spot_light_hardness = {
         },
         1: {
             "name": "dblHardness",
+            "py_name": "hardness",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

@@ -15,6 +15,7 @@ html_box = {
     "params_html": {
         0: {
             "name": "strFileName",
+            "py_name": "file_name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ html_box = {
         },
         1: {
             "name": "vaArguments",
+            "py_name": "arguments",
             "opt_or_req": "Optional",
             "type": "Variant",
             "name_prefix": "va",
@@ -35,6 +37,7 @@ html_box = {
         },
         2: {
             "name": "strOptions",
+            "py_name": "options",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -70,6 +73,7 @@ html_box = {
         },
         3: {
             "name": "blnModal",
+            "py_name": "modal",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

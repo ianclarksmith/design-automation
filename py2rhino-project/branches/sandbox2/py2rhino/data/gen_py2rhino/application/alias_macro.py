@@ -15,6 +15,7 @@ alias_macro = {
     "params_html": {
         0: {
             "name": "strAlias",
+            "py_name": "alias",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ alias_macro = {
         },
         1: {
             "name": "strMacro",
+            "py_name": "macro",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

@@ -15,6 +15,7 @@ objects_by_type = {
     "params_html": {
         0: {
             "name": "intType",
+            "py_name": "type",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -62,6 +63,7 @@ objects_by_type = {
         },
         1: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

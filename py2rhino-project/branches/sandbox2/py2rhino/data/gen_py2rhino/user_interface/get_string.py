@@ -15,6 +15,7 @@ get_string = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_string = {
         },
         1: {
             "name": "strString",
+            "py_name": "string",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ get_string = {
         },
         2: {
             "name": "arrStrings",
+            "py_name": "strings",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_str",

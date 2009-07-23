@@ -31,6 +31,7 @@ xform_diagonal = {
     "params_html": {
         0: {
             "name": "dblValue",
+            "py_name": "value",
             "opt_or_req": "Required",
             "type": "number",
             "name_prefix": "dbl",

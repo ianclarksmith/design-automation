@@ -15,6 +15,7 @@ osnap_dialog = {
     "params_html": {
         0: {
             "name": "blnVisible",
+            "py_name": "visible",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

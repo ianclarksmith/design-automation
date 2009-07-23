@@ -15,6 +15,7 @@ is_curve_periodic = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ is_curve_periodic = {
         },
         1: {
             "name": "intIndex",
+            "py_name": "index",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -15,6 +15,7 @@ rename_dim_style = {
     "params_html": {
         0: {
             "name": "strOldStyle",
+            "py_name": "old_style",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ rename_dim_style = {
         },
         1: {
             "name": "strNewStyle",
+            "py_name": "new_style",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

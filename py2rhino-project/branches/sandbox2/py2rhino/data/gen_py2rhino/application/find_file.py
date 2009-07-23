@@ -18,6 +18,7 @@ find_file = {
     "params_html": {
         0: {
             "name": "strFilename",
+            "py_name": "filename",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

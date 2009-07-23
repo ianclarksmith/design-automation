@@ -10,12 +10,12 @@ mesh_vertex_colors = {
 
     "syntax_html": {
         0: ("strObject", "arrVertexColors"),
-        1: ("strObject", "Null"),
     },
 
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,22 +26,13 @@ mesh_vertex_colors = {
         },
         1: {
             "name": "arrVertexColors",
+            "py_name": "vertex_colors",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "VertexColors",
             "doc": """
         An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
-            """
-        },
-        2: {
-            "name": "Null",
-            "opt_or_req": "Optional",
-            "type": "Null",
-            "name_prefix": "none",
-            "name_main": "Null",
-            "doc": """
-        Specifying Null will remove, or purge, any existing vertex colors from the mesh.
             """
         },
     },

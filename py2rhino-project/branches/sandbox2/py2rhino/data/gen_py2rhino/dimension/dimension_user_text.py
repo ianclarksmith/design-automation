@@ -15,6 +15,7 @@ dimension_user_text = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ dimension_user_text = {
         },
         1: {
             "name": "strUserText",
+            "py_name": "user_text",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

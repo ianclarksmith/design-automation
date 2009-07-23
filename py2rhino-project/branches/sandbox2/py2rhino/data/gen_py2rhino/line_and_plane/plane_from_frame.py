@@ -15,6 +15,7 @@ plane_from_frame = {
     "params_html": {
         0: {
             "name": "arrOrigin",
+            "py_name": "origin",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ plane_from_frame = {
         },
         1: {
             "name": "arrXaxis",
+            "py_name": "xaxis",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ plane_from_frame = {
         },
         2: {
             "name": "arrYaxis",
+            "py_name": "yaxis",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

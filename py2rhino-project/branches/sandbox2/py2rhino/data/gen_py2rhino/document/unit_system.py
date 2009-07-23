@@ -15,6 +15,7 @@ unit_system = {
     "params_html": {
         0: {
             "name": "intSystem",
+            "py_name": "system",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -78,6 +79,7 @@ unit_system = {
         },
         1: {
             "name": "blnScale",
+            "py_name": "scale",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

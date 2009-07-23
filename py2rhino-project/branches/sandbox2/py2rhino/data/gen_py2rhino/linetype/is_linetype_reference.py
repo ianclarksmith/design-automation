@@ -15,6 +15,7 @@ is_linetype_reference = {
     "params_html": {
         0: {
             "name": "strLinetype",
+            "py_name": "linetype",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

@@ -177,13 +177,13 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
         distance, Double, Required        
         The distance.
             
-        point, Array of ????, Required        
+        point, Array of ???, Required        
         The test point.
             
         Returns
@@ -213,13 +213,13 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
         distance, Double, Required        
         The distance.
             
-        line2, Array of ????, Required        
+        line2, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the test line.
             
         Returns
@@ -290,10 +290,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        point, Array of ????, Required        
+        point, Array of ???, Required        
         The test point.
             
         Returns
@@ -323,10 +323,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        line2, Array of ????, Required        
+        line2, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the test line (another finite chord).
             
         Returns
@@ -356,10 +356,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        point, Array of ????, Required        
+        point, Array of ???, Required        
         The test point.
             
         Returns
@@ -389,10 +389,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ????, Required        
+        line, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        line2, Array of ????, Required        
+        line2, Array of ???, Required        
         Two 3-D points identifying the starting and ending points of the test line (another finite chord).
             
         Returns

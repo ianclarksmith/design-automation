@@ -15,6 +15,7 @@ surface_evaluate = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ surface_evaluate = {
         },
         1: {
             "name": "arrParameter",
+            "py_name": "parameter",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ surface_evaluate = {
         },
         2: {
             "name": "intDerivative",
+            "py_name": "derivative",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",

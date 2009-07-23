@@ -15,6 +15,7 @@ curve_mesh_intersection = {
     "params_html": {
         0: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_mesh_intersection = {
         },
         1: {
             "name": "strMesh",
+            "py_name": "mesh",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ curve_mesh_intersection = {
         },
         2: {
             "name": "blnReturnFaces",
+            "py_name": "return_faces",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

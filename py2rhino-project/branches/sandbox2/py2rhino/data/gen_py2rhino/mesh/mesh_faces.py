@@ -15,6 +15,7 @@ mesh_faces = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ mesh_faces = {
         },
         1: {
             "name": "blnFaceType",
+            "py_name": "face_type",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

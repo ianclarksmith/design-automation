@@ -16,9 +16,10 @@ explode_polysurfaces = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the polysurface objects to explode.
@@ -26,6 +27,7 @@ explode_polysurfaces = {
         },
         1: {
             "name": "blnDelete",
+            "py_name": "delete",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

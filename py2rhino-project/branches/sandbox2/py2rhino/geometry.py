@@ -24,7 +24,7 @@ class Geometry(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ????, Required        
+        plane, Array of ???, Required        
         The plane.
             
         d_u, Double, Required        
@@ -33,7 +33,7 @@ class Geometry(IRhinoScript):
         d_v, Double, Required        
         The magnitude in the V direction.
             
-        views, Array of ????, Optional        
+        views, Array of ???, Optional        
         The titles of the views to clip.  If omitted, the current active view is used.
             
         Returns
@@ -126,7 +126,7 @@ class Geometry(IRhinoScript):
         text, String, Required        
         The text to display.
             
-        point, Array of ????, Required        
+        point, Array of ???, Required        
         A 3-D point.
             
         height, Double, Optional        
@@ -175,7 +175,7 @@ class Geometry(IRhinoScript):
         text, String, Required        
         The text to display.
             
-        plane, Array of ????, Required        
+        plane, Array of ???, Required        
         The plane on which the text will lie.  The origin of the plane will be the origin point of the text.
             
         height, Double, Optional        
@@ -254,7 +254,7 @@ class Geometry(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects.
             
         view, String, Optional        

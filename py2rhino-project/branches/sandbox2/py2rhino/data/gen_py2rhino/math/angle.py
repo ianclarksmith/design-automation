@@ -15,6 +15,7 @@ angle = {
     "params_html": {
         0: {
             "name": "arrPoint1",
+            "py_name": "point1",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ angle = {
         },
         1: {
             "name": "arrPoint2",
+            "py_name": "point2",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ angle = {
         },
         2: {
             "name": "blnWorld",
+            "py_name": "world",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

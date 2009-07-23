@@ -15,6 +15,7 @@ insert_curve_knot = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ insert_curve_knot = {
         },
         1: {
             "name": "dblParameter",
+            "py_name": "parameter",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ insert_curve_knot = {
         },
         2: {
             "name": "blnSymmetrical",
+            "py_name": "symmetrical",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

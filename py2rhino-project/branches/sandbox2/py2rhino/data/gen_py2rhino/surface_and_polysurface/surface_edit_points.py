@@ -15,6 +15,7 @@ surface_edit_points = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ surface_edit_points = {
         },
         1: {
             "name": "blnReturnParameters",
+            "py_name": "return_parameters",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ surface_edit_points = {
         },
         2: {
             "name": "blnReturnAll",
+            "py_name": "return_all",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

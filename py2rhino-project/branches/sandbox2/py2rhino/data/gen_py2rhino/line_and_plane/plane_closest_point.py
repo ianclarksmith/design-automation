@@ -15,6 +15,7 @@ plane_closest_point = {
     "params_html": {
         0: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -34,6 +35,7 @@ plane_closest_point = {
         },
         1: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -44,6 +46,7 @@ plane_closest_point = {
         },
         2: {
             "name": "blnReturnPoint",
+            "py_name": "return_point",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

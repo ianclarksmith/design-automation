@@ -71,10 +71,10 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to morph.
             
-        box_points, Array of ????, Required        
+        box_points, Array of ???, Required        
         An array of eight 3-D points that contain the modified bounding box points.
             
         copy, Boolean, Optional        
@@ -110,13 +110,13 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to copy.
             
-        start, Array of ????, Optional        
+        start, Array of ???, Optional        
         The 3-D starting, or base, point of the copy operation.  If omitted, the objects are copied in-place.
             
-        end, Array of ????, Optional        
+        end, Array of ???, Optional        
         The 3-D ending point of the copy operation.
             
         Returns
@@ -146,7 +146,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        translation, Array of ????, Optional        
+        translation, Array of ???, Optional        
         The 3-D translation vector.
             
         Returns
@@ -243,7 +243,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         The identifiers of the objects to flash.
             
         style, Boolean, Optional        
@@ -695,7 +695,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        targets, Array of ????, Required        
+        targets, Array of ???, Required        
         An array of strings identifying the target objects.
             
         source, String, Optional        
@@ -767,13 +767,13 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to move.
             
-        start, Array of ????, Required        
+        start, Array of ???, Required        
         The 3-D starting, or base, point of the move operation.
             
-        end, Array of ????, Required        
+        end, Array of ???, Required        
         The 3-D ending point of the move operation.
             
         Returns
@@ -803,7 +803,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        translation, Array of ????, Required        
+        translation, Array of ???, Required        
         The 3-D translation vector.
             
         Returns
@@ -833,7 +833,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         color, Integer, Optional        
@@ -876,7 +876,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         source, Integer, Optional        
@@ -1056,7 +1056,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         layer, String, Optional        
@@ -1134,7 +1134,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         layer, String, Optional        
@@ -1176,7 +1176,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         source, Integer, Optional        
@@ -1262,7 +1262,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         source, Integer, Optional        
@@ -1695,7 +1695,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         color, Integer, Optional        
@@ -1738,7 +1738,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         source, Integer, Optional        
@@ -1786,7 +1786,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         width, Double, Optional        
@@ -1828,7 +1828,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         source, Integer, Optional        
@@ -1936,7 +1936,7 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to modify.
             
         u_r_l, String, Optional        
@@ -2257,10 +2257,10 @@ class Object(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ????, Required        
+        objects, Array of ???, Required        
         An array of strings identifying the objects to transform.
             
-        matrix, Array of ????, Required        
+        matrix, Array of ???, Required        
         The transformation matrix (4x4 array of numbers).
             
         copy, Boolean, Optional        

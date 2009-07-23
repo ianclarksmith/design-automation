@@ -15,6 +15,7 @@ visible_objects = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ visible_objects = {
         },
         1: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ visible_objects = {
         },
         2: {
             "name": "blnIncludeLights",
+            "py_name": "include_lights",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -45,6 +48,7 @@ visible_objects = {
         },
         3: {
             "name": "blnIncludeGrips",
+            "py_name": "include_grips",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

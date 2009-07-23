@@ -16,6 +16,7 @@ add_text = {
     "params_html": {
         0: {
             "name": "strText",
+            "py_name": "text",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,9 +27,10 @@ add_text = {
         },
         1: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point",
             "doc": """
         A 3-D point.
@@ -36,9 +38,10 @@ add_text = {
         },
         2: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Plane",
             "doc": """
         The plane on which the text will lie.  The origin of the plane will be the origin point of the text.
@@ -46,6 +49,7 @@ add_text = {
         },
         3: {
             "name": "dblHeight",
+            "py_name": "height",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -56,6 +60,7 @@ add_text = {
         },
         4: {
             "name": "strFont",
+            "py_name": "font",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -66,6 +71,7 @@ add_text = {
         },
         5: {
             "name": "intStyle",
+            "py_name": "style",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

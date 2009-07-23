@@ -15,6 +15,7 @@ mesh_contour_points = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ mesh_contour_points = {
         },
         1: {
             "name": "arrStartPoint",
+            "py_name": "start_point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ mesh_contour_points = {
         },
         2: {
             "name": "arrEndPoint",
+            "py_name": "end_point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ mesh_contour_points = {
         },
         3: {
             "name": "dblInterval",
+            "py_name": "interval",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -55,6 +59,7 @@ mesh_contour_points = {
         },
         4: {
             "name": "blnRemoveCoincidentPoints",
+            "py_name": "remove_coincident_points",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

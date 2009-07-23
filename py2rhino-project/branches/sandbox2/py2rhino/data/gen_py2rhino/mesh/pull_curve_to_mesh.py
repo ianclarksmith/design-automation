@@ -15,6 +15,7 @@ pull_curve_to_mesh = {
     "params_html": {
         0: {
             "name": "strMesh",
+            "py_name": "mesh",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ pull_curve_to_mesh = {
         },
         1: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

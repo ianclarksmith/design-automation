@@ -15,6 +15,7 @@ curve_knot_count = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_knot_count = {
         },
         1: {
             "name": "intIndex",
+            "py_name": "index",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

@@ -15,6 +15,7 @@ convert_curve_to_polyline = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ convert_curve_to_polyline = {
         },
         1: {
             "name": "dblAngleTolerance",
+            "py_name": "angle_tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ convert_curve_to_polyline = {
         },
         2: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ convert_curve_to_polyline = {
         },
         3: {
             "name": "blnDeleteInput",
+            "py_name": "delete_input",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

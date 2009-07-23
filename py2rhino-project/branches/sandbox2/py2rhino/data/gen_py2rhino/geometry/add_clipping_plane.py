@@ -16,9 +16,10 @@ add_clipping_plane = {
     "params_html": {
         0: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Plane",
             "doc": """
         The plane.
@@ -26,6 +27,7 @@ add_clipping_plane = {
         },
         1: {
             "name": "dblDU",
+            "py_name": "d_u",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -36,6 +38,7 @@ add_clipping_plane = {
         },
         2: {
             "name": "dblDV",
+            "py_name": "d_v",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -46,9 +49,10 @@ add_clipping_plane = {
         },
         3: {
             "name": "arrViews",
+            "py_name": "views",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Views",
             "doc": """
         The titles of the views to clip.  If omitted, the current active view is used.

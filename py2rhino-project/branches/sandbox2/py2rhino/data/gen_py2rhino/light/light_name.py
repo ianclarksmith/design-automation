@@ -15,6 +15,7 @@ light_name = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ light_name = {
         },
         1: {
             "name": "strName",
+            "py_name": "name",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

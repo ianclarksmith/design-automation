@@ -15,6 +15,7 @@ extrude_curve = {
     "params_html": {
         0: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ extrude_curve = {
         },
         1: {
             "name": "strPath",
+            "py_name": "path",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

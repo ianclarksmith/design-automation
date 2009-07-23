@@ -16,6 +16,7 @@ reverse_surface = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ reverse_surface = {
         },
         1: {
             "name": "intDirection",
+            "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",

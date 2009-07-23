@@ -15,6 +15,7 @@ get_surface_object = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_surface_object = {
         },
         1: {
             "name": "blnPreSelect",
+            "py_name": "pre_select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ get_surface_object = {
         },
         2: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

@@ -15,6 +15,7 @@ objects_by_name = {
     "params_html": {
         0: {
             "name": "strName",
+            "py_name": "name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ objects_by_name = {
         },
         1: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ objects_by_name = {
         },
         2: {
             "name": "blnIncludeLights",
+            "py_name": "include_lights",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

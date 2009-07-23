@@ -15,6 +15,7 @@ render_settings = {
     "params_html": {
         0: {
             "name": "intSettings",
+            "py_name": "settings",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

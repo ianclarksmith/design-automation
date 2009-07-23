@@ -16,6 +16,7 @@ document_modified = {
     "params_html": {
         0: {
             "name": "blnModified",
+            "py_name": "modified",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

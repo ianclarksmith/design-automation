@@ -15,6 +15,7 @@ material_environment_map = {
     "params_html": {
         0: {
             "name": "intMaterialIndex",
+            "py_name": "material_index",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -25,6 +26,7 @@ material_environment_map = {
         },
         1: {
             "name": "strFileName",
+            "py_name": "file_name",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

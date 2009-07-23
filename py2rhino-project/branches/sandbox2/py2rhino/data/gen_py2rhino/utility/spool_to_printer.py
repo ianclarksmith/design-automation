@@ -15,6 +15,7 @@ spool_to_printer = {
     "params_html": {
         0: {
             "name": "strFile",
+            "py_name": "file",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ spool_to_printer = {
         },
         1: {
             "name": "strPrinter",
+            "py_name": "printer",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

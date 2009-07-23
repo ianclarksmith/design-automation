@@ -15,6 +15,7 @@ line_fit_from_points = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "str",

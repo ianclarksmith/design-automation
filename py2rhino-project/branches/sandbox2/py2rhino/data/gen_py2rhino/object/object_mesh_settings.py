@@ -15,6 +15,7 @@ object_mesh_settings = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ object_mesh_settings = {
         },
         1: {
             "name": "intSettings",
+            "py_name": "settings",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

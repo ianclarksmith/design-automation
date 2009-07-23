@@ -16,9 +16,10 @@ distance = {
     "params_html": {
         0: {
             "name": "arrPoint1",
+            "py_name": "point1",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point1",
             "doc": """
         The first 3-D point.
@@ -26,9 +27,10 @@ distance = {
         },
         1: {
             "name": "arrPoint2",
+            "py_name": "point2",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point2",
             "doc": """
         The second 3-D point.
@@ -36,9 +38,10 @@ distance = {
         },
         2: {
             "name": "arrPointArray",
+            "py_name": "point_array",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "PointArray",
             "doc": """
         An array of 3-D points.

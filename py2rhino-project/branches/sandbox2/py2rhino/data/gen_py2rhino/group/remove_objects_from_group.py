@@ -15,6 +15,7 @@ remove_objects_from_group = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ remove_objects_from_group = {
         },
         1: {
             "name": "strGroup",
+            "py_name": "group",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

@@ -15,6 +15,7 @@ add_leader = {
     "params_html": {
         0: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_leader = {
         },
         1: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ add_leader = {
         },
         2: {
             "name": "strText",
+            "py_name": "text",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

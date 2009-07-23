@@ -15,6 +15,7 @@ combo_list_box = {
     "params_html": {
         0: {
             "name": "arrItems",
+            "py_name": "items",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ combo_list_box = {
         },
         1: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ combo_list_box = {
         },
         2: {
             "name": "strTitle",
+            "py_name": "title",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

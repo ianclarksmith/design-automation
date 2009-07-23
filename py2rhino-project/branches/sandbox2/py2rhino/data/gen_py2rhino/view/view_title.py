@@ -15,6 +15,7 @@ view_title = {
     "params_html": {
         0: {
             "name": "strMode",
+            "py_name": "mode",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

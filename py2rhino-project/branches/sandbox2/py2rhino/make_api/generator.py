@@ -70,9 +70,10 @@ def write_class_method(method_dict, method_num, f):
     py_method_name = method_dict['output_module_name']
     if method_num > 0:
         py_method_name = py_method_name + '_' + str(method_num + 1)
-    vb_method_name = method_dict['input_file_name']
     if keyword.iskeyword(py_method_name):
-        py_method_name += '_'    
+        py_method_name += '_'         
+    vb_method_name = method_dict['input_file_name']
+   
     
     """
     
@@ -99,7 +100,8 @@ def write_class_method(method_dict, method_num, f):
         "arr_of_lng":"Array of Integers",        
         "arr_of_dbl":"Array of Doubles",
         "arr_of_str":"Array of Strings",       
-        "arr_of_any":"Array of Generic Objects",        
+        "arr_of_any":"Array of Generic Objects",
+        "arr_of_???":"Array of ???", 
         "va":"Variant",
         "n":"Integer",
         "arr":"Array of ????"
@@ -121,7 +123,8 @@ def write_class_method(method_dict, method_num, f):
         "arr_of_lng":"VT_ARRAY + VT_I4",  
         "arr_of_dbl":"VT_ARRAY + VT_R8",
         "arr_of_str":"VT_VARIANT",
-        "arr_of_any":"VT_VARIANT",          
+        "arr_of_any":"VT_VARIANT",       
+        "arr_of_???":"VT_VARIANT",               
         "va":"VT_VARIANT",
         "n":"VT_I2",
         "arr":"VT_VARIANT"
@@ -139,17 +142,17 @@ def write_class_method(method_dict, method_num, f):
         for param_num in method_dict['params_html'].keys():
             param_dict = method_dict['params_html'][param_num]
             if (method_num == -1) or (param_dict['name'] in method_dict['syntax_html'][method_num]):
-                param_main = camel_to_underscore(param_dict['name_main'])
-                if keyword.iskeyword(param_main):
-                    param_main += "_"
-                param_flattened = param_main
+                param_py_name = param_dict['py_name']
+                if keyword.iskeyword(param_py_name):
+                    param_py_name += "_"
+                param_flattened = param_py_name
                 if param_dict['name_prefix'].startswith('arr'):
-                    param_flattened = 'flatten_params(' + param_main + ')'
+                    param_flattened = 'flatten_params(' + param_py_name + ')'
                 param_required = 'False'
                 if param_dict['opt_or_req'] == 'Required':
                     param_required = 'True'
                 #add data to the lsists
-                params_name.append(param_main)
+                params_name.append(param_py_name)
                 params_type.append(string_to_type_map[param_dict['name_prefix']])
                 params_flattened.append(param_flattened)
                 params_opt_or_req.append( param_dict['opt_or_req'])

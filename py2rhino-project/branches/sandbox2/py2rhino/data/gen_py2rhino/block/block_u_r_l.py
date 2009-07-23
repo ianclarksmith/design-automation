@@ -15,6 +15,7 @@ block_u_r_l = {
     "params_html": {
         0: {
             "name": "strBlock",
+            "py_name": "block",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ block_u_r_l = {
         },
         1: {
             "name": "strURL",
+            "py_name": "u_r_l",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

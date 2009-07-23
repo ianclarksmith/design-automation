@@ -15,6 +15,7 @@ add_mesh = {
     "params_html": {
         0: {
             "name": "arrVertices",
+            "py_name": "vertices",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_mesh = {
         },
         1: {
             "name": "arrFaceVertices",
+            "py_name": "face_vertices",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -35,6 +37,7 @@ add_mesh = {
         },
         2: {
             "name": "arrVertexNormals",
+            "py_name": "vertex_normals",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ add_mesh = {
         },
         3: {
             "name": "arrTextureCoordinates",
+            "py_name": "texture_coordinates",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -55,6 +59,7 @@ add_mesh = {
         },
         4: {
             "name": "arrVertexColors",
+            "py_name": "vertex_colors",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_int",

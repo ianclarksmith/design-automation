@@ -15,6 +15,7 @@ render_resolution = {
     "params_html": {
         0: {
             "name": "arrResolution",
+            "py_name": "resolution",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",

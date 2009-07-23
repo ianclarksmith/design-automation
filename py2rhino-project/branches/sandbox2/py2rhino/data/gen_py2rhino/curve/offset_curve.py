@@ -15,6 +15,7 @@ offset_curve = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,9 +26,10 @@ offset_curve = {
         },
         1: {
             "name": "arrDirection",
+            "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Direction",
             "doc": """
         The 3-D point that indicates the direction of the offset.
@@ -35,6 +37,7 @@ offset_curve = {
         },
         2: {
             "name": "dblDistance",
+            "py_name": "distance",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,9 +48,10 @@ offset_curve = {
         },
         3: {
             "name": "arrNormal",
+            "py_name": "normal",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Normal",
             "doc": """
         A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
@@ -55,6 +59,7 @@ offset_curve = {
         },
         4: {
             "name": "intStyle",
+            "py_name": "style",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

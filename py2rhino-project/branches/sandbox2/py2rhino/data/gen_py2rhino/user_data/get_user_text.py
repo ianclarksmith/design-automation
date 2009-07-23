@@ -15,6 +15,7 @@ get_user_text = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_user_text = {
         },
         1: {
             "name": "strKey",
+            "py_name": "key",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ get_user_text = {
         },
         2: {
             "name": "blnAttachToGeometry",
+            "py_name": "attach_to_geometry",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

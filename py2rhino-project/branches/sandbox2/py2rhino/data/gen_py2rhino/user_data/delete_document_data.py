@@ -15,6 +15,7 @@ delete_document_data = {
     "params_html": {
         0: {
             "name": "strSection",
+            "py_name": "section",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ delete_document_data = {
         },
         1: {
             "name": "strEntry",
+            "py_name": "entry",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

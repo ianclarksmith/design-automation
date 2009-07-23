@@ -15,6 +15,7 @@ surface_cylinder = {
     "params_html": {
         0: {
             "name": "strSurface",
+            "py_name": "surface",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

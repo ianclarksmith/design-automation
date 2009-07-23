@@ -31,9 +31,10 @@ transform_objects = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to transform.
@@ -41,9 +42,10 @@ transform_objects = {
         },
         1: {
             "name": "arrMatrix",
+            "py_name": "matrix",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Matrix",
             "doc": """
         The transformation matrix (4x4 array of numbers).
@@ -51,6 +53,7 @@ transform_objects = {
         },
         2: {
             "name": "blnCopy",
+            "py_name": "copy",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

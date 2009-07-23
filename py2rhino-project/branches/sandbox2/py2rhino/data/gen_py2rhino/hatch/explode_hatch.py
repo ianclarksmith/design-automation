@@ -15,6 +15,7 @@ explode_hatch = {
     "params_html": {
         0: {
             "name": "strHatch",
+            "py_name": "hatch",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ explode_hatch = {
         },
         1: {
             "name": "blnDelete",
+            "py_name": "delete",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

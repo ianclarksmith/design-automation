@@ -15,6 +15,7 @@ save_file_name = {
     "params_html": {
         0: {
             "name": "strTitle",
+            "py_name": "title",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ save_file_name = {
         },
         1: {
             "name": "strFilter",
+            "py_name": "filter",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ save_file_name = {
         },
         2: {
             "name": "strFolder",
+            "py_name": "folder",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -45,6 +48,7 @@ save_file_name = {
         },
         3: {
             "name": "strFilename",
+            "py_name": "filename",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -55,6 +59,7 @@ save_file_name = {
         },
         4: {
             "name": "strExtension",
+            "py_name": "extension",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

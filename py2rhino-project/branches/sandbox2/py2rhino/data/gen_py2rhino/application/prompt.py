@@ -15,6 +15,7 @@ prompt = {
     "params_html": {
         0: {
             "name": "strPrompt",
+            "py_name": "prompt",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

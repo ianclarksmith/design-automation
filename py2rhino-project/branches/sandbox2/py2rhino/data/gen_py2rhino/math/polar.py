@@ -15,6 +15,7 @@ polar = {
     "params_html": {
         0: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ polar = {
         },
         1: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ polar = {
         },
         2: {
             "name": "dblDistance",
+            "py_name": "distance",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ polar = {
         },
         3: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

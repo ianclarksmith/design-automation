@@ -16,6 +16,7 @@ layer_mode = {
     "params_html": {
         0: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,6 +27,7 @@ layer_mode = {
         },
         1: {
             "name": "intMode",
+            "py_name": "mode",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

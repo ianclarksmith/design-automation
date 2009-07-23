@@ -15,6 +15,7 @@ create_preview_image = {
     "params_html": {
         0: {
             "name": "strFile",
+            "py_name": "file",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -38,6 +39,7 @@ create_preview_image = {
         },
         1: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -48,6 +50,7 @@ create_preview_image = {
         },
         2: {
             "name": "arrSize",
+            "py_name": "size",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -58,6 +61,7 @@ create_preview_image = {
         },
         3: {
             "name": "intFlags",
+            "py_name": "flags",
             "opt_or_req": "Optional",
             "type": "Integer",
             "name_prefix": "int",
@@ -75,6 +79,7 @@ create_preview_image = {
         },
         4: {
             "name": "blnWireframe",
+            "py_name": "wireframe",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

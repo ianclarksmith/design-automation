@@ -18,6 +18,7 @@ add_loft_srf = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -28,6 +29,7 @@ add_loft_srf = {
         },
         1: {
             "name": "arrStartPt",
+            "py_name": "start_pt",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -38,6 +40,7 @@ add_loft_srf = {
         },
         2: {
             "name": "arrEndPt",
+            "py_name": "end_pt",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -48,6 +51,7 @@ add_loft_srf = {
         },
         3: {
             "name": "intType",
+            "py_name": "type",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -69,6 +73,7 @@ add_loft_srf = {
         },
         4: {
             "name": "intStyle",
+            "py_name": "style",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -86,6 +91,7 @@ add_loft_srf = {
         },
         5: {
             "name": "nValue",
+            "py_name": "value",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "n",
@@ -96,6 +102,7 @@ add_loft_srf = {
         },
         6: {
             "name": "blnClosed",
+            "py_name": "closed",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

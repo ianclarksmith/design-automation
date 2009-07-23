@@ -15,6 +15,7 @@ view_camera_lens = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ view_camera_lens = {
         },
         1: {
             "name": "dblLength",
+            "py_name": "length",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

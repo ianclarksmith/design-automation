@@ -15,6 +15,7 @@ color_adjust_luma = {
     "params_html": {
         0: {
             "name": "lngRGB",
+            "py_name": "r_g_b",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "lng",
@@ -25,6 +26,7 @@ color_adjust_luma = {
         },
         1: {
             "name": "intLuma",
+            "py_name": "luma",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ color_adjust_luma = {
         },
         2: {
             "name": "blnScale",
+            "py_name": "scale",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

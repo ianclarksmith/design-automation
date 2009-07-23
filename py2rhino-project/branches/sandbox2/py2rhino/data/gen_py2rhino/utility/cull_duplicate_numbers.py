@@ -15,6 +15,7 @@ cull_duplicate_numbers = {
     "params_html": {
         0: {
             "name": "arrNumbers",
+            "py_name": "numbers",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -25,6 +26,7 @@ cull_duplicate_numbers = {
         },
         1: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

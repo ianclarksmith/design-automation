@@ -15,6 +15,7 @@ dim_style_extension = {
     "params_html": {
         0: {
             "name": "strDimStyle",
+            "py_name": "dim_style",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ dim_style_extension = {
         },
         1: {
             "name": "dblExtension",
+            "py_name": "extension",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

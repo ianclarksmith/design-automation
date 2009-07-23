@@ -15,6 +15,7 @@ hatch_rotation = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ hatch_rotation = {
         },
         1: {
             "name": "dblRotation",
+            "py_name": "rotation",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

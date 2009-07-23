@@ -15,6 +15,7 @@ pull_curve = {
     "params_html": {
         0: {
             "name": "strSurface",
+            "py_name": "surface",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ pull_curve = {
         },
         1: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ pull_curve = {
         },
         2: {
             "name": "blnDelete",
+            "py_name": "delete",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

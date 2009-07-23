@@ -15,6 +15,7 @@ object_mesh_quality = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ object_mesh_quality = {
         },
         1: {
             "name": "intQuality",
+            "py_name": "quality",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

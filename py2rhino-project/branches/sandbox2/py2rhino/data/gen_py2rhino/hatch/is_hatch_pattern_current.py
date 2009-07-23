@@ -15,6 +15,7 @@ is_hatch_pattern_current = {
     "params_html": {
         0: {
             "name": "strHatch",
+            "py_name": "hatch",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

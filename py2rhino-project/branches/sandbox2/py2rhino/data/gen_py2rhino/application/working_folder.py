@@ -15,6 +15,7 @@ working_folder = {
     "params_html": {
         0: {
             "name": "blnEnable",
+            "py_name": "enable",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "bln",

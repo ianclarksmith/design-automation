@@ -15,6 +15,7 @@ delete_search_path = {
     "params_html": {
         0: {
             "name": "strFolder",
+            "py_name": "folder",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

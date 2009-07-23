@@ -15,6 +15,7 @@ curve_arrows = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_arrows = {
         },
         1: {
             "name": "intStyle",
+            "py_name": "style",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

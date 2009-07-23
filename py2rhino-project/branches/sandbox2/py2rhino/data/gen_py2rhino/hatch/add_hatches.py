@@ -15,6 +15,7 @@ add_hatches = {
     "params_html": {
         0: {
             "name": "arrCurves",
+            "py_name": "curves",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ add_hatches = {
         },
         1: {
             "name": "strHatch",
+            "py_name": "hatch",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ add_hatches = {
         },
         2: {
             "name": "dblScale",
+            "py_name": "scale",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ add_hatches = {
         },
         3: {
             "name": "dblRotation",
+            "py_name": "rotation",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

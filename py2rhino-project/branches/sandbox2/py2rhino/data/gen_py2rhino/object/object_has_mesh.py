@@ -15,6 +15,7 @@ object_has_mesh = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "str",

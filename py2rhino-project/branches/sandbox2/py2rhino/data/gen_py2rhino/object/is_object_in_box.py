@@ -15,6 +15,7 @@ is_object_in_box = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ is_object_in_box = {
         },
         1: {
             "name": "arrBox",
+            "py_name": "box",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ is_object_in_box = {
         },
         2: {
             "name": "blnMode",
+            "py_name": "mode",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

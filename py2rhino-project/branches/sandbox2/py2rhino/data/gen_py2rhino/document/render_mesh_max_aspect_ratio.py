@@ -16,6 +16,7 @@ render_mesh_max_aspect_ratio = {
     "params_html": {
         0: {
             "name": "dblRatio",
+            "py_name": "ratio",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

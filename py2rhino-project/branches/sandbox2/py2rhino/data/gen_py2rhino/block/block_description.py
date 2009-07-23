@@ -15,6 +15,7 @@ block_description = {
     "params_html": {
         0: {
             "name": "strBlock",
+            "py_name": "block",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ block_description = {
         },
         1: {
             "name": "strText",
+            "py_name": "text",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

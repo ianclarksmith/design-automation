@@ -15,6 +15,7 @@ clipboard_text = {
     "params_html": {
         0: {
             "name": "strText",
+            "py_name": "text",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

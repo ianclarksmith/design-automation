@@ -15,6 +15,7 @@ get_distance = {
     "params_html": {
         0: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ get_distance = {
         },
         1: {
             "name": "dblDistance",
+            "py_name": "distance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ get_distance = {
         },
         2: {
             "name": "strMessage1",
+            "py_name": "message1",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -45,6 +48,7 @@ get_distance = {
         },
         3: {
             "name": "strMessage2",
+            "py_name": "message2",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

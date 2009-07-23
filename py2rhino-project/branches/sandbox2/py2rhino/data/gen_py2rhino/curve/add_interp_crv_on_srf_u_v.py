@@ -15,6 +15,7 @@ add_interp_crv_on_srf_u_v = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ add_interp_crv_on_srf_u_v = {
         },
         1: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

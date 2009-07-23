@@ -15,6 +15,7 @@ extrude_curve_straight = {
     "params_html": {
         0: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ extrude_curve_straight = {
         },
         1: {
             "name": "arrStartPoint",
+            "py_name": "start_point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ extrude_curve_straight = {
         },
         2: {
             "name": "arrEndPoint",
+            "py_name": "end_point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

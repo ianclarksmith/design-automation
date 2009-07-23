@@ -15,6 +15,7 @@ points_are_coplanar = {
     "params_html": {
         0: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ points_are_coplanar = {
         },
         1: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

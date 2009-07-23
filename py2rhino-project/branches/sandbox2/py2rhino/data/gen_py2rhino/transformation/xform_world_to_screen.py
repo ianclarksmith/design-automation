@@ -15,6 +15,7 @@ xform_world_to_screen = {
     "params_html": {
         0: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ xform_world_to_screen = {
         },
         1: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ xform_world_to_screen = {
         },
         2: {
             "name": "blnConvert",
+            "py_name": "convert",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

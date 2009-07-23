@@ -16,6 +16,7 @@ enable_object_mesh = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Object",
             "name_prefix": "arr_of_str",
@@ -26,6 +27,7 @@ enable_object_mesh = {
         },
         1: {
             "name": "blnEnable",
+            "py_name": "enable",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

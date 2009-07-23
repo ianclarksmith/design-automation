@@ -15,6 +15,7 @@ unit_absolute_tolerance = {
     "params_html": {
         0: {
             "name": "dblAbsTol",
+            "py_name": "abs_tol",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

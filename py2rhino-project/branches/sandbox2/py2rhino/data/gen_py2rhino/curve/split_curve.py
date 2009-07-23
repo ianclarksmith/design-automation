@@ -16,6 +16,7 @@ split_curve = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,9 +27,10 @@ split_curve = {
         },
         1: {
             "name": "arrParameters",
+            "py_name": "parameters",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Parameters",
             "doc": """
         An array of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
@@ -36,6 +38,7 @@ split_curve = {
         },
         2: {
             "name": "blnDelete",
+            "py_name": "delete",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

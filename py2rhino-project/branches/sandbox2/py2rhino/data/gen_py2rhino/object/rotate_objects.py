@@ -15,6 +15,7 @@ rotate_objects = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -25,6 +26,7 @@ rotate_objects = {
         },
         1: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ rotate_objects = {
         },
         2: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ rotate_objects = {
         },
         3: {
             "name": "arrAxis",
+            "py_name": "axis",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -55,6 +59,7 @@ rotate_objects = {
         },
         4: {
             "name": "blnCopy",
+            "py_name": "copy",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

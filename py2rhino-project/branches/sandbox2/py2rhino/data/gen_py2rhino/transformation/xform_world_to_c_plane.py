@@ -15,6 +15,7 @@ xform_world_to_c_plane = {
     "params_html": {
         0: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ xform_world_to_c_plane = {
         },
         1: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

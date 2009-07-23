@@ -15,6 +15,7 @@ block_instances = {
     "params_html": {
         0: {
             "name": "strBlock",
+            "py_name": "block",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

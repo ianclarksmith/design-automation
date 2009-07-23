@@ -15,6 +15,7 @@ objects_by_color = {
     "params_html": {
         0: {
             "name": "lngColor",
+            "py_name": "color",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "lng",
@@ -25,6 +26,7 @@ objects_by_color = {
         },
         1: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",
@@ -35,6 +37,7 @@ objects_by_color = {
         },
         2: {
             "name": "blnIncludeLights",
+            "py_name": "include_lights",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

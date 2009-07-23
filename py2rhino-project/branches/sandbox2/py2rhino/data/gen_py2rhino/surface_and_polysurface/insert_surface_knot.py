@@ -15,6 +15,7 @@ insert_surface_knot = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ insert_surface_knot = {
         },
         1: {
             "name": "dblParameter",
+            "py_name": "parameter",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ insert_surface_knot = {
         },
         2: {
             "name": "intDirection",
+            "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -45,6 +48,7 @@ insert_surface_knot = {
         },
         3: {
             "name": "blnSymmetrical",
+            "py_name": "symmetrical",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

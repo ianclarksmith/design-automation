@@ -18,6 +18,7 @@ display_ole_alerts = {
     "params_html": {
         0: {
             "name": "blnDisplay",
+            "py_name": "display",
             "opt_or_req": "Required",
             "type": "Boolean",
             "name_prefix": "bln",

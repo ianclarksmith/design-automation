@@ -15,6 +15,7 @@ fit_curve = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ fit_curve = {
         },
         1: {
             "name": "intDegree",
+            "py_name": "degree",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ fit_curve = {
         },
         2: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ fit_curve = {
         },
         3: {
             "name": "dblAngleTolerance",
+            "py_name": "angle_tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

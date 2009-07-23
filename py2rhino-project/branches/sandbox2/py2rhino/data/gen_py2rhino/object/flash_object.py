@@ -16,9 +16,10 @@ flash_object = {
     "params_html": {
         0: {
             "name": "arrObjects",
+            "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Objects",
             "doc": """
         The identifiers of the objects to flash.
@@ -26,6 +27,7 @@ flash_object = {
         },
         1: {
             "name": "blnStyle",
+            "py_name": "style",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

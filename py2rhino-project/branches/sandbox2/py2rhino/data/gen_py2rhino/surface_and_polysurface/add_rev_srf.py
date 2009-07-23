@@ -15,6 +15,7 @@ add_rev_srf = {
     "params_html": {
         0: {
             "name": "strProfile",
+            "py_name": "profile",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ add_rev_srf = {
         },
         1: {
             "name": "arrAxis",
+            "py_name": "axis",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ add_rev_srf = {
         },
         2: {
             "name": "dblStartAngle",
+            "py_name": "start_angle",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",
@@ -45,6 +48,7 @@ add_rev_srf = {
         },
         3: {
             "name": "dblEndAngle",
+            "py_name": "end_angle",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

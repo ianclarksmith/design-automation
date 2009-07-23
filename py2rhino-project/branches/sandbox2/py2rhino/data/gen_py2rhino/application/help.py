@@ -15,6 +15,7 @@ help = {
     "params_html": {
         0: {
             "name": "intTopic",
+            "py_name": "topic",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

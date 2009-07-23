@@ -15,6 +15,7 @@ add_spot_light = {
     "params_html": {
         0: {
             "name": "arrOrigin",
+            "py_name": "origin",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_spot_light = {
         },
         1: {
             "name": "dblRadius",
+            "py_name": "radius",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ add_spot_light = {
         },
         2: {
             "name": "arrApex",
+            "py_name": "apex",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

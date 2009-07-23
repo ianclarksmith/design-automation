@@ -15,6 +15,7 @@ get_plug_in_object = {
     "params_html": {
         0: {
             "name": "strPlugIn",
+            "py_name": "plug_in",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

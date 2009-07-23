@@ -80,7 +80,7 @@ class Utility(IRhinoScript):
 
         return self._ApplyTypes_(245, 1, (VT_VARIANT, 0), magic, u"ClipboardText", None, *flattened)
 
-    def color_adjust_luma(self, r_g_b, luma, luma2=None):
+    def color_adjust_luma(self, r_g_b, luma, scale=None):
         """        
         Changes the luminance of a red-green-blue (RGB) value. Hue and saturation are not affected.
     
@@ -93,7 +93,7 @@ class Utility(IRhinoScript):
         luma, Integer, Required        
         The luminance in units of 0.1 percent of the total range.  For example, a value of intLuma = 50 corresponds to 5 percent of the maximum luminance.
             
-        luma, Integer, Optional        
+        scale, Boolean, Optional        
         If bScale is set to True, intLuma specifies how much to increment or decrement the current luminance.  If bScale is set to FALSE, intLuma specifies the absolute luminance.  The default value is False.
 		If bScale is set to TRUE, intLuma can range from -1000 to +1000.
             
@@ -108,10 +108,10 @@ class Utility(IRhinoScript):
 
         """
 
-        params = [r_g_b, luma, luma]
+        params = [r_g_b, luma, scale]
         required = [True, True, False]
-        magic = [(VT_I4, 1), (VT_I2, 1), (VT_I2, 1)]
-        flattened = [r_g_b, luma, luma]
+        magic = [(VT_I4, 1), (VT_I2, 1), (VT_BOOL, 1)]
+        flattened = [r_g_b, luma, scale]
 
         magic, flattened = select_params(params, required, magic, flattened)
 
@@ -474,72 +474,6 @@ class Utility(IRhinoScript):
 
         return self._ApplyTypes_(287, 1, (VT_VARIANT, 0), magic, u"IsProcedure", None, *flattened)
 
-    def join_arrays(self, array1, array2):
-        """        
-        Joins two one-dimensional arrays in to a single one-dimensional array.
-    
-        Parameters
-        ==========
-
-        array1, Array of Generic Objects, Required        
-        The first one-dimensional array.
-            
-        array2, Array of Generic Objects, Required        
-        The second one-dimensional array.
-            
-        Returns
-        =======
-
-        array
-        A one-dimensional array containing the elements of both input arrays if successful.
-
-        null
-        If not successful or on error.
-
-        """
-
-        params = [array1, array2]
-        required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
-        flattened = [flatten_params(array1), flatten_params(array2)]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(547, 1, (VT_VARIANT, 0), magic, u"JoinArrays", None, *flattened)
-
-    def make_array(self, upper_bound, upper_bound2=None):
-        """        
-        Creates a new, initialized one-dimensional array of a user-specified bounds.
-    
-        Parameters
-        ==========
-
-        upper_bound, Integer, Required        
-        The upper bounds of the new array.
-            
-        upper_bound, Integer, Optional        
-        The value to initialize every array element.  If omitted, every array element will be initialized as Empty.  Note, the Empty VBScript keyword is used to indicate an uninitialized variable value.  This is not the same thing as Null.
-            
-        Returns
-        =======
-
-        array
-        The one-dimensional array if successful.
-
-        null
-        If not successful or on error.
-
-        """
-
-        params = [upper_bound, upper_bound]
-        required = [True, False]
-        magic = [(VT_I2, 1), (VT_I2, 1)]
-        flattened = [upper_bound, upper_bound]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(875, 1, (VT_VARIANT, 0), magic, u"MakeArray", None, *flattened)
-
     def printer_names(self):
         """        
         Returns the name of all installed Windows printer.
@@ -700,157 +634,6 @@ class Utility(IRhinoScript):
         magic, flattened = select_params(params, required, magic, flattened)
 
         return self._ApplyTypes_(248, 1, (VT_VARIANT, 0), magic, u"Sleep", None, *flattened)
-
-    def sort_numbers(self, numbers, ascending=None):
-        """        
-        Sorts an array of numbers.
-    
-        Parameters
-        ==========
-
-        numbers, Array of Integers, Required        
-        An array of numeric values.
-            
-        ascending, Boolean, Optional        
-        The sorting mode, either ascending or descending.  If omitted, the numbers are sorted ascending.
-            
-        Returns
-        =======
-
-        array
-        An array of sorted numbers if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [numbers, ascending]
-        required = [True, False]
-        magic = [(VT_ARRAY + VT_I2, 1), (VT_BOOL, 1)]
-        flattened = [flatten_params(numbers), ascending]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(552, 1, (VT_VARIANT, 0), magic, u"SortNumbers", None, *flattened)
-
-    def sort_point_list(self, points, tolerance=None):
-        """        
-        Sorts an array of 3-D points so they will be connected in "reasonable" polyline order.
-    
-        Parameters
-        ==========
-
-        points, Array of Doubles, Required        
-        An array of 3-D points.
-            
-        tolerance, Double, Optional        
-        The minimum distance between points.  Points that fall within this tolerance will be discarded.  If omitted, Rhino's internal zero tolerance is used.
-            
-        Returns
-        =======
-
-        array
-        An array of sorted 3-D points  if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [points, tolerance]
-        required = [True, False]
-        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
-        flattened = [flatten_params(points), tolerance]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(644, 1, (VT_VARIANT, 0), magic, u"SortPointList", None, *flattened)
-
-    def sort_points(self, points, ascending=None, order=None):
-        """        
-        Sorts an array of 3-D points.
-    
-        Parameters
-        ==========
-
-        points, Array of Doubles, Required        
-        An array of 3-D points.
-            
-        ascending, Boolean, Optional        
-        The sorting mode, either ascending or descending.  If omitted, the points are sorted ascending (True).
-            
-        order, Boolean, Optional        
-        The component sort order, where:
-		Value
-		Component Sort Order
-		0 (default)
-		X, Y, Z
-		1
-		X, Z, Y
-		2
-		Y, X, Z
-		3
-		Y, Z, X
-		4
-		Z, X, Y
-		5
-            
-        Returns
-        =======
-
-        array
-        An array of sorted 3-D points if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [points, ascending, order]
-        required = [True, False, False]
-        magic = [(VT_ARRAY + VT_R8, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
-        flattened = [flatten_params(points), ascending, order]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(551, 1, (VT_VARIANT, 0), magic, u"SortPoints", None, *flattened)
-
-    def sort_strings(self, strings, ascending=None, no_case=None):
-        """        
-        Sorts an array of strings.
-    
-        Parameters
-        ==========
-
-        strings, Array of Strings, Required        
-        An array of string values.
-            
-        ascending, Boolean, Optional        
-        The sorting mode, either ascending or descending.  If omitted or True, the strings are sorted ascending.  If False, the strings are sorted descending.
-            
-        no_case, Boolean, Optional        
-        The case sensitivity mode.  If omitted or True, a case insensitive sorting is performed.  If False, a case sensitive sorting is performed.
-            
-        Returns
-        =======
-
-        array
-        An array sorted strings if successful.
-
-        null
-        If not successful, or on error.
-
-        """
-
-        params = [strings, ascending, no_case]
-        required = [True, False, False]
-        magic = [(VT_VARIANT, 1), (VT_BOOL, 1), (VT_BOOL, 1)]
-        flattened = [flatten_params(strings), ascending, no_case]
-
-        magic, flattened = select_params(params, required, magic, flattened)
-
-        return self._ApplyTypes_(640, 1, (VT_VARIANT, 0), magic, u"SortStrings", None, *flattened)
 
     def spool_to_printer(self, file, printer):
         """        

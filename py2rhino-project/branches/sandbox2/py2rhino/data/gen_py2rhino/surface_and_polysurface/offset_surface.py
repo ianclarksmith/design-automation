@@ -15,6 +15,7 @@ offset_surface = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ offset_surface = {
         },
         1: {
             "name": "dblDistance",
+            "py_name": "distance",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

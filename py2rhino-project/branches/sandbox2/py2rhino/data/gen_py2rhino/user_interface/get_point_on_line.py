@@ -15,6 +15,7 @@ get_point_on_line = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_point_on_line = {
         },
         1: {
             "name": "arrStart",
+            "py_name": "start",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ get_point_on_line = {
         },
         2: {
             "name": "arrEnd",
+            "py_name": "end",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -45,6 +48,7 @@ get_point_on_line = {
         },
         3: {
             "name": "blnTrack",
+            "py_name": "track",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

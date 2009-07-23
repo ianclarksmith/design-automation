@@ -486,13 +486,13 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of ???, Required        
         An array of 3-D points to project.
             
-        meshes, Array of ????, Required        
+        meshes, Array of ???, Required        
         The identifiers of the mesh objects to project onto.
             
-        direction, Array of ????, Required        
+        direction, Array of ???, Required        
         The direction (3-D vector) to project the points.
             
         Returns
@@ -522,13 +522,13 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ????, Required        
+        points, Array of ???, Required        
         An array of 3-D points to project.
             
-        surfaces, Array of ????, Required        
+        surfaces, Array of ???, Required        
         The identifiers of the surface or polysurface objects to project onto.
             
-        direction, Array of ????, Required        
+        direction, Array of ???, Required        
         The direction (3-D vector) to project the points.
             
         Returns

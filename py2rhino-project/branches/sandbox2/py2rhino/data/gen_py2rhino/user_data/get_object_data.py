@@ -15,6 +15,7 @@ get_object_data = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_object_data = {
         },
         1: {
             "name": "strSection",
+            "py_name": "section",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ get_object_data = {
         },
         2: {
             "name": "strEntry",
+            "py_name": "entry",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

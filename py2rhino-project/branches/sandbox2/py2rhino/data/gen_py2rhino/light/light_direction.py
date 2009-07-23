@@ -15,6 +15,7 @@ light_direction = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ light_direction = {
         },
         1: {
             "name": "arrDirection",
+            "py_name": "direction",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

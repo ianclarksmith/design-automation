@@ -15,6 +15,7 @@ view_display_mode_ex = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ view_display_mode_ex = {
         },
         1: {
             "name": "strMode",
+            "py_name": "mode",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ view_display_mode_ex = {
         },
         2: {
             "name": "blnReturnNames",
+            "py_name": "return_names",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

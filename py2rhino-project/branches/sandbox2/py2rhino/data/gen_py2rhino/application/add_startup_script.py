@@ -15,6 +15,7 @@ add_startup_script = {
     "params_html": {
         0: {
             "name": "strScriptFile",
+            "py_name": "script_file",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ add_startup_script = {
         },
         1: {
             "name": "intIndex",
+            "py_name": "index",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

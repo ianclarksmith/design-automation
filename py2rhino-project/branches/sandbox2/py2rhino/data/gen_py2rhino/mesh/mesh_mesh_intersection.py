@@ -15,6 +15,7 @@ mesh_mesh_intersection = {
     "params_html": {
         0: {
             "name": "strMesh1",
+            "py_name": "mesh1",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ mesh_mesh_intersection = {
         },
         1: {
             "name": "strMesh2",
+            "py_name": "mesh2",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ mesh_mesh_intersection = {
         },
         2: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

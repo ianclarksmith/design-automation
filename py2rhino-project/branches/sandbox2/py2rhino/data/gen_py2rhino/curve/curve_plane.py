@@ -15,6 +15,7 @@ curve_plane = {
     "params_html": {
         0: {
             "name": "strCurve",
+            "py_name": "curve",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

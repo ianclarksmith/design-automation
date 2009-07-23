@@ -15,6 +15,7 @@ objects_by_layer = {
     "params_html": {
         0: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ objects_by_layer = {
         },
         1: {
             "name": "blnSelect",
+            "py_name": "select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

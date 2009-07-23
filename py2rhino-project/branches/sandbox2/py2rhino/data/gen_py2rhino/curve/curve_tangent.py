@@ -15,6 +15,7 @@ curve_tangent = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_tangent = {
         },
         1: {
             "name": "dblParameter",
+            "py_name": "parameter",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -35,6 +37,7 @@ curve_tangent = {
         },
         2: {
             "name": "intIndex",
+            "py_name": "index",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "int",

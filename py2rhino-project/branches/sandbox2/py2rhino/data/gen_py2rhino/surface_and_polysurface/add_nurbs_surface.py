@@ -15,6 +15,7 @@ add_nurbs_surface = {
     "params_html": {
         0: {
             "name": "arrPointCount",
+            "py_name": "point_count",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -25,6 +26,7 @@ add_nurbs_surface = {
         },
         1: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ add_nurbs_surface = {
         },
         2: {
             "name": "arrKnotsU",
+            "py_name": "knots_u",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -45,6 +48,7 @@ add_nurbs_surface = {
         },
         3: {
             "name": "arrKnotsV",
+            "py_name": "knots_v",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -55,6 +59,7 @@ add_nurbs_surface = {
         },
         4: {
             "name": "arrDegree",
+            "py_name": "degree",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -65,6 +70,7 @@ add_nurbs_surface = {
         },
         5: {
             "name": "arrWeights",
+            "py_name": "weights",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",

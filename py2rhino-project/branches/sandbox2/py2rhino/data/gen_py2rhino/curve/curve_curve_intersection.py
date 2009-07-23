@@ -15,6 +15,7 @@ curve_curve_intersection = {
     "params_html": {
         0: {
             "name": "strObject1",
+            "py_name": "object1",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ curve_curve_intersection = {
         },
         1: {
             "name": "strObject2",
+            "py_name": "object2",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ curve_curve_intersection = {
         },
         2: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

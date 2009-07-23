@@ -15,6 +15,7 @@ layer_visible = {
     "params_html": {
         0: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ layer_visible = {
         },
         1: {
             "name": "blnVisible",
+            "py_name": "visible",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

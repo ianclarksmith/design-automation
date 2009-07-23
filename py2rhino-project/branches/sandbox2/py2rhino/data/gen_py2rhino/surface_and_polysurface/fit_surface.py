@@ -15,6 +15,7 @@ fit_surface = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ fit_surface = {
         },
         1: {
             "name": "arrDegree",
+            "py_name": "degree",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -35,6 +37,7 @@ fit_surface = {
         },
         2: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

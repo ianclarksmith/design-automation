@@ -15,6 +15,7 @@ point_transform = {
     "params_html": {
         0: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ point_transform = {
         },
         1: {
             "name": "arrXform",
+            "py_name": "xform",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

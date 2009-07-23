@@ -15,6 +15,7 @@ send_keystrokes = {
     "params_html": {
         0: {
             "name": "strKeys",
+            "py_name": "keys",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ send_keystrokes = {
         },
         1: {
             "name": "blnAddReturn",
+            "py_name": "add_return",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "bln",

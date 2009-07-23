@@ -15,6 +15,7 @@ point_divide = {
     "params_html": {
         0: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ point_divide = {
         },
         1: {
             "name": "dblScale",
+            "py_name": "scale",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

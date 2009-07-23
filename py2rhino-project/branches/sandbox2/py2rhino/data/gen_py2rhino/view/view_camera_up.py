@@ -15,6 +15,7 @@ view_camera_up = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ view_camera_up = {
         },
         1: {
             "name": "arrUpVector",
+            "py_name": "up_vector",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

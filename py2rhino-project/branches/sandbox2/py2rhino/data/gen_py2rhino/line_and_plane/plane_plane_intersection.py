@@ -15,6 +15,7 @@ plane_plane_intersection = {
     "params_html": {
         0: {
             "name": "arrPlane1",
+            "py_name": "plane1",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ plane_plane_intersection = {
         },
         1: {
             "name": "arrPoint2",
+            "py_name": "point2",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

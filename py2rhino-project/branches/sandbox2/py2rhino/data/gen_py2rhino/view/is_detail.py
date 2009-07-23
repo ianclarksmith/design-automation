@@ -15,6 +15,7 @@ is_detail = {
     "params_html": {
         0: {
             "name": "strLayout",
+            "py_name": "layout",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ is_detail = {
         },
         1: {
             "name": "strDetail",
+            "py_name": "detail",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

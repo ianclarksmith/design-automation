@@ -15,6 +15,7 @@ is_layer_child_of = {
     "params_html": {
         0: {
             "name": "strLayer",
+            "py_name": "layer",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ is_layer_child_of = {
         },
         1: {
             "name": "strTest",
+            "py_name": "test",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

@@ -15,6 +15,7 @@ template_folder = {
     "params_html": {
         0: {
             "name": "strFolder",
+            "py_name": "folder",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

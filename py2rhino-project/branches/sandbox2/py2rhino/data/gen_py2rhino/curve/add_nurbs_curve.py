@@ -15,6 +15,7 @@ add_nurbs_curve = {
     "params_html": {
         0: {
             "name": "arrPoints",
+            "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -25,6 +26,7 @@ add_nurbs_curve = {
         },
         1: {
             "name": "arrKnots",
+            "py_name": "knots",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -35,6 +37,7 @@ add_nurbs_curve = {
         },
         2: {
             "name": "intDegree",
+            "py_name": "degree",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "int",
@@ -45,6 +48,7 @@ add_nurbs_curve = {
         },
         3: {
             "name": "arrWeights",
+            "py_name": "weights",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_int",

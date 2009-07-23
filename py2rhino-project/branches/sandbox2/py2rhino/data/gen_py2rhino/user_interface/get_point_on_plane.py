@@ -15,6 +15,7 @@ get_point_on_plane = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_point_on_plane = {
         },
         1: {
             "name": "arrPlane",
+            "py_name": "plane",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -35,6 +37,7 @@ get_point_on_plane = {
         },
         2: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

@@ -1,0 +1,109 @@
+MeshVertexColors
+
+
+
+MeshVertexColors
+
+
+Returns or modifies the  vertex colors of a mesh object
+
+
+Syntax
+
+
+Rhino.MeshVertexColors (strObject [, arrVertexColors])
+
+Rhino.MeshVertexColors (strObject [, Null])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+arrVertexColors 
+
+Optional.  Array.  An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
+
+Null 
+
+Optional.  Null.  Specifying Null will remove, or purge, any existing vertex colors from the mesh.
+
+
+Returns
+
+
+
+Array 
+
+If arrVertexColors  is not specified,  the current vertex color if successful.
+
+Array 
+
+If arrVertexColors  is specified, the previous vertex colors if successful.
+
+Null 
+
+If strObject does not have vertex colors, if not successful, or on error.
+
+
+Example
+
+
+Sub Test
+
+  Const rhObjectMesh = 32 
+
+  Dim strObject, arrColors(), i
+
+  strObject = Rhino.GetObject("Select mesh", rhObjectMesh)
+
+  If VarType(strObject) = vbString Then
+
+    ReDim arrColors( Rhino.MeshVertexCount(strObject)-1 )
+
+    For i = 0 To UBound(arrColors)
+
+      arrColors(i) = RandomColor
+
+    Next
+
+    Rhino.MeshVertexColors strObject, arrColors
+
+  End If
+
+End Sub
+
+
+
+Function RandomColor()
+
+Dim intRed, intGreen, intBlue
+
+Randomize
+
+intRed = Int(255 * Rnd)
+
+intGreen = Int(255 * Rnd)
+
+intBlue = Int(255 * Rnd)
+
+RandomColor = RGB(intRed, intGreen, intBlue)
+
+End Function
+
+
+Also See
+
+
+MeshHasVertexColors
+
+MeshVertexCount
+
+MeshVertices
+
+
+

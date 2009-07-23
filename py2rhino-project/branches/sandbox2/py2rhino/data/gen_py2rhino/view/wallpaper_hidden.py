@@ -15,6 +15,7 @@ wallpaper_hidden = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ wallpaper_hidden = {
         },
         1: {
             "name": "blnHidden",
+            "py_name": "hidden",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

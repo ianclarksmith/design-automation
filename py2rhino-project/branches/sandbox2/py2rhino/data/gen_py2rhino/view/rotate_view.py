@@ -15,6 +15,7 @@ rotate_view = {
     "params_html": {
         0: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ rotate_view = {
         },
         1: {
             "name": "intDirection",
+            "py_name": "direction",
             "opt_or_req": "Optional",
             "type": "Number, The direction to rotate the view, where 0 = right, 1 = left, 2 = down, and 3 = up",
             "name_prefix": "int",
@@ -35,6 +37,7 @@ rotate_view = {
         },
         2: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

@@ -15,6 +15,7 @@ get_point_coordinates = {
     "params_html": {
         0: {
             "name": "strMessage",
+            "py_name": "message",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ get_point_coordinates = {
         },
         1: {
             "name": "blnPreSelect",
+            "py_name": "pre_select",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

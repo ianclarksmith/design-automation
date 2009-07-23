@@ -15,6 +15,7 @@ in_command = {
     "params_html": {
         0: {
             "name": "blnIgnoreRunners",
+            "py_name": "ignore_runners",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

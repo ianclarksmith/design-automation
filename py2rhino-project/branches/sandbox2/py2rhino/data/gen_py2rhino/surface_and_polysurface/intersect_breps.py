@@ -15,6 +15,7 @@ intersect_breps = {
     "params_html": {
         0: {
             "name": "strBrep1",
+            "py_name": "brep1",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ intersect_breps = {
         },
         1: {
             "name": "strBrep2",
+            "py_name": "brep2",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -35,6 +37,7 @@ intersect_breps = {
         },
         2: {
             "name": "dblTolerance",
+            "py_name": "tolerance",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "dbl",

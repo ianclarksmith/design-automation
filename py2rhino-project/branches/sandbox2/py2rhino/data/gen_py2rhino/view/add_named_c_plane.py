@@ -15,6 +15,7 @@ add_named_c_plane = {
     "params_html": {
         0: {
             "name": "strName",
+            "py_name": "name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ add_named_c_plane = {
         },
         1: {
             "name": "strView",
+            "py_name": "view",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

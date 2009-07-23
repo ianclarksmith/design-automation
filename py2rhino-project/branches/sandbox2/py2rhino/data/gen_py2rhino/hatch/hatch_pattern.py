@@ -15,6 +15,7 @@ hatch_pattern = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ hatch_pattern = {
         },
         1: {
             "name": "strHatch",
+            "py_name": "hatch",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

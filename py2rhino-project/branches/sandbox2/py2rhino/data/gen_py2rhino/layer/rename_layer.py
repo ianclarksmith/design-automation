@@ -15,6 +15,7 @@ rename_layer = {
     "params_html": {
         0: {
             "name": "strOldName",
+            "py_name": "old_name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ rename_layer = {
         },
         1: {
             "name": "strNewName",
+            "py_name": "new_name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

@@ -15,6 +15,7 @@ light_color = {
     "params_html": {
         0: {
             "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -25,6 +26,7 @@ light_color = {
         },
         1: {
             "name": "lngColor",
+            "py_name": "color",
             "opt_or_req": "Optional",
             "type": "Number",
             "name_prefix": "lng",

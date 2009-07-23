@@ -15,6 +15,7 @@ cull_duplicate_strings = {
     "params_html": {
         0: {
             "name": "arrStrings",
+            "py_name": "strings",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_int",
@@ -25,6 +26,7 @@ cull_duplicate_strings = {
         },
         1: {
             "name": "blnCaseSensitive",
+            "py_name": "case_sensitive",
             "opt_or_req": "Optional",
             "type": "Boolean",
             "name_prefix": "bln",

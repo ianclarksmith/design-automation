@@ -15,6 +15,7 @@ is_layout = {
     "params_html": {
         0: {
             "name": "strLayout",
+            "py_name": "layout",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

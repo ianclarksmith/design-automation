@@ -18,9 +18,10 @@ xform_rotation = {
     "params_html": {
         0: {
             "name": "arrPlane1",
+            "py_name": "plane1",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Plane1",
             "doc": """
         The starting plane.
@@ -28,9 +29,10 @@ xform_rotation = {
         },
         1: {
             "name": "arrPlane2",
+            "py_name": "plane2",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Plane2",
             "doc": """
         The ending plane.
@@ -38,6 +40,7 @@ xform_rotation = {
         },
         2: {
             "name": "dblAngle",
+            "py_name": "angle",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -48,9 +51,10 @@ xform_rotation = {
         },
         3: {
             "name": "arrAxis",
+            "py_name": "axis",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Axis",
             "doc": """
         The rotation axis.
@@ -58,9 +62,10 @@ xform_rotation = {
         },
         4: {
             "name": "arrStartDir",
+            "py_name": "start_dir",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "StartDir",
             "doc": """
         The starting direction.
@@ -68,9 +73,10 @@ xform_rotation = {
         },
         5: {
             "name": "arrEndDir",
+            "py_name": "end_dir",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "EndDir",
             "doc": """
         The ending direction.
@@ -78,9 +84,10 @@ xform_rotation = {
         },
         6: {
             "name": "arrPoint",
+            "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array (3-D Point)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Point",
             "doc": """
         The rotation center point.
@@ -88,9 +95,10 @@ xform_rotation = {
         },
         7: {
             "name": "arrX0",
+            "py_name": "x0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "X0",
             "doc": """
         The initial frame X
@@ -98,9 +106,10 @@ xform_rotation = {
         },
         8: {
             "name": "arrY0",
+            "py_name": "y0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Y0",
             "doc": """
         The initial frame Y.
@@ -108,9 +117,10 @@ xform_rotation = {
         },
         9: {
             "name": "arrZ0",
+            "py_name": "z0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Z0",
             "doc": """
         The initial frame Z.
@@ -118,9 +128,10 @@ xform_rotation = {
         },
         10: {
             "name": "arrX1",
+            "py_name": "x1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "X1",
             "doc": """
         The final frame X.
@@ -128,9 +139,10 @@ xform_rotation = {
         },
         11: {
             "name": "arrY1",
+            "py_name": "y1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Y1",
             "doc": """
         The final frame Y.
@@ -138,9 +150,10 @@ xform_rotation = {
         },
         12: {
             "name": "arrZ1",
+            "py_name": "z1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_???",
             "name_main": "Z1",
             "doc": """
         The final frame Z.
