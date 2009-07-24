@@ -26,10 +26,10 @@ class Zone(object):
         that the operation failed. 
         
         """
-        #arg_str = string_util._convert_args_to_string("add.zone", name)
-        #val = py2ecotect.conversation.Request(arg_str)
-        #self._id = string_util._convert_str_to_type(val, int)
-        self._id = 12
+        arg_str = string_util._convert_args_to_string("add.zone", name)
+        val = py2ecotect.conversation.Request(arg_str)
+        self._id = string_util._convert_str_to_type(val, int)
+        #self._id = 12
  
     #===========================================================================
     # Commands

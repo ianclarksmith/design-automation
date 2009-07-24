@@ -1,12 +1,23 @@
-import py2ecotect
-from py2ecotect import string_util
-
-objects = []
-object_ids = {}
+import py2ecotect as p2e
 
 class Object(object):
+    _zone = None
+    _nodes = []
     
-    def __init__(self, elemType, objType, selected = True, link = 0):
+    @staticmethod
+    def create_object_from_id(eco_id):
+        
+        #create object
+        obj = Object()
+        
+        #update model lists
+        p2e.model.objects.append(obj)
+        
+        #return the instance
+        return obj
+    
+    @staticmethod
+    def create_object(elemType, objType, selected = True, link = 0):
         """
         
         Use this command to create new objects in the model. It returns the 
@@ -75,17 +86,36 @@ class Object(object):
         child 2444 
 
         """
-        arg_str = string_util._convert_args_to_string("add.object", elemType, 
+        arg_str = p2e.string_util._convert_args_to_string("add.object", elemType, 
                                                      objType, selected, link)
-        val = py2ecotect.conversation.Request(arg_str)
-        eco_id = string_util._convert_str_to_type(val, int)
-        objects.append(self)
-        assert eco_id == objects.index(self)
-        object_ids[self.id()] = eco_id
+        val = p2e.conversation.Request(arg_str)
+        eco_id = p2e.string_util._convert_str_to_type(val, int)
+        
+        #create object
+        obj = Object()
+        
+        #update model lists
+        p2e.model.objects.append(obj)
+        
+        #set object attributes
+        self.zone = 0
+        
+        #return the instance
+        return obj
+    
+    @staticmethod
+    def create_object_by_points(elemType, objType, nodes, selected = True, link = 0):  
+        obj = Object.create_object(elemType, objType, selected = True, link = 0)
+        for node_num in range(len(nodes)):
+            Node(obj.eco_id, node_num, nodes[node_num][0], nodes[node_num][1], nodes[node_num][2])
+        obj.done()
     
     #===========================================================================
     # Commands
     #===========================================================================
+    
+    def add_node(self, Node):
+        pass
     
     def delete(self):
         """
@@ -100,9 +130,12 @@ class Object(object):
         There are no parameters for this command..
         
         """
-        arg_str = string_util._convert_args_to_string("object.delete", object_ids[self.id()])
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("object.delete", self.get_eco_id())
+        p2e.conversation.Exec(arg_str)
         
+        #Update model lists
+        p2e.model.objects.remove(self)
+            
     def del_node(self, node):
         """
         
@@ -115,9 +148,9 @@ class Object(object):
         The zero-based node index belonging to the object. 
         
         """
-        arg_str = string_util._convert_args_to_string("object.delnode", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.delnode", self.get_eco_id(), 
                                                      node)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def done(self):
         """
@@ -131,7 +164,7 @@ class Object(object):
         There are no parameters for this command.
   
         """
-        py2ecotect.conversation.Exec("object.done")
+        p2e.conversation.Exec("object.done")
 
     def duplicate(self, x, y, z):
         """
@@ -146,9 +179,15 @@ class Object(object):
         Specifies a distance move the duplicate object in each of the major axes. 
         
         """
-        arg_str = string_util._convert_args_to_string("object.duplicate", 
-                                                      object_ids[self.id()], x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("object.duplicate", 
+                                                      self.get_eco_id(), x, y, z)
+        p2e.conversation.Exec(arg_str)
+        
+        #get the id of the new object
+        eco_id = Model.get_objects() - 1
+        
+        #create the object
+        return Object.create_object_from_id(eco_id)
         
     def extrude(self, x, y, z):
         """
@@ -163,9 +202,9 @@ class Object(object):
         major axes.
         
         """
-        arg_str = string_util._convert_args_to_string("object.extrude", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.extrude", self.get_eco_id(), 
                                                      x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def link(self, parent):
         """
@@ -181,9 +220,9 @@ class Object(object):
         with.
         
         """
-        arg_str = string_util._convert_args_to_string("object.link", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.link", self.get_eco_id(), 
                                                      parent)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def move(self, x, y, z):
         """
@@ -198,9 +237,9 @@ class Object(object):
         axes.
         
         """
-        arg_str = string_util._convert_args_to_string("object.move", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.move", self.get_eco_id(), 
                                                      x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def normal_move(self, type):
         """
@@ -225,9 +264,9 @@ class Object(object):
         3 Towards positive Z axis. 
         
         """
-        arg_str = string_util._convert_args_to_string("object.normal", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.normal", self.get_eco_id(), 
                                                      type)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def nudge(self, dir):
         """
@@ -252,9 +291,9 @@ class Object(object):
         3, -3 In the Z axis. 
     
         """
-        arg_str = string_util._convert_args_to_string("object.nudge", 
-                                                      object_ids[self.id()], dir)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("object.nudge", 
+                                                      self.get_eco_id(), dir)
+        p2e.conversation.Exec(arg_str)
 
     def orient(self, azi, alt):
         """
@@ -272,9 +311,9 @@ class Object(object):
         The vertical angle of orientation, given in degrees. 
   
         """
-        arg_str = string_util._convert_args_to_string("object.orient", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.orient", self.get_eco_id(), 
                                                      azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def revolve(self, axis, angle, segs):
         """
@@ -306,9 +345,9 @@ class Object(object):
         2 Around the Y axis. 
 
         """
-        arg_str = string_util._convert_args_to_string("object.revolve", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.revolve", self.get_eco_id(), 
                                                      axis, angle, segs)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def rotate(self, azi, alt):
         """
@@ -327,9 +366,9 @@ class Object(object):
         The altitude angle of rotation in decimal degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("object.rotate", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.rotate", self.get_eco_id(), 
                                                      azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def rotate_axis(self, rx, ry, rz):
         """
@@ -346,9 +385,9 @@ class Object(object):
         required for a particular axis. 
         
         """
-        arg_str = string_util._convert_args_to_string("object.rotateaxis", 
-                                                      object_ids[self.id()], rx, ry, rz)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("object.rotateaxis", 
+                                                      self.get_eco_id(), rx, ry, rz)
+        p2e.conversation.Exec(arg_str)
         
     def rotate_reverse(self, azi, alt):
         """
@@ -367,9 +406,9 @@ class Object(object):
         The altitude angle of rotation in decimal degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("object.rotatereverse", 
-                                                      object_ids[self.id()], azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("object.rotatereverse", 
+                                                      self.get_eco_id(), azi, alt)
+        p2e.conversation.Exec(arg_str)
 
     def scale(self, dx, dy, dz):
         """
@@ -383,9 +422,9 @@ class Object(object):
         The scale factor to apply in each of the major axes. 
         
         """
-        arg_str = string_util._convert_args_to_string("object.scale", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.scale", self.get_eco_id(), 
                                                      dx, dy, dz)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def select(self):
         """
@@ -397,8 +436,8 @@ class Object(object):
         There are no parameters for this command.
         
         """
-        arg_str = string_util._convert_args_to_string("object.select", object_ids[self.id()])
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("object.select", self.get_eco_id())
+        p2e.conversation.Exec(arg_str)
         
     def spin(self, spin):
         """
@@ -413,8 +452,8 @@ class Object(object):
         The spin angle given in decimal degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("object.spin", object_ids[self.id()], spin)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("object.spin", self.get_eco_id(), spin)
+        p2e.conversation.Exec(arg_str)
 
     def update(self):
         """
@@ -429,8 +468,8 @@ class Object(object):
         There are no parameters for this command.
         
         """
-        arg_str = string_util._convert_args_to_string("object.update", object_ids[self.id()])
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("object.update", self.get_eco_id())
+        p2e.conversation.Exec(arg_str)
 
     def xform(self, trans, x, y, z):
         """
@@ -464,21 +503,21 @@ class Object(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
 
         """
-        arg_str = string_util._convert_args_to_string("object.xform", object_ids[self.id()], 
+        arg_str = p2e.string_util._convert_args_to_string("object.xform", self.get_eco_id(), 
                                                      trans, x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     #===========================================================================
     # Properties
     #===========================================================================
     
-    def get_id(self):
+    def get_eco_id(self):
         """
         
         Id of the object
         
         """
-        return object_ids[self.id()]
+        return p2e.model.objects.index(self)
     
     def get_activation(self, day, hour):
         """
@@ -506,10 +545,10 @@ class Object(object):
         is on.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.activation", 
-                                                     object_ids[self.id()], day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.activation", 
+                                                     self.get_eco_id(), day, hour)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_alternate(self):
         """
@@ -530,10 +569,10 @@ class Object(object):
         The zero-based index of the assigned alternate material. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.object.alternate", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.alternate", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_alternate(sel, material):
         """
@@ -554,9 +593,9 @@ class Object(object):
         name using the get.material.index property.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.alternate", 
-                                                     object_ids[self.id()], material)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.alternate", 
+                                                     self.get_eco_id(), material)
+        p2e.conversation.Exec(arg_str)
 
     def get_angle(self, type):
         """
@@ -587,10 +626,10 @@ class Object(object):
         eye 4 3D angle between surface normal and current eye position. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.object.angle", 
-                                                     object_ids[self.id()], type)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.angle", 
+                                                     self.get_eco_id(), type)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_area(self):
         """
@@ -608,10 +647,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.area", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.area", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def get_attr_1(self):
         """
@@ -629,10 +668,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.attr1", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.attr1", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_attr_1(self, value):
         """
@@ -646,9 +685,9 @@ class Object(object):
         The value to assign.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.attr1", 
-                                                     object_ids[self.id()], value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.attr1", 
+                                                     self.get_eco_id(), value)
+        p2e.conversation.Exec(arg_str)
  
  
     def get_attr_2(self):
@@ -667,10 +706,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.attr2", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.attr2", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_attr_2(self, value):
         """
@@ -684,9 +723,9 @@ class Object(object):
         The value to assign.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.attr2", 
-                                                     object_ids[self.id()], value)
-        py2ecotect.conversation.Exec(arg_str)       
+        arg_str = p2e.string_util._convert_args_to_string("set.object.attr2", 
+                                                     self.get_eco_id(), value)
+        p2e.conversation.Exec(arg_str)       
 
     def get_attr_3(self):
         """
@@ -704,10 +743,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.attr3", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.attr3", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_attr_3(self, value):
         """
@@ -721,9 +760,9 @@ class Object(object):
         The value to assign.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.attr3", 
-                                                     object_ids[self.id()], value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.attr3", 
+                                                     self.get_eco_id(), value)
+        p2e.conversation.Exec(arg_str)
 
     def get_center(self):
         """
@@ -743,10 +782,10 @@ class Object(object):
         point in 3 dimensional model space. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.object.center", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.center", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def set_center(self, x, y, z):
         """
@@ -762,9 +801,9 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.center", 
-                                                     object_ids[self.id()], x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.center", 
+                                                     self.get_eco_id(), x, y, z)
+        p2e.conversation.Exec(arg_str)
 
     def get_child_extents(self, absolute = True):
         """
@@ -801,10 +840,10 @@ class Object(object):
         The relative height of the child object. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.child.extents", 
-                                                     object_ids[self.id()], absolute)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.child.extents", 
+                                                     self.get_eco_id(), absolute)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float, float)
 
     def set_child_extents(self, u, v, wu, hv):
         """
@@ -847,9 +886,9 @@ class Object(object):
         the child object 3/4 the size of the parent object.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.child.extents", 
-                                                     object_ids[self.id()], u, v, wu, hv)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.child.extents", 
+                                                     self.get_eco_id(), u, v, wu, hv)
+        p2e.conversation.Exec(arg_str)
 
     def get_coplanar(self, x, y, z):
         """
@@ -871,10 +910,10 @@ class Object(object):
         A boolean value where 1 means that the point is coplanar and 0 means that it isn't. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.coplanar", 
-                                                     object_ids[self.id()], x, y, z)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.coplanar", 
+                                                     self.get_eco_id(), x, y, z)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_current(self):
         """
@@ -887,9 +926,9 @@ class Object(object):
         There are no parameters for this property.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.current", 
-                                                     object_ids[self.id()])
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.current", 
+                                                     self.get_eco_id())
+        p2e.conversation.Exec(arg_str)
 
     def get_distance_to(self, x, y, z):
         """
@@ -914,10 +953,10 @@ class Object(object):
         The distance fro the point to the object.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.distanceto", 
-                                                     object_ids[self.id()], x, y, z)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.distanceto", 
+                                                     self.get_eco_id(), x, y, z)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_equation(self):
         """
@@ -937,10 +976,10 @@ class Object(object):
         Ax + By + Cz = D 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.equation", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.equation", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float, float)
  
     def set_equation(self):
         """
@@ -952,9 +991,9 @@ class Object(object):
         There are no parameters for this property.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.equation", 
-                                                     object_ids[self.id()])
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.equation", 
+                                                     self.get_eco_id())
+        p2e.conversation.Exec(arg_str)
         
     def get_exposure(self):
         """
@@ -972,10 +1011,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.exposure", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.exposure", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_extents(self):
         """
@@ -993,10 +1032,10 @@ class Object(object):
         The overall dimensions of the object in each of the X, Y and Z axis. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.extents", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.extents", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_extents_2dpt(self, u, v):
         """
@@ -1025,10 +1064,10 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.extents.2dpt", 
-                                                     object_ids[self.id()], u, v)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.extents.2dpt", 
+                                                     self.get_eco_id(), u, v)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_extents_max(self):
         """
@@ -1047,10 +1086,10 @@ class Object(object):
         point in 3 dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.extents.max", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.extents.max", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_extents_min(self):
         """
@@ -1068,10 +1107,10 @@ class Object(object):
         point in 3 dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.extents.min", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.extents.min", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_first_node(self):
         """
@@ -1088,10 +1127,10 @@ class Object(object):
         The zero-based index of the object's first node.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.firstnode", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.firstnode", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def get_flag(self, flag):
         """
@@ -1140,10 +1179,10 @@ class Object(object):
         *Indicates temporary and volatile markers for internal use only.
      
         """
-        arg_str = string_util._convert_args_to_string("get.object.flag", 
-                                                     object_ids[self.id()], flag)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.flag", 
+                                                     self.get_eco_id(), flag)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_flag(self, flag, state = True):
         """
@@ -1195,9 +1234,9 @@ class Object(object):
         *Indicates temporary and volatile markers for internal use only.
 
         """
-        arg_str = string_util._convert_args_to_string("set.object.flag", 
-                                                     object_ids[self.id()], flag, state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.flag", 
+                                                     self.get_eco_id(), flag, state)
+        p2e.conversation.Exec(arg_str)
         
     def get_incidence(self, x, y, z):
         """
@@ -1221,10 +1260,10 @@ class Object(object):
         The incidence angle in degrees. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.incidence", 
-                                                     object_ids[self.id()], x, y, z)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.incidence", 
+                                                     self.get_eco_id(), x, y, z)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def get_inside(self, x, y, z, checkChildren = True):
         """
@@ -1258,11 +1297,11 @@ class Object(object):
         it isn't. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.inside", 
-                                                     object_ids[self.id()], x, y, z, 
+        arg_str = p2e.string_util._convert_args_to_string("get.object.inside", 
+                                                     self.get_eco_id(), x, y, z, 
                                                      checkChildren)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def get_intersect(self, x1, y1, z1, x2, y2, z2):
         """
@@ -1291,11 +1330,11 @@ class Object(object):
         intersection point in 3 dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.intersect", 
-                                                     object_ids[self.id()], x1, y1, z1, x2, y2, 
+        arg_str = p2e.string_util._convert_args_to_string("get.object.intersect", 
+                                                     self.get_eco_id(), x1, y1, z1, x2, y2, 
                                                      z2)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_last_node(self):
         """
@@ -1312,10 +1351,10 @@ class Object(object):
         The zero-based index of the object's last node. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.lastnode", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.lastnode", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_length(self):
         """
@@ -1333,10 +1372,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.length", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.length", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_link(self):
         """
@@ -1355,10 +1394,10 @@ class Object(object):
         The zero-based index of the linked object.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.link", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.link", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_mask(self):
         """
@@ -1378,10 +1417,10 @@ class Object(object):
         being the zero-based index of the shading mask in the current list.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.mask", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.mask", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_mask(self, index):
         """
@@ -1398,9 +1437,9 @@ class Object(object):
         being the zero-based index of the shading mask in the current list. 
 
         """
-        arg_str = string_util._convert_args_to_string("set.object.mask", 
-                                                     object_ids[self.id()], index)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.mask", 
+                                                     self.get_eco_id(), index)
+        p2e.conversation.Exec(arg_str)
 
     def get_material(self):
         """
@@ -1421,10 +1460,10 @@ class Object(object):
         The zero-based index of the assigned primary material. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.material", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.material", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_material(self, material):
         """
@@ -1445,9 +1484,9 @@ class Object(object):
         command.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.material", 
-                                                     object_ids[self.id()], material)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.material", 
+                                                     self.get_eco_id(), material)
+        p2e.conversation.Exec(arg_str)
 
     def get_node_position(self, node):
         """
@@ -1471,10 +1510,10 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.node.position", 
-                                                     object_ids[self.id()], node)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.node.position", 
+                                                     self.get_eco_id(), node)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def set_node_position(self, node, x, y, z):
         """
@@ -1494,9 +1533,9 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.node.position", 
-                                                     object_ids[self.id()], node, x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.node.position", 
+                                                     self.get_eco_id(), node, x, y, z)
+        p2e.conversation.Exec(arg_str)
 
     def get_nodes(self):
         """
@@ -1513,10 +1552,10 @@ class Object(object):
         The number of nodes in this object. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.node", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.node", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_normal(self):
         """
@@ -1537,10 +1576,10 @@ class Object(object):
         Z axis, given in model coordinates, of the object's normal.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.normal", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.normal", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_panel_area(self):
         """
@@ -1558,10 +1597,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.panelarea", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.panelarea", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
 
     def get_pt_even(self):
@@ -1603,10 +1642,10 @@ class Object(object):
         0 Finished - no further points to be found. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.object.pt.even", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.pt.even", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float, int)
 
     def get_pt_initialise(self, fraction):
         """
@@ -1635,10 +1674,10 @@ class Object(object):
         is unsuitable for this. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.pt.initialise", 
-                                                     object_ids[self.id()], fraction)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.pt.initialise", 
+                                                     self.get_eco_id(), fraction)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_pt_random(self):
         """
@@ -1680,10 +1719,10 @@ class Object(object):
         0 Finished - no further points to be found. 
  
         """
-        arg_str = string_util._convert_args_to_string("get.object.pt.random", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.pt.random", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float, int)
 
     def get_reflect(self, x, y, z):
         """
@@ -1707,10 +1746,10 @@ class Object(object):
         dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.reflect", 
-                                                     object_ids[self.id()], x, y, z)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.reflect", 
+                                                     self.get_eco_id(), x, y, z)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_resolution(self):
         """
@@ -1727,10 +1766,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.resolution", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.resolution", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_resolution(self, value):
         """
@@ -1745,9 +1784,9 @@ class Object(object):
         The value to use for the virtual polyline curve resolution.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.node.position", 
-                                                     object_ids[self.id()], value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.node.position", 
+                                                     self.get_eco_id(), value)
+        p2e.conversation.Exec(arg_str)
 
     def get_same_side(self, x1, y1, z1, x2, y2, z2):
         """
@@ -1774,11 +1813,11 @@ class Object(object):
         means that they aren't.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.sameside", 
-                                                     object_ids[self.id()], x1, y1, z1, x2, y2, 
+        arg_str = p2e.string_util._convert_args_to_string("get.object.sameside", 
+                                                     self.get_eco_id(), x1, y1, z1, x2, y2, 
                                                      z2)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_schedule(self):
         """
@@ -1802,10 +1841,10 @@ class Object(object):
         The zero-based index of the schedule assigned to this object. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.schedule", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.schedule", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_schedule(self, schedule):
         """
@@ -1829,9 +1868,9 @@ class Object(object):
         command.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.schedule", 
-                                                     object_ids[self.id()], schedule)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.schedule", 
+                                                     self.get_eco_id(), schedule)
+        p2e.conversation.Exec(arg_str)
         
     def get_selected(self):
         """
@@ -1851,10 +1890,10 @@ class Object(object):
         and 0 that it is not. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.selected", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.selected", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_selected(self, state = True):
         """
@@ -1875,9 +1914,9 @@ class Object(object):
         as the current object.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.selected", 
-                                                     object_ids[self.id()], state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.selected", 
+                                                     self.get_eco_id(), state)
+        p2e.conversation.Exec(arg_str)
 
     def get_sun_angles(self):
         """
@@ -1903,10 +1942,10 @@ class Object(object):
         The Horizontal Shadow Angle of the object at the current date and time. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.sunangles", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.sunangles", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float)
 
     def get_tag(self, tag):
         """
@@ -1947,10 +1986,10 @@ class Object(object):
         32768 TAGGED_MARKER* Generic calculation marker. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.object.tag", 
-                                                     object_ids[self.id()], tag)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.tag", 
+                                                     self.get_eco_id(), tag)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_tag(self, tag, state = True):
         """
@@ -1992,9 +2031,9 @@ class Object(object):
 
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.tag", 
-                                                     object_ids[self.id()], tag, state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.tag", 
+                                                     self.get_eco_id(), tag, state)
+        p2e.conversation.Exec(arg_str)
 
     def get_type(self):
         """
@@ -2033,10 +2072,10 @@ class Object(object):
         camera 15 
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.type", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.type", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_type(self, type):
         """
@@ -2050,9 +2089,9 @@ class Object(object):
         Either a token or value corresponding to the Element Types table.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.type", 
-                                                     object_ids[self.id()], type)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.type", 
+                                                     self.get_eco_id(), type)
+        p2e.conversation.Exec(arg_str)
         
     def get_underground(self):
         """
@@ -2069,10 +2108,10 @@ class Object(object):
         A decimal value containing the requested object data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.underground", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.underground", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_vector(self):
         """
@@ -2090,10 +2129,10 @@ class Object(object):
         Z axis, given in model coordinates, of the object's extrusion vector.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.vector", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.object.vector", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def set_vector(self, dx, dy, dz):
         """
@@ -2108,9 +2147,9 @@ class Object(object):
         Z axis, given in model coordinates. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.vector", 
-                                                     object_ids[self.id()], dx, dy, dz)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.object.vector", 
+                                                     self.get_eco_id(), dx, dy, dz)
+        p2e.conversation.Exec(arg_str)
         
     def get_zone(self):
         """
@@ -2131,10 +2170,13 @@ class Object(object):
         The zero-based index of the zone the specified object is assigned to.
         
         """
-        arg_str = string_util._convert_args_to_string("get.object.zone", 
-                                                     object_ids[self.id()])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        """
+        arg_str = p2e.string_util._convert_args_to_string("get.object.zone", 
+                                                     self.get_eco_id())
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
+        """
+        return self._zone
         
     def set_zone(self, index):
         """
@@ -2153,15 +2195,16 @@ class Object(object):
         to.
         
         """
-        arg_str = string_util._convert_args_to_string("set.object.zone", 
-                                                     object_ids[self.id()], index)
-        py2ecotect.conversation.Exec(arg_str)
+        self._zone = index
+        arg_str = p2e.string_util._convert_args_to_string("set.object.zone", 
+                                                     self.get_eco_id(), index)
+        p2e.conversation.Exec(arg_str)
         
     #===========================================================================
     # Properties
     #===========================================================================
         
-    id = property(fget = get_id, doc = "Id of the object")
+    eco_id = property(fget = get_eco_id, doc = "The Ecotect ID of the object")
     
     alternate= property(fget = get_alternate, fset = set_alternate, 
                         doc = "The index of the alternate material to the"
@@ -2222,7 +2265,7 @@ class Object(object):
     material = property(fget = get_material, fset = set_material, 
                         doc = "The index of the object's primary material")
     
-    nodes = property(fget = get_nodes, doc = "The number of nodes in the"
+    num_nodes = property(fget = get_nodes, doc = "The number of nodes in the"
                      " specified object")
     
     normal = property(fget = get_normal, doc = "The values corresponding to the"
@@ -2256,7 +2299,7 @@ class Object(object):
                           " surface) and horizontal shadow angle (HSA), given"
                           " in decimal degrees")
     
-    type = property(fget = get_type, fset = set_type, 
+    elem_type = property(fget = get_type, fset = set_type, 
                         doc = "The element type of the specified object,"
                         " according to the values in the Element Types table")
     
@@ -2265,10 +2308,6 @@ class Object(object):
     
     zone = property(fget = get_zone, fset = set_zone, 
                         doc = "The zone index of the specified object")
-
-
-
-
 
 
 

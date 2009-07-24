@@ -1,4 +1,8 @@
 #win32 is required: http://python.net/crew/mhammond/win32/
+
+#===============================================================================
+# Make a connection to ecotect
+#===============================================================================
 import win32ui
 import win32api
 import dde
@@ -18,3 +22,19 @@ except:
     
 #print "conv = ", conversation
 print "Connection with Ecotect successful..."
+
+#===============================================================================
+# Populate the lists in the Model object
+#===============================================================================
+import py2ecotect as p2e
+from py2ecotect.object import Object
+from py2ecotect.model import Model
+from py2ecotect.zone import Zone 
+from py2ecotect.node import Node 
+from py2ecotect.select import Select 
+from py2ecotect.selection import Selection
+from py2ecotect.view import View 
+
+p2e.model._populate_zones() 
+p2e.model._populate_objects()
+p2e.model._populate_nodes()

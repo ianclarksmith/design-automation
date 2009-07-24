@@ -1,5 +1,20 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
+
+zones = []
+objects = []
+nodes = []
+
+def _populate_zones():
+    pass
+
+def _populate_objects():
+    num_objects = Model.get_objects()
+    for eco_id in range(num_objects):
+        p2e.Object.create_object_from_id(eco_id)
+
+def _populate_nodes():
+    pass
+
 
 class Model(object):         
 
@@ -34,7 +49,7 @@ class Model(object):
         
         """
         arg_str = string_util._convert_args_to_string("model.dump", filename)
-        py2py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def export_file(self, filename, fileformat):
         """
@@ -94,7 +109,7 @@ class Model(object):
         """
         #TODO: add error checking
         arg_str = string_util._convert_args_to_string("model.export" + fileformat, filename)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def import_file(self, filename):
         """
@@ -145,7 +160,7 @@ class Model(object):
         
         """
         arg_str = string_util._convert_args_to_string("model.import", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def load(self, filename):
         """
@@ -164,7 +179,7 @@ class Model(object):
         
         """
         arg_str = string_util.string_util._convert_args_to_string("model.load", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def load_new(self):
         """   
@@ -181,7 +196,7 @@ class Model(object):
         model.new
         
         """
-        py2ecotect.conversation.Exec("model.new")
+        p2e.conversation.Exec("model.new")
     
     def revert(self):
         """
@@ -196,7 +211,7 @@ class Model(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("model.revert")
+        p2e.conversation.Exec("model.revert")
     
     def save(self):
         """
@@ -208,7 +223,7 @@ class Model(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("model.save")
+        p2e.conversation.Exec("model.save")
     
     def save_as(self, filename):
         """
@@ -225,7 +240,7 @@ class Model(object):
         
         """
         arg_str = string_util._convert_args_to_string("model.saveas", filename)        
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def update(self):
         """
@@ -240,7 +255,7 @@ class Model(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("model.update")
+        p2e.conversation.Exec("model.update")
         
     #===========================================================================
     # Properties
@@ -273,7 +288,7 @@ class Model(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.model.altitude", x1, y1, z1, x2, y2, z2)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)        
         
     def get_azimuth(self, x1, y1, z1, x2, y2, z2):
@@ -303,7 +318,7 @@ class Model(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.model.azimuth", x1, y1, z1, x2, y2, z2)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)           
     
     def get_current_node(self):
@@ -322,7 +337,7 @@ class Model(object):
         The zero-based index of the current node. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.currentnode")
+        val = p2e.conversation.Request("get.model.currentnode")
         return string_util._convert_str_to_type(val, int)  
     
     def get_current_object(self):
@@ -341,7 +356,7 @@ class Model(object):
         The zero-based index of the current object in the model.
          
         """
-        val = py2ecotect.conversation.Request("get.model.currentobject")
+        val = p2e.conversation.Request("get.model.currentobject")
         return string_util._convert_str_to_type(val, int)   
     
     def get_current_zone(self):
@@ -360,7 +375,7 @@ class Model(object):
         The zero-based index of the current zone. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.currentzone")
+        val = p2e.conversation.Request("get.model.currentzone")
         return string_util._convert_str_to_type(val, int)   
     
     def get_date(self):
@@ -382,7 +397,7 @@ class Model(object):
         An integer value between 0 and 11. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.date")
+        val = p2e.conversation.Request("get.model.date")
         return string_util._convert_str_to_list(val, int)  
     
     def set_date(self, day, month, time=None):
@@ -407,7 +422,7 @@ class Model(object):
             arg_str = string_util._convert_args_to_string("set.model.date", day, month, time)
         else:
             arg_str = string_util._convert_args_to_string("set.model.date", day, month)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_date_string(self):
         """
@@ -424,7 +439,7 @@ class Model(object):
         A formated date string. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.datestring")
+        val = p2e.conversation.Request("get.model.datestring")
         return string_util._convert_str_to_type(val, str)
                 
     def get_daylight_savings(self):
@@ -444,7 +459,7 @@ class Model(object):
         current time is offset by one hour. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.daylightsavings")
+        val = p2e.conversation.Request("get.model.daylightsavings")
         return string_util._convert_str_to_type(val, bool)          
     
     def set_daylight_savings(self, state):
@@ -463,7 +478,7 @@ class Model(object):
         """
         args = string_util._convert_args_to_string("set.model.daylightsavings", 
                                                    state)
-        py2ecotect.conversation.Exec(args)
+        p2e.conversation.Exec(args)
         
         
     def get_day_of_the_year(self):
@@ -484,7 +499,7 @@ class Model(object):
         year. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.dayoftheyear")
+        val = p2e.conversation.Request("get.model.dayoftheyear")
         return string_util._convert_str_to_type(val, int)  
     
     def set_day_of_the_year(self, day, time=None):
@@ -508,7 +523,7 @@ class Model(object):
         else:
             arg_str = string_util._convert_args_to_string("set.model.dayoftheyear", 
                                                           day)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_directory(self):
         """
@@ -527,7 +542,7 @@ class Model(object):
         A text string containing the current directory path. 
     
         """
-        val = py2ecotect.conversation.Request("get.model.directory")
+        val = p2e.conversation.Request("get.model.directory")
         return string_util._convert_str_to_type(val, str)
     
     def set_directory(self, path):
@@ -548,7 +563,7 @@ class Model(object):
         """
         args = string_util._convert_args_to_string("set.model.directory", path)
         arg_str = string_util._convert_args_to_string(args)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_display(self):
         """
@@ -579,7 +594,7 @@ class Model(object):
         rays 10 Acoustic rays and particles. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.display")
+        val = p2e.conversation.Request("get.model.display")
         return string_util._convert_str_to_type(val, int)        
     
     def set_display(self, display):
@@ -608,7 +623,7 @@ class Model(object):
         
         """
         args = string_util._convert_args_to_string("set.model.display", display)
-        py2ecotect.conversation.Exec(args)
+        p2e.conversation.Exec(args)
     
     def get_distance(self, x1, y1, z1, x2, y2, z2):
         """
@@ -637,7 +652,7 @@ class Model(object):
         
         """
         args = string_util._convert_args_to_string("get.model.distance", x1, y1, z1, x2, y2, z2)
-        val = py2ecotect.conversation.Request(args)
+        val = p2e.conversation.Request(args)
         return string_util._convert_str_to_type(val, float)          
     
     
@@ -657,7 +672,7 @@ class Model(object):
         A text string containing the filename. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.filename")
+        val = p2e.conversation.Request("get.model.filename")
         return string_util._convert_str_to_type(val, str)
     
     def get_last_node(self):
@@ -677,7 +692,7 @@ class Model(object):
         such node exists, a value of -1 is returned. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.lastnode")
+        val = p2e.conversation.Request("get.model.lastnode")
         return string_util._convert_str_to_type(val, int)
     
     def get_materials(self):
@@ -697,7 +712,7 @@ class Model(object):
         element library. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.materials")
+        val = p2e.conversation.Request("get.model.materials")
         return string_util._convert_str_to_type(val, int)      
     
     def get_month(self):
@@ -715,7 +730,7 @@ class Model(object):
         The current model month given as an integer index between 0 and 11.
          
         """
-        val = py2ecotect.conversation.Request("get.model.month")
+        val = p2e.conversation.Request("get.model.month")
         return string_util._convert_str_to_type(val, int)
     
     def get_next_node(self, object, index):
@@ -742,7 +757,7 @@ class Model(object):
         
         """
         args = string_util._convert_args_to_string("get.model.nextnode", object, index)
-        val = py2ecotect.conversation.Request(args)
+        val = p2e.conversation.Request(args)
         return string_util._convert_str_to_type(val, int)       
     
     def get_next_object(self, startat, type, flag, tag, zone):
@@ -834,7 +849,7 @@ class Model(object):
     
         """
         args = string_util._convert_args_to_string("get.model.nextobject", startat, type, flag, tag, zone)
-        val = py2ecotect.conversation.Request(args)
+        val = p2e.conversation.Request(args)
         return string_util._convert_str_to_type(val, int)          
     
     def get_nodes(self):
@@ -853,10 +868,11 @@ class Model(object):
         The total number of nodes within the current model. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.nodes")
+        val = p2e.conversation.Request("get.model.nodes")
         return string_util._convert_str_to_type(val, int)          
     
-    def get_objects(self):
+    @staticmethod
+    def get_objects():
         """
         
         Returns the number of objects in the currently loaded ECOTECT model. 
@@ -874,8 +890,8 @@ class Model(object):
         The total number of objects in the current model.
          
         """
-        val = py2ecotect.conversation.Request("get.model.objects")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.model.objects")
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def get_orientation(self, x1, y1, z1, x2, y2, z2):
         """
@@ -903,9 +919,9 @@ class Model(object):
         The orinetation angle in degrees. 
         
         """
-        args = string_util._convert_args_to_string("get.model.orientation", x1, y1, z1, x2, y2, z2)
-        val = py2ecotect.conversation.Request(args)
-        return string_util._convert_str_to_type(val, float)        
+        args = p2e.string_util._convert_args_to_string("get.model.orientation", x1, y1, z1, x2, y2, z2)
+        val = p2e.conversation.Request(args)
+        return p2e.string_util._convert_str_to_type(val, float)        
     
     def get_origin(self):
         """
@@ -924,8 +940,8 @@ class Model(object):
         dimensional model space.
          
         """
-        val = py2ecotect.conversation.Request("get.model.origin")
-        return string_util._convert_str_to_list(val, float)
+        val = p2e.conversation.Request("get.model.origin")
+        return p2e.string_util._convert_str_to_list(val, float)
     
     def set_origin(self, x, y, z):
         """
@@ -941,8 +957,8 @@ class Model(object):
         dimensional model space. 
     
         """
-        args = string_util._convert_args_to_string("set.model.origin", x, y, z)
-        py2ecotect.conversation.Exec(args)     
+        args = p2e.string_util._convert_args_to_string("set.model.origin", x, y, z)
+        p2e.conversation.Exec(args)     
     
     def get_path_name(self):
         """
@@ -960,7 +976,7 @@ class Model(object):
         A text string containing the full pathname.
         
         """
-        return py2ecotect.conversation.Request("get.model.pathname")
+        return p2e.conversation.Request("get.model.pathname")
     
     def get_prev_node(self, object, index):
         """
@@ -985,9 +1001,9 @@ class Model(object):
         a value of -1 is returned. 
         
         """
-        args = string_util._convert_args_to_string("get.model.prevnode", object, index)
-        val = py2ecotect.conversation.Request(args)
-        return string_util._convert_str_to_type(val, int)        
+        args = p2e.string_util._convert_args_to_string("get.model.prevnode", object, index)
+        val = p2e.conversation.Request(args)
+        return p2e.string_util._convert_str_to_type(val, int)        
     
     def get_prev_object(self, startat, type, flag, tag, zone):
         """
@@ -1077,9 +1093,9 @@ class Model(object):
         32768 *Generic calculation marker. 
         
         """
-        args = string_util._convert_args_to_string("get.model.prevobject", startat, type, flag, tag, zone)
-        val = py2ecotect.conversation.Request(args)
-        return string_util._convert_str_to_type(val, int)         
+        args = p2e.string_util._convert_args_to_string("get.model.prevobject", startat, type, flag, tag, zone)
+        val = p2e.conversation.Request(args)
+        return p2e.string_util._convert_str_to_type(val, int)         
     
     def get_snap(self):
         """
@@ -1111,8 +1127,8 @@ class Model(object):
         rays 10 Acoustic rays and particles 
 
         """
-        val = py2ecotect.conversation.Request("get.model.snap")
-        return string_util._convert_str_to_type(val, bool)         
+        val = p2e.conversation.Request("get.model.snap")
+        return p2e.string_util._convert_str_to_type(val, bool)         
     
     def set_snap(self, snap):
         """
@@ -1142,8 +1158,8 @@ class Model(object):
         rays 10 Acoustic rays and particles. 
 
         """
-        args = string_util._convert_args_to_string("set.model.snap", snap)
-        py2ecotect.conversation.Exec(args)
+        args = p2e.string_util._convert_args_to_string("set.model.snap", snap)
+        p2e.conversation.Exec(args)
         
     def get_sun_angles(self):
         """
@@ -1164,8 +1180,8 @@ class Model(object):
         The current solar altitude given in degrees. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.sunangles")
-        return string_util._convert_str_to_list(val, float)          
+        val = p2e.conversation.Request("get.model.sunangles")
+        return p2e.string_util._convert_str_to_list(val, float)          
         
     def get_sun_position(self, dist=0, xyz=(0,0,0)):
         """
@@ -1195,9 +1211,9 @@ class Model(object):
         dimensional model space. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.model.sunposition", dist, xyz[0], xyz[1], xyz[2])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float) 
+        arg_str = p2e.string_util._convert_args_to_string("get.model.sunposition", dist, xyz[0], xyz[1], xyz[2])
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float) 
             
     def get_sunrise(self):
         """
@@ -1215,8 +1231,8 @@ class Model(object):
         The time of sunrise given as a decimal hour. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.sunrise")
-        return string_util._convert_str_to_type(val, float)  
+        val = p2e.conversation.Request("get.model.sunrise")
+        return p2e.string_util._convert_str_to_type(val, float)  
         
     def get_sun_set(self):
         """
@@ -1234,8 +1250,8 @@ class Model(object):
         The time of sunset given as a decimal hour. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.sunset")
-        return string_util._convert_str_to_type(val, float)        
+        val = p2e.conversation.Request("get.model.sunset")
+        return p2e.string_util._convert_str_to_type(val, float)        
     
     def get_time(self):
         """
@@ -1253,8 +1269,8 @@ class Model(object):
         A decimal value between 0.0 and 23.99. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.time")
-        return string_util._convert_str_to_type(val, float)          
+        val = p2e.conversation.Request("get.model.time")
+        return p2e.string_util._convert_str_to_type(val, float)          
     
     def set_time(self, time):
         """
@@ -1268,8 +1284,8 @@ class Model(object):
         The time given in decimal hours, between 0.0 and 23.99. 
         
         """
-        args = string_util._convert_args_to_string("set.model.time", time)
-        py2ecotect.conversation.Exec(args)
+        args = p2e.string_util._convert_args_to_string("set.model.time", time)
+        p2e.conversation.Exec(args)
     
     def get_time_string(self):
         """
@@ -1286,8 +1302,8 @@ class Model(object):
         A formated time string. 
         
         """
-        val = py2ecotect.conversation.Request("get.model.timestring")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.model.timestring")
+        return p2e.string_util._convert_str_to_type(val, str)
         
     def get_cap_extrusions(self):
         """
@@ -1306,8 +1322,8 @@ class Model(object):
         A boolean value where 1 represents the affirmative and 0 the negative.
          
         """
-        val = py2ecotect.conversation.Request("get.model.xform.capextrusions")
-        return string_util._convert_str_to_type(val, bool)          
+        val = p2e.conversation.Request("get.model.xform.capextrusions")
+        return p2e.string_util._convert_str_to_type(val, bool)          
         
     def set_cap_extrusions(self, state = True):
         """
@@ -1322,8 +1338,8 @@ class Model(object):
         'lid' to cap off the volume. When set to false, no lid is generated. 
         
         """
-        args = string_util._convert_args_to_string("set.model.xform.capextrusions", state)
-        py2ecotect.conversation.Exec(args)
+        args = p2e.string_util._convert_args_to_string("set.model.xform.capextrusions", state)
+        p2e.conversation.Exec(args)
     
     def get_vectors(self):
         """
@@ -1343,8 +1359,8 @@ class Model(object):
         A boolean value where 1 represents the affirmative and 0 the negative.
          
         """
-        val = py2ecotect.conversation.Request("get.model.xform.vectors")
-        return string_util._convert_str_to_type(val, bool)
+        val = p2e.conversation.Request("get.model.xform.vectors")
+        return p2e.string_util._convert_str_to_type(val, bool)
     
     def set_vectors(self, state = True):
         """
@@ -1362,8 +1378,8 @@ class Model(object):
         The total number of zones in the current model. 
         
         """
-        args = string_util._convert_args_to_string("set.model.xform.vectors", state)
-        py2ecotect.conversation.Exec(args)
+        args = p2e.string_util._convert_args_to_string("set.model.xform.vectors", state)
+        p2e.conversation.Exec(args)
  
     def get_zones(self):
         """
@@ -1381,8 +1397,8 @@ class Model(object):
         The total number of zones in the current model.
         
         """
-        val = py2ecotect.conversation.Request("get.model.zones")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.model.zones")
+        return p2e.string_util._convert_str_to_type(val, int)
     
     #===========================================================================
     # Properties    
@@ -1460,8 +1476,9 @@ class Model(object):
     vectors = property(fget = get_vectors, fset = set_vectors, 
                         doc = "The xform.vectors flag")
     
-    zones = property(fget = get_zones, doc = "The number of zones in the"
-                     " currently loaded ECOTECT model as a single integer")
+    zones = property(fget = get_zones, doc = """
+        The number of zones in the currently loaded 
+        ECOTECT model as a single integer""")
     
 #===============================================================================
 # Main function used for testing
