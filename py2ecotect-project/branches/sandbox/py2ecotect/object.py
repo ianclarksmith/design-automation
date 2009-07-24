@@ -115,7 +115,8 @@ class Object(object):
     #===========================================================================
     
     def add_node(self, Node):
-        pass
+        _nodes.append(Node)
+        p2e.model.nodes.append(Node)
     
     def delete(self):
         """
@@ -127,7 +128,7 @@ class Object(object):
         object and delete backwards through the list. 
 
         Parameter(s)
-        There are no parameters for this command..
+        There are no parameters for this command.
         
         """
         arg_str = p2e.string_util._convert_args_to_string("object.delete", self.get_eco_id())
@@ -136,7 +137,7 @@ class Object(object):
         #Update model lists
         p2e.model.objects.remove(self)
             
-    def del_node(self, node):
+    def del_node(self, node, Node):
         """
         
         The delnode command removes the specified node from the specified object. 
@@ -151,6 +152,12 @@ class Object(object):
         arg_str = p2e.string_util._convert_args_to_string("object.delnode", self.get_eco_id(), 
                                                      node)
         p2e.conversation.Exec(arg_str)
+        
+        #Update object list
+        self._nodes.remove(Node)
+        
+        #Update model lists
+        p2e.model.nodes.remove(Node)
 
     def done(self):
         """
@@ -2325,7 +2332,7 @@ class Object(object):
 
 
 if __name__ == "__main__":
-    x = Object(15, 2444, True, 4)
+    #x = Object(15, 2444, True, 4)
     
     #print x.id
     

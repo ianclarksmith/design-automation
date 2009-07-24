@@ -180,6 +180,16 @@ class Model(object):
         """
         arg_str = string_util.string_util._convert_args_to_string("model.load", filename)
         p2e.conversation.Exec(arg_str)
+        
+        #Clear model lists
+        self.zones = []
+        self.objects = []
+        self.nodes = []
+        
+        #Update the lists
+        self._populate_zones() 
+        self._populate_objects()
+        self._populate_nodes()
     
     def load_new(self):
         """   
@@ -197,6 +207,12 @@ class Model(object):
         
         """
         p2e.conversation.Exec("model.new")
+        
+        #Clear model lists
+        self.zones = []
+        self.objects = []
+        self.nodes = []
+         
     
     def revert(self):
         """
