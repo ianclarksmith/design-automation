@@ -19,7 +19,7 @@ line_is_farther_than = {
             "py_name": "line",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Line",
             "doc": """
         Two 3-D points identifying the starting and ending points of the line.
@@ -41,7 +41,7 @@ line_is_farther_than = {
             "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Point",
             "doc": """
         The test point.
@@ -52,7 +52,7 @@ line_is_farther_than = {
             "py_name": "line2",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Line2",
             "doc": """
         Two 3-D points identifying the starting and ending points of the test line.

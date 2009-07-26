@@ -19,7 +19,7 @@ box_morph_object = {
             "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to morph.
@@ -30,7 +30,7 @@ box_morph_object = {
             "py_name": "box_points",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "BoxPoints",
             "doc": """
         An array of eight 3-D points that contain the modified bounding box points.

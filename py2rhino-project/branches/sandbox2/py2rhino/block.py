@@ -551,16 +551,16 @@ class Block(IRhinoScript):
         name, String, Required        
         The name of the block definition to insert.
             
-        point, Array of ???, Required        
+        point, Array of Doubles, Required        
         The 3-D insertion point of the block.
             
-        scale, Array of ???, Optional        
+        scale, Array of Integers, Optional        
         An array of three numbers that identify the x,y,z scale factors. If omitted, the block is not scaled.
             
         angle, Double, Optional        
         The rotation angle in degrees. If omitted, the block is not rotated.
             
-        normal, Array of ???, Optional        
+        normal, Array of Doubles, Optional        
         A 3-D vector identifying the axis of rotation. If omitted and dblAngle is specified, the world Z axis is used.
             
         Returns
@@ -576,7 +576,7 @@ class Block(IRhinoScript):
 
         params = [name, point, scale, angle, normal]
         required = [True, True, False, False, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_I2, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [name, flatten_params(point), flatten_params(scale), angle, flatten_params(normal)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -593,7 +593,7 @@ class Block(IRhinoScript):
         name, String, Required        
         The name of the block definition to insert.
             
-        xform, Array of ???, Required        
+        xform, Array of Doubles, Required        
         4x4 transformation matrix to apply.
             
         Returns
@@ -609,7 +609,7 @@ class Block(IRhinoScript):
 
         params = [name, xform]
         required = [True, True]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [name, flatten_params(xform)]
 
         magic, flattened = select_params(params, required, magic, flattened)

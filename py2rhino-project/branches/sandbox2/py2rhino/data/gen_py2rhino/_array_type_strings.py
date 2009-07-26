@@ -8,11 +8,11 @@ application = {
 block = {
     "insert_block": {
         "name": "str",
-        "point": "arr_of_???",
-        "scale": "arr_of_???",
+        "point": "arr_of_dbl",
+        "scale": "arr_of_int",
         "angle": "dbl",
-        "normal": "arr_of_???",
-        "xform": "arr_of_???",
+        "normal": "arr_of_dbl",
+        "xform": "arr_of_dbl",
     },
 },
 curve = {
@@ -93,17 +93,17 @@ curve = {
         "points": "arr_of_dbl",
     },
     "curve_area": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
     },
     "curve_area_centroid": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
     },
     "curve_boolean_union": {
         "curves": "arr_of_str",
     },
     "curve_closest_object": {
         "curve": "str",
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
     },
     "curve_closest_point": {
         "object": "str",
@@ -134,7 +134,7 @@ curve = {
         "index": "int",
     },
     "explode_curves": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "delete": "bln",
     },
     "extend_curve": {
@@ -159,16 +159,16 @@ curve = {
     },
     "offset_curve": {
         "object": "str",
-        "direction": "arr_of_???",
+        "direction": "arr_of_dbl",
         "distance": "dbl",
-        "normal": "arr_of_???",
+        "normal": "arr_of_dbl",
         "style": "int",
     },
     "offset_curve_on_surface": {
         "curve": "str",
         "surface": "str",
         "distance": "dbl",
-        "parameter": "arr_of_???",
+        "parameter": "arr_of_dbl",
     },
     "planar_closed_curve_containment": {
         "curve1": "str",
@@ -189,18 +189,18 @@ curve = {
         "tolerance": "dbl",
     },
     "project_curve_to_mesh": {
-        "curves": "arr_of_???",
-        "meshes": "arr_of_???",
-        "direction": "arr_of_???",
+        "curves": "arr_of_str",
+        "meshes": "arr_of_str",
+        "direction": "arr_of_dbl",
     },
     "project_curve_to_surface": {
-        "curves": "arr_of_???",
-        "surfaces": "arr_of_???",
-        "direction": "arr_of_???",
+        "curves": "arr_of_str",
+        "surfaces": "arr_of_str",
+        "direction": "arr_of_dbl",
     },
     "split_curve": {
         "object": "str",
-        "parameters": "arr_of_???",
+        "parameters": "arr_of_dbl",
         "delete": "bln",
     },
     "trim_curve": {
@@ -230,10 +230,10 @@ document = {
 },
 geometry = {
     "add_clipping_plane": {
-        "plane": "arr_of_???",
+        "plane": "arr_of_dbl",
         "d_u": "dbl",
         "d_v": "dbl",
-        "views": "arr_of_???",
+        "views": "arr_of_str",
     },
     "add_point_cloud": {
         "points": "arr_of_dbl",
@@ -243,8 +243,8 @@ geometry = {
     },
     "add_text": {
         "text": "str",
-        "point": "arr_of_???",
-        "plane": "arr_of_???",
+        "point": "arr_of_dbl",
+        "plane": "arr_of_dbl",
         "height": "dbl",
         "font": "str",
         "style": "int",
@@ -254,7 +254,7 @@ geometry = {
         "point": "arr_of_dbl",
     },
     "bounding_box": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "view": "str",
         "world_coords": "bln",
     },
@@ -346,10 +346,10 @@ line_and_plane = {
         "point": "arr_of_dbl",
     },
     "line_is_farther_than": {
-        "line": "arr_of_???",
+        "line": "arr_of_dbl",
         "distance": "dbl",
-        "point": "arr_of_???",
-        "line2": "arr_of_???",
+        "point": "arr_of_dbl",
+        "line2": "arr_of_dbl",
     },
     "line_line_intersection": {
         "line_a": "arr_of_dbl",
@@ -357,14 +357,14 @@ line_and_plane = {
         "planar": "bln",
     },
     "line_max_distance_to": {
-        "line": "arr_of_???",
-        "point": "arr_of_???",
-        "line2": "arr_of_???",
+        "line": "arr_of_dbl",
+        "point": "arr_of_dbl",
+        "line2": "arr_of_dbl",
     },
     "line_min_distance_to": {
-        "line": "arr_of_???",
-        "point": "arr_of_???",
-        "line2": "arr_of_???",
+        "line": "arr_of_dbl",
+        "point": "arr_of_dbl",
+        "line2": "arr_of_dbl",
     },
     "line_plane": {
         "line": "arr_of_dbl",
@@ -426,7 +426,7 @@ material = {
     "match_material": {
         "src_material_index": "int",
         "src_object": "str",
-        "dest_objects": "arr_of_???",
+        "dest_objects": "arr_of_str",
     },
 },
 math = {
@@ -443,9 +443,9 @@ math = {
         "numbers": "arr_of_int",
     },
     "distance": {
-        "point1": "arr_of_???",
-        "point2": "arr_of_???",
-        "point_array": "arr_of_???",
+        "point1": "arr_of_dbl",
+        "point2": "arr_of_dbl",
+        "point_array": "arr_of_dbl",
     },
     "max": {
         "numbers": "arr_of_int",
@@ -475,11 +475,11 @@ mesh = {
         "vertex_colors": "arr_of_int",
     },
     "explode_meshes": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "delete": "bln",
     },
     "mesh_area": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
     },
     "mesh_boolean_difference": {
         "input0": "arr_of_str",
@@ -514,23 +514,23 @@ mesh = {
     },
     "mesh_vertex_colors": {
         "object": "str",
-        "vertex_colors": "arr_of_???",
+        "vertex_colors": "arr_of_int",
     },
     "mesh_volume": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
     },
 },
 object = {
     "box_morph_object": {
-        "objects": "arr_of_???",
-        "box_points": "arr_of_???",
+        "objects": "arr_of_str",
+        "box_points": "arr_of_dbl",
         "copy": "bln",
     },
     "copy_objects": {
-        "objects": "arr_of_???",
-        "start": "arr_of_???",
-        "end": "arr_of_???",
-        "translation": "arr_of_???",
+        "objects": "arr_of_str",
+        "start": "arr_of_dbl",
+        "end": "arr_of_dbl",
+        "translation": "arr_of_dbl",
     },
     "delete_objects": {
         "objects": "arr_of_str",
@@ -540,7 +540,7 @@ object = {
         "enable": "bln",
     },
     "flash_object": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "style": "bln",
     },
     "hide_objects": {
@@ -555,7 +555,7 @@ object = {
         "objects": "arr_of_str",
     },
     "match_object_attributes": {
-        "targets": "arr_of_???",
+        "targets": "arr_of_str",
         "source": "str",
     },
     "mirror_objects": {
@@ -565,33 +565,33 @@ object = {
         "copy": "bln",
     },
     "move_objects": {
-        "objects": "arr_of_???",
-        "start": "arr_of_???",
-        "end": "arr_of_???",
-        "translation": "arr_of_???",
+        "objects": "arr_of_str",
+        "start": "arr_of_dbl",
+        "end": "arr_of_dbl",
+        "translation": "arr_of_dbl",
     },
     "object_color": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "color": "lng",
     },
     "object_color_source": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "source": "int",
     },
     "object_layer": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "layer": "str",
     },
     "object_linetype": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "layer": "str",
     },
     "object_linetype_source": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "source": "int",
     },
     "object_material_source": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "source": "int",
     },
     "object_names": {
@@ -599,23 +599,23 @@ object = {
         "names": "arr_of_str",
     },
     "object_print_color": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "color": "lng",
     },
     "object_print_color_source": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "source": "int",
     },
     "object_print_width": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "width": "dbl",
     },
     "object_print_width_source": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "source": "int",
     },
     "object_u_r_l": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "u_r_l": "str",
     },
     "orient_objects": {
@@ -657,8 +657,8 @@ object = {
         "objects": "arr_of_str",
     },
     "transform_objects": {
-        "objects": "arr_of_???",
-        "matrix": "arr_of_???",
+        "objects": "arr_of_str",
+        "matrix": "arr_of_str",
         "copy": "bln",
     },
     "unlock_objects": {
@@ -732,14 +732,14 @@ point_and_vector = {
         "tolerance": "dbl",
     },
     "project_point_to_mesh": {
-        "points": "arr_of_???",
-        "meshes": "arr_of_???",
-        "direction": "arr_of_???",
+        "points": "arr_of_dbl",
+        "meshes": "arr_of_str",
+        "direction": "arr_of_dbl",
     },
     "project_point_to_surface": {
-        "points": "arr_of_???",
-        "surfaces": "arr_of_???",
-        "direction": "arr_of_???",
+        "points": "arr_of_dbl",
+        "surfaces": "arr_of_str",
+        "direction": "arr_of_dbl",
     },
     "pull_points": {
         "object": "str",
@@ -830,9 +830,9 @@ surface_and_polysurface = {
         "corners": "arr_of_dbl",
     },
     "add_cone": {
-        "base": "arr_of_???",
-        "plane": "arr_of_???",
-        "height": "arr_of_???",
+        "base": "arr_of_dbl",
+        "plane": "arr_of_dbl",
+        "height": "dbl",
         "height": "dbl",
         "radius": "dbl",
         "cap": "bln",
@@ -844,9 +844,9 @@ surface_and_polysurface = {
         "normal": "arr_of_dbl",
     },
     "add_cylinder": {
-        "base": "arr_of_???",
-        "plane": "arr_of_???",
-        "height": "arr_of_???",
+        "base": "arr_of_dbl",
+        "plane": "arr_of_dbl",
+        "height": "dbl",
         "height": "dbl",
         "radius": "dbl",
         "cap": "bln",
@@ -891,15 +891,15 @@ surface_and_polysurface = {
         "end_angle": "dbl",
     },
     "add_sphere": {
-        "center": "arr_of_???",
-        "plane": "arr_of_???",
+        "center": "arr_of_dbl",
+        "plane": "arr_of_dbl",
         "radius": "dbl",
     },
     "add_srf_contour_crvs": {
         "object": "str",
-        "start_point": "arr_of_???",
-        "end_point": "arr_of_???",
-        "plane": "arr_of_???",
+        "start_point": "arr_of_dbl",
+        "end_point": "arr_of_dbl",
+        "plane": "arr_of_dbl",
         "interval": "dbl",
     },
     "add_srf_control_pt_grid": {
@@ -943,11 +943,11 @@ surface_and_polysurface = {
         "simplify_arg": "va",
     },
     "add_torus": {
-        "base": "arr_of_???",
-        "plane": "arr_of_???",
+        "base": "arr_of_dbl",
+        "plane": "arr_of_dbl",
         "major_radius": "dbl",
         "minor_radius": "dbl",
-        "direction": "arr_of_???",
+        "direction": "arr_of_dbl",
     },
     "boolean_difference": {
         "input0": "arr_of_str",
@@ -972,7 +972,7 @@ surface_and_polysurface = {
         "parameter": "arr_of_dbl",
     },
     "explode_polysurfaces": {
-        "objects": "arr_of_???",
+        "objects": "arr_of_str",
         "delete": "bln",
     },
     "extract_iso_curve": {
@@ -1072,14 +1072,14 @@ transformation = {
         "plane": "arr_of_dbl",
     },
     "xform_change_basis": {
-        "plane1": "arr_of_???",
-        "plane2": "arr_of_???",
-        "x0": "arr_of_???",
-        "y0": "arr_of_???",
-        "z0": "arr_of_???",
-        "x1": "arr_of_???",
-        "y1": "arr_of_???",
-        "z1": "arr_of_???",
+        "plane1": "arr_of_dbl",
+        "plane2": "arr_of_dbl",
+        "x0": "arr_of_dbl",
+        "y0": "arr_of_dbl",
+        "z0": "arr_of_dbl",
+        "x1": "arr_of_dbl",
+        "y1": "arr_of_dbl",
+        "z1": "arr_of_dbl",
     },
     "xform_compare": {
         "xform1": "arr_of_dbl",
@@ -1103,27 +1103,27 @@ transformation = {
         "plane": "arr_of_dbl",
     },
     "xform_rotation": {
-        "plane1": "arr_of_???",
-        "plane2": "arr_of_???",
+        "plane1": "arr_of_dbl",
+        "plane2": "arr_of_dbl",
         "angle": "dbl",
-        "axis": "arr_of_???",
-        "start_dir": "arr_of_???",
-        "end_dir": "arr_of_???",
-        "point": "arr_of_???",
-        "x0": "arr_of_???",
-        "y0": "arr_of_???",
-        "z0": "arr_of_???",
-        "x1": "arr_of_???",
-        "y1": "arr_of_???",
-        "z1": "arr_of_???",
+        "axis": "arr_of_dbl",
+        "start_dir": "arr_of_dbl",
+        "end_dir": "arr_of_dbl",
+        "point": "arr_of_dbl",
+        "x0": "arr_of_dbl",
+        "y0": "arr_of_dbl",
+        "z0": "arr_of_dbl",
+        "x1": "arr_of_dbl",
+        "y1": "arr_of_dbl",
+        "z1": "arr_of_dbl",
     },
     "xform_scale": {
-        "plane": "arr_of_???",
+        "plane": "arr_of_dbl",
         "x_scale": "dbl",
         "y_scale": "dbl",
         "z_scale": "dbl",
-        "vector": "arr_of_???",
-        "point": "arr_of_???",
+        "vector": "arr_of_dbl",
+        "point": "arr_of_dbl",
         "scale": "dbl",
     },
     "xform_screen_to_world": {
@@ -1209,7 +1209,7 @@ user_interface = {
     },
     "get_rectangle": {
         "mode": "int",
-        "point": "arr_of_???",
+        "point": "arr_of_dbl",
         "prompt1": "str",
         "prompt2": "str",
         "prompt3": "str",
@@ -1268,7 +1268,7 @@ view = {
     "background_bitmap": {
         "view": "str",
         "file_name": "str",
-        "point": "arr_of_???",
+        "point": "arr_of_dbl",
         "width": "dbl",
     },
     "view_c_plane": {

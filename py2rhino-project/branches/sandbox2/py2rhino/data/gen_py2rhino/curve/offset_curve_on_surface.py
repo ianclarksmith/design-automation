@@ -52,7 +52,7 @@ offset_curve_on_surface = {
             "py_name": "parameter",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Parameter",
             "doc": """
         An array containing the surface U,V parameter that the curve will be offset through.

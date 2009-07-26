@@ -177,13 +177,13 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ???, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
         distance, Double, Required        
         The distance.
             
-        point, Array of ???, Required        
+        point, Array of Doubles, Required        
         The test point.
             
         Returns
@@ -199,7 +199,7 @@ class LineAndPlane(IRhinoScript):
 
         params = [line, distance, point]
         required = [True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(line), distance, flatten_params(point)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -213,13 +213,13 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ???, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
         distance, Double, Required        
         The distance.
             
-        line2, Array of ???, Required        
+        line2, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the test line.
             
         Returns
@@ -235,7 +235,7 @@ class LineAndPlane(IRhinoScript):
 
         params = [line, distance, line2]
         required = [True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(line), distance, flatten_params(line2)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -290,10 +290,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ???, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        point, Array of ???, Required        
+        point, Array of Doubles, Required        
         The test point.
             
         Returns
@@ -309,7 +309,7 @@ class LineAndPlane(IRhinoScript):
 
         params = [line, point]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(line), flatten_params(point)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -323,10 +323,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ???, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        line2, Array of ???, Required        
+        line2, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the test line (another finite chord).
             
         Returns
@@ -342,7 +342,7 @@ class LineAndPlane(IRhinoScript):
 
         params = [line, line2]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(line), flatten_params(line2)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -356,10 +356,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ???, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        point, Array of ???, Required        
+        point, Array of Doubles, Required        
         The test point.
             
         Returns
@@ -375,7 +375,7 @@ class LineAndPlane(IRhinoScript):
 
         params = [line, point]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(line), flatten_params(point)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -389,10 +389,10 @@ class LineAndPlane(IRhinoScript):
         Parameters
         ==========
 
-        line, Array of ???, Required        
+        line, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the line.
             
-        line2, Array of ???, Required        
+        line2, Array of Doubles, Required        
         Two 3-D points identifying the starting and ending points of the test line (another finite chord).
             
         Returns
@@ -408,7 +408,7 @@ class LineAndPlane(IRhinoScript):
 
         params = [line, line2]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(line), flatten_params(line2)]
 
         magic, flattened = select_params(params, required, magic, flattened)

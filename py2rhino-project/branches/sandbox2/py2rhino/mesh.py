@@ -204,7 +204,7 @@ class Mesh(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         An array of strings identifying the mesh objects to explode.
             
         delete, Boolean, Optional        
@@ -327,7 +327,7 @@ class Mesh(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         An array of object identifier.
             
         Returns
@@ -1121,7 +1121,7 @@ class Mesh(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        vertex_colors, Array of ???, Optional        
+        vertex_colors, Array of Integers, Optional        
         An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
             
         Returns
@@ -1140,7 +1140,7 @@ class Mesh(IRhinoScript):
 
         params = [object, vertex_colors]
         required = [True, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_I2, 1)]
         flattened = [object, flatten_params(vertex_colors)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -1244,7 +1244,7 @@ class Mesh(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         An array of object identifier.
             
         Returns

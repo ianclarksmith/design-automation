@@ -188,10 +188,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        plane1, Array of ???, Required        
+        plane1, Array of Doubles, Required        
         The initial plane.
             
-        plane2, Array of ???, Required        
+        plane2, Array of Doubles, Required        
         The final plane.
             
         Returns
@@ -207,7 +207,7 @@ class Transformation(IRhinoScript):
 
         params = [plane1, plane2]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(plane1), flatten_params(plane2)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -221,22 +221,22 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        x0, Array of ???, Required        
+        x0, Array of Doubles, Required        
         The initial basis X (X0,Y0,Z0 can be any 3-D basis)
             
-        y0, Array of ???, Required        
+        y0, Array of Doubles, Required        
         The  initial basis Y
             
-        z0, Array of ???, Required        
+        z0, Array of Doubles, Required        
         The  initial basis Z
             
-        x1, Array of ???, Required        
+        x1, Array of Doubles, Required        
         The final basis X (X1,Y1,Z1 can be any 3-D basis)
             
-        y1, Array of ???, Required        
+        y1, Array of Doubles, Required        
         The  final basis Y
             
-        z1, Array of ???, Required        
+        z1, Array of Doubles, Required        
         The final basis Z
             
         Returns
@@ -252,7 +252,7 @@ class Transformation(IRhinoScript):
 
         params = [x0, y0, z0, x1, y1, z1]
         required = [True, True, True, True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(x0), flatten_params(y0), flatten_params(z0), flatten_params(x1), flatten_params(y1), flatten_params(z1)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -537,10 +537,10 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        plane1, Array of ???, Required        
+        plane1, Array of Doubles, Required        
         The starting plane.
             
-        plane2, Array of ???, Required        
+        plane2, Array of Doubles, Required        
         The ending plane.
             
         Returns
@@ -556,7 +556,7 @@ class Transformation(IRhinoScript):
 
         params = [plane1, plane2]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(plane1), flatten_params(plane2)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -573,10 +573,10 @@ class Transformation(IRhinoScript):
         angle, Double, Required        
         The rotation angle in degrees.
             
-        axis, Array of ???, Required        
+        axis, Array of Doubles, Required        
         The rotation axis.
             
-        point, Array of ???, Required        
+        point, Array of Doubles, Required        
         The rotation center point.
             
         Returns
@@ -592,7 +592,7 @@ class Transformation(IRhinoScript):
 
         params = [angle, axis, point]
         required = [True, True, True]
-        magic = [(VT_R8, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [angle, flatten_params(axis), flatten_params(point)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -606,13 +606,13 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        start_dir, Array of ???, Required        
+        start_dir, Array of Doubles, Required        
         The starting direction.
             
-        end_dir, Array of ???, Required        
+        end_dir, Array of Doubles, Required        
         The ending direction.
             
-        point, Array of ???, Required        
+        point, Array of Doubles, Required        
         The rotation center point.
             
         Returns
@@ -628,7 +628,7 @@ class Transformation(IRhinoScript):
 
         params = [start_dir, end_dir, point]
         required = [True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(start_dir), flatten_params(end_dir), flatten_params(point)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -642,22 +642,22 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        x0, Array of ???, Required        
+        x0, Array of Doubles, Required        
         The initial frame X
             
-        y0, Array of ???, Required        
+        y0, Array of Doubles, Required        
         The initial frame Y.
             
-        z0, Array of ???, Required        
+        z0, Array of Doubles, Required        
         The initial frame Z.
             
-        x1, Array of ???, Required        
+        x1, Array of Doubles, Required        
         The final frame X.
             
-        y1, Array of ???, Required        
+        y1, Array of Doubles, Required        
         The final frame Y.
             
-        z1, Array of ???, Required        
+        z1, Array of Doubles, Required        
         The final frame Z.
             
         Returns
@@ -673,7 +673,7 @@ class Transformation(IRhinoScript):
 
         params = [x0, y0, z0, x1, y1, z1]
         required = [True, True, True, True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(x0), flatten_params(y0), flatten_params(z0), flatten_params(x1), flatten_params(y1), flatten_params(z1)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -687,7 +687,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ???, Required        
+        plane, Array of Doubles, Required        
         The starting plane.
             
         x_scale, Double, Required        
@@ -712,7 +712,7 @@ class Transformation(IRhinoScript):
 
         params = [plane, x_scale, y_scale, z_scale]
         required = [True, True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
         flattened = [flatten_params(plane), x_scale, y_scale, z_scale]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -762,7 +762,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        vector, Array of ???, Required        
+        vector, Array of Doubles, Required        
         The ending direction.
             
         Returns
@@ -778,7 +778,7 @@ class Transformation(IRhinoScript):
 
         params = [vector]
         required = [True]
-        magic = [(VT_VARIANT, 1),]
+        magic = [(VT_ARRAY + VT_R8, 1),]
         flattened = [flatten_params(vector)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -792,7 +792,7 @@ class Transformation(IRhinoScript):
         Parameters
         ==========
 
-        point, Array of ???, Required        
+        point, Array of Doubles, Required        
         The rotation center point.
             
         scale, Double, Required        
@@ -811,7 +811,7 @@ class Transformation(IRhinoScript):
 
         params = [point, scale]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
         flattened = [flatten_params(point), scale]
 
         magic, flattened = select_params(params, required, magic, flattened)

@@ -54,7 +54,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        base, Array of ???, Required        
+        base, Array of Doubles, Required        
         The 3-D origin point of the cone.
             
         height, Double, Required        
@@ -79,7 +79,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [base, height, radius, cap]
         required = [True, True, True, False]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
         flattened = [flatten_params(base), height, radius, cap]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -93,7 +93,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ???, Required        
+        plane, Array of Doubles, Required        
         The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
             
         height, Double, Required        
@@ -118,7 +118,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [plane, height, radius, cap]
         required = [True, True, True, False]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
         flattened = [flatten_params(plane), height, radius, cap]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -171,7 +171,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        base, Array of ???, Required        
+        base, Array of Doubles, Required        
         The 3-D base point of the cylinder.
             
         height, Double, Required        
@@ -196,7 +196,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [base, height, radius, cap]
         required = [True, True, True, False]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
         flattened = [flatten_params(base), height, radius, cap]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -210,7 +210,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ???, Required        
+        plane, Array of Doubles, Required        
         The base plane of the cylinder.
             
         height, Double, Required        
@@ -235,7 +235,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [plane, height, radius, cap]
         required = [True, True, True, False]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1)]
         flattened = [flatten_params(plane), height, radius, cap]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -534,7 +534,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        center, Array of ???, Required        
+        center, Array of Doubles, Required        
         The center point of the sphere.
             
         radius, Double, Required        
@@ -553,7 +553,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [center, radius]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
         flattened = [flatten_params(center), radius]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -567,7 +567,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ???, Required        
+        plane, Array of Doubles, Required        
         An equatorial plane.  The origin of the plane will be the center point of the sphere.
             
         radius, Double, Required        
@@ -586,7 +586,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [plane, radius]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
         flattened = [flatten_params(plane), radius]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -603,10 +603,10 @@ class SurfaceAndPolysurface(IRhinoScript):
         object, String, Required        
         The identifier of a surface or polysurface object.
             
-        start_point, Array of ???, Required        
+        start_point, Array of Doubles, Required        
         The 3-D starting point of a center line.
             
-        end_point, Array of ???, Required        
+        end_point, Array of Doubles, Required        
         The 3-D ending point of a center line.
             
         interval, Double, Optional        
@@ -625,7 +625,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [object, start_point, end_point, interval]
         required = [True, True, True, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_R8, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
         flattened = [object, flatten_params(start_point), flatten_params(end_point), interval]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -642,7 +642,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         object, String, Required        
         The identifier of a surface or polysurface object.
             
-        plane, Array of ???, Required        
+        plane, Array of Doubles, Required        
         A plane that defines the cutting plane.
             
         interval, Double, Optional        
@@ -661,7 +661,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [object, plane, interval]
         required = [True, True, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
         flattened = [object, flatten_params(plane), interval]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -932,7 +932,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        base, Array of ???, Required        
+        base, Array of Doubles, Required        
         The 3-D origin point of the torus.
             
         major_radius, Double, Required        
@@ -941,7 +941,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         minor_radius, Double, Required        
         The minor radius of the torus.  The minor radius must be greater than zero.
             
-        direction, Array of ???, Optional        
+        direction, Array of Doubles, Optional        
         A point that defines the direction of the torus.  If omitted, a torus that is parallel to the world XY plane is created.
             
         Returns
@@ -957,7 +957,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [base, major_radius, minor_radius, direction]
         required = [True, True, True, False]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(base), major_radius, minor_radius, flatten_params(direction)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -971,7 +971,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ???, Required        
+        plane, Array of Doubles, Required        
         The base plane of the torus.
             
         major_radius, Double, Required        
@@ -993,7 +993,7 @@ class SurfaceAndPolysurface(IRhinoScript):
 
         params = [plane, major_radius, minor_radius]
         required = [True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1)]
         flattened = [flatten_params(plane), major_radius, minor_radius]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -1271,7 +1271,7 @@ class SurfaceAndPolysurface(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         An array of strings identifying the polysurface objects to explode.
             
         delete, Boolean, Optional        

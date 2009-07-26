@@ -19,7 +19,7 @@ match_object_attributes = {
             "py_name": "targets",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Targets",
             "doc": """
         An array of strings identifying the target objects.

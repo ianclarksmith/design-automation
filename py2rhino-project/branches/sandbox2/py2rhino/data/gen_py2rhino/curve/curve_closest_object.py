@@ -30,7 +30,7 @@ curve_closest_object = {
             "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Objects",
             "doc": """
         The identifiers of one or more point cloud, curve, surface, or polysurface to test against.

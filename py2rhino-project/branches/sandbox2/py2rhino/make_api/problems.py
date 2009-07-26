@@ -96,12 +96,62 @@ def write_array_type_strings(data_dict):
         w(f, '},', tabs=0, nls=0, nle=1)
     f.close()
     print counter
-    
+#===============================================================================
+# The method descriptors
+#===============================================================================
+def write_method_descriptors(data_dict):
+    counter = 0
+    f = open(in_folder + "_method_descriptors.py", mode='w')
+    w(f, '#Fill in the data as follows:', tabs=0, nls=0, nle=2)
+    w(f, '#For method class, give a list of class names, starting from parent class, or in the case of a function, then the module name.', tabs=0, nls=0, nle=1)
+    w(f, '#For method type, insert either FUNCTION, METHOD, CONSTRUCTOR, GET_PROPERTY, or SET_PROPERTY.', tabs=0, nls=0, nle=1)            
+    w(f, '#For method name, you may suggest a shorter name when the method has been moved to a sub-class.', tabs=0, nls=0, nle=1)
+    w(f, '#For method parameters, any parameters that are IDs of Rhino objects will need to be changed to classes.', tabs=0, nls=0, nle=1)
+    w(f, '#For method returns, any returns that are IDs of Rhino objects will need to be changed to classes.', tabs=0, nls=0, nle=2)  
+    for module_name in sorted(data_dict.keys()):
+        w(f, (module_name, ' = {'), tabs=0, nls=0, nle=1)
+        for method_name in sorted(data_dict[module_name].keys()):
+            
+            w(f, ('"', method_name, '": {'), tabs=1, nls=0, nle=1)
+            w(f, ('"method_location": "', data_dict[module_name][method_name]['input_folder_name'][:-8], '",'), tabs=2, nls=0, nle=1)
+            w(f, ('"method_type": "METHOD",'), tabs=2, nls=0, nle=1)             
+            w(f, ('"method_name": "', method_name, '",'), tabs=2, nls=0, nle=1)
+
+            #parameters
+            w(f, ('"method_parameters": ('), tabs=2, nls=0, nle=0) 
+            param_html_dict = data_dict[module_name][method_name]['params_html']
+            if param_html_dict:
+                params_list = []
+                for param_num in param_html_dict.keys():
+                    py_name = param_html_dict[param_num]['py_name']
+                    type_string = param_html_dict[param_num]['name_prefix']
+                    opt_or_req = param_html_dict[param_num]['opt_or_req'][:3].upper()
+                    params_list.append('("' + py_name +'","'+ type_string +'","'+ opt_or_req + '")')
+                params_list =  ','.join(params_list)
+                w(f, params_list, tabs=0, nls=0, nle=0) 
+            w(f, '),', tabs=0, nls=0, nle=1)
+                
+            #returns
+            w(f, ('"method_returns": ('), tabs=2, nls=0, nle=0) 
+            returns_html_dict = data_dict[module_name][method_name]['returns_html']
+            if returns_html_dict:
+                returns_list = []
+                for returns_num in returns_html_dict.keys():
+                    type_string = returns_html_dict[returns_num]['type']
+                    returns_list.append('"' + type_string + '"')
+                returns_list =  ','.join(returns_list)
+                w(f, returns_list, tabs=0, nls=0, nle=0) 
+            w(f, ')', tabs=0, nls=0, nle=1)
+            w(f, '},', tabs=1, nls=0, nle=1)
+                     
+        w(f, '}', tabs=0, nls=0, nle=1)
+    f.close()
+    print counter
 #===============================================================================
 # Run problem finder
 #===============================================================================
 if __name__ == '__main__':
     data_dict = get_data_dictionary()
-    write_array_type_strings(data_dict)
+    write_method_descriptors(data_dict)
     
     print 'done'

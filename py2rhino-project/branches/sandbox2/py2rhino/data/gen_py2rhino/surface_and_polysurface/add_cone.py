@@ -19,7 +19,7 @@ add_cone = {
             "py_name": "base",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Base",
             "doc": """
         The 3-D origin point of the cone.
@@ -30,7 +30,7 @@ add_cone = {
             "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Plane",
             "doc": """
         The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.

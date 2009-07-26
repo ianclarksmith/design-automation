@@ -785,7 +785,7 @@ class UserInterface(IRhinoScript):
 		Vertical.  A vertical rectangle is created by picking three points.
 		4
             
-        point, Array of ???, Optional        
+        point, Array of Doubles, Optional        
         A 3-D base point.
             
         prompt1, String, Optional        
@@ -810,7 +810,7 @@ class UserInterface(IRhinoScript):
 
         params = [mode, point, prompt1, prompt2, prompt3]
         required = [False, False, False, False, False]
-        magic = [(VT_I2, 1), (VT_VARIANT, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
+        magic = [(VT_I2, 1), (VT_ARRAY + VT_R8, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1)]
         flattened = [mode, flatten_params(point), prompt1, prompt2, prompt3]
 
         magic, flattened = select_params(params, required, magic, flattened)

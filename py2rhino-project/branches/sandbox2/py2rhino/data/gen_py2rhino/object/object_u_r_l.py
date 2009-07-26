@@ -19,7 +19,7 @@ object_u_r_l = {
             "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to modify.

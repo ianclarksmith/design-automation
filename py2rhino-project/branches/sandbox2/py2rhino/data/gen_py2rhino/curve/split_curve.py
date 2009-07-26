@@ -30,7 +30,7 @@ split_curve = {
             "py_name": "parameters",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Parameters",
             "doc": """
         An array of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.

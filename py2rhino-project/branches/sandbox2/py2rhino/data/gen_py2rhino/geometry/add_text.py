@@ -30,7 +30,7 @@ add_text = {
             "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Point",
             "doc": """
         A 3-D point.
@@ -41,7 +41,7 @@ add_text = {
             "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Plane",
             "doc": """
         The plane on which the text will lie.  The origin of the plane will be the origin point of the text.

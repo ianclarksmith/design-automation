@@ -30,7 +30,7 @@ insert_block = {
             "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Point",
             "doc": """
         The 3-D insertion point of the block.
@@ -41,7 +41,7 @@ insert_block = {
             "py_name": "scale",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_int",
             "name_main": "Scale",
             "doc": """
         An array of three numbers that identify the x,y,z scale factors. If omitted, the block is not scaled.
@@ -63,7 +63,7 @@ insert_block = {
             "py_name": "normal",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Normal",
             "doc": """
         A 3-D vector identifying the axis of rotation. If omitted and dblAngle is specified, the world Z axis is used.
@@ -74,7 +74,7 @@ insert_block = {
             "py_name": "xform",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Xform",
             "doc": """
         4x4 transformation matrix to apply.
