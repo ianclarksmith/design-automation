@@ -109,7 +109,7 @@ class View(IRhinoScript):
 		Portable Network Graphics
 		tif, tiff
             
-        point, Array of ???, Optional        
+        point, Array of Doubles, Optional        
         A 3-D point the lower left corner of the background bitmap. If omitted, the background bitmap's lower left corner will be located at the world origin, or (0,0,0).
             
         width, Double, Optional        
@@ -131,7 +131,7 @@ class View(IRhinoScript):
 
         params = [view, file_name, point, width]
         required = [False, False, False, False]
-        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1)]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1)]
         flattened = [view, file_name, flatten_params(point), width]
 
         magic, flattened = select_params(params, required, magic, flattened)

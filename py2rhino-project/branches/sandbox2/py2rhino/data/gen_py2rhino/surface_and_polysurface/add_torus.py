@@ -19,7 +19,7 @@ add_torus = {
             "py_name": "base",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Base",
             "doc": """
         The 3-D origin point of the torus.
@@ -30,7 +30,7 @@ add_torus = {
             "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Plane",
             "doc": """
         The base plane of the torus.
@@ -63,7 +63,7 @@ add_torus = {
             "py_name": "direction",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Direction",
             "doc": """
         A point that defines the direction of the torus.  If omitted, a torus that is parallel to the world XY plane is created.

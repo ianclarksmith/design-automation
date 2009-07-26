@@ -19,7 +19,7 @@ add_sphere = {
             "py_name": "center",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Center",
             "doc": """
         The center point of the sphere.
@@ -30,7 +30,7 @@ add_sphere = {
             "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Plane",
             "doc": """
         An equatorial plane.  The origin of the plane will be the center point of the sphere.

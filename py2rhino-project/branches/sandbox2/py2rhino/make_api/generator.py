@@ -41,6 +41,7 @@ def write_class(module_name, module_dict):
             for method_num in range(len(module_dict[method_name]['syntax_html'])):
                 write_class_method(module_dict[method_name], method_num, f)
         else:
+            #print module_name, method_name
             write_class_method(module_dict[method_name], -1, f)
     f.close()
     
@@ -74,7 +75,7 @@ def write_class_method(method_dict, method_num, f):
         py_method_name += '_'         
     vb_method_name = method_dict['input_file_name']
    
-    
+
     """
     
     #first check if this is a method with mismatch in parameters

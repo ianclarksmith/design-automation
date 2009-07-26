@@ -21,7 +21,7 @@ project_point_to_mesh = {
             "py_name": "points",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Points",
             "doc": """
         An array of 3-D points to project.
@@ -32,7 +32,7 @@ project_point_to_mesh = {
             "py_name": "meshes",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Meshes",
             "doc": """
         The identifiers of the mesh objects to project onto.
@@ -43,7 +43,7 @@ project_point_to_mesh = {
             "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Direction",
             "doc": """
         The direction (3-D vector) to project the points.

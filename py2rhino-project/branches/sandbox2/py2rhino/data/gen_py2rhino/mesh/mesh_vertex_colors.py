@@ -29,7 +29,7 @@ mesh_vertex_colors = {
             "py_name": "vertex_colors",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_int",
             "name_main": "VertexColors",
             "doc": """
         An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.

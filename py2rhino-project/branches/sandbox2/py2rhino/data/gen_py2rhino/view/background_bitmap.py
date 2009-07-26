@@ -53,7 +53,7 @@ background_bitmap = {
             "py_name": "point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Point",
             "doc": """
         A 3-D point the lower left corner of the background bitmap. If omitted, the background bitmap's lower left corner will be located at the world origin, or (0,0,0).

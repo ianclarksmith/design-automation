@@ -34,7 +34,7 @@ transform_objects = {
             "py_name": "objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects to transform.
@@ -45,7 +45,7 @@ transform_objects = {
             "py_name": "matrix",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Matrix",
             "doc": """
         The transformation matrix (4x4 array of numbers).

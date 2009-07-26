@@ -21,7 +21,7 @@ xform_scale = {
             "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Plane",
             "doc": """
         The starting plane.
@@ -65,7 +65,7 @@ xform_scale = {
             "py_name": "vector",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Vector",
             "doc": """
         The ending direction.
@@ -76,7 +76,7 @@ xform_scale = {
             "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array (3-D Point)",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Point",
             "doc": """
         The rotation center point.

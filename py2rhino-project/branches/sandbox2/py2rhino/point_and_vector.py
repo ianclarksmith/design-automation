@@ -486,13 +486,13 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ???, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points to project.
             
-        meshes, Array of ???, Required        
+        meshes, Array of Strings, Required        
         The identifiers of the mesh objects to project onto.
             
-        direction, Array of ???, Required        
+        direction, Array of Doubles, Required        
         The direction (3-D vector) to project the points.
             
         Returns
@@ -508,7 +508,7 @@ class PointAndVector(IRhinoScript):
 
         params = [points, meshes, direction]
         required = [True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(points), flatten_params(meshes), flatten_params(direction)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -522,13 +522,13 @@ class PointAndVector(IRhinoScript):
         Parameters
         ==========
 
-        points, Array of ???, Required        
+        points, Array of Doubles, Required        
         An array of 3-D points to project.
             
-        surfaces, Array of ???, Required        
+        surfaces, Array of Strings, Required        
         The identifiers of the surface or polysurface objects to project onto.
             
-        direction, Array of ???, Required        
+        direction, Array of Doubles, Required        
         The direction (3-D vector) to project the points.
             
         Returns
@@ -544,7 +544,7 @@ class PointAndVector(IRhinoScript):
 
         params = [points, surfaces, direction]
         required = [True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(points), flatten_params(surfaces), flatten_params(direction)]
 
         magic, flattened = select_params(params, required, magic, flattened)

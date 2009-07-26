@@ -123,10 +123,10 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ???, Required        
+        point1, Array of Doubles, Required        
         The first 3-D point.
             
-        point2, Array of ???, Required        
+        point2, Array of Doubles, Required        
         The second 3-D point.
             
         Returns
@@ -145,7 +145,7 @@ class Math(IRhinoScript):
 
         params = [point1, point2]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(point1), flatten_params(point2)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -159,10 +159,10 @@ class Math(IRhinoScript):
         Parameters
         ==========
 
-        point1, Array of ???, Required        
+        point1, Array of Doubles, Required        
         The first 3-D point.
             
-        point_array, Array of ???, Required        
+        point_array, Array of Doubles, Required        
         An array of 3-D points.
             
         Returns
@@ -181,7 +181,7 @@ class Math(IRhinoScript):
 
         params = [point1, point_array]
         required = [True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(point1), flatten_params(point_array)]
 
         magic, flattened = select_params(params, required, magic, flattened)

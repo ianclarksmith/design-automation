@@ -24,7 +24,7 @@ class Geometry(IRhinoScript):
         Parameters
         ==========
 
-        plane, Array of ???, Required        
+        plane, Array of Doubles, Required        
         The plane.
             
         d_u, Double, Required        
@@ -33,7 +33,7 @@ class Geometry(IRhinoScript):
         d_v, Double, Required        
         The magnitude in the V direction.
             
-        views, Array of ???, Optional        
+        views, Array of Strings, Optional        
         The titles of the views to clip.  If omitted, the current active view is used.
             
         Returns
@@ -49,7 +49,7 @@ class Geometry(IRhinoScript):
 
         params = [plane, d_u, d_v, views]
         required = [True, True, True, False]
-        magic = [(VT_VARIANT, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1)]
+        magic = [(VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_VARIANT, 1)]
         flattened = [flatten_params(plane), d_u, d_v, flatten_params(views)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -126,7 +126,7 @@ class Geometry(IRhinoScript):
         text, String, Required        
         The text to display.
             
-        point, Array of ???, Required        
+        point, Array of Doubles, Required        
         A 3-D point.
             
         height, Double, Optional        
@@ -158,7 +158,7 @@ class Geometry(IRhinoScript):
 
         params = [text, point, height, font, style]
         required = [True, True, False, False, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_I2, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_I2, 1)]
         flattened = [text, flatten_params(point), height, font, style]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -175,7 +175,7 @@ class Geometry(IRhinoScript):
         text, String, Required        
         The text to display.
             
-        plane, Array of ???, Required        
+        plane, Array of Doubles, Required        
         The plane on which the text will lie.  The origin of the plane will be the origin point of the text.
             
         height, Double, Optional        
@@ -207,7 +207,7 @@ class Geometry(IRhinoScript):
 
         params = [text, plane, height, font, style]
         required = [True, True, False, False, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_I2, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BSTR, 1), (VT_I2, 1)]
         flattened = [text, flatten_params(plane), height, font, style]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -254,7 +254,7 @@ class Geometry(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         An array of strings identifying the objects.
             
         view, String, Optional        

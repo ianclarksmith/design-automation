@@ -738,7 +738,7 @@ point_and_vector = {
     },
     "project_point_to_surface": {
         "points": "arr_of_dbl",
-        "surfaces": "arr_of_obj",
+        "surfaces": "arr_of_str",
         "direction": "arr_of_dbl",
     },
     "pull_points": {

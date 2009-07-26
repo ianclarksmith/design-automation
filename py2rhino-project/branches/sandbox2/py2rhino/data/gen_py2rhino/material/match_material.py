@@ -41,7 +41,7 @@ match_material = {
             "py_name": "dest_objects",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "DestObjects",
             "doc": """
         An array of destination object identifiers.  If the objects' material sources are set to "By Layer", they will be changed to "By Object."

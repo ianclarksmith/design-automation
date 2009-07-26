@@ -956,7 +956,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         An array of strings containing the identifiers of one or more closed, planar curve objects.
             
         Returns
@@ -992,7 +992,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         An array of strings containing the identifiers of one or more closed, planar curve objects.
             
         Returns
@@ -1202,7 +1202,7 @@ class Curve(IRhinoScript):
         curve, String, Required        
         The identifier of the curve object to test.
             
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         The identifiers of one or more point cloud, curve, surface, or polysurface to test against.
             
         Returns
@@ -2575,7 +2575,7 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        objects, Array of ???, Required        
+        objects, Array of Strings, Required        
         An array of strings identifying the curve objects to explode.
             
         delete, Boolean, Optional        
@@ -3538,13 +3538,13 @@ class Curve(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        direction, Array of ???, Required        
+        direction, Array of Doubles, Required        
         The 3-D point that indicates the direction of the offset.
             
         distance, Double, Required        
         The distance of the offset.
             
-        normal, Array of ???, Optional        
+        normal, Array of Doubles, Optional        
         A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
             
         style, Integer, Optional        
@@ -3574,7 +3574,7 @@ class Curve(IRhinoScript):
 
         params = [object, direction, distance, normal, style]
         required = [True, True, True, False, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_I2, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_I2, 1)]
         flattened = [object, flatten_params(direction), distance, flatten_params(normal), style]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -3630,7 +3630,7 @@ class Curve(IRhinoScript):
         surface, String, Required        
         The surface object's identifier.
             
-        parameter, Array of ???, Required        
+        parameter, Array of Doubles, Required        
         An array containing the surface U,V parameter that the curve will be offset through.
             
         Returns
@@ -3646,7 +3646,7 @@ class Curve(IRhinoScript):
 
         params = [curve, surface, parameter]
         required = [True, True, True]
-        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_VARIANT, 1)]
+        magic = [(VT_BSTR, 1), (VT_BSTR, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [curve, surface, flatten_params(parameter)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -3882,13 +3882,13 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        curves, Array of ???, Required        
+        curves, Array of Strings, Required        
         The identifiers of one or more curve objects to project.
             
-        meshes, Array of ???, Required        
+        meshes, Array of Strings, Required        
         The identifiers of the mesh objects to project onto.
             
-        direction, Array of ???, Required        
+        direction, Array of Doubles, Required        
         The direction (3-D vector) to project the points.
             
         Returns
@@ -3904,7 +3904,7 @@ class Curve(IRhinoScript):
 
         params = [curves, meshes, direction]
         required = [True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(curves), flatten_params(meshes), flatten_params(direction)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -3918,13 +3918,13 @@ class Curve(IRhinoScript):
         Parameters
         ==========
 
-        curves, Array of ???, Required        
+        curves, Array of Strings, Required        
         The identifiers of one or more curve objects to project.
             
-        surfaces, Array of ???, Required        
+        surfaces, Array of Strings, Required        
         The identifiers of the surface or polysurface objects to project onto.
             
-        direction, Array of ???, Required        
+        direction, Array of Doubles, Required        
         The direction (3-D vector) to project the points.
             
         Returns
@@ -3940,7 +3940,7 @@ class Curve(IRhinoScript):
 
         params = [curves, surfaces, direction]
         required = [True, True, True]
-        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1)]
+        magic = [(VT_VARIANT, 1), (VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1)]
         flattened = [flatten_params(curves), flatten_params(surfaces), flatten_params(direction)]
 
         magic, flattened = select_params(params, required, magic, flattened)
@@ -4110,7 +4110,7 @@ class Curve(IRhinoScript):
         object, String, Required        
         The object's identifier.
             
-        parameters, Array of ???, Required        
+        parameters, Array of Doubles, Required        
         An array of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
             
         delete, Boolean, Optional        
@@ -4129,7 +4129,7 @@ class Curve(IRhinoScript):
 
         params = [object, parameters, delete]
         required = [True, True, False]
-        magic = [(VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1)]
+        magic = [(VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_BOOL, 1)]
         flattened = [object, flatten_params(parameters), delete]
 
         magic, flattened = select_params(params, required, magic, flattened)

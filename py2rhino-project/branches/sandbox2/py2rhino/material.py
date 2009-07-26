@@ -207,7 +207,7 @@ class Material(IRhinoScript):
         src_object, String, Required        
         The identifier of the source object.  The object must have a material assigned.
             
-        dest_objects, Array of ???, Required        
+        dest_objects, Array of Strings, Required        
         An array of destination object identifiers.  If the objects' material sources are set to "By Layer", they will be changed to "By Object."
             
         Returns

@@ -21,7 +21,7 @@ project_curve_to_surface = {
             "py_name": "curves",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Curves",
             "doc": """
         The identifiers of one or more curve objects to project.
@@ -32,7 +32,7 @@ project_curve_to_surface = {
             "py_name": "surfaces",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_str",
             "name_main": "Surfaces",
             "doc": """
         The identifiers of the surface or polysurface objects to project onto.
@@ -43,7 +43,7 @@ project_curve_to_surface = {
             "py_name": "direction",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Direction",
             "doc": """
         The direction (3-D vector) to project the points.

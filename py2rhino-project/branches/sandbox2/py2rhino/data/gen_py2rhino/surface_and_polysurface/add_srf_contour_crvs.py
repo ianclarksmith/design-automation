@@ -30,7 +30,7 @@ add_srf_contour_crvs = {
             "py_name": "start_point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "StartPoint",
             "doc": """
         The 3-D starting point of a center line.
@@ -41,7 +41,7 @@ add_srf_contour_crvs = {
             "py_name": "end_point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "EndPoint",
             "doc": """
         The 3-D ending point of a center line.
@@ -52,7 +52,7 @@ add_srf_contour_crvs = {
             "py_name": "plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_???",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Plane",
             "doc": """
         A plane that defines the cutting plane.
