@@ -23,6 +23,7 @@ def get_data_dictionary():
 def write_methods_with_param_mismatch(data_dict):
     counter_tm = 0
     counter_tf = 0
+    
     f1 = open(in_folder + "_methods_with_too_many_params.py", mode='w')
     f2 = open(in_folder + "_methods_with_too_few_params.py", mode='w')
     w(f1, '#These methods have too many parameters when compared to the COM definition', tabs=0, nls=0, nle=2)
@@ -101,7 +102,11 @@ def write_array_type_strings(data_dict):
 #===============================================================================
 def write_method_descriptors(data_dict):
     counter = 0
+    init = open(in_folder + "__init__.py", mode='w')
+    
     for module_name in sorted(data_dict.keys()):
+        w(init, ('from py2rhino.data.api_definition import ',module_name, '_methods' ), tabs=0, nls=0, nle=2)
+        
         f = open(in_folder + module_name +"_methods.py", mode='w')
         w(f, '#Fill in the data as follows:', tabs=0, nls=0, nle=2)
         w(f, '#For method class, give a list of class names, starting from parent class, or in the case of a function, then the module name.', tabs=0, nls=0, nle=1)
@@ -147,6 +152,7 @@ def write_method_descriptors(data_dict):
                      
 
         f.close()
+    init.close()
     print counter
 #===============================================================================
 # Run problem finder
