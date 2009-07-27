@@ -35,23 +35,9 @@ class Zone(object):
     # Commands
     #===========================================================================
 
-    def add_object(self, elemType, objType, selected = True, link = 0):
-        arg_str = p2e.string_util._convert_args_to_string("add.object", elemType, 
-                                                     objType, selected, link)
-        val = p2e.conversation.Request(arg_str)
-        eco_id = p2e.string_util._convert_str_to_type(val, int)
+    def add_object():
+        pass
         
-        #create object
-        obj = Object()
-        
-        #update model lists
-        p2e.model.objects.append(eco_id)
-        
-        #set object attributes
-        self.zone = 0
-        
-        #return the instance
-        return obj
     
     def delete(self):
         """
