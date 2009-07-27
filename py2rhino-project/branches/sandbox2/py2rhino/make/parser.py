@@ -2,17 +2,14 @@ import linecache
 import keyword
 import os
 import string
-from py2rhino.data.gen_comtypes import rhinoscript as ct_rs
 from util import * #@UnusedWildImport
 
-from py2rhino.data.gen_py2rhino import _array_type_strings_updated as types
+from py2rhino.data.parser_in.gen_comtypes import rhinoscript as ct_rs
+from py2rhino.data.parser_in.functions_data import array_types_updated as types
 
 #file paths
-in_folder = "..\\data\\gen_html\\supported\\"
-out_folder = "..\\data\\gen_py2rhino\\"
-
-#in_folder = "..\\data\\gen_html\\test\\in\\"
-#out_folder = "..\\data\\gen_html\\test\\out\\"
+in_folder = "..\\data\\parser_in\\gen_html\\supported\\"
+out_folder = "..\\data\\parser_out\\"
 
 #===============================================================================
 # The main function to parse txt files generated from html
