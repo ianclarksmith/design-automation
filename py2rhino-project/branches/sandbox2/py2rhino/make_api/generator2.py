@@ -30,16 +30,13 @@ def write_classes(data_dict):
     for location in sorted(data_dict.keys()):
         location = location.split('.')
         class_name = location[-1]
-        module_name = class_name.split('_')
-        for counter in range(len(module_name)):
-            module_name[counter] = module_name[counter].capitalize()
-        ''.join(module_name)
-        print class_name, module_name
+        module_name = camel_to_underscore(class_name)
+        write_class(module_name, class_name, data_dict[location])
 
-def write_class(module_name, module_dict):
+def write_class(module_name, class_name, module_dict):
     #open, write, and close
     f = open(out_folder + module_name + '.py', mode='w')
-    write_class_header(underscore_to_camel(module_name), f)
+    write_class_header(class_name, f)
     write_init(f)
     for method_name in sorted(module_dict.keys()):
         if len(module_dict[method_name]['params_html']) != len(module_dict[method_name]['params_com']):
@@ -69,9 +66,7 @@ def write_init(f):
     w(f,'oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)', tabs=2, nls=0, nle=1)
     w(f,'self.__dict__["_oleobj_"] = oobj', tabs=2, nls=0, nle=2)
     
-
 def write_class_method(method_dict, method_num, f):
-
     #get the method name in py format
     py_method_name = method_dict['output_module_name']
     if method_num > 0:

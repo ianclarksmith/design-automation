@@ -119,7 +119,7 @@ def write_method_descriptors(data_dict):
         for method_name in sorted(data_dict[module_name].keys()):
             
             w(f, (method_name, ' = {'), tabs=0, nls=0, nle=1)
-            w(f, ('"method_location": "', data_dict[module_name][method_name]['input_folder_name'][:-8], '",'), tabs=1, nls=0, nle=1)
+            w(f, ('"method_location": "', underscore_to_camel(data_dict[module_name][method_name]['input_folder_name'][:-8]), '",'), tabs=1, nls=0, nle=1)
             w(f, ('"method_type": "METHOD",'), tabs=1, nls=0, nle=1)             
             w(f, ('"method_name": "', method_name, '",'), tabs=1, nls=0, nle=1)
 
