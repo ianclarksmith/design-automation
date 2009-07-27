@@ -1,6 +1,6 @@
 from util import *
 from py2rhino.data import gen_py2rhino as p2r 
-in_folder = "..\\data\\gen_py2rhino\\"
+in_folder = "..\\data\\api_definition\\"
 out_folder = "..\\"
 #===============================================================================
 # Get the data
@@ -101,24 +101,25 @@ def write_array_type_strings(data_dict):
 #===============================================================================
 def write_method_descriptors(data_dict):
     counter = 0
-    f = open(in_folder + "_method_descriptors.py", mode='w')
-    w(f, '#Fill in the data as follows:', tabs=0, nls=0, nle=2)
-    w(f, '#For method class, give a list of class names, starting from parent class, or in the case of a function, then the module name.', tabs=0, nls=0, nle=1)
-    w(f, '#For method type, insert either FUNCTION, METHOD, CONSTRUCTOR, GET_PROPERTY, or SET_PROPERTY.', tabs=0, nls=0, nle=1)            
-    w(f, '#For method name, you may suggest a shorter name when the method has been moved to a sub-class.', tabs=0, nls=0, nle=1)
-    w(f, '#For method parameters, any parameters that are IDs of Rhino objects will need to be changed to classes.', tabs=0, nls=0, nle=1)
-    w(f, '#For method returns, any returns that are IDs of Rhino objects will need to be changed to classes.', tabs=0, nls=0, nle=2)  
     for module_name in sorted(data_dict.keys()):
-        w(f, (module_name, ' = {'), tabs=0, nls=0, nle=1)
+        f = open(in_folder + module_name +"_methods.py", mode='w')
+        w(f, '#Fill in the data as follows:', tabs=0, nls=0, nle=2)
+        w(f, '#For method class, give a list of class names, starting from parent class, or in the case of a function, then the module name.', tabs=0, nls=0, nle=1)
+        w(f, '#For method type, insert either FUNCTION, METHOD, CONSTRUCTOR, GET_PROPERTY, or SET_PROPERTY.', tabs=0, nls=0, nle=1)            
+        w(f, '#For method name, you may suggest a shorter name when the method has been moved to a sub-class.', tabs=0, nls=0, nle=1)
+        w(f, '#For method parameters, any parameters that are IDs of Rhino objects will need to be changed to classes.', tabs=0, nls=0, nle=1)
+        w(f, '#For method returns, any returns that are IDs of Rhino objects will need to be changed to classes.', tabs=0, nls=0, nle=2)  
+        
+
         for method_name in sorted(data_dict[module_name].keys()):
             
-            w(f, ('"', method_name, '": {'), tabs=1, nls=0, nle=1)
-            w(f, ('"method_location": "', data_dict[module_name][method_name]['input_folder_name'][:-8], '",'), tabs=2, nls=0, nle=1)
-            w(f, ('"method_type": "METHOD",'), tabs=2, nls=0, nle=1)             
-            w(f, ('"method_name": "', method_name, '",'), tabs=2, nls=0, nle=1)
+            w(f, (method_name, ' = {'), tabs=0, nls=0, nle=1)
+            w(f, ('"method_location": "', data_dict[module_name][method_name]['input_folder_name'][:-8], '",'), tabs=1, nls=0, nle=1)
+            w(f, ('"method_type": "METHOD",'), tabs=1, nls=0, nle=1)             
+            w(f, ('"method_name": "', method_name, '",'), tabs=1, nls=0, nle=1)
 
             #parameters
-            w(f, ('"method_parameters": ('), tabs=2, nls=0, nle=0) 
+            w(f, ('"method_parameters": ('), tabs=1, nls=0, nle=0) 
             param_html_dict = data_dict[module_name][method_name]['params_html']
             if param_html_dict:
                 params_list = []
@@ -132,7 +133,7 @@ def write_method_descriptors(data_dict):
             w(f, '),', tabs=0, nls=0, nle=1)
                 
             #returns
-            w(f, ('"method_returns": ('), tabs=2, nls=0, nle=0) 
+            w(f, ('"method_returns": ('), tabs=1, nls=0, nle=0) 
             returns_html_dict = data_dict[module_name][method_name]['returns_html']
             if returns_html_dict:
                 returns_list = []
@@ -142,10 +143,10 @@ def write_method_descriptors(data_dict):
                 returns_list =  ','.join(returns_list)
                 w(f, returns_list, tabs=0, nls=0, nle=0) 
             w(f, ')', tabs=0, nls=0, nle=1)
-            w(f, '},', tabs=1, nls=0, nle=1)
+            w(f, '}', tabs=1, nls=0, nle=1)
                      
-        w(f, '}', tabs=0, nls=0, nle=1)
-    f.close()
+
+        f.close()
     print counter
 #===============================================================================
 # Run problem finder
