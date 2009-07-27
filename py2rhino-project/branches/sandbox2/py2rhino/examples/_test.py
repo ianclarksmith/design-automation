@@ -2,10 +2,9 @@
 #===============================================================================
 # Curves
 #===============================================================================
-import py2rhino
-from py2rhino.curve import Curve
+import py2rhino as p2r
 
-co = Curve()
+co = p2r.Curve()
 cv1 = co.add_line((0,0,0), (10,10,0))
 length = co.curve_length(cv1)
 print cv1
