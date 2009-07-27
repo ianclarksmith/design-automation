@@ -1,0 +1,63 @@
+MeshHasVertexColors
+
+
+
+MeshHasVertexColors
+
+
+Verifies a mesh object has vertex colors.
+
+
+Syntax
+
+
+Rhino.MeshHasVertexColors (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a mesh", rhObjectMesh)
+
+If Rhino.MeshHasVertexColors(strObject) Then
+
+Rhino.Print "The mesh has vertex colors."
+
+Else
+
+Rhino.Print "The mesh does not have vertex colors."
+
+End If
+
+
+Also See
+
+
+MeshVertexColors
+

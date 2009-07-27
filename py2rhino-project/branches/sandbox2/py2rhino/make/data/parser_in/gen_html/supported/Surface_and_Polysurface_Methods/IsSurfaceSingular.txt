@@ -1,0 +1,75 @@
+IsSurfaceSingular
+
+
+
+IsSurfaceSingular
+
+
+Verifies a surface object is singular in the specified direction.  Surfaces are considered singular if a side collapses to a point.
+
+
+Syntax
+
+
+Rhino.IsSurfaceSingular (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intDirection 
+
+Required.  Number.  The direction, either 0 = south, 1 = east, 2 = north, or 3 = west.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhObjectSurface = 8
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+
+If Rhino.IsSurfaceSingular(strObject, 0) Then
+
+Rhino.Print "The surface is singular."
+
+Else
+
+Rhino.Print "The surface is not singular."
+
+End If
+
+
+Also See
+
+
+IsSurface
+
+IsSurfaceClosed
+
+IsSurfacePeroidic
+
+IsSurfacePlanar
+
+IsSurfaceTrimmed
+

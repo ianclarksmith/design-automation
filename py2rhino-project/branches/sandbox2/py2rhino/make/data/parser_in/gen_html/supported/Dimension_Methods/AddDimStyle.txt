@@ -1,0 +1,59 @@
+AddDimStyle
+
+
+
+AddDimStyle
+
+
+Adds a new dimension style to the document.  The new dimension style will be initialized with the current default dimension style properties.
+
+
+Syntax
+
+
+Rhino.AddDimStyle ([strDimStyle])
+
+
+Parameters
+
+
+
+strDimStyle 
+
+Optional.  String.  The name of the new dimension style.  If omitted, Rhino automatically generates the dimension style name.
+
+
+Returns
+
+
+
+String 
+
+The name of the new dimension style if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Rhino.Print "New dimension style: " & Rhino.AddDimStyle
+
+Rhino.Print "New dimension style: " & Rhino.AddDimStyle("MyDimStyle")
+
+
+Also See
+
+
+CurrentDimStyle
+
+DeleteDimStyle
+
+IsDimStyle
+
+RenameDimStyle
+
+
+

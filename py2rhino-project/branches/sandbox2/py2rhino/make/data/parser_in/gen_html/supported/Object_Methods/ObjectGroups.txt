@@ -1,0 +1,73 @@
+ObjectGroups
+
+
+
+ObjectGroups
+
+
+Returns all of the group names that an object is assigned.
+
+
+Syntax
+
+
+Rhino.ObjectGroups (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+
+Returns
+
+
+
+Array 
+
+An array of all group names for the object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrGroups, strGroup
+
+strObject = Rhino.GetObject("Select object")
+
+If Not IsNull(strObject) Then
+
+arrGroups = Rhino.ObjectGroups(strObject)
+
+If IsArray(arrGroups) Then
+
+For Each strGroup In arrGroups
+
+Rhino.Print "Object group: " & strGroup
+
+Next
+
+Else
+
+Rhino.Print "No groups."
+
+End If
+
+End If
+
+
+Also See
+
+
+ObjectsByGroup
+
+ObjectTopGroup
+

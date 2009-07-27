@@ -1,0 +1,113 @@
+PlugIns
+
+
+
+PlugIns
+
+
+Returns an array of registered Rhino plug-ins.
+
+
+Syntax
+
+
+Rhino.PlugIns ([intTypes [, intStatus]])
+
+
+Parameters
+
+
+
+intTypes 
+
+Optional.  Number. The type or types of plug-ins to return.  Plug-in types can be added together to filter several different kinds of plug-ins.  If omitted, all plug-in types are returned.
+
+
+Value 
+
+Description
+
+0 
+
+All plug-ins
+
+1 
+
+Render plug-ins
+
+2 
+
+File export plug-ins
+
+4 
+
+File import plug-ins
+
+8 
+
+Digitizer plug-ins
+
+16 
+
+Utility plug-ins
+
+
+intStatus 
+
+Optional.  Number.  The status, either loaded or unloaded, of the plug-ins to return.  If omitted, both loaded and unloaded plug-ins are returned.
+
+
+Value 
+
+Description
+
+0 
+
+Both loaded or unloaded plug-ins..
+
+1 
+
+Loaded plug-ins.
+
+2 
+
+Unloaded plug-ins.
+
+
+
+Returns
+
+
+
+Array 
+
+An array of strings describing the plug-ins if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPlugins, strPlugin
+
+arrPlugins = Rhino.PlugIns(0, 1)
+
+If IsArray(arrPlugins) Then
+
+For Each strPlugin In arrPlugins
+
+Rhino.Print strPlugin
+
+Next
+
+End If
+
+
+Also See
+
+
+
+

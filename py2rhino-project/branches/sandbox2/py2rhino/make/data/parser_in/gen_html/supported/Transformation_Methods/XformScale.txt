@@ -1,0 +1,109 @@
+XformScale
+
+
+
+XformScale
+
+
+Returns a scale transformation matrix.
+
+
+Syntax
+
+
+Rhino.XformScale (arrPlane, dblXScale, dblYScale, dblZScale)
+
+Rhino.XformScale (dblXScale, dblYScale, dblZScale)
+
+Rhino.XformScale (arrVector)
+
+Rhino.XformScale (arrPoint, dblScale)
+
+
+Parameters
+
+
+
+arrPlane 
+
+Required.  Array (Plane).  The starting plane.
+
+dblXScale 
+
+Required.  Number.  The scale factor in the x-axis direction.
+
+dblYScale 
+
+Required.  Number.  The scale factor in the y-axis direction.
+
+dblZScale 
+
+Required.  Number.  The scale factor in the z-axis direction.
+
+arrVector 
+
+Required.  Array (3-D Vector).  The ending direction.
+
+arrPoint 
+
+Required.  Array (3-D Point).  The rotation center point.
+
+dblScale 
+
+Required.  Array (3-D Vector).  The initial frame X
+
+
+Returns
+
+
+
+Array 
+
+The 4x4 transformation matrix.
+
+Null 
+
+On error.
+
+
+Notes
+
+
+Option 1 creates a non-uniform scale transformation with the origin of arrPlane as the fixed point.
+
+Option 2 creates a non-uniform scale transformation with the world origin as the fixed point.
+
+Option 3 create non-uniform scale transformation. The diagonal is (arrVector.x, arrVector.y, arrVector.z, 1).
+
+Option 4 create uniform scale transformation with a specified fixed point.
+
+
+Example
+
+
+arrObjects = Rhino.GetObjects("Select objects to scale")
+
+If IsArray(arrObjects) Then
+
+  arrXform = Rhino.XformScale(3.0, 1.0, 1.0)
+
+  Rhino.TransformObjects arrObjects, arrXform, True
+
+End If 
+
+
+Also See
+
+
+XformMirror
+
+XformPlanarProjection
+
+XformRotation
+
+XformShear
+
+XformTranslation
+
+
+

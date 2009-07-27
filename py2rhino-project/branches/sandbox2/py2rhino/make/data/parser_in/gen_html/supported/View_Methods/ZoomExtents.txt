@@ -1,0 +1,52 @@
+ZoomExtents
+
+
+
+ZoomExtents
+
+
+Zooms to the extents of visible objects in the specified view, or in the active view.
+
+
+Syntax
+
+
+Rhino.ZoomExtents ([strView [, blnAll]])
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+blnAll 
+
+Optional.  Boolean.  Zoom extents in all views.  If omitted, only the specified view is zoomed (False).
+
+
+Returns
+
+
+Null.
+
+
+Example
+
+
+Dim strView
+
+strView = Rhino.CurrentView
+
+Rhino.ZoomExtents strView
+
+
+Also See
+
+
+ZoomBoundingBox
+
+ZoomSelected
+

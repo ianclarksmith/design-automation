@@ -1,0 +1,69 @@
+TextDotText
+
+
+
+TextDotText
+
+
+Returns or modifies the text string of an annotation text dot object.  Annotation dots can be created using Rhino's Dot command.
+
+
+Syntax
+
+
+Rhino.TextDotText (strObject [, strText])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+strText 
+
+Optional.  String.  A new character or text string.
+
+
+Returns
+
+
+
+String 
+
+If a new text string is not specified,  the current string value if successful.
+
+String 
+
+If a new text string is specified,  the previous string value if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select text dot")
+
+If Rhino.IsTextDot(strObject) Then
+
+Rhino.TextDotText strObject, "Rhino"
+
+End If
+
+
+Also See
+
+
+AddTextDot
+
+IsTextDot
+
+TextDotPoint
+

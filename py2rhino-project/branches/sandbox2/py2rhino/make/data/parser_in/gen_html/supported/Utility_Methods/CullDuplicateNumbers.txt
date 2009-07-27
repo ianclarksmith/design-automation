@@ -1,0 +1,65 @@
+CullDuplicateNumbers
+
+
+
+CullDuplicateNumbers
+
+
+Removes duplicates from an array of numbers.
+
+
+Syntax
+
+
+Rhino.CullDuplicateNumbers (arrNumbers [, dblTolerance])
+
+
+Parameters
+
+
+
+arrNumbers 
+
+Required.  Array.  An array of numbers.
+
+dblTolerance 
+
+Optional.  Number.  The minimum distance between numbers.  Numbers that fall within this tolerance will be discarded.  If omitted, Rhino's internal zero tolerance is used.
+
+
+Returns
+
+
+
+Array 
+
+An array of numbers with duplicates removed if successful.
+
+Null 
+
+If not successful or on error.
+
+
+Example
+
+
+Dim arr, n
+
+arr = Array(1,1,2,2,3,3,4,4,5,5)
+
+arr = Rhino.CullDuplicateNumbers(arr)
+
+For Each n in arr
+
+Rhino.Print n
+
+Next
+
+
+Also See
+
+
+CullDuplicatePoints
+
+CullDuplicateStrings
+

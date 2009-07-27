@@ -1,0 +1,120 @@
+TransformObject
+
+
+
+TransformObject
+
+
+Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+
+
+
+
+1 
+
+0 
+
+0 
+
+dX
+
+0 
+
+1 
+
+0 
+
+dY
+
+0 
+
+0 
+
+1 
+
+dZ
+
+0 
+
+0 
+
+0 
+
+1
+
+
+Syntax
+
+
+Rhino.TransformObject (strObject, arrMatrix [, blnCopy])
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The identifier of the object.
+
+arrMatrix 
+
+Required. Array. The transformation matrix (4x4 array of numbers).
+
+blnCopy 
+
+Optional. Boolean. Copy the object. If omitted, the object will not be copied (False).
+
+
+Returns
+
+
+
+Boolean 
+
+The identifier of the transformed object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+' Rotate an object by theta degrees about the world Z axis
+
+Dim dblDegrees, dblRadians, c, s
+
+Dim strObject, arrMatrix(3,3)
+
+dblDegrees = 90.0 ' Some angle
+
+dblRadians = Rhino.ToRadians(dblDegrees)
+
+c = Cos(dblRadians)
+
+s = Sin(dblRadians)
+
+arrMatrix(0,0) = c : arrMatrix(0,1) = -s : arrMatrix(0,2) = 0 : arrMatrix(0,3) = 0
+
+arrMatrix(1,0) = s : arrMatrix(1,1) = c  : arrMatrix(1,2) = 0 : arrMatrix(1,3) = 0
+
+arrMatrix(2,0) = 0 : arrMatrix(2,1) = 0  : arrMatrix(2,2) = 1 : arrMatrix(2,3) = 0
+
+arrMatrix(3,0) = 0 : arrMatrix(3,1) = 0  : arrMatrix(3,2) = 0 : arrMatrix(3,3) = 1
+
+strObject = Rhino.GetObject("Select object to rotate")
+
+If Not IsNull(strObject) Then
+
+  Rhino.TransformObject strObject, arrMatrix
+
+End If
+
+
+Also See
+
+
+TransformObjects
+

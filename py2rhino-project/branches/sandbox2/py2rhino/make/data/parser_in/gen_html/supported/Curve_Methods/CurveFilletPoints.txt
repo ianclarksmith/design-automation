@@ -1,0 +1,113 @@
+CurveFilletPoints
+
+
+
+CurveFilletPoints
+
+
+Find points at which to cut a pair of curves so that a fillet of a specified radius fits.  A fillet point is a pair of points (arrPoint0, arrPoint1) such that there is a circle of radius dblRadius tangent to curve strCurve0 at arrPoint0 and tangent to curve strCurve1 at arrPoint1.
+
+Of all possible fillet points, this function returns the one which is the closest to the base point arrBasePoint0, arrBasePoint1.  Distance from the base point is measured by the sum of arc lengths along the two curves.
+
+
+Syntax
+
+
+Rhino.CurveFilletPoints (strCurve0, strCurve1 [, dblRadius [, arrBasePoint0 [, arrBasePoint1]]])
+
+
+Parameters
+
+
+
+strCurve0 
+
+Required.  String.  The identifier of the first curve object.
+
+strCurve1 
+
+Required.  String.  The identifier of the second curve object.
+
+dblRadius 
+
+Optional. Number. The fillet radius. If omitted, a radius of 1.0 is specified.
+
+arrBasePoint0 
+
+Optional. Array. The base point on the first curve. If omitted, the starting point of the curve is used.
+
+arrBasePoint1 
+
+Optional. Array. The base point on the second curve. If omitted, the starting point of the curve is used.
+
+
+Returns
+
+
+
+Array 
+
+If blnPoints is True, then an array of point and vector values if successful.  The array elements are as follows:
+
+
+0 
+
+A point on the first curve at which to cut (arrPoint0).
+
+1 
+
+A point on the second curve at which to cut (arrPoint1).
+
+2 
+
+The fillet plane's origin (3-D point). This point is also the center point of the fillet
+
+3 
+
+The fillet plane's X axis (3-D vector).
+
+4 
+
+The fillet plane's Y axis (3-D vector).
+
+5 
+
+The fillet plane's Z axis (3-D vector).
+
+
+String 
+
+If blnPoints is False, then the identifier of the fillet curve if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strCurve0, strCurve1. arrFillet
+
+strCurve0 = Rhino.AddLine(Array(0,0,0), Array(5,1,0))
+
+strCurve1 = Rhino.AddLine(Array(0,0,0), Array(1,5,0))
+
+arrFillet = Rhino.CurveFilletPoints(strCurve0, strCurve1)
+
+If IsArray(arrFillet) Then
+
+  Rhino.AddPoint arrFillet(0)
+
+  Rhino.AddPoint arrFillet(1)
+
+  Rhino.AddPoint arrFillet(2)
+
+End If
+
+
+Also See
+
+
+AddFilletCurve
+

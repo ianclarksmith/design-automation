@@ -1,0 +1,59 @@
+Planar
+
+
+
+Planar
+
+
+Enables or disables Rhino's planar modeling aid.
+
+
+Syntax
+
+
+Rhino.Planar ([blnEnable])
+
+
+Parameters
+
+
+
+blnEnable 
+
+Optional.  Boolean.  The new enabled status, either True or False
+
+
+Returns
+
+
+
+Boolean 
+
+If blnEnable is not specified, then the current planar status if successful.
+
+Boolean 
+
+If blnEnable is specified, then the previous planar status if successful.
+
+
+Example
+
+
+If Not Rhino.Planar Then
+
+Rhino.Planar True
+
+End If
+
+
+Also See
+
+
+Ortho
+
+Osnap
+
+Snap
+
+
+

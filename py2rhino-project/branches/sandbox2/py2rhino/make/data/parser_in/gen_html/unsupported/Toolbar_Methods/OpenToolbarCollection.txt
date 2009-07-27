@@ -1,0 +1,67 @@
+OpenToolbarCollection
+
+
+
+OpenToolbarCollection
+
+
+Opens an existing toolbar collection file.
+
+
+Syntax
+
+
+Rhino.OpenToolbarCollection (strFile)
+
+
+Parameters
+
+
+
+strFile 
+
+Required.  String.  The full path to the toolbar collection file to open.
+
+
+Returns
+
+
+
+String 
+
+The Rhino-assigned name of the toolbar collection if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strFile, strName
+
+strFile = "C:\Program Files\Rhinoceros\System\Default.tb"
+
+strName = Rhino.IsToolbarCollection(strFile)
+
+If (VarType(strName) = Null) Then
+
+Rhino.OpenToolbarCollection strFile
+
+End If
+
+
+Also See
+
+
+CloseToolbarCollection
+
+IsToolbarCollection
+
+ToolbarCollectionCount
+
+ToolbarCollectionNames
+
+ToolbarCollectionPath
+

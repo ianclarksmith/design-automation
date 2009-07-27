@@ -1,0 +1,54 @@
+BlockCount
+
+
+
+BlockCount
+
+
+Returns the number of block definitions in the document.
+
+
+Syntax
+
+
+Rhino.BlockCount ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Number 
+
+The number of block definitions in the document.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim intCount
+
+intCount = Rhino.BlockCount
+
+Rhino.Print "There are " & CStr(intCount) & " blocks."
+
+
+Also See
+
+
+BlockNames
+
+IsBlock
+
+
+

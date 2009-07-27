@@ -1,0 +1,97 @@
+OffsetCurveOnSurface
+
+
+
+OffsetCurveOnSurface
+
+
+Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
+
+
+Syntax
+
+
+Rhino.OffsetCurveOnSurface (strCurve, strSurface, dblDistance)
+
+Rhino.OffsetCurveOnSurface (strCurve, strSurface, arrParameter)
+
+
+Parameters
+
+
+
+strCurve 
+
+Required.  String.  The curve object's identifier. Note, the curve must lie on the surface.
+
+strSurface 
+
+Required.  String.  The surface object's identifier.
+
+dblDistance 
+
+Required.  Number.  The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+
+arrParameter 
+
+Required.  Array.  An array containing the surface U,V parameter that the curve will be offset through.
+
+
+Returns
+
+
+
+Array 
+
+An array containing the identifiers of the new curve objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Sub TestOffsetCurveOnSurface
+
+  Const rhCurve = 4
+
+  Const rhSurface = 8
+
+  Dim strCurve, strSurface, arrPoint, arrParameter
+
+
+
+  strCurve = Rhino.GetObject("Select curve on a surface", rhCurve)
+
+  If IsNull(strCurve) Then Exit Sub
+
+
+
+  strSurface = Rhino.GetObject("Select base surface", rhSurface)
+
+  If IsNull(strCurve) Then Exit Sub
+
+
+
+  arrPoint = Rhino.GetPointOnSurface(strSurface, "Through point")
+
+  If IsNull(arrPoint) Then Exit Sub
+
+
+
+  arrParameter = Rhino.SurfaceClosestPoint(strSurface, arrPoint)
+
+  Rhino.offsetcurveonsurface strCurve, strSurface, arrParameter
+
+End Sub
+
+
+Also See
+
+
+OffsetCurve
+
+OffsetSurface
+

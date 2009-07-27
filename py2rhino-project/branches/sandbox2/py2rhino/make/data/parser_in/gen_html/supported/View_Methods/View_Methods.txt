@@ -1,0 +1,240 @@
+View Methods
+
+
+
+View and Viewport Methods
+
+
+The following methods provide access to Rhino's views and viewports. As the lines between what in Rhino is related to a "view" and what is related to a "viewport" can appear to be blurred, everything view or viewport related in RhinoScript is simply referred to as "view."
+
+The majority of view-related methods require that you specify the name, or title, of the view that you want to query or modify. You can obtain a list of view names by using the ViewNames method. Because it is possible for a document to have two views with the same title, you can also specify a view by its identifier, or UUID. The ViewNames method will return a list of view identifiers if you specify the option bReturnNames argument as False.
+
+
+
+
+Method 
+
+Description
+
+AddNamedCPlane 
+
+Adds a named construction plane.
+
+AddNamedView 
+
+Adds a named view.
+
+BackgroundBitmap 
+
+Returns or sets a view's background bitmap.
+
+CurrentDetail 
+
+Returns or changes the current detail view in a page layout view.
+
+CurrentView 
+
+Returns or sets the current view.
+
+DeleteNamedCPlane 
+
+Removes a named construction plane.
+
+DeleteNamedView 
+
+Removes a named view.
+
+DetailNames 
+
+Returns the number of detail views in a page layout view.
+
+IsBackgroundBitmap 
+
+Verifies that a view has a background bitmap.
+
+IsDetail 
+
+Verifies that a detail view is on a page layout view.
+
+IsLayout 
+
+Verifies that a view is a page layout view.
+
+IsView 
+
+Verifies a view exists.
+
+IsViewCurrent 
+
+Verifies a view is the current view.
+
+IsViewMaximized 
+
+Verifies a view's window is maximized.
+
+IsViewPerspective 
+
+Verifies a view's projection is perspective.
+
+IsViewTitleVisible 
+
+Verifies a view's title is visible.
+
+IsWallpaper 
+
+Verifies that a view has a wallpaper bitmap.
+
+MaximizeRestoreView 
+
+Toggles a view's maximized/restore window state.
+
+NamedCPlane 
+
+Returns a named construction plane's geometry.
+
+NamedCPlanes 
+
+Returns the name of all named construction planes.
+
+NamedViews 
+
+Returns the name of all named view.
+
+RenameView 
+
+Renames a view's title.
+
+RestoreNamedCPlane 
+
+Restores a named construction plane.
+
+RestoreNamedView 
+
+Restores a named view.
+
+RotateCamera 
+
+Rotates a perspective view's camera.
+
+RotateView 
+
+Rotates a view by an angle.
+
+ShowGrid 
+
+Shows or hides a view's grid.
+
+ShowGridAxes 
+
+Shows or hides a view's grid axes.
+
+ShowViewTitle 
+
+Shows or hides a view's title.
+
+ShowWorldAxes 
+
+Shows or hides a view's world axes.
+
+SynchronizeCPlanes 
+
+Synchronizes all views to a particular view.
+
+TiltView 
+
+Tilts a view by an angle.
+
+ViewCamera 
+
+Returns or sets a view's camera location.
+
+ViewCameraLens 
+
+Returns or sets a view's camera lens length.
+
+ViewCameraPlane 
+
+Returns the orientation of a view's camera.
+
+ViewCameraTarget 
+
+Returns or sets a view's camera and target locations.
+
+ViewCameraUp 
+
+Returns or sets a view's camera up direction vector.
+
+ViewCPlane 
+
+Returns or sets a view's construction plane.
+
+ViewDisplayMode 
+
+Returns or sets a view's display mode.
+
+ViewDisplayModeEx 
+
+Returns or sets a view's display mode.
+
+ViewDisplayModeName 
+
+Returns the name of a view display mode.
+
+ViewDisplayModes 
+
+Returns a list of view display modes.
+
+ViewNames 
+
+Returns all view names.
+
+ViewNearCorners 
+
+Returns the corners of a view's near clipping plane rectangle.
+
+ViewProjection 
+
+Returns or sets a view's projection.
+
+ViewRadius 
+
+Returns or sets the radius of the viewing frustum of a parallel-projected view.
+
+ViewSize 
+
+Returns a view's window size.
+
+ViewTarget 
+
+Returns or sets a view's target location.
+
+ViewTitle 
+
+Returns the name, or title, of a view.
+
+Wallpaper 
+
+Returns or sets a view's wallpaper bitmap.
+
+WallpaperGrayScale 
+
+Returns or sets a view's wallpaper grayscale display.
+
+WallpaperHidden 
+
+Returns or sets a view's wallpaper visibility.
+
+ZoomBoundingBox 
+
+Zoom to the extents of a bounding box.
+
+ZoomExtents 
+
+Zoom to the extents of visible objects.
+
+ZoomSelected 
+
+Zoom to the extents of selected objects.
+
+
+

@@ -1,0 +1,63 @@
+AllProcedures
+
+
+
+AllProcedures
+
+
+Returns the names of the  user-defined subroutines and functions resident in RhinoScript's VBScript engine.
+
+
+Syntax
+
+
+Rhino.AllProcedures ([blnAll])
+
+
+Parameters
+
+
+
+blnAll 
+
+Optional.  Boolean.  If True (default) the names of all user-defined subroutines and functions are returned. If False, only top-level subroutines are returned. Top level subroutines are subroutines that can be passed to the RunScript command.
+
+
+Returns
+
+
+
+Array 
+
+An array of string identifying the names of user-defined procedures.
+
+Null 
+
+If no user-defined procedures are found.
+
+
+Example
+
+
+Dim arrProcedures, strProcedure
+
+arrProcedures = Rhino.AllProcedures(False)
+
+If IsArray(arrProcedures) Then
+
+strProcedure = Rhino.ListBox(arrProcedures, "Script to run")
+
+If VarType(strProcedure) = vbString Then
+
+Execute strProcedure
+
+End If
+
+End If
+
+
+Also See
+
+
+IsProcedure
+

@@ -1,0 +1,50 @@
+LastCommandName
+
+
+
+LastCommandName
+
+
+Returns the name of the last executed command.
+
+
+Syntax
+
+
+Rhino.LastCommandName ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+String 
+
+The name of the last executed command.
+
+
+Example
+
+
+Dim intResult
+
+Rhino.Command "Line"
+
+Rhino.Print "The last command was the " & Rhino.LastCommandName & " command."
+
+
+Also See
+
+
+Command
+
+IsCommand
+
+LastCommandResult
+

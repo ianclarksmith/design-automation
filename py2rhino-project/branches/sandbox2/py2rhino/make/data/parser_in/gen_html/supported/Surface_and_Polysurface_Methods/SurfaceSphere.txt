@@ -1,0 +1,83 @@
+SurfaceSphere
+
+
+
+SurfaceSphere
+
+
+Returns the definition of a sphere surface.
+
+
+Syntax
+
+
+Rhino.SurfaceSphere (strSurface)
+
+
+Parameters
+
+
+
+strSurface 
+
+Required.  String.  The surface object's identifier.
+
+
+Returns
+
+
+
+Array 
+
+An array containing the definition of the sphere if successful.  The elements of the array are as follows:
+
+
+Element 
+
+Type 
+
+Description
+
+0 
+
+Array 
+
+The equatorial plane of the sphere.  The origin of the plane will be the center point of the sphere.
+
+1 
+
+Number 
+
+The radius of the sphere.
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strSphere, arrSphere
+
+strSphere = Rhino.AddSphere(Rhino.WorldXYPlane, 6)
+
+If Rhino.IsSphere(strSphere) Then
+
+  arrSphere = Rhino.SurfaceSphere(strSphere)
+
+  Rhino.AddSphere arrSphere(0), arrSphere(1)
+
+End If
+
+
+Example
+
+
+SurfaceCone
+
+SurfaceCylinder
+
+SurfaceTorus
+

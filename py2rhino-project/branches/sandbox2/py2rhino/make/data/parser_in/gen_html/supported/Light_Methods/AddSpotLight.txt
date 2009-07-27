@@ -1,0 +1,79 @@
+AddSpotLight
+
+
+
+AddSpotLight
+
+
+Adds a new spot light object  to the document.
+
+
+Syntax
+
+
+Rhino.AddSpotLight (arrOrigin, dblRadius, arrApex)
+
+
+Parameters
+
+
+
+arrOrigin 
+
+Required.  Array.  The 3-D origin point of the light.
+
+dblRadius 
+
+Required.  Number.  The radius of the cone.
+
+arrApex 
+
+Required.  Array.  The 3-D apex point of the light.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrOrigin, dblRadius, arrApex
+
+dblRadius = 5.0
+
+arrOrigin = Rhino.GetPoint("Base of cone")
+
+If IsArray(arrOrigin) Then
+
+arrApex = Rhino.GetPoint("End of cone", arrOrigin)
+
+If IsArray(arrApex) Then
+
+Rhino.AddSpotLight arrOrigin, dblRadius, arrApex
+
+End If
+
+End If
+
+
+Also See
+
+
+IsSpotLight
+
+SpotLightHardness
+
+SpotLightShadowIntensity
+
+
+

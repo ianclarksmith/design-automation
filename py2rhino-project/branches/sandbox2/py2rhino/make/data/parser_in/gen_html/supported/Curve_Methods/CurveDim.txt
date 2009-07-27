@@ -1,0 +1,65 @@
+CurveDim
+
+
+
+CurveDim
+
+
+Returns the dimension of a curve object.
+
+
+Syntax
+
+
+Rhino.CurveDim (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Number 
+
+The dimension of the curve if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, intDim
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+intDim = Rhino.CurveDim(strObject)
+
+Rhino.Print "Curve dimension: " & CStr(intDim)
+
+End If
+
+
+Also See
+
+
+CurveDegree
+
+CurveDomain
+

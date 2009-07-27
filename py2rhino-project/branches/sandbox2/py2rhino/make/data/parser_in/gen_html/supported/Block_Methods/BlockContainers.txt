@@ -1,0 +1,67 @@
+BlockContainers
+
+
+
+BlockContainers
+
+
+Returns the names of the block definitions that contain a specified block definition.
+
+
+Syntax
+
+
+Rhino.BlockContainers (strBlock)
+
+
+Parameters
+
+
+
+strBlock 
+
+Required.  String.  The name of an existing block definition.
+
+
+Returns
+
+
+
+Array 
+
+An array of block definition names if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strBlock, arrBlocks
+
+strBlock = Rhino.GetString("Block name to query")
+
+If Rhino.IsBlock(strBlock) Then
+
+arrBlocks = Rhino.BlockContainers(strBlock)
+
+For Each strBlock In arrBlocks
+
+Rhino.Print strBlock
+
+Next
+
+End If
+
+
+Also See
+
+
+BlockContainerCount
+
+IsBlock
+
+
+

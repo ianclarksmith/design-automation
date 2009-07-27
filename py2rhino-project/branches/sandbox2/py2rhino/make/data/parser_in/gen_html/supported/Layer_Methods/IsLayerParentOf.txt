@@ -1,0 +1,61 @@
+IsLayerParentOf
+
+
+
+IsLayerParentOf
+
+
+Verifies that a layer is a parent of another layer.
+
+
+Syntax
+
+
+Rhino.IsLayerParentOf (strLayer, strTest)
+
+
+Parameters
+
+
+
+strLayer 
+
+Required.  String.  The name of the layer to test against.
+
+strTest 
+
+Required.  String.  The name of the layer to test
+
+
+Returns
+
+
+
+Boolean 
+
+True if strTest is a parent of strLayer. False otherwise.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Rhino.AddLayer "MyLayer1"
+
+Rhino.AddLayer "MyLayer2",,,,"MyLayer1"
+
+Rhino.AddLayer "MyLayer3",,,,"MyLayer2"
+
+MsgBox Rhino.IsLayerParentOf("MyLayer3", "MyLayer1")
+
+
+Also See
+
+
+IsLayerChildOf
+
+
+

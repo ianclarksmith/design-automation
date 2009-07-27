@@ -1,0 +1,99 @@
+XformZero
+
+
+
+XformZero
+
+
+Returns a zero transformation matrix.
+
+
+
+
+0 
+
+0 
+
+0 
+
+0
+
+0 
+
+0 
+
+0 
+
+0
+
+0 
+
+0 
+
+0 
+
+0
+
+0 
+
+0 
+
+0 
+
+0
+
+
+Syntax
+
+
+Rhino.XformZero ()
+
+
+Parameters
+
+
+None
+
+
+Returns
+
+
+
+Array 
+
+The 4x4 transformation matrix.
+
+
+Example
+
+
+PrintMatrix Rhino.XformZero
+
+Sub PrintMatrix(arrXform)
+
+  For i = 0 To UBound(arrXform, 1)
+
+    str = ""
+
+    For j = 0 To UBound(arrXform, 2)
+
+      str = str & "[" & CStr(arrXform(i,j)) & "] "
+
+    Next
+
+    Rhino.Print str
+
+  Next
+
+End Sub
+
+
+Also See
+
+
+XformDiagonal
+
+XformIdentity
+
+
+

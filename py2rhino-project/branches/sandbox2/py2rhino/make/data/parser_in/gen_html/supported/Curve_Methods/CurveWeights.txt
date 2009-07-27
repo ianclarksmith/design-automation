@@ -1,0 +1,77 @@
+CurveWeights
+
+
+
+CurveWeights
+
+
+Returns an array of weight values that are assigned to the control points of a curve.
+
+
+Syntax
+
+
+Rhino.CurveWeights (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Array 
+
+The weight values of the curve if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrWeights, dblWeight
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+arrWeights = Rhino.CurveWeights(strObject)
+
+If IsArray(arrWeights) Then
+
+For Each dblWeight In arrWeights
+
+Rhino.Print "Curve control point weight value: " & CStr(dblWeight)
+
+Next
+
+End If
+
+End If
+
+
+Also See
+
+
+CurveKnots
+
+CurvePoint
+
+IsCurve
+
+
+

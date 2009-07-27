@@ -1,0 +1,73 @@
+CircleRadius
+
+
+
+CircleRadius
+
+
+Returns the radius of a circle curve object.
+
+
+Syntax
+
+
+Rhino.CircleRadius (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Number 
+
+The radius of the circle if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, dblRadius
+
+strObject = Rhino.GetObject("Select circle")
+
+If Rhino.IsCircle(strObject) Then
+
+dblRadius = Rhino.ArcRadius(strObject)
+
+Rhino.Print "Circle radius: " & CStr(dblRadius)
+
+End If
+
+
+Also See
+
+
+AddCircle
+
+AddCircle3Pt
+
+CircleCenterPoint
+
+CircleCircumference
+
+IsCircle
+
+
+

@@ -1,0 +1,85 @@
+AddSubCrv
+
+
+
+AddSubCrv
+
+
+Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
+
+
+Syntax
+
+
+Rhino.AddSubCrv (strObject, dblParam0, dblParam1)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of a closed, planar curve object.
+
+dblParam0 
+
+Required.  Number.  The first parameter on the source curve.
+
+dblParam1 
+
+Required.  Number.  The second parameter on the source curve.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrCurve, arrPt0, arrPt1, t0, t1
+
+arrCurve = Rhino.GetCurveObject
+
+If IsArray(arrCurve) Then
+
+  arrPt0 = Rhino.GetPointOnCurve(arrCurve(0))
+
+  If IsArray(arrPt0) Then
+
+    arrPt1 = Rhino.GetPointOnCurve(arrCurve(0))
+
+    If IsArray(arrPt1) Then
+
+      t0 = Rhino.CurveClosestPoint(arrCurve(0), arrPt0)
+
+      t1 = Rhino.CurveClosestPoint(arrCurve(0), arrPt1)
+
+      Rhino.AddSubCrv arrCurve(0), t0, t1
+
+    End If
+
+  End If
+
+End If
+
+
+Also See
+
+
+CurveClosestPoint
+
+GetCurveObject
+
+GetPointOnCurve
+

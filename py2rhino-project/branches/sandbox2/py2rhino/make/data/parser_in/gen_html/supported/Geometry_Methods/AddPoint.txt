@@ -1,0 +1,61 @@
+AddPoint
+
+
+
+AddPoint
+
+
+Adds a point object to the document.
+
+
+Syntax
+
+
+Rhino.AddPoint (arrPoint)
+
+
+Parameters
+
+
+
+arrPoint 
+
+Required.  Array.  A 3-D point.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPoint
+
+arrPoint = Rhino.GetPoint("Pick a point")
+
+If IsArray(arrPoint) Then
+
+Rhino.AddPoint arrPoint
+
+End If
+
+
+Also See
+
+
+IsPoint
+
+PointCoordinates
+
+
+

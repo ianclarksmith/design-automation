@@ -1,0 +1,59 @@
+InCommand
+
+
+
+InCommand
+
+
+Determines if Rhino is currently running a command. Because Rhino allow for transparent commands (commands that can be run from inside of other commands), this method returns the total number of active commands.
+
+
+Syntax
+
+
+Rhino.InCommand ([blnIgnoreRunners])
+
+
+Parameters
+
+
+
+blnIgnoreRunners 
+
+Optional.  Boolean.  If true, script running commands, such as LoadScript, RunScript, and ReadCommandFile will not counted. The default is not to count script running command (true).
+
+
+Returns
+
+
+
+Number 
+
+The number of active commands.
+
+
+Example
+
+
+Dim intCommands
+
+intCommands = Rhino.InCommand
+
+if intCommands > 0 Then
+
+Rhino.Print "Rhino is running " & CStr(intCommands) & " command(s)."
+
+Else
+
+Rhino.Print "Rhino is not running any command(s)."
+
+End If
+
+
+Also See
+
+
+Command
+
+IsCommand
+

@@ -1,0 +1,65 @@
+SplitDisjointMesh
+
+
+
+SplitDisjointMesh
+
+
+Splits up a mesh object into its unconnected pieces.
+
+
+Syntax
+
+
+Rhino.SplitDisjointMesh (strObject [, blnDelete])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of a mesh object.
+
+blnDelete 
+
+Optional.  Boolean.  Delete the input object. The default is not to delete the input object (False).
+
+
+Returns
+
+
+
+Array 
+
+An array of strings identifying the newly created mesh objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select mesh", rhObjectMesh)
+
+If Rhino.DisjointMeshCount(strObject) > 0 Then
+
+  Rhino.SplitDisjointMesh strObject
+
+End If
+
+
+Also See
+
+
+IsMesh
+
+DisjointMeshCount
+

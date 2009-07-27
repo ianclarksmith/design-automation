@@ -1,0 +1,65 @@
+UnlockGroup
+
+
+
+UnlockGroup
+
+
+Unlocks a group of locked objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
+
+
+Syntax
+
+
+Rhino.UnlockGroup (strGroup)
+
+
+Parameters
+
+
+
+strGroup 
+
+Required.  String.  The name of an existing group.
+
+
+Returns
+
+
+
+Number 
+
+The number of object that were unlocked if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim arrGroups, strGroup
+
+arrGroups = Rhino.GroupNames
+
+If IsArray(arrGroups) Then
+
+  For Each strGroup In arrGroups
+
+    Rhino.UnlockGroup strGroup
+
+  Next
+
+End If
+
+
+Also See
+
+
+HideGroup
+
+LockGroup
+
+ShowGroup
+

@@ -1,0 +1,57 @@
+LayerChildCount
+
+
+
+LayerChildCount
+
+
+Returns the number of immediate child layers of a layer.
+
+
+Syntax
+
+
+Rhino.LayerChildCount (strLayer)
+
+
+Parameters
+
+
+
+strLayer 
+
+Required.  String.  The name of the layer.
+
+
+Returns
+
+
+
+Number 
+
+The number of immediate child layers if successful
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim nChildren
+
+nChildren = Rhino.LayerChildCount("Default")
+
+If IsNumeric(nChildren) And nChildren > 0 Then
+
+  Rhino.ExpandLayer "Default", True
+
+End If
+
+
+Also See
+
+
+LayerChildren
+

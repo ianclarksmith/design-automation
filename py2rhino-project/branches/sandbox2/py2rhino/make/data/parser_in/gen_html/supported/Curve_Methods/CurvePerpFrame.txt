@@ -1,0 +1,63 @@
+CurvePerpFrame
+
+
+
+CurvePerpFrame
+
+
+Returns the perpendicular plane at a parameter of a curve.  The result is relatively parallel (zero-twisting) plane.
+
+
+Syntax
+
+
+Rhino.CurvePerpFrame (strObject, dblParameter)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+dblParameter 
+
+Required.  Number. The parameter to evaluate.
+
+
+Returns
+
+
+
+Array 
+
+The plane at the specified parameter if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrCurve, arrPlane
+
+arrCurve = Rhino.GetCurveObject("Select a curve")
+
+If IsArray(arrCurve) Then
+
+arrPlane = Rhino.CurvePerpFrame(arrCurve(0), arrCurve(4))
+
+Rhino.AddPlaneSurface arrPlane, Rhino.Distance(arrPlane(0),arrPlane(1)), Rhino.Distance(arrPlane(0),arrPlane(2))
+
+End If
+
+
+Also See
+
+
+CurveFrame
+

@@ -1,0 +1,113 @@
+CurveClosestObject
+
+
+
+CurveClosestObject
+
+
+Returns the 3-D point locations on two objects where they are closest to each other.  Note, this function provides similar functionality to that of Rhino's ClosestPt command when used with the Object option.
+
+
+Syntax
+
+
+Rhino.CurveClosestObject (strCurve, strObject)
+
+Rhino.CurveClosestObject (strCurve, arrObjects)
+
+
+Parameters
+
+
+
+strCurve 
+
+Required.  String.  The identifier of the curve object to test.
+
+strObject 
+
+Required.  String.  The identifier of a point cloud, curve, surface, or polysurface to test against.
+
+arrObjects 
+
+Required.  Array.  The identifiers of one or more point cloud, curve, surface, or polysurface to test against.
+
+
+Returns
+
+
+
+Array 
+
+An array containing the results of the closest point calculation if successful.  The elements of the array are as follows:
+
+
+Element 
+
+Type 
+
+Description
+
+0 
+
+String 
+
+The identifier of the closest object.
+
+1 
+
+Array 
+
+The 3-D point that is closest to the closest object.
+
+2 
+
+Array 
+
+The 3-D point that is closest to the test curve.
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, strCurve, arrResults
+
+arrObjects = Rhino.GetObjects("Select target objects for closest point", 30)
+
+If IsArray(arrObjects) Then
+
+strCurve = Rhino.GetObject("Select curve")
+
+If Not IsNull(strCurve) Then
+
+arrResults = Rhino.CurveClosestObject(strCurve, arrObjects)
+
+If IsArray(arrResults) Then
+
+  Rhino.Print "Curve id: " & CStr(arrResults(0))
+
+  Rhino.AddPoint arrResults(1)
+
+  Rhino.AddPoint arrResults(2)
+
+End If
+
+End If
+
+End If
+
+
+Also See
+
+
+CurveClosestPoint
+
+EvaluateCurve
+
+IsCurve
+

@@ -1,0 +1,67 @@
+IsPointCloud
+
+
+
+IsPointCloud
+
+
+Verifies an object is a point cloud object.
+
+
+Syntax
+
+
+Rhino.IsPointCloud (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a point cloud")
+
+If Rhino.IsPointCloud(strObject) Then
+
+Rhino.Print "The object is a point cloud."
+
+Else
+
+Rhino.Print "The object is not a point cloud."
+
+End If
+
+
+Also See
+
+
+AddPointCloud
+
+PointCloudCount
+
+PointCloudPoints
+
+
+

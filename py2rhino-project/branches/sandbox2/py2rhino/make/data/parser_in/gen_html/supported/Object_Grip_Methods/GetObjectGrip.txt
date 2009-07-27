@@ -1,0 +1,99 @@
+GetObjectGrip
+
+
+
+GetObjectGrip
+
+
+Prompts the user to pick or select a single object grip.
+
+
+Syntax
+
+
+Rhino.GetObjectGrip ([strMessage [, blnPreSelect [, blnSelect]]])
+
+
+Parameters
+
+
+
+strMessage 
+
+Optional.  String.  A prompt or message.
+
+blnPreSelect 
+
+Optional.  Boolean.  Allow for the selection of a pre-selected object grip.  If omitted, pre-selected object grips are not accepted (False).
+
+blnSelect 
+
+Optional.  Boolean.  Select the picked object grip.  If omitted, the object grip that is  picked is not selected (False).
+
+
+Returns
+
+
+
+Array 
+
+A one-dimensional array containing the following three elements if successful:
+
+
+Element 
+
+Type 
+
+Description
+
+0 
+
+String 
+
+The identifier of the object that owns the grip.
+
+1 
+
+Number 
+
+The zero-based index value of the grip.
+
+2 
+
+Array 
+
+A 3-D point identifying the location of the grip.
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strCurve, arrGrip,
+
+strCurve = Rhino.GetObject("Select a curve", 4)
+
+If Not IsNull(strCurve) Then
+
+Rhino.EnableObjectGrips strCurve
+
+arrGrip = Rhino.GetObjectGrip("Select a curve grip")
+
+If IsArray(arrGrip) Then
+
+Rhino.Print Rhino.Pt2Str(arrGrip(2))
+
+End If
+
+End If
+
+
+Also See
+
+
+GetObjectGrips
+

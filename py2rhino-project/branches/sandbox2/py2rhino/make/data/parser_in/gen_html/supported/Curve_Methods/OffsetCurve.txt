@@ -1,0 +1,103 @@
+OffsetCurve
+
+
+
+OffsetCurve
+
+
+Offsets a curve by a distance. The offset curve will be added to Rhino.
+
+
+Syntax
+
+
+Rhino.OffsetCurve (strObject, arrDirection, dblDistance [, arrNormal [, intStyle]])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+arrDirection 
+
+Required.  Array.  The 3-D point that indicates the direction of the offset.
+
+dblDistance 
+
+Required.  Number.  The distance of the offset.
+
+arrNormal 
+
+Optional.  Array.  A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+
+intStyle 
+
+Optional.  Number.  The corner style.  If omitted, a sharp corner style is used.
+
+
+Value 
+
+Description
+
+0 
+
+None
+
+1 
+
+Sharp (Default)
+
+2 
+
+Round
+
+3 
+
+Smooth
+
+4 
+
+Chamfer
+
+
+
+Returns
+
+
+
+Array 
+
+An array containing the identifiers of the new objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhCurve = 4
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a curve", rhCurve)
+
+If Rhino.IsCurve(strObject) Then
+
+Rhino.OffsetCurve strObject, Array(0,0,0), 1.0
+
+End If
+
+
+Also See
+
+
+OffsetCurveOnSurface
+
+OffsetSurface
+

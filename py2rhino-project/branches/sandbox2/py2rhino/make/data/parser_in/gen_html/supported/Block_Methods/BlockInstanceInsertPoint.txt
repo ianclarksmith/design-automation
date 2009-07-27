@@ -1,0 +1,65 @@
+BlockInstanceInsertPoint
+
+
+
+BlockInstanceInsertPoint
+
+
+Returns the insertion point of a block instance.
+
+
+Syntax
+
+
+Rhino.BlockInstanceInsertPoint (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of an existing block insertion object.
+
+
+Returns
+
+
+
+Array 
+
+A 3-D point if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select block")
+
+If Rhino.IsBlockInstance(strObject) Then
+
+Rhino.AddPoint Rhino.BlockInstanceInsertPoint(strObject)
+
+End If
+
+
+Also See
+
+
+BlockInstanceCount
+
+BlockInstances
+
+BlockInstanceXform
+
+IsBlockInstance
+
+
+

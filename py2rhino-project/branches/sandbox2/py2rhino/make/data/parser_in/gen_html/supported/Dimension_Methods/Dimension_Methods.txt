@@ -1,0 +1,152 @@
+Dimension Methods
+
+
+
+Dimension Methods
+
+
+The following methods are available for querying or manipulating dimension styles and dimension objects.
+
+
+
+
+Method 
+
+Description
+
+AddDimStyle 
+
+Adds a new dimension style.
+
+AddLeader 
+
+Adds an annotation leader object.
+
+CurrentDimStyle 
+
+Returns or sets the currently active dimension style.
+
+DeleteDimStyle 
+
+Deletes a dimension style.
+
+DimensionStyle 
+
+Returns or modifies the style of a dimension object.
+
+DimensionText 
+
+Returns the display text of a dimension object.
+
+DimensionUserText 
+
+Returns or modifies the user text string of a dimension object.
+
+DimensionValue 
+
+Returns the value of a dimension object.
+
+DimScale 
+
+Returns or modifies the document's global dimension scale.
+
+DimStyleAnglePrecision 
+
+Returns or modifies the angle display format of a dimension style.
+
+DimStyleArrowSize 
+
+Returns or modifies the arrowhead size of a dimension style.
+
+DimStyleCount 
+
+Returns the number of dimension styles.
+
+DimStyleExtension 
+
+Returns or modifies the extension line extension of a dimension style.
+
+DimStyleFont 
+
+Returns or modifies the font used by a dimension style.
+
+DimStyleLeaderArrowSize 
+
+Returns or modifies the leader arrowhead size of a dimension style.
+
+DimStyleLinearPrecision 
+
+Returns or modifies the linear precision of a dimension style.
+
+DimStyleNames 
+
+Returns all dimension style names.
+
+DimStyleNumberFormat 
+
+Returns or modifies the number display format of a dimension style.
+
+DimStyleOffset 
+
+Returns or modifies the extension line offset of a dimension style.
+
+DimStyleTextAlignment 
+
+Returns or modifies the text alignment of a dimension style.
+
+DimStyleTextGap 
+
+Returns or modifies the text gap of a dimension style.
+
+DimStyleTextHeight 
+
+Returns or modifies the text height of a dimension style.
+
+IsAlignedDimension 
+
+Verifies an object is an aligned dimension.
+
+IsAngularDimension 
+
+Verifies an object is an angular dimension.
+
+IsDiameterDimension 
+
+Verifies an object is a diameter dimension.
+
+IsDimension 
+
+Verifies an object is a dimension.
+
+IsDimStyle 
+
+Verifies a dimension style exists.
+
+IsDimStyleReference 
+
+Verifies a dimension style is from a reference file.
+
+IsLeader 
+
+Verifies an object is a dimension leader object.
+
+IsLinearDimension 
+
+Verifies an object is a linear dimension.
+
+IsOrdinateDimension 
+
+Verifies an object is an ordinate dimension.
+
+IsRadialDimension 
+
+Verifies an object is a radial dimension.
+
+LeaderText 
+
+Returns or modifies a leader object's text string.
+
+RenameDimStyle 
+
+Renames a dimension style.
+

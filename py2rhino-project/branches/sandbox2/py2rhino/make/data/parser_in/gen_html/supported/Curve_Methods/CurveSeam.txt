@@ -1,0 +1,69 @@
+CurveSeam
+
+
+
+CurveSeam
+
+
+Adjusts the seam, or start/end, point of a closed curve.
+
+
+Syntax
+
+
+Rhino.CurveSeam (strObject, dblParameter)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+dblParameter 
+
+Required.  Number.  The parameter of the new start/end point. Note, if successful, the resulting curve's domain will start at dblParameter.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhCurveObject = 4
+
+Dim strObject, arrDomain, dblParameter
+
+strObject = Rhino.GetObject("Select closed curve", rhCurveObject)
+
+If Rhino.IsCurveClosed(strObject) Then
+
+arrDomain = Rhino.CurveDomain(strObject)
+
+dblParameter = (arrDomain(0) + arrDomain(1)) / 2
+
+Rhino.CurveSeam strObject, dblParameter
+
+End If
+
+
+Also See
+
+
+IsCurve
+
+IsCurveClosed
+

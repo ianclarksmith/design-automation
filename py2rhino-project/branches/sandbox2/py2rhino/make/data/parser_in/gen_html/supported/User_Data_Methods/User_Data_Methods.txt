@@ -1,0 +1,129 @@
+User Data Methods
+
+
+
+User Data Methods
+
+
+The Rhino SDK allows plug-in developers to store custom data inside of Rhino's 3DM file.  This data is referred to as user data.  There are two types of user data:
+
+1. Document user data - custom data that is stored at the document level of the 3DM file.
+
+2. Object user data - custom data that is attached to an object.
+
+
+Important. When storing custom data on an object, the data can be stored on either the object's geometry (e.g. curve, surfaces, etc), or on the object's attributes. An object's attributes maintain it's layer, color and other non-geometric properties. The difference between the two storage methods is that adding or modifying user data that is located on an object's geometry will cause Rhino to place a copy of the object on the Undo stack. Thus, if you are working with large geometric object or lots of user data, it is more efficient to store object user data on an object's attributes.
+
+RhinoScript supports both document user data and object user data.  The RhinoScript user data object organizes custom information similar to that of a Windows-style initialization (INI) file.  For example:
+
+
+
+[Section1]
+
+Entry1 = String1
+
+Entry2 = String2
+
+...
+
+[Section2]
+
+Entry1 = String1
+
+Entry2 = String2
+
+...
+
+
+
+If you find this data structure is too limiting, you might consider creating a plug-in, using the Rhino SDK.  Also, RhinoScript's user data object only stores string values for VBScript string can be easily converted from one data type to another.
+
+
+User Text Methods
+
+
+Rhino now provides a standardized mechanism for users, scripters, and plug-in developers to store and retrieve simple text information on an object. This mechanism called User Text. User Text is stored on objects in a key/value pair like the Windows registry uses. Rhino supports this method of storing data with its GetUserText and SetUserText commands. RhinoScript supports this mechanism with its GetUserText and SetUserText methods.
+
+
+
+
+Method 
+
+Description
+
+AttributeDataCount 
+
+Returns the number of RhinoScript user data items stored on an object's attributes.
+
+DeleteAttributeData 
+
+Removes RhinoScript user data stored on an object's attributes.
+
+DeleteDocumentData 
+
+Removes RhinoScript user data stored in the current document.
+
+DeleteObjectData 
+
+Removes RhinoScript user data stored on an object's geometry.
+
+DocumentDataCount 
+
+Returns the number of RhinoScript user data items stored in the current document.
+
+GetAttributeData 
+
+Returns a RhinoScript user data item stored on an object's attributes.
+
+GetDocumentData 
+
+Returns a RhinoScript user data item stored in the current document.
+
+GetObjectData 
+
+Returns a RhinoScript user data item stored on an object's geometry.
+
+GetUserText 
+
+Returns user text that is stored on an object.
+
+IsAttributeData 
+
+Verifies that an object's attributes contains RhinoScript user data.
+
+IsDocumentData 
+
+Verifies that the current document contains RhinoScript user data.
+
+IsObjectData 
+
+Verifies that an object's geometry contains RhinoScript user data.
+
+IsUserText 
+
+Verifies that an object contains user text.
+
+ObjectDataCount 
+
+Returns the number of RhinoScript user data items stored on an object's geometry.
+
+SetAttributeData 
+
+Adds or sets a RhinoScript user data item stored on an object's attributes.
+
+SetDocumentData 
+
+Adds or sets a RhinoScript user data item stored in the current document.
+
+SetObjectData 
+
+Adds or sets a RhinoScript user data item stored on an object's geometry.
+
+SetUserText 
+
+Sets or removes user text stored on an object.
+
+
+
+
+

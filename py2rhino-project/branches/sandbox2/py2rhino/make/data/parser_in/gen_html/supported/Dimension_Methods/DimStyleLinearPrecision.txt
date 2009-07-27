@@ -1,0 +1,81 @@
+DimStyleLinearPrecision
+
+
+
+DimStyleLinearPrecision
+
+
+Returns or changes the linear display precision of a dimension style.
+
+
+Syntax
+
+
+Rhino.DimStyleLinearPrecision (strDimStyle [, intPrecision])
+
+
+Parameters
+
+
+
+strDimStyle 
+
+Required.  String.  The name of an existing dimension style.
+
+intPrecision 
+
+Optional.  Number.  The new linear precision value.  If omitted, the current linear precision is returned.
+
+
+Returns
+
+
+
+Number 
+
+If a precision is not specified, the current linear precision if successful.
+
+Number 
+
+If ar precision is specified, the previous linear precision if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strDimStyle, intPrecision
+
+strDimStyle = Rhino.CurrentDimStyle
+
+intPrecision = Rhino.DimStyleLinearPrecision(strDimStyle)
+
+If intPrecision > 2 Then
+
+Rhino.DimStyleLinearPrecision strDimStyle, 2
+
+End If
+
+
+Also See
+
+
+DimStyleAnglePrecision
+
+DimStyleArrowSize
+
+DimStyleExtension
+
+DimStyleFont
+
+DimStyleNumberFormat
+
+DimStyleOffset
+
+DimStyleTextAlignment
+
+DimStyleTextHeight
+

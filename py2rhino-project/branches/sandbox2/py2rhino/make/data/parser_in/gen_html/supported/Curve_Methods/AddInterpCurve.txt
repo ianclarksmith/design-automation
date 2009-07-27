@@ -1,0 +1,109 @@
+AddInterpCurve
+
+
+
+AddInterpCurve
+
+
+Adds an interpolated curve object to  the document.  Options exist to make a periodic curve or to specify the tangent at the endpoints.  The resulting curve is a non-rational NURBS curve of the specified degree.
+
+
+Syntax
+
+
+Rhino.AddInterpCurve (arrPoints [, intDegree [, intKnotStyle [, arrStartTan [, arrEndTan]]]])
+
+
+Parameters
+
+
+
+arrPoints 
+
+Required.  Array.  An array containing 3-D points to interpolate.  For periodic curves, if the final point is a duplicate of the initial point, it is ignored. Note, the number of control points must be >= (intDegree+1).
+
+intDegree 
+
+Optional.  Number.  The degree of the curve.  If omitted, degree = 3 is used.  The degree of the curve must be >=1.  Periodic curves must have a degree >= 2.  For intKnotStyle = 1 or 2, the degree must be 3.  For intKnotStyle = 4 or 5, the degree must be odd.
+
+intKnotStyle 
+
+Optional.  Number. The knot style to use, and whether the curve should be periodic.  If omitted, uniform knots (0) are created.
+
+
+Value 
+
+Description
+
+0 
+
+Uniform knots.  Parameter spacing between consecutive knots is 1.0.
+
+1 
+
+Chord length spacing.  Requires dblDegree = 3 with arrCV1 and arrCVn1 specified.
+
+2 
+
+Sqrt (chord length).  Requires dblDegree = 3 with arrCV1 and arrCVn1 specified.
+
+3 
+
+Periodic with uniform spacing.
+
+4 
+
+Periodic with chord length spacing.  Requires an odd degree value.
+
+5 
+
+Periodic with sqrt (chord length) spacing.  Requires an odd degree value.
+
+
+arrStartTan 
+
+Optional.  Array.  A 3-D vector that specifies a tangency condition at the beginning of the curve. If the curve is to periodic, this argument must be omitted.
+
+arrEndTan 
+
+Optional.  Array.  A 3-D vector that specifies a tangency condition at the end of the curve. If the curve is to periodic, this argument must be omitted.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPoints
+
+arrPoints = Rhino.GetPoints(True, , "Pick curve point")
+
+If IsArray(arrPoints) Then
+
+Rhino.AddInterpCurve arrPoints
+
+End If
+
+
+Also See
+
+
+AddCurve
+
+AddInterpCurveEx
+
+CurvePointCount
+
+IsCurve
+

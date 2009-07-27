@@ -1,0 +1,61 @@
+ObjectDescription
+
+
+
+ObjectDescription
+
+
+Returns a short text description of an object.
+
+
+Syntax
+
+
+Rhino.ObjectDescription (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+
+Returns
+
+
+
+String 
+
+A short text description of the object is successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, strDescription
+
+strObject = Rhino.GetObject("Select object")
+
+If Not IsNull(strObject) Then
+
+strDescription = Rhino.ObjectDescription(strObject)
+
+Rhino.Print "Object description: " & strDescription
+
+End If
+
+
+Also See
+
+
+ObjectDump
+
+ObjectType
+

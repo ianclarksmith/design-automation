@@ -1,0 +1,61 @@
+ShrinkTrimmedSurface
+
+
+
+ShrinkTrimmedSurface
+
+
+Shrinks the underlying untrimmed surfaces near to trimming boundaries. For more details, see the ShrinkTrimmedSrf command in the Rhino help file.
+
+
+Syntax
+
+
+Rhino.ShrinkTrimmedSurface (strSurface)
+
+
+Parameters
+
+
+
+strSurface 
+
+Required.  String.  The identifier of the surface or polysurface to shrink.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhObjectSurface = 8
+
+Const rhObjectPolysurface = 16
+
+Dim strSurface
+
+strSurface = Rhino.GetObject("Select surface or polysurface to shrink", rhObjectSurface + rhObjectPolysurface)
+
+If Not IsNull(strSurface) Then
+
+Rhino.ShrinkTrimmedSurface strSurface
+
+End If
+
+
+Also See
+
+
+IsSurfaceTrimmed
+

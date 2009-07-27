@@ -1,0 +1,67 @@
+MeshBooleanUnion
+
+
+
+MeshBooleanUnion
+
+
+Performs a Boolean union operation on a set of input meshes. For more details, see the MeshBooleanUnion command in the Rhino help file.
+
+
+Syntax
+
+
+Rhino.MeshBooleanUnion (arrInput [, blnDelete])
+
+
+Parameters
+
+
+
+arrInput 
+
+Required.  Array.  The identifiers of the meshes to union.
+
+blnDelete 
+
+Optional.  Boolean. Delete all input objects. The default is to delete all input objects (True).
+
+
+Returns
+
+
+
+Array 
+
+An array containing the identifiers of the newly created objects, if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhMesh = 32
+
+Dim arrInput
+
+arrInput = Rhino.GetObjects("Select meshes to union", rhMesh)
+
+If IsArray(arrInput) Then
+
+  Rhino.MeshBooleanUnion arrInput
+
+End If
+
+
+Also See
+
+
+MeshBooleanDifference
+
+MeshBooleanIntersection
+
+MeshBooleanSplit
+

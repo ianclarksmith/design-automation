@@ -1,0 +1,129 @@
+AppearanceColor
+
+
+
+AppearanceColor
+
+
+Returns or modifies an application interface item's color.  Colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
+
+
+Syntax
+
+
+Rhino.AppearanceColor (intItem [, lngColor])
+
+
+Parameters
+
+
+
+intItem 
+
+Required.  Number.  Item number to either query or modify.  The available items are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+View background
+
+1 
+
+Major grid line
+
+2 
+
+Minor grid line
+
+3 
+
+X-axis line
+
+4 
+
+Y-axis line
+
+5 
+
+Selected objects
+
+6 
+
+Locked objects
+
+7 
+
+New layers
+
+8 
+
+Feedback
+
+9 
+
+Tracking
+
+10 
+
+Crosshair
+
+11 
+
+Text
+
+12 
+
+Text background
+
+13 
+
+Text hover
+
+
+lngColor 
+
+Optional.  Number.  The new color value.  If omitted, the current item color is returned.
+
+
+Returns
+
+
+
+Number 
+
+If a lngColor is not specified, the current item color if successful.
+
+Number 
+
+If a lngColor is specified, the previous item color if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim lngOldColor, lngNewColor
+
+lngOldColor = Rhino.AppearanceColor(0)
+
+lngNewColor = Rhino.GetColor(lngOldColor)
+
+If Not IsNull(lngNewColor) Then
+
+Rhino.AppearanceColor 0, lngNewColor
+
+End If
+
+
+Also See
+
+
+GetColor
+

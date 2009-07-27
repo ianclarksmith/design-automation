@@ -1,0 +1,69 @@
+UnlockObject
+
+
+
+UnlockObject
+
+
+Unlocks a previously locked object.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
+
+
+Syntax
+
+
+Rhino.UnlockObject (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object to unlock.
+
+
+Returns
+
+
+
+Boolean 
+
+True or false indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object to lock")
+
+If Not IsNull(strObject) Then
+
+Rhino.LockObject strObject
+
+End If
+
+'Do something here...
+
+Rhino.UnlockObject strObject
+
+
+Also See
+
+
+IsObjectLocked
+
+LockObject
+
+LockObjects
+
+UnlockObjects
+
+
+

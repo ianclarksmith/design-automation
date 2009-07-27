@@ -1,0 +1,75 @@
+ScaleObjects
+
+
+
+ScaleObjects
+
+
+Scales one or more objects. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
+
+
+Syntax
+
+
+Rhino.ScaleObjects (arrObjects, arrOrigin, arrScale [, blnCopy])
+
+
+Parameters
+
+
+
+arrObjects 
+
+Required. Array. An array of strings identifying the objects to scale.
+
+arrOrigin 
+
+Required. Array. The origin of the scale transformation.
+
+arrScale 
+
+Required. Array. An array of three numbers that identify the X axis, Y axis, and Z axis scale factors to apply. Scaling is based on the active construction plane.
+
+blnCopy 
+
+Optional. Boolean. Copy the objects. If omitted, the objects will not be copied (False).
+
+
+Returns
+
+
+
+Array 
+
+An array of strings identifying the scaled objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, arrOrigin
+
+arrObjects = Rhino.GetObjects("Select objects to scale")
+
+If IsArray(arrObjects) Then
+
+arrOrigin = Rhino.GetPoint("Origin point")
+
+If IsArray(arrOrigin) Then
+
+Rhino.ScaleObjects arrObjects, arrOrigin, array(2,2,2), True
+
+End If
+
+End If
+
+
+Also See
+
+
+ScaleObject
+

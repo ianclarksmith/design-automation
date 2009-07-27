@@ -1,0 +1,69 @@
+ExtrudeCurve
+
+
+
+ExtrudeCurve
+
+
+Creates a surface by extruding a curve along a path curve.
+
+
+Syntax
+
+
+Rhino.ExtrudeCurve (strCurve, strPath)
+
+
+Parameters
+
+
+
+Parameters
+
+
+
+strCurve 
+
+Required.  String.  The identifier of the curve object to extrude.
+
+strPath 
+
+Required.  String.  The identifier of the path curve.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strCurve, strPath
+
+strCurve = Rhino.AddCircle(Rhino.WorldXYPlane, 5)
+
+strPath = Rhino.AddLine(Array(5,0,0), Array(10,0,10))
+
+Rhino.ExtrudeCurve strCurve, strPath
+
+
+Also See
+
+
+ExtrudeCurvePoint
+
+ExtrudeCurveStraight
+
+ExtrudeCurveTapered
+
+ExtrudeSurface
+

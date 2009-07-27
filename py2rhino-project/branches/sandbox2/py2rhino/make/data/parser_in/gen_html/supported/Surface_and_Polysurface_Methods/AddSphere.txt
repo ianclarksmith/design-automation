@@ -1,0 +1,77 @@
+AddSphere
+
+
+
+AddSphere
+
+
+Adds a spherical surface to the document.
+
+
+Syntax
+
+
+Rhino.AddSphere (arrCenter, dblRadius)
+
+Rhino.AddSphere (arrPlane, dblRadius)
+
+
+
+
+Parameters
+
+
+
+arrCenter 
+
+Required.  Array.  The center point of the sphere.
+
+arrPlane 
+
+Required. Array.  An equatorial plane.  The origin of the plane will be the center point of the sphere.
+
+dblRadius 
+
+Required.  Number.  The radius of the sphere in current model units.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrCenter, dblRadius
+
+dblRadius = 2
+
+arrCenter = Rhino.GetPoint("Center of sphere")
+
+If IsArray(arrCenter) Then
+
+Rhino.AddSphere arrCenter, dblRadius
+
+End If
+
+
+Also See
+
+
+AddBox
+
+AddCone
+
+AddCylinder
+
+AddTorus
+

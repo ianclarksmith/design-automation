@@ -1,0 +1,67 @@
+PolyCurveCount
+
+
+
+PolyCurveCount
+
+
+Returns the number of curve segments that make up a polycurve.
+
+
+Syntax
+
+
+Rhino.PolyCurveCount (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Number 
+
+The number of curve segments in a polycurve if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, nCount
+
+strObject = Rhino.GetObject("Select a polycurve")
+
+If Rhino.IsPolyCurve(strObject) Then
+
+nCount = Rhino.PolyCurveCount(strObject)
+
+If IsNumeric(nCount) Then
+
+Rhino.Print "The polycurve contains " & CStr(nCount) & " curves."
+
+End If
+
+End If
+
+
+Also See
+
+
+IsPolyCurve
+

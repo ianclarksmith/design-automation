@@ -1,0 +1,83 @@
+SurfaceClosestPoint
+
+
+
+SurfaceClosestPoint
+
+
+Returns the UV parameter of the point on a surface that is closest to a test point.
+
+
+Syntax
+
+
+Rhino.SurfaceClosestPoint (strObject, arrPoint)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+arrPoint 
+
+Required.  Array.  The test, or sampling, point.
+
+
+Returns
+
+
+
+Array 
+
+An array containing the U,V parameters of the closest point on the surface if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectSurface = 8
+
+Dim strObject, arrPoint, arrParam
+
+strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+
+If Rhino.IsSurface(strObject) Then
+
+arrPoint = Rhino.GetPointOnSurface(strObject, "Pick a test point")
+
+if IsArray(arrPoint) Then
+
+arrParam = Rhino.SurfaceClosestPoint(strObject, arrPoint)
+
+If IsArray(arrParam) Then
+
+Rhino.Print "Surface U parameter: " & CStr(arrParam(0))
+
+Rhino.Print "Surface V parameter: " & CStr(arrParam(1))
+
+End If
+
+End If
+
+End If
+
+
+Also See
+
+
+BrepClosestPoint
+
+EvaluateSurface
+
+IsSurface
+
+
+

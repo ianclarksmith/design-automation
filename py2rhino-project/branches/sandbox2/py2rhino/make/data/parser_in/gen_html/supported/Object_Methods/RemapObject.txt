@@ -1,0 +1,73 @@
+RemapObject
+
+
+
+RemapObject
+
+
+Remqps a single object from one plane, or coordinate system, to another.
+
+
+Syntax
+
+
+Rhino.RemapObject (strObject, arrSrcPlane, arrDstPlane [, blnCopy])
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The identifier of the object to remap.
+
+arrSrcPlane 
+
+Required. Array. The source plane to transform from.
+
+arrDstPlane 
+
+Required. Array. The destination plane to transform to.
+
+blnCopy 
+
+Optional. Boolean. Copy the object. If omitted, the object will not be copied (False).
+
+
+Returns
+
+
+
+String 
+
+The identifier of the remapped object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrSrcPlane, arrDstPlane
+
+strObject = Rhino.GetObject("Select object to remap")
+
+If Not IsNull(strObject) Then
+
+  arrSrcPlane = Rhino.ViewCPlane("Top")
+
+  arrDstPlane = Rhino.ViewCPlane("Right")
+
+  Rhino.RemapObject strObject, arrSrcPlane, arrDstPlane
+
+End If
+
+
+Also See
+
+
+RemapObjects
+

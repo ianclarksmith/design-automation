@@ -1,0 +1,117 @@
+AddMesh
+
+
+
+AddMesh
+
+
+Adds a mesh object to the document.
+
+
+Syntax
+
+
+Rhino.AddMesh (arrVertices, arrFaceVertices [, arrVertexNormals [, arrTextureCoordinates [, arrVertexColors ]]])
+
+
+Parameters
+
+
+
+arrVertices 
+
+Required. Array.  An array of 3-D points defining the vertices of the mesh.
+
+arrFaceVertices 
+
+Required. Array.  An array containing arrays of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
+
+arrVertexNormals 
+
+Optional. Array.  An array of 3-D vectors defining the vertex normals of the mesh. Note, for every vertex, the must be a corresponding vertex normal.
+
+arrTextureCoordinates 
+
+Optional. Array. An array of 2-D texture coordinates. Note, for every vertex, there must be a corresponding texture coordinate.
+
+arrVertexColors 
+
+Optional.  Array.  An array of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrVertices(8)
+
+arrVertices(0) = Array(0.0, 0.0, 0.0)
+
+arrVertices(1) = Array(5.0, 0.0, 0.0)
+
+arrVertices(2) = Array(10.0, 0.0, 0.0)
+
+arrVertices(3) = Array(0.0, 5.0, 0.0)
+
+arrVertices(4) = Array(5.0, 5.0, 0.0)
+
+arrVertices(5) = Array(10.0, 5.0, 0.0)
+
+arrVertices(6) = Array(0.0, 10.0, 0.0)
+
+arrVertices(7) = Array(5.0, 10.0, 0.0)
+
+arrVertices(8) = Array(10.0, 10.0, 0.0)
+
+Dim arrFaceVertices(7)
+
+arrFaceVertices(0) = Array(0,1,4,4)
+
+arrFaceVertices(1) = Array(2,4,1,1)
+
+arrFaceVertices(2) = Array(0,4,3,3)
+
+arrFaceVertices(3) = Array(2,5,4,4)
+
+arrFaceVertices(4) = Array(3,4,6,6)
+
+arrFaceVertices(5) = Array(5,8,4,4)
+
+arrFaceVertices(6) = Array(6,4,7,7)
+
+arrFaceVertices(7) = Array(8,7,4,4)
+
+Rhino.AddMesh arrVertices, arrFaceVertices
+
+
+
+
+
+
+Also See
+
+
+MeshFaces
+
+MeshFaceVertices
+
+MeshTextureCoordinates
+
+MeshVertexNormals
+
+MeshVertices
+
+
+

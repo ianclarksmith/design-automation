@@ -1,0 +1,73 @@
+IsOrdinateDimension
+
+
+
+IsOrdinateDimension
+
+
+Verifies an object is an ordinate dimension object.
+
+
+Syntax
+
+
+Rhino.IsOrdinateDimension (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a dimension")
+
+If Rhino.IsOrdinateDimension(strObject) Then
+
+Rhino.Print "The object is an ordinate dimension."
+
+Else
+
+Rhino.Print "The object is not an ordinate dimension."
+
+End If
+
+
+Also See
+
+
+IsAlignedDimension
+
+IsAngularDimension
+
+IsDiameterDimension
+
+IsDimension
+
+IsLinearDimension
+
+IsRadialDimension
+
+
+

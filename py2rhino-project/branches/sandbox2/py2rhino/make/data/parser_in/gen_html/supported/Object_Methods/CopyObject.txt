@@ -1,0 +1,83 @@
+CopyObject
+
+
+
+CopyObject
+
+
+Copies a single object from one location to another, or in-place.
+
+
+Syntax
+
+
+Rhino.CopyObject (strObject [, arrStart , arrEnd])
+
+Rhino.CopyObject (strObject [, arrTranslation])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object to copy.
+
+arrStart 
+
+Optional.  Array.  The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+
+arrEnd 
+
+Optional.  Array.  The 3-D ending point of the copy operation.
+
+arrTranslation 
+
+Optional.  Array.  The 3-D translation vector.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the copied object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrStart, arrEnd
+
+strObject = Rhino.GetObject("Select object to copy")
+
+If Not IsNull(strObject) Then
+
+arrStart = Rhino.GetPoint("Point to copy from")
+
+If IsArray(arrStart) Then
+
+arrEnd = Rhino.GetPoint("Point to copy to", arrStart)
+
+If IsArray(arrStart) Then
+
+Rhino.CopyObject strObject, arrStart, arrEnd
+
+End If
+
+End If
+
+End If
+
+
+Also See
+
+
+CopyObjects
+

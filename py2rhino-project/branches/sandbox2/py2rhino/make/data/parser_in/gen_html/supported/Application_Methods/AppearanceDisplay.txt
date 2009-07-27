@@ -1,0 +1,97 @@
+AppearanceDisplay
+
+
+
+AppearanceDisplay
+
+
+Returns or modifies an application interface item's visibility.
+
+
+Syntax
+
+
+Rhino.AppearanceDisplay (intItem [, blnShow])
+
+
+Parameters
+
+
+
+intItem 
+
+Required.  Number.  Item number to either query or modify.  The available items are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+Application menu
+
+1 
+
+Command prompt
+
+2 
+
+Status bar
+
+3 
+
+View title bars
+
+4 
+
+Application title bar
+
+5 
+
+Full path in application title bar
+
+6 
+
+Cross hair cursor
+
+
+blnShow 
+
+Optional.  Boolean.  The new visibility state, either visible (True) or hidden (False).  If omitted, the current visibility state is returned.
+
+
+Returns
+
+
+
+Number 
+
+If a blnShow is not specified, the current visibility state if successful.
+
+Number 
+
+If a blnShow is specified, the visibility state if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+If Not Rhino.AppearanceDisplay(2) Then
+
+  Rhino.AppearanceDisplay 2, True
+
+End If
+
+
+Also See
+
+
+AppearanceColor
+
+OsnapDialog
+
