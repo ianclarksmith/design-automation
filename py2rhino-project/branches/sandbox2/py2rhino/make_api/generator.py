@@ -39,8 +39,9 @@ def write_class(module_name, module_dict):
         if len(module_dict[method_name]['params_html']) != len(module_dict[method_name]['params_com']):
             for method_num in range(len(module_dict[method_name]['syntax_html'])):
                 write_class_method(module_dict[method_name], method_num, f)
+            print module_name, method_name
         else:
-            #print module_name, method_name
+            
             write_class_method(module_dict[method_name], -1, f)
     f.close()
     
@@ -225,8 +226,8 @@ def write_class_method(method_dict, method_num, f):
 # Run
 #===============================================================================
 if __name__ == '__main__':
-    data_dict = get_data_dictionary2()
-    #write_classes(data_dict)
+    data_dict = get_data_dictionary()
+    write_classes(data_dict)
     print "done"
 
 
