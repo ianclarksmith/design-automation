@@ -118,7 +118,7 @@ class _Object(object):
         for node_num in range(len(points)):
             
             #execute ecotect instruction
-            node = p2e.Node.create_node(obj, node_num, points[node_num])
+            node = p2e.Node._create_node(obj, node_num, points[node_num])
             
         obj.done()
         
@@ -2429,82 +2429,82 @@ class _Vector(_Object):
     pass
 
 class Point(_Geometry):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("point", "point", points)
         
 class Line(_Geometry):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("line", "plane", points)
 
 class  Roof(_Plane):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("roof", "plane", points)
 
 class  Floor(_Plane):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("floor", "plane", points)
 
 class  Ceiling(_Plane):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("ceiling", "plane", points)
 
 class  Wall(_Plane):
-
+    @classmethod
     def create_point(self, points):
-        _create_object_by_points("wall", "plane", points)
+        _Plane._create_object_by_points("wall", "plane", points)
 
 class  Partition(_Plane):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("partition", "plane", points)
 
 class  Void(_Hole):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("void", "plane", points)
 
 class  Window(_Hole):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("window", "plane", points)
 
 class  Panel(_Hole):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("panel", "plane", points)
 
 class  Door(_Hole):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("door", "plane", points)
 
 class  Speaker(_Vector):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("speaker", "source", points)
 
 class  Light(_Vector):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("light", "source", points)
 
 class  Appliance(_Vector):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("appliance", "", points)
 
 class  SolarCollector(_Vector):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("solarcollector", "", points)
 
 class  Camera(_Vector):
-
+    @classmethod
     def create_point(self, points):
         _create_object_by_points("camera", "", points)
 

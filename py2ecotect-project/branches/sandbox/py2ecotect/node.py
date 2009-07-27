@@ -1,4 +1,4 @@
-import py2ecotect
+import py2ecotect as p2e
 from py2ecotect import string_util
 
 class Node(object):
@@ -80,7 +80,7 @@ class Node(object):
         arg_str = string_util._convert_args_to_string("add.node", object.eco_id, index, 
                                                      point[0], point[1], 
                                                      point[2], nodeType, link)
-        py2ecotect.conversation.Request(arg_str)
+        p2e.conversation.Request(arg_str)
 
         #update model lists
         p2e.model._nodes.append(node)  
@@ -125,7 +125,7 @@ class Node(object):
                                                       move_distance[0], 
                                                       move_distance[1], 
                                                       move_distance[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def nudge(self, dir):
         """
@@ -148,7 +148,7 @@ class Node(object):
 
         """
         arg_str = string_util._convert_args_to_string("node.nudge", self.eco_id, dir)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def rotate(self, azi, alt):
         """
@@ -170,7 +170,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("node.rotate", self.eco_id, 
                                                       azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def rotate_axis(self, rotation_value):
         """
@@ -193,7 +193,7 @@ class Node(object):
                                                       rotation_value[0], 
                                                       rotation_value[1], 
                                                       rotation_value[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def rotate_reverse(self, azi, alt):
         """
@@ -214,7 +214,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("node.rotatereverse", 
                                                       self.eco_id, azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def scale(self, scale_factor):
         """
@@ -233,7 +233,7 @@ class Node(object):
                                                       scale_factor[0], 
                                                       scale_factor[1], 
                                                       scale_factor[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def xform(self, trans, function_values):
         """
@@ -269,7 +269,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("node.xform", 
                                                       self.eco_id, trans, x, y, z)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -313,7 +313,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("get.node.flag", self.eco_id, 
                                                       flag)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
         
     def set_flag(self, flag, state = True):
@@ -343,7 +343,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("set.node.flag", self.eco_id,
                                                        flag, state) 
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_flags(self):
         """
@@ -365,7 +365,7 @@ class Node(object):
       
         """
         arg_str = string_util._convert_args_to_string("get.node.flags", self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
         
     def get_link(self):
@@ -385,7 +385,7 @@ class Node(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.node.link", self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
     def set_link(self, link):
@@ -403,7 +403,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("set.node.link", self.eco_id, 
                                                       link)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_modifier(self):
         """
@@ -425,7 +425,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("get.node.modifier", 
                                                       self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
     def set_modifier(self, mod):
@@ -446,7 +446,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("set.node.modifier", 
                                                       self.eco_id, mod)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def _get_object(self):
         return _object
@@ -469,7 +469,7 @@ class Node(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.node.position", self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 
     def set_position(self, absolute_position):
@@ -491,7 +491,7 @@ class Node(object):
                                                       absolute_position[0], 
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_selected(self):
         """
@@ -510,7 +510,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("get.node.selected", 
                                                       self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
     def set_selected(self, state = 1):
@@ -529,7 +529,7 @@ class Node(object):
         """
         arg_str = string_util._convert_args_to_string("set.node.selected", 
                                                       self.eco_id, state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_type(self):
         """
@@ -562,7 +562,7 @@ class Node(object):
   
         """
         arg_str = string_util._convert_args_to_string("get.node.type", self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
     def set_type(self, type, link = -1):
@@ -600,7 +600,7 @@ class Node(object):
         else:
             arg_str = string_util._convert_args_to_string("set.node.type", 
                                                           self.eco_id, type, link)
-            py2ecotect.conversation.Exec(arg_str)
+            p2e.conversation.Exec(arg_str)
 
     #===========================================================================
     # Properties    
