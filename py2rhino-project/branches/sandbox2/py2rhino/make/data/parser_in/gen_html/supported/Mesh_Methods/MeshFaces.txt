@@ -1,0 +1,109 @@
+MeshFaces
+
+
+
+MeshFaces
+
+
+Returns the face vertices of a mesh object.
+
+
+Syntax
+
+
+Rhino.MeshFaces (strObject, blnFaceType)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of a mesh object.
+
+blnFaceType 
+
+Optional.  Boolean.  The face type to be returned.  If omitted, both triangles and quads are returned (True)
+
+
+Value 
+
+Description
+
+True 
+
+Both triangles and quads.
+
+False 
+
+Only triangles.
+
+
+
+Returns
+
+
+
+Array 
+
+An array of 3-D points that define the face vertices of the mesh if successful.  If blnFaceType is True, then faces are returned as both quads and triangles (4 3-D points).  For triangles, the third and forth vertex will be identical.  If blnFaceType is False, then faces are returned as only triangles (3 3-D points).  Quads will be converted to triangles.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strObject, arrFaces, arrFace(3), i
+
+strObject = Rhino.GetObject("Select mesh", rhObjectMesh)
+
+arrFaces = Rhino.MeshFaces(strObject, False)
+
+If IsArray(arrFaces) Then
+
+Rhino.EnableRedraw False
+
+i = 0
+
+While i <= UBound(arrFaces)
+
+arrFace(0) = arrFaces(i)
+
+arrFace(1) = arrFaces(i+1)
+
+arrFace(2) = arrFaces(i+2)
+
+arrFace(3) = arrFaces(i)
+
+Rhino.AddPolyline arrFace
+
+i = i + 3
+
+Wend
+
+Rhino.EnableRedraw True
+
+End If
+
+
+Also See
+
+
+IsMesh
+
+MeshContourPoints
+
+MeshFaceCount
+
+MeshVertexCount
+
+MeshVertices
+
+
+

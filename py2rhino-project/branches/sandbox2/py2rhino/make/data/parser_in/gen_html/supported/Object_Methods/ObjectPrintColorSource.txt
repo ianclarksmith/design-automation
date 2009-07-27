@@ -1,0 +1,110 @@
+ObjectPrintColorSource
+
+
+
+ObjectPrintColorSource
+
+
+Returns or modifies the print color source of an object.  The color used to print objects is specified in one of four ways:
+
+1. Print color from layer.  Use the print color assigned to the object's layer.
+
+2. Print color from object.  Use the print color that is assigned to the object.
+
+3. Print color from display.  Use the object's display color.
+
+4. Print color from parent.  For objects with parents, like objects in block instances, use parent's print color.  If no parent, treats as print color from layer.
+
+
+
+Syntax
+
+
+Rhino.ObjectPrintColorSource (strObject [, intSource])
+
+Rhino.ObjectPrintColorSource (arrObjects, intSource)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+arrObjects 
+
+Required.  Array.  An array of strings identifying the objects to modify.
+
+intSource 
+
+Optional.  Number.  The new print color source.  If omitted, the current print color source is returned.  Note, if arrObjects is specified, intSource is required.
+
+
+Value 
+
+Description
+
+0 
+
+Print color by layer.
+
+1 
+
+Print color by object.
+
+2 
+
+Print color by display.
+
+3 
+
+Print color by parent.
+
+
+
+Returns
+
+
+
+Number 
+
+If a print color source is not specified,  the current color source if successful.
+
+Number 
+
+If a print color source is specified, the previous color source if successful.
+
+Number 
+
+If arrObjects is specified, then the number of objects modified if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, strObject
+
+arrObjects = Rhino.GetObjects("Select objects to reset print color source")
+
+If IsArray(arrObjects) Then
+
+  For Each strObject In arrObjects
+
+    Rhino.ObjectPrintColorSource strObject, 0
+
+  Next
+
+End If
+
+
+Also See
+
+
+ObjectPrintColor
+

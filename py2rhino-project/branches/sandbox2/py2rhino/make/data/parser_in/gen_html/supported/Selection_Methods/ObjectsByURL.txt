@@ -1,0 +1,63 @@
+ObjectsByURL
+
+
+
+ObjectsByURL
+
+
+Returns the identifiers of all objects based on the objects' user-assigned URL.
+
+
+Syntax
+
+
+Rhino.ObjectsByURL (strURL [, blnSelect [, blnIncludeLights]])
+
+
+Parameters
+
+
+
+strURL 
+
+Required.  String.  The URL of an object or objects.
+
+blnSelect 
+
+Optional.  Boolean.  Select the objects.  If omitted, the objects are not selected (False).
+
+blnIncludeLights 
+
+Optional.  Boolean.  Include light objects.  If omitted, light objects are not returned (False).
+
+
+Returns
+
+
+
+Array 
+
+An array of strings identifying the objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, strURL
+
+strURL = Rhino.GetString("URL to select")
+
+If Not IsNull(strURL) Then
+
+arrObjects = Rhino.ObjectsByURL(strURL, True)
+
+End If
+
+
+Also See
+
+

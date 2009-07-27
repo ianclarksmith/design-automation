@@ -1,0 +1,75 @@
+RenameDimStyle
+
+
+
+RenameDimStyle
+
+
+Renames an existing dimension style.
+
+
+Syntax
+
+
+Rhino.RenameDimStyle (strOldStyle, strNewStyle)
+
+
+Parameters
+
+
+
+strOldStyle 
+
+Required.  String.  The name of an existing dimension style.
+
+strNewStyle 
+
+Required.  String.  The new dimension style name.
+
+
+Returns
+
+
+
+String 
+
+The new dimension style name if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strOldStyle, strNewStyle
+
+strOldStyle = Rhino.GetString("Old dimension style name")
+
+If Not IsNull(strOldStyle) Then
+
+strNewStyle = Rhino.GetString("New dimension style name")
+
+If Not IsNull(strNewStyle) Then
+
+Rhino.RenameDimStyle strOldStyle, strNewStyle
+
+End If
+
+End If
+
+
+Also See
+
+
+AddDimStyle
+
+CurrentDimStyle
+
+DeleteDimStyle
+
+IsDimStyle
+
+
+

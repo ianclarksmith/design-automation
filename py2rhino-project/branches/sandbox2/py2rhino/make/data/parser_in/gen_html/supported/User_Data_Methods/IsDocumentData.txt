@@ -1,0 +1,60 @@
+IsDocumentData
+
+
+
+IsDocumentData
+
+
+Verifies that the current document contains RhinoScript user data.
+
+
+Syntax
+
+
+Rhino.IsDocumentData ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating whether or not the current document contains any RhinoScript document user data.
+
+
+Example
+
+
+Dim blnResult
+
+blnResult = Rhino.IsDocumentData
+
+If blnResult = True Then
+
+Rhino.Print "This document contains RhinoScript document user data"
+
+Else
+
+Rhino.Print "This document contains no RhinoScript document user data"
+
+End If
+
+
+Also See
+
+
+DeleteDocumentData
+
+DocumentDataCount
+
+GetDocumentData
+
+SetDocumentData
+

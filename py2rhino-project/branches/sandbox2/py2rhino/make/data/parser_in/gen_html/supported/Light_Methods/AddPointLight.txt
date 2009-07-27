@@ -1,0 +1,57 @@
+AddPointLight
+
+
+
+AddPointLight
+
+
+Adds a new point light object  to the document.
+
+
+Syntax
+
+
+Rhino.AddPointLight (arrPoint)
+
+
+Parameters
+
+
+
+arrPoint 
+
+Required.  Array.  The 3-D location point of the light.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPoint
+
+arrPoint = Rhino.GetPoint("Point light location")
+
+If IsArray(arrPoint) Then
+
+Rhino.AddPointLight arrPoint
+
+End If
+
+
+Also See
+
+
+IsPointLight
+

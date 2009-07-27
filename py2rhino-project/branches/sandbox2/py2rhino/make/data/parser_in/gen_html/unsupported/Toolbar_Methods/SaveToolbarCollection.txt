@@ -1,0 +1,53 @@
+SaveToolbarCollection
+
+
+
+SaveToolbarCollection
+
+
+Saves an open toolbar collection to disk.
+
+
+Syntax
+
+
+Rhino.SaveToolbarCollection (strName)
+
+
+Parameters
+
+
+
+strName 
+
+Required.  String.  The name of a currently open toolbar collection.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success or failure.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strName
+
+strName = "Default"
+
+Rhino.SaveToolbarCollection strName
+
+
+Also See
+
+
+SaveToolbarCollectionAs
+

@@ -1,0 +1,91 @@
+GetSurfaceIsoParamPoint
+
+
+
+GetSurfaceIsoParamPoint
+
+
+Pauses for user input of a point constrained to a surface object.
+
+
+Syntax
+
+
+Rhino.GetSurfaceIsoParamPoint (strObject [, strMessage])
+
+
+Parameters
+
+
+
+strObject 
+
+Required. String. The surface object's identifier.
+
+strMessage 
+
+Optional.  String.  A prompt or message.
+
+
+Returns
+
+
+
+Array 
+
+An array of selection information if successful. The elements of the array are as follows:
+
+
+Element 
+
+Description
+
+0 
+
+The selected surface parameter in the U direction.
+
+1 
+
+The selected surface parameter in the V direction.
+
+2 
+
+The direction selected by the user: 0=U, 1=V, 2 = Both.
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Sub MyExtractIsoCurve
+
+  Const rhObjectSurface = 8
+
+  Dim strObject, arrResult
+
+  strObject = Rhino.GetObject("Select surface for isocurve extraction", rhObjectSurface)
+
+  If Not IsNull(strObject) Then
+
+    arrResult = Rhino.GetSurfaceIsoParamPoint(strObject, "Select location for extraction")
+
+    If IsArray(arrResult) Then
+
+      Rhino.ExtractIsoCurve strObject, Array(arrResult(0),arrResult(1)), arrResult(2)
+
+    End If
+
+  End If
+
+End Sub
+
+
+Also See
+
+
+GetPointOnSurface
+

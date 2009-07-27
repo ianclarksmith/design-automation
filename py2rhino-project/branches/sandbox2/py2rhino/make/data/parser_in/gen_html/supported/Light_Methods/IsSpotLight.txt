@@ -1,0 +1,69 @@
+IsSpotLight
+
+
+
+IsSpotLight
+
+
+Verifies a light object is a spot light.
+
+
+Syntax
+
+
+Rhino.IsSpotLight (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The light object's identifier.
+
+
+Returns
+
+
+
+Boolean 
+
+True if successful, otherwise False.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhObjectLight = 256
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a light", rhObjectLight)
+
+If Rhino.IsSpotLight(strObject) Then
+
+Rhino.Print "The object is a spot light."
+
+Else
+
+Rhino.Print "The object is not a spot light."
+
+End If
+
+
+Also See
+
+
+AddSpotLight
+
+SpotLightHardness
+
+SpotLightShadowIntensity
+
+
+

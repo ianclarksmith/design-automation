@@ -1,0 +1,114 @@
+ObjectMaterialSource
+
+
+
+ObjectMaterialSource
+
+
+Returns or modifies the rendering material source of an object.
+
+Rendering materials are stored in Rhino's rendering material table.  This table is conceptually an array.  Render materials associated with objects and layers are specified by zero based indices into this array.
+
+The index of the render material used to render an object is specified in one of three ways:
+
+1. Material from layer.  The rendering material assigned to the layer is used.
+
+2. Material from object.  The rendering material assigned to the object is used.
+
+3. Material from parent.  For objects with parents, like objects in block instances, use parent's material. If no parent, treats as material from layer.
+
+
+The default rendering material source for new objects is "material by layer."
+
+
+Syntax
+
+
+Rhino.ObjectMaterialSource (strObject [, intSource])
+
+Rhino.ObjectMaterialSource (arrObjects , intSource)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+arrObjects 
+
+Required.  Array.  An array of strings identifying the objects to modify.
+
+intSource 
+
+Optional.  Number.  The new rendering material source.  If omitted, the current material source is returned.  Note, if arrObjects is specified, intSource is required.
+
+
+Value 
+
+Description
+
+0 
+
+Material from layer
+
+1 
+
+Material from object
+
+2 
+
+<unused>
+
+3 
+
+Material from parent
+
+
+
+Returns
+
+
+
+Number 
+
+If a rendering material source is not specified,  the current rendering material source if successful.
+
+Number 
+
+If a rendering material source is specified, the previous rendering material source if successful.
+
+Number 
+
+If arrObjects is specified, then the number of objects modified if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, strObject, lngColor
+
+arrObjects = Rhino.GetObjects("Select objects to reset rendering material source")
+
+If IsArray(arrObjects) Then
+
+For Each strObject In arrObjects
+
+Rhino.ObjectMaterialSource strObject, 0
+
+Next
+
+End If
+
+
+Also See
+
+
+ObjectMaterialIndex
+

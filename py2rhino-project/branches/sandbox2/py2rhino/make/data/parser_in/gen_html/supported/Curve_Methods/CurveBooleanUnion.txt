@@ -1,0 +1,65 @@
+CurveBooleanUnion
+
+
+
+CurveBooleanUnion
+
+
+Calculates the union of two or more closed, planar curves and adds the results to the document. Note, curves must be coplanar.
+
+
+Syntax
+
+
+Rhino.CurveBooleanUnion (arrCurves)
+
+
+Parameters
+
+
+
+arrCurves 
+
+Required.  Array.  The identifiers of two or more curve objects.
+
+
+Returns
+
+
+
+Array 
+
+The identifiers of the new objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrCurves, arrResult
+
+arrCurves = Rhino.GetObjects("Select curves to union", 4)
+
+If IsArray(arrCurves) And UBound(arrCurves) > 0 Then
+
+  arrResult = Rhino.CurveBooleanUnion(arrCurves)
+
+  If IsArray(arrResult) Then
+
+    Rhino.DeleteObjects arrCurves
+
+  End If
+
+End If
+
+
+Also See
+
+
+CurveBooleanDifference
+
+CurveBooleanIntersection
+

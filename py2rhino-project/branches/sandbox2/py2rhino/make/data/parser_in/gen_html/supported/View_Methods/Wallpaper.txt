@@ -1,0 +1,95 @@
+Wallpaper
+
+
+
+Wallpaper
+
+
+Returns or sets the wallpaper bitmap of the specified view. To remove a wallpaper bitmap, pass an empty string, or "", as the filename to display.
+
+
+Syntax
+
+
+Rhino.Wallpaper ([strView [, strFileName]])
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+strFileName 
+
+Optional.  String.  The name of the bitmap file to set as the wallpaper.  The supported bitmap file formats are as follows:
+
+
+.bmp 
+
+Windows Bitmap
+
+.tga 
+
+Truevision Targa
+
+.jpg, .jpeg 
+
+JPEG Compliant
+
+.pcx 
+
+Zsoft Paintbrush
+
+.png 
+
+Portable Network Graphics
+
+.tif, .tiff 
+
+Tagged Image File Format
+
+
+
+Returns
+
+
+
+String 
+
+If strFileName is not specified,  then the current wallpaper bitmap filename if successful.
+
+String 
+
+If strFileName is specified,  then the previous wallpaper bitmap filename if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strView
+
+strView = Rhino.CurrentView
+
+If Not Rhino.IsWallpaper(strView) Then
+
+  Rhino.Wallpaper strView, "C:\Windows\Coffee Bean.bmp"
+
+End If
+
+
+Also See
+
+
+IsWallpaper
+
+WallpaperGrayScale
+
+WallpaperHidden
+

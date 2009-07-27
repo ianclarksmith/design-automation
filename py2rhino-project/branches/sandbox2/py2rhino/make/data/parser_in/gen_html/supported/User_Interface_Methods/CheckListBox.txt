@@ -1,0 +1,113 @@
+CheckListBox
+
+
+
+CheckListBox
+
+
+Displays a list of items in a checkable-style list box dialog.
+
+
+Syntax
+
+
+Rhino.CheckListBox (arrItems, arrValues [, strMessage [, strTitle]])
+
+
+Parameters
+
+
+
+arrItems 
+
+Required.  Array.  A zero-based, one-dimensional array of string items.
+
+arrValues 
+
+Required.  Array.  A zero-based, one-dimensional array of boolean values indicating the checked state of each item in the list.
+
+strMessage 
+
+Optional.  String.  A prompt or message.
+
+strTitle 
+
+Optional.  String.  A dialog box title.
+
+
+Returns
+
+
+
+Array 
+
+A zero-based, one-dimensional array of boolean values indicating the new checked state of each item in the list.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrLayers, arrStates(), arrResults, intCount, strLayer, i
+
+intCount = 0
+
+arrLayers = Rhino.LayerNames
+
+If IsArray(arrLayers ) Then
+
+For Each strLayer In arrLayers
+
+ReDim Preserve arrStates(intCount)
+
+arrStates(intCount) = Rhino.IsLayerOn(strLayer)
+
+intCount = intCount + 1
+
+Next
+
+arrResults = Rhino.CheckListBox (arrLayers, arrStates, "Turn layers on/off", "Layers")
+
+If IsArray(arrResults) Then
+
+For i = 0 To UBound(arrLayers)
+
+If arrResults(i) = True Then
+
+Rhino.LayerMode arrLayers(i), 0
+
+Else
+
+Rhino.LayerMode arrLayers(i), 1
+
+End If
+
+Next
+
+End If
+
+End If
+
+
+
+
+
+
+
+
+Also See
+
+
+ComboListBox
+
+ListBox
+
+MultiListbox
+
+PropertyListBox
+
+
+

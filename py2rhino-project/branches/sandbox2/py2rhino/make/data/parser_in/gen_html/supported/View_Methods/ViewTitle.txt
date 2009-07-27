@@ -1,0 +1,61 @@
+ViewTitle
+
+
+
+ViewTitle
+
+
+Returns the name, or title, of a view given a view's identifier.
+
+
+Syntax
+
+
+Rhino.ViewTitle (strView])
+
+
+Parameters
+
+
+
+strMode 
+
+Required.  String.  The identifier of the display mode obtained from the ViewNames method.
+
+
+Returns
+
+
+
+String 
+
+The name, or title, of the view if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrViews, strView
+
+arrViews = Rhino.ViewNames(False)
+
+For Each strView In arrViews
+
+  Rhino.Print strView & " = " & Rhino.ViewTitle(strView )
+
+Next
+
+
+Also See
+
+
+CurrentView
+
+ViewNames
+
+
+

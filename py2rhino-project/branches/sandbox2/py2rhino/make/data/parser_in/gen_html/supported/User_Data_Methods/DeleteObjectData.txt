@@ -1,0 +1,75 @@
+DeleteObjectData
+
+
+
+DeleteObjectData
+
+
+Removes RhinoScript user data items from an object's geometry.
+
+
+Syntax
+
+
+Rhino.DeleteObjectData (strObject [, strSection [, strEntry]])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+strSection 
+
+Optional.  String.  The section name.  If omitted, all sections and their corresponding entries are removed.
+
+strEntry 
+
+Optional.  String.  The entry name.  If omitted, all entries for strSection are removed.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Not IsNull(strObject) Then
+
+Rhino.DeleteObjectData strObject, "MySection1", "MyEntry1"
+
+Rhino.DeleteObjectData strObject, "MySection1", "MyEntry2"
+
+Rhino.DeleteObjectData strObject, "MySection2", "MyEntry1"
+
+End If
+
+
+Also See
+
+
+GetObjectData
+
+ObjectDataCount
+
+IsObjectData
+
+SetObjectData
+

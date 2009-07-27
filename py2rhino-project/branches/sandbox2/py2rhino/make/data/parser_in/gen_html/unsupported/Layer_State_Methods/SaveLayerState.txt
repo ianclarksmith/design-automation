@@ -1,0 +1,71 @@
+SaveLayerState
+
+
+
+SaveLayerState
+
+
+Saves the current state of the layers in the document.
+
+
+Syntax
+
+
+Rhino.SaveLayerState ([strState])
+
+
+Parameters
+
+
+
+strState 
+
+Optional.  String.  The name of the layer state. Note, if the specified layer state name already exists, then that layer state will be updated with the current state of the layers in the document.
+
+
+Returns
+
+
+
+String 
+
+The name of the new or updated layer state if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Sub TestSaveLayerState
+
+  Dim objPlugIn
+
+  On Error Resume Next
+
+  Set objPlugIn = Rhino.GetPluginObject("Rhino Bonus Tools")
+
+  If Err Then
+
+    MsgBox Err.Description
+
+    Exit Sub
+
+  End If
+
+  Call objPlugIn.SaveLayerState("MyLayerState")
+
+End Sub
+
+
+Also See
+
+
+LayerState
+
+RenameLayerState
+
+RestoreLayerState
+

@@ -1,0 +1,71 @@
+IsUserText
+
+
+
+IsUserText
+
+
+Verifies that an object contains user text. For more details on User Text, see the discussion found in the User Data Methods summary.
+
+
+Syntax
+
+
+Rhino.IsUserText (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+
+Returns
+
+
+
+Number 
+
+0 = no user text; 1 = attribute user text; 2 = geometry user text; 3 = both attribute and geometry user text.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object") 
+
+If VarType(strObject) = vbString Then
+
+  Select Case Rhino.IsUserText(strObject)
+
+    Case 0 Rhino.Print "Object has no user text"
+
+    Case 1 Rhino.Print "Object has attribute user text"
+
+    Case 2 Rhino.Print "Object has geometry user text"
+
+    Case 3 Rhino.Print "Object has attribute and geometry user text"
+
+    Case Else Rhino.Print "Object does not exist"
+
+  End Select
+
+End If
+
+
+Also See
+
+
+GetUserText
+
+SetUserText
+

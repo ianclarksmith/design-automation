@@ -1,0 +1,59 @@
+ColorRedValue
+
+
+
+ColorRedValue
+
+
+Retrieves an intensity value for the red component of a red-green-blue (RGB) value.
+
+
+Syntax
+
+
+Rhino.ColorRedValue (lngRGB)
+
+
+Parameters
+
+
+
+lngRGB 
+
+Required.  Number.  The RGB color value.
+
+
+Returns
+
+
+
+Number 
+
+The red component if successful.
+
+Null 
+
+If not successful or on error.
+
+
+Example
+
+
+Dim lngRGB
+
+lngRGB = Rhino.LayerColor("Default")
+
+Rhino.Print "Red = " & CStr( Rhino.ColorRedValue(lngRGB) )
+
+Rhino.Print "Green = " & CStr( Rhino.ColorGreenValue(lngRGB) )
+
+Rhino.Print "Blue = " & CStr( Rhino.ColorBlueValue(lngRGB) )
+
+
+Also See
+
+
+ColorBlueValue
+
+ColorGreenValue
+

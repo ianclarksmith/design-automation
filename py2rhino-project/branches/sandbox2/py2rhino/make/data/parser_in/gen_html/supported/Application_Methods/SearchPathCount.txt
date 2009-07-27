@@ -1,0 +1,60 @@
+SearchPathCount
+
+
+
+SearchPathCount
+
+
+Returns the number of path items in Rhino's search path list. See "Options Files settings" in the Rhino help file for more details.
+
+
+Syntax
+
+
+Rhino.SearchPathCount ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Number 
+
+The number of path items in Rhino's search path list.
+
+
+Example
+
+
+Dim intCount, arrPaths, strPath
+
+intCount = Rhino.SearchPathCount
+
+If intCount > 0
+
+arrPaths = Rhino.SearchPathList
+
+For Each strPath in arrPaths
+
+Rhino.Print strPath
+
+Next
+
+End If
+
+
+Also See
+
+
+AddSearchPath
+
+DeleteSearchPath
+
+SearchPathList
+

@@ -1,0 +1,46 @@
+CommandHistory
+
+
+
+CommandHistory
+
+
+Returns the contents of Rhino's command history window. You can view the command history by using the CommandHistory command.
+
+
+Syntax
+
+
+Rhino.CommandHistory ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+String 
+
+A string containing the contents of Rhino's command history window if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+MsgBox Rhino.CommandHistory
+
+
+Also See
+
+
+ClearCommandHistory
+

@@ -1,0 +1,57 @@
+AddToolbarCollection
+
+
+
+AddToolbarCollection
+
+
+Create new toolbar collection file with no toolbars.
+
+
+Syntax
+
+
+Rhino.AddToolbarCollection (strFile)
+
+
+Parameters
+
+
+
+strFile 
+
+Required.  String.  The filename of the toolbar collection to create.
+
+
+Returns
+
+
+
+String 
+
+The name, or alias, of the newly created toolbar collection if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strFile
+
+strFile = "D:\MyCollection.tb"
+
+Rhino.AddToolbarCollection strFile
+
+
+Also See
+
+
+AddToolbar
+
+AddToolbarButton
+
+
+

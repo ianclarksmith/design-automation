@@ -1,0 +1,73 @@
+PolylineVertices
+
+
+
+PolylineVertices
+
+
+Returns the vertices of a polyline curve object.
+
+
+Syntax
+
+
+Rhino.PolylineVertices (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Array 
+
+An  array of 3-D vertex points if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrPoints, arrPoint
+
+strObject = Rhino.GetObject("Select a polyline")
+
+If Rhino.IsPolyline(strObject) Then
+
+arrPoints = Rhino.PolylineVertices(strObject)
+
+If IsArray(arrPoints) Then
+
+For Each arrPoint In arrPoints
+
+Rhino.AddPoint arrPoint
+
+Next
+
+End If
+
+End If
+
+
+Also See
+
+
+AddPolyline
+
+IsPolyline
+

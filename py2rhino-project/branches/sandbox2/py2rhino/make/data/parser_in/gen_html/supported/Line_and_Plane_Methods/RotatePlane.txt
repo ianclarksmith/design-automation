@@ -1,0 +1,111 @@
+RotatePlane
+
+
+
+RotatePlane
+
+
+Rotates a plane.
+
+
+Syntax
+
+
+Rhino.RotatePlane (arrPlane, dblAngle, arrAxis)
+
+
+Parameters
+
+
+
+arrPlane 
+
+Required.  Array.  The plane.  The elements of a plane array are as follows:
+
+
+Element 
+
+Description
+
+0 
+
+Required.  The plane's origin (3-D point).
+
+1 
+
+Required.  The plane's X axis direction (3-D vector).
+
+2 
+
+Required.  The plane's Y axis direction (3-D vector).
+
+3 
+
+Optional.  The plane's Z axis direction (3-D vector).
+
+
+dblAngle 
+
+Required.  Number.  The rotation angle in degrees.
+
+arrAxis 
+
+Required.  Array.  A non-zero 3-D vector identifying the axis of rotation.
+
+
+Returns
+
+
+
+Array 
+
+The plane if successful.  The elements of a plane array are as follows:
+
+
+Element 
+
+Description
+
+0 
+
+The plane's origin (3-D point).
+
+1 
+
+The plane's X axis direction (3-D vector).
+
+2 
+
+The plane's Y axis direction (3-D vector).
+
+3 
+
+The plane's Z axis direction (3-D vector).
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPlane, arrRotated
+
+arrPlane = ViewCPlane
+
+arrRotated = RotatePlane(arrPlane, 45.0, arrPlane(1))
+
+Rhino.ViewCPlane , arrRotated
+
+
+Also See
+
+
+MovePlane
+
+PlaneFromFrame
+
+PlaneFromNormal
+

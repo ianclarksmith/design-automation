@@ -1,0 +1,69 @@
+XformWorldToScreen
+
+
+
+XformWorldToScreen
+
+
+Transforms a point from world coordinates to either client-area coordinates of the specified view or screen coordinates. The resulting coordinates are represented as a 2-D point.
+
+
+Syntax
+
+
+Rhino.XformWorldToScreen (arrPoint [, strView [, blnConvert]])
+
+
+Parameters
+
+
+
+arrPoint 
+
+Required.  Array.  A 3-D point in world coordinates.
+
+strView 
+
+Optional.  String.  The title of the view.  If omitted, the active view is used.
+
+blnConvert 
+
+Optional. Boolean. If omitted or False, the function returns the results as client-area coordinates of the specified view. If True, then the results are returned as screen coordinates.
+
+
+Returns
+
+
+
+Array 
+
+If blnConvert is omitted or False, a 2-D point in client-area coordinates if successful.
+
+Array 
+
+If blnConvert is True, a 2-D point in screen coordinates if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPoint, strView, arrPt2d
+
+arrPoint = Array(0.0, 0.0, 0.0)
+
+strView = Rhino.CurrentView
+
+arrPt2d = Rhino.XformWorldToScreen(arrPoint, strView)
+
+Rhino.Print Rhino.Pt2Str(arrPt2d)
+
+
+Also See
+
+
+XformScreenToWorld
+

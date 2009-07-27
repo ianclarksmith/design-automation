@@ -1,0 +1,81 @@
+CurveTangent
+
+
+
+CurveTangent
+
+
+Returns a 3-D vector that is the tangent to a curve at a parameter.
+
+
+Syntax
+
+
+Rhino.CurveTangent (strObject, dblParameter [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+dblParameter 
+
+Required.  Number.  The parameter to evaluate.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Array 
+
+A  3-D vector if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectCurve = 4
+
+Dim strObject, arrPoint, dblParam, arrNormal
+
+strObject = Rhino.GetObject("Select a curve", rhObjectCurve)
+
+If Not IsNull(strObject) Then
+
+arrPoint = Rhino.GetPointOnCurve(strObject)
+
+If IsArray(arrPoint) Then
+
+dblParam = Rhino.CurveClosestPoint(strObject, arrPoint)
+
+arrNormal = Rhino.CurveTangent(strObject, dblParam)
+
+Rhino.Print Rhino.Pt2Str(arrNormal)
+
+End If
+
+End If
+
+
+Also See
+
+
+CurveClosestPoint
+
+CurveDomain
+
+
+

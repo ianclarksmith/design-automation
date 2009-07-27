@@ -1,0 +1,93 @@
+UnitDistanceDisplayMode
+
+
+
+UnitDistanceDisplayMode
+
+
+Returns or sets the document's distance display mode parameter.  See Rhino's DocumentProperties command (Units window) for details.
+
+
+Syntax
+
+
+Rhino.UnitDistanceDisplayMode ([intMode])
+
+
+Parameters
+
+
+
+intMode 
+
+Optional.  Number.  The distance display mode.  The available distance display modes are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+Decimal
+
+1 
+
+Fractional
+
+2 
+
+Feet and inches (requires that the document's units system be set to either inches or feet.  See UnitSystem for details.)
+
+
+
+Returns
+
+
+
+Number 
+
+If intMode is not specified, the current distance display mode if successful.
+
+Number 
+
+If intMode is specified, the previous distance display mode if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhUnitInches = 8
+
+Const rhUnitDistanceDisplayFeetInches = 2
+
+Dim intUnitSystem
+
+intUnitSystem = Rhino.UnitSystem
+
+If intUnitSystem = rhUnitInches Then
+
+Rhino.UnitDistanceDisplayMode rhUnitDistanceDisplayFeetInches
+
+End If
+
+
+Also See
+
+
+UnitAbsoluteTolerance
+
+UnitAngleTolerance
+
+UnitCustomUnitSystem
+
+UnitDistanceDisplayPrecision
+
+UnitRelativeTolerance
+
+UnitSystem
+

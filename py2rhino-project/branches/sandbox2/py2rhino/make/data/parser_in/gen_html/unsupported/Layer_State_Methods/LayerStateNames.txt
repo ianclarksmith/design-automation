@@ -1,0 +1,79 @@
+LayerStateNames
+
+
+
+LayerStateNames
+
+
+Returns the names of all layer states in the document.
+
+
+Syntax
+
+
+Rhino.LayerStateNames ([blnSort])
+
+
+Parameters
+
+
+
+blnSort 
+
+Optional.  Boolean.  If not specified or True, then the layer state names are sorted in ascending order. If False, then the layer state names are sorted in descending order.
+
+
+Returns
+
+
+
+Array 
+
+An array of layer state names if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Sub TestLayerStateNames
+
+  Dim objPlugIn, arrStates, strState
+
+  On Error Resume Next
+
+  Set objPlugIn = Rhino.GetPluginObject("Rhino Bonus Tools")
+
+  If Err Then
+
+    MsgBox Err.Description
+
+    Exit Sub
+
+  End If
+
+  arrStates = objPlugIn.LayerStateNames
+
+  If IsArray(arrStates) Then
+
+    For Each strState In arrStates
+
+      Rhino.Print strState
+
+    Next
+
+  End If
+
+End Sub
+
+
+Also See
+
+
+IsLayerState
+
+LayerStateCount
+

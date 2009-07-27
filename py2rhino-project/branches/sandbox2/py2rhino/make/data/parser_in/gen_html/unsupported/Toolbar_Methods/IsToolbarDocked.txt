@@ -1,0 +1,71 @@
+IsToolbarDocked
+
+
+
+IsToolbarDocked
+
+
+Verifies that a visible toolbar in a currently open toolbar collection is docked.
+
+
+Syntax
+
+
+Rhino.IsToolbarDocked (strName, strToolbar)
+
+
+Parameters
+
+
+
+strName 
+
+Required.  String.  The name of a currently open toolbar collection.
+
+strToolbar 
+
+Required.  String.  The name of a toolbar in the collection to verify.
+
+
+Returns
+
+
+
+Boolean 
+
+True or false indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim rc
+
+rc = Rhino.IsToolbarDocked("Default", "Main1")
+
+If rc = True Then
+
+  Rhino.Print "The Main1 toolbar is docked."
+
+ElseIf rc = False Then
+
+  Rhino.Print "The Main1 toolbar is not docked."
+
+Else
+
+  Rhino.Print "The Main1 toolbar is not visible."
+
+End If
+
+
+Also See
+
+
+IsToolbar
+
+IsToolbarVisible
+

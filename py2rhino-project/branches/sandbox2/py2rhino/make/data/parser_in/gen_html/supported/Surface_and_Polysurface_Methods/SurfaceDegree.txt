@@ -1,0 +1,71 @@
+SurfaceDegree
+
+
+
+SurfaceDegree
+
+
+Returns the degree of a  surface object in the specified direction.
+
+
+Syntax
+
+
+Rhino.SurfaceDegree (strObject [, intDirection])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intDirection 
+
+Optional.  Number.  The direction, either 0 = U, or 1 = V, or 2 = Both.  Of omitted, both the degrees in the U and V directions are returned (2 = Both).
+
+
+Returns
+
+
+
+Array 
+
+If intDirection is not specified, or intDirection is set to 2, then the degree in both the U and V directions is returned.
+
+Number 
+
+If intDirection is specified, and intDirection is set to either 0 or 1, then the degree in either the U or V direction is returned.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectSurface = 8
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+
+If Rhino.IsSurface(strObject) Then
+
+Rhino.Print "Degree in U direction: " & CStr(Rhino.SurfaceDegree(strObject, 0))
+
+Rhino.Print "Degree in V direction: " & CStr(Rhino.SurfaceDegree(strObject, 1))
+
+End If
+
+
+Also See
+
+
+IsSurface
+
+SurfaceDomain
+

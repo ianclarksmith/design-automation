@@ -1,0 +1,75 @@
+SelectObjects
+
+
+
+SelectObjects
+
+
+Selects one or more objects.
+
+
+Syntax
+
+
+Rhino.SelectObjects (arrObjects)
+
+
+Parameters
+
+
+
+arrObjects 
+
+Required.  Array.  An array of strings identifying the objects to select.
+
+
+Returns
+
+
+
+Number 
+
+The number of objects selected if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, arrNew
+
+arrObjects = Rhino.GetObjects("Select object to copy in-place")
+
+If IsArray(arrObjects) Then
+
+Rhino.UnselectObjects arrObjects
+
+arrNew = Rhino.CopyObjects(arrObjects)
+
+If IsArray(arrnew) Then
+
+Rhino.SelectObjects arrNew
+
+End If
+
+End If
+
+
+Also See
+
+
+IsObjectSelectable
+
+IsObjectSelected
+
+SelectObject
+
+UnselectObject
+
+UnselectObjects
+
+
+

@@ -1,0 +1,79 @@
+ExplodeCurves
+
+
+
+ExplodeCurves
+
+
+Explodes, or un-joins,  one more curve objects.  Polycurves will be exploded into curve segments.  Polylines will be exploded into line segments.  ExplodeCurves will return the curves in
+
+topological order.
+
+
+Syntax
+
+
+Rhino.ExplodeCurves (strObject [, blnDelete])
+
+Rhino.ExplodeCurves (arrObjects [, blnDelete])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the curve object to explode.
+
+arrObjects 
+
+Required.  Array.   An array of strings identifying the curve objects to explode.
+
+blnDelete 
+
+Optional.  Boolean.  Delete input objects after exploding.  The default is not to delete objects (False).
+
+
+Returns
+
+
+
+Array 
+
+An array of strings identifying the newly created curve objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectCurve = 4
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select curve to explode", rhObjectCurve)
+
+If Rhino.IsCurve(strObject) Then
+
+Rhino.ExplodeCurves strObject
+
+End If
+
+
+Also See
+
+
+IsCurve
+
+IsPolyCurve
+
+IsPolyline
+
+JoinCurves
+
+
+

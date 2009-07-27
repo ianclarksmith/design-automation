@@ -1,0 +1,92 @@
+IsXformIdentity
+
+
+
+IsXformIdentity
+
+
+Verifies that a matrix is the identity transformation.
+
+
+
+
+1 
+
+0 
+
+0 
+
+0
+
+0 
+
+1 
+
+0 
+
+0
+
+0 
+
+0 
+
+1 
+
+0
+
+0 
+
+0 
+
+0 
+
+1
+
+
+Syntax
+
+
+Rhino.IsXformIdentity (arrXform)
+
+
+Parameters
+
+
+
+arrXform 
+
+Required.  Array.  A 4x4 transformation matrix.
+
+
+Returns
+
+
+
+Boolean 
+
+True or False indicating success or failure.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrXform
+
+arrXform = Rhino.XformIdentity
+
+MsgBox Rhino.IsXformIdentity(arrXform)
+
+
+Also See
+
+
+IsXformSimilarity
+
+IsXformZero
+
+XformIdentity
+

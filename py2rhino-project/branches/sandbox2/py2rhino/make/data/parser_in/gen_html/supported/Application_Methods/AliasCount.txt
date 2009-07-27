@@ -1,0 +1,50 @@
+AliasCount
+
+
+
+AliasCount
+
+
+Returns the number of command alias in Rhino.
+
+
+Syntax
+
+
+Rhino.AliasCount ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Number 
+
+True or False indicating success or failure.
+
+
+Example
+
+
+MsgBox Rhino.AliasCount
+
+
+Also See
+
+
+AddAlias
+
+AliasMacro
+
+AliasNames
+
+DeleteAlias
+
+IsAlias
+

@@ -1,0 +1,99 @@
+PlaneFromNormal
+
+
+
+PlaneFromNormal
+
+
+Creates a plane from an origin point and a normal direction vector.
+
+
+Syntax
+
+
+Rhino.PlaneFromNormal (arrOrigin, arrNormal)
+
+
+Parameters
+
+
+
+arrOrigin 
+
+Required.  Array.  A 3-D point identifying the origin of the plane.
+
+arrNormal 
+
+Required.  Array.  A non-zero 3-D vector identifying the normal direction of the plane.
+
+
+Returns
+
+
+
+Array 
+
+The plane if successful.  The elements of a plane array are as follows:
+
+
+Element 
+
+Description
+
+0 
+
+The plane's origin (3-D point).
+
+1 
+
+The plane's X axis direction (3-D vector).
+
+2 
+
+The plane's Y axis direction (3-D vector).
+
+3 
+
+The plane's Z axis direction (3-D vector).
+
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrOrigin, arrDirection, arrNormal
+
+arrOrigin = Rhino.GetPoint("CPlane origin")
+
+If IsArray(arrOrigin) Then
+
+  arrDirection = Rhino.GetPoint("CPlane direction")
+
+  If IsArray(arrDirection) Then
+
+    arrNormal = VectorCreate(arrDirection, arrOrigin)
+
+    arrNormal = VectorUnitize(arrNormal)
+
+    Rhino.ViewCPlane , Rhino.PlaneFromNormal(arrOrigin, arrNormal)
+
+  End If
+
+End If
+
+
+Also See
+
+
+MovePlane
+
+PlaneFromFrame
+
+PlaneFromPoints
+
+RotatePlane
+

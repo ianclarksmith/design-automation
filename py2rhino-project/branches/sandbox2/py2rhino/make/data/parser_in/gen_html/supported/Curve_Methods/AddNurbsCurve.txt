@@ -1,0 +1,85 @@
+AddNurbsCurve
+
+
+
+AddNurbsCurve
+
+
+Adds a NURBS curve object to the document.
+
+
+Syntax
+
+
+Rhino.AddNurbsCurve (arrPoints, arrKnots, intDegree [, arrWeights])
+
+
+Parameters
+
+
+
+arrPoints 
+
+Required.  Array.  An array of 3-D control points.
+
+arrKnots 
+
+Required.  Array.  The knot values for the curve.  The number of elements in arrKnots must equal the number of elements in arrPoints plus intDegree minus one (1).
+
+intDegree 
+
+Required.  Number.  The degree of the curve.  The degree must be greater than or equal to one (1).
+
+arrWeights 
+
+Optional.  Array.  The weight values for the curve.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectCurve = 4
+
+Dim strObject, arrPoints, arrKnots, intDegree
+
+strObject= Rhino.GetObject("Pick a curve", rhObjectCurve)
+
+If Not IsNull(strObject) Then
+
+arrPoints = Rhino.CurvePoints(strObject)
+
+arrKnots = Rhino.CurveKnots(strObject)
+
+intDegree = Rhino.CurveDegree(strObject)
+
+strObject = Rhino.AddNurbsCurve(arrPoints, arrKnots, intDegree)
+
+If Not IsNull(strObject) Then Rhino.SelectObject(strObject)
+
+End If
+
+
+Also See
+
+
+CurveDegree
+
+CurveKnots
+
+CurvePoints
+
+CuveWeights
+

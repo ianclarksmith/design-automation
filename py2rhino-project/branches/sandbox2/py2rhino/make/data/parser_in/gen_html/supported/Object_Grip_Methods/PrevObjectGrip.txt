@@ -1,0 +1,79 @@
+PrevObjectGrip
+
+
+
+PrevObjectGrip
+
+
+Returns the previous grip index from a specified grip index of an object.
+
+
+Syntax
+
+
+Rhino.PrevObjectGrip (strObject, intIndex [, intDirection [, blnSelect]])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+intIndex 
+
+Required. Number. The zero-based grip index from which to get the previous grip index.
+
+intDirection 
+
+Optional.  Number.  The direction to get the previous grip index, either 0=U or 1=V. The default value is 0. Note, this argument only applies when dealing with surfaces.
+
+blnEnable 
+
+Optional.  Boolean.  If True (default), the previous grip index found will be selected. Otherwise, it will not be selected.
+
+
+Returns
+
+
+
+Number 
+
+The index of the next grip from the specified grip index.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, intCount, i
+
+strObject = Rhino.GetObject("Select curve", 4)
+
+If Not IsNull(strObject) Then
+
+Rhino.EnableObjectGrips strObject
+
+intCount = Rhino.ObjectGripCount(strObject)
+
+For i = intCount -1 to 0 Step -2
+
+Rhino.NextObjectGrip strObject,i,,True
+
+Next
+
+End If
+
+
+Also See
+
+
+EnableObjectGrips
+
+NextObjectGrip
+

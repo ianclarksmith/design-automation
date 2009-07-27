@@ -1,0 +1,93 @@
+ViewDisplayMode
+
+
+
+ViewDisplayMode
+
+
+Returns or sets a view's display mode.  A view's display mode can be either wireframe, shaded, or render preview.
+
+
+Syntax
+
+
+Rhino.ViewDisplayMode ([strView [, intMode]])
+
+
+Parameters
+
+
+
+strView 
+
+Optional.  String.  The title or identifier of the view.  If omitted, the current active view is used.
+
+intMode 
+
+Optional.  Number.  The display mode.  The display modes are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+Wireframe.
+
+1 
+
+Shaded.
+
+2 
+
+Render Preview.
+
+
+
+Returns
+
+
+
+Number 
+
+If intMode is not specified, the current display mode for the specified view if successful.
+
+Number 
+
+If intMode is specified, the previous display mode for the specified view if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrViews, strView
+
+arrViews = Rhino.ViewNames
+
+If IsArray(arrViews) Then
+
+For Each strView In arrViews
+
+Rhino.ViewDisplayMode strView, 1
+
+Next
+
+End If
+
+
+Also See
+
+
+CurrentView
+
+ViewDisplayModeEx
+
+ViewNames
+
+
+

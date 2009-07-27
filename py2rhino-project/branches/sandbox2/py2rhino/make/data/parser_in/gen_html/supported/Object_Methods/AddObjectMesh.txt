@@ -1,0 +1,111 @@
+AddObjectMesh
+
+
+
+AddObjectMesh
+
+
+Adds custom render mesh parameters to a meshable object, such as a surface or a polysurface.  If an object has custom render mesh parameters and they are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.
+
+For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+
+
+Syntax
+
+
+Rhino.AddObjectMesh (strObject [, intQuality [, blnEnable]])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  Object.  The identifier of a meshable object.
+
+intQuality 
+
+Optional.  Number.  The initial settings of the new custom render mesh parameters. The available options are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+Jagged and faster.  Objects may look jagged, but they should shade and render relatively quickly.
+
+1 
+
+Smooth and slower.  Objects should look smooth, but they may take a very long time to shade and render.
+
+2 (Default) 
+
+Use the document's current render mesh parameters.
+
+
+blnEnable 
+
+Optional.  Boolean.  Enable the custom render mesh parameters.  If omitted, the newly added parameters will be enabled (True).
+
+
+Returns
+
+
+
+Boolean 
+
+If blnEnable is not specified, then the current enabled/disabled state if successful.
+
+Boolean 
+
+If blnEnable is not specified, then the current enabled/disabled state if successful.
+
+Null 
+
+If the object does not have custom render mesh parameters, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Rhino.ObjectHasMesh(strObject) = False Then
+
+Rhino.AddObjectMesh strObject, 1, True
+
+End If
+
+
+Also See
+
+
+AddObjectMesh
+
+EnableObjectMesh
+
+ObjectHasMesh
+
+ObjectMeshDensity
+
+ObjectMeshMaxAngle
+
+ObjectMeshMaxAspectRatio
+
+ObjectMeshMaxDistEdgeToSrf
+
+ObjectMeshMaxEdgeLength
+
+ObjectMeshMinEdgeLength
+
+ObjectMeshMinInitialGridQuads
+
+ObjectMeshQuality
+
+ObjectMeshSettings
+

@@ -1,0 +1,73 @@
+BlockInstanceXform
+
+
+
+BlockInstanceXform
+
+
+Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
+
+
+Syntax
+
+
+Rhino.BlockInstanceXform (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of an existing block insertion object.
+
+
+Returns
+
+
+
+Array 
+
+A transformation matrix (4x4 array of numbers) if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrMatrix, strPoint
+
+strObject = Rhino.GetObject("Select block to query")
+
+If Rhino.IsBlockInstance(strObject) Then
+
+arrMatrix = Rhino.BlockInstanceXform(strObject)
+
+If IsArray(arrMatrix) Then
+
+strPoint = Rhino.AddPoint(Array(0,0,0))
+
+Rhino.TransformObject strPoint, arrMatrix
+
+End If
+
+End If
+
+
+Also See
+
+
+BlockInstanceCount
+
+BlockInstanceInsertPoint
+
+BlockInstances
+
+IsBlockInstance
+
+
+

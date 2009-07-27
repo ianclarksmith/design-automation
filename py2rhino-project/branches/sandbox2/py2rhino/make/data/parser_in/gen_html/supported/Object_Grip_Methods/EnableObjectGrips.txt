@@ -1,0 +1,73 @@
+EnableObjectGrips
+
+
+
+EnableObjectGrips
+
+
+Enables or disables an object's grips. For curves and surfaces, these are also called control points.
+
+
+Syntax
+
+
+Rhino.EnableObjectGrips (strObject [, blnEnable])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+blnEnable 
+
+Optional.  Boolean.  If True (default), the specified object's grips will be turned on. Otherwise, they will be turned off.
+
+
+Returns
+
+
+
+Boolean 
+
+True of False indicating success or failure.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, strObject
+
+arrObjects = Rhino.GetObjects("Select objects")
+
+If IsArray(arrObjects) Then
+
+For Each strObject In arrObjects
+
+Rhino.EnableObjectGrips strObject
+
+Next
+
+End If
+
+
+Also See
+
+
+ObjectGripCount
+
+ObjectGripsOn
+
+ObjectGripsSelected
+
+SelectObjectGrips
+
+UnselectObjectGrips
+

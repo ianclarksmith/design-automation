@@ -1,0 +1,85 @@
+MeshFaceVertices
+
+
+
+MeshFaceVertices
+
+
+Returns the vertex indices of all faces of a mesh object.
+
+
+Syntax
+
+
+Rhino.MeshFaceVertices (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of a mesh object.
+
+
+Returns
+
+
+
+Array 
+
+An array containing arrays of four numbers that define the vertex indices for each face of the mesh if successful.  Both quad and triangle faces are returned. If the third and forth vertex indices of a face are identical, the face is a triangle. Otherwise the face is a quad.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectMesh = 32
+
+Dim strObject, arrFaceVertices, arrFace
+
+Dim intCount, strText
+
+strObject = Rhino.GetObject("Select mesh", rhObjectMesh)
+
+arrFaceVertices = Rhino.MeshFaceVertices( strObject )
+
+If IsArray(arrFaceVertices) Then
+
+intCount = 0
+
+For Each arrFace In arrFaceVertices
+
+strText = "face(" & CStr(intCount) & ") = ("
+
+strText = strText & CStr(arrFace(0)) & ","
+
+strText = strText & CStr(arrFace(1)) & ","
+
+strText = strText & CStr(arrFace(2)) & ","
+
+strText = strText & CStr(arrFace(3)) & ")"
+
+Rhino.Print strText
+
+intCount = intCount + 1
+
+Next
+
+End If
+
+
+Also See
+
+
+IsMesh
+
+MeshFaceCount
+
+MeshFaces
+

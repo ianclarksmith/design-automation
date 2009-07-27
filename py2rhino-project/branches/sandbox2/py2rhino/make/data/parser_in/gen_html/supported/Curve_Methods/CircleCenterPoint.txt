@@ -1,0 +1,75 @@
+CircleCenterPoint
+
+
+
+CircleCenterPoint
+
+
+Returns the center point of a circle curve object.
+
+
+Syntax
+
+
+Rhino.CircleCenterPoint (strObject [, intIndex])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+intIndex 
+
+Optional. Number. If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+
+Returns
+
+
+
+Array 
+
+The 3-D center point of the circle if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, arrPoint
+
+strObject = Rhino.GetObject("Select circle")
+
+If Rhino.IsCircle(strObject) Then
+
+arrPoint = Rhino.CircleCenterPoint(strObject)
+
+Rhino.AddPoint arrPoint
+
+End If
+
+
+Also See
+
+
+AddCircle
+
+AddCircle3Pt
+
+CircleCircumference
+
+CircleRadius
+
+IsCircle
+
+
+
+
+

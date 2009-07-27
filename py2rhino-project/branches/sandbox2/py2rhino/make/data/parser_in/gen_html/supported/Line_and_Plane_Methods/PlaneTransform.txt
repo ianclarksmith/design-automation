@@ -1,0 +1,67 @@
+PlaneTransform
+
+
+
+PlaneTransform
+
+
+Transforms a plane.
+
+
+Syntax
+
+
+Rhino.PlaneTransform (arrPlane, arrXform)
+
+
+Parameters
+
+
+
+arrPlane 
+
+Required.  Array.  The plane to transform.
+
+arrXform 
+
+Required.  Array.  A valid 4x4 transformation matrix.
+
+
+Returns
+
+
+
+Array 
+
+The resulting plane if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim arrPlane, arrXform
+
+arrPlane = Rhino.ViewCPlane
+
+arrXform = Rhino.XformRotation(45.0, arrPlane(3), arrPlane(0))
+
+arrPlane = Rhino.PlaneTransform(arrPlane, arrXform)
+
+Rhino.ViewCPlane , arrPlane
+
+
+Also See
+
+
+PlaneFromFrame
+
+PlaneFromNormal
+
+PlaneFromPoints
+
+
+

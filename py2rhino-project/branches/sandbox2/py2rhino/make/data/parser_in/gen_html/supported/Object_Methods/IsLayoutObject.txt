@@ -1,0 +1,71 @@
+IsLayoutObject
+
+
+
+IsLayoutObject
+
+
+Verifies that an object is in either page layout space or model space.
+
+
+Syntax
+
+
+Rhino.IsLayoutObject (strObject)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of an object.
+
+
+Returns
+
+
+
+True 
+
+The object is in page layout space.
+
+False 
+
+The object is in model space.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject
+
+If Not IsNull(strObject) Then
+
+  If Rhino.IsLayoutObject(strObject) Then
+
+    Rhino.Print "The object is in page layout space."
+
+  Else
+
+    Rhino.Print "The object is in model space."
+
+  End If
+
+End If
+
+
+Also See
+
+
+IsObject
+
+IsObjectReference
+

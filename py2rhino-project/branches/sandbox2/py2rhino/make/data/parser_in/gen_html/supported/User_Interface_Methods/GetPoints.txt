@@ -1,0 +1,85 @@
+GetPoints
+
+
+
+GetPoints
+
+
+Pauses for user input of one or more points.
+
+
+Syntax
+
+
+Rhino.GetPoints ([blnDraw [, blnPlane [, strMessage1 [, strMessage2 [, intMaxPoints [, arrBasePoint]]]]]])
+
+
+Parameters
+
+
+
+blnDraw 
+
+Optional.  Boolean.  Draw lines between points.  The default is not to draw lines between points (False).
+
+blnPlane 
+
+Optional.  Boolean.  Constrain the point selection to the active construction plane.  The default is not to constrain points to the active construction plane (False).
+
+strMessage1 
+
+Optional.  String.  A prompt or message for the first point.
+
+strMessage2 
+
+Optional.  String.  A prompt or message for the next points.
+
+intMaxPoints 
+
+Optional.  Number.  The maximum number of points to pick.  If not specified, an unlimited number of points can be picked.
+
+arrBasePoint 
+
+Optional.  Array.  A starting, or base, point.
+
+
+Returns
+
+
+
+Array 
+
+An array of 3-D points if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPoints
+
+arrPoints = Rhino.GetPoints(True)
+
+If IsArray(arrPoints) Then
+
+Rhino.AddPointCloud arrPoints
+
+End If
+
+
+Also See
+
+
+GetPoint
+
+GetPointOnCurve
+
+GetPointOnSurface
+
+GetRectangle
+
+
+

@@ -1,0 +1,77 @@
+LineTransform
+
+
+
+LineTransform
+
+
+Transforms a line.
+
+
+Syntax
+
+
+Rhino.LineTransform (arrLine, arrXform)
+
+
+Parameters
+
+
+
+arrLine 
+
+Required.  Array.  Two 3-D points identifying the starting and ending points of the line.
+
+arrXform 
+
+Required.  Array.  A valid 4x4 transformation matrix.
+
+
+Returns
+
+
+
+Array 
+
+The resulting line if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim arrFrom, arrTo, arrPlane, arrXform, arrLine
+
+arrFrom = Array(0, 0, 0)
+
+arrTo = Array(10, 10, 0)
+
+Rhino.AddLine arrFrom, arrTo
+
+arrPlane = Rhino.WorldXYPlane
+
+arrXform = Rhino.XformRotation(30, arrPlane(3), arrPlane(0))
+
+arrLine = Rhino.LineTransform(Array(arrFrom, arrTo), arrXform)
+
+Rhino.AddLine arrLine(0), arrLine(1)
+
+
+Also See
+
+
+LineClosestPoint
+
+LineIsFartherThan
+
+LineMaxDistanceTo
+
+LineMinDistanceTo
+
+LinePlane
+
+
+

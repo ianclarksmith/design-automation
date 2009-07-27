@@ -1,0 +1,67 @@
+IsVectorZero
+
+
+
+IsVectorZero
+
+
+Verifies that a vector is zero, or tiny - the  x,y,z elements are equal to 0.0.
+
+
+Syntax
+
+
+Rhino.IsVectorZero (arrVector)
+
+
+Parameters
+
+
+
+arrVector 
+
+Required.  Array.  The 3-D vector to test.
+
+
+Returns
+
+
+
+Boolean 
+
+True if the vector is zero, otherwise False, if successful.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Dim arrPt1, arrPt2, arrVector
+
+arrPt1 = Rhino.GetPoint("First point")
+
+arrPt2 = Rhino.GetPoint("Next point")
+
+arrVector = Rhino.VectorCreate(arrPt2, arrPt1)
+
+If Rhino.IsVectorZero(arrVector) Then
+
+Rhino.Print "The vector is zero."
+
+Else
+
+Rhino.Print "The vector is not zero."
+
+End If
+
+
+Also See
+
+
+IsVectorTiny
+
+VectorCreate
+

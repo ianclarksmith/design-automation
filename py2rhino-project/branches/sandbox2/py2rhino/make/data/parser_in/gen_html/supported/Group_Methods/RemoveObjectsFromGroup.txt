@@ -1,0 +1,73 @@
+RemoveObjectsFromGroup
+
+
+
+RemoveObjectsFromGroup
+
+
+Removes one or more objects from an existing group.
+
+
+Syntax
+
+
+Rhino.RemoveObjectsFromGroup (arrObjects, strGroup)
+
+
+Parameters
+
+
+
+arrObjects 
+
+Required.  Array.  An array of object identifiers.
+
+strGroup 
+
+Required.  String.  The name of an existing group.
+
+
+Returns
+
+
+
+Number 
+
+The number of objects removed from the group if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, strGroup
+
+strGroup = "NewGroup"
+
+arrObjects = Rhino.GetObjects("Select objects")
+
+If IsArray(arrObjects) Then
+
+Rhino.RemoveObjectsFromGroup arrObjects, strGroup
+
+End If
+
+
+Also See
+
+
+IsGroupEmpty
+
+ObjectGroups
+
+ObjectsByGroup
+
+RemoveObjectFromAllGroups
+
+RemoveObjectFromGroup
+
+RemoveObjectFromTopGroup
+

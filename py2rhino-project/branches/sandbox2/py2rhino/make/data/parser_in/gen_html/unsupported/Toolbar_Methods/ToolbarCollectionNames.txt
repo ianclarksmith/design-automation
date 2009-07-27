@@ -1,0 +1,66 @@
+ToolbarCollectionNames
+
+
+
+ToolbarCollectionNames
+
+
+Returns the name of all currently open toolbar collections.
+
+
+Syntax
+
+
+Rhino.ToolbarCollectionNames ([blnPath])
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Array 
+
+The names of all currently open toolbar collections if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrNames, strName
+
+arrNames = Rhino.ToolbarCollectionNames
+
+If IsArray(arrNames) Then
+
+For Each strName in arrNames
+
+Rhino.Print strName
+
+Next
+
+End If
+
+
+Also See
+
+
+CloseToolbarCollection
+
+IsToolbarCollection
+
+OpenToolbarCollection
+
+ToolbarCollectionCount
+
+ToolbarCollectionPath
+

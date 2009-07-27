@@ -1,0 +1,65 @@
+SortNumbers
+
+
+
+SortNumbers
+
+
+Sorts an array of numbers.
+
+
+Syntax
+
+
+Rhino.SortNumbers (arrNumbers [, blnAscending])
+
+
+Parameters
+
+
+
+arrNumbers 
+
+Required.  Array.  An array of numeric values.
+
+blnAscending 
+
+Optional.  Boolean.  The sorting mode, either ascending or descending.  If omitted, the numbers are sorted ascending.
+
+
+Returns
+
+
+
+Array 
+
+An array of sorted numbers if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arr, n
+
+arr = Array(1,4,6,1,4,8,4,9,4,5)
+
+arr = Rhino.SortNumbers(arr, True)
+
+For Each n In arr
+
+Rhino.Print n
+
+Next
+
+
+Also See
+
+
+SortStrings
+
+SortPoints
+

@@ -1,0 +1,32 @@
+Linetype Methods
+
+
+
+Linetype Methods
+
+
+The following methods are available for adding, querying or manipulating linetypes.
+
+
+
+
+Method 
+
+Description
+
+IsLinetype 
+
+Verifies a linetype exists.
+
+IsLinetypeReference 
+
+Verifies a linetype is reference.
+
+LinetypeCount 
+
+Returns the number of linetypes.
+
+LinetypeNames 
+
+Returns the names of all linetypes.
+

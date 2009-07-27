@@ -1,0 +1,71 @@
+LockedObjects
+
+
+
+LockedObjects
+
+
+Returns the identifiers of all locked objects in the document.  Visible objects are visible and can be snapped to, but they cannot be selected.
+
+
+Syntax
+
+
+Rhino.LockedObjects ([blnIncludeLights [, blnIncludeGrips]])
+
+
+Parameters
+
+
+
+blnIncludeLights 
+
+Optional.  Boolean.  Include light objects.  If omitted, light objects are not returned (False).
+
+blnIncludeGrips 
+
+Optional.  Boolean.  Include grips objects.  If omitted, grips objects are not returned (False).
+
+
+Returns
+
+
+
+Array 
+
+An array of strings identifying the objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, strObject
+
+arrObjects = Rhino.LockedObjects
+
+If IsArray(arrObjects) Then
+
+For Each strObject In arrObjects
+
+Rhino.Print "Object identifier: " & strObject
+
+Next
+
+End If
+
+
+Also See
+
+
+AllObjects
+
+HiddenObjects
+
+NormalObjects
+
+ReferenceObjects
+

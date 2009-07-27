@@ -1,0 +1,63 @@
+MeshPolyline
+
+
+
+MeshPolyline
+
+
+Creates a polygon mesh object based on a closed polyline curve object. The newly created polygon mesh object is added to the document.
+
+
+Syntax
+
+
+Rhino.MeshPolyline (strPolyline)
+
+
+Parameters
+
+
+
+strPolyline 
+
+Required.  String.  The identifier of the polyline curve object.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new polygon mesh object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strPolyline
+
+strPolyline = Rhino.GetObject("Select a polyline", 4)
+
+If Not IsNull(strPolyline) Then
+
+If Rhino.IsPolyline(strPolyline) And Rhino.IsCurveClosed(strPolyline) Then
+
+Rhino.MeshPolyline strPolyline
+
+End If
+
+End If
+
+
+Also See
+
+
+IsCurveClosed
+
+IsPolyline
+

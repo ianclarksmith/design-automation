@@ -1,0 +1,83 @@
+BlockDescription
+
+
+
+BlockDescription
+
+
+Returns or sets the description of a block definition.
+
+
+Syntax
+
+
+Rhino.BlockDescription (strBlock [, strText])
+
+
+Parameters
+
+
+
+strBlock 
+
+Required.  String.  The name of an existing block definition.
+
+strText 
+
+Optional.  String.  The new description.  If omitted, the current description is returned.
+
+
+Returns
+
+
+
+String 
+
+If a description is not specified,  the current description if successful.
+
+String 
+
+If a description is specified, the previous description if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strBlock, strDesc
+
+strBlock = Rhino.GetString("Block name to list description")
+
+If Rhino.IsBlock(strBlock) Then
+
+strDesc = Rhino.BlockDescription(strBlock)
+
+If IsNull(strDesc) Then
+
+Rhino.Print "No description"
+
+Else
+
+Rhino.Print strDesc
+
+End If
+
+End If
+
+
+Also See
+
+
+BlockURL
+
+BlockURLTag
+
+IsBlock
+
+
+
+
+

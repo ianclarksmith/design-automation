@@ -1,0 +1,71 @@
+ExplodePolysurfaces
+
+
+
+ExplodePolysurfaces
+
+
+Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.
+
+
+Syntax
+
+
+Rhino.ExplodePolysurfaces (strObject [, blnDelete])
+
+Rhino.ExplodePolysurfaces (arrObjects [, blnDelete])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the polysurface object to explode.
+
+arrObjects 
+
+Required.  Array.   An array of strings identifying the polysurface objects to explode.
+
+blnDelete 
+
+Optional.  Boolean.  Delete input objects after exploding.  The default is not to delete objects (False).
+
+
+Returns
+
+
+
+Array 
+
+An array of strings identifying the newly created surface objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectPolySurface = 16
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select polysurface to explode", rhObjectPolySurface)
+
+If Rhino.IsPolysurface(strObject) Then
+
+Rhino.ExplodePolysurfaces strObject
+
+End If
+
+
+Also See
+
+
+IsPolysurface
+
+IsSurface
+

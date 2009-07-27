@@ -1,0 +1,75 @@
+SurfaceNormal
+
+
+
+SurfaceNormal
+
+
+Returns a 3-D vector that is the normal to a surface at a parameter.
+
+
+Syntax
+
+
+Rhino.SurfaceNormal (strObject, arrParameter)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+arrParameter 
+
+Required.  Array.  An array containing the UV parameter to evaluate.
+
+
+Returns
+
+
+
+Array 
+
+A 3-D vector if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectSurface = 8
+
+Dim strObject, arrPoint, arrParam, arrNormal
+
+strObject = Rhino.GetObject("Select a surface", rhObjectSurface)
+
+If Not IsNull(strObject) Then
+
+arrPoint = Rhino.GetPointOnSurface(strObject)
+
+If IsArray(arrPoint) Then
+
+arrParam = Rhino.SurfaceClosestPoint(strObject, arrPoint)
+
+arrNormal = Rhino.SurfaceNormal(strObject, arrParam)
+
+Rhino.Print Rhino.Pt2Str(arrNormal)
+
+End If
+
+End If
+
+
+Also See
+
+
+SurfaceClosestPoint
+
+SurfaceDomain
+

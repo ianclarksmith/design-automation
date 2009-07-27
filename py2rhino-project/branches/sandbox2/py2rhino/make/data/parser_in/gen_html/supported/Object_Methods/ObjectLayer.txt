@@ -1,0 +1,75 @@
+ObjectLayer
+
+
+
+ObjectLayer
+
+
+Returns or modifies the layer of an object.
+
+
+Syntax
+
+
+Rhino.ObjectLayer (strObject [, strLayer])
+
+Rhino.ObjectLayer (arrObjects , strLayer)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the object.
+
+arrObjects 
+
+Required.  Array.  An array of strings identifying the objects to modify.
+
+strLayer 
+
+Optional.  String.  The name of an existing layer.  If omitted, the current object layer is returned.  Note, if arrObjects is specified, strLayer is required.
+
+
+Returns
+
+
+
+Number 
+
+If a layer is not specified,  the object's current layer if successful.
+
+Number 
+
+If a layer is specified, the object's previous layer if successful.
+
+Number 
+
+If arrObjects is specified, then the number of objects modified if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Not IsNull(strObject) Then
+
+Rhino.ObjectLayer strObject, "Default"
+
+End If
+
+
+Also See
+
+
+ObjectsByLayer
+

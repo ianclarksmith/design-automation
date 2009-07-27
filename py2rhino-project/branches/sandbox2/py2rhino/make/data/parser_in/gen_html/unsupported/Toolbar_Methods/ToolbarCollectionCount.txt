@@ -1,0 +1,58 @@
+ToolbarCollectionCount
+
+
+
+ToolbarCollectionCount
+
+
+Returns the number of currently open toolbar collections.
+
+
+Syntax
+
+
+Rhino.ToolbarCollectionCount ()
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Number 
+
+The number of currently open toolbar collections if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim intCount
+
+intCount = Rhino.ToolbarCollectionCount
+
+Rhino.Print "There are " & CStr(intCount) & " toolbar(s) collections loaded."
+
+
+Also See
+
+
+CloseToolbarCollection
+
+IsToolbarCollection
+
+OpenToolbarCollection
+
+ToolbarCollectionNames
+
+ToolbarCollectionPath
+

@@ -1,0 +1,75 @@
+SpotLightShadowIntensity
+
+
+
+SpotLightShadowIntensity
+
+
+Returns or modifies the shadow intensity of a spot light.
+
+
+Syntax
+
+
+Rhino.SpotLightShadowIntensity (strObject [, dblIntensity])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The light object's identifier.
+
+dblIntensity 
+
+Optional.  Number.  The new shadow intensity.  A spot light's shadow intensity ranges from 0.0 to 1.0.  If set to 0.0, the spot light will cast no shadows.  If set to 1.0, the spot light will cast black shadows.  If omitted, the current shadow intensity is returned.
+
+
+Returns
+
+
+
+Number 
+
+If dblIntensity is not specified, then the current shadow intensity if successful.
+
+Number 
+
+If dblIntensity is specified, then the previous shadow intensity if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Const rhObjectLight = 256
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select a light", rhObjectLight)
+
+If Not IsNull(strObject) Then
+
+Rhino.SpotLightShadowIntensity strObject, 0.75
+
+End If
+
+
+Also See
+
+
+AddSpotLight
+
+IsSpotLight
+
+SpotLightHardness
+
+SpotLightRadius
+
+
+

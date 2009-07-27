@@ -1,0 +1,81 @@
+ShearObjects
+
+
+
+ShearObjects
+
+
+Performs a shear transformation on one or more objects. Transformation is based on the active construction plane.
+
+
+Syntax
+
+
+Rhino.ShearObjects (arrObjects, arrOrigin, arrRefPt, dblAngle [, blnCopy])
+
+
+Parameters
+
+
+
+arrObjects 
+
+Required. Array. An array of strings identifying the objects to shear.
+
+arrOrigin 
+
+Required. Array. The origin of the shear transformation.
+
+arrRefPt 
+
+Required. Array. The reference point of the shear transformation.
+
+arrScale 
+
+Required. Number. An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
+
+blnCopy 
+
+Optional. Boolean. Copy the objects. If omitted, the objects will not be copied (False).
+
+
+Returns
+
+
+
+Array 
+
+An array of strings identifying the scaled objects if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, arrOrigin, arrRefPt
+
+arrObjects = Rhino.GetObjects("Select objects to shear")
+
+If IsArray(arrObjects) Then
+
+arrOrigin = Rhino.GetPoint("Origin point")
+
+arrRefPt = Rhino.GetPoint("Reference point")
+
+If IsArray(arrOrigin) And IsArray(arrRefPt) Then
+
+Rhino.ShearObjects arrObjects, arrOrigin, arrRefpt, 45.0, True
+
+End If
+
+End If
+
+
+Also See
+
+
+ShearObject
+

@@ -1,0 +1,75 @@
+LayerVisible
+
+
+
+LayerVisible
+
+
+Returns or changes the visibility property of a layer. This method should be use instead of LayerMode.
+
+
+Syntax
+
+
+Rhino.LayerVisible (strLayer [, blnVisible])
+
+
+Parameters
+
+
+
+strLayer 
+
+Required.  String.  The name of an existing layer.
+
+blnVisible 
+
+Optional.  Boolean.  The new layer visibility.  True = Visible, False = Hidden.
+
+
+Returns
+
+
+
+Boolean 
+
+If a layer mode is not specified,  the current layer visibility if successful.
+
+Boolean 
+
+If a layer mode is specified, the previous layer visibility if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrLayers, strLayer
+
+arrLayers = Rhino.LayerNames
+
+If IsArray(arrLayers) Then
+
+  For Each strLayer In arrLayers
+
+    If Rhino.LayerVisible(strLayer) = False Then
+
+      Rhino.LayerVisible strLayer, True
+
+    End If
+
+  Next
+
+End If
+
+
+Also See
+
+
+LayerLocked
+
+LayerMode
+

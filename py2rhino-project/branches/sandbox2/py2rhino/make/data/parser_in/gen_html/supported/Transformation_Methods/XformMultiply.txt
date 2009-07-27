@@ -1,0 +1,85 @@
+XformMultiply
+
+
+
+XformMultiply
+
+
+Multiples two transformation matrices, where arrXform = arrXform1 * arrXform2.
+
+
+Syntax
+
+
+Rhino.XformMultiply (arrXform1, arrXform2)
+
+
+Parameters
+
+
+
+arrXform1 
+
+Required.  Array.  The first 4x4 transformation matrix to multiply.
+
+arrXform2 
+
+Required.  Array.  The second 4x4 transformation matrix to multiply.
+
+
+Returns
+
+
+
+Array 
+
+The 4x4 transformation matrix.
+
+Null 
+
+On error.
+
+
+Example
+
+
+arrObjects = Rhino.GetObjects("Select objects to shear")
+
+If IsArray(arrObjects) Then
+
+  arrCPlane = Rhino.ViewCPlane
+
+  arrPlane = Rhino.PlaneFromNormal(arrCPlane(0), arrCPlane(1))
+
+  arrCob = Rhino.XformChangeBasis(Rhino.WorldXYPlane, arrPlane)
+
+  arrShear2d = Rhino.XformIdentity
+
+  arrShear2d(0,2) = Tan(Rhino.ToRadians(45.0))
+
+  arrCobInv = Rhino.XformChangeBasis(arrPlane, Rhino.WorldXYPlane)
+
+  arrTemp = Rhino.XformMultiply(arrShear2d, arrCob)
+
+  arrXform = Rhino.XformMultiply(arrCobInv, arrTemp)
+
+  Rhino.TransformObjects arrObjects, arrXform, True
+
+End If
+
+
+Also See
+
+
+XformPlanarProjection
+
+XformRotation
+
+XformScale
+
+XformShear
+
+XformTranslation
+
+
+

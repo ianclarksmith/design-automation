@@ -1,0 +1,73 @@
+CurveArcLengthPoint
+
+
+
+CurveArcLengthPoint
+
+
+Returns the point on the curve that is a specified arc length from the start of the curve.
+
+
+Syntax
+
+
+Rhino.CurveArcLengthPoint (strObject, dblLength [, blnFromStart])
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The object's identifier.
+
+dblLength 
+
+Required.  Number. The arc length from the start of the curve to evaluate.
+
+blnFromStart 
+
+Optional.  Boolean.  If not specified or True, then the arc length point is calculated from the start of the curve. If False, the arc length point is calculated from the end of the curve.
+
+
+Returns
+
+
+
+Array 
+
+The 3-D point if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strObject, dblLength
+
+strObject = Rhino.GetObject("Select a curve")
+
+If Rhino.IsCurve(strObject) Then
+
+  dblLength = Rhino.CurveLength(strObject)
+
+  arrPoint = Rhino.CurveArcLengthPoint(strObject, dblLength/3)
+
+  Rhino.AddPoint arrPoint
+
+End If
+
+
+Also See
+
+
+CurveEndPoint
+
+CurveMidPoint
+
+CurveStartPoint
+

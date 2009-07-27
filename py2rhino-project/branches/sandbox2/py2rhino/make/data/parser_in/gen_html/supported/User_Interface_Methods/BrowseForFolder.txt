@@ -1,0 +1,75 @@
+BrowseForFolder
+
+
+
+BrowseForFolder
+
+
+Displays the Windows browse-for-folder dialog box allowing the user to select a folder.
+
+
+Syntax
+
+
+Rhino.BrowseForFolder ([strFolder [, strMessage [, strTitle]]])
+
+
+Parameters
+
+
+
+strFolder 
+
+Optional.  String.  A default folder.
+
+strMessage 
+
+Optional.  String.  A prompt or message.
+
+strTitle 
+
+Optional.  String.  A dialog box title.
+
+
+Returns
+
+
+
+String 
+
+The selected folder if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strFolder
+
+strFolder = Rhino.BrowseForFolder("C:\Program Files\" )
+
+If Not IsNull(strFolder) Then
+
+Rhino.Print strFolder
+
+End If
+
+
+
+
+
+
+
+
+Also See
+
+
+OpenFileName
+
+SaveFileName
+
+
+

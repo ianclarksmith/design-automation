@@ -1,0 +1,90 @@
+EnableObjectMesh
+
+
+
+EnableObjectMesh
+
+
+Enables or disables an object's custom render mesh parameters. If an object's custom render mesh parameters are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.
+
+For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
+
+
+Syntax
+
+
+Rhino.EnableObjectMesh (strObject [, blnEnable])
+
+
+Parameters
+
+
+
+arrObjects 
+
+Required.  Object.  The identifier of a meshable object.
+
+blnEnable 
+
+Optional.  Boolean.  Enable the custom render mesh settings.
+
+
+Returns
+
+
+
+Boolean 
+
+If blnEnable is not specified, then the current enabled/disabled state if successful.
+
+Boolean 
+
+If blnEnable is not specified, then the current enabled/disabled state if successful.
+
+Null 
+
+If the object does not have custom render mesh parameters, or on error.
+
+
+Example
+
+
+Dim strObject
+
+strObject = Rhino.GetObject("Select object")
+
+If Rhino.ObjectHasMesh(strObject) = True Then
+
+Rhino.EnableObjectMesh strObject, True
+
+End If
+
+
+Also See
+
+
+AddObjectMesh
+
+ObjectHasMesh
+
+ObjectMeshDensity
+
+ObjectMeshMaxAngle
+
+ObjectMeshMaxAspectRatio
+
+ObjectMeshMaxDistEdgeToSrf
+
+ObjectMeshMaxEdgeLength
+
+ObjectMeshMinEdgeLength
+
+ObjectMeshMinInitialGridQuads
+
+ObjectMeshQuality
+
+ObjectMeshSettings
+ 
+
+
+

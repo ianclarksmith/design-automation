@@ -1,0 +1,95 @@
+LayerMode
+
+
+
+LayerMode
+
+
+OBSOLETE, use either LayerLocked or LayerVisible instead.
+
+Returns or changes the mode of a layer.
+
+
+Syntax
+
+
+Rhino.LayerMode (strLayer [, intMode])
+
+
+Parameters
+
+
+
+strLayer 
+
+Required.  String.  The name of an existing layer.
+
+intMode 
+
+Optional.  Number.  The new layer mode.  The layer modes are as follows:
+
+
+Value 
+
+Description
+
+0 
+
+Normal.  The layer is visible, and objects on the layer can be selected and changed. (Visible and Unlocked)
+
+1 
+
+Hidden.  The layer is not visible, and objects on the layer cannot be selected or changed. (Hidden and Unlocked)
+
+2 
+
+Locked.  The layer is visible, but objects on the layer cannot be selected or changed. (Visible and Locked)
+
+
+
+Returns
+
+
+
+Number 
+
+If a layer mode is not specified,  the current layer mode  if successful.
+
+Number 
+
+If a layer mode is specified, the previous layer mode if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrLayers, strLayer
+
+arrLayers = Rhino.LayerNames
+
+If IsArray(arrLayers) Then
+
+  For Each strLayer In arrLayers
+
+    If Rhino.LayerMode(strLayer) <> 0 Then
+
+      Rhino.LayerMode strLayer, 0
+
+    End If
+
+  Next
+
+End If
+
+
+Also See
+
+
+LayerLocked
+
+LayerVisible
+

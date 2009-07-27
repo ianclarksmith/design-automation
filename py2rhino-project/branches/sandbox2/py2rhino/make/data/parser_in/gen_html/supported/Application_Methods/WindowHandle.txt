@@ -1,0 +1,44 @@
+WindowHandle
+
+
+
+WindowHandle
+
+
+Returns the Windows handle of Rhino's main window.
+
+
+Syntax
+
+
+Rhino.WindowHandle
+
+
+Parameters
+
+
+None.
+
+
+Returns
+
+
+
+Number 
+
+Rhino's main window handle.
+
+
+Example
+
+
+Dim intHandle
+
+intHandle = Rhino.WindowHandle
+
+MsgBox CStr(intHandle)
+
+
+Also See
+
+

@@ -1,0 +1,80 @@
+HatchPatternFillType
+
+
+
+HatchPatternFillType
+
+
+
+Returns the fill type of a hatch pattern. Hatch patterns have one of the following fill types:
+
+
+
+Value 
+
+Description
+
+0 
+
+Solid, uses object color.
+
+1 
+
+Lines, uses pattern file definition.
+
+2 
+
+Gradient, uses fill color definition.
+
+
+Syntax
+
+
+Rhino.HatchPatternFillType (strHatch)
+
+
+Parameters
+
+
+
+strHatch 
+
+Required.  String.  The name of an existing hatch pattern.
+
+
+Returns
+
+
+
+Number 
+
+If hatch pattern's fill type if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrPatterns, strPattern, nFill
+
+arrPatterns = Rhino.HatchPatternNames
+
+For Each strPattern In arrPatterns
+
+  nFill = Rhino.HatchPatternFillType(strPattern)
+
+  Rhino.Print strPattern & " - " & CStr(nFill)
+
+Next
+
+
+Also See
+
+
+HatchPatternCount
+
+HatchPatternNames
+

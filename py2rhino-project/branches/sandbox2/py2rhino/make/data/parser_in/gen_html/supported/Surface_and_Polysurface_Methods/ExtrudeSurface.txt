@@ -1,0 +1,75 @@
+ExtrudeSurface
+
+
+
+ExtrudeSurface
+
+
+Creates a surface or solid by extruding a straight along a path curve.
+
+
+Syntax
+
+
+Rhino.ExtrudeSurface (strSurface, strCurve [, blnCap])
+
+
+Parameters
+
+
+
+Parameters
+
+
+
+strSurface 
+
+Required.  String.  The identifier of the surface object to extrude.
+
+strCurve 
+
+Required.  String.  The identifier of the path curve.
+
+blnCap 
+
+Optional.  Boolean.  Extrusion is capped at both ends to make a closed polysurface. The default value is True.
+
+
+Returns
+
+
+
+String 
+
+The identifier of the new object if successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim strSurface, strCurve
+
+strSurface = Rhino.AddSrfPt(Array(Array(0,0,0), Array(5,0,0), Array(5,5,0), Array(0,5,0)))
+
+strCurve = Rhino.AddLine(Array(5,0,0), Array(10,0,10))
+
+Rhino.ExtrudeSurface strSurface, strCurve
+
+
+Also See
+
+
+ExtrudeCurve
+
+ExtrudeCurvePoint
+
+ExtrudeCurveStraight
+
+ExtrudeCurveTapered
+
+
+

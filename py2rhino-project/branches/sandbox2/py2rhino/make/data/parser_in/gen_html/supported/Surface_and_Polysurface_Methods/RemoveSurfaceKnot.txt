@@ -1,0 +1,77 @@
+RemoveSurfaceKnot
+
+
+
+RemoveSurfaceKnot
+
+
+Deletes a knot-line from a surface object.
+
+
+Syntax
+
+
+Rhino.RemoveSurfaceKnot (strObject, arrParameter, intDirection)
+
+
+Parameters
+
+
+
+strObject 
+
+Required.  String.  The identifier of the surface object.
+
+dblParameter 
+
+Required.  Array.  An array containing a U,V parameter on the surface.  Note, if the parameter is not equal to one of the existing knots, then the knot closest to the specified parameter will be removed.
+
+intDirection 
+
+Required.  Number.  The direction for knot insertion, either 0 = U, or 1 = V.
+
+
+Returns
+
+
+
+Boolean 
+
+True of False indicating success or failure.
+
+Null 
+
+On error.
+
+
+Example
+
+
+Const rhObjectSurface = 8
+
+Dim strObject, arrPoint, arrParameter
+
+strObject = Rhino.GetObject("Select surface for knot removal", rhObjectSurface)
+
+If Not IsNull(strObject)Then
+
+arrPoint = Rhino.GetPointOnSurface(strObject, "Point on surface to remove knot")
+
+  If IsArray(arrPoint) Then
+
+    arrParameter = Rhino.SurfaceClosestPoint(strObject, arrPoint)
+
+    Rhino.RemoveSurfaceKnot strObject, arrParameter, 0
+
+  End If
+
+End If
+
+
+Also See
+
+
+SurfaceKnotCount
+
+SurfaceKnots
+

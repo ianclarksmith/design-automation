@@ -1,0 +1,73 @@
+XformMirror
+
+
+
+XformMirror
+
+
+Creates a mirror transformation matrix.
+
+
+Syntax
+
+
+Rhino.XformMirror (arrPoint, arrNormal)
+
+
+Parameters
+
+
+
+arrPoint 
+
+Required.  Array.  A 3-D point on mirror plane.
+
+arrNormal 
+
+Required.  Array.  A 3-D vector that is normal to mirror plane.
+
+
+Returns
+
+
+
+Array 
+
+The 4x4 transformation matrix is successful.
+
+Null 
+
+If not successful, or on error.
+
+
+Example
+
+
+Dim arrObjects, arrPlane, arrXform
+
+arrObjects = Rhino.GetObjects("Select objects to mirror")
+
+If IsArray(arrObjects) Then
+
+  arrPlane = Rhino.ViewCPlane
+
+  arrXform = Rhino.XformMirror(arrPlane(0), arrPlane(1))
+
+  Rhino.TransformObjects arrObjects, arrXform, True
+
+End If
+
+
+Also See
+
+
+XformPlanarProjection
+
+XformRotation
+
+XformScale
+
+XformShear
+
+XformTranslation
+
