@@ -141,7 +141,7 @@ class _Object(object):
         There are no parameters for this command.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.delete", self.get_eco_id())
+        arg_str = p2e.string_util._convert_args_to_string("object.delete", self.eco_id)
         p2e.conversation.Exec(arg_str)
         
         #Update model lists
@@ -159,7 +159,7 @@ class _Object(object):
         The zero-based node index belonging to the object. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.delnode", self.get_eco_id(), 
+        arg_str = p2e.string_util._convert_args_to_string("object.delnode", self.eco_id, 
                                                      node)
         p2e.conversation.Exec(arg_str)
         
@@ -184,7 +184,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("object.duplicate", 
-                                                      self.get_eco_id(), 
+                                                      self.eco_id, 
                                                       move_distance[0], 
                                                       move_distance[1], 
                                                       move_distance[2])
@@ -211,7 +211,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("object.link", 
-                                                          self.get_eco_id(), 
+                                                          self.eco_id, 
                                                           parent)
         p2e.conversation.Exec(arg_str)     
         
@@ -328,7 +328,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("object.extrude", 
-                                                          self.get_eco_id(), 
+                                                          self.eco_id, 
                                                           extrude_distance[0], 
                                                           extrude_distance[1], 
                                                           extrude_distance[2])
@@ -348,7 +348,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("object.move",
-                                                          self.get_eco_id(), 
+                                                          self.eco_id, 
                                                           move_distance[0], 
                                                           move_distance[1], 
                                                           move_distance[2])
@@ -377,7 +377,7 @@ class _Object(object):
         3 Towards positive Z axis. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.normal", self.get_eco_id(), 
+        arg_str = p2e.string_util._convert_args_to_string("object.normal", self.eco_id, 
                                                      type)
         p2e.conversation.Exec(arg_str)
 
@@ -405,7 +405,7 @@ class _Object(object):
     
         """
         arg_str = p2e.string_util._convert_args_to_string("object.nudge", 
-                                                      self.get_eco_id(), dir)
+                                                      self.eco_id, dir)
         p2e.conversation.Exec(arg_str)
 
     def orient(self, azi, alt):
@@ -424,7 +424,7 @@ class _Object(object):
         The vertical angle of orientation, given in degrees. 
   
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.orient", self.get_eco_id(), 
+        arg_str = p2e.string_util._convert_args_to_string("object.orient", self.eco_id, 
                                                      azi, alt)
         p2e.conversation.Exec(arg_str)
 
@@ -458,7 +458,7 @@ class _Object(object):
         2 Around the Y axis. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.revolve", self.get_eco_id(), 
+        arg_str = p2e.string_util._convert_args_to_string("object.revolve", self.eco_id, 
                                                      axis, angle, segs)
         p2e.conversation.Exec(arg_str)
 
@@ -479,7 +479,7 @@ class _Object(object):
         The altitude angle of rotation in decimal degrees.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.rotate", self.get_eco_id(), 
+        arg_str = p2e.string_util._convert_args_to_string("object.rotate", self.eco_id, 
                                                      azi, alt)
         p2e.conversation.Exec(arg_str)
 
@@ -499,7 +499,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("object.rotateaxis", 
-                                                      self.get_eco_id(), rx, ry, rz)
+                                                      self.eco_id, rx, ry, rz)
         p2e.conversation.Exec(arg_str)
         
     def rotate_reverse(self, azi, alt):
@@ -520,7 +520,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("object.rotatereverse", 
-                                                      self.get_eco_id(), azi, alt)
+                                                      self.eco_id, azi, alt)
         p2e.conversation.Exec(arg_str)
 
     def scale(self, scale_factor):
@@ -535,7 +535,7 @@ class _Object(object):
         A list of three scale factors to apply in each of the major axes. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.scale", self.get_eco_id(), 
+        arg_str = p2e.string_util._convert_args_to_string("object.scale", self.eco_id, 
                                                      scale_factor[0], scale_factor[1], scale_factor[2])
         p2e.conversation.Exec(arg_str)
 
@@ -549,7 +549,7 @@ class _Object(object):
         There are no parameters for this command.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.select", self.get_eco_id())
+        arg_str = p2e.string_util._convert_args_to_string("object.select", self.eco_id)
         p2e.conversation.Exec(arg_str)
         
     def spin(self, spin):
@@ -565,7 +565,7 @@ class _Object(object):
         The spin angle given in decimal degrees.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.spin", self.get_eco_id(), spin)
+        arg_str = p2e.string_util._convert_args_to_string("object.spin", self.eco_id, spin)
         p2e.conversation.Exec(arg_str)
 
     def update(self):
@@ -581,7 +581,7 @@ class _Object(object):
         There are no parameters for this command.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.update", self.get_eco_id())
+        arg_str = p2e.string_util._convert_args_to_string("object.update", self.eco_id)
         p2e.conversation.Exec(arg_str)
 
     def xform(self, trans, function_values):
@@ -618,7 +618,7 @@ class _Object(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("object.xform", 
-                                                          self.get_eco_id(), 
+                                                          self.eco_id, 
                                                           trans, 
                                                           function_values[0], 
                                                           function_values[1], 
@@ -664,7 +664,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.activation", 
-                                                     self.get_eco_id(), day, hour)
+                                                     self.eco_id, day, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -688,7 +688,7 @@ class _Object(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.alternate", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
         
@@ -712,7 +712,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.alternate", 
-                                                     self.get_eco_id(), material)
+                                                     self.eco_id, material)
         p2e.conversation.Exec(arg_str)
 
     def get_angle(self, type):
@@ -745,7 +745,7 @@ class _Object(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.angle", 
-                                                     self.get_eco_id(), type)
+                                                     self.eco_id, type)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -766,7 +766,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.area", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
         
@@ -787,7 +787,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.attr1", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -805,7 +805,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.attr1", 
-                                                     self.get_eco_id(), value)
+                                                     self.eco_id, value)
         p2e.conversation.Exec(arg_str)
  
  
@@ -826,7 +826,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.attr2", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -844,7 +844,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.attr2", 
-                                                     self.get_eco_id(), value)
+                                                     self.eco_id, value)
         p2e.conversation.Exec(arg_str)       
 
     def get_attr_3(self):
@@ -864,7 +864,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.attr3", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -882,7 +882,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.attr3", 
-                                                     self.get_eco_id(), value)
+                                                     self.eco_id, value)
         p2e.conversation.Exec(arg_str)
 
     def get_center(self):
@@ -904,7 +904,7 @@ class _Object(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.center", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -923,7 +923,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.center", 
-                                                          self.get_eco_id(), 
+                                                          self.eco_id, 
                                                           absolute_position[0], 
                                                           absolute_position[1], 
                                                           absolute_position[2])
@@ -965,7 +965,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.child.extents", 
-                                                     self.get_eco_id(), absolute)
+                                                     self.eco_id, absolute)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float, float)
 
@@ -1011,7 +1011,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.child.extents", 
-                                                     self.get_eco_id(), u, v, wu, hv)
+                                                     self.eco_id, u, v, wu, hv)
         p2e.conversation.Exec(arg_str)
 
     def get_coplanar(self, absolute_position):
@@ -1036,7 +1036,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.coplanar", 
-                                                     self.get_eco_id(), 
+                                                     self.eco_id, 
                                                      absolute_position[0], 
                                                      absolute_position[1], 
                                                      absolute_position[2])
@@ -1055,7 +1055,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.current", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         p2e.conversation.Exec(arg_str)
 
     def get_distance_to(self, absolute_position):
@@ -1082,7 +1082,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.distanceto", 
-                                                     self.get_eco_id(), 
+                                                     self.eco_id, 
                                                      absolute_position[0], 
                                                      absolute_position[1], 
                                                      absolute_position[2])
@@ -1108,7 +1108,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.equation", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float, float)
  
@@ -1123,7 +1123,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.equation", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         p2e.conversation.Exec(arg_str)
         
     def get_exposure(self):
@@ -1143,7 +1143,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.exposure", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -1164,7 +1164,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.extents", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -1196,7 +1196,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.extents.2dpt", 
-                                                     self.get_eco_id(), u, v)
+                                                     self.eco_id, u, v)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -1218,7 +1218,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.extents.max", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -1239,7 +1239,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.extents.min", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -1259,7 +1259,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.firstnode", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
         
@@ -1311,7 +1311,7 @@ class _Object(object):
      
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.flag", 
-                                                     self.get_eco_id(), flag)
+                                                     self.eco_id, flag)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 
@@ -1366,7 +1366,7 @@ class _Object(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.flag", 
-                                                     self.get_eco_id(), flag, state)
+                                                     self.eco_id, flag, state)
         p2e.conversation.Exec(arg_str)
         
     def get_incidence(self, coordinates):
@@ -1393,7 +1393,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.incidence", 
-                                                     self.get_eco_id(), 
+                                                     self.eco_id, 
                                                      coordinates[0], 
                                                      coordinates[1], 
                                                      coordinates[2])
@@ -1434,7 +1434,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.inside", 
-                                                     self.get_eco_id(), 
+                                                     self.eco_id, 
                                                      coordinates[0], 
                                                      coordinates[1],
                                                      coordinates[2], 
@@ -1472,7 +1472,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.intersect", 
-                                                     self.get_eco_id(), 
+                                                     self.eco_id, 
                                                      coordinates_1[0], 
                                                      coordinates_1[1], 
                                                      coordinates_1[2],
@@ -1498,7 +1498,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.lastnode", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 
@@ -1519,7 +1519,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.length", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -1541,7 +1541,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.link", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 
@@ -1564,7 +1564,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.mask", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 
@@ -1584,7 +1584,7 @@ class _Object(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.mask", 
-                                                     self.get_eco_id(), index)
+                                                     self.eco_id, index)
         p2e.conversation.Exec(arg_str)
 
     def get_material(self):
@@ -1607,7 +1607,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.material", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 
@@ -1631,7 +1631,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.material", 
-                                                     self.get_eco_id(), material)
+                                                     self.eco_id, material)
         p2e.conversation.Exec(arg_str)
 
     def get_node_position(self, node):
@@ -1657,7 +1657,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.node.position", 
-                                                     self.get_eco_id(), node)
+                                                     self.eco_id, node)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -1680,7 +1680,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.node.position", 
-                                                     self.get_eco_id(), node, x, y, z)
+                                                     self.eco_id, node, x, y, z)
         p2e.conversation.Exec(arg_str)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
     def get_nodes(self):
@@ -1705,7 +1705,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.node", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 
@@ -1729,7 +1729,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.normal", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -1750,7 +1750,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.panelarea", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -1795,7 +1795,7 @@ class _Object(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.pt.even", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float, int)
 
@@ -1827,7 +1827,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.pt.initialise", 
-                                                     self.get_eco_id(), fraction)
+                                                     self.eco_id, fraction)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 
@@ -1872,7 +1872,7 @@ class _Object(object):
  
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.pt.random", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float, int)
 
@@ -1899,7 +1899,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.reflect", 
-                                                     self.get_eco_id(), 
+                                                     self.eco_id, 
                                                      absolute_position[0], 
                                                      absolute_position[1],
                                                      absolute_position[2])
@@ -1923,7 +1923,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.resolution", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -1941,7 +1941,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.node.position", 
-                                                     self.get_eco_id(), value)
+                                                     self.eco_id, value)
         p2e.conversation.Exec(arg_str)
 
     def get_same_side(self, coordinates_1, coordinates_2):
@@ -1972,7 +1972,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.sameside", 
-                                                     self.get_eco_id(), 
+                                                     self.eco_id, 
                                                      coordinates_1[0], 
                                                      coordinates_1[1], 
                                                      coordinates_1[2],
@@ -2005,7 +2005,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.schedule", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
         
@@ -2032,7 +2032,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.schedule", 
-                                                     self.get_eco_id(), schedule)
+                                                     self.eco_id, schedule)
         p2e.conversation.Exec(arg_str)
         
     def get_selected(self):
@@ -2054,7 +2054,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.selected", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 
@@ -2078,7 +2078,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.selected", 
-                                                     self.get_eco_id(), state)
+                                                     self.eco_id, state)
         p2e.conversation.Exec(arg_str)
 
     def get_sun_angles(self):
@@ -2106,7 +2106,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.sunangles", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float)
 
@@ -2150,7 +2150,7 @@ class _Object(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.tag", 
-                                                     self.get_eco_id(), tag)
+                                                     self.eco_id, tag)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
         
@@ -2195,7 +2195,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.tag", 
-                                                     self.get_eco_id(), tag, state)
+                                                     self.eco_id, tag, state)
         p2e.conversation.Exec(arg_str)
         
     def get_underground(self):
@@ -2214,7 +2214,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.underground", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)
 
@@ -2235,7 +2235,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.vector", 
-                                                     self.get_eco_id())
+                                                     self.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -2253,7 +2253,7 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.vector", 
-                                                     self.get_eco_id(), 
+                                                     self.eco_id, 
                                                      vector[0], 
                                                      vector[1], 
                                                      vector[2])
@@ -2433,7 +2433,88 @@ class Point(_Geometry):
     def create_point(self, points):
         _create_object_by_points("point", "point", points)
         
-#the rest
+class Line(_Geometry):
+
+    def create_point(self, points):
+        _create_object_by_points("line", "plane", points)
+
+class  Roof(_Plane):
+
+    def create_point(self, points):
+        _create_object_by_points("roof", "plane", points)
+
+class  Floor(_Plane):
+
+    def create_point(self, points):
+        _create_object_by_points("floor", "plane", points)
+
+class  Ceiling(_Plane):
+
+    def create_point(self, points):
+        _create_object_by_points("ceiling", "plane", points)
+
+class  Wall(_Plane):
+
+    def create_point(self, points):
+        _create_object_by_points("wall", "plane", points)
+
+class  Partition(_Plane):
+
+    def create_point(self, points):
+        _create_object_by_points("partition", "plane", points)
+
+class  Void(_Hole):
+
+    def create_point(self, points):
+        _create_object_by_points("void", "plane", points)
+
+class  Window(_Hole):
+
+    def create_point(self, points):
+        _create_object_by_points("window", "plane", points)
+
+class  Panel(_Hole):
+
+    def create_point(self, points):
+        _create_object_by_points("panel", "plane", points)
+
+class  Door(_Hole):
+
+    def create_point(self, points):
+        _create_object_by_points("door", "plane", points)
+
+class  Speaker(_Vector):
+
+    def create_point(self, points):
+        _create_object_by_points("speaker", "source", points)
+
+class  Light(_Vector):
+
+    def create_point(self, points):
+        _create_object_by_points("light", "source", points)
+
+class  Appliance(_Vector):
+
+    def create_point(self, points):
+        _create_object_by_points("appliance", "", points)
+
+class  SolarCollector(_Vector):
+
+    def create_point(self, points):
+        _create_object_by_points("solarcollector", "", points)
+
+class  Camera(_Vector):
+
+    def create_point(self, points):
+        _create_object_by_points("camera", "", points)
+
+
+
+
+
+
+
+
 
 """
 mypt1 = Point._create_object_by_id(id)
