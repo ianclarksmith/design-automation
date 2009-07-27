@@ -3,32 +3,38 @@ from util import *
 from py2rhino.data import gen_py2rhino as p2r 
 from py2rhino.data import api_definition as api
 in_folder = "..\\data\\gen_py2rhino\\"
-out_folder = "..\\"
+out_folder = "..\\test\\"
 #===============================================================================
 # Get the data
 #===============================================================================
 def get_data_dictionary():
     data_dict = {}
-    #the first set of keys will contain the module names
-    for key1 in sorted(p2r.__dict__.keys()):
-        if not key1.startswith("__"):
-            if not isinstance(p2r.__dict__[key1], dict):
-                data_dict[key1] = {}
-                mod = p2r.__dict__[key1]
-                #the second set of keys will contain the method names
-                for key2 in sorted(mod.__dict__.keys()):
-                    if not key2.startswith("__"):
-                        data_dict[key1][key2] = mod.__dict__[key2]
-                        
-    return data_dict
+    for method_set_name in api.__dict__.keys():
+        if method_set_name.endswith('_methods'):
+            method_set = api.__dict__[method_set_name]
 
+            for method_name in method_set.__dict__.keys():
+                if not method_name.startswith('__'):
+                    method = method_set.__dict__[method_name]
                     
+                    location = method['method_location']
+                    
+                    if not location in data_dict.keys():
+                        data_dict[location] = {}
+                    data_dict[location][method_name] = method
+    return data_dict
 #===============================================================================
 # Run
 #===============================================================================
 def write_classes(data_dict):
-    for module_name in sorted(data_dict.keys()):
-        write_class(module_name, data_dict[module_name])
+    for location in sorted(data_dict.keys()):
+        location = location.split('.')
+        class_name = location[-1]
+        module_name = class_name.split('_')
+        for counter in range(len(module_name)):
+            module_name[counter] = module_name[counter].capitalize()
+        ''.join(module_name)
+        print class_name, module_name
 
 def write_class(module_name, module_dict):
     #open, write, and close
@@ -225,8 +231,8 @@ def write_class_method(method_dict, method_num, f):
 # Run
 #===============================================================================
 if __name__ == '__main__':
-    data_dict = get_data_dictionary2()
-    #write_classes(data_dict)
+    data_dict = get_data_dictionary()
+    write_classes(data_dict)
     print "done"
 
 
