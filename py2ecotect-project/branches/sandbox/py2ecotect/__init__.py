@@ -27,7 +27,7 @@ print "Connection with Ecotect successful..."
 # Populate the lists in the Model object
 #===============================================================================
 import py2ecotect as p2e
-from py2ecotect.object import Object
+from py2ecotect.object import _Object
 from py2ecotect.model import Model
 from py2ecotect.zone import Zone 
 from py2ecotect.node import Node 

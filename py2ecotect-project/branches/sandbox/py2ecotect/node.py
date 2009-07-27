@@ -3,8 +3,23 @@ from py2ecotect import string_util
 
 class Node(object):
     _object = None
-    
-    def __init__(self, object, index, x, y, z, nodeType = 0, link = 0):
+    #===========================================================================
+    # Methods that affect relationships between things
+    #===========================================================================  
+    @classmethod
+    def _create_object_from_id(self, object_eco_id, node_eco_id):
+        
+        #create the node
+        node = cls()
+        node._object = object
+        
+        #update model nodes lists
+        p2e.model._nodes.append(obj)
+        assert node.eco_id == node_eco_id
+        
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+    @classmethod
+    def _create_node(cls, object, index, point, nodeType = 0, link = 0):
         """
         
         Use this command to create new nodes in the model. It returns the 
@@ -23,9 +38,9 @@ class Node(object):
         number of nodes in the object is given, the node is inserted at the 
         given index and all nodes at a greater index are incremented up by one. 
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space. 
+        points
+        A list of three values that represents the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
         
         [nodeType] 
         Sets the type of node, according to the following Node Types table. 
@@ -56,14 +71,39 @@ class Node(object):
         spline 8 Control node for a virtual spline curve. 
         
         """
-        arg_str = string_util._convert_args_to_string("add.node", object, index, 
-                                                     x, y, z, nodeType, link)
-        val = py2ecotect.conversation.Request(arg_str)
-        self._id = string_util._convert_str_to_type(val, int)
         
-        self._object = object
-        py2ecotect.Object.add_node(self)
- 
+        #create the node
+        node = cls()
+        node._object = object
+        
+        #execute ecotect instruction
+        arg_str = string_util._convert_args_to_string("add.node", object.eco_id, index, 
+                                                     point[0], point[1], 
+                                                     point[2], nodeType, link)
+        py2ecotect.conversation.Request(arg_str)
+
+        #update model lists
+        p2e.model._nodes.append(node)  
+    #---------------------------------------------------------------------------
+    def delete(self):
+        
+        #execute ecotect instruction
+        arg_str = p2e.string_util._convert_args_to_string("object.delnode", 
+                                            self._object.eco_id, self.eco_id)
+        p2e.conversation.Exec(arg_str)
+        
+        #Update node lists
+        p2e.model.nodes.remove(self)
+        
+        #set object to none
+        _object = None
+    
+    #===========================================================================
+    # Properties that affect relationships between things
+    #===========================================================================
+    
+    #None
+    
     #===========================================================================
     # Commands
     #===========================================================================
@@ -130,7 +170,7 @@ class Node(object):
                                                       azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotate_axis(self, x, y, z):
+    def rotate_axis(self, x, y, z):#TODO: fix
         """
         
         Rotates the specified node in the last created object about the 
@@ -235,7 +275,7 @@ class Node(object):
         Id of the node object
         
         """
-        return p2e.model.nodes.index(self)
+        return p2e.model._nodes.index(self)
     
     def get_flag(self, flag):
         """
@@ -401,7 +441,10 @@ class Node(object):
         arg_str = string_util._convert_args_to_string("set.node.modifier", 
                                                       get_eco_id(), mod)
         py2ecotect.conversation.Exec(arg_str)
-
+        
+    def _get_object(self):
+        return _object
+    
     def get_position(self):
         """
         
@@ -564,6 +607,9 @@ class Node(object):
     
     modifier = property(fget = get_modifier, fset = set_modifier, 
                         doc = "The node modifier value")
+    
+    object = property(fget = _get_object,
+                        doc = "The object to which this node belongs")
     
     selected = property(fget = get_selected, fset = set_selected, 
                         doc = "The selection state of the specified node")
