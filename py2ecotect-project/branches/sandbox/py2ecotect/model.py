@@ -1,8 +1,8 @@
 import py2ecotect as p2e
 
-zones = []
-objects = []
-nodes = []
+_zones = []
+_objects = []
+_nodes = []
 
 def _populate_zones():
     pass
@@ -10,7 +10,8 @@ def _populate_zones():
 def _populate_objects():
     num_objects = Model.get_objects()
     for eco_id in range(num_objects):
-        p2e.Object.create_object_from_id(eco_id)
+        pass
+        #p2e.Object._create_object_from_id(eco_id)
 
 def _populate_nodes():
     pass

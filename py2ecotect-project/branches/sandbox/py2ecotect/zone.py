@@ -1,10 +1,11 @@
 import py2ecotect
-from py2ecotect import string_util
 
 class Zone(object):
-    _objects = []
-
-    def __init__(self, name):
+    
+    #===========================================================================
+    # Methods that affect relationships between objects
+    #===========================================================================
+    def create_zone(cls, name):
         """
         
         Use this command to create new zones in the model. It returns the 
@@ -27,18 +28,20 @@ class Zone(object):
         that the operation failed. 
         
         """
-        arg_str = string_util._convert_args_to_string("add.zone", name)
-        val = py2ecotect.conversation.Request(arg_str)
-        self._id = string_util._convert_str_to_type(val, int)
- 
-    #===========================================================================
-    # Commands
-    #===========================================================================
-
-    def add_object():
-        pass
         
-    
+        #create the node
+        zone = cls()
+        
+        #execute ecotect instruction        
+        arg_str = string_util._convert_args_to_string("add.zone", name)
+        py2ecotect.conversation.Request(arg_str)
+        
+        #update the model lists
+        p2e.model._zones.append(zone)
+        
+        #return the zone
+        return zone
+    #---------------------------------------------------------------------------
     def delete(self):
         """
         
@@ -51,8 +54,17 @@ class Zone(object):
         """
         arg_str = string_util._convert_args_to_string("zone.delete", get_eco_id())
         py2ecotect.conversation.Exec(arg_str)
-        
     
+    #===========================================================================
+    # Properties that affect relationships between objects
+    #===========================================================================
+    
+    #None
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+
     def extrude(self, dx, dy, dz):
         """
         
@@ -259,7 +271,7 @@ class Zone(object):
         Id of the zone object
         
         """
-        return p2e.model.zones.index(self)
+        return p2e.model._zones.index(self)
     
     def get_activity(self):
         """
@@ -1702,13 +1714,10 @@ class Zone(object):
     def get_name(self):
         """
         
-        Returns the specified zone's name. 
+        Returns the zone's name. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        This property has no parameters.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1728,10 +1737,7 @@ class Zone(object):
         Sets the specified zone's name. 
 
         Parameter(s)
-        This property takes the following parameters.
-        
-        zone 
-        The zero-based index value of the zone. 
+        This property takes the following parameters. 
         
         name 
         A string of up to 40 characters representing the zone name. 
@@ -1834,18 +1840,6 @@ class Zone(object):
                                                      nextobject)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int) 
-
-
-
-
-
-
-
-
-
-    
-    
-    
     
     def get_occupancy(self):
         """
