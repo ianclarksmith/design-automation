@@ -1,10 +1,11 @@
-import py2ecotect
+import py2ecotect as p2e
 
 class Zone(object):
     
     #===========================================================================
     # Methods that affect relationships between objects
     #===========================================================================
+    @classmethod
     def create_zone(cls, name):
         """
         
@@ -33,8 +34,8 @@ class Zone(object):
         zone = cls()
         
         #execute ecotect instruction        
-        arg_str = string_util._convert_args_to_string("add.zone", name)
-        py2ecotect.conversation.Request(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("add.zone", name)
+        p2e.conversation.Request(arg_str)
         
         #update the model lists
         p2e.model._zones.append(zone)
@@ -53,7 +54,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("zone.delete", self.eco_id)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties that affect relationships between objects
@@ -79,11 +80,11 @@ class Zone(object):
         X, Y and Z axis, given in model coordinates. 
         
         """
-        arg_str = string_util._convert_args_to_string("zone.extrude", self.eco_id, 
+        arg_str = p2e.string_util._convert_args_to_string("zone.extrude", self.eco_id, 
                                                       offset_distance[0], 
                                                       offset_distance[1], 
                                                       offset_distance[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def isolate(self):
         """
@@ -95,8 +96,8 @@ class Zone(object):
         This command takes the following parameters.
 
         """
-        arg_str = string_util._convert_args_to_string("zone.isolate", self.eco_id)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("zone.isolate", self.eco_id)
+        p2e.conversation.Exec(arg_str)
 
     def move(self, offset_distance):
         """
@@ -112,11 +113,11 @@ class Zone(object):
         X, Y and Z axis, given in model coordinates.
         
         """
-        arg_str = string_util._convert_args_to_string("zone.move", self.eco_id, 
+        arg_str = p2e.string_util._convert_args_to_string("zone.move", self.eco_id, 
                                                       offset_distance[0], 
                                                       offset_distance[1], 
                                                       offset_distance[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def nudge(self, dir):
         """
@@ -138,8 +139,8 @@ class Zone(object):
         3, -3 In the Z axis. 
 
         """
-        arg_str = string_util._convert_args_to_string("zone.nudge", self.eco_id, dir)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.p2e.string_util._convert_args_to_string("zone.nudge", self.eco_id, dir)
+        p2e.conversation.Exec(arg_str)
 
     def rotate(self, azi, alt):
         """
@@ -158,9 +159,9 @@ class Zone(object):
         The altitude value in degrees. 
         
         """
-        arg_str = string_util._convert_args_to_string("zone.rotate", self.eco_id, 
+        arg_str = p2e.string_util._convert_args_to_string("zone.rotate", self.eco_id, 
                                                       azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def rotate_axis(self, rotation_degree):
         """
@@ -176,12 +177,12 @@ class Zone(object):
         A list of three values representing the degrees of rotation in each of 
         the X, Y, Z Axis.
         """
-        arg_str = string_util._convert_args_to_string("zone.rotateaxis", 
+        arg_str = p2e.string_util._convert_args_to_string("zone.rotateaxis", 
                                                       self.eco_id, 
                                                       rotation_degree[0], 
                                                       rotation_degree[1], 
                                                       rotation_degree[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def rotate_reverse(self, azi, alt):
         """
@@ -200,9 +201,9 @@ class Zone(object):
         The altitude value in degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("zone.rotatereverse", 
+        arg_str = p2e.string_util._convert_args_to_string("zone.rotatereverse", 
                                                       self.eco_id, azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def scale(self, scale_factor):
         """
@@ -218,11 +219,11 @@ class Zone(object):
         X, Y and Z axis.
         
         """
-        arg_str = string_util._convert_args_to_string("zone.scale", self.eco_id, 
+        arg_str = p2e.string_util._convert_args_to_string("zone.scale", self.eco_id, 
                                                      scale_factor[0], 
                                                      scale_factor[1], 
                                                      scale_factor[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def xform(self, trans, function_values):
         """
@@ -255,12 +256,12 @@ class Zone(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
         
         """
-        arg_str = string_util._convert_args_to_string("zone.xform", self.eco_id, 
+        arg_str = p2e.string_util._convert_args_to_string("zone.xform", self.eco_id, 
                                                       trans, 
                                                       function_values[0], 
                                                       function_values[1], 
                                                       function_values[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -313,10 +314,10 @@ class Zone(object):
         sport 22 Team Sport (440 W, 7.6 Met) 
   
         """
-        arg_str = string_util._convert_args_to_string("get.zone.activity", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.activity", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_activity(self, type):
         """
@@ -354,9 +355,9 @@ class Zone(object):
         sport 22 Team Sport (440 W, 7.6 Met) 
 
         """
-        arg_str = string_util._convert_args_to_string("set.zone.activity", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.activity", 
                                                      self.eco_id, type)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_admittance(self):
         """
@@ -374,10 +375,10 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.admittance", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.admittance", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_admittance(self, value):
         """
@@ -397,9 +398,9 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.admittance", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.admittance", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
 
     def get_air_speed(self):
@@ -418,10 +419,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.airspeed", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.airspeed", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_air_speed(self, value):
         """
@@ -435,9 +436,9 @@ class Zone(object):
         A value representing the designed internal air-speed as (m/s).
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.airspeed", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.airspeed", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)        
+        p2e.conversation.Exec(arg_str)        
     
     def get_appliance_energy(self):
         """
@@ -455,10 +456,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.applianceenergy", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.applianceenergy", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
     
     def set_appliance_energy(self, value):
        """
@@ -473,9 +474,9 @@ class Zone(object):
        A value representing the total energy gain from APPLIANCE objects.
        
        """
-       arg_str = string_util._convert_args_to_string("set.zone.applianceenergy", 
+       arg_str = p2e.string_util._convert_args_to_string("set.zone.applianceenergy", 
                                                      self.eco_id, value)
-       py2ecotect.conversation.Exec(arg_str)        
+       p2e.conversation.Exec(arg_str)        
     
     def get_clothing(self):
         """
@@ -493,10 +494,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.clothing", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.clothing", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
     
     def set_clothing(self, value):
         """
@@ -511,9 +512,9 @@ class Zone(object):
         A value representing the design clothing value of occupants (clo). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.clothing", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.clothing", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)    
+        p2e.conversation.Exec(arg_str)    
     
     def get_colour(self):
         """
@@ -536,10 +537,10 @@ class Zone(object):
         The colour of reflection the zone project as a full hexidecimal value.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.colour", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.colour", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, str, str, str)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, str, str, str)
     
     def set_colour(self, display, shadow = "0x000000", reflection = "000000"):
         """
@@ -561,10 +562,10 @@ class Zone(object):
         by the zone, given as a full hexideciman value (eg: 0xFF8800). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.colour", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.colour", 
                                                      self.eco_id, display, shadow, 
                                                      reflection)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
  
     def get_comfort(self, day, hour):
         """
@@ -593,10 +594,10 @@ class Zone(object):
         (everyone).
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.comfort", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.comfort", 
                                                      self.eco_id, day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float)
     
     def get_cooling(self, month):
         """
@@ -618,10 +619,10 @@ class Zone(object):
         The cooling load value for the given month. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.cooling", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.cooling", 
                                                      self.eco_id, month)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
     
     def get_current(self):
         """
@@ -639,10 +640,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.current", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.current", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_current(self):
         """
@@ -656,9 +657,9 @@ class Zone(object):
         The zero-based index value of the zone.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.current", 
-                                                     self.id)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.current", 
+                                                     self.eco_id)
+        p2e.conversation.Exec(arg_str)
     
     def get_distribution(self, temperature):
         """
@@ -680,10 +681,10 @@ class Zone(object):
         The hour count spent at the given temperature.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.distribution", 
-                                                     self.id, temperature)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.distribution", 
+                                                     self.eco_id, temperature)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def get_efficiency(self):
         """
@@ -701,10 +702,10 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.efficiency", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.efficiency", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
     
     def set_efficiency(self, value):
         """
@@ -719,9 +720,9 @@ class Zone(object):
         A value representing the HVAC system efficiency (%). 
 
         """
-        arg_str = string_util._convert_args_to_string("set.zone.efficiency", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.efficiency", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
         
     def get_equator_area(self):
         """
@@ -739,10 +740,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.equatorarea", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.equatorarea", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
     
     def set_equator_area(self, value):
         """
@@ -758,9 +759,9 @@ class Zone(object):
         (m^2). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.equatorarea", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.equatorarea", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
     
     def get_exposed_area(self):
         """
@@ -778,10 +779,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.exposedarea", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.exposedarea", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_exposed_area(self, value):
         """
@@ -797,9 +798,9 @@ class Zone(object):
         conditions (m^2).
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.exposedarea", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.exposedarea", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_flag(self, flag):
         """
@@ -850,10 +851,10 @@ class Zone(object):
         16777216 NO_OUTLINE 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.flag", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.flag", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_flag(self, flag, state = True):
         """
@@ -909,9 +910,9 @@ class Zone(object):
         16777216 NO_OUTLINE 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.flag", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.flag", 
                                                      self.eco_id, flag, state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_floor_area(self):
         """
@@ -932,10 +933,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.floorarea", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.floorarea", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def set_floor_area(self, value):
         """
@@ -950,9 +951,9 @@ class Zone(object):
         value representing the total zone floor area (m^2). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.floorarea", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.floorarea", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_group_hidden(self, group):
         """
@@ -974,10 +975,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.group.hidden", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.group.hidden", 
                                                      group)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
          
     def set_group_hidden(self, group, hidden):
         """
@@ -997,9 +998,9 @@ class Zone(object):
         false the negative.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.group.hidden", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.group.hidden", 
                                                      group, hidden)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_group_index(self, name):
         """
@@ -1020,10 +1021,10 @@ class Zone(object):
         found, the value -1 is returned.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.group.index", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.group.index", 
                                                      name)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def get_group_locked(self, group):
         """
@@ -1045,10 +1046,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.group.locked", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.group.locked", 
                                                      group)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_group_locked(self, group, locked):
         """
@@ -1068,9 +1069,9 @@ class Zone(object):
         false the negative.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.group.locked", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.group.locked", 
                                                      group, locked)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_group_name(self, group, nospaces = False):
         """
@@ -1095,10 +1096,10 @@ class Zone(object):
         A test string containing the name of the specfied group.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.group.name", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.group.name", 
                                                      group, nospaces)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, str)
         
     def set_group_name(self, group, name):
         """
@@ -1115,9 +1116,9 @@ class Zone(object):
         The name of the specfied group.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.group.name", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.group.name", 
                                                      group, name)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def  get_group_off(self, group):
         """
@@ -1139,10 +1140,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.group.off", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.group.off", 
                                                      group)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def set_group_off(self, group, off):
         """
@@ -1162,9 +1163,9 @@ class Zone(object):
         false the negative. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.group.off", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.group.off", 
                                                      group, off)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_group_thermal(self, group):
         """
@@ -1186,10 +1187,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.group.thermal", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.group.thermal", 
                                                      group)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def set_group_thermal(self, group, thermal):
         """
@@ -1209,9 +1210,9 @@ class Zone(object):
         false the negative. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.group.thermal", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.group.thermal", 
                                                      group, thermal)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_heating(self, month):
         """
@@ -1236,10 +1237,10 @@ class Zone(object):
         The heating load in Wh for the given month.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.heating", 
-                                                     self.id, month)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.heating", 
+                                                     self.eco_id, month)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def get_hidden(self):
         """
@@ -1261,10 +1262,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.hidden", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.hidden", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_hidden(self, state = True):
         """
@@ -1284,9 +1285,9 @@ class Zone(object):
         state. Defaulting to true if not given.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.hidden", 
-                                                     self.id, state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.hidden", 
+                                                     self.eco_id, state)
+        p2e.conversation.Exec(arg_str)
     
     def get_index(self, name):
         """
@@ -1308,10 +1309,10 @@ class Zone(object):
         an index of -1 is returned. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.index", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.index", 
                                                      name)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_infiltration_rate(self):
         """
@@ -1332,10 +1333,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.infiltrationrate", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.infiltrationrate", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_infiltration_rate(self, value):
         """
@@ -1353,9 +1354,9 @@ class Zone(object):
         A value representing the air infiltration rate (ac/h). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.infiltrationrate", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.infiltrationrate", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def get_ingroup(self, group):
         """
@@ -1378,10 +1379,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.ingroup", 
-                                                     self.id, group)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.ingroup", 
+                                                     self.eco_id, group)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def get_internal_gains(self):
         """
@@ -1402,10 +1403,10 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.internalgains", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.internalgains", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_internal_gains(self, value):
         """
@@ -1423,9 +1424,9 @@ class Zone(object):
         A value representing the total internally generated heat gains (W). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.internalgains", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.internalgains", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
         
     def get_interzonal_gains(self):
         """
@@ -1440,10 +1441,10 @@ class Zone(object):
         The zero-based index value of the zone.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.interzonalgains", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float) 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.interzonalgains", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float) 
 
     def get_latent_gains(self):
         """
@@ -1464,10 +1465,10 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.zone.latentgains", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float) 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.latentgains", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float) 
     
     def set_latent_gains(self, value):
         """
@@ -1485,9 +1486,9 @@ class Zone(object):
         A value representing the latent internal heat gains (W/m^2).
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.latentgains", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.latentgains", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def get_lighting_energy(self):
         """
@@ -1508,10 +1509,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.lightingenergy", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float) 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.lightingenergy", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float) 
 
     def set_lighting_energy(self, value):
         """
@@ -1529,9 +1530,9 @@ class Zone(object):
         A value representing the total energy gain from LIGHT objects.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.latentgains", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.latentgains", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def get_locked(self):
         """
@@ -1553,10 +1554,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.locked", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int) 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.locked", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int) 
 
     def set_locked(self, state = True):
         """
@@ -1576,9 +1577,9 @@ class Zone(object):
         state. Defaulting to true if not given.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.locked", 
-                                                     self.id, state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.locked", 
+                                                     self.eco_id, state)
+        p2e.conversation.Exec(arg_str)
 
     def get_lower_band(self):
         """
@@ -1599,10 +1600,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.lowerband", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float) 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.lowerband", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float) 
 
     def set_lower_band(self, value):
         """
@@ -1620,9 +1621,9 @@ class Zone(object):
         A value representing the lower comfort band (deg Celsius). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.lowerband", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.lowerband", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def get_lux(self):
         """
@@ -1643,10 +1644,10 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.zone.lux", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float) 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.lux", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float) 
 
     def set_lux(self, value):
         """
@@ -1664,9 +1665,9 @@ class Zone(object):
         A value representing the design internal lighting level (lux). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.lux", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.lux", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def get_method_reverb(self):
         """
@@ -1687,10 +1688,10 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.zone.methodreverb", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float) 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.methodreverb", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float) 
 
     def set_method_reverb(self, value):
         """
@@ -1708,9 +1709,9 @@ class Zone(object):
         A value representing the reverberation calculation method.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.methodreverb", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.methodreverb", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def get_name(self):
         """
@@ -1727,10 +1728,10 @@ class Zone(object):
         A text string containing the zone's name.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.name", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, str) 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.name", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, str) 
 
     def set_name(self, name):
         """
@@ -1744,9 +1745,9 @@ class Zone(object):
         A string of up to 40 characters representing the zone name. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.name", 
-                                                     self.id, name)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.name", 
+                                                     self.eco_id, name)
+        p2e.conversation.Exec(arg_str)
         
     def get_next_object(self, startat, type, flag, tag):
         """
@@ -1837,10 +1838,10 @@ class Zone(object):
         32768 *Generic calculation marker. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.zone.nextobject", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.nextobject", 
                                                      nextobject)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int) 
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int) 
     
     def get_occupancy(self):
         """
@@ -1872,10 +1873,10 @@ class Zone(object):
         3 Hard-backed seating 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.occupancy", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.occupancy", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, int, float, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, int, float, int)
 
     def set_occupancy(self, people, percentagefull = 0.0, seatingtype = 0):
         """
@@ -1906,10 +1907,10 @@ class Zone(object):
         3 Hard-backed seating 
 
         """
-        arg_str = string_util._convert_args_to_string("set.zone.occupancy", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.occupancy", 
                                                      self.eco_id, people, 
                                                      percentagefull, seatingtype)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_off(self):
         """
@@ -1928,10 +1929,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.zone.off", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.off", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_off(self, state = True):
         """
@@ -1948,9 +1949,9 @@ class Zone(object):
         state. Defaulting to true if not given. 
 
         """
-        arg_str = string_util._convert_args_to_string("set.zone.off", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.off", 
                                                      self.eco_id, state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_operation(self):
         """
@@ -1977,10 +1978,10 @@ class Zone(object):
         A value between 0 and 23 representing the on hour off a weekend.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.operation", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.operation", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, int, int, int, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, int, int, int, int)
 
     def set_operation(self, wkdayon, wkdayoff, wkendon, wkendoff):
         """
@@ -2004,10 +2005,10 @@ class Zone(object):
         A value between 0 and 23 representing the on hour off a weekend.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.operation", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.operation", 
                                                      self.eco_id, wkdayon, wkdayoff, 
                                                      wkendon, wkendoff)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_peak_cooling(self):
         """
@@ -2025,10 +2026,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.peakcooling", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.peakcooling", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_peak_cooling(self, value):
         """
@@ -2042,9 +2043,9 @@ class Zone(object):
         A value representing the peak cooling load (W). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.peakcooling", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.peakcooling", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_peak_heating(self):
         """
@@ -2062,10 +2063,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.peakheating", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.peakheating", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_peak_heating(self, value):
         """
@@ -2079,9 +2080,9 @@ class Zone(object):
         A value representing the peak heating load (W). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.peakheating", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.peakheating", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def set_random_colour(self):
         """
@@ -2093,9 +2094,9 @@ class Zone(object):
         There are no parameters for this property.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.randomcolour", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.randomcolour", 
                                                      self.eco_id)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_range(self):
         """
@@ -2119,10 +2120,10 @@ class Zone(object):
         The average temperature over that day, given in degrees Celcius.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.range", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.range", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_rel_humidity(self):
         """
@@ -2140,10 +2141,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.relhumidity", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.relhumidity", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_rel_humidity(self, value):
         """
@@ -2158,9 +2159,9 @@ class Zone(object):
         A value representing the design internal relative humidity (%). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.relhumidity", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.relhumidity", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def get_response_factor(self):
         """
@@ -2178,10 +2179,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.responsefactor", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.responsefactor", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_response_factor(self, value):
         """
@@ -2196,9 +2197,9 @@ class Zone(object):
         A value representing the total zone response factor.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.responsefactor", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.responsefactor", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_reverb_time(self, octave):
         """
@@ -2238,7 +2239,7 @@ class Zone(object):
         """
         arg_str = StringUtil._convert_args_to_string("get.zone.reverbtime", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return StringUtil._convert_str_to_type(val, float)
 
     def get_schedules(self):
@@ -2265,7 +2266,7 @@ class Zone(object):
         """
         arg_str = StringUtil._convert_args_to_string("get.zone.schedules", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
         return StringUtil._convert_str_to_list(val, int, int, int)
 
     def set_schedules(self, occIndex, ventIndex, gainsIndex):
@@ -2292,10 +2293,10 @@ class Zone(object):
         is obtainable through the use of the get.schedule.index command.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.sensiblegains", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.sensiblegains", 
                                                      self.eco_id, occIndex, 
                                                      ventIndex, gainsIndex)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
 
     def set_selected(self, state = True):
@@ -2317,10 +2318,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.selected", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.selected", 
                                                      self.eco_id, state)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_sensible_gains(self):
         """
@@ -2338,10 +2339,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.sensiblegains", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.sensiblegains", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_sensible_gains(self, value):
         """
@@ -2356,9 +2357,9 @@ class Zone(object):
         A value representing the sensible internal heat gains (W/m^2).
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.sensiblegains", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.sensiblegains", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_solar_gains(self):
         """
@@ -2376,10 +2377,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.solargains", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.solargains", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def set_solar_gains(self, value):
         """
@@ -2395,9 +2396,9 @@ class Zone(object):
         transparent appertures.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.solargains", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.solargains", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_surface_area(self):
         """
@@ -2415,10 +2416,10 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.surfacearea", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.surfacearea", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_surface_area(self, value):
         """
@@ -2433,9 +2434,9 @@ class Zone(object):
         A value representing the total zone internal surface area (m^2). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.surfacearea", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.surfacearea", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_system(self):
         """
@@ -2464,10 +2465,10 @@ class Zone(object):
         cooling 5 Cooling system only. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.system", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.system", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_system(self, type):
         """
@@ -2493,9 +2494,9 @@ class Zone(object):
         cooling 5 Cooling system only. 
 
         """
-        arg_str = string_util._convert_args_to_string("set.zone.system", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.system", 
                                                      self.eco_id, type)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_temperature(self, hour):
         """
@@ -2515,10 +2516,10 @@ class Zone(object):
         The temperature value at the given time in degrees celcius.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.temperature", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.temperature", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_thermal(self):
         """
@@ -2537,10 +2538,10 @@ class Zone(object):
         A boolean value where 1 represents true and 0 represents false.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.thermal", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.thermal", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_thermal(self, state = True):
         """
@@ -2557,9 +2558,9 @@ class Zone(object):
         state. Defaulting to true if not given.
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.thermal", 
-                                                     self.id, state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.thermal", 
+                                                     self.eco_id, state)
+        p2e.conversation.Exec(arg_str)
 
     def get_upper_band(self):
         """
@@ -2577,10 +2578,10 @@ class Zone(object):
         A decimal value containing the reqested zone data
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.upperband", 
-                                                     self.id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.upperband", 
+                                                     self.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_upper_band(self, value):
         """
@@ -2595,9 +2596,9 @@ class Zone(object):
         A value representing the upper comfort band (deg celsius). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.upperband", 
-                                                     self.id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.upperband", 
+                                                     self.eco_id, value)
+        p2e.conversation.Exec(arg_str)
 
     def get_uvalue(self):
         """
@@ -2615,10 +2616,10 @@ class Zone(object):
         A decimal value containing the reqested zone data. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.zone.uvalue", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.uvalue", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_uvalue(self, value):
         """
@@ -2634,9 +2635,9 @@ class Zone(object):
         loss rate W/m K). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.uvalue", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.uvalue", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_ventilation_rate(self):
         """
@@ -2654,10 +2655,10 @@ class Zone(object):
         A decimal value containing the reqested zone data
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.ventilationrate", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.ventilationrate", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_ventilation_rate(self, value):
         """
@@ -2672,9 +2673,9 @@ class Zone(object):
         A value representing the wind-driven ventilation rate (ac/h).
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.ventilationrate", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.ventilationrate", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_volume(self):
         """
@@ -2692,10 +2693,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.volume", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.volume", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def set_volume(self, value):
         """
@@ -2710,9 +2711,9 @@ class Zone(object):
         A value representing the internal zone volume (m^3).
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.volume", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.volume", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
  
     def get_window_area(self):
         """
@@ -2730,10 +2731,10 @@ class Zone(object):
         A decimal value containing the reqested zone data.
         
         """
-        arg_str = string_util._convert_args_to_string("get.zone.windowarea", 
+        arg_str = p2e.string_util._convert_args_to_string("get.zone.windowarea", 
                                                      self.eco_id)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
  
     def set_window_area(self, value):
         """
@@ -2748,9 +2749,9 @@ class Zone(object):
         A value representing the total exposed WINDOW area (m^2). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.zone.windowarea", 
+        arg_str = p2e.string_util._convert_args_to_string("set.zone.windowarea", 
                                                      self.eco_id, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties
