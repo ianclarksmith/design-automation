@@ -52,7 +52,7 @@ class Zone(object):
         There are no parameters for this command.
         
         """
-        arg_str = string_util._convert_args_to_string("zone.delete", get_eco_id())
+        arg_str = string_util._convert_args_to_string("zone.delete", self.eco_id)
         py2ecotect.conversation.Exec(arg_str)
     
     #===========================================================================
@@ -65,7 +65,7 @@ class Zone(object):
     # Commands
     #===========================================================================
 
-    def extrude(self, dx, dy, dz):
+    def extrude(self, offset_distance):
         """
         
         Extrudes the FLOOR object(s) in the specified zone a distance of 
@@ -74,13 +74,15 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        dx, dy, dz 
-        A value representing the offset distance in each of the X, Y and Z axis, 
-        given in model coordinates. 
+        offset_distance 
+        A list of three values representing the offset distance in each of the 
+        X, Y and Z axis, given in model coordinates. 
         
         """
-        arg_str = string_util._convert_args_to_string("zone.extrude", get_eco_id(), 
-                                                      dx, dy, dz)
+        arg_str = string_util._convert_args_to_string("zone.extrude", self.eco_id, 
+                                                      offset_distance[0], 
+                                                      offset_distance[1], 
+                                                      offset_distance[2])
         py2ecotect.conversation.Exec(arg_str)
 
     def isolate(self):
@@ -93,10 +95,10 @@ class Zone(object):
         This command takes the following parameters.
 
         """
-        arg_str = string_util._convert_args_to_string("zone.isolate", get_eco_id())
+        arg_str = string_util._convert_args_to_string("zone.isolate", self.eco_id)
         py2ecotect.conversation.Exec(arg_str)
 
-    def move(self, dx, dy, dz):
+    def move(self, offset_distance):
         """
         
         Moves all objects in the specified zone a distance of dx , dy and dz in 
@@ -105,13 +107,15 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        dx, dy, dz 
-        A value representing the offset distance in each of the X, Y and Z axis, 
-        given in model coordinates.
+        offset_distance 
+        A list of three values representing the offset distance in each of the 
+        X, Y and Z axis, given in model coordinates.
         
         """
-        arg_str = string_util._convert_args_to_string("zone.move", get_eco_id(), dx, 
-                                                      dy, dz)
+        arg_str = string_util._convert_args_to_string("zone.move", self.eco_id, 
+                                                      offset_distance[0], 
+                                                      offset_distance[1], 
+                                                      offset_distance[2])
         py2ecotect.conversation.Exec(arg_str)
 
     def nudge(self, dir):
@@ -134,7 +138,7 @@ class Zone(object):
         3, -3 In the Z axis. 
 
         """
-        arg_str = string_util._convert_args_to_string("zone.nudge", get_eco_id(), dir)
+        arg_str = string_util._convert_args_to_string("zone.nudge", self.eco_id, dir)
         py2ecotect.conversation.Exec(arg_str)
 
     def rotate(self, azi, alt):
@@ -154,11 +158,11 @@ class Zone(object):
         The altitude value in degrees. 
         
         """
-        arg_str = string_util._convert_args_to_string("zone.rotate", get_eco_id(), 
+        arg_str = string_util._convert_args_to_string("zone.rotate", self.eco_id, 
                                                       azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def rotate_axis(self, rx, ry, rz):
+    def rotate_axis(self, rotation_degree):
         """
         
         Rotates all objects in the specified zone about the Transformation 
@@ -168,18 +172,15 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        rx 
-        The degrees of rotation in the X-Axis. 
-        
-        ry 
-        The degrees of rotation in the Y-Axis. 
-        
-        rz 
-        The degrees of rotation in the Z-Axis.
-        
+        rotation_degree 
+        A list of three values representing the degrees of rotation in each of 
+        the X, Y, Z Axis.
         """
         arg_str = string_util._convert_args_to_string("zone.rotateaxis", 
-                                                      get_eco_id(), rx, ry, rz)
+                                                      self.eco_id, 
+                                                      rotation_degree[0], 
+                                                      rotation_degree[1], 
+                                                      rotation_degree[2])
         py2ecotect.conversation.Exec(arg_str)
 
     def rotate_reverse(self, azi, alt):
@@ -200,10 +201,10 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("zone.rotatereverse", 
-                                                      get_eco_id(), azi, alt)
+                                                      self.eco_id, azi, alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def scale(self, sx, sy, sz):
+    def scale(self, scale_factor):
         """
         
         Scales all objects in the specified zone by a factor of sx, sy and sz in 
@@ -212,15 +213,18 @@ class Zone(object):
         Parameter(s)
         This command takes the following parameters.
         
-        sx, sy, sz 
-        A value representing the scaling factor in each of the X, Y and Z axis.
+        scale_factor 
+        A list of three values representing the scaling factor in each of the 
+        X, Y and Z axis.
         
         """
-        arg_str = string_util._convert_args_to_string("zone.scale", get_eco_id(), 
-                                                     sx, sy, sz)
+        arg_str = string_util._convert_args_to_string("zone.scale", self.eco_id, 
+                                                     scale_factor[0], 
+                                                     scale_factor[1], 
+                                                     scale_factor[2])
         py2ecotect.conversation.Exec(arg_str)
 
-    def xform(self, trans, x, y, z):
+    def xform(self, trans, function_values):
         """
         
         Apply a generic transform to all objects in the specified zone. 
@@ -232,14 +236,8 @@ class Zone(object):
         The transformation to use, given as a token corresponding to the 
         Transformation Types table. 
         
-        x 
-        A value specified by the table below. 
-        
-        y 
-        A value specified by the table below. 
-        
-        z 
-        A value specified by the table below. 
+        function_values 
+        A list of three values specified by the table below. 
         
         Relevant Data Table(s)
         
@@ -257,8 +255,11 @@ class Zone(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
         
         """
-        arg_str = string_util._convert_args_to_string("zone.xform", get_eco_id(), 
-                                                      trans, x, y, z)
+        arg_str = string_util._convert_args_to_string("zone.xform", self.eco_id, 
+                                                      trans, 
+                                                      function_values[0], 
+                                                      function_values[1], 
+                                                      function_values[2])
         py2ecotect.conversation.Exec(arg_str)
     
     #===========================================================================
@@ -313,7 +314,7 @@ class Zone(object):
   
         """
         arg_str = string_util._convert_args_to_string("get.zone.activity", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
@@ -354,7 +355,7 @@ class Zone(object):
 
         """
         arg_str = string_util._convert_args_to_string("set.zone.activity", 
-                                                     get_eco_id(), type)
+                                                     self.eco_id, type)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_admittance(self):
@@ -374,7 +375,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.admittance", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -397,7 +398,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.admittance", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
 
@@ -418,7 +419,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.airspeed", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -435,7 +436,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.airspeed", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)        
     
     def get_appliance_energy(self):
@@ -455,7 +456,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.applianceenergy", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
     
@@ -473,7 +474,7 @@ class Zone(object):
        
        """
        arg_str = string_util._convert_args_to_string("set.zone.applianceenergy", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
        py2ecotect.conversation.Exec(arg_str)        
     
     def get_clothing(self):
@@ -493,7 +494,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.clothing", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
     
@@ -511,7 +512,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.clothing", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)    
     
     def get_colour(self):
@@ -536,7 +537,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.colour", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, str, str, str)
     
@@ -561,7 +562,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.colour", 
-                                                     get_eco_id(), display, shadow, 
+                                                     self.eco_id, display, shadow, 
                                                      reflection)
         py2ecotect.conversation.Exec(arg_str)
  
@@ -593,7 +594,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.comfort", 
-                                                     get_eco_id(), day, hour)
+                                                     self.eco_id, day, hour)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float)
     
@@ -618,7 +619,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.cooling", 
-                                                     get_eco_id(), month)
+                                                     self.eco_id, month)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
     
@@ -778,7 +779,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.exposedarea", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -797,7 +798,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.exposedarea", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_flag(self, flag):
@@ -850,7 +851,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.flag", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
@@ -909,7 +910,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.flag", 
-                                                     get_eco_id(), flag, state)
+                                                     self.eco_id, flag, state)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_floor_area(self):
@@ -932,7 +933,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.floorarea", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
         
@@ -950,7 +951,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.floorarea", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_group_hidden(self, group):
@@ -1872,7 +1873,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.occupancy", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, int, float, int)
 
@@ -1906,7 +1907,7 @@ class Zone(object):
 
         """
         arg_str = string_util._convert_args_to_string("set.zone.occupancy", 
-                                                     get_eco_id(), people, 
+                                                     self.eco_id, people, 
                                                      percentagefull, seatingtype)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -1928,7 +1929,7 @@ class Zone(object):
 
         """
         arg_str = string_util._convert_args_to_string("get.zone.off", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
@@ -1948,7 +1949,7 @@ class Zone(object):
 
         """
         arg_str = string_util._convert_args_to_string("set.zone.off", 
-                                                     get_eco_id(), state)
+                                                     self.eco_id, state)
         py2ecotect.conversation.Exec(arg_str)
     
     def get_operation(self):
@@ -1977,7 +1978,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.operation", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, int, int, int, int)
 
@@ -2004,7 +2005,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.operation", 
-                                                     get_eco_id(), wkdayon, wkdayoff, 
+                                                     self.eco_id, wkdayon, wkdayoff, 
                                                      wkendon, wkendoff)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -2025,7 +2026,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.peakcooling", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -2042,7 +2043,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.peakcooling", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_peak_heating(self):
@@ -2093,7 +2094,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.randomcolour", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_range(self):
@@ -2119,7 +2120,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.range", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 
@@ -2140,7 +2141,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.relhumidity", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -2196,7 +2197,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.responsefactor", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_reverb_time(self, octave):
@@ -2236,7 +2237,7 @@ class Zone(object):
         
         """
         arg_str = StringUtil._convert_args_to_string("get.zone.reverbtime", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return StringUtil._convert_str_to_type(val, float)
 
@@ -2263,7 +2264,7 @@ class Zone(object):
         
         """
         arg_str = StringUtil._convert_args_to_string("get.zone.schedules", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return StringUtil._convert_str_to_list(val, int, int, int)
 
@@ -2292,7 +2293,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.sensiblegains", 
-                                                     get_eco_id(), occIndex, 
+                                                     self.eco_id, occIndex, 
                                                      ventIndex, gainsIndex)
         py2ecotect.conversation.Exec(arg_str)
         
@@ -2317,7 +2318,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.selected", 
-                                                     get_eco_id(), state)
+                                                     self.eco_id, state)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
@@ -2338,7 +2339,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.sensiblegains", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -2356,7 +2357,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.sensiblegains", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_solar_gains(self):
@@ -2376,7 +2377,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.solargains", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
         
@@ -2395,7 +2396,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.solargains", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_surface_area(self):
@@ -2415,7 +2416,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.surfacearea", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -2433,7 +2434,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.surfacearea", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_system(self):
@@ -2464,7 +2465,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.system", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
@@ -2493,7 +2494,7 @@ class Zone(object):
 
         """
         arg_str = string_util._convert_args_to_string("set.zone.system", 
-                                                     get_eco_id(), type)
+                                                     self.eco_id, type)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_temperature(self, hour):
@@ -2537,7 +2538,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.thermal", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
@@ -2615,7 +2616,7 @@ class Zone(object):
 
         """
         arg_str = string_util._convert_args_to_string("get.zone.uvalue", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -2634,7 +2635,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.uvalue", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_ventilation_rate(self):
@@ -2654,7 +2655,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.ventilationrate", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
 
@@ -2672,7 +2673,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.ventilationrate", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_volume(self):
@@ -2692,7 +2693,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.volume", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
         
@@ -2710,7 +2711,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.volume", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
  
     def get_window_area(self):
@@ -2730,7 +2731,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.zone.windowarea", 
-                                                     get_eco_id())
+                                                     self.eco_id)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, float)
  
@@ -2748,7 +2749,7 @@ class Zone(object):
         
         """
         arg_str = string_util._convert_args_to_string("set.zone.windowarea", 
-                                                     get_eco_id(), value)
+                                                     self.eco_id, value)
         py2ecotect.conversation.Exec(arg_str)
     
     #===========================================================================
