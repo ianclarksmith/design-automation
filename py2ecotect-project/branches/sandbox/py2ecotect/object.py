@@ -124,9 +124,11 @@ class _Object(object):
         
         return obj
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
-    def add_node(self):
-        pass
-        #TODO: implement add_node
+    def add_node(self, point):
+        #execute ecotect instruction
+        node = p2e.Node._create_node(self, self.get_number_of_nodes() -1, point)
+        self.done()
+        
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
     def delete(self):
         """
@@ -2434,83 +2436,83 @@ class _Vector(_Object):
 
 class Point(_Geometry):
     @classmethod
-    def create_point(self, points):
-        _create_object_by_points("point", "point", points)
+    def create(self, points):
+        return _Geometry._create_object_by_points("point", "point", points)
         
 class Line(_Geometry):
     @classmethod
-    def create_point(self, points):
-        _create_object_by_points("line", "plane", points)
+    def create(self, points):
+        return _Geometry._create_object_by_points("line", "plane", points)
 
 class  Roof(_Plane):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("roof", "plane", points)
+        return _Plane._create_object_by_points("roof", "plane", points)
 
 class  Floor(_Plane):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("floor", "plane", points)
+        return _Plane._create_object_by_points("floor", "plane", points)
 
 class  Ceiling(_Plane):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("ceiling", "plane", points)
+        return _Plane._create_object_by_points("ceiling", "plane", points)
 
 class  Wall(_Plane):
     @classmethod
     def create_point(self, points):
-        _Plane._create_object_by_points("wall", "plane", points)
+        return _Plane._create_object_by_points("wall", "plane", points)
 
 class  Partition(_Plane):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("partition", "plane", points)
+        return _Plane._create_object_by_points("partition", "plane", points)
 
 class  Void(_Hole):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("void", "plane", points)
+        return _Hole._create_object_by_points("void", "plane", points)
 
 class  Window(_Hole):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("window", "plane", points)
+        return _Hole._create_object_by_points("window", "plane", points)
 
 class  Panel(_Hole):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("panel", "plane", points)
+        return _Hole._create_object_by_points("panel", "plane", points)
 
 class  Door(_Hole):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("door", "plane", points)
+        return _Hole._create_object_by_points("door", "plane", points)
 
 class  Speaker(_Vector):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("speaker", "source", points)
+        return _Vector._create_object_by_points("speaker", "source", points)
 
 class  Light(_Vector):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("light", "source", points)
+        return _Vector._create_object_by_points("light", "source", points)
 
 class  Appliance(_Vector):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("appliance", "", points)
+        return _Vector._create_object_by_points("appliance", "", points)
 
 class  SolarCollector(_Vector):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("solarcollector", "", points)
+        return _Vector._create_object_by_points("solarcollector", "", points)
 
 class  Camera(_Vector):
     @classmethod
     def create_point(self, points):
-        _create_object_by_points("camera", "", points)
+        return _Vector._create_object_by_points("camera", "", points)
 
 
 
