@@ -6,6 +6,25 @@ class Zone(object):
     # Methods that affect relationships between objects
     #===========================================================================
     @classmethod
+    def _create_zone_from_id(cls, zone_eco_id):
+        
+        #create the object
+        zone = cls()
+        
+        #update model zones list
+        p2e.model._zones.append(zone)
+        assert zone.eco_id == zone_eco_id
+        
+        #update model objects list
+        zone.set_current()
+        object_id = zone.get_next_object(-1, -1, -1, -1)
+        prev_id = object_id
+        while (object_id != -1):
+            p2e._Object._create_object_from_id(object_id)
+            object_id = zone.get_next_object(prev_id, -1, -1, -1)
+            prev_id = object_id
+            
+    @classmethod
     def create_zone(cls, name):
         """
         
@@ -1861,6 +1880,7 @@ class Zone(object):
         while (object_id != -1):
             objects.append(p2e.model._objects[object_id])
             object_id = self.get_next_object(prev_id, -1, -1, -1)
+            prev_id = object_id
         return objects
     def get_occupancy(self):
         """

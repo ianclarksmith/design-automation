@@ -4,19 +4,13 @@ _zones = []
 _objects = []
 _nodes = []
 
-def _populate_zones():
-    #Ecotect adds a default zone automaticallu. So add a null object to the 
-    #list of zones
-    _zones.append(None)
-
-def _populate_objects():
-    num_objects = Model.get_objects()
-    for eco_id in range(num_objects):
-        p2e._Object._create_object_from_id(eco_id)
-
-def _populate_nodes():
-    pass
-
+def _populate():
+    #Ecotect adds a default zone automatically. So add a null object at the 
+    #first position to the list of zones
+    num_zones = Model.get_zones()
+    for eco_id in range(num_zones):
+        #Ignore the default zone
+            p2e.Zone._create_zone_from_id(eco_id)
 
 class Model(object):         
 
@@ -889,8 +883,8 @@ class Model(object):
         val = p2e.conversation.Request("get.model.nodes")
         return p2e.string_util._convert_str_to_type(val, int)          
     
-    @staticmethod
-    def get_objects():
+    @classmethod
+    def get_objects(self):
         """
         
         Returns the number of objects in the currently loaded ECOTECT model. 
@@ -1398,7 +1392,8 @@ class Model(object):
         """
         args = p2e.p2e.string_util._convert_args_to_string("set.model.xform.vectors", state)
         p2e.conversation.Exec(args)
- 
+    
+    @classmethod
     def get_zones(self):
         """
         
