@@ -16,7 +16,7 @@ class _Object(object):
         
         #update model nodes lists
         for node_num in range(obj.get_first_node(), obj.get_last_node()):
-            Node._create_object_from_id(object_eco_id, node_num)
+            p2e.Node._create_object_from_id(object_eco_id, node_num)
         
         #update object properties and lists
         #TODO: figure out the parents / children
@@ -141,9 +141,15 @@ class _Object(object):
         There are no parameters for this command.
         
         """
+        #execute ecotect instruction
         arg_str = p2e.string_util._convert_args_to_string("object.delete", self.eco_id)
         p2e.conversation.Exec(arg_str)
         
+        #Delete nodes of this object
+        nodes = self.get_nodes()
+        for i in nodes:
+            i.delete()
+            
         #Update model lists
         p2e.model.objects.remove(self)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
@@ -159,12 +165,10 @@ class _Object(object):
         The zero-based node index belonging to the object. 
         
         """
+        #execute ecotect instruction
         arg_str = p2e.string_util._convert_args_to_string("object.delnode", self.eco_id, 
                                                      node)
         p2e.conversation.Exec(arg_str)
-        
-        #Update object list
-        self._nodes.remove(Node)
         
         #Update model lists
         p2e.model.nodes.remove(Node)
