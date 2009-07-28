@@ -1,6 +1,10 @@
-#The data below will be used to generate the Rhinoscript functions
+#Fill in the data as follows:
 
-#Errors can be fixed by hand here
+#For method class, give a list of class names, starting from parent class, or in the case of a function, then the module name.
+#For method type, insert either FUNCTION, METHOD, CONSTRUCTOR, GET_PROPERTY, or SET_PROPERTY.
+#For method name, you may suggest a shorter name when the method has been moved to a sub-class.
+#For method parameters, any parameters that are IDs of Rhino objects will need to be changed to classes.
+#For method returns, any returns that are IDs of Rhino objects will need to be changed to classes.
 
 add_clipping_plane = {
     "method_location": "Geometry",
@@ -27,14 +31,7 @@ add_text = {
     "method_location": "Geometry",
     "method_type": "METHOD",
     "method_name": "add_text",
-    "method_parameters": (("text","str","REQ"),("point","arr_of_dbl","REQ"),("height","dbl","OPT"),("font","str","OPT"),("style","int","OPT")),
-    "method_returns": ("string","null")
-    }
-add_text_2 = {
-    "method_location": "Geometry",
-    "method_type": "METHOD",
-    "method_name": "add_text_2",
-    "method_parameters": (("text","str","REQ"),("plane","arr_of_dbl","REQ"),("height","dbl","OPT"),("font","str","OPT"),("style","int","OPT")),
+    "method_parameters": (("text","str","REQ"),("point","arr_of_dbl","REQ"),("plane","arr_of_dbl","REQ"),("height","dbl","OPT"),("font","str","OPT"),("style","int","OPT")),
     "method_returns": ("string","null")
     }
 add_text_dot = {
