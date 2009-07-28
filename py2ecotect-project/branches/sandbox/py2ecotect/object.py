@@ -12,11 +12,11 @@ class _Object(object):
         
         #update model objects lists
         p2e.model._objects.append(obj)
-        assert obj.eco_id == object_eco_id
+        #assert obj.eco_id == object_eco_id
         
         #update model nodes lists
         for node_num in range(obj.get_first_node(), obj.get_last_node()):
-            p2e.Node._create_object_from_id(object_eco_id, node_num)
+            p2e.Node._create_node_from_id(object_eco_id, node_num)
         
         #update object properties and lists
         #TODO: figure out the parents / children

@@ -7,7 +7,7 @@ class Node(object):
     # Methods that affect relationships between things
     #===========================================================================  
     @classmethod
-    def _create_object_from_id(cls, object_eco_id, node_eco_id):
+    def _create_node_from_id(cls, object_eco_id, node_eco_id):
         
         #create the node
         node = cls()
