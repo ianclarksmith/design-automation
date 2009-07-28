@@ -1,6 +1,6 @@
 import keyword
 from util import *
-from py2rhino.make.data.templates_functions import descriptors as fncs
+from py2rhino.make.data.templates_fnc import descriptors as fnc
 
 out_folder = "..\\functions\\"
 #===============================================================================
@@ -8,9 +8,9 @@ out_folder = "..\\functions\\"
 #===============================================================================
 def get_data_dictionary():
     data_dict = {}
-    for method_set_name in fncs.__dict__.keys():
+    for method_set_name in fnc.__dict__.keys():
         if method_set_name.endswith('_methods'):
-            method_set = fncs.__dict__[method_set_name]
+            method_set = fnc.__dict__[method_set_name]
 
             for method_name in method_set.__dict__.keys():
                 if not method_name.startswith('__'):

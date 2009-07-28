@@ -1,50 +1,25 @@
-from py2rhino.make.data.gen_templates.descriptors_api import application_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import application_methods
-from py2rhino.make.data.gen_templates.descriptors_api import block_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import block_methods
-from py2rhino.make.data.gen_templates.descriptors_api import curve_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import curve_methods
-from py2rhino.make.data.gen_templates.descriptors_api import dimension_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import dimension_methods
-from py2rhino.make.data.gen_templates.descriptors_api import document_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import document_methods
-from py2rhino.make.data.gen_templates.descriptors_api import geometry_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import geometry_methods
-from py2rhino.make.data.gen_templates.descriptors_api import group_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import group_methods
-from py2rhino.make.data.gen_templates.descriptors_api import hatch_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import hatch_methods
-from py2rhino.make.data.gen_templates.descriptors_api import layer_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import layer_methods
-from py2rhino.make.data.gen_templates.descriptors_api import light_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import light_methods
-from py2rhino.make.data.gen_templates.descriptors_api import line_and_plane_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import line_and_plane_methods
-from py2rhino.make.data.gen_templates.descriptors_api import linetype_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import linetype_methods
-from py2rhino.make.data.gen_templates.descriptors_api import material_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import material_methods
-from py2rhino.make.data.gen_templates.descriptors_api import math_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import math_methods
-from py2rhino.make.data.gen_templates.descriptors_api import mesh_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import mesh_methods
-from py2rhino.make.data.gen_templates.descriptors_api import object_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import object_methods
-from py2rhino.make.data.gen_templates.descriptors_api import object_grip_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import object_grip_methods
-from py2rhino.make.data.gen_templates.descriptors_api import point_and_vector_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import point_and_vector_methods
-from py2rhino.make.data.gen_templates.descriptors_api import selection_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import selection_methods
-from py2rhino.make.data.gen_templates.descriptors_api import surface_and_polysurface_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import surface_and_polysurface_methods
-from py2rhino.make.data.gen_templates.descriptors_api import transformation_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import transformation_methods
-from py2rhino.make.data.gen_templates.descriptors_api import user_data_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import user_data_methods
-from py2rhino.make.data.gen_templates.descriptors_api import user_interface_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import user_interface_methods
-from py2rhino.make.data.gen_templates.descriptors_api import utility_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import utility_methods
-from py2rhino.make.data.gen_templates.descriptors_api import view_methods
-from py2rhino.make.data.gen_templates.descriptors_functions import view_methods
+import application_methods
+import block_methods
+import curve_methods
+import dimension_methods
+import document_methods
+import geometry_methods
+import group_methods
+import hatch_methods
+import layer_methods
+import light_methods
+import line_and_plane_methods
+import linetype_methods
+import material_methods
+import math_methods
+import mesh_methods
+import object_methods
+import object_grip_methods
+import point_and_vector_methods
+import selection_methods
+import surface_and_polysurface_methods
+import transformation_methods
+import user_data_methods
+import user_interface_methods
+import utility_methods
+import view_methods

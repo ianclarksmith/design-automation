@@ -23,18 +23,18 @@ def get_data_dictionary():
 #===============================================================================
 def write_methods(data_dict):
     counter = 0
-    init1 = open(out_folder + 'descriptors_api//' +  "__init__.py", mode='w')
-    init2 = open(out_folder + 'descriptors_functions//' +  "__init__.py", mode='w')    
-    init3 = open(out_folder + 'docs//' +  "__init__.py", mode='w')
+    init1 = open(out_folder + 'descriptors_api\\__init__.py', mode='w')
+    init2 = open(out_folder + 'descriptors_fnc\\__init__.py', mode='w')    
+    init3 = open(out_folder + 'docs\\__init__.py', mode='w')
     
     for module_name in sorted(data_dict.keys()):
         w(init1, ('import ',module_name, '_methods' ), tabs=0, nls=0, nle=1)
-        w(init1, ('import ',module_name, '_functions' ), tabs=0, nls=0, nle=1)        
-        w(init2, ('import ',module_name, '_docs' ), tabs=0, nls=0, nle=1)
+        w(init2, ('import ',module_name, '_functions' ), tabs=0, nls=0, nle=1)        
+        w(init3, ('import ',module_name, '_docs' ), tabs=0, nls=0, nle=1)
         
-        f1 = open(out_folder + 'descriptors_api//' + module_name +"_methods.py", mode='w')
-        f2 = open(out_folder + 'descriptors_fnc//' + module_name +"_methods.py", mode='w')
-        f3 = open(out_folder + 'docs//' + module_name +"_method_docs.py", mode='w')        
+        f1 = open(out_folder + 'descriptors_api\\' + module_name +"_methods.py", mode='w')
+        f2 = open(out_folder + 'descriptors_fnc\\' + module_name +"_functions.py", mode='w')
+        f3 = open(out_folder + 'docs\\' + module_name +"_docs.py", mode='w')        
         
         w(f1, '#The data below will be used to generate the Rhinoscript function wrappers', tabs=0, nls=0, nle=2)
         w(f1, '#Errors can be fixed by hand here', tabs=0, nls=0, nle=2)
