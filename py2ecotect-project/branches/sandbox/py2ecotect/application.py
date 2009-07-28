@@ -71,7 +71,7 @@ class Application(object):
                                                       message)
         py2ecotect.conversation.Exec(arg_str)
     
-    def center(self, ):
+    def center(self):
         """
         
         Use this command to centre the main Ecotect window withing the current 
