@@ -48,7 +48,9 @@ def write_methods(data_dict):
             
             #get the location where this method will be created
             api_location = underscore_to_camel(method_dict['input_folder_name'][:-8])
-            function_location = method_dict['input_folder_name'][:-8].lower()
+            fnc_location = method_dict['input_folder_name'][:-8].lower()            
+            fnc_com_id = method_dict['id_com']
+            fnc_vb_name = method_dict['input_file_name']            
             
             #check the number of parameters for html and com
             num_html_params = len(method_dict['params_html'])
@@ -60,14 +62,14 @@ def write_methods(data_dict):
                 for method_num in range(num_syntax_examples):
                     params_data = get_params_data(method_dict, method_num)
                     returns_data = get_returns_data(method_dict)
-                    write_method_descriptor_for_api(api_location, params_data, returns_data, f1)
-                    write_method_descriptor_for_functions(function_location, params_data, returns_data, f2)
+                    write_descriptor_for_api_methods(api_location, params_data, returns_data, f1)
+                    write_descriptor_for_functions(fnc_location, fnc_com_id, fnc_vb_name, params_data, returns_data, f2)
                 print module_name, method_name
             else:
                 params_data = get_params_data(method_dict, -1)
                 returns_data = get_returns_data(method_dict)
-                write_method_descriptor_for_api(api_location, params_data, returns_data, f1)
-                write_method_descriptor_for_functions(function_location, params_data, returns_data, f2)
+                write_descriptor_for_api_methods(api_location, params_data, returns_data, f1)
+                write_descriptor_for_functions(fnc_location, fnc_com_id, fnc_vb_name, params_data, returns_data, f2)
 
         #close the files
         f1.close()
@@ -134,7 +136,7 @@ def get_returns_data(method_dict):
             
     return (returns_type, returns_doc)   
 #------------------------------------------------------------------------------ 
-def write_method_descriptor_for_api(location, params_data, returns_data, f):
+def write_descriptor_for_api_methods(location, params_data, returns_data, f):
     #get the data
     py_method_name, params_name, params_type, params_opt_or_req, params_doc = params_data
     returns_type, returns_doc = returns_data
@@ -172,7 +174,7 @@ def write_method_descriptor_for_api(location, params_data, returns_data, f):
     w(f, ')', tabs=0, nls=0, nle=1)
     w(f, '}', tabs=1, nls=0, nle=1)
 #------------------------------------------------------------------------------ 
-def write_method_descriptor_for_functions(location, params_data, returns_data, f):
+def write_descriptor_for_functions(location, id, vb_name, params_data, returns_data, f):
     #get the data
     py_method_name, params_name, params_type, params_opt_or_req, params_doc = params_data
     returns_type, returns_doc = returns_data
@@ -181,12 +183,13 @@ def write_method_descriptor_for_functions(location, params_data, returns_data, f
     
     #write key data
     w(f, (py_method_name, ' = {'), tabs=0, nls=0, nle=1)
-    w(f, ('"method_location": "', location, '",'), tabs=1, nls=0, nle=1)
-    w(f, ('"method_type": "FUNCTION",'), tabs=1, nls=0, nle=1)             
-    w(f, ('"method_name": "', py_method_name, '",'), tabs=1, nls=0, nle=1)
+    w(f, ('"function_location": "', location , '",'), tabs=1, nls=0, nle=1)
+    w(f, ('"function_com_id": ', str(id), ','), tabs=1, nls=0, nle=1)
+    w(f, ('"function_vb_name": "', vb_name, '",'), tabs=1, nls=0, nle=1)
+    w(f, ('"function_name": "', py_method_name, '",'), tabs=1, nls=0, nle=1)
 
     #write the parameters
-    w(f, ('"method_parameters": ('), tabs=1, nls=0, nle=0) 
+    w(f, ('"function_parameters": ('), tabs=1, nls=0, nle=0) 
     if params_name:
         params_list = []
         for param_num in range(num_params):
@@ -199,7 +202,7 @@ def write_method_descriptor_for_functions(location, params_data, returns_data, f
     w(f, '),', tabs=0, nls=0, nle=1)
         
     #write the returns returns
-    w(f, ('"method_returns": ('), tabs=1, nls=0, nle=0) 
+    w(f, ('"function_returns": ('), tabs=1, nls=0, nle=0) 
     if returns_type:
         returns_list = []
         for returns_num in range(num_returns):
