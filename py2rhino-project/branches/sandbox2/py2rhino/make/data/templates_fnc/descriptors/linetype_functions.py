@@ -3,30 +3,34 @@
 #Errors can be fixed by hand here
 
 is_linetype = {
-    "method_location": "linetype",
-    "method_type": "FUNCTION",
-    "method_name": "is_linetype",
-    "method_parameters": (("linetype","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "linetype",
+    "function_com_id": 607,
+    "function_vb_name": "IsLinetype",
+    "function_name": "is_linetype",
+    "function_parameters": (("linetype","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 is_linetype_reference = {
-    "method_location": "linetype",
-    "method_type": "FUNCTION",
-    "method_name": "is_linetype_reference",
-    "method_parameters": (("linetype","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "linetype",
+    "function_com_id": 608,
+    "function_vb_name": "IsLinetypeReference",
+    "function_name": "is_linetype_reference",
+    "function_parameters": (("linetype","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 linetype_count = {
-    "method_location": "linetype",
-    "method_type": "FUNCTION",
-    "method_name": "linetype_count",
-    "method_parameters": (),
-    "method_returns": ("number")
+    "function_location": "linetype",
+    "function_com_id": 605,
+    "function_vb_name": "LinetypeCount",
+    "function_name": "linetype_count",
+    "function_parameters": (),
+    "function_returns": ("number")
     }
 linetype_names = {
-    "method_location": "linetype",
-    "method_type": "FUNCTION",
-    "method_name": "linetype_names",
-    "method_parameters": (("sort","bln","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "linetype",
+    "function_com_id": 606,
+    "function_vb_name": "LinetypeNames",
+    "function_name": "linetype_names",
+    "function_parameters": (("sort","bln","OPT")),
+    "function_returns": ("array","null")
     }
