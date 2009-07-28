@@ -5,13 +5,14 @@ _objects = []
 _nodes = []
 
 def _populate_zones():
-    pass
+    #Ecotect adds a default zone automaticallu. So add a null object to the 
+    #list of zones
+    _zones.append(None)
 
 def _populate_objects():
     num_objects = Model.get_objects()
     for eco_id in range(num_objects):
-        pass
-        #p2e.Object._create_object_from_id(eco_id)
+        p2e._Object._create_object_from_id(eco_id)
 
 def _populate_nodes():
     pass
@@ -49,7 +50,7 @@ class Model(object):
         >>> dump("C:\\Test\\mytest.eco")
         
         """
-        arg_str = string_util._convert_args_to_string("model.dump", filename)
+        arg_str = p2e.string_util._convert_args_to_string("model.dump", filename)
         p2e.conversation.Exec(arg_str)
     
     def export_file(self, filename, fileformat):
@@ -109,7 +110,7 @@ class Model(object):
         
         """
         #TODO: add error checking
-        arg_str = string_util._convert_args_to_string("model.export" + fileformat, filename)
+        arg_str = p2e.string_util._convert_args_to_string("model.export" + fileformat, filename)
         p2e.conversation.Exec(arg_str)
     
     def import_file(self, filename):
@@ -160,7 +161,7 @@ class Model(object):
         txt yes yes ASCII Text File 
         
         """
-        arg_str = string_util._convert_args_to_string("model.import", filename)
+        arg_str = p2e.p2e.string_util._convert_args_to_string("model.import", filename)
         p2e.conversation.Exec(arg_str)
     
     def load(self, filename):
@@ -179,7 +180,7 @@ class Model(object):
         filename =  C:\Temp\Test.eco
         
         """
-        arg_str = string_util.string_util._convert_args_to_string("model.load", filename)
+        arg_str = p2e.string_util.p2e.string_util._convert_args_to_string("model.load", filename)
         p2e.conversation.Exec(arg_str)
         
         #Clear model lists
@@ -207,12 +208,12 @@ class Model(object):
         model.new
         
         """
-        p2e.conversation.Exec("model.new")
+        #p2e.conversation.Exec("model.new")
         
         #Clear model lists
-        self.zones = []
-        self.objects = []
-        self.nodes = []
+        #self.zones = []
+        #self.objects = []
+        #self.nodes = []
          
     
     def revert(self):
@@ -256,7 +257,7 @@ class Model(object):
         This command takes the following parameters.
         
         """
-        arg_str = string_util._convert_args_to_string("model.saveas", filename)        
+        arg_str = p2e.string_util._convert_args_to_string("model.saveas", filename)        
         p2e.conversation.Exec(arg_str)
         
     def update(self):
@@ -304,9 +305,9 @@ class Model(object):
         The altitude angle in degrees. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.model.altitude", x1, y1, z1, x2, y2, z2)
+        arg_str = p2e.string_util._convert_args_to_string("get.model.altitude", x1, y1, z1, x2, y2, z2)
         val = p2e.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)        
+        return p2e.string_util._convert_str_to_type(val, float)        
         
     def get_azimuth(self, x1, y1, z1, x2, y2, z2):
         """
@@ -334,9 +335,9 @@ class Model(object):
         The azimuth angle in degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("get.model.azimuth", x1, y1, z1, x2, y2, z2)
+        arg_str = p2e.string_util._convert_args_to_string("get.model.azimuth", x1, y1, z1, x2, y2, z2)
         val = p2e.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)           
+        return p2e.string_util._convert_str_to_type(val, float)           
     
     def get_current_node(self):
         """
@@ -355,7 +356,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.currentnode")
-        return string_util._convert_str_to_type(val, int)  
+        return p2e.string_util._convert_str_to_type(val, int)  
     
     def get_current_object(self):
         """
@@ -374,7 +375,7 @@ class Model(object):
          
         """
         val = p2e.conversation.Request("get.model.currentobject")
-        return string_util._convert_str_to_type(val, int)   
+        return p2e.string_util._convert_str_to_type(val, int)   
     
     def get_current_zone(self):
         """
@@ -393,7 +394,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.currentzone")
-        return string_util._convert_str_to_type(val, int)   
+        return p2e.string_util._convert_str_to_type(val, int)   
     
     def get_date(self):
         """
@@ -415,7 +416,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.date")
-        return string_util._convert_str_to_list(val, int)  
+        return p2e.string_util._convert_str_to_list(val, int)  
     
     def set_date(self, day, month, time=None):
         """
@@ -436,9 +437,9 @@ class Model(object):
         
         """
         if time:
-            arg_str = string_util._convert_args_to_string("set.model.date", day, month, time)
+            arg_str = p2e.string_util._convert_args_to_string("set.model.date", day, month, time)
         else:
-            arg_str = string_util._convert_args_to_string("set.model.date", day, month)
+            arg_str = p2e.string_util._convert_args_to_string("set.model.date", day, month)
         p2e.conversation.Exec(arg_str)
         
     def get_date_string(self):
@@ -457,7 +458,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.datestring")
-        return string_util._convert_str_to_type(val, str)
+        return p2e.string_util._convert_str_to_type(val, str)
                 
     def get_daylight_savings(self):
         """
@@ -477,7 +478,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.daylightsavings")
-        return string_util._convert_str_to_type(val, bool)          
+        return p2e.string_util._convert_str_to_type(val, bool)          
     
     def set_daylight_savings(self, state):
         """
@@ -493,7 +494,7 @@ class Model(object):
         true, the current time is offset by one hour.
         
         """
-        args = string_util._convert_args_to_string("set.model.daylightsavings", 
+        args = p2e.string_util._convert_args_to_string("set.model.daylightsavings", 
                                                    state)
         p2e.conversation.Exec(args)
         
@@ -517,7 +518,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.dayoftheyear")
-        return string_util._convert_str_to_type(val, int)  
+        return p2e.string_util._convert_str_to_type(val, int)  
     
     def set_day_of_the_year(self, day, time=None):
         """
@@ -535,10 +536,10 @@ class Model(object):
          
         """
         if time:
-            arg_str = string_util._convert_args_to_string("set.model.dayoftheyear", 
+            arg_str = p2e.string_util._convert_args_to_string("set.model.dayoftheyear", 
                                                           day, time)
         else:
-            arg_str = string_util._convert_args_to_string("set.model.dayoftheyear", 
+            arg_str = p2e.string_util._convert_args_to_string("set.model.dayoftheyear", 
                                                           day)
         p2e.conversation.Exec(arg_str)
     
@@ -560,7 +561,7 @@ class Model(object):
     
         """
         val = p2e.conversation.Request("get.model.directory")
-        return string_util._convert_str_to_type(val, str)
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def set_directory(self, path):
         """
@@ -578,8 +579,8 @@ class Model(object):
         ECOTECT help file.
         
         """
-        args = string_util._convert_args_to_string("set.model.directory", path)
-        arg_str = string_util._convert_args_to_string(args)
+        args = p2e.string_util._convert_args_to_string("set.model.directory", path)
+        arg_str = p2e.string_util._convert_args_to_string(args)
         p2e.conversation.Exec(arg_str)
     
     def get_display(self):
@@ -612,7 +613,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.display")
-        return string_util._convert_str_to_type(val, int)        
+        return p2e.string_util._convert_str_to_type(val, int)        
     
     def set_display(self, display):
         """
@@ -639,7 +640,7 @@ class Model(object):
         rays 10 Acoustic rays and particles. 
         
         """
-        args = string_util._convert_args_to_string("set.model.display", display)
+        args = p2e.string_util._convert_args_to_string("set.model.display", display)
         p2e.conversation.Exec(args)
     
     def get_distance(self, x1, y1, z1, x2, y2, z2):
@@ -668,9 +669,9 @@ class Model(object):
         The distance value in the current model units.    
         
         """
-        args = string_util._convert_args_to_string("get.model.distance", x1, y1, z1, x2, y2, z2)
+        args = p2e.string_util._convert_args_to_string("get.model.distance", x1, y1, z1, x2, y2, z2)
         val = p2e.conversation.Request(args)
-        return string_util._convert_str_to_type(val, float)          
+        return p2e.string_util._convert_str_to_type(val, float)          
     
     
     def get_filename(self):
@@ -690,7 +691,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.filename")
-        return string_util._convert_str_to_type(val, str)
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def get_last_node(self):
         """
@@ -710,7 +711,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.lastnode")
-        return string_util._convert_str_to_type(val, int)
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def get_materials(self):
         """
@@ -730,7 +731,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.materials")
-        return string_util._convert_str_to_type(val, int)      
+        return p2e.string_util._convert_str_to_type(val, int)      
     
     def get_month(self):
         """
@@ -748,7 +749,7 @@ class Model(object):
          
         """
         val = p2e.conversation.Request("get.model.month")
-        return string_util._convert_str_to_type(val, int)
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def get_next_node(self, object, index):
         """
@@ -773,9 +774,9 @@ class Model(object):
         value of -1 is returned. 
         
         """
-        args = string_util._convert_args_to_string("get.model.nextnode", object, index)
+        args = p2e.string_util._convert_args_to_string("get.model.nextnode", object, index)
         val = p2e.conversation.Request(args)
-        return string_util._convert_str_to_type(val, int)       
+        return p2e.string_util._convert_str_to_type(val, int)       
     
     def get_next_object(self, startat, type, flag, tag, zone):
         """
@@ -865,9 +866,9 @@ class Model(object):
         32768 *Generic calculation marker. 
     
         """
-        args = string_util._convert_args_to_string("get.model.nextobject", startat, type, flag, tag, zone)
+        args = p2e.string_util._convert_args_to_string("get.model.nextobject", startat, type, flag, tag, zone)
         val = p2e.conversation.Request(args)
-        return string_util._convert_str_to_type(val, int)          
+        return p2e.string_util._convert_str_to_type(val, int)          
     
     def get_nodes(self):
         """
@@ -886,7 +887,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.nodes")
-        return string_util._convert_str_to_type(val, int)          
+        return p2e.string_util._convert_str_to_type(val, int)          
     
     @staticmethod
     def get_objects():
@@ -908,7 +909,7 @@ class Model(object):
          
         """
         val = p2e.conversation.Request("get.model.objects")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e.p2e.string_util._convert_str_to_type(val, int)
     
     def get_orientation(self, x1, y1, z1, x2, y2, z2):
         """
@@ -936,9 +937,9 @@ class Model(object):
         The orinetation angle in degrees. 
         
         """
-        args = p2e.string_util._convert_args_to_string("get.model.orientation", x1, y1, z1, x2, y2, z2)
+        args = p2e.p2e.string_util._convert_args_to_string("get.model.orientation", x1, y1, z1, x2, y2, z2)
         val = p2e.conversation.Request(args)
-        return p2e.string_util._convert_str_to_type(val, float)        
+        return p2e.p2e.string_util._convert_str_to_type(val, float)        
     
     def get_origin(self):
         """
@@ -958,7 +959,7 @@ class Model(object):
          
         """
         val = p2e.conversation.Request("get.model.origin")
-        return p2e.string_util._convert_str_to_list(val, float)
+        return p2e.p2e.string_util._convert_str_to_list(val, float)
     
     def set_origin(self, x, y, z):
         """
@@ -974,7 +975,7 @@ class Model(object):
         dimensional model space. 
     
         """
-        args = p2e.string_util._convert_args_to_string("set.model.origin", x, y, z)
+        args = p2e.p2e.string_util._convert_args_to_string("set.model.origin", x, y, z)
         p2e.conversation.Exec(args)     
     
     def get_path_name(self):
@@ -1018,9 +1019,9 @@ class Model(object):
         a value of -1 is returned. 
         
         """
-        args = p2e.string_util._convert_args_to_string("get.model.prevnode", object, index)
+        args = p2e.p2e.string_util._convert_args_to_string("get.model.prevnode", object, index)
         val = p2e.conversation.Request(args)
-        return p2e.string_util._convert_str_to_type(val, int)        
+        return p2e.p2e.string_util._convert_str_to_type(val, int)        
     
     def get_prev_object(self, startat, type, flag, tag, zone):
         """
@@ -1110,9 +1111,9 @@ class Model(object):
         32768 *Generic calculation marker. 
         
         """
-        args = p2e.string_util._convert_args_to_string("get.model.prevobject", startat, type, flag, tag, zone)
+        args = p2e.p2e.string_util._convert_args_to_string("get.model.prevobject", startat, type, flag, tag, zone)
         val = p2e.conversation.Request(args)
-        return p2e.string_util._convert_str_to_type(val, int)         
+        return p2e.p2e.string_util._convert_str_to_type(val, int)         
     
     def get_snap(self):
         """
@@ -1145,7 +1146,7 @@ class Model(object):
 
         """
         val = p2e.conversation.Request("get.model.snap")
-        return p2e.string_util._convert_str_to_type(val, bool)         
+        return p2e.p2e.string_util._convert_str_to_type(val, bool)         
     
     def set_snap(self, snap):
         """
@@ -1175,7 +1176,7 @@ class Model(object):
         rays 10 Acoustic rays and particles. 
 
         """
-        args = p2e.string_util._convert_args_to_string("set.model.snap", snap)
+        args = p2e.p2e.string_util._convert_args_to_string("set.model.snap", snap)
         p2e.conversation.Exec(args)
         
     def get_sun_angles(self):
@@ -1198,7 +1199,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.sunangles")
-        return p2e.string_util._convert_str_to_list(val, float)          
+        return p2e.p2e.string_util._convert_str_to_list(val, float)          
         
     def get_sun_position(self, dist=0, xyz=(0,0,0)):
         """
@@ -1228,9 +1229,9 @@ class Model(object):
         dimensional model space. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.model.sunposition", dist, xyz[0], xyz[1], xyz[2])
+        arg_str = p2e.p2e.string_util._convert_args_to_string("get.model.sunposition", dist, xyz[0], xyz[1], xyz[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, float) 
+        return p2e.p2e.string_util._convert_str_to_list(val, float) 
             
     def get_sunrise(self):
         """
@@ -1249,7 +1250,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.sunrise")
-        return p2e.string_util._convert_str_to_type(val, float)  
+        return p2e.p2e.string_util._convert_str_to_type(val, float)  
         
     def get_sun_set(self):
         """
@@ -1268,7 +1269,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.sunset")
-        return p2e.string_util._convert_str_to_type(val, float)        
+        return p2e.p2e.string_util._convert_str_to_type(val, float)        
     
     def get_time(self):
         """
@@ -1287,7 +1288,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.time")
-        return p2e.string_util._convert_str_to_type(val, float)          
+        return p2e.p2e.string_util._convert_str_to_type(val, float)          
     
     def set_time(self, time):
         """
@@ -1301,7 +1302,7 @@ class Model(object):
         The time given in decimal hours, between 0.0 and 23.99. 
         
         """
-        args = p2e.string_util._convert_args_to_string("set.model.time", time)
+        args = p2e.p2e.string_util._convert_args_to_string("set.model.time", time)
         p2e.conversation.Exec(args)
     
     def get_time_string(self):
@@ -1320,7 +1321,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.timestring")
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e.p2e.string_util._convert_str_to_type(val, str)
         
     def get_cap_extrusions(self):
         """
@@ -1340,7 +1341,7 @@ class Model(object):
          
         """
         val = p2e.conversation.Request("get.model.xform.capextrusions")
-        return p2e.string_util._convert_str_to_type(val, bool)          
+        return p2e.p2e.string_util._convert_str_to_type(val, bool)          
         
     def set_cap_extrusions(self, state = True):
         """
@@ -1355,7 +1356,7 @@ class Model(object):
         'lid' to cap off the volume. When set to false, no lid is generated. 
         
         """
-        args = p2e.string_util._convert_args_to_string("set.model.xform.capextrusions", state)
+        args = p2e.p2e.string_util._convert_args_to_string("set.model.xform.capextrusions", state)
         p2e.conversation.Exec(args)
     
     def get_vectors(self):
@@ -1377,7 +1378,7 @@ class Model(object):
          
         """
         val = p2e.conversation.Request("get.model.xform.vectors")
-        return p2e.string_util._convert_str_to_type(val, bool)
+        return p2e.p2e.string_util._convert_str_to_type(val, bool)
     
     def set_vectors(self, state = True):
         """
@@ -1395,7 +1396,7 @@ class Model(object):
         The total number of zones in the current model. 
         
         """
-        args = p2e.string_util._convert_args_to_string("set.model.xform.vectors", state)
+        args = p2e.p2e.string_util._convert_args_to_string("set.model.xform.vectors", state)
         p2e.conversation.Exec(args)
  
     def get_zones(self):
@@ -1415,7 +1416,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.zones")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e.p2e.string_util._convert_str_to_type(val, int)
     
     #===========================================================================
     # Properties    

@@ -53,8 +53,17 @@ class Zone(object):
         There are no parameters for this command.
         
         """
-        arg_str = string_util._convert_args_to_string("zone.delete", self.eco_id)
+        #execute ecotect instruction
+        arg_str = p2e.string_util._convert_args_to_string("zone.delete", self.eco_id)
         p2e.conversation.Exec(arg_str)
+        
+        #Delete objects of this zone
+        objects = self.get_objects()
+        for i in objects:
+            i.delete()
+            
+        #Update model lists
+        p2e.model._zones.remove(self)
     
     #===========================================================================
     # Properties that affect relationships between objects
@@ -139,7 +148,7 @@ class Zone(object):
         3, -3 In the Z axis. 
 
         """
-        arg_str = p2e.p2e.string_util._convert_args_to_string("zone.nudge", self.eco_id, dir)
+        arg_str = p2e.string_util._convert_args_to_string("zone.nudge", self.eco_id, dir)
         p2e.conversation.Exec(arg_str)
 
     def rotate(self, azi, alt):
@@ -1786,8 +1795,9 @@ class Zone(object):
         
         Relevant Data Table(s)
         
-         Element Types 
-         Token Value 
+        Element Types 
+        
+        Token Value 
         void 0 
         roof 1 
         floor 2 
@@ -1839,10 +1849,19 @@ class Zone(object):
 
         """
         arg_str = p2e.string_util._convert_args_to_string("get.zone.nextobject", 
-                                                     nextobject)
+                                                     self.eco_id, 
+                                                     startat, type, flag, tag)
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int) 
     
+    def get_objects(self):
+        object_id = self.get_next_object(-1, -1, -1, -1)
+        prev_id = object_id
+        objects = []
+        while (object_id != -1):
+            objects.append(p2e.model._objects[object_id])
+            object_id = self.get_next_object(prev_id, -1, -1, -1)
+        return objects
     def get_occupancy(self):
         """
         
