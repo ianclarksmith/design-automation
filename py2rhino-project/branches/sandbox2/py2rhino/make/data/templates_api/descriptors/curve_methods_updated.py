@@ -645,28 +645,28 @@ is_arc = {#ed
     "method_returns": ("boolean","null")
 }
 is_circle = {#ed
-    "method_location": "_Object._CurveType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_circle",
     "method_parameters": (("","self","REQ"),("index","int","OPT")),
     "method_returns": ("boolean","null")
 }
 is_curve = {#ed
-    "method_location": "_Object._CurveType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_curve",
     "method_parameters": (("","self","REQ"),("index","int","OPT")),
     "method_returns": ("boolean","null")
 }
 is_ellipse = {#ed
-    "method_location": "_Object._CurveType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_ellipse",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
 }
 is_line = {#ed
-    "method_location": "_Object._CurveType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_line",
     "method_parameters": (("","self","REQ"),("index","int","OPT")),
@@ -687,7 +687,7 @@ is_polyline = {#ed
     "method_returns": ("boolean","null")
 }
 is_curve_in_plane = {#ed
-    "method_location": "_Object._CurveType",
+    "method_location": "_Object._CurvType",
     "method_type": "METHOD",
     "method_name": "in_plane",
     "method_parameters": (("","self","REQ"),("plane","array of dbl","OPT")),

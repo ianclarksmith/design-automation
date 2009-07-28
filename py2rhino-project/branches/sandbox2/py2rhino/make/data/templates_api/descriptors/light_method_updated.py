@@ -67,14 +67,14 @@ enable_light = {#ed
     "method_returns": ("boolean","boolean","null")
     }
 is_directional_light = {#ed
-    "method_location": "_Object._LightType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_directional_light",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
     }
 is_light = {#ed
-    "method_location": "_Object._LightType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_light",
     "method_parameters": (("","self","REQ")),

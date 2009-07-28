@@ -72,7 +72,7 @@ explode_meshes = {
     "method_returns": ("array of _Object._MeshType","null")
     }
 is_mesh = {
-    "method_location": "_Object._MeshType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_mesh",
     "method_parameters": (("","self","REQ")),
