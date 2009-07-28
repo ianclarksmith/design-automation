@@ -23,25 +23,32 @@ def get_data_dictionary():
 #===============================================================================
 def write_methods(data_dict):
     counter = 0
-    init1 = open(out_folder + 'descriptors//' +  "__init__.py", mode='w')
-    init2 = open(out_folder + 'docs//' +  "__init__.py", mode='w')
+    init1 = open(out_folder + 'descriptors_api//' +  "__init__.py", mode='w')
+    init2 = open(out_folder + 'descriptors_functions//' +  "__init__.py", mode='w')    
+    init3 = open(out_folder + 'docs//' +  "__init__.py", mode='w')
     
     for module_name in sorted(data_dict.keys()):
-        w(init1, ('from py2rhino.make.data.gen_templates.descriptors import ',module_name, '_methods' ), tabs=0, nls=0, nle=1)
-        w(init2, ('from py2rhino.make.data.gen_templates.docs import ',module_name, '_methods' ), tabs=0, nls=0, nle=1)
+        w(init1, ('import ',module_name, '_methods' ), tabs=0, nls=0, nle=1)
+        w(init1, ('import ',module_name, '_functions' ), tabs=0, nls=0, nle=1)        
+        w(init2, ('import ',module_name, '_docs' ), tabs=0, nls=0, nle=1)
         
-        f1 = open(out_folder + 'descriptors//' + module_name +"_methods.py", mode='w')
-        f2 = open(out_folder + 'docs//' + module_name +"_method_docs.py", mode='w')
+        f1 = open(out_folder + 'descriptors_api//' + module_name +"_methods.py", mode='w')
+        f2 = open(out_folder + 'descriptors_fnc//' + module_name +"_methods.py", mode='w')
+        f3 = open(out_folder + 'docs//' + module_name +"_method_docs.py", mode='w')        
         
-        w(f1, '#The data below will be used to generate the Rhinoscript functions', tabs=0, nls=0, nle=2)
+        w(f1, '#The data below will be used to generate the Rhinoscript function wrappers', tabs=0, nls=0, nle=2)
         w(f1, '#Errors can be fixed by hand here', tabs=0, nls=0, nle=2)
+        
+        w(f2, '#The data below will be used to generate the Rhinoscript api', tabs=0, nls=0, nle=2)
+        w(f2, '#Errors can be fixed by hand here', tabs=0, nls=0, nle=2)
         
         for method_name in sorted(data_dict[module_name].keys()):
             #get the method dict
             method_dict = data_dict[module_name][method_name]
             
             #get the location where this method will be created
-            location = underscore_to_camel(method_dict['input_folder_name'][:-8])            
+            api_location = underscore_to_camel(method_dict['input_folder_name'][:-8])
+            function_location = method_dict['input_folder_name'][:-8].lower()
             
             #check the number of parameters for html and com
             num_html_params = len(method_dict['params_html'])
@@ -53,18 +60,22 @@ def write_methods(data_dict):
                 for method_num in range(num_syntax_examples):
                     params_data = get_params_data(method_dict, method_num)
                     returns_data = get_returns_data(method_dict)
-                    write_method_descriptor(location, params_data, returns_data, f1)
+                    write_method_descriptor_for_api(api_location, params_data, returns_data, f1)
+                    write_method_descriptor_for_functions(function_location, params_data, returns_data, f2)
                 print module_name, method_name
             else:
                 params_data = get_params_data(method_dict, -1)
                 returns_data = get_returns_data(method_dict)
-                write_method_descriptor(location, params_data, returns_data, f1)
+                write_method_descriptor_for_api(api_location, params_data, returns_data, f1)
+                write_method_descriptor_for_functions(function_location, params_data, returns_data, f2)
 
         #close the files
         f1.close()
         f2.close()
+        f3.close()
     init1.close()
     init2.close()
+    init3.close()    
     print counter
 #------------------------------------------------------------------------------ 
 def get_params_data(method_dict, method_num):
@@ -122,9 +133,8 @@ def get_returns_data(method_dict):
             returns_doc.append(doc)
             
     return (returns_type, returns_doc)   
-        
 #------------------------------------------------------------------------------ 
-def write_method_descriptor(location, params_data, returns_data, f):
+def write_method_descriptor_for_api(location, params_data, returns_data, f):
     #get the data
     py_method_name, params_name, params_type, params_opt_or_req, params_doc = params_data
     returns_type, returns_doc = returns_data
@@ -161,12 +171,52 @@ def write_method_descriptor(location, params_data, returns_data, f):
         w(f, returns_list, tabs=0, nls=0, nle=0) 
     w(f, ')', tabs=0, nls=0, nle=1)
     w(f, '}', tabs=1, nls=0, nle=1)
-
 #------------------------------------------------------------------------------ 
-def write_method_doc(location, method_data, f):
+def write_method_descriptor_for_functions(location, params_data, returns_data, f):
+    #get the data
+    py_method_name, params_name, params_type, params_opt_or_req, params_doc = params_data
+    returns_type, returns_doc = returns_data
+    num_params = len(params_name)
+    num_returns = len(returns_type)
+    
+    #write key data
+    w(f, (py_method_name, ' = {'), tabs=0, nls=0, nle=1)
+    w(f, ('"method_location": "', location, '",'), tabs=1, nls=0, nle=1)
+    w(f, ('"method_type": "FUNCTION",'), tabs=1, nls=0, nle=1)             
+    w(f, ('"method_name": "', py_method_name, '",'), tabs=1, nls=0, nle=1)
+
+    #write the parameters
+    w(f, ('"method_parameters": ('), tabs=1, nls=0, nle=0) 
+    if params_name:
+        params_list = []
+        for param_num in range(num_params):
+            py_name = params_name[param_num]
+            type_string = get_type_string(params_type[param_num])
+            opt_or_req = params_opt_or_req[param_num][:3].upper()
+            params_list.append('("' + py_name +'","'+ type_string +'","'+ opt_or_req + '")')
+        params_list =  ','.join(params_list)
+        w(f, params_list, tabs=0, nls=0, nle=0) 
+    w(f, '),', tabs=0, nls=0, nle=1)
+        
+    #write the returns returns
+    w(f, ('"method_returns": ('), tabs=1, nls=0, nle=0) 
+    if returns_type:
+        returns_list = []
+        for returns_num in range(num_returns):
+            type_string = returns_type[returns_num]
+            returns_list.append('"' + type_string + '"')
+        returns_list =  ','.join(returns_list)
+        w(f, returns_list, tabs=0, nls=0, nle=0) 
+    w(f, ')', tabs=0, nls=0, nle=1)
+    w(f, '}', tabs=1, nls=0, nle=1)
+#------------------------------------------------------------------------------ 
+def write_method_docs(location, method_data, f):
     pass
-
-
+#------------------------------------------------------------------------------ 
+def get_type_string(str):
+    if str.startswith("arr_of_"):
+        str = 'array_of ' + str[7:]
+    return str
 #===============================================================================
 # Run 
 #===============================================================================
