@@ -3,177 +3,202 @@
 #Errors can be fixed by hand here
 
 block_container_count = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_container_count",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "block",
+    "function_com_id": 411,
+    "function_vb_name": "BlockContainerCount",
+    "function_name": "block_container_count",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("number","null")
     }
 block_containers = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_containers",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "block",
+    "function_com_id": 412,
+    "function_vb_name": "BlockContainers",
+    "function_name": "block_containers",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("array","null")
     }
 block_count = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_count",
-    "method_parameters": (),
-    "method_returns": ("number","null")
+    "function_location": "block",
+    "function_com_id": 397,
+    "function_vb_name": "BlockCount",
+    "function_name": "block_count",
+    "function_parameters": (),
+    "function_returns": ("number","null")
     }
 block_description = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_description",
-    "method_parameters": (("block","str","REQ"),("text","str","OPT")),
-    "method_returns": ("string","string","null")
+    "function_location": "block",
+    "function_com_id": 400,
+    "function_vb_name": "BlockDescription",
+    "function_name": "block_description",
+    "function_parameters": (("block","str","REQ"),("text","str","OPT")),
+    "function_returns": ("string","string","null")
     }
 block_instance_count = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_instance_count",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "block",
+    "function_com_id": 404,
+    "function_vb_name": "BlockInstanceCount",
+    "function_name": "block_instance_count",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("number","null")
     }
 block_instance_insert_point = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_instance_insert_point",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "block",
+    "function_com_id": 413,
+    "function_vb_name": "BlockInstanceInsertPoint",
+    "function_name": "block_instance_insert_point",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("array","null")
     }
 block_instance_name = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_instance_name",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("string","null")
+    "function_location": "block",
+    "function_com_id": 571,
+    "function_vb_name": "BlockInstanceName",
+    "function_name": "block_instance_name",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("string","null")
     }
 block_instance_xform = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_instance_xform",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "block",
+    "function_com_id": 415,
+    "function_vb_name": "BlockInstanceXform",
+    "function_name": "block_instance_xform",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("array","null")
     }
 block_instances = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_instances",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "block",
+    "function_com_id": 414,
+    "function_vb_name": "BlockInstances",
+    "function_name": "block_instances",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("array","null")
     }
 block_names = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_names",
-    "method_parameters": (("sort","bln","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "block",
+    "function_com_id": 396,
+    "function_vb_name": "BlockNames",
+    "function_name": "block_names",
+    "function_parameters": (("sort","bln","OPT")),
+    "function_returns": ("array","null")
     }
 block_object_count = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_object_count",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "block",
+    "function_com_id": 416,
+    "function_vb_name": "BlockObjectCount",
+    "function_name": "block_object_count",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("number","null")
     }
 block_objects = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_objects",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "block",
+    "function_com_id": 417,
+    "function_vb_name": "BlockObjects",
+    "function_name": "block_objects",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("array","null")
     }
 block_path = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_path",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("string","null")
+    "function_location": "block",
+    "function_com_id": 408,
+    "function_vb_name": "BlockPath",
+    "function_name": "block_path",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("string","null")
     }
 block_u_r_l = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_u_r_l",
-    "method_parameters": (("block","str","REQ"),("u_r_l","str","OPT")),
-    "method_returns": ("string","string","null")
+    "function_location": "block",
+    "function_com_id": 402,
+    "function_vb_name": "BlockURL",
+    "function_name": "block_u_r_l",
+    "function_parameters": (("block","str","REQ"),("u_r_l","str","OPT")),
+    "function_returns": ("string","string","null")
     }
 block_u_r_l_tag = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "block_u_r_l_tag",
-    "method_parameters": (("block","str","REQ"),("u_r_l","str","OPT")),
-    "method_returns": ("string","string","null")
+    "function_location": "block",
+    "function_com_id": 403,
+    "function_vb_name": "BlockURLTag",
+    "function_name": "block_u_r_l_tag",
+    "function_parameters": (("block","str","REQ"),("u_r_l","str","OPT")),
+    "function_returns": ("string","string","null")
     }
 delete_block = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "delete_block",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "block",
+    "function_com_id": 418,
+    "function_vb_name": "DeleteBlock",
+    "function_name": "delete_block",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 explode_block_instance = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "explode_block_instance",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "block",
+    "function_com_id": 419,
+    "function_vb_name": "ExplodeBlockInstance",
+    "function_name": "explode_block_instance",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("array","null")
     }
 insert_block = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "insert_block",
-    "method_parameters": (("name","str","REQ"),("point","array_of dbl","REQ"),("scale","array_of int","OPT"),("angle","dbl","OPT"),("normal","array_of dbl","OPT")),
-    "method_returns": ("string","null")
+    "function_location": "block",
+    "function_com_id": 633,
+    "function_vb_name": "InsertBlock",
+    "function_name": "insert_block",
+    "function_parameters": (("name","str","REQ"),("point","array_of dbl","REQ"),("scale","array_of int","OPT"),("angle","dbl","OPT"),("normal","array_of dbl","OPT")),
+    "function_returns": ("string","null")
     }
 insert_block_2 = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "insert_block_2",
-    "method_parameters": (("name","str","REQ"),("xform","array_of dbl","REQ")),
-    "method_returns": ("string","null")
+    "function_location": "block",
+    "function_com_id": 633,
+    "function_vb_name": "InsertBlock",
+    "function_name": "insert_block_2",
+    "function_parameters": (("name","str","REQ"),("xform","array_of dbl","REQ")),
+    "function_returns": ("string","null")
     }
 is_block = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "is_block",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "block",
+    "function_com_id": 398,
+    "function_vb_name": "IsBlock",
+    "function_name": "is_block",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 is_block_embedded = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "is_block_embedded",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "block",
+    "function_com_id": 405,
+    "function_vb_name": "IsBlockEmbedded",
+    "function_name": "is_block_embedded",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 is_block_in_use = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "is_block_in_use",
-    "method_parameters": (("block","str","REQ"),("where","int","OPT")),
-    "method_returns": ("boolean","null")
+    "function_location": "block",
+    "function_com_id": 406,
+    "function_vb_name": "IsBlockInUse",
+    "function_name": "is_block_in_use",
+    "function_parameters": (("block","str","REQ"),("where","int","OPT")),
+    "function_returns": ("boolean","null")
     }
 is_block_instance = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "is_block_instance",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "block",
+    "function_com_id": 420,
+    "function_vb_name": "IsBlockInstance",
+    "function_name": "is_block_instance",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 is_block_reference = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "is_block_reference",
-    "method_parameters": (("block","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "block",
+    "function_com_id": 407,
+    "function_vb_name": "IsBlockReference",
+    "function_name": "is_block_reference",
+    "function_parameters": (("block","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 rename_block = {
-    "method_location": "block",
-    "method_type": "FUNCTION",
-    "method_name": "rename_block",
-    "method_parameters": (("old_block","str","REQ"),("new_block","str","REQ")),
-    "method_returns": ("string","null")
+    "function_location": "block",
+    "function_com_id": 399,
+    "function_vb_name": "RenameBlock",
+    "function_name": "rename_block",
+    "function_parameters": (("old_block","str","REQ"),("new_block","str","REQ")),
+    "function_returns": ("string","null")
     }

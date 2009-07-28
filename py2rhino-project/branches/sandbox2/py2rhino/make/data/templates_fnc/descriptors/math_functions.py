@@ -3,79 +3,90 @@
 #Errors can be fixed by hand here
 
 angle = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "angle",
-    "method_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ"),("world","bln","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "math",
+    "function_com_id": 115,
+    "function_vb_name": "Angle",
+    "function_name": "angle",
+    "function_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ"),("world","bln","OPT")),
+    "function_returns": ("array","null")
     }
 angle2 = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "angle2",
-    "method_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "math",
+    "function_com_id": 116,
+    "function_vb_name": "Angle2",
+    "function_name": "angle2",
+    "function_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ")),
+    "function_returns": ("array","null")
     }
 deviation = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "deviation",
-    "method_parameters": (("numbers","array_of int","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "math",
+    "function_com_id": 773,
+    "function_vb_name": "Deviation",
+    "function_name": "deviation",
+    "function_parameters": (("numbers","array_of int","REQ")),
+    "function_returns": ("number","null")
     }
 distance = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "distance",
-    "method_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ")),
-    "method_returns": ("number","array","null")
+    "function_location": "math",
+    "function_com_id": 118,
+    "function_vb_name": "Distance",
+    "function_name": "distance",
+    "function_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ")),
+    "function_returns": ("number","array","null")
     }
 distance_2 = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "distance_2",
-    "method_parameters": (("point1","array_of dbl","REQ"),("point_array","array_of dbl","REQ")),
-    "method_returns": ("number","array","null")
+    "function_location": "math",
+    "function_com_id": 118,
+    "function_vb_name": "Distance",
+    "function_name": "distance_2",
+    "function_parameters": (("point1","array_of dbl","REQ"),("point_array","array_of dbl","REQ")),
+    "function_returns": ("number","array","null")
     }
 hypot = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "hypot",
-    "method_parameters": (("number_x","dbl","REQ"),("number_y","dbl","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "math",
+    "function_com_id": 765,
+    "function_vb_name": "Hypot",
+    "function_name": "hypot",
+    "function_parameters": (("number_x","dbl","REQ"),("number_y","dbl","REQ")),
+    "function_returns": ("number","null")
     }
 max = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "max",
-    "method_parameters": (("numbers","array_of int","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "math",
+    "function_com_id": 768,
+    "function_vb_name": "Max",
+    "function_name": "max",
+    "function_parameters": (("numbers","array_of int","REQ")),
+    "function_returns": ("number","null")
     }
 mean = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "mean",
-    "method_parameters": (("numbers","array_of int","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "math",
+    "function_com_id": 771,
+    "function_vb_name": "Mean",
+    "function_name": "mean",
+    "function_parameters": (("numbers","array_of int","REQ")),
+    "function_returns": ("number","null")
     }
 median = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "median",
-    "method_parameters": (("numbers","array_of int","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "math",
+    "function_com_id": 772,
+    "function_vb_name": "Median",
+    "function_name": "median",
+    "function_parameters": (("numbers","array_of int","REQ")),
+    "function_returns": ("number","null")
     }
 min = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "min",
-    "method_parameters": (("numbers","array_of int","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "math",
+    "function_com_id": 769,
+    "function_vb_name": "Min",
+    "function_name": "min",
+    "function_parameters": (("numbers","array_of int","REQ")),
+    "function_returns": ("number","null")
     }
 polar = {
-    "method_location": "math",
-    "method_type": "FUNCTION",
-    "method_name": "polar",
-    "method_parameters": (("point","array_of dbl","REQ"),("angle","dbl","REQ"),("distance","dbl","REQ"),("plane","array_of dbl","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "math",
+    "function_com_id": 662,
+    "function_vb_name": "Polar",
+    "function_name": "polar",
+    "function_parameters": (("point","array_of dbl","REQ"),("angle","dbl","REQ"),("distance","dbl","REQ"),("plane","array_of dbl","OPT")),
+    "function_returns": ("array","null")
     }
