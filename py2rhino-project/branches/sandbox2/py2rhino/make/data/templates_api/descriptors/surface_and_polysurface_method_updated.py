@@ -367,7 +367,7 @@ intersect_breps = {#ed
     "method_returns": ("array of _Object._SurfaceType","null")
     }
 is_brep = {#ed
-    "method_location": "_Object._SurfaceType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_brep",
     "method_parameters": (("","self","REQ")),
@@ -381,14 +381,14 @@ is_brep_manifold = {#ed
     "method_returns": ("boolean","null")
     }
 is_cone = {#ed
-    "method_location": "_Object._SurfaceType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_cone",
     "method_parameters": (("","self""REQ")),
     "method_returns": ("boolean","null")
     }
 is_cylinder = {#ed
-    "method_location": "_Object._SurfaceType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_cylinder",
     "method_parameters": (("","self","REQ")),
@@ -423,14 +423,14 @@ is_point_on_surface = {#ed
     "method_returns": ("boolean","null")
     }
 is_poly_surface = {#ed
-    "method_location": "Surface_and_Polysurface",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_poly_surface",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
     }
 is_poly_surface_closed = {#ed
-    "method_location": "Surface_and_Polysurface",
+    "method_location": "_Object._SurfaceType",
     "method_type": "METHOD",
     "method_name": "is_poly_surface_closed",
     "method_parameters": (("","self","REQ")),
