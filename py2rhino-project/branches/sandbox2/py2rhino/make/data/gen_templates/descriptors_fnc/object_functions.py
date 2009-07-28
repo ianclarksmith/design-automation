@@ -3,457 +3,522 @@
 #Errors can be fixed by hand here
 
 add_object_mesh = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "add_object_mesh",
-    "method_parameters": (("object","str","REQ"),("quality","int","OPT"),("enable","bln","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 866,
+    "function_vb_name": "AddObjectMesh",
+    "function_name": "add_object_mesh",
+    "function_parameters": (("object","str","REQ"),("quality","int","OPT"),("enable","bln","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 box_morph_object = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "box_morph_object",
-    "method_parameters": (("objects","array_of str","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
-    "method_returns": ("string","array","null")
+    "function_location": "object",
+    "function_com_id": 918,
+    "function_vb_name": "BoxMorphObject",
+    "function_name": "box_morph_object",
+    "function_parameters": (("objects","array_of str","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
+    "function_returns": ("string","array","null")
     }
 copy_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "copy_objects",
-    "method_parameters": (("objects","array_of str","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "object",
+    "function_com_id": 295,
+    "function_vb_name": "CopyObjects",
+    "function_name": "copy_objects",
+    "function_parameters": (("objects","array_of str","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+    "function_returns": ("array","null")
     }
 copy_objects_2 = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "copy_objects_2",
-    "method_parameters": (("translation","array_of dbl","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "object",
+    "function_com_id": 295,
+    "function_vb_name": "CopyObjects",
+    "function_name": "copy_objects_2",
+    "function_parameters": (("translation","array_of dbl","OPT")),
+    "function_returns": ("array","null")
     }
 delete_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "delete_objects",
-    "method_parameters": (("objects","array_of str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 186,
+    "function_vb_name": "DeleteObjects",
+    "function_name": "delete_objects",
+    "function_parameters": (("objects","array_of str","REQ")),
+    "function_returns": ("number","null")
     }
 enable_object_mesh = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "enable_object_mesh",
-    "method_parameters": (("objects","array_of str","REQ"),("enable","bln","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 856,
+    "function_vb_name": "EnableObjectMesh",
+    "function_name": "enable_object_mesh",
+    "function_parameters": (("objects","array_of str","REQ"),("enable","bln","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 flash_object = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "flash_object",
-    "method_parameters": (("objects","array_of str","REQ"),("style","bln","OPT")),
-    "method_returns": ()
+    "function_location": "object",
+    "function_com_id": 869,
+    "function_vb_name": "FlashObject",
+    "function_name": "flash_object",
+    "function_parameters": (("objects","array_of str","REQ"),("style","bln","OPT")),
+    "function_returns": ()
     }
 hide_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "hide_objects",
-    "method_parameters": (("objects","array_of str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 303,
+    "function_vb_name": "HideObjects",
+    "function_name": "hide_objects",
+    "function_parameters": (("objects","array_of str","REQ")),
+    "function_returns": ("number","null")
     }
 is_layout_object = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_layout_object",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 919,
+    "function_vb_name": "IsLayoutObject",
+    "function_name": "is_layout_object",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_object = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ()
+    "function_location": "object",
+    "function_com_id": 46,
+    "function_vb_name": "IsObject",
+    "function_name": "is_object",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ()
     }
 is_object_hidden = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_hidden",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 47,
+    "function_vb_name": "IsObjectHidden",
+    "function_name": "is_object_hidden",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_object_in_box = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_in_box",
-    "method_parameters": (("object","str","REQ"),("box","array_of dbl","REQ"),("mode","bln","OPT")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 799,
+    "function_vb_name": "IsObjectInBox",
+    "function_name": "is_object_in_box",
+    "function_parameters": (("object","str","REQ"),("box","array_of dbl","REQ"),("mode","bln","OPT")),
+    "function_returns": ("null")
     }
 is_object_in_group = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_in_group",
-    "method_parameters": (("object","str","REQ"),("group","str","OPT")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 188,
+    "function_vb_name": "IsObjectInGroup",
+    "function_name": "is_object_in_group",
+    "function_parameters": (("object","str","REQ"),("group","str","OPT")),
+    "function_returns": ("null")
     }
 is_object_locked = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_locked",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 48,
+    "function_vb_name": "IsObjectLocked",
+    "function_name": "is_object_locked",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_object_normal = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_normal",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 49,
+    "function_vb_name": "IsObjectNormal",
+    "function_name": "is_object_normal",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_object_reference = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_reference",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 271,
+    "function_vb_name": "IsObjectReference",
+    "function_name": "is_object_reference",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_object_selectable = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_selectable",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 307,
+    "function_vb_name": "IsObjectSelectable",
+    "function_name": "is_object_selectable",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_object_selected = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_selected",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 50,
+    "function_vb_name": "IsObjectSelected",
+    "function_name": "is_object_selected",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_object_solid = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_solid",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 189,
+    "function_vb_name": "IsObjectSolid",
+    "function_name": "is_object_solid",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_object_valid = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_object_valid",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 522,
+    "function_vb_name": "IsObjectValid",
+    "function_name": "is_object_valid",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("null")
     }
 is_visible_in_view = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "is_visible_in_view",
-    "method_parameters": (("object","str","REQ"),("view","str","OPT")),
-    "method_returns": ("null")
+    "function_location": "object",
+    "function_com_id": 727,
+    "function_vb_name": "IsVisibleInView",
+    "function_name": "is_visible_in_view",
+    "function_parameters": (("object","str","REQ"),("view","str","OPT")),
+    "function_returns": ("null")
     }
 lock_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "lock_objects",
-    "method_parameters": (("objects","array_of str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 304,
+    "function_vb_name": "LockObjects",
+    "function_name": "lock_objects",
+    "function_parameters": (("objects","array_of str","REQ")),
+    "function_returns": ("number","null")
     }
 match_object_attributes = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "match_object_attributes",
-    "method_parameters": (("targets","array_of str","REQ"),("source","str","OPT")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 781,
+    "function_vb_name": "MatchObjectAttributes",
+    "function_name": "match_object_attributes",
+    "function_parameters": (("targets","array_of str","REQ"),("source","str","OPT")),
+    "function_returns": ("number","null")
     }
 mirror_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "mirror_objects",
-    "method_parameters": (("objects","array_of str","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
-    "method_returns": ("string","null")
+    "function_location": "object",
+    "function_com_id": 590,
+    "function_vb_name": "MirrorObjects",
+    "function_name": "mirror_objects",
+    "function_parameters": (("objects","array_of str","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
+    "function_returns": ("string","null")
     }
 move_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "move_objects",
-    "method_parameters": (("objects","array_of str","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 296,
+    "function_vb_name": "MoveObjects",
+    "function_name": "move_objects",
+    "function_parameters": (("objects","array_of str","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ")),
+    "function_returns": ("number","null")
     }
 move_objects_2 = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "move_objects_2",
-    "method_parameters": (("translation","array_of dbl","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 296,
+    "function_vb_name": "MoveObjects",
+    "function_name": "move_objects_2",
+    "function_parameters": (("translation","array_of dbl","REQ")),
+    "function_returns": ("number","null")
     }
 object_color = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_color",
-    "method_parameters": (("objects","array_of str","REQ"),("color","lng","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 191,
+    "function_vb_name": "ObjectColor",
+    "function_name": "object_color",
+    "function_parameters": (("objects","array_of str","REQ"),("color","lng","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_color_source = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_color_source",
-    "method_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 192,
+    "function_vb_name": "ObjectColorSource",
+    "function_name": "object_color_source",
+    "function_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_description = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_description",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("string","null")
+    "function_location": "object",
+    "function_com_id": 470,
+    "function_vb_name": "ObjectDescription",
+    "function_name": "object_description",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("string","null")
     }
 object_dump = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_dump",
-    "method_parameters": (("object","str","REQ"),("type","int","OPT")),
-    "method_returns": ("string","null")
+    "function_location": "object",
+    "function_com_id": 705,
+    "function_vb_name": "ObjectDump",
+    "function_name": "object_dump",
+    "function_parameters": (("object","str","REQ"),("type","int","OPT")),
+    "function_returns": ("string","null")
     }
 object_groups = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_groups",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "object",
+    "function_com_id": 193,
+    "function_vb_name": "ObjectGroups",
+    "function_name": "object_groups",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("array","null")
     }
 object_has_mesh = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_has_mesh",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "object",
+    "function_com_id": 867,
+    "function_vb_name": "ObjectHasMesh",
+    "function_name": "object_has_mesh",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 object_layer = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_layer",
-    "method_parameters": (("objects","array_of str","REQ"),("layer","str","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 51,
+    "function_vb_name": "ObjectLayer",
+    "function_name": "object_layer",
+    "function_parameters": (("objects","array_of str","REQ"),("layer","str","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_layout = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_layout",
-    "method_parameters": (("object","str","REQ"),("layout","str","OPT"),("return_name","bln","OPT")),
-    "method_returns": ("string","string","null")
+    "function_location": "object",
+    "function_com_id": 924,
+    "function_vb_name": "ObjectLayout",
+    "function_name": "object_layout",
+    "function_parameters": (("object","str","REQ"),("layout","str","OPT"),("return_name","bln","OPT")),
+    "function_returns": ("string","string","null")
     }
 object_linetype = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_linetype",
-    "method_parameters": (("objects","array_of str","REQ"),("layer","str","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 646,
+    "function_vb_name": "ObjectLinetype",
+    "function_name": "object_linetype",
+    "function_parameters": (("objects","array_of str","REQ"),("layer","str","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_linetype_source = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_linetype_source",
-    "method_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 647,
+    "function_vb_name": "ObjectLinetypeSource",
+    "function_name": "object_linetype_source",
+    "function_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_material_index = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_material_index",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 194,
+    "function_vb_name": "ObjectMaterialIndex",
+    "function_name": "object_material_index",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("number","null")
     }
 object_material_source = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_material_source",
-    "method_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 195,
+    "function_vb_name": "ObjectMaterialSource",
+    "function_name": "object_material_source",
+    "function_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_mesh_density = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_density",
-    "method_parameters": (("object","str","REQ"),("density","dbl","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 858,
+    "function_vb_name": "ObjectMeshDensity",
+    "function_name": "object_mesh_density",
+    "function_parameters": (("object","str","REQ"),("density","dbl","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_mesh_max_angle = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_max_angle",
-    "method_parameters": (("object","str","REQ"),("angle","dbl","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 859,
+    "function_vb_name": "ObjectMeshMaxAngle",
+    "function_name": "object_mesh_max_angle",
+    "function_parameters": (("object","str","REQ"),("angle","dbl","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_mesh_max_aspect_ratio = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_max_aspect_ratio",
-    "method_parameters": (("object","str","REQ"),("ratio","dbl","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 860,
+    "function_vb_name": "ObjectMeshMaxAspectRatio",
+    "function_name": "object_mesh_max_aspect_ratio",
+    "function_parameters": (("object","str","REQ"),("ratio","dbl","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_mesh_max_dist_edge_to_srf = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_max_dist_edge_to_srf",
-    "method_parameters": (("object","str","REQ"),("distance","dbl","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 863,
+    "function_vb_name": "ObjectMeshMaxDistEdgeToSrf",
+    "function_name": "object_mesh_max_dist_edge_to_srf",
+    "function_parameters": (("object","str","REQ"),("distance","dbl","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_mesh_max_edge_length = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_max_edge_length",
-    "method_parameters": (("object","str","REQ"),("length","dbl","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 862,
+    "function_vb_name": "ObjectMeshMaxEdgeLength",
+    "function_name": "object_mesh_max_edge_length",
+    "function_parameters": (("object","str","REQ"),("length","dbl","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_mesh_min_edge_length = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_min_edge_length",
-    "method_parameters": (("object","str","REQ"),("length","dbl","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 861,
+    "function_vb_name": "ObjectMeshMinEdgeLength",
+    "function_name": "object_mesh_min_edge_length",
+    "function_parameters": (("object","str","REQ"),("length","dbl","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_mesh_min_initial_grid_quads = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_min_initial_grid_quads",
-    "method_parameters": (("object","str","REQ"),("quads","int","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 864,
+    "function_vb_name": "ObjectMeshMinInitialGridQuads",
+    "function_name": "object_mesh_min_initial_grid_quads",
+    "function_parameters": (("object","str","REQ"),("quads","int","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_mesh_quality = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_quality",
-    "method_parameters": (("object","str","REQ"),("quality","int","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 857,
+    "function_vb_name": "ObjectMeshQuality",
+    "function_name": "object_mesh_quality",
+    "function_parameters": (("object","str","REQ"),("quality","int","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_mesh_settings = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_mesh_settings",
-    "method_parameters": (("object","str","REQ"),("settings","int","OPT")),
-    "method_returns": ("boolean","boolean","null")
+    "function_location": "object",
+    "function_com_id": 865,
+    "function_vb_name": "ObjectMeshSettings",
+    "function_name": "object_mesh_settings",
+    "function_parameters": (("object","str","REQ"),("settings","int","OPT")),
+    "function_returns": ("boolean","boolean","null")
     }
 object_names = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_names",
-    "method_parameters": (("objects","array_of str","REQ"),("names","array_of str","OPT")),
-    "method_returns": ("array","array","null")
+    "function_location": "object",
+    "function_com_id": 639,
+    "function_vb_name": "ObjectNames",
+    "function_name": "object_names",
+    "function_parameters": (("objects","array_of str","REQ"),("names","array_of str","OPT")),
+    "function_returns": ("array","array","null")
     }
 object_print_color = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_print_color",
-    "method_parameters": (("objects","array_of str","REQ"),("color","lng","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 805,
+    "function_vb_name": "ObjectPrintColor",
+    "function_name": "object_print_color",
+    "function_parameters": (("objects","array_of str","REQ"),("color","lng","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_print_color_source = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_print_color_source",
-    "method_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 806,
+    "function_vb_name": "ObjectPrintColorSource",
+    "function_name": "object_print_color_source",
+    "function_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_print_width = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_print_width",
-    "method_parameters": (("objects","array_of str","REQ"),("width","dbl","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 807,
+    "function_vb_name": "ObjectPrintWidth",
+    "function_name": "object_print_width",
+    "function_parameters": (("objects","array_of str","REQ"),("width","dbl","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_print_width_source = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_print_width_source",
-    "method_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
-    "method_returns": ("number","number","number","null")
+    "function_location": "object",
+    "function_com_id": 808,
+    "function_vb_name": "ObjectPrintWidthSource",
+    "function_name": "object_print_width_source",
+    "function_parameters": (("objects","array_of str","REQ"),("source","int","OPT")),
+    "function_returns": ("number","number","number","null")
     }
 object_top_group = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_top_group",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("string","null")
+    "function_location": "object",
+    "function_com_id": 197,
+    "function_vb_name": "ObjectTopGroup",
+    "function_name": "object_top_group",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("string","null")
     }
 object_type = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_type",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 198,
+    "function_vb_name": "ObjectType",
+    "function_name": "object_type",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("number","null")
     }
 object_u_r_l = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "object_u_r_l",
-    "method_parameters": (("objects","array_of str","REQ"),("u_r_l","str","OPT")),
-    "method_returns": ("string","string","number","null")
+    "function_location": "object",
+    "function_com_id": 199,
+    "function_vb_name": "ObjectURL",
+    "function_name": "object_u_r_l",
+    "function_parameters": (("objects","array_of str","REQ"),("u_r_l","str","OPT")),
+    "function_returns": ("string","string","number","null")
     }
 orient_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "orient_objects",
-    "method_parameters": (("objects","array_of str","REQ"),("reference","array_of dbl","REQ"),("target","array_of dbl","REQ"),("flags","int","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "object",
+    "function_com_id": 391,
+    "function_vb_name": "OrientObjects",
+    "function_name": "orient_objects",
+    "function_parameters": (("objects","array_of str","REQ"),("reference","array_of dbl","REQ"),("target","array_of dbl","REQ"),("flags","int","OPT")),
+    "function_returns": ("array","null")
     }
 remap_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "remap_objects",
-    "method_parameters": (("object","array_of str","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "object",
+    "function_com_id": 656,
+    "function_vb_name": "RemapObjects",
+    "function_name": "remap_objects",
+    "function_parameters": (("object","array_of str","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
+    "function_returns": ("array","null")
     }
 rotate_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "rotate_objects",
-    "method_parameters": (("objects","array_of str","REQ"),("point","array_of dbl","REQ"),("angle","dbl","REQ"),("axis","array_of dbl","OPT"),("copy","bln","OPT")),
-    "method_returns": ("string","null")
+    "function_location": "object",
+    "function_com_id": 393,
+    "function_vb_name": "RotateObjects",
+    "function_name": "rotate_objects",
+    "function_parameters": (("objects","array_of str","REQ"),("point","array_of dbl","REQ"),("angle","dbl","REQ"),("axis","array_of dbl","OPT"),("copy","bln","OPT")),
+    "function_returns": ("string","null")
     }
 scale_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "scale_objects",
-    "method_parameters": (("objects","array_of str","REQ"),("origin","array_of dbl","REQ"),("scale","array_of dbl","REQ"),("copy","bln","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "object",
+    "function_com_id": 586,
+    "function_vb_name": "ScaleObjects",
+    "function_name": "scale_objects",
+    "function_parameters": (("objects","array_of str","REQ"),("origin","array_of dbl","REQ"),("scale","array_of dbl","REQ"),("copy","bln","OPT")),
+    "function_returns": ("array","null")
     }
 select_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "select_objects",
-    "method_parameters": (("objects","array_of str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 298,
+    "function_vb_name": "SelectObjects",
+    "function_name": "select_objects",
+    "function_parameters": (("objects","array_of str","REQ")),
+    "function_returns": ("number","null")
     }
 shear_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "shear_objects",
-    "method_parameters": (("objects","array_of str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "object",
+    "function_com_id": 588,
+    "function_vb_name": "ShearObjects",
+    "function_name": "shear_objects",
+    "function_parameters": (("objects","array_of str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
+    "function_returns": ("array","null")
     }
 show_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "show_objects",
-    "method_parameters": (("objects","array_of str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 305,
+    "function_vb_name": "ShowObjects",
+    "function_name": "show_objects",
+    "function_parameters": (("objects","array_of str","REQ")),
+    "function_returns": ("number","null")
     }
 transform_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "transform_objects",
-    "method_parameters": (("objects","array_of str","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),
-    "method_returns": ("array","null")
+    "function_location": "object",
+    "function_com_id": 302,
+    "function_vb_name": "TransformObjects",
+    "function_name": "transform_objects",
+    "function_parameters": (("objects","array_of str","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),
+    "function_returns": ("array","null")
     }
 unlock_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "unlock_objects",
-    "method_parameters": (("objects","array_of str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 306,
+    "function_vb_name": "UnlockObjects",
+    "function_name": "unlock_objects",
+    "function_parameters": (("objects","array_of str","REQ")),
+    "function_returns": ("number","null")
     }
 unselect_objects = {
-    "method_location": "object",
-    "method_type": "FUNCTION",
-    "method_name": "unselect_objects",
-    "method_parameters": (("objects","array_of str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object",
+    "function_com_id": 300,
+    "function_vb_name": "UnselectObjects",
+    "function_name": "unselect_objects",
+    "function_parameters": (("objects","array_of str","REQ")),
+    "function_returns": ("number","null")
     }

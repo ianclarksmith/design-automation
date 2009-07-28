@@ -3,79 +3,90 @@
 #Errors can be fixed by hand here
 
 enable_object_grips = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "enable_object_grips",
-    "method_parameters": (("object","str","REQ"),("enable","bln","OPT")),
-    "method_returns": ("boolean","null")
+    "function_location": "object_grip",
+    "function_com_id": 499,
+    "function_vb_name": "EnableObjectGrips",
+    "function_name": "enable_object_grips",
+    "function_parameters": (("object","str","REQ"),("enable","bln","OPT")),
+    "function_returns": ("boolean","null")
     }
 get_object_grips = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "get_object_grips",
-    "method_parameters": (("message","str","OPT"),("pre_select","bln","OPT"),("select","bln","OPT")),
-    "method_returns": ("array","string","number","array","null")
+    "function_location": "object_grip",
+    "function_com_id": 562,
+    "function_vb_name": "GetObjectGrips",
+    "function_name": "get_object_grips",
+    "function_parameters": (("message","str","OPT"),("pre_select","bln","OPT"),("select","bln","OPT")),
+    "function_returns": ("array","string","number","array","null")
     }
 next_object_grip = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "next_object_grip",
-    "method_parameters": (("object","str","REQ"),("index","int","REQ"),("direction","int","OPT"),("enable","bln","OPT")),
-    "method_returns": ("number","null")
+    "function_location": "object_grip",
+    "function_com_id": 558,
+    "function_vb_name": "NextObjectGrip",
+    "function_name": "next_object_grip",
+    "function_parameters": (("object","str","REQ"),("index","int","REQ"),("direction","int","OPT"),("enable","bln","OPT")),
+    "function_returns": ("number","null")
     }
 object_grip_count = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "object_grip_count",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object_grip",
+    "function_com_id": 500,
+    "function_vb_name": "ObjectGripCount",
+    "function_name": "object_grip_count",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("number","null")
     }
 object_grip_locations = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "object_grip_locations",
-    "method_parameters": (("object","str","REQ"),("points","array_of dbl","OPT")),
-    "method_returns": ("array","array","null")
+    "function_location": "object_grip",
+    "function_com_id": 557,
+    "function_vb_name": "ObjectGripLocations",
+    "function_name": "object_grip_locations",
+    "function_parameters": (("object","str","REQ"),("points","array_of dbl","OPT")),
+    "function_returns": ("array","array","null")
     }
 object_grips_on = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "object_grips_on",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "object_grip",
+    "function_com_id": 497,
+    "function_vb_name": "ObjectGripsOn",
+    "function_name": "object_grips_on",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 object_grips_selected = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "object_grips_selected",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("boolean","null")
+    "function_location": "object_grip",
+    "function_com_id": 498,
+    "function_vb_name": "ObjectGripsSelected",
+    "function_name": "object_grips_selected",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("boolean","null")
     }
 prev_object_grip = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "prev_object_grip",
-    "method_parameters": (("object","str","REQ"),("index","int","REQ"),("direction","int","OPT"),("enable","bln","OPT")),
-    "method_returns": ("number","null")
+    "function_location": "object_grip",
+    "function_com_id": 559,
+    "function_vb_name": "PrevObjectGrip",
+    "function_name": "prev_object_grip",
+    "function_parameters": (("object","str","REQ"),("index","int","REQ"),("direction","int","OPT"),("enable","bln","OPT")),
+    "function_returns": ("number","null")
     }
 select_object_grips = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "select_object_grips",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object_grip",
+    "function_com_id": 501,
+    "function_vb_name": "SelectObjectGrips",
+    "function_name": "select_object_grips",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("number","null")
     }
 selected_object_grips = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "selected_object_grips",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("array","null")
+    "function_location": "object_grip",
+    "function_com_id": 560,
+    "function_vb_name": "SelectedObjectGrips",
+    "function_name": "selected_object_grips",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("array","null")
     }
 unselect_object_grips = {
-    "method_location": "object_grip",
-    "method_type": "FUNCTION",
-    "method_name": "unselect_object_grips",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("number","null")
+    "function_location": "object_grip",
+    "function_com_id": 502,
+    "function_vb_name": "UnselectObjectGrips",
+    "function_name": "unselect_object_grips",
+    "function_parameters": (("object","str","REQ")),
+    "function_returns": ("number","null")
     }
