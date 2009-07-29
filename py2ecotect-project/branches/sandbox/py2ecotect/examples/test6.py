@@ -18,7 +18,7 @@ zn1 = Zone.create_zone("TEST")
 #zn1.set_current()
 
 points = [(0,0,0),(10000,0,0),(10000,10000,0),(0,10000,0)]
-wall_1 = Wall.create_point(points)
+wall_1 = Wall.e.create_point(points)
 #print wall_1.get_area()
 #wall_1.add_node((10000,10000,10000))
 

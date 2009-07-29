@@ -641,14 +641,19 @@ class _Object(object):
     # Properties
     #===========================================================================
     
-    def get_eco_id(self):
-        """
+    @apply
+    def eco_id():
+        doc = """
         
         Id of the object
         
         """
-        return p2e.model._objects.index(self)
-    
+
+        def fget(self):
+            return p2e.model._objects.index(self)
+
+        return property(**locals())
+
     def get_activation(self, day, hour):
         """
         
@@ -2325,7 +2330,7 @@ class _Object(object):
     # Properties
     #===========================================================================
         
-    eco_id = property(fget = get_eco_id, doc = "The Ecotect ID of the object")
+    #eco_id = property(fget = get_eco_id, doc = "The Ecotect ID of the object")
     
     alternate= property(fget = get_alternate, fset = set_alternate, 
                         doc = "The index of the alternate material to the"
