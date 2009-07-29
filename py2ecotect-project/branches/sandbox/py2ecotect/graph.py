@@ -70,7 +70,7 @@ class Graph(object):
         """
         py2ecotect.conversation.Exec("graph.draw")
     
-    def draw_arrow2d(self, x, y, size = 0):
+    def draw_arrow2d(self, offset, size = 0):
         """
         
         Draws a 2D arrow object from the origin point to the specified 2D screen 
@@ -92,7 +92,7 @@ class Graph(object):
                                                       x, y, size)
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_arrowto(self, x, y, z, size = 0):
+    def draw_arrowto(self, absolute_position, size = 0):
         """
         
         Draws a 3D arrow object from the origin point to the specified 3D world 
@@ -101,9 +101,10 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point 
-        within the current graph given in the units of its axial scales. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point within the current graph given in the units 
+        of its axial scales. 
         
         [size] 
         This optional parameter sets the size of the object in the current 
@@ -111,10 +112,12 @@ class Graph(object):
             
         """
         arg_str = string_util._convert_args_to_string("graph.draw.arrowto", 
-                                                      x, y, z, size)
+                                                      absolute_position[0],
+                                                      absolute_position[1], 
+                                                      absolute_position[2], size)
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_cross(self, x, y, z):
+    def draw_cross(self, absolute_position):
         """
         
         Draws a 2D cross object at the specified location within the current 
@@ -124,15 +127,18 @@ class Graph(object):
         This command takes the following parameters.
         
         x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point 
-        within the current graph given in the units of its axial scales. 
+        A list of three values that represents the absolute position in the 
+        X, Y and Z axis of a point within the current graph given in the units 
+        of its axial scales. 
         
         """
         arg_str = string_util._convert_args_to_string("graph.draw.cross", 
-                                                      x, y, z)
+                                                      absolute_position[0],
+                                                      absolute_position[1], 
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_line2d(self, x, y):
+    def draw_line2d(self, offset):
         """
         
         Draws a 2D line object from the origin point to the specified 2D screen 
@@ -141,16 +147,18 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y 
-        Represents a position on the screen in the X and Y axis as an offset 
-        from the top-left corner in pixels of the display canvas or control 
-        being used. 
+        offset 
+        A list of two values that represent a position on the screen in the 
+        X and Y axis as an offset from the top-left corner in pixels of the 
+        display canvas or control being used. 
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.line2d", x, y)
+        arg_str = string_util._convert_args_to_string("graph.draw.line2d", 
+                                                      offset[0],
+                                                      offset[1])
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_lineto(self, x, y, z):
+    def draw_lineto(self, absolute_position):
         """
         
         Draws a 3D line object from the origin point to the specified 3D world 
@@ -159,17 +167,20 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point 
-        within the current graph given in the units of its axial scales.
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point within the current graph given in the units 
+        of its axial scales.
         
         
         """
         arg_str = string_util._convert_args_to_string("graph.draw.lineto", 
-                                                      x, y, z)
+                                                      absolute_position[0],
+                                                      absolute_position[1], 
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_move2d(self, x, y):
+    def draw_move2d(self, offset):
         """
         
         Moves the 2D origin point to the specified 2D screen location in the 
@@ -179,16 +190,17 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y 
-        Represents a position on the screen in the X and Y axis as an offset 
-        from the top-left corner in pixels of the display canvas or control 
-        being used. 
+        offset 
+        A list of two values that represent a position on the screen in the 
+        X and Y axis as an offset from the top-left corner in pixels of the 
+        display canvas or control being used. 
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.move2d", x, y)
+        arg_str = string_util._convert_args_to_string("graph.draw.move2d", 
+                                                      offset[0], offset[1])
         py2ecotect.conversation.Exec(arg_str)
         
-    def draw_moveto(self, x, y, z):    
+    def draw_moveto(self, absolute_position):    
         """
         
         Moves the 3D origin point to the specified 3D world position within the 
@@ -197,17 +209,20 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point 
-        within the current graph given in the units of its axial scales. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point within the current graph given in the units 
+        of its axial scales. 
         
         """
         
         arg_str = string_util._convert_args_to_string("graph.draw.moveto", 
-                                                      x, y, z)
+                                                      absolute_position[0],
+                                                      absolute_position[1], 
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_pixel(self, x, y, z):
+    def draw_pixel(self, absolute_position):
         """
         
         Draws a pixel at the specified 3D location inside the curent graph. 
@@ -215,16 +230,19 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point 
-        within the current graph given in the units of its axial scales.
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point within the current graph given in the units 
+        of its axial scales.
         
         """
         arg_str = string_util._convert_args_to_string("graph.draw.pixel", 
-                                                      x, y, z)
+                                                      absolute_position[0],
+                                                      absolute_position[1], 
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_point(self, x, y, z):
+    def draw_point(self, absolute_position):
         """
         
         Draws a point at the specified 3D world position within the current 
@@ -233,16 +251,19 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point 
-        within the current graph given in the units of its axial scales.
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point within the current graph given in the units 
+        of its axial scales.
           
         """    
         arg_str = string_util._convert_args_to_string("graph.draw.point", 
-                                                      x, y, z)
+                                                      absolute_position[0],
+                                                      absolute_position[1], 
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_sphere(self, x, y, z, radius):
+    def draw_sphere(self, absolute_position, radius):
         """
         
         Draws a 3D sphere object at the specified 3D world position in the 
@@ -251,19 +272,23 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point 
-        within the current graph given in the units of its axial scales. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point within the current graph given in the units 
+        of its axial scales. 
         
         radius 
         The radius of the sphere in the current modelling units.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.sphere", x, y, 
+        arg_str = string_util._convert_args_to_string("graph.draw.sphere", 
+                                                      absolute_position[0],
+                                                      absolute_position[1], 
+                                                      absolute_position[2], 
                                                       radius)
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_text(self, x, y, z, text):
+    def draw_text(self, absolute_position, text):
         """
         
         Displays a string of text at the specified 3D world position inside the 
@@ -272,9 +297,10 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point 
-        within the current graph given in the units of its axial scales. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point within the current graph given in the units 
+        of its axial scales. 
         
         text 
         The text string to be displayed. The HTML-like formatting tags that can 
@@ -300,11 +326,13 @@ class Graph(object):
         FFFFFF is white, 000000 is black and 0000FF is blue etc. 
     
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.text", x, y, 
-                                                      z, text)
+        arg_str = string_util._convert_args_to_string("graph.draw.text", 
+                                                      absolute_position[0],
+                                                      absolute_position[1], 
+                                                      absolute_position[2], text)
         py2ecotect.conversation.Exec(arg_str)
     
-    def draw_text2d(self, x, y, string):
+    def draw_text2d(self, offset, string):
         """
         
         Displays a string of text at the specified 3D world position inside the 
@@ -313,10 +341,10 @@ class Graph(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y 
-        Represents a position on the screen in the X and Y axis as an offset 
-        from the top-left corner in pixels of the display canvas or control 
-        being used. 
+        offset 
+        A list of two values that represent a position on the screen in the 
+        X and Y axis as an offset from the top-left corner in pixels of the 
+        display canvas or control being used. 
         
         string 
         The text string to be displayed. The HTML-like formatting tags that can 
@@ -342,11 +370,13 @@ class Graph(object):
         FFFFFF is white, 000000 is black and 0000FF is blue etc. 
     
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.text2d", x, y, 
+        arg_str = string_util._convert_args_to_string("graph.draw.text2d", 
+                                                      offset[0], 
+                                                      offset[1], 
                                                       string)
         py2ecotect.conversation.Exec(arg_str)
     
-    def mouse_event(self, action, x, y):
+    def mouse_event(self, action, location):
         """
         
         Parameter(s)
@@ -356,13 +386,12 @@ class Graph(object):
         This parameter specifies the type of action/operation to use with the 
         mouse at the given screen location. See the following table for details. 
         
-        x 
-        Gives the horizontal X location of the desired mouse operation in pixel 
-        coordinates relative to the left corner of the application window. 
-        
-        y 
-        Gives the vertical Y location of the desired mouse operation in pixel 
-        coordinates relative to the top corner of the application window. 
+        location
+        A list of two values that represent the horizontal X location of the 
+        desired mouse operation in pixel coordinates relative to the left 
+        corner of the application window and the vertical Y location of the 
+        desired mouse operation in pixel coordinates relative to the top corner 
+        of the application window. 
         
         Relevant Data Table(s)
         
@@ -384,7 +413,8 @@ class Graph(object):
     
         """
         arg_str = string_util._convert_args_to_string("graph.mouseevent", 
-                                                      action, x, y)
+                                                      action, location[0], 
+                                                      location[1])
         py2ecotect.conversation.Exec(arg_str)
     
     def pan_down(self, shift = True):
@@ -693,7 +723,7 @@ class Graph(object):
                                                       width)
         py2ecotect.conversation.Exec(arg_str)
     
-    def get_point(self, x, y, z):
+    def get_point(self, absolute_position):
         """
         
         Returns the 2D screen position of the specified 3D point within the 
@@ -704,9 +734,9 @@ class Graph(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -717,7 +747,9 @@ class Graph(object):
         
         """
         arg_str = string_util._convert_args_to_string("get.graph.point", 
-                                                      x, y, z)
+                                                      absolute_position[0], 
+                                                      absolute_position[1], 
+                                                      absolute_position[2])
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, int, int)
     

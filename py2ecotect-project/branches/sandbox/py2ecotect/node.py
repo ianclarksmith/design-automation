@@ -268,7 +268,10 @@ class Node(object):
     
         """
         arg_str = p2e.string_util._convert_args_to_string("node.xform", 
-                                                      self.eco_id, trans, x, y, z)
+                                                      self.eco_id, trans,
+                                                      function_values[0],
+                                                      function_values[1],
+                                                      function_values[2])
         p2e.conversation.Exec(arg_str)
     
     #===========================================================================

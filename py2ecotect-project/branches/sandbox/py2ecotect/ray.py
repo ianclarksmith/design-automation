@@ -55,7 +55,7 @@ class Ray(object):
                                                       alt)
         py2ecotect.conversation.Exec(arg_str)
 
-    def trace(self, type, dx, dy, dz):
+    def trace(self, type, offset_distance):
         """
         
         Sends out and traces a ray which travels directly away from the 
@@ -68,9 +68,9 @@ class Ray(object):
         An integer value controlling the type of the ray corresponding to the 
         following Types of Ray table. 
         
-        dx, dy, dz 
-        A value representing the offset distance in each of the X, Y and Z axis, 
-        given in model coordinates. 
+        offset_distance 
+        A list of three values that represent the offset distance in each of 
+        the X, Y and Z axis, given in model coordinates. 
         
         Relevant Data Table(s)
         
@@ -82,8 +82,10 @@ class Ray(object):
         objects. 
 
         """
-        arg_str = string_util._convert_args_to_string("ray.trace", type, dx, dy, 
-                                                      dz)
+        arg_str = string_util._convert_args_to_string("ray.trace", type, 
+                                                      offset_distance[0],
+                                                      offset_distance[1],
+                                                      offset_distance[2])
         py2ecotect.conversation.Exec(arg_str)
 
     #===========================================================================
@@ -229,7 +231,7 @@ class Ray(object):
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float, int)
     
-    def set_position(self, depth, x, y, z, object = ""):
+    def set_position(self, depth, absolute_position, object = ""):
         """
         
         Sets the 3D position of the ray point at the given reflection depth. 
@@ -240,9 +242,9 @@ class Ray(object):
         depth 
         An integer value representing the depth. 
         
-        x, y, z 
-        The absolute position in the X, Y and Z axis of the ray point in 3 
-        dimensional model space. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of the ray point in 3 dimensional model space. 
         
         [object] 
         This optional parameter specifies the zero-based index of the object 
@@ -250,7 +252,10 @@ class Ray(object):
                 
         """
         arg_str = string_util._convert_args_to_string("set.ray.position", depth, 
-                                                      x, y, z, object)
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2],
+                                                      object)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_source(self):
@@ -272,7 +277,7 @@ class Ray(object):
         val = py2ecotect.conversation.Request("get.ray.source")
         return string_util._convert_str_to_list(val, float, float, float)
         
-    def set_source(self, x, y, z):
+    def set_source(self, absolute_position):
         """
         
         Sets the position of the ray source. 
@@ -280,12 +285,15 @@ class Ray(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of the source 
-        point in 3 dimensional model space. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of the ray point in 3 dimensional model space. 
 
         """
-        arg_str = string_util._convert_args_to_string("set.ray.source", x, y, z,)
+        arg_str = string_util._convert_args_to_string("set.ray.source", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
     
     #===========================================================================

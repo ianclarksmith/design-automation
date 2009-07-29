@@ -13,7 +13,7 @@ print len(zones)
 print m.get_nodes()
 print m.get_zones()
 
-"""
+
 zn1 = Zone.create_zone("TEST")
 #zn1.set_current()
 
@@ -36,5 +36,5 @@ print nodes
 
 v = View()
 v.redraw()
-"""
+
 
