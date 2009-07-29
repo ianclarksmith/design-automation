@@ -56,16 +56,8 @@ add_spot_light = {#ed
     "method_returns": ("_Object._LightType.SpotLight","null")
     }
 #===============================================================================
-# _LightType
+# _Object
 #===============================================================================
-
-enable_light = {#ed
-    "method_location": "_Object._LightType",
-    "method_type": "METHOD",
-    "method_name": "enable_light",
-    "method_parameters": (("","self","REQ"),("enable","bln","OPT")),
-    "method_returns": ("boolean","boolean","null")
-    }
 is_directional_light = {#ed
     "method_location": "_Object",
     "method_type": "METHOD",
@@ -81,46 +73,57 @@ is_light = {#ed
     "method_returns": ("boolean","null")
     }
 is_light_enabled = {#ed
-    "method_location": "_Object._LightType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_light_enabled",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
     }
 is_light_reference = {#ed
-    "method_location": "_Object._LightType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_light_reference",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
     }
 is_linear_light = {#ed
-    "method_location": "_Object._LightType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_linear_light",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
     }
 is_point_light = {#ed
-    "method_location": "_Object._LightType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_point_light",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
     }
 is_rectangular_light = {#ed
-    "method_location": "_Object._LightType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_rectangular_light",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
     }
 is_spot_light = {#ed
-    "method_location": "_Object._LightType",
+    "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_spot_light",
     "method_parameters": (("","self","REQ")),
     "method_returns": ("boolean","null")
+    }
+#===============================================================================
+# _LightType
+#===============================================================================
+
+enable_light = {#ed
+    "method_location": "_Object._LightType",
+    "method_type": "METHOD",
+    "method_name": "enable_light",
+    "method_parameters": (("","self","REQ"),("enable","bln","OPT")),
+    "method_returns": ("boolean","boolean","null")
     }
 light_color = {#ed
     "method_location": "_Object._LightType",

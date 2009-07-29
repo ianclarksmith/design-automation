@@ -133,7 +133,7 @@ text_object_text = {#ed
 # ClippingPlane
 #===============================================================================
 add_clipping_plane = {#ed
-    "method_location": "_Object.ClippingPlane",
+    "method_location": "_Object._OtherType.ClippingPlane",
     "method_type": "METHOD",
     "method_name": "add_clipping_plane",
     "method_parameters": (("plane","array of dbl","REQ"),("d_u","dbl","REQ"),("d_v","dbl","REQ"),("views","array of str","OPT")),
