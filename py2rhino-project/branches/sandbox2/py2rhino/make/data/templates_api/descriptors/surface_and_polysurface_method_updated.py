@@ -126,17 +126,17 @@ add_srf_section_crvs = {#ed
     "method_parameters": (("","self","REQ"),("plane","array of dbl","REQ")),
     "method_returns": ("array of _Object._SurfaceType.NurbsSurface","null")
     }
-add_sweep1 = {#ed
+add_sweep_1 = {#ed
     "method_location": "_Object._SurfaceType.NurbsSurface",
     "method_type": "CONSTRUCTOR",
-    "method_name": "sweep1",
+    "method_name": "sweep_1",
     "method_parameters": (("","self","REQ"),("shapes","array of str","REQ"),("start_pt","array of dbl","OPT"),("end_pt","array of dbl","OPT"),("closed","bln","OPT"),("style","int","OPT"),("style_arg","va","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT")),
     "method_returns": ("array of _Object._SurfaceType.NurbsSurface","null")
     }
-add_sweep2 = {#ed
+add_sweep_2 = {#ed
     "method_location": "_Object._SurfaceType.NurbsSurface",
     "method_type": "CONSTRUCTOR",
-    "method_name": "sweep2",
+    "method_name": "sweep_2",
     "method_parameters": (("rails","array of _Object","REQ"),("shapes","array of _Object","REQ"),("start_pt","array of dbl","OPT"),("end_pt","array of dbl","OPT"),("closed","bln","OPT"),("simple_sweep","bln","OPT"),("maintain_height","bln","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT")),
     "method_returns": ("array of _Object._SurfaceType.NurbsSurface","null")
     }
@@ -351,7 +351,7 @@ is_torus = {#ed
 extrude_curve = {#ed
     "method_location": "_Object._SurfaceType",
     "method_type": "CONSTRUCTOR",
-    "method_name": "sweep1",
+    "method_name": "extrude_curve",
     "method_parameters": (("","self","REQ"),("path","str","REQ")),
     "method_returns": ("_Object._SurfaceType","null")
     }
@@ -422,14 +422,14 @@ boolean_difference = {#ed
     "method_location": "_Object._SurfaceType",
     "method_type": "METHOD",
     "method_name": "boolean_difference",
-    "method_parameters": (("input0","array of _Object","REQ"),("input1","array of str","REQ"),("delete","bln","OPT")),
+    "method_parameters": (("input_0","array of _Object","REQ"),("input_1","array of str","REQ"),("delete","bln","OPT")),
     "method_returns": ("array of _Object._SurfaceType","null")
     }
 boolean_intersection = {#ed
     "method_location": "_Object._SurfaceType",
     "method_type": "METHOD",
     "method_name": "boolean_intersection",
-    "method_parameters": (("input0","array of _Object","REQ"),("input1","array of str","REQ"),("delete","bln","OPT")),
+    "method_parameters": (("input_0","array of _Object","REQ"),("input_1","array of str","REQ"),("delete","bln","OPT")),
     "method_returns": ("array of _Object._SurfaceType","null")
     }
 boolean_union = {#ed
@@ -506,7 +506,7 @@ intersect_breps = {#ed
     "method_location": "Surface_and_Polysurface",
     "method_type": "METHOD",
     "method_name": "intersect_breps",
-    "method_parameters": (("","self","REQ"),("brep1","str","REQ"),("tolerance","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("brep_1","str","REQ"),("tolerance","dbl","OPT")),
     "method_returns": ("array of _Object._SurfaceType","null")
     }
 pull_curve = {#ed

@@ -153,7 +153,7 @@ compare_geometry = {#ed
     "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "compare_geometry",
-    "method_parameters": (("","self","REQ"),("object1","str","REQ")),
+    "method_parameters": (("","self","REQ"),("object_0","str","REQ")),
     "method_returns": ("boolean","null")
     }
 is_clipping_plane = {#ed
