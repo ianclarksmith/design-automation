@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Shading(object):
     
@@ -32,9 +31,9 @@ class Shading(object):
         low 3 Use single point at object centre. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.shading.accuracy", 
+        arg_str = p2e.string_util._convert_args_to_string("set.shading.accuracy", 
                                                      accuracy)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_angles(self):
         """
@@ -56,8 +55,8 @@ class Shading(object):
         The altitude angle in degrees. 
         
         """
-        val = py2ecotect.conversation.Request("get.shading.angles")
-        return string_util._convert_str_to_list(val, float, float)
+        val = p2e.conversation.Request("get.shading.angles")
+        return p2e.string_util._convert_str_to_list(val, float, float)
 
     def set_angles(self, azi, alt):
         """
@@ -76,9 +75,9 @@ class Shading(object):
         The altitude value in degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("set.shading.angles", 
+        arg_str = p2e.string_util._convert_args_to_string("set.shading.angles", 
                                                      azi, alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_both_sides(self):
         """
@@ -99,8 +98,8 @@ class Shading(object):
         unset.
         
         """
-        val = py2ecotect.conversation.Request("get.shading.bothsides")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.shading.bothsides")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_both_sides(self, state):
         """
@@ -117,9 +116,9 @@ class Shading(object):
         affirmative and 0 or false the negative. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.shading.bothsides", 
+        arg_str = p2e.string_util._convert_args_to_string("set.shading.bothsides", 
                                                      state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_components(self):
         """
@@ -153,8 +152,8 @@ class Shading(object):
         A decimal value containing the vertical sky component.
         
         """
-        val = py2ecotect.conversation.Request("get.shading.components")
-        return string_util._convert_str_to_list(val, float, float, float)
+        val = p2e.conversation.Request("get.shading.components")
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_diffuse(self):
         """
@@ -174,8 +173,8 @@ class Shading(object):
         A decimal value containing the current diffuse solar component.
         
         """
-        val = py2ecotect.conversation.Request("get.shading.diffuse")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.shading.diffuse")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_direct(self):
         """
@@ -195,8 +194,8 @@ class Shading(object):
         A decimal value containing the current direct solar component.
         
         """
-        val = py2ecotect.conversation.Request("get.shading.direct")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.shading.direct")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_direct_only(self):
         """
@@ -215,8 +214,8 @@ class Shading(object):
         This is a boolean value where 1 is set and 0 means unset. 
 
         """
-        val = py2ecotect.conversation.Request("get.shading.directonly")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.shading.directonly")
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_direct_only(self, state):
         """
@@ -232,9 +231,9 @@ class Shading(object):
         the negative. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.shading.directonly", 
+        arg_str = p2e.string_util._convert_args_to_string("set.shading.directonly", 
                                                      state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_percentage(self):
         """
@@ -259,8 +258,8 @@ class Shading(object):
         A decimal value containing the shading value. 
         
         """
-        val = py2ecotect.conversation.Request("get.shading.percentage")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.shading.percentage")
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def get_percentage_angle(self, azi, alt):
         """
@@ -297,10 +296,10 @@ class Shading(object):
         A decimal value containing the shading value. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.shading.percentage.angle", 
+        arg_str = p2e.string_util._convert_args_to_string("get.shading.percentage.angle", 
                                                       azi, alt)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def get_percentage_date_time(self, day, time):
         """
@@ -329,10 +328,10 @@ class Shading(object):
         A decimal value containing the shading value
         
         """
-        arg_str = string_util._convert_args_to_string("get.shading.percentage.datetime", 
+        arg_str = p2e.string_util._convert_args_to_string("get.shading.percentage.datetime", 
                                                       day, time)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_percentage_index(self, x, y):
         """
@@ -363,10 +362,10 @@ class Shading(object):
         A decimal value containing the shading value.
         
         """
-        arg_str = string_util._convert_args_to_string("get.shading.percentage.index", 
+        arg_str = p2e.string_util._convert_args_to_string("get.shading.percentage.index", 
                                                       x, y)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_range(self, fromDay, toDay):
         """
@@ -401,8 +400,8 @@ class Shading(object):
         A decimal value containing the total sunlight hours. 
 
         """
-        val = py2ecotect.conversation.Request("get.shading.range")
-        return string_util._convert_str_to_list(val, float, float, float)
+        val = p2e.conversation.Request("get.shading.range")
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def get_rays(self):
         """
@@ -421,8 +420,8 @@ class Shading(object):
         value where 1 is set and 0 means unset. 
         
         """
-        val = py2ecotect.conversation.Request("get.shading.rays")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.shading.rays")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_rays(self, state):
         """
@@ -437,9 +436,9 @@ class Shading(object):
         true represents the affirmative and 0 or false the negative. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.shading.rays", 
+        arg_str = p2e.string_util._convert_args_to_string("set.shading.rays", 
                                                      state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_sky_component(self):
         """
@@ -459,8 +458,8 @@ class Shading(object):
         A decimal value containing the sky component.
         
         """
-        val = py2ecotect.conversation.Request("get.shading.skycomponent")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.shading.skycomponent")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_update(self):
         """
@@ -481,8 +480,8 @@ class Shading(object):
         where 1 means a detailed mask and 0 it's own mask.
         
         """
-        val = py2ecotect.conversation.Request("get.shading.update")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.shading.update")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_update(self, state):
         """
@@ -500,9 +499,9 @@ class Shading(object):
         the selected object's own shading mask.
         
         """
-        arg_str = string_util._convert_args_to_string("set.shading.state", 
+        arg_str = p2e.string_util._convert_args_to_string("set.shading.state", 
                                                      state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties

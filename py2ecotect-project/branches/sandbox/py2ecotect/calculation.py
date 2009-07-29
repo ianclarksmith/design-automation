@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 from py2ecotect import application
 from py2ecotect.application import Application
 
@@ -44,9 +43,9 @@ class Calculation(object):
         8 16000 Hz 
         
         """
-        arg_str = string_util._convert_args_to_string("calc.acousticresponse", 
+        arg_str = p2e.string_util._convert_args_to_string("calc.acousticresponse", 
                                                       type, frequency)
-        py2py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def adjacencies(self):
         """
@@ -76,9 +75,9 @@ class Calculation(object):
         are calculated and shading is ignored.
         
         """
-        arg_str = string_util._convert_args_to_string("calc.adjacencies" , 100, 
+        arg_str = p2e.string_util._convert_args_to_string("calc.adjacencies" , 100, 
                                                      True)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def comfort(self):
         """
@@ -91,7 +90,7 @@ class Calculation(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("calc.comfort")
+        p2e.conversation.Exec("calc.comfort")
     
     def insolation_1(self, target, type, select3D, accumulation, metric = None):
         """
@@ -166,12 +165,12 @@ class Calculation(object):
             return
         else:
             try:
-                arg_str = string_util._convert_args_to_string("calc.insolation", 
+                arg_str = p2e.string_util._convert_args_to_string("calc.insolation", 
                                                           target, type, select3D, 
                                                          accumulation, metric)
                 threading.Thread(target = self.do_calc(arg_str))
                 self.wait()
-                #py2ecotect.conversation.Exec(arg_str)
+                #p2e.conversation.Exec(arg_str)
             except:
                 print "exception caught"
                 #print self.get_sky()
@@ -188,7 +187,7 @@ class Calculation(object):
                 """
     def do_calc(self, arg_str):
         try:
-            py2ecotect.conversation.Exec(arg_str)
+            p2e.conversation.Exec(arg_str)
         except:
             pass
                 
@@ -248,10 +247,10 @@ class Calculation(object):
     
         """
         try:
-            arg_str = string_util._convert_args_to_string("calc.insolation", 
+            arg_str = p2e.string_util._convert_args_to_string("calc.insolation", 
                                                           period, shading, 
                                                           ground, direct)
-            py2ecotect.conversation.Exec(arg_str)
+            p2e.conversation.Exec(arg_str)
         except:
             print "exception occured"
             
@@ -306,10 +305,10 @@ class Calculation(object):
         4 Compare: Before - After 
         
         """
-        arg_str = string_util._convert_args_to_string("calc.lighting", target, 
+        arg_str = p2e.string_util._convert_args_to_string("calc.lighting", target, 
                                                       type, select3D, 
                                                       comparison)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def resources(self, type):
         """
@@ -340,8 +339,8 @@ class Calculation(object):
         coal Hourly Coal Use 
     
         """
-        arg_str = string_util._convert_args_to_string("calc.resources", type)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("calc.resources", type)
+        p2e.conversation.Exec(arg_str)
     
     def shading_percentage(self, cumulative, startDay, stopDay, startTime, 
                            stopTime, shadingType = "percentage"):
@@ -400,11 +399,11 @@ class Calculation(object):
         degreedays Monthly degree days. 
     
         """
-        arg_str = string_util._convert_args_to_string("calc.shading." + 
+        arg_str = p2e.string_util._convert_args_to_string("calc.shading." + 
                                                       shadingType,cumulative, 
                                                       startDay, stopDay, 
                                                       startTime, stopTime)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def thermal_temperatures(self, calculationType, zone = 0):
         """
@@ -449,9 +448,9 @@ class Calculation(object):
         degreedays Monthly degree days. 
     
         """
-        arg_str = string_util._convert_args_to_string("calc.thermal." + 
+        arg_str = p2e.string_util._convert_args_to_string("calc.thermal." + 
                                                       selector, zone)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def volumes(self):
         """
@@ -462,7 +461,7 @@ class Calculation(object):
         There are no parameters for this command.
     
         """
-        py2ecotect.conversation.Exec("calc.volumes")
+        p2e.conversation.Exec("calc.volumes")
         
     #===========================================================================
     # Properties
@@ -495,8 +494,8 @@ class Calculation(object):
         inclusive within the date range. 
         
         """
-        val = py2ecotect.conversation.Request("get.calc.dates")
-        return string_util._convert_str_to_list(val, int, int, bool)
+        val = p2e.conversation.Request("get.calc.dates")
+        return p2e.string_util._convert_str_to_list(val, int, int, bool)
     
     def set_dates(self, startDay, stopDay, incDay = 1):
         """
@@ -519,9 +518,9 @@ class Calculation(object):
         stop dates are inclusive of the date range.
         
         """
-        arg_str = string_util._convert_args_to_string("set.calc.dates", 
+        arg_str = p2e.string_util._convert_args_to_string("set.calc.dates", 
                                                       startDay, stopDay, incDay)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_precision(self):
         """
@@ -550,8 +549,8 @@ class Calculation(object):
         low 4 Low Precision 
     
         """
-        val = py2ecotect.conversation.Request("get.calc.precision")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.calc.precision")
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def set_precision(self, precision):
         """
@@ -577,9 +576,9 @@ class Calculation(object):
         low 4 Low Precision 
     
         """
-        arg_str = string_util._convert_args_to_string("set.calc.precision", 
+        arg_str = p2e.string_util._convert_args_to_string("set.calc.precision", 
                                                       precision)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_sky(self):
         """
@@ -606,8 +605,8 @@ class Calculation(object):
         uniform 1 CIE Uniform Sky 
     
         """
-        val = py2ecotect.conversation.Request("get.calc.sky")
-        return string_util._convert_str_to_list(val, int)
+        val = p2e.conversation.Request("get.calc.sky")
+        return p2e.string_util._convert_str_to_list(val, int)
     
     def set_material_default(self, sky, level):
         """
@@ -631,9 +630,9 @@ class Calculation(object):
         uniform 1 CIE Uniform Sky 
     
         """
-        arg_str = string_util._convert_args_to_string("set.material.default", 
+        arg_str = p2e.string_util._convert_args_to_string("set.material.default", 
                                                       sky, level)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_times(self):
         """
@@ -663,8 +662,8 @@ class Calculation(object):
         
         
         """
-        val = py2ecotect.conversation.Request("get.calc.times")
-        return string_util._convert_str_to_list(val, float, float, bool)
+        val = p2e.conversation.Request("get.calc.times")
+        return p2e.string_util._convert_str_to_list(val, float, float, bool)
     
     def set_times(self, startDay, stopDay, incDay = 1):
         """
@@ -687,9 +686,9 @@ class Calculation(object):
         stop times are inclusive of the date range.
         
         """
-        arg_str = string_util._convert_args_to_string("set.calc.times", 
+        arg_str = p2e.string_util._convert_args_to_string("set.calc.times", 
                                                       startDay, stopDay, incDay)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_windows(self):
         """
@@ -716,8 +715,8 @@ class Calculation(object):
         2 Dirty Windows (x 0.75) 
     
         """
-        val = py2ecotect.conversation.Request("get.calc.windows")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.calc.windows")
+        return p2e.string_util._convert_str_to_type(val, str)
 
     def set_windows(self, cleanliness):
         """
@@ -741,9 +740,9 @@ class Calculation(object):
         2 Dirty Windows (x 0.75) 
 
         """
-        arg_str = string_util._convert_args_to_string("set.calc.windows", 
+        arg_str = p2e.string_util._convert_args_to_string("set.calc.windows", 
                                                       cleanliness)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
         #=======================================================================
         # Properties    

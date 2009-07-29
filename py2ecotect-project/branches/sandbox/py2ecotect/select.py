@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Select(object):
     
@@ -16,7 +15,7 @@ class Select(object):
         There are no parameters for this command.
 
         """
-        py2ecotect.conversation.Exec("select.all")
+        p2e.conversation.Exec("select.all")
 
     def alternate(self, index):
         """
@@ -32,9 +31,9 @@ class Select(object):
         get.material.index property.
         
         """
-        arg_str = string_util._convert_args_to_string("select.alternate", 
+        arg_str = p2e.string_util._convert_args_to_string("select.alternate", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def child(self):
         """
@@ -45,7 +44,7 @@ class Select(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("select.child")
+        p2e.conversation.Exec("select.child")
 
     def element(self, index):
         """
@@ -59,9 +58,9 @@ class Select(object):
         The element type as given in the add.object command. 
         
         """
-        arg_str = string_util._convert_args_to_string("select.element", 
+        arg_str = p2e.string_util._convert_args_to_string("select.element", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def index(self, index):
         """
@@ -75,9 +74,9 @@ class Select(object):
         Specifies the index of the objects to select. Repeat as required.
         
         """
-        arg_str = string_util._convert_args_to_string("select.index", 
+        arg_str = p2e.string_util._convert_args_to_string("select.index", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def invert(self):
         """
@@ -88,7 +87,7 @@ class Select(object):
         There are no parameters for this command.
 
         """
-        py2ecotect.conversation.Exec("select.invert")
+        p2e.conversation.Exec("select.invert")
 
     def none(self):
         """
@@ -99,7 +98,7 @@ class Select(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("select.none")
+        p2e.conversation.Exec("select.none")
         
     def normals(self, index):
         """
@@ -124,9 +123,9 @@ class Select(object):
         5 Front (-Y Axis) 
 
         """
-        arg_str = string_util._convert_args_to_string("select.normals", 
+        arg_str = p2e.string_util._convert_args_to_string("select.normals", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def object(self, index):
         """
@@ -142,9 +141,9 @@ class Select(object):
         of the Selection Information panel. 
 
         """
-        arg_str = string_util._convert_args_to_string("select.object", 
+        arg_str = p2e.string_util._convert_args_to_string("select.object", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def parent(self):
         """
@@ -155,7 +154,7 @@ class Select(object):
         There are no parameters for this command.
 
         """
-        py2ecotect.conversation.Exec("select.parent")
+        p2e.conversation.Exec("select.parent")
 
     def previous(self):
         """
@@ -166,7 +165,7 @@ class Select(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("select.previous")
+        p2e.conversation.Exec("select.previous")
 
     def primary(self, index):
         """
@@ -182,9 +181,9 @@ class Select(object):
         get.material.index property.
         
         """
-        arg_str = string_util._convert_args_to_string("select.primary", 
+        arg_str = p2e.string_util._convert_args_to_string("select.primary", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def schedule(self, index):
         """
@@ -199,9 +198,9 @@ class Select(object):
         get.schedule.index property.
         
         """
-        arg_str = string_util._convert_args_to_string("select.schedule", 
+        arg_str = p2e.string_util._convert_args_to_string("select.schedule", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def tag(self, index):
         """
@@ -233,9 +232,9 @@ class Select(object):
         32768 TAGGED_MARKER* Generic calculation marker. 
  
         """
-        arg_str = string_util._convert_args_to_string("select.tag", 
+        arg_str = p2e.string_util._convert_args_to_string("select.tag", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def zone(self, index):
         """
@@ -249,9 +248,9 @@ class Select(object):
         The zero-based index value of the zone to use. 
         
         """
-        arg_str = string_util._convert_args_to_string("select.zone", 
+        arg_str = p2e.string_util._convert_args_to_string("select.zone", 
                                                       index)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
 
 

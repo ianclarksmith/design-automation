@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Weather(object):
     
@@ -25,8 +24,8 @@ class Weather(object):
         be loaded. If not given, then the last loaded weather file will be used. 
         
         """
-        arg_str = string_util._convert_args_to_string("weather.load", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("weather.load", filename)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -54,10 +53,10 @@ class Weather(object):
         A value in Watts representing the beam solar radiation.
         
         """
-        arg_str = string_util._convert_args_to_string("get.weather.beamsolar", 
+        arg_str = p2e.string_util._convert_args_to_string("get.weather.beamsolar", 
                                                      day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_beam_solar(self, day, hour, value):
         """
@@ -79,9 +78,9 @@ class Weather(object):
 
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.beamsolar", 
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.beamsolar", 
                                                      day, hour, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_cloudiness(self, day, hour):
         """
@@ -105,10 +104,10 @@ class Weather(object):
         A percentage value representing the cloudiness.
         
         """
-        arg_str = string_util._convert_args_to_string("get.weather.cloudiness", 
+        arg_str = p2e.string_util._convert_args_to_string("get.weather.cloudiness", 
                                                      day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_cloudiness(self, day, hour, value):
         """
@@ -129,9 +128,9 @@ class Weather(object):
         A percentage value representing the cloudiness.
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.cloudiness", 
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.cloudiness", 
                                                      day, hour, value)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_country(self):
         """
@@ -150,8 +149,8 @@ class Weather(object):
         data set.
         
         """
-        val = py2ecotect.conversation.Request("get.weather.country")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.weather.country")
+        return p2e.string_util._convert_str_to_type(val, str)
         
     def set_country(self, name):
         """
@@ -167,9 +166,9 @@ class Weather(object):
         weather data set.
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.country", 
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.country", 
                                                      name)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_diffuse_solar(self, day, hour):
         """
@@ -193,10 +192,10 @@ class Weather(object):
         A value in Watts representing the diffuse solar radiation. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.weather.diffusesolar", 
+        arg_str = p2e.string_util._convert_args_to_string("get.weather.diffusesolar", 
                                                      day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_diffuse_solar(self, day, hour, value):
        """
@@ -217,9 +216,9 @@ class Weather(object):
         A value in Watts representing the diffuse solar radiation.
        
        """
-       arg_str = string_util._convert_args_to_string("set.weather.diffusesolar", 
+       arg_str = p2e.string_util._convert_args_to_string("set.weather.diffusesolar", 
                                                      day, hour, value)
-       py2ecotect.conversation.Exec(arg_str)     
+       p2e.conversation.Exec(arg_str)     
 
     def get_direction(self, day, hour):
         """
@@ -244,10 +243,10 @@ class Weather(object):
         represents North.
         
         """
-        arg_str = string_util._convert_args_to_string("get.weather.direction", 
+        arg_str = p2e.string_util._convert_args_to_string("get.weather.direction", 
                                                      day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
     
     def set_direction(self, day, hour, value):
         """
@@ -269,9 +268,9 @@ class Weather(object):
         represents North.
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.direction", 
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.direction", 
                                                      day, hour, value)
-        py2ecotect.conversation.Exec(arg_str)     
+        p2e.conversation.Exec(arg_str)     
 
     def get_file(self):
         """
@@ -288,8 +287,8 @@ class Weather(object):
         A text string containing the full path to the current weather data file.
         
         """
-        val = py2ecotect.conversation.Request("get.weather.file")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.weather.file")
+        return p2e.string_util._convert_str_to_type(val, str)
 
     def get_name(self):
         """
@@ -307,8 +306,8 @@ class Weather(object):
         A text string representing the name of the current weather data set.
         
         """
-        val = py2ecotect.conversation.Request("get.weather.name")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.weather.name")
+        return p2e.string_util._convert_str_to_type(val, str)
         
     def set_name(self, name):
         """
@@ -322,8 +321,8 @@ class Weather(object):
         A string representing the location given to the current weather data set.
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.name", name)
-        py2ecotect.conversation.Exec(arg_str)     
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.name", name)
+        p2e.conversation.Exec(arg_str)     
         
     def get_rainfall(self, day, hour):
         """
@@ -341,10 +340,10 @@ class Weather(object):
         An integer value between 0 and 23 representing the hour of the day.
         
         """
-        arg_str = string_util._convert_args_to_string("get.weather.rainfall", 
+        arg_str = p2e.string_util._convert_args_to_string("get.weather.rainfall", 
                                                      day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_rainfall(self, day, hour, value):
         """
@@ -365,9 +364,9 @@ class Weather(object):
         A value specifying the amount of rainfall in millimeters.
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.rainfall", 
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.rainfall", 
                                                      day, hour, value)
-        py2ecotect.conversation.Exec(arg_str)     
+        p2e.conversation.Exec(arg_str)     
 
     def get_rel_humidity(self, day, hour):
         """
@@ -391,10 +390,10 @@ class Weather(object):
         A value specifying the relative humidity as a percentage.
         
         """
-        arg_str = string_util._convert_args_to_string("get.weather.relhumidity", 
+        arg_str = p2e.string_util._convert_args_to_string("get.weather.relhumidity", 
                                                      day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def set_rel_humidity(self, day, hour, value):
         """
@@ -415,9 +414,9 @@ class Weather(object):
         A value specifying the relative humidity as a percentage.
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.relhumidity", 
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.relhumidity", 
                                                      day, hour, value)
-        py2ecotect.conversation.Exec(arg_str)     
+        p2e.conversation.Exec(arg_str)     
 
     def get_speed(self, day, hour):
         """
@@ -441,10 +440,10 @@ class Weather(object):
         A value specifying the wind speed speed in kilometers per hour 
 
         """
-        arg_str = string_util._convert_args_to_string("get.weather.speed", 
+        arg_str = p2e.string_util._convert_args_to_string("get.weather.speed", 
                                                      day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_speed(self, day, hour, value):
         """
@@ -465,9 +464,9 @@ class Weather(object):
         A value specifying the wind speed speed in kilometers per hour.
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.speed", 
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.speed", 
                                                      day, hour, value)
-        py2ecotect.conversation.Exec(arg_str)     
+        p2e.conversation.Exec(arg_str)     
 
     def get_temperature(self, day, hour):
         """
@@ -491,10 +490,10 @@ class Weather(object):
         A value specifying the temperature to set in degrees celsius.
         
         """
-        arg_str = string_util._convert_args_to_string("get.weather.temperature", 
+        arg_str = p2e.string_util._convert_args_to_string("get.weather.temperature", 
                                                      day, hour)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_temperature(self, day, hour, value):
         """
@@ -515,9 +514,9 @@ class Weather(object):
         A value specifying the temperature to set in degrees celsius.
         
         """
-        arg_str = string_util._convert_args_to_string("set.weather.temperature", 
+        arg_str = p2e.string_util._convert_args_to_string("set.weather.temperature", 
                                                      day, hour, value)
-        py2ecotect.conversation.Exec(arg_str)     
+        p2e.conversation.Exec(arg_str)     
     
     #===========================================================================
     # Properties

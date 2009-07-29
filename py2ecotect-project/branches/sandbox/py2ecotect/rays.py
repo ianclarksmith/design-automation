@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Rays(object):
     
@@ -17,7 +16,7 @@ class Rays(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("rays.animate")
+        p2e.conversation.Exec("rays.animate")
     
     def free(self):
         """
@@ -29,7 +28,7 @@ class Rays(object):
         There are no parameters for this command.
 
         """
-        py2ecotect.conversation.Exec("rays.free")
+        p2e.conversation.Exec("rays.free")
     
     def generate(self, method):
         """
@@ -53,8 +52,8 @@ class Rays(object):
         cylindrical 3 Spray a circle of rays in one plane. 
 
         """
-        arg_str = string_util._convert_args_to_string("rays.generate", method)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("rays.generate", method)
+        p2e.conversation.Exec(arg_str)
         
     def rewind(self):
         """
@@ -65,7 +64,7 @@ class Rays(object):
         There are no parameters for this command.
 
         """
-        py2ecotect.conversation.Exec("rays.rewind")
+        p2e.conversation.Exec("rays.rewind")
     
     def save(self, filename):
         """
@@ -80,8 +79,8 @@ class Rays(object):
         The full path to where the ECOTECT Ray (.ray) file will be stored. 
         
         """
-        arg_str = string_util._convert_args_to_string("rays.save", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("rays.save", filename)
+        p2e.conversation.Exec(arg_str)
     
     def step(self, steps):
         """
@@ -96,8 +95,8 @@ class Rays(object):
         An integer representing the number of steps to move the counter forward.
         
         """
-        arg_str = string_util._convert_args_to_string("rays.step", step)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("rays.step", step)
+        p2e.conversation.Exec(arg_str)
     
     def update(self):
         """
@@ -109,7 +108,7 @@ class Rays(object):
         There are no parameters for this command.
  
         """
-        py2ecotect.conversation.Exec("rays.update")
+        p2e.conversation.Exec("rays.update")
     
     #===========================================================================
     # Properties
@@ -131,8 +130,8 @@ class Rays(object):
         The altitude in degrees. 
         
         """
-        val = py2ecotect.conversation.Request("get.rays.altitude")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.altitude")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_altitude(self, angle):
         """
@@ -147,8 +146,8 @@ class Rays(object):
         Specifies the angle to use, in decimal degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.altitude", angle)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.altitude", angle)
+        p2e.conversation.Exec(arg_str)
     
     def get_angle(self):
         """
@@ -166,8 +165,8 @@ class Rays(object):
         The angular increment in degrees.
         
         """
-        val = py2ecotect.conversation.Request("get.rays.angle")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.angle")
+        return p2e.string_util._convert_str_to_type(val, float)
     
     def set_angle(self, angle):
         """
@@ -182,8 +181,8 @@ class Rays(object):
         Specifies the angle to use, in decimal degrees
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.angle", angle)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.angle", angle)
+        p2e.conversation.Exec(arg_str)
     
     def get_avg_absorption(self, band):
         """
@@ -219,10 +218,10 @@ class Rays(object):
         8 16000 Hz 
 
         """
-        arg_str = string_util._convert_args_to_string("get.rays.avgabsorption", 
+        arg_str = p2e.string_util._convert_args_to_string("get.rays.avgabsorption", 
                                                       band)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_azimuth(self):
         """
@@ -240,8 +239,8 @@ class Rays(object):
         The azimuth in degrees. 
         
         """
-        val = py2ecotect.conversation.Request("get.rays.azimuth")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.azimuth")
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def set_azimuth(self, angle):
         """
@@ -256,8 +255,8 @@ class Rays(object):
         The angle in degrees to use. 
 
         """
-        arg_str = string_util._convert_args_to_string("set.rays.azimuth", angle)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.azimuth", angle)
+        p2e.conversation.Exec(arg_str)
 
     def get_count(self):
         """
@@ -274,8 +273,8 @@ class Rays(object):
         The number of rays in the ray list. 
 
         """
-        val = py2ecotect.conversation.Request("get.rays.count")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.rays.count")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_distance(self):
         """
@@ -293,8 +292,8 @@ class Rays(object):
         A decimal value containing the distance. 
 
         """
-        val = py2ecotect.conversation.Request("get.rays.distance")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.distance")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_distance(self, dist):
         """
@@ -309,8 +308,8 @@ class Rays(object):
         A decimal value specifying the required distance, in the current modelling units.
                 
         """
-        arg_str = string_util._convert_args_to_string("set.rays.distance", dist)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.distance", dist)
+        p2e.conversation.Exec(arg_str)
 
     def get_edt10(self):
         """
@@ -330,8 +329,8 @@ class Rays(object):
         A decimal value containing the early decay time in seconds.
         
         """
-        val = py2ecotect.conversation.Request("get.rays.edt10")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.edt10")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_flag(self, flag):
         """
@@ -370,9 +369,9 @@ class Rays(object):
         wheel 2048 Control ray animation using mouse wheel. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.rays.flag", flag)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.rays.flag", flag)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_flag(self, flag, state = True):
         """
@@ -408,9 +407,9 @@ class Rays(object):
         wheel 2048 Control ray animation using mouse wheel. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.flag", flag, 
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.flag", flag, 
                                                       state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_increment(self):
         """
@@ -427,8 +426,8 @@ class Rays(object):
         The current increment in milliseconds.
         
         """
-        val = py2ecotect.conversation.Request("get.rays.increment")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.increment")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_increment(self, inc):
         """
@@ -442,8 +441,8 @@ class Rays(object):
         The increment to set in milliseconds. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.increment", inc)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.increment", inc)
+        p2e.conversation.Exec(arg_str)
 
     def get_max_distance(self):
         """
@@ -461,8 +460,8 @@ class Rays(object):
         The maximum distance travelled. 
 
         """
-        val = py2ecotect.conversation.Request("get.rays.maxdistance")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.maxdistance")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_mean_free_path_length(self):
         """
@@ -481,8 +480,8 @@ class Rays(object):
         A decimal value containing the mean free path length. 
 
         """
-        val = py2ecotect.conversation.Request("get.rays.meanfreepathlength")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.meanfreepathlength")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_nodes(self):
         """
@@ -499,8 +498,8 @@ class Rays(object):
         The number of ray nodes in the ray list.
         
         """
-        val = py2ecotect.conversation.Request("get.rays.nodes")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.rays.nodes")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def get_precision(self):
         """
@@ -519,8 +518,8 @@ class Rays(object):
         A decimal value containing the distance. 
         
         """
-        val = py2ecotect.conversation.Request("get.rays.precision")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.precision")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_precision(self, precision):
         """
@@ -536,9 +535,9 @@ class Rays(object):
         A decimal value representing the distance.
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.precision", 
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.precision", 
                                                       precision)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_random(self):
         """
@@ -556,8 +555,8 @@ class Rays(object):
         An integer value respresenting the number of rays generated. 
 
         """
-        val = py2ecotect.conversation.Request("get.rays.random")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.rays.random")
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_random(self, rays):
         """
@@ -572,9 +571,9 @@ class Rays(object):
         An integer value respresenting the number of rays to generate. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.random", 
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.random", 
                                                       rays)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_reflections(self):
         """
@@ -592,8 +591,8 @@ class Rays(object):
         The maximum number of reflections.
         
         """
-        val = py2ecotect.conversation.Request("get.rays.reflections")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.rays.reflections")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_reflections(self):
         """
@@ -608,9 +607,9 @@ class Rays(object):
         The maximum number of reflections.
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.reflections", 
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.reflections", 
                                                       bounces)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_rt60(self):
         """
@@ -630,8 +629,8 @@ class Rays(object):
         A decimal value containing the reverberation time in seconds. 
         
         """
-        val = py2ecotect.conversation.Request("get.rays.rt60")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.rays.rt60")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def get_scale(self):
         """
@@ -658,8 +657,8 @@ class Rays(object):
         A decimal value containing the scale increment 
         
         """
-        val = py2ecotect.conversation.Request("get.rays.scale")
-        return string_util._convert_str_to_list(val, float, float, float)
+        val = p2e.conversation.Request("get.rays.scale")
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
         
     def set_scale(self, min, max, inc):
         """
@@ -683,9 +682,9 @@ class Rays(object):
         A decimal value representing the scale increment. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.scale", min, 
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.scale", min, 
                                                       max, inc)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_source(self):
         """
@@ -703,8 +702,8 @@ class Rays(object):
         The zero-based index number of the SPEAKER object to be used.
         
         """
-        val = py2ecotect.conversation.Request("get.rays.source")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.rays.source")
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_source(self, index):
         """
@@ -719,8 +718,8 @@ class Rays(object):
         is not specified, the first visible SPEAKER object found will be used. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.source", index)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.source", index)
+        p2e.conversation.Exec(arg_str)
 
     def get_units(self):
         """
@@ -738,8 +737,8 @@ class Rays(object):
         An text string representing the units to use. 
         
         """
-        val = py2ecotect.conversation.Request("get.rays.units")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.rays.units")
+        return p2e.string_util._convert_str_to_type(val, str)
 
     def set_units(self, units):
         """
@@ -754,8 +753,8 @@ class Rays(object):
         An text string representing the units to use. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.rays.units", units)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.rays.units", units)
+        p2e.conversation.Exec(arg_str)
 
     #===========================================================================
     # Properties
