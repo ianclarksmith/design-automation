@@ -7,7 +7,7 @@ add_box = {
     "function_com_id": 72,
     "function_vb_name": "AddBox",
     "function_name": "add_box",
-    "function_parameters": (("corners","array_of dbl","REQ")),
+    "function_parameters": (("corners","array_of dbl","REQ"),),
     "function_returns": ("string","null")
     }
 add_cone = {
@@ -55,7 +55,7 @@ add_edge_srf = {
     "function_com_id": 203,
     "function_vb_name": "AddEdgeSrf",
     "function_name": "add_edge_srf",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("string","null")
     }
 add_loft_srf = {
@@ -79,7 +79,7 @@ add_planar_srf = {
     "function_com_id": 371,
     "function_vb_name": "AddPlanarSrf",
     "function_name": "add_planar_srf",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("array","null")
     }
 add_plane_surface = {
@@ -151,7 +151,7 @@ add_srf_pt = {
     "function_com_id": 204,
     "function_vb_name": "AddSrfPt",
     "function_name": "add_srf_pt",
-    "function_parameters": (("points","array_of dbl","REQ")),
+    "function_parameters": (("points","array_of dbl","REQ"),),
     "function_returns": ("string","null")
     }
 add_srf_pt_grid = {
@@ -170,19 +170,19 @@ add_srf_section_crvs = {
     "function_parameters": (("object","str","REQ"),("plane","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
-add_sweep1 = {
+add_sweep_1 = {
     "function_location": "surface_and_polysurface",
     "function_com_id": 893,
     "function_vb_name": "AddSweep1",
-    "function_name": "add_sweep1",
+    "function_name": "add_sweep_1",
     "function_parameters": (("rail","str","REQ"),("shapes","array_of str","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("closed","bln","OPT"),("style","int","OPT"),("style_arg","va","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT")),
     "function_returns": ("array","null")
     }
-add_sweep2 = {
+add_sweep_2 = {
     "function_location": "surface_and_polysurface",
     "function_com_id": 894,
     "function_vb_name": "AddSweep2",
-    "function_name": "add_sweep2",
+    "function_name": "add_sweep_2",
     "function_parameters": (("rails","array_of str","REQ"),("shapes","array_of str","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("closed","bln","OPT"),("simple_sweep","bln","OPT"),("maintain_height","bln","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT")),
     "function_returns": ("array","null")
     }
@@ -207,7 +207,7 @@ boolean_difference = {
     "function_com_id": 508,
     "function_vb_name": "BooleanDifference",
     "function_name": "boolean_difference",
-    "function_parameters": (("input0","array_of str","REQ"),("input1","array_of str","REQ"),("delete","bln","OPT")),
+    "function_parameters": (("input_0","array_of str","REQ"),("input_1","array_of str","REQ"),("delete","bln","OPT")),
     "function_returns": ("array","null")
     }
 boolean_intersection = {
@@ -215,7 +215,7 @@ boolean_intersection = {
     "function_com_id": 507,
     "function_vb_name": "BooleanIntersection",
     "function_name": "boolean_intersection",
-    "function_parameters": (("input0","array_of str","REQ"),("input1","array_of str","REQ"),("delete","bln","OPT")),
+    "function_parameters": (("input_0","array_of str","REQ"),("input_1","array_of str","REQ"),("delete","bln","OPT")),
     "function_returns": ("array","null")
     }
 boolean_union = {
@@ -239,7 +239,7 @@ cap_planar_holes = {
     "function_com_id": 701,
     "function_vb_name": "CapPlanarHoles",
     "function_name": "cap_planar_holes",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 duplicate_edge_curves = {
@@ -255,7 +255,7 @@ duplicate_surface_border = {
     "function_com_id": 852,
     "function_vb_name": "DuplicateSurfaceBorder",
     "function_name": "duplicate_surface_border",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 evaluate_surface = {
@@ -351,7 +351,7 @@ intersect_breps = {
     "function_com_id": 544,
     "function_vb_name": "IntersectBreps",
     "function_name": "intersect_breps",
-    "function_parameters": (("brep1","str","REQ"),("brep2","str","REQ"),("tolerance","dbl","OPT")),
+    "function_parameters": (("brep_1","str","REQ"),("brep_2","str","REQ"),("tolerance","dbl","OPT")),
     "function_returns": ("array","null")
     }
 is_brep = {
@@ -359,7 +359,7 @@ is_brep = {
     "function_com_id": 206,
     "function_vb_name": "IsBrep",
     "function_name": "is_brep",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_brep_manifold = {
@@ -367,7 +367,7 @@ is_brep_manifold = {
     "function_com_id": 854,
     "function_vb_name": "IsBrepManifold",
     "function_name": "is_brep_manifold",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_cone = {
@@ -375,7 +375,7 @@ is_cone = {
     "function_com_id": 885,
     "function_vb_name": "IsCone",
     "function_name": "is_cone",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_cylinder = {
@@ -383,7 +383,7 @@ is_cylinder = {
     "function_com_id": 884,
     "function_vb_name": "IsCylinder",
     "function_name": "is_cylinder",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_parameter_on_surface = {
@@ -399,7 +399,7 @@ is_plane_surface = {
     "function_com_id": 638,
     "function_vb_name": "IsPlaneSurface",
     "function_name": "is_plane_surface",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_point_in_surface = {
@@ -423,7 +423,7 @@ is_poly_surface = {
     "function_com_id": 207,
     "function_vb_name": "IsPolySurface",
     "function_name": "is_poly_surface",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_poly_surface_closed = {
@@ -431,7 +431,7 @@ is_poly_surface_closed = {
     "function_com_id": 208,
     "function_vb_name": "IsPolySurfaceClosed",
     "function_name": "is_poly_surface_closed",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_poly_surface_planar = {
@@ -439,7 +439,7 @@ is_poly_surface_planar = {
     "function_com_id": 209,
     "function_vb_name": "IsPolySurfacePlanar",
     "function_name": "is_poly_surface_planar",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_sphere = {
@@ -447,7 +447,7 @@ is_sphere = {
     "function_com_id": 883,
     "function_vb_name": "IsSphere",
     "function_name": "is_sphere",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_surface = {
@@ -455,7 +455,7 @@ is_surface = {
     "function_com_id": 210,
     "function_vb_name": "IsSurface",
     "function_name": "is_surface",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_surface_closed = {
@@ -487,7 +487,7 @@ is_surface_rational = {
     "function_com_id": 434,
     "function_vb_name": "IsSurfaceRational",
     "function_name": "is_surface_rational",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_surface_singular = {
@@ -503,7 +503,7 @@ is_surface_trimmed = {
     "function_com_id": 269,
     "function_vb_name": "IsSurfaceTrimmed",
     "function_name": "is_surface_trimmed",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_torus = {
@@ -511,7 +511,7 @@ is_torus = {
     "function_com_id": 886,
     "function_vb_name": "IsTorus",
     "function_name": "is_torus",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 join_surfaces = {
@@ -591,7 +591,7 @@ shrink_trimmed_surface = {
     "function_com_id": 700,
     "function_vb_name": "ShrinkTrimmedSurface",
     "function_name": "shrink_trimmed_surface",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 split_brep = {
@@ -607,7 +607,7 @@ surface_area = {
     "function_com_id": 382,
     "function_vb_name": "SurfaceArea",
     "function_name": "surface_area",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","number","number","null")
     }
 surface_area_centroid = {
@@ -615,7 +615,7 @@ surface_area_centroid = {
     "function_com_id": 384,
     "function_vb_name": "SurfaceAreaCentroid",
     "function_name": "surface_area_centroid",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 surface_area_moments = {
@@ -623,7 +623,7 @@ surface_area_moments = {
     "function_com_id": 386,
     "function_vb_name": "SurfaceAreaMoments",
     "function_name": "surface_area_moments",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 surface_closest_point = {
@@ -639,7 +639,7 @@ surface_cone = {
     "function_com_id": 889,
     "function_vb_name": "SurfaceCone",
     "function_name": "surface_cone",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("array","array","number","number","null")
     }
 surface_contour_points = {
@@ -663,7 +663,7 @@ surface_curvature_analysis = {
     "function_com_id": 632,
     "function_vb_name": "SurfaceCurvatureAnalysis",
     "function_name": "surface_curvature_analysis",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","array","array","array","array","null")
     }
 surface_cylinder = {
@@ -671,7 +671,7 @@ surface_cylinder = {
     "function_com_id": 888,
     "function_vb_name": "SurfaceCylinder",
     "function_name": "surface_cylinder",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("array","array","number","number","null")
     }
 surface_degree = {
@@ -727,7 +727,7 @@ surface_knot_count = {
     "function_com_id": 431,
     "function_vb_name": "SurfaceKnotCount",
     "function_name": "surface_knot_count",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 surface_knots = {
@@ -735,7 +735,7 @@ surface_knots = {
     "function_com_id": 432,
     "function_vb_name": "SurfaceKnots",
     "function_name": "surface_knots",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 surface_normal = {
@@ -751,7 +751,7 @@ surface_point_count = {
     "function_com_id": 218,
     "function_vb_name": "SurfacePointCount",
     "function_name": "surface_point_count",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 surface_points = {
@@ -783,7 +783,7 @@ surface_sphere = {
     "function_com_id": 887,
     "function_vb_name": "SurfaceSphere",
     "function_name": "surface_sphere",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("array","array","number","null")
     }
 surface_surface_intersection = {
@@ -799,7 +799,7 @@ surface_torus = {
     "function_com_id": 890,
     "function_vb_name": "SurfaceTorus",
     "function_name": "surface_torus",
-    "function_parameters": (("surface","str","REQ")),
+    "function_parameters": (("surface","str","REQ"),),
     "function_returns": ("array","array","number","number","null")
     }
 surface_volume = {
@@ -807,7 +807,7 @@ surface_volume = {
     "function_com_id": 383,
     "function_vb_name": "SurfaceVolume",
     "function_name": "surface_volume",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","number","number","null")
     }
 surface_volume_centroid = {
@@ -815,7 +815,7 @@ surface_volume_centroid = {
     "function_com_id": 385,
     "function_vb_name": "SurfaceVolumeCentroid",
     "function_name": "surface_volume_centroid",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 surface_volume_moments = {
@@ -823,7 +823,7 @@ surface_volume_moments = {
     "function_com_id": 387,
     "function_vb_name": "SurfaceVolumeMoments",
     "function_name": "surface_volume_moments",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 surface_weights = {
@@ -831,6 +831,6 @@ surface_weights = {
     "function_com_id": 433,
     "function_vb_name": "SurfaceWeights",
     "function_name": "surface_weights",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }

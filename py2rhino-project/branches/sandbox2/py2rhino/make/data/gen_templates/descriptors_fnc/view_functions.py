@@ -47,7 +47,7 @@ delete_named_c_plane = {
     "function_com_id": 284,
     "function_vb_name": "DeleteNamedCPlane",
     "function_name": "delete_named_c_plane",
-    "function_parameters": (("name","str","REQ")),
+    "function_parameters": (("name","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 delete_named_view = {
@@ -55,7 +55,7 @@ delete_named_view = {
     "function_com_id": 285,
     "function_vb_name": "DeleteNamedView",
     "function_name": "delete_named_view",
-    "function_parameters": (("name","str","REQ")),
+    "function_parameters": (("name","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 detail_names = {
@@ -71,7 +71,7 @@ is_background_bitmap = {
     "function_com_id": 779,
     "function_vb_name": "IsBackgroundBitmap",
     "function_name": "is_background_bitmap",
-    "function_parameters": (("view","str","REQ")),
+    "function_parameters": (("view","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_detail = {
@@ -80,22 +80,22 @@ is_detail = {
     "function_vb_name": "IsDetail",
     "function_name": "is_detail",
     "function_parameters": (("layout","str","REQ"),("detail","str","REQ")),
-    "function_returns": ("null")
+    "function_returns": ("null",)
     }
 is_layout = {
     "function_location": "view",
     "function_com_id": 920,
     "function_vb_name": "IsLayout",
     "function_name": "is_layout",
-    "function_parameters": (("layout","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("layout","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_view = {
     "function_location": "view",
     "function_com_id": 252,
     "function_vb_name": "IsView",
     "function_name": "is_view",
-    "function_parameters": (("view","str","REQ")),
+    "function_parameters": (("view","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_view_current = {
@@ -103,7 +103,7 @@ is_view_current = {
     "function_com_id": 253,
     "function_vb_name": "IsViewCurrent",
     "function_name": "is_view_current",
-    "function_parameters": (("view","str","REQ")),
+    "function_parameters": (("view","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_view_maximized = {
@@ -111,7 +111,7 @@ is_view_maximized = {
     "function_com_id": 254,
     "function_vb_name": "IsViewMaximized",
     "function_name": "is_view_maximized",
-    "function_parameters": (("view","str","OPT")),
+    "function_parameters": (("view","str","OPT"),),
     "function_returns": ("boolean","null")
     }
 is_view_perspective = {
@@ -119,7 +119,7 @@ is_view_perspective = {
     "function_com_id": 255,
     "function_vb_name": "IsViewPerspective",
     "function_name": "is_view_perspective",
-    "function_parameters": (("view","str","OPT")),
+    "function_parameters": (("view","str","OPT"),),
     "function_returns": ("boolean","null")
     }
 is_view_title_visible = {
@@ -127,7 +127,7 @@ is_view_title_visible = {
     "function_com_id": 256,
     "function_vb_name": "IsViewTitleVisible",
     "function_name": "is_view_title_visible",
-    "function_parameters": (("view","str","OPT")),
+    "function_parameters": (("view","str","OPT"),),
     "function_returns": ("boolean","null")
     }
 is_wallpaper = {
@@ -135,7 +135,7 @@ is_wallpaper = {
     "function_com_id": 531,
     "function_vb_name": "IsWallpaper",
     "function_name": "is_wallpaper",
-    "function_parameters": (("view","str","REQ")),
+    "function_parameters": (("view","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 maximize_restore_view = {
@@ -143,7 +143,7 @@ maximize_restore_view = {
     "function_com_id": 257,
     "function_vb_name": "MaximizeRestoreView",
     "function_name": "maximize_restore_view",
-    "function_parameters": (("view","str","OPT")),
+    "function_parameters": (("view","str","OPT"),),
     "function_returns": ()
     }
 named_c_planes = {
@@ -239,7 +239,7 @@ synchronize_c_planes = {
     "function_com_id": 289,
     "function_vb_name": "SynchronizeCPlanes",
     "function_name": "synchronize_c_planes",
-    "function_parameters": (("view","str","OPT")),
+    "function_parameters": (("view","str","OPT"),),
     "function_returns": ("boolean","null")
     }
 tilt_view = {
@@ -279,7 +279,7 @@ view_camera_plane = {
     "function_com_id": 778,
     "function_vb_name": "ViewCameraPlane",
     "function_name": "view_camera_plane",
-    "function_parameters": (("view","str","OPT")),
+    "function_parameters": (("view","str","OPT"),),
     "function_returns": ("array","null")
     }
 view_camera_target = {
@@ -311,7 +311,7 @@ view_display_mode_name = {
     "function_com_id": 909,
     "function_vb_name": "ViewDisplayModeName",
     "function_name": "view_display_mode_name",
-    "function_parameters": (("mode","str","REQ")),
+    "function_parameters": (("mode","str","REQ"),),
     "function_returns": ("string","null")
     }
 view_display_modes = {
@@ -319,7 +319,7 @@ view_display_modes = {
     "function_com_id": 908,
     "function_vb_name": "ViewDisplayModes",
     "function_name": "view_display_modes",
-    "function_parameters": (("return_name","bln","OPT")),
+    "function_parameters": (("return_name","bln","OPT"),),
     "function_returns": ("array","null")
     }
 view_names = {
@@ -335,7 +335,7 @@ view_near_corners = {
     "function_com_id": 823,
     "function_vb_name": "ViewNearCorners",
     "function_name": "view_near_corners",
-    "function_parameters": (("view","str","OPT")),
+    "function_parameters": (("view","str","OPT"),),
     "function_returns": ("array","null")
     }
 view_projection = {
@@ -359,7 +359,7 @@ view_size = {
     "function_com_id": 267,
     "function_vb_name": "ViewSize",
     "function_name": "view_size",
-    "function_parameters": (("view","str","OPT")),
+    "function_parameters": (("view","str","OPT"),),
     "function_returns": ("array","null")
     }
 view_target = {
@@ -375,7 +375,7 @@ view_title = {
     "function_com_id": 907,
     "function_vb_name": "ViewTitle",
     "function_name": "view_title",
-    "function_parameters": (("mode","str","REQ")),
+    "function_parameters": (("mode","str","REQ"),),
     "function_returns": ("string","null")
     }
 wallpaper = {

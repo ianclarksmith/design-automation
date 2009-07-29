@@ -15,7 +15,7 @@ intersect_planes = {
     "params_html": {
         0: {
             "name": "arrPlane1",
-            "py_name": "plane1",
+            "py_name": "plane_1",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -26,7 +26,7 @@ intersect_planes = {
         },
         1: {
             "name": "arrPlane2",
-            "py_name": "plane2",
+            "py_name": "plane_2",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -37,7 +37,7 @@ intersect_planes = {
         },
         2: {
             "name": "arrPlane3",
-            "py_name": "plane3",
+            "py_name": "plane_3",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

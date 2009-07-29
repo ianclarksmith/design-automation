@@ -7,7 +7,7 @@ block_container_count = {
     "function_com_id": 411,
     "function_vb_name": "BlockContainerCount",
     "function_name": "block_container_count",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("number","null")
     }
 block_containers = {
@@ -15,7 +15,7 @@ block_containers = {
     "function_com_id": 412,
     "function_vb_name": "BlockContainers",
     "function_name": "block_containers",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("array","null")
     }
 block_count = {
@@ -39,7 +39,7 @@ block_instance_count = {
     "function_com_id": 404,
     "function_vb_name": "BlockInstanceCount",
     "function_name": "block_instance_count",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("number","null")
     }
 block_instance_insert_point = {
@@ -47,7 +47,7 @@ block_instance_insert_point = {
     "function_com_id": 413,
     "function_vb_name": "BlockInstanceInsertPoint",
     "function_name": "block_instance_insert_point",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 block_instance_name = {
@@ -55,7 +55,7 @@ block_instance_name = {
     "function_com_id": 571,
     "function_vb_name": "BlockInstanceName",
     "function_name": "block_instance_name",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("string","null")
     }
 block_instance_xform = {
@@ -63,7 +63,7 @@ block_instance_xform = {
     "function_com_id": 415,
     "function_vb_name": "BlockInstanceXform",
     "function_name": "block_instance_xform",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 block_instances = {
@@ -71,7 +71,7 @@ block_instances = {
     "function_com_id": 414,
     "function_vb_name": "BlockInstances",
     "function_name": "block_instances",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("array","null")
     }
 block_names = {
@@ -79,7 +79,7 @@ block_names = {
     "function_com_id": 396,
     "function_vb_name": "BlockNames",
     "function_name": "block_names",
-    "function_parameters": (("sort","bln","OPT")),
+    "function_parameters": (("sort","bln","OPT"),),
     "function_returns": ("array","null")
     }
 block_object_count = {
@@ -87,7 +87,7 @@ block_object_count = {
     "function_com_id": 416,
     "function_vb_name": "BlockObjectCount",
     "function_name": "block_object_count",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("number","null")
     }
 block_objects = {
@@ -95,7 +95,7 @@ block_objects = {
     "function_com_id": 417,
     "function_vb_name": "BlockObjects",
     "function_name": "block_objects",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("array","null")
     }
 block_path = {
@@ -103,7 +103,7 @@ block_path = {
     "function_com_id": 408,
     "function_vb_name": "BlockPath",
     "function_name": "block_path",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("string","null")
     }
 block_u_r_l = {
@@ -127,7 +127,7 @@ delete_block = {
     "function_com_id": 418,
     "function_vb_name": "DeleteBlock",
     "function_name": "delete_block",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 explode_block_instance = {
@@ -135,7 +135,7 @@ explode_block_instance = {
     "function_com_id": 419,
     "function_vb_name": "ExplodeBlockInstance",
     "function_name": "explode_block_instance",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 insert_block = {
@@ -159,7 +159,7 @@ is_block = {
     "function_com_id": 398,
     "function_vb_name": "IsBlock",
     "function_name": "is_block",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_block_embedded = {
@@ -167,7 +167,7 @@ is_block_embedded = {
     "function_com_id": 405,
     "function_vb_name": "IsBlockEmbedded",
     "function_name": "is_block_embedded",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_block_in_use = {
@@ -183,7 +183,7 @@ is_block_instance = {
     "function_com_id": 420,
     "function_vb_name": "IsBlockInstance",
     "function_name": "is_block_instance",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_block_reference = {
@@ -191,7 +191,7 @@ is_block_reference = {
     "function_com_id": 407,
     "function_vb_name": "IsBlockReference",
     "function_name": "is_block_reference",
-    "function_parameters": (("block","str","REQ")),
+    "function_parameters": (("block","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 rename_block = {

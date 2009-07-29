@@ -7,7 +7,7 @@ all_procedures = {
     "function_com_id": 503,
     "function_vb_name": "AllProcedures",
     "function_name": "all_procedures",
-    "function_parameters": (("all","bln","OPT")),
+    "function_parameters": (("all","bln","OPT"),),
     "function_returns": ("array","null")
     }
 clipboard_text = {
@@ -15,7 +15,7 @@ clipboard_text = {
     "function_com_id": 245,
     "function_vb_name": "ClipboardText",
     "function_name": "clipboard_text",
-    "function_parameters": (("text","str","OPT")),
+    "function_parameters": (("text","str","OPT"),),
     "function_returns": ("string","string","null")
     }
 color_adjust_luma = {
@@ -31,7 +31,7 @@ color_blue_value = {
     "function_com_id": 882,
     "function_vb_name": "ColorBlueValue",
     "function_name": "color_blue_value",
-    "function_parameters": (("r_g_b","lng","REQ")),
+    "function_parameters": (("r_g_b","lng","REQ"),),
     "function_returns": ("number","null")
     }
 color_green_value = {
@@ -39,7 +39,7 @@ color_green_value = {
     "function_com_id": 881,
     "function_vb_name": "ColorGreenValue",
     "function_name": "color_green_value",
-    "function_parameters": (("r_g_b","lng","REQ")),
+    "function_parameters": (("r_g_b","lng","REQ"),),
     "function_returns": ("number","null")
     }
 color_h_l_s_to_r_g_b = {
@@ -47,7 +47,7 @@ color_h_l_s_to_r_g_b = {
     "function_com_id": 877,
     "function_vb_name": "ColorHLSToRGB",
     "function_name": "color_h_l_s_to_r_g_b",
-    "function_parameters": (("r_g_b","lng","REQ")),
+    "function_parameters": (("r_g_b","lng","REQ"),),
     "function_returns": ("number","null")
     }
 color_r_g_b_to_h_l_s = {
@@ -55,7 +55,7 @@ color_r_g_b_to_h_l_s = {
     "function_com_id": 876,
     "function_vb_name": "ColorRGBToHLS",
     "function_name": "color_r_g_b_to_h_l_s",
-    "function_parameters": (("r_g_b","lng","REQ")),
+    "function_parameters": (("r_g_b","lng","REQ"),),
     "function_returns": ("array","null")
     }
 color_red_value = {
@@ -63,7 +63,7 @@ color_red_value = {
     "function_com_id": 880,
     "function_vb_name": "ColorRedValue",
     "function_name": "color_red_value",
-    "function_parameters": (("r_g_b","lng","REQ")),
+    "function_parameters": (("r_g_b","lng","REQ"),),
     "function_returns": ("number","null")
     }
 cull_duplicate_numbers = {
@@ -95,7 +95,7 @@ current_printer = {
     "function_com_id": 358,
     "function_vb_name": "CurrentPrinter",
     "function_name": "current_printer",
-    "function_parameters": (("printer","str","OPT")),
+    "function_parameters": (("printer","str","OPT"),),
     "function_returns": ("string","string","null")
     }
 get_settings = {
@@ -111,7 +111,7 @@ is_procedure = {
     "function_com_id": 287,
     "function_vb_name": "IsProcedure",
     "function_name": "is_procedure",
-    "function_parameters": (("sub_name","str","REQ")),
+    "function_parameters": (("sub_name","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 printer_names = {
@@ -122,11 +122,11 @@ printer_names = {
     "function_parameters": (),
     "function_returns": ("array","null")
     }
-pt2_str = {
+pt_2_str = {
     "function_location": "utility",
     "function_com_id": 297,
     "function_vb_name": "Pt2Str",
-    "function_name": "pt2_str",
+    "function_name": "pt_2_str",
     "function_parameters": (("point","array_of dbl","REQ"),("precision","n","OPT"),("space","bln","OPT")),
     "function_returns": ("string","null")
     }
@@ -143,7 +143,7 @@ simplify_array = {
     "function_com_id": 597,
     "function_vb_name": "SimplifyArray",
     "function_name": "simplify_array",
-    "function_parameters": (("points","array_of dbl","REQ")),
+    "function_parameters": (("points","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 sleep = {
@@ -151,8 +151,8 @@ sleep = {
     "function_com_id": 248,
     "function_vb_name": "Sleep",
     "function_name": "sleep",
-    "function_parameters": (("milliseconds","lng","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("milliseconds","lng","REQ"),),
+    "function_returns": ("null",)
     }
 spool_to_printer = {
     "function_location": "utility",
@@ -162,20 +162,20 @@ spool_to_printer = {
     "function_parameters": (("file","str","REQ"),("printer","str","REQ")),
     "function_returns": ("string","null")
     }
-str2_pt = {
+str_2_pt = {
     "function_location": "utility",
     "function_com_id": 409,
     "function_vb_name": "Str2Pt",
-    "function_name": "str2_pt",
-    "function_parameters": (("point","str","REQ")),
+    "function_name": "str_2_pt",
+    "function_parameters": (("point","str","REQ"),),
     "function_returns": ("array","null")
     }
-str2_pt_array = {
+str_2_pt_array = {
     "function_location": "utility",
     "function_com_id": 410,
     "function_vb_name": "Str2PtArray",
-    "function_name": "str2_pt_array",
-    "function_parameters": (("points","str","REQ")),
+    "function_name": "str_2_pt_array",
+    "function_parameters": (("points","str","REQ"),),
     "function_returns": ("array","null")
     }
 strtok = {
@@ -192,7 +192,7 @@ text_out = {
     "function_vb_name": "TextOut",
     "function_name": "text_out",
     "function_parameters": (("text","str","REQ"),("title","str","OPT")),
-    "function_returns": ("null")
+    "function_returns": ("null",)
     }
 version = {
     "function_location": "utility",
@@ -200,5 +200,5 @@ version = {
     "function_vb_name": "Version",
     "function_name": "version",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }

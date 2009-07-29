@@ -32,7 +32,7 @@ alias_count = {
     "function_vb_name": "AliasCount",
     "function_name": "alias_count",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 alias_macro = {
     "function_location": "application",
@@ -48,7 +48,7 @@ alias_names = {
     "function_vb_name": "AliasNames",
     "function_name": "alias_names",
     "function_parameters": (),
-    "function_returns": ("array")
+    "function_returns": ("array",)
     }
 appearance_color = {
     "function_location": "application",
@@ -71,7 +71,7 @@ autosave_file = {
     "function_com_id": 428,
     "function_vb_name": "AutosaveFile",
     "function_name": "autosave_file",
-    "function_parameters": (("file","str","OPT")),
+    "function_parameters": (("file","str","OPT"),),
     "function_returns": ("string","string","null")
     }
 autosave_interval = {
@@ -79,7 +79,7 @@ autosave_interval = {
     "function_com_id": 429,
     "function_vb_name": "AutosaveInterval",
     "function_name": "autosave_interval",
-    "function_parameters": (("minutes","int","OPT")),
+    "function_parameters": (("minutes","int","OPT"),),
     "function_returns": ("number","number","null")
     }
 build_date = {
@@ -119,7 +119,7 @@ default_renderer = {
     "function_com_id": 316,
     "function_vb_name": "DefaultRenderer",
     "function_name": "default_renderer",
-    "function_parameters": (("renderer","str","OPT")),
+    "function_parameters": (("renderer","str","OPT"),),
     "function_returns": ("string","string","null")
     }
 delete_alias = {
@@ -127,7 +127,7 @@ delete_alias = {
     "function_com_id": 710,
     "function_vb_name": "DeleteAlias",
     "function_name": "delete_alias",
-    "function_parameters": (("alias","str","REQ")),
+    "function_parameters": (("alias","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 delete_search_path = {
@@ -135,7 +135,7 @@ delete_search_path = {
     "function_com_id": 512,
     "function_vb_name": "DeleteSearchPath",
     "function_name": "delete_search_path",
-    "function_parameters": (("folder","str","REQ")),
+    "function_parameters": (("folder","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 delete_startup_script = {
@@ -143,7 +143,7 @@ delete_startup_script = {
     "function_com_id": 715,
     "function_vb_name": "DeleteStartupScript",
     "function_name": "delete_startup_script",
-    "function_parameters": (("script_file","str","REQ")),
+    "function_parameters": (("script_file","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 display_ole_alerts = {
@@ -151,15 +151,15 @@ display_ole_alerts = {
     "function_com_id": 896,
     "function_vb_name": "DisplayOleAlerts",
     "function_name": "display_ole_alerts",
-    "function_parameters": (("display","bln","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("display","bln","REQ"),),
+    "function_returns": ("null",)
     }
 edge_analysis_color = {
     "function_location": "application",
     "function_com_id": 449,
     "function_vb_name": "EdgeAnalysisColor",
     "function_name": "edge_analysis_color",
-    "function_parameters": (("color","lng","OPT")),
+    "function_parameters": (("color","lng","OPT"),),
     "function_returns": ("number","number","null")
     }
 edge_analysis_mode = {
@@ -167,7 +167,7 @@ edge_analysis_mode = {
     "function_com_id": 448,
     "function_vb_name": "EdgeAnalysisMode",
     "function_name": "edge_analysis_mode",
-    "function_parameters": (("mode","int","OPT")),
+    "function_parameters": (("mode","int","OPT"),),
     "function_returns": ("number","number","null")
     }
 enable_autosave = {
@@ -175,15 +175,15 @@ enable_autosave = {
     "function_com_id": 430,
     "function_vb_name": "EnableAutosave",
     "function_name": "enable_autosave",
-    "function_parameters": (("enable","bln","OPT")),
-    "function_returns": ("boolean")
+    "function_parameters": (("enable","bln","OPT"),),
+    "function_returns": ("boolean",)
     }
 enable_history_recording = {
     "function_location": "application",
     "function_com_id": 735,
     "function_vb_name": "EnableHistoryRecording",
     "function_name": "enable_history_recording",
-    "function_parameters": (("enable","bln","OPT")),
+    "function_parameters": (("enable","bln","OPT"),),
     "function_returns": ("boolean","boolean")
     }
 exe_folder = {
@@ -207,7 +207,7 @@ find_file = {
     "function_com_id": 81,
     "function_vb_name": "FindFile",
     "function_name": "find_file",
-    "function_parameters": (("filename","str","REQ")),
+    "function_parameters": (("filename","str","REQ"),),
     "function_returns": ("string","null")
     }
 get_plug_in_object = {
@@ -215,24 +215,24 @@ get_plug_in_object = {
     "function_com_id": 636,
     "function_vb_name": "GetPlugInObject",
     "function_name": "get_plug_in_object",
-    "function_parameters": (("plug_in","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("plug_in","str","REQ"),),
+    "function_returns": ("null",)
     }
 help = {
     "function_location": "application",
     "function_com_id": 22,
     "function_vb_name": "Help",
     "function_name": "help",
-    "function_parameters": (("topic","int","OPT")),
-    "function_returns": ("boolean")
+    "function_parameters": (("topic","int","OPT"),),
+    "function_returns": ("boolean",)
     }
 in_command = {
     "function_location": "application",
     "function_com_id": 596,
     "function_vb_name": "InCommand",
     "function_name": "in_command",
-    "function_parameters": (("ignore_runners","bln","OPT")),
-    "function_returns": ("number")
+    "function_parameters": (("ignore_runners","bln","OPT"),),
+    "function_returns": ("number",)
     }
 install_folder = {
     "function_location": "application",
@@ -247,7 +247,7 @@ is_alias = {
     "function_com_id": 711,
     "function_vb_name": "IsAlias",
     "function_name": "is_alias",
-    "function_parameters": (("alias","str","REQ")),
+    "function_parameters": (("alias","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_command = {
@@ -255,7 +255,7 @@ is_command = {
     "function_com_id": 530,
     "function_vb_name": "IsCommand",
     "function_name": "is_command",
-    "function_parameters": (("command_name","str","REQ")),
+    "function_parameters": (("command_name","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 last_command_name = {
@@ -264,7 +264,7 @@ last_command_name = {
     "function_vb_name": "LastCommandName",
     "function_name": "last_command_name",
     "function_parameters": (),
-    "function_returns": ("string")
+    "function_returns": ("string",)
     }
 last_command_result = {
     "function_location": "application",
@@ -272,7 +272,7 @@ last_command_result = {
     "function_vb_name": "LastCommandResult",
     "function_name": "last_command_result",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 last_loaded_script_file = {
     "function_location": "application",
@@ -288,14 +288,14 @@ locale_i_d = {
     "function_vb_name": "LocaleID",
     "function_name": "locale_i_d",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 ortho = {
     "function_location": "application",
     "function_com_id": 345,
     "function_vb_name": "Ortho",
     "function_name": "ortho",
-    "function_parameters": (("enable","bln","OPT")),
+    "function_parameters": (("enable","bln","OPT"),),
     "function_returns": ("boolean","boolean")
     }
 osnap = {
@@ -303,7 +303,7 @@ osnap = {
     "function_com_id": 347,
     "function_vb_name": "Osnap",
     "function_name": "osnap",
-    "function_parameters": (("enable","bln","OPT")),
+    "function_parameters": (("enable","bln","OPT"),),
     "function_returns": ("boolean","boolean")
     }
 osnap_dialog = {
@@ -311,7 +311,7 @@ osnap_dialog = {
     "function_com_id": 349,
     "function_vb_name": "OsnapDialog",
     "function_name": "osnap_dialog",
-    "function_parameters": (("visible","bln","OPT")),
+    "function_parameters": (("visible","bln","OPT"),),
     "function_returns": ("boolean","boolean")
     }
 osnap_mode = {
@@ -319,7 +319,7 @@ osnap_mode = {
     "function_com_id": 343,
     "function_vb_name": "OsnapMode",
     "function_name": "osnap_mode",
-    "function_parameters": (("mode","int","OPT")),
+    "function_parameters": (("mode","int","OPT"),),
     "function_returns": ("number","number","null")
     }
 planar = {
@@ -327,7 +327,7 @@ planar = {
     "function_com_id": 346,
     "function_vb_name": "Planar",
     "function_name": "planar",
-    "function_parameters": (("enable","bln","OPT")),
+    "function_parameters": (("enable","bln","OPT"),),
     "function_returns": ("boolean","boolean")
     }
 plug_ins = {
@@ -343,7 +343,7 @@ print_ = {
     "function_com_id": 2,
     "function_vb_name": "Print",
     "function_name": "print_",
-    "function_parameters": (("message","str","OPT")),
+    "function_parameters": (("message","str","OPT"),),
     "function_returns": ()
     }
 print_ex = {
@@ -351,7 +351,7 @@ print_ex = {
     "function_com_id": 370,
     "function_vb_name": "PrintEx",
     "function_name": "print_ex",
-    "function_parameters": (("message","str","OPT")),
+    "function_parameters": (("message","str","OPT"),),
     "function_returns": ()
     }
 project_osnaps = {
@@ -359,7 +359,7 @@ project_osnaps = {
     "function_com_id": 348,
     "function_vb_name": "ProjectOsnaps",
     "function_name": "project_osnaps",
-    "function_parameters": (("enable","bln","OPT")),
+    "function_parameters": (("enable","bln","OPT"),),
     "function_returns": ("boolean","boolean")
     }
 prompt = {
@@ -367,7 +367,7 @@ prompt = {
     "function_com_id": 24,
     "function_vb_name": "Prompt",
     "function_name": "prompt",
-    "function_parameters": (("prompt","str","OPT")),
+    "function_parameters": (("prompt","str","OPT"),),
     "function_returns": ()
     }
 registry_key = {
@@ -400,7 +400,7 @@ search_path_count = {
     "function_vb_name": "SearchPathCount",
     "function_name": "search_path_count",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 search_path_list = {
     "function_location": "application",
@@ -408,7 +408,7 @@ search_path_list = {
     "function_vb_name": "SearchPathList",
     "function_name": "search_path_list",
     "function_parameters": (),
-    "function_returns": ("array")
+    "function_returns": ("array",)
     }
 send_keystrokes = {
     "function_location": "application",
@@ -423,7 +423,7 @@ snap = {
     "function_com_id": 344,
     "function_vb_name": "Snap",
     "function_name": "snap",
-    "function_parameters": (("enable","bln","OPT")),
+    "function_parameters": (("enable","bln","OPT"),),
     "function_returns": ("boolean","boolean")
     }
 startup_script_count = {
@@ -432,7 +432,7 @@ startup_script_count = {
     "function_vb_name": "StartupScriptCount",
     "function_name": "startup_script_count",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 startup_script_list = {
     "function_location": "application",
@@ -440,14 +440,14 @@ startup_script_list = {
     "function_vb_name": "StartupScriptList",
     "function_name": "startup_script_list",
     "function_parameters": (),
-    "function_returns": ("array")
+    "function_returns": ("array",)
     }
 status_bar_distance = {
     "function_location": "application",
     "function_com_id": 26,
     "function_vb_name": "StatusBarDistance",
     "function_name": "status_bar_distance",
-    "function_parameters": (("distance","dbl","OPT")),
+    "function_parameters": (("distance","dbl","OPT"),),
     "function_returns": ()
     }
 status_bar_message = {
@@ -455,7 +455,7 @@ status_bar_message = {
     "function_com_id": 28,
     "function_vb_name": "StatusBarMessage",
     "function_name": "status_bar_message",
-    "function_parameters": (("message","str","OPT")),
+    "function_parameters": (("message","str","OPT"),),
     "function_returns": ()
     }
 status_bar_number = {
@@ -463,7 +463,7 @@ status_bar_number = {
     "function_com_id": 312,
     "function_vb_name": "StatusBarNumber",
     "function_name": "status_bar_number",
-    "function_parameters": (("number","dbl","OPT")),
+    "function_parameters": (("number","dbl","OPT"),),
     "function_returns": ()
     }
 status_bar_point = {
@@ -471,7 +471,7 @@ status_bar_point = {
     "function_com_id": 27,
     "function_vb_name": "StatusBarPoint",
     "function_name": "status_bar_point",
-    "function_parameters": (("point","array_of dbl","OPT")),
+    "function_parameters": (("point","array_of dbl","OPT"),),
     "function_returns": ()
     }
 template_file = {
@@ -479,7 +479,7 @@ template_file = {
     "function_com_id": 529,
     "function_vb_name": "TemplateFile",
     "function_name": "template_file",
-    "function_parameters": (("filename","str","OPT")),
+    "function_parameters": (("filename","str","OPT"),),
     "function_returns": ("string","string")
     }
 template_folder = {
@@ -487,7 +487,7 @@ template_folder = {
     "function_com_id": 528,
     "function_vb_name": "TemplateFolder",
     "function_name": "template_folder",
-    "function_parameters": (("folder","str","OPT")),
+    "function_parameters": (("folder","str","OPT"),),
     "function_returns": ("string","string")
     }
 window_handle = {
@@ -496,13 +496,13 @@ window_handle = {
     "function_vb_name": "WindowHandle",
     "function_name": "window_handle",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 working_folder = {
     "function_location": "application",
     "function_com_id": 439,
     "function_vb_name": "WorkingFolder",
     "function_name": "working_folder",
-    "function_parameters": (("enable","bln","OPT")),
+    "function_parameters": (("enable","bln","OPT"),),
     "function_returns": ("string","string")
     }

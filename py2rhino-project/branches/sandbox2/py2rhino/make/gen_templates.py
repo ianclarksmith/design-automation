@@ -151,27 +151,13 @@ def write_descriptor_for_api_methods(location, params_data, returns_data, f):
 
     #write the parameters
     w(f, ('"method_parameters": ('), tabs=1, nls=0, nle=0) 
-    if params_name:
-        params_list = []
-        for param_num in range(num_params):
-            py_name = params_name[param_num]
-            type_string = params_type[param_num]
-            opt_or_req = params_opt_or_req[param_num][:3].upper()
-            params_list.append('("' + py_name +'","'+ type_string +'","'+ opt_or_req + '")')
-        params_list =  ','.join(params_list)
-        w(f, params_list, tabs=0, nls=0, nle=0) 
-    w(f, '),', tabs=0, nls=0, nle=1)
+    write_parameters(params_name, params_type, params_opt_or_req, f)
         
     #write the returns returns
     w(f, ('"method_returns": ('), tabs=1, nls=0, nle=0) 
-    if returns_type:
-        returns_list = []
-        for returns_num in range(num_returns):
-            type_string = returns_type[returns_num]
-            returns_list.append('"' + type_string + '"')
-        returns_list =  ','.join(returns_list)
-        w(f, returns_list, tabs=0, nls=0, nle=0) 
-    w(f, ')', tabs=0, nls=0, nle=1)
+    write_returns(returns_type, f)
+    
+    
     w(f, '}', tabs=1, nls=0, nle=1)
 #------------------------------------------------------------------------------ 
 def write_descriptor_for_functions(location, id, vb_name, params_data, returns_data, f):
@@ -190,7 +176,17 @@ def write_descriptor_for_functions(location, id, vb_name, params_data, returns_d
 
     #write the parameters
     w(f, ('"function_parameters": ('), tabs=1, nls=0, nle=0) 
-    if params_name:
+    write_parameters(params_name, params_type, params_opt_or_req, f)
+        
+    #write the returns returns
+    w(f, ('"function_returns": ('), tabs=1, nls=0, nle=0) 
+    write_returns(returns_type, f)
+    
+    w(f, '}', tabs=1, nls=0, nle=1)
+#------------------------------------------------------------------------------ 
+def write_parameters(params_name, params_type, params_opt_or_req, f):
+    num_params = len(params_name)
+    if num_params > 0:
         params_list = []
         for param_num in range(num_params):
             py_name = params_name[param_num]
@@ -198,20 +194,23 @@ def write_descriptor_for_functions(location, id, vb_name, params_data, returns_d
             opt_or_req = params_opt_or_req[param_num][:3].upper()
             params_list.append('("' + py_name +'","'+ type_string +'","'+ opt_or_req + '")')
         params_list =  ','.join(params_list)
+        if num_params == 1:
+            params_list += ','
         w(f, params_list, tabs=0, nls=0, nle=0) 
     w(f, '),', tabs=0, nls=0, nle=1)
-        
-    #write the returns returns
-    w(f, ('"function_returns": ('), tabs=1, nls=0, nle=0) 
-    if returns_type:
+#------------------------------------------------------------------------------ 
+def write_returns(returns_type, f):
+    num_returns = len(returns_type)
+    if num_returns > 0:
         returns_list = []
         for returns_num in range(num_returns):
             type_string = returns_type[returns_num]
             returns_list.append('"' + type_string + '"')
         returns_list =  ','.join(returns_list)
+        if num_returns == 1:
+            returns_list += ','        
         w(f, returns_list, tabs=0, nls=0, nle=0) 
-    w(f, ')', tabs=0, nls=0, nle=1)
-    w(f, '}', tabs=1, nls=0, nle=1)
+    w(f, ')', tabs=0, nls=0, nle=1)   
 #------------------------------------------------------------------------------ 
 def write_method_docs(location, method_data, f):
     pass

@@ -7,7 +7,7 @@ is_vector_parallel_to = {
     "function_com_id": 660,
     "function_vb_name": "IsVectorParallelTo",
     "function_name": "is_vector_parallel_to",
-    "function_parameters": (("vector1","array_of dbl","REQ"),("vector2","array_of dbl","REQ")),
+    "function_parameters": (("vector_1","array_of dbl","REQ"),("vector_2","array_of dbl","REQ")),
     "function_returns": ("number","null")
     }
 is_vector_perpendicular_to = {
@@ -15,7 +15,7 @@ is_vector_perpendicular_to = {
     "function_com_id": 661,
     "function_vb_name": "IsVectorPerpendicularTo",
     "function_name": "is_vector_perpendicular_to",
-    "function_parameters": (("vector1","array_of dbl","REQ"),("vector2","array_of dbl","REQ")),
+    "function_parameters": (("vector_1","array_of dbl","REQ"),("vector_2","array_of dbl","REQ")),
     "function_returns": ("boolean","null")
     }
 is_vector_tiny = {
@@ -23,7 +23,7 @@ is_vector_tiny = {
     "function_com_id": 610,
     "function_vb_name": "IsVectorTiny",
     "function_name": "is_vector_tiny",
-    "function_parameters": (("vector","array_of dbl","REQ")),
+    "function_parameters": (("vector","array_of dbl","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_vector_zero = {
@@ -31,7 +31,7 @@ is_vector_zero = {
     "function_com_id": 611,
     "function_vb_name": "IsVectorZero",
     "function_name": "is_vector_zero",
-    "function_parameters": (("vector","array_of dbl","REQ")),
+    "function_parameters": (("vector","array_of dbl","REQ"),),
     "function_returns": ("boolean","null")
     }
 point_add = {
@@ -39,7 +39,7 @@ point_add = {
     "function_com_id": 666,
     "function_vb_name": "PointAdd",
     "function_name": "point_add",
-    "function_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ")),
+    "function_parameters": (("point_1","array_of dbl","REQ"),("point_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 point_array_bounding_box = {
@@ -71,7 +71,7 @@ point_compare = {
     "function_com_id": 667,
     "function_vb_name": "PointCompare",
     "function_name": "point_compare",
-    "function_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ"),("tolerance","dbl","OPT")),
+    "function_parameters": (("point_1","array_of dbl","REQ"),("point_2","array_of dbl","REQ"),("tolerance","dbl","OPT")),
     "function_returns": ("boolean","null")
     }
 point_divide = {
@@ -95,7 +95,7 @@ point_subtract = {
     "function_com_id": 670,
     "function_vb_name": "PointSubtract",
     "function_name": "point_subtract",
-    "function_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ")),
+    "function_parameters": (("point_1","array_of dbl","REQ"),("point_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 point_transform = {
@@ -143,7 +143,7 @@ vector_add = {
     "function_com_id": 612,
     "function_vb_name": "VectorAdd",
     "function_name": "vector_add",
-    "function_parameters": (("vector1","array_of dbl","REQ"),("vector2","array_of dbl","REQ")),
+    "function_parameters": (("vector_1","array_of dbl","REQ"),("vector_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 vector_compare = {
@@ -151,15 +151,15 @@ vector_compare = {
     "function_com_id": 613,
     "function_vb_name": "VectorCompare",
     "function_name": "vector_compare",
-    "function_parameters": (("vector1","array_of dbl","REQ"),("vector2","array_of dbl","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("vector_1","array_of dbl","REQ"),("vector_2","array_of dbl","REQ")),
+    "function_returns": ("null",)
     }
 vector_create = {
     "function_location": "point_and_vector",
     "function_com_id": 614,
     "function_vb_name": "VectorCreate",
     "function_name": "vector_create",
-    "function_parameters": (("point1","array_of dbl","REQ"),("point2","array_of dbl","REQ")),
+    "function_parameters": (("point_1","array_of dbl","REQ"),("point_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 vector_cross_product = {
@@ -167,7 +167,7 @@ vector_cross_product = {
     "function_com_id": 615,
     "function_vb_name": "VectorCrossProduct",
     "function_name": "vector_cross_product",
-    "function_parameters": (("vector1","array_of dbl","REQ"),("vector2","array_of dbl","REQ")),
+    "function_parameters": (("vector_1","array_of dbl","REQ"),("vector_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 vector_divide = {
@@ -183,23 +183,23 @@ vector_dot_product = {
     "function_com_id": 616,
     "function_vb_name": "VectorDotProduct",
     "function_name": "vector_dot_product",
-    "function_parameters": (("vector1","array_of dbl","REQ"),("vector2","array_of dbl","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("vector_1","array_of dbl","REQ"),("vector_2","array_of dbl","REQ")),
+    "function_returns": ("null",)
     }
 vector_length = {
     "function_location": "point_and_vector",
     "function_com_id": 617,
     "function_vb_name": "VectorLength",
     "function_name": "vector_length",
-    "function_parameters": (("vector","array_of dbl","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("vector","array_of dbl","REQ"),),
+    "function_returns": ("null",)
     }
 vector_multiply = {
     "function_location": "point_and_vector",
     "function_com_id": 624,
     "function_vb_name": "VectorMultiply",
     "function_name": "vector_multiply",
-    "function_parameters": (("vector1","array_of dbl","REQ"),("vector2","array_of dbl","REQ")),
+    "function_parameters": (("vector_1","array_of dbl","REQ"),("vector_2","array_of dbl","REQ")),
     "function_returns": ("number","null")
     }
 vector_reverse = {
@@ -207,7 +207,7 @@ vector_reverse = {
     "function_com_id": 618,
     "function_vb_name": "VectorReverse",
     "function_name": "vector_reverse",
-    "function_parameters": (("vector","array_of dbl","REQ")),
+    "function_parameters": (("vector","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 vector_rotate = {
@@ -231,7 +231,7 @@ vector_subtract = {
     "function_com_id": 620,
     "function_vb_name": "VectorSubtract",
     "function_name": "vector_subtract",
-    "function_parameters": (("vector1","array_of dbl","REQ"),("vector2","array_of dbl","REQ")),
+    "function_parameters": (("vector_1","array_of dbl","REQ"),("vector_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 vector_transform = {
@@ -247,6 +247,6 @@ vector_unitize = {
     "function_com_id": 621,
     "function_vb_name": "VectorUnitize",
     "function_name": "vector_unitize",
-    "function_parameters": (("vector","array_of dbl","REQ")),
+    "function_parameters": (("vector","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }

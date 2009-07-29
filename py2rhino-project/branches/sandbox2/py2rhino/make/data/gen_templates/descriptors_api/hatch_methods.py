@@ -20,14 +20,14 @@ add_hatches = {
     "method_location": "Hatch",
     "method_type": "METHOD",
     "method_name": "add_hatches",
-    "method_parameters": (("curves","arr_of_str","REQ"),("hatch","str","OPT"),("scale","dbl","OPT"),("rotation","dbl","OPT")),
+    "method_parameters": (("curves","array_of str","REQ"),("hatch","str","OPT"),("scale","dbl","OPT"),("rotation","dbl","OPT")),
     "method_returns": ("array","null")
     }
 current_hatch_pattern = {
     "method_location": "Hatch",
     "method_type": "METHOD",
     "method_name": "current_hatch_pattern",
-    "method_parameters": (("hatch","str","OPT")),
+    "method_parameters": (("hatch","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 explode_hatch = {
@@ -49,20 +49,20 @@ hatch_pattern_count = {
     "method_type": "METHOD",
     "method_name": "hatch_pattern_count",
     "method_parameters": (),
-    "method_returns": ("number")
+    "method_returns": ("number",)
     }
 hatch_pattern_description = {
     "method_location": "Hatch",
     "method_type": "METHOD",
     "method_name": "hatch_pattern_description",
-    "method_parameters": (("hatch","str","REQ")),
+    "method_parameters": (("hatch","str","REQ"),),
     "method_returns": ("string","null")
     }
 hatch_pattern_fill_type = {
     "method_location": "Hatch",
     "method_type": "METHOD",
     "method_name": "hatch_pattern_fill_type",
-    "method_parameters": (("hatch","str","REQ")),
+    "method_parameters": (("hatch","str","REQ"),),
     "method_returns": ("number","null")
     }
 hatch_pattern_names = {
@@ -90,27 +90,27 @@ is_hatch = {
     "method_location": "Hatch",
     "method_type": "METHOD",
     "method_name": "is_hatch",
-    "method_parameters": (("object","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("object","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_hatch_pattern = {
     "method_location": "Hatch",
     "method_type": "METHOD",
     "method_name": "is_hatch_pattern",
-    "method_parameters": (("hatch","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("hatch","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_hatch_pattern_current = {
     "method_location": "Hatch",
     "method_type": "METHOD",
     "method_name": "is_hatch_pattern_current",
-    "method_parameters": (("hatch","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("hatch","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_hatch_pattern_reference = {
     "method_location": "Hatch",
     "method_type": "METHOD",
     "method_name": "is_hatch_pattern_reference",
-    "method_parameters": (("hatch","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("hatch","str","REQ"),),
+    "method_returns": ("null",)
     }

@@ -15,7 +15,7 @@ xform_compare = {
     "params_html": {
         0: {
             "name": "arrXform1",
-            "py_name": "xform1",
+            "py_name": "xform_1",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -26,7 +26,7 @@ xform_compare = {
         },
         1: {
             "name": "arrXform2",
-            "py_name": "xform2",
+            "py_name": "xform_2",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

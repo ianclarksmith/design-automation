@@ -26,7 +26,7 @@ add_sub_crv = {
         },
         1: {
             "name": "dblParam0",
-            "py_name": "param0",
+            "py_name": "param_0",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",
@@ -37,7 +37,7 @@ add_sub_crv = {
         },
         2: {
             "name": "dblParam1",
-            "py_name": "param1",
+            "py_name": "param_1",
             "opt_or_req": "Required",
             "type": "Number",
             "name_prefix": "dbl",

@@ -31,7 +31,7 @@ current_hatch_pattern = {
     "function_com_id": 827,
     "function_vb_name": "CurrentHatchPattern",
     "function_name": "current_hatch_pattern",
-    "function_parameters": (("hatch","str","OPT")),
+    "function_parameters": (("hatch","str","OPT"),),
     "function_returns": ("string","string","null")
     }
 explode_hatch = {
@@ -56,14 +56,14 @@ hatch_pattern_count = {
     "function_vb_name": "HatchPatternCount",
     "function_name": "hatch_pattern_count",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 hatch_pattern_description = {
     "function_location": "hatch",
     "function_com_id": 829,
     "function_vb_name": "HatchPatternDescription",
     "function_name": "hatch_pattern_description",
-    "function_parameters": (("hatch","str","REQ")),
+    "function_parameters": (("hatch","str","REQ"),),
     "function_returns": ("string","null")
     }
 hatch_pattern_fill_type = {
@@ -71,7 +71,7 @@ hatch_pattern_fill_type = {
     "function_com_id": 831,
     "function_vb_name": "HatchPatternFillType",
     "function_name": "hatch_pattern_fill_type",
-    "function_parameters": (("hatch","str","REQ")),
+    "function_parameters": (("hatch","str","REQ"),),
     "function_returns": ("number","null")
     }
 hatch_pattern_names = {
@@ -103,30 +103,30 @@ is_hatch = {
     "function_com_id": 840,
     "function_vb_name": "IsHatch",
     "function_name": "is_hatch",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_hatch_pattern = {
     "function_location": "hatch",
     "function_com_id": 832,
     "function_vb_name": "IsHatchPattern",
     "function_name": "is_hatch_pattern",
-    "function_parameters": (("hatch","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("hatch","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_hatch_pattern_current = {
     "function_location": "hatch",
     "function_com_id": 833,
     "function_vb_name": "IsHatchPatternCurrent",
     "function_name": "is_hatch_pattern_current",
-    "function_parameters": (("hatch","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("hatch","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_hatch_pattern_reference = {
     "function_location": "hatch",
     "function_com_id": 834,
     "function_vb_name": "IsHatchPatternReference",
     "function_name": "is_hatch_pattern_reference",
-    "function_parameters": (("hatch","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("hatch","str","REQ"),),
+    "function_returns": ("null",)
     }

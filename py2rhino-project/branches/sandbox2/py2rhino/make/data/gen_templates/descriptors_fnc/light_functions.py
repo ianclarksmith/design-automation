@@ -23,7 +23,7 @@ add_point_light = {
     "function_com_id": 155,
     "function_vb_name": "AddPointLight",
     "function_name": "add_point_light",
-    "function_parameters": (("point","array_of dbl","REQ")),
+    "function_parameters": (("point","array_of dbl","REQ"),),
     "function_returns": ("string","null")
     }
 add_rectangular_light = {
@@ -55,7 +55,7 @@ is_directional_light = {
     "function_com_id": 159,
     "function_vb_name": "IsDirectionalLight",
     "function_name": "is_directional_light",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_light = {
@@ -63,7 +63,7 @@ is_light = {
     "function_com_id": 160,
     "function_vb_name": "IsLight",
     "function_name": "is_light",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_light_enabled = {
@@ -71,7 +71,7 @@ is_light_enabled = {
     "function_com_id": 161,
     "function_vb_name": "IsLightEnabled",
     "function_name": "is_light_enabled",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_light_reference = {
@@ -79,7 +79,7 @@ is_light_reference = {
     "function_com_id": 162,
     "function_vb_name": "IsLightReference",
     "function_name": "is_light_reference",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_linear_light = {
@@ -87,7 +87,7 @@ is_linear_light = {
     "function_com_id": 163,
     "function_vb_name": "IsLinearLight",
     "function_name": "is_linear_light",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_point_light = {
@@ -95,7 +95,7 @@ is_point_light = {
     "function_com_id": 164,
     "function_vb_name": "IsPointLight",
     "function_name": "is_point_light",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_rectangular_light = {
@@ -103,7 +103,7 @@ is_rectangular_light = {
     "function_com_id": 165,
     "function_vb_name": "IsRectangularLight",
     "function_name": "is_rectangular_light",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_spot_light = {
@@ -111,7 +111,7 @@ is_spot_light = {
     "function_com_id": 166,
     "function_vb_name": "IsSpotLight",
     "function_name": "is_spot_light",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 light_color = {
@@ -128,7 +128,7 @@ light_count = {
     "function_vb_name": "LightCount",
     "function_name": "light_count",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 light_direction = {
     "function_location": "light",
@@ -167,7 +167,7 @@ rectangular_light_plane = {
     "function_com_id": 776,
     "function_vb_name": "RectangularLightPlane",
     "function_name": "rectangular_light_plane",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","array","array","array","array","null")
     }
 spot_light_hardness = {

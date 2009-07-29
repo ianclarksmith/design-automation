@@ -6,7 +6,7 @@ attribute_data_count = {
     "method_location": "UserData",
     "method_type": "METHOD",
     "method_name": "attribute_data_count",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("number","null")
     }
 delete_attribute_data = {
@@ -35,7 +35,7 @@ document_data_count = {
     "method_type": "METHOD",
     "method_name": "document_data_count",
     "method_parameters": (),
-    "method_returns": ("number")
+    "method_returns": ("number",)
     }
 get_attribute_data = {
     "method_location": "UserData",
@@ -69,7 +69,7 @@ is_attribute_data = {
     "method_location": "UserData",
     "method_type": "METHOD",
     "method_name": "is_attribute_data",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_document_data = {
@@ -77,27 +77,27 @@ is_document_data = {
     "method_type": "METHOD",
     "method_name": "is_document_data",
     "method_parameters": (),
-    "method_returns": ("boolean")
+    "method_returns": ("boolean",)
     }
 is_object_data = {
     "method_location": "UserData",
     "method_type": "METHOD",
     "method_name": "is_object_data",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_user_text = {
     "method_location": "UserData",
     "method_type": "METHOD",
     "method_name": "is_user_text",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("number","null")
     }
 object_data_count = {
     "method_location": "UserData",
     "method_type": "METHOD",
     "method_name": "object_data_count",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("number","null")
     }
 set_attribute_data = {

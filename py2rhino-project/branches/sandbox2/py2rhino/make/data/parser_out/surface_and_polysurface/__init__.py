@@ -47,8 +47,8 @@ from surface_isocurve_density import *
 from evaluate_surface import *
 from surface_edit_points import *
 from boolean_intersection import *
-from add_sweep1 import *
-from add_sweep2 import *
+from add_sweep_1 import *
+from add_sweep_2 import *
 from surface_volume import *
 from add_cut_plane import *
 from flip_surface import *

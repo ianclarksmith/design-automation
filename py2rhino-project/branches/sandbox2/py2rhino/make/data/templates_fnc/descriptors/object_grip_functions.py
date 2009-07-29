@@ -31,7 +31,7 @@ object_grip_count = {
     "function_com_id": 500,
     "function_vb_name": "ObjectGripCount",
     "function_name": "object_grip_count",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 object_grip_locations = {
@@ -47,7 +47,7 @@ object_grips_on = {
     "function_com_id": 497,
     "function_vb_name": "ObjectGripsOn",
     "function_name": "object_grips_on",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 object_grips_selected = {
@@ -55,7 +55,7 @@ object_grips_selected = {
     "function_com_id": 498,
     "function_vb_name": "ObjectGripsSelected",
     "function_name": "object_grips_selected",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 prev_object_grip = {
@@ -71,7 +71,7 @@ select_object_grips = {
     "function_com_id": 501,
     "function_vb_name": "SelectObjectGrips",
     "function_name": "select_object_grips",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 selected_object_grips = {
@@ -79,7 +79,7 @@ selected_object_grips = {
     "function_com_id": 560,
     "function_vb_name": "SelectedObjectGrips",
     "function_name": "selected_object_grips",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 unselect_object_grips = {
@@ -87,6 +87,6 @@ unselect_object_grips = {
     "function_com_id": 502,
     "function_vb_name": "UnselectObjectGrips",
     "function_name": "unselect_object_grips",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }

@@ -20,7 +20,7 @@ background_bitmap = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "background_bitmap",
-    "method_parameters": (("view","str","OPT"),("file_name","str","OPT"),("point","arr_of_dbl","OPT"),("width","dbl","OPT")),
+    "method_parameters": (("view","str","OPT"),("file_name","str","OPT"),("point","array_of dbl","OPT"),("width","dbl","OPT")),
     "method_returns": ("string","string","null")
     }
 current_detail = {
@@ -41,14 +41,14 @@ delete_named_c_plane = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "delete_named_c_plane",
-    "method_parameters": (("name","str","REQ")),
+    "method_parameters": (("name","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 delete_named_view = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "delete_named_view",
-    "method_parameters": (("name","str","REQ")),
+    "method_parameters": (("name","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 detail_names = {
@@ -62,7 +62,7 @@ is_background_bitmap = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "is_background_bitmap",
-    "method_parameters": (("view","str","REQ")),
+    "method_parameters": (("view","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_detail = {
@@ -70,62 +70,62 @@ is_detail = {
     "method_type": "METHOD",
     "method_name": "is_detail",
     "method_parameters": (("layout","str","REQ"),("detail","str","REQ")),
-    "method_returns": ("null")
+    "method_returns": ("null",)
     }
 is_layout = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "is_layout",
-    "method_parameters": (("layout","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layout","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_view = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "is_view",
-    "method_parameters": (("view","str","REQ")),
+    "method_parameters": (("view","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_view_current = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "is_view_current",
-    "method_parameters": (("view","str","REQ")),
+    "method_parameters": (("view","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_view_maximized = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "is_view_maximized",
-    "method_parameters": (("view","str","OPT")),
+    "method_parameters": (("view","str","OPT"),),
     "method_returns": ("boolean","null")
     }
 is_view_perspective = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "is_view_perspective",
-    "method_parameters": (("view","str","OPT")),
+    "method_parameters": (("view","str","OPT"),),
     "method_returns": ("boolean","null")
     }
 is_view_title_visible = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "is_view_title_visible",
-    "method_parameters": (("view","str","OPT")),
+    "method_parameters": (("view","str","OPT"),),
     "method_returns": ("boolean","null")
     }
 is_wallpaper = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "is_wallpaper",
-    "method_parameters": (("view","str","REQ")),
+    "method_parameters": (("view","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 maximize_restore_view = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "maximize_restore_view",
-    "method_parameters": (("view","str","OPT")),
+    "method_parameters": (("view","str","OPT"),),
     "method_returns": ()
     }
 named_c_planes = {
@@ -209,7 +209,7 @@ synchronize_c_planes = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "synchronize_c_planes",
-    "method_parameters": (("view","str","OPT")),
+    "method_parameters": (("view","str","OPT"),),
     "method_returns": ("boolean","null")
     }
 tilt_view = {
@@ -223,14 +223,14 @@ view_c_plane = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_c_plane",
-    "method_parameters": (("view","str","OPT"),("plane","arr_of_dbl","OPT")),
+    "method_parameters": (("view","str","OPT"),("plane","array_of dbl","OPT")),
     "method_returns": ("array","array","null")
     }
 view_camera = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_camera",
-    "method_parameters": (("view","str","OPT"),("camera","arr_of_dbl","OPT")),
+    "method_parameters": (("view","str","OPT"),("camera","array_of dbl","OPT")),
     "method_returns": ("array","array","null")
     }
 view_camera_lens = {
@@ -244,21 +244,21 @@ view_camera_plane = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_camera_plane",
-    "method_parameters": (("view","str","OPT")),
+    "method_parameters": (("view","str","OPT"),),
     "method_returns": ("array","null")
     }
 view_camera_target = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_camera_target",
-    "method_parameters": (("view","str","OPT"),("camera","arr_of_dbl","OPT"),("target","arr_of_dbl","OPT")),
+    "method_parameters": (("view","str","OPT"),("camera","array_of dbl","OPT"),("target","array_of dbl","OPT")),
     "method_returns": ("array","array","null")
     }
 view_camera_up = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_camera_up",
-    "method_parameters": (("view","str","OPT"),("up_vector","arr_of_dbl","OPT")),
+    "method_parameters": (("view","str","OPT"),("up_vector","array_of dbl","OPT")),
     "method_returns": ("array","array","null")
     }
 view_display_mode_ex = {
@@ -272,14 +272,14 @@ view_display_mode_name = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_display_mode_name",
-    "method_parameters": (("mode","str","REQ")),
+    "method_parameters": (("mode","str","REQ"),),
     "method_returns": ("string","null")
     }
 view_display_modes = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_display_modes",
-    "method_parameters": (("return_name","bln","OPT")),
+    "method_parameters": (("return_name","bln","OPT"),),
     "method_returns": ("array","null")
     }
 view_names = {
@@ -293,7 +293,7 @@ view_near_corners = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_near_corners",
-    "method_parameters": (("view","str","OPT")),
+    "method_parameters": (("view","str","OPT"),),
     "method_returns": ("array","null")
     }
 view_projection = {
@@ -314,21 +314,21 @@ view_size = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_size",
-    "method_parameters": (("view","str","OPT")),
+    "method_parameters": (("view","str","OPT"),),
     "method_returns": ("array","null")
     }
 view_target = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_target",
-    "method_parameters": (("view","str","OPT"),("target","arr_of_dbl","OPT")),
+    "method_parameters": (("view","str","OPT"),("target","array_of dbl","OPT")),
     "method_returns": ("array","array","null")
     }
 view_title = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "view_title",
-    "method_parameters": (("mode","str","REQ")),
+    "method_parameters": (("mode","str","REQ"),),
     "method_returns": ("string","null")
     }
 wallpaper = {
@@ -356,7 +356,7 @@ zoom_bounding_box = {
     "method_location": "View",
     "method_type": "METHOD",
     "method_name": "zoom_bounding_box",
-    "method_parameters": (("corners","arr_of_dbl","REQ"),("view","str","OPT"),("all","bln","OPT")),
+    "method_parameters": (("corners","array_of dbl","REQ"),("view","str","OPT"),("all","bln","OPT")),
     "method_returns": ()
     }
 zoom_extents = {

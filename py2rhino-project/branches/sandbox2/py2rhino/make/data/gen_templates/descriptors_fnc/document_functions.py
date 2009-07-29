@@ -8,14 +8,14 @@ create_preview_image = {
     "function_vb_name": "CreatePreviewImage",
     "function_name": "create_preview_image",
     "function_parameters": (("file","str","REQ"),("view","str","OPT"),("size","array_of int","OPT"),("flags","int","OPT"),("wireframe","bln","OPT")),
-    "function_returns": ("boolean")
+    "function_returns": ("boolean",)
     }
 document_modified = {
     "function_location": "document",
     "function_com_id": 323,
     "function_vb_name": "DocumentModified",
     "function_name": "document_modified",
-    "function_parameters": (("modified","bln","OPT")),
+    "function_parameters": (("modified","bln","OPT"),),
     "function_returns": ("boolean","boolean")
     }
 document_name = {
@@ -39,7 +39,7 @@ document_u_r_l = {
     "function_com_id": 275,
     "function_vb_name": "DocumentURL",
     "function_name": "document_u_r_l",
-    "function_parameters": (("u_r_l","str","OPT")),
+    "function_parameters": (("u_r_l","str","OPT"),),
     "function_returns": ("string","string","null")
     }
 enable_redraw = {
@@ -47,8 +47,8 @@ enable_redraw = {
     "function_com_id": 317,
     "function_vb_name": "EnableRedraw",
     "function_name": "enable_redraw",
-    "function_parameters": (("select","bln","OPT")),
-    "function_returns": ("boolean")
+    "function_parameters": (("select","bln","OPT"),),
+    "function_returns": ("boolean",)
     }
 extract_preview_image = {
     "function_location": "document",
@@ -56,7 +56,7 @@ extract_preview_image = {
     "function_vb_name": "ExtractPreviewImage",
     "function_name": "extract_preview_image",
     "function_parameters": (("file_name","str","REQ"),("model_name","str","OPT")),
-    "function_returns": ("boolean")
+    "function_returns": ("boolean",)
     }
 is_document_modified = {
     "function_location": "document",
@@ -64,14 +64,14 @@ is_document_modified = {
     "function_vb_name": "IsDocumentModified",
     "function_name": "is_document_modified",
     "function_parameters": (),
-    "function_returns": ("boolean")
+    "function_returns": ("boolean",)
     }
 notes = {
     "function_location": "document",
     "function_com_id": 274,
     "function_vb_name": "Notes",
     "function_name": "notes",
-    "function_parameters": (("notes","str","OPT")),
+    "function_parameters": (("notes","str","OPT"),),
     "function_returns": ("string","string","null")
     }
 read_file_version = {
@@ -95,7 +95,7 @@ render_antialias = {
     "function_com_id": 333,
     "function_vb_name": "RenderAntialias",
     "function_name": "render_antialias",
-    "function_parameters": (("style","int","OPT")),
+    "function_parameters": (("style","int","OPT"),),
     "function_returns": ("number","number","number")
     }
 render_color = {
@@ -111,7 +111,7 @@ render_mesh_density = {
     "function_com_id": 844,
     "function_vb_name": "RenderMeshDensity",
     "function_name": "render_mesh_density",
-    "function_parameters": (("density","dbl","OPT")),
+    "function_parameters": (("density","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_mesh_max_angle = {
@@ -119,7 +119,7 @@ render_mesh_max_angle = {
     "function_com_id": 845,
     "function_vb_name": "RenderMeshMaxAngle",
     "function_name": "render_mesh_max_angle",
-    "function_parameters": (("angle","dbl","OPT")),
+    "function_parameters": (("angle","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_mesh_max_aspect_ratio = {
@@ -127,7 +127,7 @@ render_mesh_max_aspect_ratio = {
     "function_com_id": 846,
     "function_vb_name": "RenderMeshMaxAspectRatio",
     "function_name": "render_mesh_max_aspect_ratio",
-    "function_parameters": (("ratio","dbl","OPT")),
+    "function_parameters": (("ratio","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_mesh_max_dist_edge_to_srf = {
@@ -135,7 +135,7 @@ render_mesh_max_dist_edge_to_srf = {
     "function_com_id": 849,
     "function_vb_name": "RenderMeshMaxDistEdgeToSrf",
     "function_name": "render_mesh_max_dist_edge_to_srf",
-    "function_parameters": (("distance","dbl","OPT")),
+    "function_parameters": (("distance","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_mesh_max_edge_length = {
@@ -143,7 +143,7 @@ render_mesh_max_edge_length = {
     "function_com_id": 848,
     "function_vb_name": "RenderMeshMaxEdgeLength",
     "function_name": "render_mesh_max_edge_length",
-    "function_parameters": (("length","dbl","OPT")),
+    "function_parameters": (("length","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_mesh_min_edge_length = {
@@ -151,7 +151,7 @@ render_mesh_min_edge_length = {
     "function_com_id": 847,
     "function_vb_name": "RenderMeshMinEdgeLength",
     "function_name": "render_mesh_min_edge_length",
-    "function_parameters": (("length","dbl","OPT")),
+    "function_parameters": (("length","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_mesh_min_initial_grid_quads = {
@@ -159,7 +159,7 @@ render_mesh_min_initial_grid_quads = {
     "function_com_id": 850,
     "function_vb_name": "RenderMeshMinInitialGridQuads",
     "function_name": "render_mesh_min_initial_grid_quads",
-    "function_parameters": (("quads","int","OPT")),
+    "function_parameters": (("quads","int","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_mesh_quality = {
@@ -167,7 +167,7 @@ render_mesh_quality = {
     "function_com_id": 843,
     "function_vb_name": "RenderMeshQuality",
     "function_name": "render_mesh_quality",
-    "function_parameters": (("quality","int","OPT")),
+    "function_parameters": (("quality","int","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_mesh_settings = {
@@ -175,7 +175,7 @@ render_mesh_settings = {
     "function_com_id": 851,
     "function_vb_name": "RenderMeshSettings",
     "function_name": "render_mesh_settings",
-    "function_parameters": (("settings","int","OPT")),
+    "function_parameters": (("settings","int","OPT"),),
     "function_returns": ("number","number","null")
     }
 render_resolution = {
@@ -183,7 +183,7 @@ render_resolution = {
     "function_com_id": 332,
     "function_vb_name": "RenderResolution",
     "function_name": "render_resolution",
-    "function_parameters": (("resolution","array_of int","REQ")),
+    "function_parameters": (("resolution","array_of int","REQ"),),
     "function_returns": ("array","array","null")
     }
 render_settings = {
@@ -191,7 +191,7 @@ render_settings = {
     "function_com_id": 334,
     "function_vb_name": "RenderSettings",
     "function_name": "render_settings",
-    "function_parameters": (("settings","int","OPT")),
+    "function_parameters": (("settings","int","OPT"),),
     "function_returns": ("number","number","number")
     }
 unit_absolute_tolerance = {
@@ -199,7 +199,7 @@ unit_absolute_tolerance = {
     "function_com_id": 324,
     "function_vb_name": "UnitAbsoluteTolerance",
     "function_name": "unit_absolute_tolerance",
-    "function_parameters": (("abs_tol","dbl","OPT")),
+    "function_parameters": (("abs_tol","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 unit_angle_tolerance = {
@@ -207,7 +207,7 @@ unit_angle_tolerance = {
     "function_com_id": 325,
     "function_vb_name": "UnitAngleTolerance",
     "function_name": "unit_angle_tolerance",
-    "function_parameters": (("angle_tol","dbl","OPT")),
+    "function_parameters": (("angle_tol","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 unit_custom_unit_system = {
@@ -223,7 +223,7 @@ unit_distance_display_mode = {
     "function_com_id": 327,
     "function_vb_name": "UnitDistanceDisplayMode",
     "function_name": "unit_distance_display_mode",
-    "function_parameters": (("mode","int","OPT")),
+    "function_parameters": (("mode","int","OPT"),),
     "function_returns": ("number","number","null")
     }
 unit_distance_display_precision = {
@@ -231,7 +231,7 @@ unit_distance_display_precision = {
     "function_com_id": 328,
     "function_vb_name": "UnitDistanceDisplayPrecision",
     "function_name": "unit_distance_display_precision",
-    "function_parameters": (("precision","int","OPT")),
+    "function_parameters": (("precision","int","OPT"),),
     "function_returns": ("number","number","null")
     }
 unit_relative_tolerance = {
@@ -239,7 +239,7 @@ unit_relative_tolerance = {
     "function_com_id": 329,
     "function_vb_name": "UnitRelativeTolerance",
     "function_name": "unit_relative_tolerance",
-    "function_parameters": (("rel_tol","dbl","OPT")),
+    "function_parameters": (("rel_tol","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 unit_scale = {
@@ -264,5 +264,5 @@ unit_system_name = {
     "function_vb_name": "UnitSystemName",
     "function_name": "unit_system_name",
     "function_parameters": (("capitalize","bln","OPT"),("singular","bln","OPT"),("abbreviate","bln","OPT")),
-    "function_returns": ("string")
+    "function_returns": ("string",)
     }

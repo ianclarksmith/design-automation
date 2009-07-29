@@ -6,5 +6,5 @@ from max import *
 from polar import *
 from median import *
 from hypot import *
-from angle2 import *
+from angle_2 import *
 from mean import *

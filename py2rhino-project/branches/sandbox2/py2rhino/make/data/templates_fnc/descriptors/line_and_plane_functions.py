@@ -23,7 +23,7 @@ intersect_planes = {
     "function_com_id": 745,
     "function_vb_name": "IntersectPlanes",
     "function_name": "intersect_planes",
-    "function_parameters": (("plane1","array_of dbl","REQ"),("plane2","array_of dbl","REQ"),("plane3","array_of dbl","REQ")),
+    "function_parameters": (("plane_1","array_of dbl","REQ"),("plane_2","array_of dbl","REQ"),("plane_3","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 line_closest_point = {
@@ -47,7 +47,7 @@ line_is_farther_than_2 = {
     "function_com_id": 902,
     "function_vb_name": "LineIsFartherThan",
     "function_name": "line_is_farther_than_2",
-    "function_parameters": (("line","array_of dbl","REQ"),("distance","dbl","REQ"),("line2","array_of dbl","REQ")),
+    "function_parameters": (("line","array_of dbl","REQ"),("distance","dbl","REQ"),("line_2","array_of dbl","REQ")),
     "function_returns": ("boolean","null")
     }
 line_line_intersection = {
@@ -71,7 +71,7 @@ line_max_distance_to_2 = {
     "function_com_id": 901,
     "function_vb_name": "LineMaxDistanceTo",
     "function_name": "line_max_distance_to_2",
-    "function_parameters": (("line","array_of dbl","REQ"),("line2","array_of dbl","REQ")),
+    "function_parameters": (("line","array_of dbl","REQ"),("line_2","array_of dbl","REQ")),
     "function_returns": ("boolean","null")
     }
 line_min_distance_to = {
@@ -87,7 +87,7 @@ line_min_distance_to_2 = {
     "function_com_id": 900,
     "function_vb_name": "LineMinDistanceTo",
     "function_name": "line_min_distance_to_2",
-    "function_parameters": (("line","array_of dbl","REQ"),("line2","array_of dbl","REQ")),
+    "function_parameters": (("line","array_of dbl","REQ"),("line_2","array_of dbl","REQ")),
     "function_returns": ("boolean","null")
     }
 line_plane = {
@@ -95,7 +95,7 @@ line_plane = {
     "function_com_id": 898,
     "function_vb_name": "LinePlane",
     "function_name": "line_plane",
-    "function_parameters": (("line","array_of dbl","REQ")),
+    "function_parameters": (("line","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 line_plane_intersection = {
@@ -135,7 +135,7 @@ plane_equation = {
     "function_com_id": 642,
     "function_vb_name": "PlaneEquation",
     "function_name": "plane_equation",
-    "function_parameters": (("plane","array_of dbl","REQ")),
+    "function_parameters": (("plane","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 plane_fit_from_points = {
@@ -143,7 +143,7 @@ plane_fit_from_points = {
     "function_com_id": 725,
     "function_vb_name": "PlaneFitFromPoints",
     "function_name": "plane_fit_from_points",
-    "function_parameters": (("points","array_of dbl","REQ")),
+    "function_parameters": (("points","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 plane_from_frame = {
@@ -175,7 +175,7 @@ plane_plane_intersection = {
     "function_com_id": 744,
     "function_vb_name": "PlanePlaneIntersection",
     "function_name": "plane_plane_intersection",
-    "function_parameters": (("plane1","array_of dbl","REQ"),("point2","array_of dbl","REQ")),
+    "function_parameters": (("plane_1","array_of dbl","REQ"),("point_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 plane_transform = {
@@ -200,7 +200,7 @@ world_x_y_plane = {
     "function_vb_name": "WorldXYPlane",
     "function_name": "world_x_y_plane",
     "function_parameters": (),
-    "function_returns": ("array")
+    "function_returns": ("array",)
     }
 world_y_z_plane = {
     "function_location": "line_and_plane",
@@ -208,7 +208,7 @@ world_y_z_plane = {
     "function_vb_name": "WorldYZPlane",
     "function_name": "world_y_z_plane",
     "function_parameters": (),
-    "function_returns": ("array")
+    "function_returns": ("array",)
     }
 world_z_x_plane = {
     "function_location": "line_and_plane",
@@ -216,5 +216,5 @@ world_z_x_plane = {
     "function_vb_name": "WorldZXPlane",
     "function_name": "world_z_x_plane",
     "function_parameters": (),
-    "function_returns": ("array")
+    "function_returns": ("array",)
     }

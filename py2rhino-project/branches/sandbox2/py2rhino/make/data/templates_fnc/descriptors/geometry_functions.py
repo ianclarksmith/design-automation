@@ -15,7 +15,7 @@ add_point_cloud = {
     "function_com_id": 69,
     "function_vb_name": "AddPointCloud",
     "function_name": "add_point_cloud",
-    "function_parameters": (("points","array_of dbl","REQ")),
+    "function_parameters": (("points","array_of dbl","REQ"),),
     "function_returns": ("string","null")
     }
 add_points = {
@@ -23,7 +23,7 @@ add_points = {
     "function_com_id": 526,
     "function_vb_name": "AddPoints",
     "function_name": "add_points",
-    "function_parameters": (("points","array_of dbl","REQ")),
+    "function_parameters": (("points","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 add_text = {
@@ -63,7 +63,7 @@ compare_geometry = {
     "function_com_id": 598,
     "function_vb_name": "CompareGeometry",
     "function_name": "compare_geometry",
-    "function_parameters": (("object1","str","REQ"),("object2","str","REQ")),
+    "function_parameters": (("object_1","str","REQ"),("object_2","str","REQ")),
     "function_returns": ("boolean","null")
     }
 is_clipping_plane = {
@@ -71,7 +71,7 @@ is_clipping_plane = {
     "function_com_id": 905,
     "function_vb_name": "IsClippingPlane",
     "function_name": "is_clipping_plane",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_point = {
@@ -79,7 +79,7 @@ is_point = {
     "function_com_id": 120,
     "function_vb_name": "IsPoint",
     "function_name": "is_point",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_point_cloud = {
@@ -87,7 +87,7 @@ is_point_cloud = {
     "function_com_id": 121,
     "function_vb_name": "IsPointCloud",
     "function_name": "is_point_cloud",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_text = {
@@ -95,7 +95,7 @@ is_text = {
     "function_com_id": 122,
     "function_vb_name": "IsText",
     "function_name": "is_text",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_text_dot = {
@@ -103,7 +103,7 @@ is_text_dot = {
     "function_com_id": 336,
     "function_vb_name": "IsTextDot",
     "function_name": "is_text_dot",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 point_cloud_count = {
@@ -111,7 +111,7 @@ point_cloud_count = {
     "function_com_id": 128,
     "function_vb_name": "PointCloudCount",
     "function_name": "point_cloud_count",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 point_cloud_points = {
@@ -119,7 +119,7 @@ point_cloud_points = {
     "function_com_id": 129,
     "function_vb_name": "PointCloudPoints",
     "function_name": "point_cloud_points",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 point_coordinates = {

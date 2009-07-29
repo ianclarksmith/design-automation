@@ -18,7 +18,7 @@ xform_rotation = {
     "params_html": {
         0: {
             "name": "arrPlane1",
-            "py_name": "plane1",
+            "py_name": "plane_1",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
             "name_prefix": "arr_of_dbl",
@@ -29,7 +29,7 @@ xform_rotation = {
         },
         1: {
             "name": "arrPlane2",
-            "py_name": "plane2",
+            "py_name": "plane_2",
             "opt_or_req": "Required",
             "type": "Array (Plane)",
             "name_prefix": "arr_of_dbl",
@@ -95,7 +95,7 @@ xform_rotation = {
         },
         7: {
             "name": "arrX0",
-            "py_name": "x0",
+            "py_name": "x_0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -106,7 +106,7 @@ xform_rotation = {
         },
         8: {
             "name": "arrY0",
-            "py_name": "y0",
+            "py_name": "y_0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -117,7 +117,7 @@ xform_rotation = {
         },
         9: {
             "name": "arrZ0",
-            "py_name": "z0",
+            "py_name": "z_0",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -128,7 +128,7 @@ xform_rotation = {
         },
         10: {
             "name": "arrX1",
-            "py_name": "x1",
+            "py_name": "x_1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -139,7 +139,7 @@ xform_rotation = {
         },
         11: {
             "name": "arrY1",
-            "py_name": "y1",
+            "py_name": "y_1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -150,7 +150,7 @@ xform_rotation = {
         },
         12: {
             "name": "arrZ1",
-            "py_name": "z1",
+            "py_name": "z_1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",

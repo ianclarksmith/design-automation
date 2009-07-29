@@ -7,7 +7,7 @@ add_material_to_layer = {
     "function_com_id": 173,
     "function_vb_name": "AddMaterialToLayer",
     "function_name": "add_material_to_layer",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 add_material_to_object = {
@@ -15,7 +15,7 @@ add_material_to_object = {
     "function_com_id": 174,
     "function_vb_name": "AddMaterialToObject",
     "function_name": "add_material_to_object",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 copy_material = {
@@ -31,15 +31,15 @@ is_material_default = {
     "function_com_id": 175,
     "function_vb_name": "IsMaterialDefault",
     "function_name": "is_material_default",
-    "function_parameters": (("material_index","int","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("material_index","int","REQ"),),
+    "function_returns": ("null",)
     }
 is_material_reference = {
     "function_location": "material",
     "function_com_id": 176,
     "function_vb_name": "IsMaterialReference",
     "function_name": "is_material_reference",
-    "function_parameters": (("material_index","int","REQ")),
+    "function_parameters": (("material_index","int","REQ"),),
     "function_returns": ("boolean","null")
     }
 match_material = {
@@ -47,7 +47,7 @@ match_material = {
     "function_com_id": 322,
     "function_vb_name": "MatchMaterial",
     "function_name": "match_material",
-    "function_parameters": (("src_material_index","int","REQ")),
+    "function_parameters": (("src_material_index","int","REQ"),),
     "function_returns": ("number","null")
     }
 match_material_2 = {

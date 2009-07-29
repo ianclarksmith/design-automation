@@ -10,11 +10,11 @@ add_arc = {
     "function_parameters": (("plane","array_of dbl","REQ"),("radius","dbl","REQ"),("angle","dbl","REQ")),
     "function_returns": ("string","null")
     }
-add_arc3_pt = {
+add_arc_3_pt = {
     "function_location": "curve",
     "function_com_id": 82,
     "function_vb_name": "AddArc3Pt",
-    "function_name": "add_arc3_pt",
+    "function_name": "add_arc_3_pt",
     "function_parameters": (("start","array_of dbl","REQ"),("end","array_of dbl","REQ"),("point","array_of dbl","REQ")),
     "function_returns": ("string","null")
     }
@@ -26,11 +26,11 @@ add_circle = {
     "function_parameters": (("plane","array_of dbl","REQ"),("radius","dbl","REQ")),
     "function_returns": ("string","null")
     }
-add_circle3_pt = {
+add_circle_3_pt = {
     "function_location": "curve",
     "function_com_id": 84,
     "function_vb_name": "AddCircle3Pt",
-    "function_name": "add_circle3_pt",
+    "function_name": "add_circle_3_pt",
     "function_parameters": (("first","array_of dbl","REQ"),("second","array_of dbl","REQ"),("third","array_of dbl","REQ")),
     "function_returns": ("string","null")
     }
@@ -50,11 +50,11 @@ add_ellipse = {
     "function_parameters": (("plane","array_of dbl","REQ"),("x_radius","dbl","REQ"),("y_radius","dbl","REQ")),
     "function_returns": ("string","null")
     }
-add_ellipse3_pt = {
+add_ellipse_3_pt = {
     "function_location": "curve",
     "function_com_id": 680,
     "function_vb_name": "AddEllipse3Pt",
-    "function_name": "add_ellipse3_pt",
+    "function_name": "add_ellipse_3_pt",
     "function_parameters": (("center","array_of dbl","REQ"),("second","array_of dbl","REQ"),("third","array_of dbl","REQ")),
     "function_returns": ("string","null")
     }
@@ -63,7 +63,7 @@ add_fillet_curve = {
     "function_com_id": 574,
     "function_vb_name": "AddFilletCurve",
     "function_name": "add_fillet_curve",
-    "function_parameters": (("curve0","str","REQ"),("curve1","str","REQ"),("radius","dbl","OPT"),("point0","array_of dbl","OPT"),("point1","array_of dbl","OPT")),
+    "function_parameters": (("curve_0","str","REQ"),("curve_1","str","REQ"),("radius","dbl","OPT"),("point_0","array_of dbl","OPT"),("point_1","array_of dbl","OPT")),
     "function_returns": ("string","null")
     }
 add_interp_crv_on_srf = {
@@ -119,7 +119,7 @@ add_polyline = {
     "function_com_id": 85,
     "function_vb_name": "AddPolyline",
     "function_name": "add_polyline",
-    "function_parameters": (("points","array_of dbl","REQ")),
+    "function_parameters": (("points","array_of dbl","REQ"),),
     "function_returns": ("string","null")
     }
 add_sub_crv = {
@@ -127,7 +127,7 @@ add_sub_crv = {
     "function_com_id": 681,
     "function_vb_name": "AddSubCrv",
     "function_name": "add_sub_crv",
-    "function_parameters": (("object","str","REQ"),("param0","dbl","REQ"),("param1","dbl","REQ")),
+    "function_parameters": (("object","str","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ")),
     "function_returns": ("string","null")
     }
 arc_angle = {
@@ -144,7 +144,7 @@ arc_center_point = {
     "function_vb_name": "ArcCenterPoint",
     "function_name": "arc_center_point",
     "function_parameters": (("object","str","REQ"),("index","int","OPT")),
-    "function_returns": ("null")
+    "function_returns": ("null",)
     }
 arc_mid_point = {
     "function_location": "curve",
@@ -152,7 +152,7 @@ arc_mid_point = {
     "function_vb_name": "ArcMidPoint",
     "function_name": "arc_mid_point",
     "function_parameters": (("object","str","REQ"),("index","int","OPT")),
-    "function_returns": ("null")
+    "function_returns": ("null",)
     }
 arc_radius = {
     "function_location": "curve",
@@ -215,7 +215,7 @@ curve_area = {
     "function_com_id": 643,
     "function_vb_name": "CurveArea",
     "function_name": "curve_area",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("array","number","number","null")
     }
 curve_area_centroid = {
@@ -223,7 +223,7 @@ curve_area_centroid = {
     "function_com_id": 677,
     "function_vb_name": "CurveAreaCentroid",
     "function_name": "curve_area_centroid",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("array","null")
     }
 curve_arrows = {
@@ -255,7 +255,7 @@ curve_boolean_union = {
     "function_com_id": 809,
     "function_vb_name": "CurveBooleanUnion",
     "function_name": "curve_boolean_union",
-    "function_parameters": (("curves","array_of str","REQ")),
+    "function_parameters": (("curves","array_of str","REQ"),),
     "function_returns": ("array","null")
     }
 curve_brep_intersect = {
@@ -303,7 +303,7 @@ curve_curve_intersection = {
     "function_com_id": 423,
     "function_vb_name": "CurveCurveIntersection",
     "function_name": "curve_curve_intersection",
-    "function_parameters": (("object1","str","REQ"),("object2","str","OPT"),("tolerance","dbl","OPT")),
+    "function_parameters": (("object_1","str","REQ"),("object_2","str","OPT"),("tolerance","dbl","OPT")),
     "function_returns": ("array","number","number","number","number","number","null")
     }
 curve_degree = {
@@ -335,7 +335,7 @@ curve_directions_match = {
     "function_com_id": 543,
     "function_vb_name": "CurveDirectionsMatch",
     "function_name": "curve_directions_match",
-    "function_parameters": (("curve1","str","REQ"),("curve2","str","REQ")),
+    "function_parameters": (("curve_1","str","REQ"),("curve_2","str","REQ")),
     "function_returns": ("boolean","null")
     }
 curve_discontinuity = {
@@ -383,7 +383,7 @@ curve_fillet_points = {
     "function_com_id": 572,
     "function_vb_name": "CurveFilletPoints",
     "function_name": "curve_fillet_points",
-    "function_parameters": (("curve0","str","REQ"),("curve1","str","REQ"),("radius","dbl","OPT"),("base_point0","array_of dbl","OPT"),("base_point1","array_of dbl","OPT")),
+    "function_parameters": (("curve_0","str","REQ"),("curve_1","str","REQ"),("radius","dbl","OPT"),("base_point_0","array_of dbl","OPT"),("base_point_1","array_of dbl","OPT")),
     "function_returns": ("array","string","null")
     }
 curve_frame = {
@@ -423,7 +423,7 @@ curve_mid_point = {
     "function_com_id": 577,
     "function_vb_name": "CurveMidPoint",
     "function_name": "curve_mid_point",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 curve_normal = {
@@ -431,7 +431,7 @@ curve_normal = {
     "function_com_id": 521,
     "function_vb_name": "CurveNormal",
     "function_name": "curve_normal",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 curve_perp_frame = {
@@ -447,7 +447,7 @@ curve_plane = {
     "function_com_id": 609,
     "function_vb_name": "CurvePlane",
     "function_name": "curve_plane",
-    "function_parameters": (("curve","str","REQ")),
+    "function_parameters": (("curve","str","REQ"),),
     "function_returns": ("array","null")
     }
 curve_point_count = {
@@ -543,7 +543,7 @@ ellipse_center_point = {
     "function_com_id": 524,
     "function_vb_name": "EllipseCenterPoint",
     "function_name": "ellipse_center_point",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 ellipse_quad_points = {
@@ -551,7 +551,7 @@ ellipse_quad_points = {
     "function_com_id": 525,
     "function_vb_name": "EllipseQuadPoints",
     "function_name": "ellipse_quad_points",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 evaluate_curve = {
@@ -703,7 +703,7 @@ is_ellipse = {
     "function_com_id": 523,
     "function_vb_name": "IsEllipse",
     "function_name": "is_ellipse",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_line = {
@@ -751,7 +751,7 @@ line_fit_from_points = {
     "function_com_id": 726,
     "function_vb_name": "LineFitFromPoints",
     "function_name": "line_fit_from_points",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 make_curve_non_periodic = {
@@ -775,7 +775,7 @@ mesh_polyline = {
     "function_com_id": 546,
     "function_vb_name": "MeshPolyline",
     "function_name": "mesh_polyline",
-    "function_parameters": (("polyline","str","REQ")),
+    "function_parameters": (("polyline","str","REQ"),),
     "function_returns": ("string","null")
     }
 offset_curve = {
@@ -807,7 +807,7 @@ planar_closed_curve_containment = {
     "function_com_id": 480,
     "function_vb_name": "PlanarClosedCurveContainment",
     "function_name": "planar_closed_curve_containment",
-    "function_parameters": (("curve1","str","REQ"),("curve2","str","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT")),
+    "function_parameters": (("curve_1","str","REQ"),("curve_2","str","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT")),
     "function_returns": ("number","null")
     }
 planar_curve_collision = {
@@ -815,8 +815,8 @@ planar_curve_collision = {
     "function_com_id": 481,
     "function_vb_name": "PlanarCurveCollision",
     "function_name": "planar_curve_collision",
-    "function_parameters": (("curve1","str","REQ"),("curve2","str","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT")),
-    "function_returns": ("null")
+    "function_parameters": (("curve_1","str","REQ"),("curve_2","str","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT")),
+    "function_returns": ("null",)
     }
 point_in_planar_closed_curve = {
     "function_location": "curve",
@@ -879,7 +879,7 @@ reverse_curve = {
     "function_com_id": 542,
     "function_vb_name": "ReverseCurve",
     "function_name": "reverse_curve",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 simplify_curve = {

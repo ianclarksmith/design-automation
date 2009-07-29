@@ -15,7 +15,7 @@ add_fillet_curve = {
     "params_html": {
         0: {
             "name": "strCurve0",
-            "py_name": "curve0",
+            "py_name": "curve_0",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,7 +26,7 @@ add_fillet_curve = {
         },
         1: {
             "name": "strCurve1",
-            "py_name": "curve1",
+            "py_name": "curve_1",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -48,7 +48,7 @@ add_fillet_curve = {
         },
         3: {
             "name": "arrPoint0",
-            "py_name": "point0",
+            "py_name": "point_0",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -59,7 +59,7 @@ add_fillet_curve = {
         },
         4: {
             "name": "arrPoint1",
-            "py_name": "point1",
+            "py_name": "point_1",
             "opt_or_req": "Optional",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

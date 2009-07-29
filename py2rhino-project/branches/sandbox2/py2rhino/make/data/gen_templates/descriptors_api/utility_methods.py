@@ -6,14 +6,14 @@ all_procedures = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "all_procedures",
-    "method_parameters": (("all","bln","OPT")),
+    "method_parameters": (("all","bln","OPT"),),
     "method_returns": ("array","null")
     }
 clipboard_text = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "clipboard_text",
-    "method_parameters": (("text","str","OPT")),
+    "method_parameters": (("text","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 color_adjust_luma = {
@@ -27,63 +27,63 @@ color_blue_value = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "color_blue_value",
-    "method_parameters": (("r_g_b","lng","REQ")),
+    "method_parameters": (("r_g_b","lng","REQ"),),
     "method_returns": ("number","null")
     }
 color_green_value = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "color_green_value",
-    "method_parameters": (("r_g_b","lng","REQ")),
+    "method_parameters": (("r_g_b","lng","REQ"),),
     "method_returns": ("number","null")
     }
 color_h_l_s_to_r_g_b = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "color_h_l_s_to_r_g_b",
-    "method_parameters": (("r_g_b","lng","REQ")),
+    "method_parameters": (("r_g_b","lng","REQ"),),
     "method_returns": ("number","null")
     }
 color_r_g_b_to_h_l_s = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "color_r_g_b_to_h_l_s",
-    "method_parameters": (("r_g_b","lng","REQ")),
+    "method_parameters": (("r_g_b","lng","REQ"),),
     "method_returns": ("array","null")
     }
 color_red_value = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "color_red_value",
-    "method_parameters": (("r_g_b","lng","REQ")),
+    "method_parameters": (("r_g_b","lng","REQ"),),
     "method_returns": ("number","null")
     }
 cull_duplicate_numbers = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "cull_duplicate_numbers",
-    "method_parameters": (("numbers","arr_of_int","REQ"),("tolerance","dbl","OPT")),
+    "method_parameters": (("numbers","array_of int","REQ"),("tolerance","dbl","OPT")),
     "method_returns": ("array","null")
     }
 cull_duplicate_points = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "cull_duplicate_points",
-    "method_parameters": (("points","arr_of_dbl","REQ"),("tolerance","dbl","OPT")),
+    "method_parameters": (("points","array_of dbl","REQ"),("tolerance","dbl","OPT")),
     "method_returns": ("array","null")
     }
 cull_duplicate_strings = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "cull_duplicate_strings",
-    "method_parameters": (("strings","arr_of_int","REQ"),("case_sensitive","bln","OPT")),
+    "method_parameters": (("strings","array_of int","REQ"),("case_sensitive","bln","OPT")),
     "method_returns": ("array","null")
     }
 current_printer = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "current_printer",
-    "method_parameters": (("printer","str","OPT")),
+    "method_parameters": (("printer","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 get_settings = {
@@ -97,7 +97,7 @@ is_procedure = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "is_procedure",
-    "method_parameters": (("sub_name","str","REQ")),
+    "method_parameters": (("sub_name","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 printer_names = {
@@ -107,11 +107,11 @@ printer_names = {
     "method_parameters": (),
     "method_returns": ("array","null")
     }
-pt2_str = {
+pt_2_str = {
     "method_location": "Utility",
     "method_type": "METHOD",
-    "method_name": "pt2_str",
-    "method_parameters": (("point","arr_of_dbl","REQ"),("precision","n","OPT"),("space","bln","OPT")),
+    "method_name": "pt_2_str",
+    "method_parameters": (("point","array_of dbl","REQ"),("precision","n","OPT"),("space","bln","OPT")),
     "method_returns": ("string","null")
     }
 save_settings = {
@@ -125,15 +125,15 @@ simplify_array = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "simplify_array",
-    "method_parameters": (("points","arr_of_dbl","REQ")),
+    "method_parameters": (("points","array_of dbl","REQ"),),
     "method_returns": ("array","null")
     }
 sleep = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "sleep",
-    "method_parameters": (("milliseconds","lng","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("milliseconds","lng","REQ"),),
+    "method_returns": ("null",)
     }
 spool_to_printer = {
     "method_location": "Utility",
@@ -142,18 +142,18 @@ spool_to_printer = {
     "method_parameters": (("file","str","REQ"),("printer","str","REQ")),
     "method_returns": ("string","null")
     }
-str2_pt = {
+str_2_pt = {
     "method_location": "Utility",
     "method_type": "METHOD",
-    "method_name": "str2_pt",
-    "method_parameters": (("point","str","REQ")),
+    "method_name": "str_2_pt",
+    "method_parameters": (("point","str","REQ"),),
     "method_returns": ("array","null")
     }
-str2_pt_array = {
+str_2_pt_array = {
     "method_location": "Utility",
     "method_type": "METHOD",
-    "method_name": "str2_pt_array",
-    "method_parameters": (("points","str","REQ")),
+    "method_name": "str_2_pt_array",
+    "method_parameters": (("points","str","REQ"),),
     "method_returns": ("array","null")
     }
 strtok = {
@@ -168,12 +168,12 @@ text_out = {
     "method_type": "METHOD",
     "method_name": "text_out",
     "method_parameters": (("text","str","REQ"),("title","str","OPT")),
-    "method_returns": ("null")
+    "method_returns": ("null",)
     }
 version = {
     "method_location": "Utility",
     "method_type": "METHOD",
     "method_name": "version",
     "method_parameters": (),
-    "method_returns": ("number")
+    "method_returns": ("number",)
     }

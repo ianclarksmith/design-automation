@@ -27,21 +27,21 @@ get_object_ex = {
     "method_location": "Selection",
     "method_type": "METHOD",
     "method_name": "get_object_ex",
-    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","arr_of_str","OPT")),
+    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","array_of str","OPT")),
     "method_returns": ("array","null")
     }
 get_objects = {
     "method_location": "Selection",
     "method_type": "METHOD",
     "method_name": "get_objects",
-    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("group","bln","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","arr_of_str","OPT")),
+    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("group","bln","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","array_of str","OPT")),
     "method_returns": ("array","null")
     }
 get_objects_ex = {
     "method_location": "Selection",
     "method_type": "METHOD",
     "method_name": "get_objects_ex",
-    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("group","bln","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","arr_of_str","OPT")),
+    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("group","bln","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","array_of str","OPT")),
     "method_returns": ("array","null")
     }
 get_point_coordinates = {
@@ -76,7 +76,7 @@ last_created_objects = {
     "method_location": "Selection",
     "method_type": "METHOD",
     "method_name": "last_created_objects",
-    "method_parameters": (("select","bln","OPT")),
+    "method_parameters": (("select","bln","OPT"),),
     "method_returns": ("array","null")
     }
 last_object = {
@@ -153,7 +153,7 @@ prev_selected_objects = {
     "method_location": "Selection",
     "method_type": "METHOD",
     "method_name": "prev_selected_objects",
-    "method_parameters": (("select","bln","OPT")),
+    "method_parameters": (("select","bln","OPT"),),
     "method_returns": ("array","null")
     }
 reference_objects = {
@@ -175,7 +175,7 @@ unselect_all_objects = {
     "method_type": "METHOD",
     "method_name": "unselect_all_objects",
     "method_parameters": (),
-    "method_returns": ("number")
+    "method_returns": ("number",)
     }
 unselected_objects = {
     "method_location": "Selection",

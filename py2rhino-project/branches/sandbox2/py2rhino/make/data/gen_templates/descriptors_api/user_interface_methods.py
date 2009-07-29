@@ -13,14 +13,14 @@ check_list_box = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "check_list_box",
-    "method_parameters": (("items","arr_of_str","REQ"),("values","arr_of_bln","REQ"),("message","str","OPT"),("title","str","OPT")),
+    "method_parameters": (("items","array_of str","REQ"),("values","array_of bln","REQ"),("message","str","OPT"),("title","str","OPT")),
     "method_returns": ("array","null")
     }
 combo_list_box = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "combo_list_box",
-    "method_parameters": (("items","arr_of_str","REQ"),("message","str","OPT"),("title","str","OPT")),
+    "method_parameters": (("items","array_of str","REQ"),("message","str","OPT"),("title","str","OPT")),
     "method_returns": ("string","null")
     }
 edit_box = {
@@ -34,35 +34,35 @@ get_angle = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_angle",
-    "method_parameters": (("point","arr_of_dbl","OPT"),("reference","arr_of_dbl","OPT"),("angle","dbl","OPT"),("message","str","OPT")),
+    "method_parameters": (("point","array_of dbl","OPT"),("reference","array_of dbl","OPT"),("angle","dbl","OPT"),("message","str","OPT")),
     "method_returns": ("number","null")
     }
 get_boolean = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_boolean",
-    "method_parameters": (("message","str","REQ"),("items","arr_of_str","REQ"),("defaults","arr_of_bln","REQ")),
+    "method_parameters": (("message","str","REQ"),("items","array_of str","REQ"),("defaults","array_of bln","REQ")),
     "method_returns": ("array","null")
     }
 get_box = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_box",
-    "method_parameters": (("mode","int","OPT"),("point","arr_of_dbl","OPT"),("prompt1","str","OPT"),("prompt2","str","OPT"),("prompt3","str","OPT")),
+    "method_parameters": (("mode","int","OPT"),("point","array_of dbl","OPT"),("prompt_1","str","OPT"),("prompt_2","str","OPT"),("prompt_3","str","OPT")),
     "method_returns": ("array","null")
     }
 get_color = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_color",
-    "method_parameters": (("color","lng","OPT")),
+    "method_parameters": (("color","lng","OPT"),),
     "method_returns": ("number","null")
     }
 get_distance = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_distance",
-    "method_parameters": (("point","arr_of_dbl","OPT"),("distance","dbl","OPT"),("message1","str","OPT"),("message2","str","OPT")),
+    "method_parameters": (("point","array_of dbl","OPT"),("distance","dbl","OPT"),("message_1","str","OPT"),("message_2","str","OPT")),
     "method_returns": ("number","null")
     }
 get_integer = {
@@ -83,7 +83,7 @@ get_linetype = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_linetype",
-    "method_parameters": (("linetype","str","OPT")),
+    "method_parameters": (("linetype","str","OPT"),),
     "method_returns": ("string","null")
     }
 get_point_on_curve = {
@@ -97,7 +97,7 @@ get_point_on_line = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_point_on_line",
-    "method_parameters": (("message","str","REQ"),("start","arr_of_dbl","REQ"),("end","arr_of_dbl","REQ"),("track","bln","OPT")),
+    "method_parameters": (("message","str","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ"),("track","bln","OPT")),
     "method_returns": ("array","null")
     }
 get_point_on_mesh = {
@@ -111,7 +111,7 @@ get_point_on_plane = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_point_on_plane",
-    "method_parameters": (("message","str","OPT"),("plane","arr_of_dbl","OPT"),("point","arr_of_dbl","OPT")),
+    "method_parameters": (("message","str","OPT"),("plane","array_of dbl","OPT"),("point","array_of dbl","OPT")),
     "method_returns": ("array","null")
     }
 get_point_on_surface = {
@@ -125,14 +125,14 @@ get_points = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_points",
-    "method_parameters": (("draw","bln","OPT"),("plane","bln","OPT"),("message1","str","OPT"),("message2","str","OPT"),("max_points","int","OPT"),("base_point","arr_of_dbl","OPT")),
+    "method_parameters": (("draw","bln","OPT"),("plane","bln","OPT"),("message_1","str","OPT"),("message_2","str","OPT"),("max_points","int","OPT"),("base_point","array_of dbl","OPT")),
     "method_returns": ("array","null")
     }
 get_print_width = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_print_width",
-    "method_parameters": (("print_width","dbl","OPT")),
+    "method_parameters": (("print_width","dbl","OPT"),),
     "method_returns": ("number","null")
     }
 get_real = {
@@ -146,14 +146,14 @@ get_rectangle = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_rectangle",
-    "method_parameters": (("mode","int","OPT"),("point","arr_of_dbl","OPT"),("prompt1","str","OPT"),("prompt2","str","OPT"),("prompt3","str","OPT")),
+    "method_parameters": (("mode","int","OPT"),("point","array_of dbl","OPT"),("prompt_1","str","OPT"),("prompt_2","str","OPT"),("prompt_3","str","OPT")),
     "method_returns": ("array","null")
     }
 get_string = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_string",
-    "method_parameters": (("message","str","OPT"),("string","str","OPT"),("strings","arr_of_str","OPT")),
+    "method_parameters": (("message","str","OPT"),("string","str","OPT"),("strings","array_of str","OPT")),
     "method_returns": ("string","null")
     }
 get_surface_iso_param_point = {
@@ -181,14 +181,14 @@ list_box = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "list_box",
-    "method_parameters": (("items","arr_of_str","REQ"),("message","str","OPT"),("title","str","OPT")),
+    "method_parameters": (("items","array_of str","REQ"),("message","str","OPT"),("title","str","OPT")),
     "method_returns": ("string","null")
     }
 message_beep = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "message_beep",
-    "method_parameters": (("beep","int","OPT")),
+    "method_parameters": (("beep","int","OPT"),),
     "method_returns": ()
     }
 message_box = {
@@ -196,13 +196,13 @@ message_box = {
     "method_type": "METHOD",
     "method_name": "message_box",
     "method_parameters": (("message","str","REQ"),("buttons","int","OPT"),("title","str","OPT")),
-    "method_returns": ("number")
+    "method_returns": ("number",)
     }
 multi_list_box = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "multi_list_box",
-    "method_parameters": (("items","arr_of_str","REQ"),("message","str","OPT"),("title","str","OPT")),
+    "method_parameters": (("items","array_of str","REQ"),("message","str","OPT"),("title","str","OPT")),
     "method_returns": ("array","null")
     }
 open_file_names = {
@@ -216,14 +216,14 @@ popup_menu = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "popup_menu",
-    "method_parameters": (("items","arr_of_str","REQ"),("modes","arr_of_int","OPT"),("point","arr_of_dbl","OPT"),("view","str","OPT")),
+    "method_parameters": (("items","array_of str","REQ"),("modes","array_of int","OPT"),("point","array_of dbl","OPT"),("view","str","OPT")),
     "method_returns": ("number","number","null")
     }
 property_list_box = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "property_list_box",
-    "method_parameters": (("items","arr_of_str","REQ"),("values","arr_of_str","REQ"),("message","str","OPT"),("title","str","OPT")),
+    "method_parameters": (("items","array_of str","REQ"),("values","array_of str","REQ"),("message","str","OPT"),("title","str","OPT")),
     "method_returns": ("array","null")
     }
 real_box = {

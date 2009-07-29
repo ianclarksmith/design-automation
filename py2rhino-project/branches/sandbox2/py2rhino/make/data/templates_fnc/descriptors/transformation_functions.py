@@ -7,7 +7,7 @@ is_xform_identity = {
     "function_com_id": 786,
     "function_vb_name": "IsXformIdentity",
     "function_name": "is_xform_identity",
-    "function_parameters": (("xform","array_of dbl","REQ")),
+    "function_parameters": (("xform","array_of dbl","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_xform_similarity = {
@@ -15,7 +15,7 @@ is_xform_similarity = {
     "function_com_id": 787,
     "function_vb_name": "IsXformSimilarity",
     "function_name": "is_xform_similarity",
-    "function_parameters": (("xform","array_of dbl","REQ")),
+    "function_parameters": (("xform","array_of dbl","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_xform_zero = {
@@ -23,7 +23,7 @@ is_xform_zero = {
     "function_com_id": 785,
     "function_vb_name": "IsXformZero",
     "function_name": "is_xform_zero",
-    "function_parameters": (("xform","array_of dbl","REQ")),
+    "function_parameters": (("xform","array_of dbl","REQ"),),
     "function_returns": ("boolean","null")
     }
 xform_c_plane_to_world = {
@@ -39,7 +39,7 @@ xform_change_basis = {
     "function_com_id": 796,
     "function_vb_name": "XformChangeBasis",
     "function_name": "xform_change_basis",
-    "function_parameters": (("plane1","array_of dbl","REQ"),("plane2","array_of dbl","REQ")),
+    "function_parameters": (("plane_1","array_of dbl","REQ"),("plane_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 xform_change_basis_2 = {
@@ -47,7 +47,7 @@ xform_change_basis_2 = {
     "function_com_id": 796,
     "function_vb_name": "XformChangeBasis",
     "function_name": "xform_change_basis_2",
-    "function_parameters": (("x0","array_of dbl","REQ"),("y0","array_of dbl","REQ"),("z0","array_of dbl","REQ"),("x1","array_of dbl","REQ"),("y1","array_of dbl","REQ"),("z1","array_of dbl","REQ")),
+    "function_parameters": (("x_0","array_of dbl","REQ"),("y_0","array_of dbl","REQ"),("z_0","array_of dbl","REQ"),("x_1","array_of dbl","REQ"),("y_1","array_of dbl","REQ"),("z_1","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 xform_compare = {
@@ -55,15 +55,15 @@ xform_compare = {
     "function_com_id": 789,
     "function_vb_name": "XformCompare",
     "function_name": "xform_compare",
-    "function_parameters": (("xform1","array_of dbl","REQ"),("xform2","array_of dbl","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("xform_1","array_of dbl","REQ"),("xform_2","array_of dbl","REQ")),
+    "function_returns": ("null",)
     }
 xform_determinant = {
     "function_location": "transformation",
     "function_com_id": 818,
     "function_vb_name": "XformDeterminant",
     "function_name": "xform_determinant",
-    "function_parameters": (("xform","array_of dbl","REQ")),
+    "function_parameters": (("xform","array_of dbl","REQ"),),
     "function_returns": ("number","null")
     }
 xform_diagonal = {
@@ -71,7 +71,7 @@ xform_diagonal = {
     "function_com_id": 784,
     "function_vb_name": "XformDiagonal",
     "function_name": "xform_diagonal",
-    "function_parameters": (("value","dbl","REQ")),
+    "function_parameters": (("value","dbl","REQ"),),
     "function_returns": ("array","null")
     }
 xform_identity = {
@@ -80,14 +80,14 @@ xform_identity = {
     "function_vb_name": "XformIdentity",
     "function_name": "xform_identity",
     "function_parameters": (),
-    "function_returns": ("array")
+    "function_returns": ("array",)
     }
 xform_inverse = {
     "function_location": "transformation",
     "function_com_id": 817,
     "function_vb_name": "XformInverse",
     "function_name": "xform_inverse",
-    "function_parameters": (("xform","array_of dbl","REQ")),
+    "function_parameters": (("xform","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 xform_mirror = {
@@ -103,7 +103,7 @@ xform_multiply = {
     "function_com_id": 788,
     "function_vb_name": "XformMultiply",
     "function_name": "xform_multiply",
-    "function_parameters": (("xform1","array_of dbl","REQ"),("xform2","array_of dbl","REQ")),
+    "function_parameters": (("xform_1","array_of dbl","REQ"),("xform_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 xform_planar_projection = {
@@ -111,7 +111,7 @@ xform_planar_projection = {
     "function_com_id": 793,
     "function_vb_name": "XformPlanarProjection",
     "function_name": "xform_planar_projection",
-    "function_parameters": (("plane","array_of dbl","REQ")),
+    "function_parameters": (("plane","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 xform_rotation = {
@@ -119,7 +119,7 @@ xform_rotation = {
     "function_com_id": 794,
     "function_vb_name": "XformRotation",
     "function_name": "xform_rotation",
-    "function_parameters": (("plane1","array_of dbl","REQ"),("plane2","array_of dbl","REQ")),
+    "function_parameters": (("plane_1","array_of dbl","REQ"),("plane_2","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 xform_rotation_2 = {
@@ -143,7 +143,7 @@ xform_rotation_4 = {
     "function_com_id": 794,
     "function_vb_name": "XformRotation",
     "function_name": "xform_rotation_4",
-    "function_parameters": (("x0","array_of dbl","REQ"),("y0","array_of dbl","REQ"),("z0","array_of dbl","REQ"),("x1","array_of dbl","REQ"),("y1","array_of dbl","REQ"),("z1","array_of dbl","REQ")),
+    "function_parameters": (("x_0","array_of dbl","REQ"),("y_0","array_of dbl","REQ"),("z_0","array_of dbl","REQ"),("x_1","array_of dbl","REQ"),("y_1","array_of dbl","REQ"),("z_1","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 xform_scale = {
@@ -167,7 +167,7 @@ xform_scale_3 = {
     "function_com_id": 790,
     "function_vb_name": "XformScale",
     "function_name": "xform_scale_3",
-    "function_parameters": (("vector","array_of dbl","REQ")),
+    "function_parameters": (("vector","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 xform_scale_4 = {
@@ -191,7 +191,7 @@ xform_shear = {
     "function_com_id": 791,
     "function_vb_name": "XformShear",
     "function_name": "xform_shear",
-    "function_parameters": (("plane","array_of dbl","REQ"),("x1","array_of dbl","REQ"),("y1","array_of dbl","REQ"),("z1","array_of dbl","REQ")),
+    "function_parameters": (("plane","array_of dbl","REQ"),("x_1","array_of dbl","REQ"),("y_1","array_of dbl","REQ"),("z_1","array_of dbl","REQ")),
     "function_returns": ("array","null")
     }
 xform_translation = {
@@ -199,7 +199,7 @@ xform_translation = {
     "function_com_id": 792,
     "function_vb_name": "XformTranslation",
     "function_name": "xform_translation",
-    "function_parameters": (("vector","array_of dbl","REQ")),
+    "function_parameters": (("vector","array_of dbl","REQ"),),
     "function_returns": ("array","null")
     }
 xform_world_to_c_plane = {
@@ -224,5 +224,5 @@ xform_zero = {
     "function_vb_name": "XformZero",
     "function_name": "xform_zero",
     "function_parameters": (),
-    "function_returns": ("array")
+    "function_returns": ("array",)
     }

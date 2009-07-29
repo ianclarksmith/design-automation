@@ -48,7 +48,7 @@ get_box = {
         },
         2: {
             "name": "strPrompt1",
-            "py_name": "prompt1",
+            "py_name": "prompt_1",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -59,7 +59,7 @@ get_box = {
         },
         3: {
             "name": "strPrompt2",
-            "py_name": "prompt2",
+            "py_name": "prompt_2",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -70,7 +70,7 @@ get_box = {
         },
         4: {
             "name": "strPrompt3",
-            "py_name": "prompt3",
+            "py_name": "prompt_3",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",

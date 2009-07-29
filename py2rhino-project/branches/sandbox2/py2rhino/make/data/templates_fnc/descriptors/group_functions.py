@@ -7,7 +7,7 @@ add_group = {
     "function_com_id": 133,
     "function_vb_name": "AddGroup",
     "function_name": "add_group",
-    "function_parameters": (("group","str","OPT")),
+    "function_parameters": (("group","str","OPT"),),
     "function_returns": ("string","null")
     }
 add_object_to_group = {
@@ -31,7 +31,7 @@ delete_group = {
     "function_com_id": 136,
     "function_vb_name": "DeleteGroup",
     "function_name": "delete_group",
-    "function_parameters": (("group","str","REQ")),
+    "function_parameters": (("group","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 group_count = {
@@ -55,7 +55,7 @@ hide_group = {
     "function_com_id": 871,
     "function_vb_name": "HideGroup",
     "function_name": "hide_group",
-    "function_parameters": (("group","str","REQ")),
+    "function_parameters": (("group","str","REQ"),),
     "function_returns": ("number","null")
     }
 is_group = {
@@ -63,7 +63,7 @@ is_group = {
     "function_com_id": 139,
     "function_vb_name": "IsGroup",
     "function_name": "is_group",
-    "function_parameters": (("group","str","REQ")),
+    "function_parameters": (("group","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_group_empty = {
@@ -71,7 +71,7 @@ is_group_empty = {
     "function_com_id": 140,
     "function_vb_name": "IsGroupEmpty",
     "function_name": "is_group_empty",
-    "function_parameters": (("group","str","REQ")),
+    "function_parameters": (("group","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 lock_group = {
@@ -79,7 +79,7 @@ lock_group = {
     "function_com_id": 873,
     "function_vb_name": "LockGroup",
     "function_name": "lock_group",
-    "function_parameters": (("group","str","REQ")),
+    "function_parameters": (("group","str","REQ"),),
     "function_returns": ("number","null")
     }
 remove_object_from_all_groups = {
@@ -87,7 +87,7 @@ remove_object_from_all_groups = {
     "function_com_id": 141,
     "function_vb_name": "RemoveObjectFromAllGroups",
     "function_name": "remove_object_from_all_groups",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 remove_object_from_group = {
@@ -103,7 +103,7 @@ remove_object_from_top_group = {
     "function_com_id": 143,
     "function_vb_name": "RemoveObjectFromTopGroup",
     "function_name": "remove_object_from_top_group",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 remove_objects_from_group = {
@@ -127,7 +127,7 @@ show_group = {
     "function_com_id": 872,
     "function_vb_name": "ShowGroup",
     "function_name": "show_group",
-    "function_parameters": (("group","str","REQ")),
+    "function_parameters": (("group","str","REQ"),),
     "function_returns": ("number","null")
     }
 unlock_group = {
@@ -135,6 +135,6 @@ unlock_group = {
     "function_com_id": 874,
     "function_vb_name": "UnlockGroup",
     "function_name": "unlock_group",
-    "function_parameters": (("group","str","REQ")),
+    "function_parameters": (("group","str","REQ"),),
     "function_returns": ("number","null")
     }

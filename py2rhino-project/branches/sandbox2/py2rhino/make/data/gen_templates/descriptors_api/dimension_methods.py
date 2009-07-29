@@ -6,35 +6,35 @@ add_dim_style = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "add_dim_style",
-    "method_parameters": (("dim_style","str","OPT")),
+    "method_parameters": (("dim_style","str","OPT"),),
     "method_returns": ("string","null")
     }
 add_leader = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "add_leader",
-    "method_parameters": (("points","arr_of_dbl","REQ"),("view","str","OPT"),("text","str","OPT")),
+    "method_parameters": (("points","array_of dbl","REQ"),("view","str","OPT"),("text","str","OPT")),
     "method_returns": ("string","null")
     }
 current_dim_style = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "current_dim_style",
-    "method_parameters": (("dim_style","str","OPT")),
+    "method_parameters": (("dim_style","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 delete_dim_style = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "delete_dim_style",
-    "method_parameters": (("dim_style","str","REQ")),
+    "method_parameters": (("dim_style","str","REQ"),),
     "method_returns": ("string","null")
     }
 dim_scale = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "dim_scale",
-    "method_parameters": (("scale","dbl","OPT")),
+    "method_parameters": (("scale","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_angle_precision = {
@@ -56,7 +56,7 @@ dim_style_count = {
     "method_type": "METHOD",
     "method_name": "dim_style_count",
     "method_parameters": (),
-    "method_returns": ("number")
+    "method_returns": ("number",)
     }
 dim_style_extension = {
     "method_location": "Dimension",
@@ -90,7 +90,7 @@ dim_style_names = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_names",
-    "method_parameters": (("sort","bln","OPT")),
+    "method_parameters": (("sort","bln","OPT"),),
     "method_returns": ("array","null")
     }
 dim_style_number_format = {
@@ -139,7 +139,7 @@ dimension_text = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "dimension_text",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("string","null")
     }
 dimension_user_text = {
@@ -153,77 +153,77 @@ dimension_value = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "dimension_value",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("number","null")
     }
 is_aligned_dimension = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_aligned_dimension",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_angular_dimension = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_angular_dimension",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_diameter_dimension = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_diameter_dimension",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_dim_style = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_dim_style",
-    "method_parameters": (("dim_style","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("dim_style","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_dim_style_reference = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_dim_style_reference",
-    "method_parameters": (("dim_style","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("dim_style","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_dimension = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_dimension",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_leader = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_leader",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_linear_dimension = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_linear_dimension",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_ordinate_dimension = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_ordinate_dimension",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_radial_dimension = {
     "method_location": "Dimension",
     "method_type": "METHOD",
     "method_name": "is_radial_dimension",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 leader_text = {

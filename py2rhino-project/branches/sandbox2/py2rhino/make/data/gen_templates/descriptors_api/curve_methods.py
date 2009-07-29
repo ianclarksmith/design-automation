@@ -6,112 +6,112 @@ add_arc = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_arc",
-    "method_parameters": (("plane","arr_of_dbl","REQ"),("radius","dbl","REQ"),("angle","dbl","REQ")),
+    "method_parameters": (("plane","array_of dbl","REQ"),("radius","dbl","REQ"),("angle","dbl","REQ")),
     "method_returns": ("string","null")
     }
-add_arc3_pt = {
+add_arc_3_pt = {
     "method_location": "Curve",
     "method_type": "METHOD",
-    "method_name": "add_arc3_pt",
-    "method_parameters": (("start","arr_of_dbl","REQ"),("end","arr_of_dbl","REQ"),("point","arr_of_dbl","REQ")),
+    "method_name": "add_arc_3_pt",
+    "method_parameters": (("start","array_of dbl","REQ"),("end","array_of dbl","REQ"),("point","array_of dbl","REQ")),
     "method_returns": ("string","null")
     }
 add_circle = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_circle",
-    "method_parameters": (("plane","arr_of_dbl","REQ"),("radius","dbl","REQ")),
+    "method_parameters": (("plane","array_of dbl","REQ"),("radius","dbl","REQ")),
     "method_returns": ("string","null")
     }
-add_circle3_pt = {
+add_circle_3_pt = {
     "method_location": "Curve",
     "method_type": "METHOD",
-    "method_name": "add_circle3_pt",
-    "method_parameters": (("first","arr_of_dbl","REQ"),("second","arr_of_dbl","REQ"),("third","arr_of_dbl","REQ")),
+    "method_name": "add_circle_3_pt",
+    "method_parameters": (("first","array_of dbl","REQ"),("second","array_of dbl","REQ"),("third","array_of dbl","REQ")),
     "method_returns": ("string","null")
     }
 add_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_curve",
-    "method_parameters": (("points","arr_of_dbl","REQ"),("degree","int","OPT")),
+    "method_parameters": (("points","array_of dbl","REQ"),("degree","int","OPT")),
     "method_returns": ("string","null")
     }
 add_ellipse = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_ellipse",
-    "method_parameters": (("plane","arr_of_dbl","REQ"),("x_radius","dbl","REQ"),("y_radius","dbl","REQ")),
+    "method_parameters": (("plane","array_of dbl","REQ"),("x_radius","dbl","REQ"),("y_radius","dbl","REQ")),
     "method_returns": ("string","null")
     }
-add_ellipse3_pt = {
+add_ellipse_3_pt = {
     "method_location": "Curve",
     "method_type": "METHOD",
-    "method_name": "add_ellipse3_pt",
-    "method_parameters": (("center","arr_of_dbl","REQ"),("second","arr_of_dbl","REQ"),("third","arr_of_dbl","REQ")),
+    "method_name": "add_ellipse_3_pt",
+    "method_parameters": (("center","array_of dbl","REQ"),("second","array_of dbl","REQ"),("third","array_of dbl","REQ")),
     "method_returns": ("string","null")
     }
 add_fillet_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_fillet_curve",
-    "method_parameters": (("curve0","str","REQ"),("curve1","str","REQ"),("radius","dbl","OPT"),("point0","arr_of_dbl","OPT"),("point1","arr_of_dbl","OPT")),
+    "method_parameters": (("curve_0","str","REQ"),("curve_1","str","REQ"),("radius","dbl","OPT"),("point_0","array_of dbl","OPT"),("point_1","array_of dbl","OPT")),
     "method_returns": ("string","null")
     }
 add_interp_crv_on_srf = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_interp_crv_on_srf",
-    "method_parameters": (("object","str","REQ"),("points","arr_of_dbl","REQ")),
+    "method_parameters": (("object","str","REQ"),("points","array_of dbl","REQ")),
     "method_returns": ("string","null")
     }
 add_interp_crv_on_srf_u_v = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_interp_crv_on_srf_u_v",
-    "method_parameters": (("object","str","REQ"),("points","arr_of_dbl","REQ")),
+    "method_parameters": (("object","str","REQ"),("points","array_of dbl","REQ")),
     "method_returns": ("string","null")
     }
 add_interp_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_interp_curve",
-    "method_parameters": (("points","arr_of_dbl","REQ"),("degree","int","OPT"),("knot_style","int","OPT"),("start_tan","arr_of_dbl","OPT"),("end_tan","arr_of_dbl","OPT")),
+    "method_parameters": (("points","array_of dbl","REQ"),("degree","int","OPT"),("knot_style","int","OPT"),("start_tan","array_of dbl","OPT"),("end_tan","array_of dbl","OPT")),
     "method_returns": ("string","null")
     }
 add_interp_curve_ex = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_interp_curve_ex",
-    "method_parameters": (("points","arr_of_dbl","REQ"),("degree","int","OPT"),("knot_style","int","OPT"),("sharp","bln","OPT"),("start_tangent","arr_of_dbl","OPT"),("end_tangent","arr_of_dbl","OPT")),
+    "method_parameters": (("points","array_of dbl","REQ"),("degree","int","OPT"),("knot_style","int","OPT"),("sharp","bln","OPT"),("start_tangent","array_of dbl","OPT"),("end_tangent","array_of dbl","OPT")),
     "method_returns": ("string","null")
     }
 add_line = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_line",
-    "method_parameters": (("start","arr_of_dbl","REQ"),("end","arr_of_dbl","REQ")),
+    "method_parameters": (("start","array_of dbl","REQ"),("end","array_of dbl","REQ")),
     "method_returns": ("string","null")
     }
 add_nurbs_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_nurbs_curve",
-    "method_parameters": (("points","arr_of_dbl","REQ"),("knots","arr_of_int","REQ"),("degree","int","REQ"),("weights","arr_of_int","OPT")),
+    "method_parameters": (("points","array_of dbl","REQ"),("knots","array_of int","REQ"),("degree","int","REQ"),("weights","array_of int","OPT")),
     "method_returns": ("string","null")
     }
 add_polyline = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_polyline",
-    "method_parameters": (("points","arr_of_dbl","REQ")),
+    "method_parameters": (("points","array_of dbl","REQ"),),
     "method_returns": ("string","null")
     }
 add_sub_crv = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_sub_crv",
-    "method_parameters": (("object","str","REQ"),("param0","dbl","REQ"),("param1","dbl","REQ")),
+    "method_parameters": (("object","str","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ")),
     "method_returns": ("string","null")
     }
 arc_angle = {
@@ -126,14 +126,14 @@ arc_center_point = {
     "method_type": "METHOD",
     "method_name": "arc_center_point",
     "method_parameters": (("object","str","REQ"),("index","int","OPT")),
-    "method_returns": ("null")
+    "method_returns": ("null",)
     }
 arc_mid_point = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "arc_mid_point",
     "method_parameters": (("object","str","REQ"),("index","int","OPT")),
-    "method_returns": ("null")
+    "method_returns": ("null",)
     }
 arc_radius = {
     "method_location": "Curve",
@@ -188,14 +188,14 @@ curve_area = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_area",
-    "method_parameters": (("objects","arr_of_str","REQ")),
+    "method_parameters": (("objects","array_of str","REQ"),),
     "method_returns": ("array","number","number","null")
     }
 curve_area_centroid = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_area_centroid",
-    "method_parameters": (("objects","arr_of_str","REQ")),
+    "method_parameters": (("objects","array_of str","REQ"),),
     "method_returns": ("array","null")
     }
 curve_arrows = {
@@ -223,7 +223,7 @@ curve_boolean_union = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_boolean_union",
-    "method_parameters": (("curves","arr_of_str","REQ")),
+    "method_parameters": (("curves","array_of str","REQ"),),
     "method_returns": ("array","null")
     }
 curve_brep_intersect = {
@@ -237,21 +237,21 @@ curve_closest_object = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_closest_object",
-    "method_parameters": (("curve","str","REQ"),("objects","arr_of_str","REQ")),
+    "method_parameters": (("curve","str","REQ"),("objects","array_of str","REQ")),
     "method_returns": ("array","string","array","array","null")
     }
 curve_closest_point = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_closest_point",
-    "method_parameters": (("object","str","REQ"),("point","arr_of_dbl","REQ"),("index","int","OPT")),
+    "method_parameters": (("object","str","REQ"),("point","array_of dbl","REQ"),("index","int","OPT")),
     "method_returns": ("number","null")
     }
 curve_contour_points = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_contour_points",
-    "method_parameters": (("object","str","REQ"),("start_point","arr_of_dbl","REQ"),("end_point","arr_of_dbl","REQ"),("interval","dbl","OPT")),
+    "method_parameters": (("object","str","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("interval","dbl","OPT")),
     "method_returns": ("array","null")
     }
 curve_curvature = {
@@ -265,7 +265,7 @@ curve_curve_intersection = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_curve_intersection",
-    "method_parameters": (("object1","str","REQ"),("object2","str","OPT"),("tolerance","dbl","OPT")),
+    "method_parameters": (("object_1","str","REQ"),("object_2","str","OPT"),("tolerance","dbl","OPT")),
     "method_returns": ("array","number","number","number","number","number","null")
     }
 curve_degree = {
@@ -293,7 +293,7 @@ curve_directions_match = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_directions_match",
-    "method_parameters": (("curve1","str","REQ"),("curve2","str","REQ")),
+    "method_parameters": (("curve_1","str","REQ"),("curve_2","str","REQ")),
     "method_returns": ("boolean","null")
     }
 curve_discontinuity = {
@@ -335,7 +335,7 @@ curve_fillet_points = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_fillet_points",
-    "method_parameters": (("curve0","str","REQ"),("curve1","str","REQ"),("radius","dbl","OPT"),("base_point0","arr_of_dbl","OPT"),("base_point1","arr_of_dbl","OPT")),
+    "method_parameters": (("curve_0","str","REQ"),("curve_1","str","REQ"),("radius","dbl","OPT"),("base_point_0","array_of dbl","OPT"),("base_point_1","array_of dbl","OPT")),
     "method_returns": ("array","string","null")
     }
 curve_frame = {
@@ -363,21 +363,21 @@ curve_length = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_length",
-    "method_parameters": (("object","str","REQ"),("index","int","OPT"),("sub_domain","arr_of_int","OPT")),
+    "method_parameters": (("object","str","REQ"),("index","int","OPT"),("sub_domain","array_of int","OPT")),
     "method_returns": ("number","null")
     }
 curve_mid_point = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_mid_point",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("array","null")
     }
 curve_normal = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_normal",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("array","null")
     }
 curve_perp_frame = {
@@ -391,7 +391,7 @@ curve_plane = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_plane",
-    "method_parameters": (("curve","str","REQ")),
+    "method_parameters": (("curve","str","REQ"),),
     "method_returns": ("array","null")
     }
 curve_point_count = {
@@ -412,7 +412,7 @@ curve_radius = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "curve_radius",
-    "method_parameters": (("object","str","REQ"),("point","arr_of_dbl","REQ"),("index","int","OPT")),
+    "method_parameters": (("object","str","REQ"),("point","array_of dbl","REQ"),("index","int","OPT")),
     "method_returns": ("number","null")
     }
 curve_seam = {
@@ -475,14 +475,14 @@ ellipse_center_point = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "ellipse_center_point",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("array","null")
     }
 ellipse_quad_points = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "ellipse_quad_points",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("array","null")
     }
 evaluate_curve = {
@@ -496,14 +496,14 @@ explode_curves = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "explode_curves",
-    "method_parameters": (("objects","arr_of_str","REQ"),("delete","bln","OPT")),
+    "method_parameters": (("objects","array_of str","REQ"),("delete","bln","OPT")),
     "method_returns": ("array","null")
     }
 extend_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "extend_curve",
-    "method_parameters": (("object","str","REQ"),("type","int","REQ"),("side","int","REQ"),("objects","arr_of_str","REQ")),
+    "method_parameters": (("object","str","REQ"),("type","int","REQ"),("side","int","REQ"),("objects","array_of str","REQ")),
     "method_returns": ("string","null")
     }
 extend_curve_length = {
@@ -517,7 +517,7 @@ extend_curve_point = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "extend_curve_point",
-    "method_parameters": (("object","str","REQ"),("side","int","REQ"),("point","arr_of_dbl","REQ")),
+    "method_parameters": (("object","str","REQ"),("side","int","REQ"),("point","array_of dbl","REQ")),
     "method_returns": ("string","null")
     }
 fair_curve = {
@@ -580,7 +580,7 @@ is_curve_in_plane = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "is_curve_in_plane",
-    "method_parameters": (("object","str","REQ"),("plane","arr_of_dbl","OPT")),
+    "method_parameters": (("object","str","REQ"),("plane","array_of dbl","OPT")),
     "method_returns": ("boolean","null")
     }
 is_curve_linear = {
@@ -615,7 +615,7 @@ is_ellipse = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "is_ellipse",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_line = {
@@ -629,7 +629,7 @@ is_point_on_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "is_point_on_curve",
-    "method_parameters": (("object","str","REQ"),("point","arr_of_int","REQ"),("index","int","OPT")),
+    "method_parameters": (("object","str","REQ"),("point","array_of int","REQ"),("index","int","OPT")),
     "method_returns": ("boolean","null")
     }
 is_poly_curve = {
@@ -657,7 +657,7 @@ line_fit_from_points = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "line_fit_from_points",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("array","null")
     }
 make_curve_non_periodic = {
@@ -678,14 +678,14 @@ mesh_polyline = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "mesh_polyline",
-    "method_parameters": (("polyline","str","REQ")),
+    "method_parameters": (("polyline","str","REQ"),),
     "method_returns": ("string","null")
     }
 offset_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "offset_curve",
-    "method_parameters": (("object","str","REQ"),("direction","arr_of_dbl","REQ"),("distance","dbl","REQ"),("normal","arr_of_dbl","OPT"),("style","int","OPT")),
+    "method_parameters": (("object","str","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT")),
     "method_returns": ("array","null")
     }
 offset_curve_on_surface = {
@@ -699,28 +699,28 @@ offset_curve_on_surface_2 = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "offset_curve_on_surface_2",
-    "method_parameters": (("curve","str","REQ"),("surface","str","REQ"),("parameter","arr_of_dbl","REQ")),
+    "method_parameters": (("curve","str","REQ"),("surface","str","REQ"),("parameter","array_of dbl","REQ")),
     "method_returns": ("array","null")
     }
 planar_closed_curve_containment = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "planar_closed_curve_containment",
-    "method_parameters": (("curve1","str","REQ"),("curve2","str","REQ"),("plane","arr_of_dbl","OPT"),("tolerance","dbl","OPT")),
+    "method_parameters": (("curve_1","str","REQ"),("curve_2","str","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT")),
     "method_returns": ("number","null")
     }
 planar_curve_collision = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "planar_curve_collision",
-    "method_parameters": (("curve1","str","REQ"),("curve2","str","REQ"),("plane","arr_of_dbl","OPT"),("tolerance","dbl","OPT")),
-    "method_returns": ("null")
+    "method_parameters": (("curve_1","str","REQ"),("curve_2","str","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT")),
+    "method_returns": ("null",)
     }
 point_in_planar_closed_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "point_in_planar_closed_curve",
-    "method_parameters": (("point","arr_of_dbl","REQ"),("curve","str","REQ"),("plane","arr_of_dbl","OPT"),("tolerance","dbl","OPT")),
+    "method_parameters": (("point","array_of dbl","REQ"),("curve","str","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT")),
     "method_returns": ("number","null")
     }
 poly_curve_count = {
@@ -741,14 +741,14 @@ project_curve_to_mesh = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "project_curve_to_mesh",
-    "method_parameters": (("curves","arr_of_str","REQ"),("meshes","arr_of_str","REQ"),("direction","arr_of_dbl","REQ")),
+    "method_parameters": (("curves","array_of str","REQ"),("meshes","array_of str","REQ"),("direction","array_of dbl","REQ")),
     "method_returns": ("array","null")
     }
 project_curve_to_surface = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "project_curve_to_surface",
-    "method_parameters": (("curves","arr_of_str","REQ"),("surfaces","arr_of_str","REQ"),("direction","arr_of_dbl","REQ")),
+    "method_parameters": (("curves","array_of str","REQ"),("surfaces","array_of str","REQ"),("direction","array_of dbl","REQ")),
     "method_returns": ("array","null")
     }
 rebuild_curve = {
@@ -769,7 +769,7 @@ reverse_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "reverse_curve",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 simplify_curve = {
@@ -783,13 +783,13 @@ split_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "split_curve",
-    "method_parameters": (("object","str","REQ"),("parameters","arr_of_dbl","REQ"),("delete","bln","OPT")),
+    "method_parameters": (("object","str","REQ"),("parameters","array_of dbl","REQ"),("delete","bln","OPT")),
     "method_returns": ("array","null")
     }
 trim_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "trim_curve",
-    "method_parameters": (("object","str","REQ"),("interval","arr_of_int","REQ"),("delete","bln","OPT")),
+    "method_parameters": (("object","str","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT")),
     "method_returns": ("string","null")
     }
