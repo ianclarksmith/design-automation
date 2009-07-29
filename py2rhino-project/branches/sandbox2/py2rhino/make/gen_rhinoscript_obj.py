@@ -51,14 +51,12 @@ def write_rhinoscript_classes(data_dict):
         num_params = len(param_list)
         
         for param_num in range(num_params):
-            #get the list of parameters
-            param_list = method_dict['method_parameters']
             #extract the data
             params_name.append(param_list[param_num][0])
             params_opt_or_req.append(param_list[param_num][2])
         
         #create the method signature
-        w(f, ('def ', method_dict['method_name']), tabs=0, nle=0)
+        w(f, ('def ', method_dict['method_name']), tabs=1, nle=0)
         if num_params > 0:
             param_str = ''
             for i in range(num_params):
@@ -74,11 +72,11 @@ def write_rhinoscript_classes(data_dict):
         #TODO: write the documentation
         
         #now write the function call
-        w(f, ('return _rsf.',function_name,'(', ', '.join(params_name), ')'), tabs=1, nls=1, nle=2)  
+        w(f, ('return _rsf.',function_name,'(', ', '.join(params_name), ')'), tabs=2, nls=1, nle=2)  
     #---------------------------------------------------------------------------
-    for class_list in sorted(data_dict.keys()):
+    for class_str in sorted(data_dict.keys()):
         #split the list of classes
-        class_list = class_list.split('.')
+        class_list = class_str.split('.')
         
         #get the class name
         class_name = class_list[-1]
@@ -97,9 +95,10 @@ def write_rhinoscript_classes(data_dict):
         write_init(f)        
         
         #write each method to the class file
-        for function_name in sorted(data_dict[class_name].keys()):
+        for function_name in sorted(data_dict[class_str].keys()):
+            print class_name
             print function_name
-            write_class_method(function_name, data_dict[class_name][function_name], f)
+            write_class_method(function_name, data_dict[class_str][function_name], f)
             
         #close the file
         f.close()

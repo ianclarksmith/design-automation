@@ -12,42 +12,42 @@ add_dim_style = {
     "method_location": "_Entity.Dimension",
     "method_type": "CONSTRUCTOR",
     "method_name": "",
-    "method_parameters": (("","self","OPT")),
+    "method_parameters": (("","self","OPT"),),
     "method_returns": ("_Entity.Dimension","null")
     }
 current_dim_style = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "current_dim_style",
-    "method_parameters": (("","self","OPT")),
+    "method_parameters": (("","self","OPT"),),
     "method_returns": ("string","string","null")
     }
 delete_dim_style = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "delete_dim_style",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("string","null")
     }
 dim_scale = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_scale",
-    "method_parameters": (("scale","dbl","OPT")),
+    "method_parameters": (("scale","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_angle_precision = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_angle_precision",
-    "method_parameters": (("","self","REQ"),("precision","int","OPT")),
+    "method_parameters": (("","self","REQ"),("precision","int","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_arrow_size = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_arrow_size",
-    "method_parameters": (("","self","REQ"),("size","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("size","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_count = {
@@ -61,105 +61,105 @@ dim_style_extension = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_extension",
-    "method_parameters": (("","self","REQ"),("extension","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("extension","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_font = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_font",
-    "method_parameters": (("dim_style","str","REQ"),("font","str","OPT")),
+    "method_parameters": (("dim_style","str","REQ"),("font","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 dim_style_leader_arrow_size = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_leader_arrow_size",
-    "method_parameters": (("","self","REQ"),("size","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("size","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_linear_precision = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_linear_precision",
-    "method_parameters": (("","self","REQ"),("precision","int","OPT")),
+    "method_parameters": (("","self","REQ"),("precision","int","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_names = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_names",
-    "method_parameters": (("sort","bln","OPT")),
+    "method_parameters": (("sort","bln","OPT"),),
     "method_returns": ("array","null")
     }
 dim_style_number_format = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_number_format",
-    "method_parameters": (("","self","REQ"),("format","int","OPT")),
+    "method_parameters": (("","self","REQ"),("format","int","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_offset = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_offset",
-    "method_parameters": (("","self","REQ"),("offset","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("offset","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_text_alignment = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_text_alignment",
-    "method_parameters": (("","self","REQ"),("alignment","int","OPT")),
+    "method_parameters": (("","self","REQ"),("alignment","int","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_text_gap = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_text_gap",
-    "method_parameters": (("","self","REQ"),("gap","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("gap","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 dim_style_text_height = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dim_style_text_height",
-    "method_parameters": (("","self","REQ"),("height","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("height","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 dimension_style = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dimension_style",
-    "method_parameters": (("","self","REQ"),("style","str","OPT")),
+    "method_parameters": (("","self","REQ"),("style","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 dimension_text = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dimension_text",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("string","null")
     }
 dimension_user_text = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dimension_user_text",
-    "method_parameters": (("","self","REQ"),("user_text","str","OPT")),
+    "method_parameters": (("","self","REQ"),("user_text","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 dimension_value = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "dimension_value",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("number","null")
     }
 rename_dim_style = {
     "method_location": "_Entity.Dimension",
     "method_type": "METHOD",
     "method_name": "rename_dim_style",
-    "method_parameters": (("","self","REQ"),("new_style","str","REQ")),
+    "method_parameters": (("","self","REQ"),("new_style","str","REQ"),),
     "method_returns": ("string","null")
     }
 #===============================================================================
@@ -169,14 +169,14 @@ add_leader = {
     "method_location": "_Entity",
     "method_type": "CONSTRUCTOR",
     "method_name": "",
-    "method_parameters": (("points","arr_of_dbl","REQ"),("view","str","OPT"),("text","str","OPT")),
+    "method_parameters": (("points","arr_of_dbl","REQ"),("view","str","OPT"),("text","str","OPT"),),
     "method_returns": ("_Entity","null")
     }
 leader_text = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "leader_text",
-    "method_parameters": (("","self","REQ"),("text","str","OPT")),
+    "method_parameters": (("","self","REQ"),("text","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 is_aligned_dimension = {

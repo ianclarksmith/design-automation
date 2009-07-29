@@ -1,4 +1,4 @@
-
+#------------------------------------------------------------------------------ 
 # Copied from comtypes\automation.py
 # VARIANT, in all it's glory.
 
@@ -54,7 +54,7 @@ VT_RESERVED = 32768
 VT_ILLEGAL = 65535
 VT_ILLEGALMASKED = 4095
 VT_TYPEMASK = 4095
-
+#------------------------------------------------------------------------------ 
 def flatten_params(arrIn):
     """helper method to flatten any arrays into one-dimensional arrays compatible with RhinoScript"""
     if arrIn == None:
@@ -71,13 +71,23 @@ def flatten_params(arrIn):
         return arrOut
     else:
         return [arrIn,]
-
+#------------------------------------------------------------------------------ 
 def select_params(params, params_required, params_magic_numbers, params_flattened):
     tmp_params_magic_numbers = []
     tmp_params_flattened = []
     
     for i in range(len(params)):
-        if params_required[i] or (not params_required[i] and params[i] != None):
+        #check if the values should be added
+        add_param = False
+        if params_required[i]:
+            add_param = True
+        if not params_required[i]:
+            if params[i] != None:
+                add_param = True
+            if params_magic_numbers[i][0] == VT_BOOL:
+                add_param = True
+                params_flattened[i] = False
+        if add_param:
             tmp_params_magic_numbers.append(params_magic_numbers[i])
             tmp_params_flattened.append(params_flattened[i])
     
