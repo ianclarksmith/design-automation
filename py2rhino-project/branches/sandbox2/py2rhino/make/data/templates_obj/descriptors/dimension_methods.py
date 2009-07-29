@@ -183,69 +183,69 @@ is_aligned_dimension = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_aligned_dimension",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_angular_dimension = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_angular_dimension",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_diameter_dimension = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_diameter_dimension",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_dim_style = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_dim_style",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("null")
     }
 is_dim_style_reference = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_dim_style_reference",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_dimension = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_dimension",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_leader = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_leader",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_linear_dimension = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_linear_dimension",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_ordinate_dimension = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_ordinate_dimension",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_radial_dimension = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "is_radial_dimension",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
     }
