@@ -203,6 +203,149 @@ surface_torus = {#ed
     "method_returns": ("array of _Object._SurfaceType.Torus","null")
     }
 #===============================================================================
+# _Object
+#===============================================================================
+is_brep = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_brep",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_brep_manifold = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_brep_manifold",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_cone = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_cone",
+    "method_parameters": (("","self""REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_cylinder = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_cylinder",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_parameter_on_surface = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_parameter_on_surface",
+    "method_parameters": (("","self","REQ"),("parameter","array of dbl","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_plane_surface = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_plane_surface",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_point_in_surface = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_point_in_surface",
+    "method_parameters": (("","self","REQ"),("point","array of dbl","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_point_on_surface = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_point_on_surface",
+    "method_parameters": (("","self","REQ"),("point","array of dbl","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_poly_surface = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_poly_surface",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_poly_surface_closed = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_poly_surface_closed",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_poly_surface_planar = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_poly_surface_planar",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_sphere = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_sphere",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_surface = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_surface",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_surface_closed = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_surface_closed",
+    "method_parameters": (("","self","REQ"),("direction","int","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_surface_periodic = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_surface_periodic",
+    "method_parameters": (("","self","REQ"),("direction","int","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_surface_planar = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_surface_planar",
+    "method_parameters": (("","self","REQ"),("tolerance","dbl","OPT")),
+    "method_returns": ("boolean","null")
+    }
+is_surface_rational = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_surface_rational",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_surface_singular = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_surface_singular",
+    "method_parameters": (("","self","REQ"),("direction","int","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_surface_trimmed = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_surface_trimmed",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+is_torus = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_torus",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+    }
+#===============================================================================
 # _SurfaceType
 #===============================================================================
 extrude_curve = {#ed
@@ -365,146 +508,6 @@ intersect_breps = {#ed
     "method_name": "intersect_breps",
     "method_parameters": (("","self","REQ"),("brep1","str","REQ"),("tolerance","dbl","OPT")),
     "method_returns": ("array of _Object._SurfaceType","null")
-    }
-is_brep = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_brep",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_brep_manifold = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_brep_manifold",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_cone = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_cone",
-    "method_parameters": (("","self""REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_cylinder = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_cylinder",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_parameter_on_surface = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_parameter_on_surface",
-    "method_parameters": (("","self","REQ"),("parameter","array of dbl","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_plane_surface = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_plane_surface",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_point_in_surface = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_point_in_surface",
-    "method_parameters": (("","self","REQ"),("point","array of dbl","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_point_on_surface = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_point_on_surface",
-    "method_parameters": (("","self","REQ"),("point","array of dbl","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_poly_surface = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_poly_surface",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_poly_surface_closed = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_poly_surface_closed",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_poly_surface_planar = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_poly_surface_planar",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_sphere = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_sphere",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_surface = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_surface",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_surface_closed = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_surface_closed",
-    "method_parameters": (("","self","REQ"),("direction","int","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_surface_periodic = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_surface_periodic",
-    "method_parameters": (("","self","REQ"),("direction","int","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_surface_planar = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_surface_planar",
-    "method_parameters": (("","self","REQ"),("tolerance","dbl","OPT")),
-    "method_returns": ("boolean","null")
-    }
-is_surface_rational = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_surface_rational",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_surface_singular = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_surface_singular",
-    "method_parameters": (("","self","REQ"),("direction","int","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_surface_trimmed = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_surface_trimmed",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-    }
-is_torus = {#ed
-    "method_location": "_Object._SurfaceType",
-    "method_type": "METHOD",
-    "method_name": "is_torus",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
     }
 pull_curve = {#ed
     "method_location": "_Object._SurfaceType",

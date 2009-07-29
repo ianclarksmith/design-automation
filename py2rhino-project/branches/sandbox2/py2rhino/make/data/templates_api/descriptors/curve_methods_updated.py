@@ -12,7 +12,7 @@
 
 add_curve = {#ed
     "method_location": "_Object._CurveType.Curve",
-    "method_type": "CtONSTRUCTOR",
+    "method_type": "CONSTRUCTOR",
     "method_name": "",
     "method_parameters": (("points","array of dbl","REQ"),("degree","int","OPT")),
     "method_returns": ("_Object._CurveType.Curve","null")
@@ -239,6 +239,114 @@ poly_curve_count = {#ed
     "method_name": "count",
     "method_parameters": (("","self","REQ"),("index","int","OPT")),
     "method_returns": ("number","null")
+}
+#===============================================================================
+# _Object
+#===============================================================================
+is_arc = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_arc",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_circle = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_circle",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_curve = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_curve",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_ellipse = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_ellipse",
+    "method_parameters": (("","self","REQ")),
+    "method_returns": ("boolean","null")
+}
+is_line = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_line",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_poly_curve = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_poly_curve",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_polyline = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_polyline",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_curve_in_plane = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "in_plane",
+    "method_parameters": (("","self","REQ"),("plane","array of dbl","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_curve_closable = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_curve_closable",
+    "method_parameters": (("","self","REQ"),("tolerance","dbl","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_curve_closed = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_curve_closed",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_curve_linear = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_curve_linear",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_curve_periodic = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_curve_periodic",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_curve_planar = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_curve_planar",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_curve_rational = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_curve_rational",
+    "method_parameters": (("","self","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
+}
+is_point_on_curve = {#ed
+    "method_location": "_Object",
+    "method_type": "METHOD",
+    "method_name": "is_point_on_curve",
+    "method_parameters": (("","self","REQ"),("point","array of int","REQ"),("index","int","OPT")),
+    "method_returns": ("boolean","null")
 }
 #===============================================================================
 # _CurveType
@@ -635,111 +743,6 @@ insert_curve_knot = {#ed
     "method_type": "METHOD",
     "method_name": "insert_curve_knot",
     "method_parameters": (("","self","REQ"),("parameter","dbl","REQ"),("symmetrical","bln","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_arc = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "is_arc",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_circle = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_circle",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_curve = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_curve",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_ellipse = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_ellipse",
-    "method_parameters": (("","self","REQ")),
-    "method_returns": ("boolean","null")
-}
-is_line = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_line",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_poly_curve = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_poly_curve",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_polyline = {#ed
-    "method_location": "_Object",
-    "method_type": "METHOD",
-    "method_name": "is_polyline",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_curve_in_plane = {#ed
-    "method_location": "_Object._CurvType",
-    "method_type": "METHOD",
-    "method_name": "in_plane",
-    "method_parameters": (("","self","REQ"),("plane","array of dbl","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_curve_closable = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "is_curve_closable",
-    "method_parameters": (("","self","REQ"),("tolerance","dbl","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_curve_closed = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "is_curve_closed",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_curve_linear = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "is_curve_linear",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_curve_periodic = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "is_curve_periodic",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_curve_planar = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "is_curve_planar",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_curve_rational = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "is_curve_rational",
-    "method_parameters": (("","self","REQ"),("index","int","OPT")),
-    "method_returns": ("boolean","null")
-}
-is_point_on_curve = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "is_point_on_curve",
-    "method_parameters": (("","self","REQ"),("point","array of int","REQ"),("index","int","OPT")),
     "method_returns": ("boolean","null")
 }
 line_fit_from_points = {#ed
