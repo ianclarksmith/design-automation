@@ -1882,6 +1882,7 @@ class Zone(object):
             object_id = self.get_next_object(prev_id, -1, -1, -1)
             prev_id = object_id
         return objects
+    
     def get_occupancy(self):
         """
         

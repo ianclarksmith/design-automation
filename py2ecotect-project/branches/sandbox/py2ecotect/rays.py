@@ -10,7 +10,8 @@ class Rays(object):
     def animate(self):
         """
         
-        Begins the ray animation from the current position of the animation frame counter. 
+        Begins the ray animation from the current position of the animation 
+        frame counter. 
 
         Parameter(s)
         There are no parameters for this command.
@@ -21,7 +22,8 @@ class Rays(object):
     def free(self):
         """
         
-        Clears any existing rays or particles from the model and frees associated application memory. 
+        Clears any existing rays or particles from the model and frees associated 
+        application memory. 
 
         Parameter(s)
         There are no parameters for this command.
@@ -68,7 +70,8 @@ class Rays(object):
     def save(self, filename):
         """
         
-        Saves the currently displayed rays or particles to an ECOTECT Ray (.ray) file. 
+        Saves the currently displayed rays or particles to an ECOTECT Ray (.ray) 
+        file. 
 
         Parameter(s)
         This command takes the following parameters.
@@ -83,7 +86,8 @@ class Rays(object):
     def step(self, steps):
         """
         
-        Steps the ray animation frame counter forward by the number of steps specified. 
+        Steps the ray animation frame counter forward by the number of steps 
+        specified. 
 
         Parameter(s)
         This command takes the following parameters.
@@ -223,7 +227,8 @@ class Rays(object):
     def get_azimuth(self):
         """
         
-        Retrieves the controlling azimuth angle when using the spherical or cylindrical methods in the rays.spray command. 
+        Retrieves the controlling azimuth angle when using the spherical or 
+        cylindrical methods in the rays.spray command. 
 
         Parameter(s)
         There are no parameters for this property.

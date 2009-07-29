@@ -302,7 +302,7 @@ class Sunpath(object):
         val = py2ecotect.conversation.Request("get.sunpath.focus")
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def get_point(self, x, y):
+    def get_point(self, point):
         """
         
         Translates a point within the Sun-Path diagram into an absolute screen 
@@ -311,8 +311,9 @@ class Sunpath(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y 
-        The X and Y axis position of the point in the Sun-Path diagram. 
+        point 
+        A list of two values that represent the X and Y axis position of the 
+        point in the Sun-Path diagram. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -321,7 +322,9 @@ class Sunpath(object):
         The X and Y axis position of the point in absolute screen coordinates.
         
         """
-        arg_str = string_util._convert_args_to_string("get.sunpath.point", x, y)
+        arg_str = string_util._convert_args_to_string("get.sunpath.point", 
+                                                      point[0],
+                                                      point[1])
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float)
         
