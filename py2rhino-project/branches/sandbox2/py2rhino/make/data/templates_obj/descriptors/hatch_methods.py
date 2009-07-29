@@ -8,50 +8,61 @@
 #===============================================================================
 # Hatch
 #===============================================================================
+
+#constructors
+
 add_hatch = {
     "method_location": "_Object._OtherType.Hatch",
     "method_type": "CONSTRUCTOR",
-    "method_name": "",
+    "method_name": "create_hatch",
     "method_parameters": (("","self","REQ"),("hatch","str","OPT"),("scale","dbl","OPT"),("rotation","dbl","OPT"),),
     "method_returns": ("_Entity.Hatch","null")
     }
 add_hatches = {
     "method_location": "_Object._OtherType.Hatch",
-    "method_type": "METHOD",
-    "method_name": "add_hatches",
-    "method_parameters": (("curves","array of str","REQ"),("hatch","str","OPT"),("scale","dbl","OPT"),("rotation","dbl","OPT"),),
-    "method_returns": ("array of _Entity.Hatch","null")
+    "method_type": "CONSTRUCTOR",
+    "method_name": "create_hatches",
+    "method_parameters": (("curves","array_of str","REQ"),("hatch","str","OPT"),("scale","dbl","OPT"),("rotation","dbl","OPT"),),
+    "method_returns": ("array_of _Entity.Hatch","null")
     }
+
+#methods
+
 explode_hatch = {
     "method_location": "_Object._OtherType.Hatch",
     "method_type": "METHOD",
-    "method_name": "explode_hatch",
+    "method_name": "explode",
     "method_parameters": (("","self","REQ"),("delete","bln","OPT"),),
-    "method_returns": ("array of _Entity.Hatch","null")
+    "method_returns": ("array_of _Entity.Hatch","null")
     }
 hatch_rotation = {
     "method_location": "_Object._OtherType.Hatch",
     "method_type": "METHOD",
-    "method_name": "hatch_rotation",
+    "method_name": "rotation",
     "method_parameters": (("","self","REQ"),("rotation","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 hatch_scale = {
     "method_location": "_Object._OtherType.Hatch",
     "method_type": "METHOD",
-    "method_name": "hatch_scale",
+    "method_name": "scale",
     "method_parameters": (("","self","REQ"),("scale","dbl","OPT"),),
     "method_returns": ("number","number","null")
     }
 #===============================================================================
 # HatchPattern
 #===============================================================================
+
+#constructors
+
+#methods
+
 add_hatch_patterns = {
     "method_location": "_Entity.Hatch",
     "method_type": "METHOD",
     "method_name": "hatch_patterns",
     "method_parameters": (("","str","REQ"),("replace","bln","OPT"),),
-    "method_returns": ("array of string","null")
+    "method_returns": ("array_of string","null")
     }
 current_hatch_pattern = {
     "method_location": "_Entity.Hatch",

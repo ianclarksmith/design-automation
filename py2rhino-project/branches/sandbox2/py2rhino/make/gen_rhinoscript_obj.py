@@ -1,4 +1,5 @@
 import keyword
+from exceptions import Exception
 from util import *
 from py2rhino.make.data.templates_obj import descriptors as obj
 
@@ -34,45 +35,87 @@ def write_rhinoscript_classes(data_dict):
     #---------------------------------------------------------------------------
     def write_class_header(class_name, class_parent_name, f):
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
-        w(f,'import py2rhino.functions as rf')
-        w(f,('class ', class_name,'(', class_parent_name,'):'), nle=0)
+        w(f,'import pythoncom')
+        w(f,'from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f')
+        w(f,'import py2rhino as p2r')
+        w(f,'from exceptions import Exception')           
+        #w(f,'_rsf = None', nls=1, nle=1)   
+        w(f,('class ', class_name,'(p2r.', class_parent_name,'):'), nls=2)
         
     #---------------------------------------------------------------------------
     def write_init(f):
-        w(f,'# Class constructor', tabs=1, nls=0, nle=1)
+        w(f,'# Class constructor', tabs=1, nls=2, nle=1)
         w(f,'def __init__(self):', tabs=1, nls=0, nle=1)
-        w(f,'pass', tabs=2, nls=0, nle=1)
+        w(f,'raise Exception("Use the create... methods to create instances of this class.")', tabs=2, nls=0, nle=2)
     #---------------------------------------------------------------------------
     def write_class_method(function_name, method_dict, f):
         #get the param data into a set of lists for easy access
         params_name = []
         params_opt_or_req = []
+        params_type = []
+        
         param_list = method_dict['method_parameters']
         num_params = len(param_list)
         
         for param_num in range(num_params):
             #extract the data
             params_name.append(param_list[param_num][0])
+            params_type.append(param_list[param_num][1])            
             params_opt_or_req.append(param_list[param_num][2])
         
-        #create the method signature
-        w(f, ('def ', method_dict['method_name']), tabs=1, nle=0)
-        if num_params > 0:
-            param_str = ''
-            for i in range(num_params):
-                param_str += params_name[i]
-                if params_opt_or_req[i] == 'OPT':
-                    param_str = param_str + '=None'
-                param_str += ', '
-            param_str = param_str[:-2]
-            w(f, ('(', param_str, '):'), tabs=0, nle=1)
+        #if this is a constructor, make it a class method
+        if method_dict['method_type'] == 'CONSTRUCTOR':
+            w(f, '@classmethod', tabs=1, nls=1, nle=0)
+            self_or_cls = 'cls'
         else:
-            w(f, '():', tabs=0, nle=1)
+            self_or_cls = 'self'
+        #create the method signature
+        w(f, ('def ', method_dict['method_name']), tabs=1, nls=1, nle=0)
+        if num_params > 0:
+            params = []
+            for i in range(num_params):
+                param_str = ''
+                if params_type[i] == 'self':
+                    pass #skip the self
+                else:
+                    param_str = params_name[i]
+                    if params_opt_or_req[i] == 'OPT':
+                        param_str = param_str + '=pythoncom.Empty'
+                    params.append(param_str)
+            params = ', '.join(params)
+            w(f, ('(',self_or_cls,', ', params, '):'), tabs=0, nle=1)
+        else:
+            w(f, ('(',self_or_cls,'):'), tabs=0, nle=1)
         
         #TODO: write the documentation
         
+        #a list of simple types
+        simple_types = ('bln', 'int', 'lng', 'dbl', 'str', 'n', 'va')
+        
+        #create the arguments
+        args = []        
+        if num_params > 0:
+            for i in range(num_params):
+                if params_type[i] == 'self':
+                    args.append('self.rhino_id')
+                elif params_type[i] in simple_types:
+                    args.append(params_name[i])
+                elif params_type[i].startswith('_Object'):
+                    args.append(params_name[i] + '.rhino_id')
+                elif params_type[i].startswith('_Entity'):
+                    raise Exception('What is an Entity doing here')             
+                elif params_type[i].startswith('array_of'):
+                    if params_type[i][-3:] in simple_types:
+                        args.append(params_name[i])
+                    else:
+                        args.append('trouble')
+                else:
+                    raise Exception('Cannot understand type')
+        args = ', '.join(args)
+
+        
         #now write the function call
-        w(f, ('return _rsf.',function_name,'(', ', '.join(params_name), ')'), tabs=2, nls=1, nle=2)  
+        w(f, ('return p2r_f.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)  
     #---------------------------------------------------------------------------
     for class_str in sorted(data_dict.keys()):
         #split the list of classes
@@ -104,12 +147,30 @@ def write_rhinoscript_classes(data_dict):
         f.close()
     #---------------------------------------------------------------------------
 #===============================================================================
+# Write the init file
+#===============================================================================
+def write_init_file(data_dict):
+    f = open(out_folder + '__init__.py', mode='w')
+        
+    for class_str in sorted(data_dict.keys()):
+        #split the list of classes
+        class_list = class_str.split('.')
+        #get the class name
+        class_name = class_list[-1]
+        #get the module name
+        module_name = camel_to_underscore(class_name)
+        
+        w(f, ('from ', module_name, ' import ', class_name))
+        
+    #close the file
+    f.close()
+#===============================================================================
 # Run
 #===============================================================================
 if __name__ == '__main__':
     data_dict = get_data_dictionary()
-    print data_dict
     write_rhinoscript_classes(data_dict)
+    write_init_file(data_dict)
 
     print "done"
     
