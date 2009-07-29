@@ -1,5 +1,7 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
 def is_xform_identity(xform):
@@ -90,7 +92,7 @@ def xform_scale_4(point, scale):
 
     return _rsf.xform_scale_4(point, scale)
 
-def xform_screen_to_world(point, view=None, convert=None):
+def xform_screen_to_world(point, view=pythoncom.Empty, convert=pythoncom.Empty):
 
     return _rsf.xform_screen_to_world(point, view, convert)
 
@@ -106,7 +108,7 @@ def xform_world_to_c_plane(point, plane):
 
     return _rsf.xform_world_to_c_plane(point, plane)
 
-def xform_world_to_screen(point, view=None, convert=None):
+def xform_world_to_screen(point, view=pythoncom.Empty, convert=pythoncom.Empty):
 
     return _rsf.xform_world_to_screen(point, view, convert)
 

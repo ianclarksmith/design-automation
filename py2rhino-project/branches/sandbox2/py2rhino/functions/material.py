@@ -1,5 +1,7 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
 def add_material_to_layer(object):
@@ -30,39 +32,39 @@ def match_material_2(src_object, dest_objects):
 
     return _rsf.match_material_2(src_object, dest_objects)
 
-def material_bump(material_index, file_name=None):
+def material_bump(material_index, file_name=pythoncom.Empty):
 
     return _rsf.material_bump(material_index, file_name)
 
-def material_color(material_index, color=None):
+def material_color(material_index, color=pythoncom.Empty):
 
     return _rsf.material_color(material_index, color)
 
-def material_environment_map(material_index, file_name=None):
+def material_environment_map(material_index, file_name=pythoncom.Empty):
 
     return _rsf.material_environment_map(material_index, file_name)
 
-def material_name(material_index, name=None):
+def material_name(material_index, name=pythoncom.Empty):
 
     return _rsf.material_name(material_index, name)
 
-def material_reflective_color(material_index, color=None):
+def material_reflective_color(material_index, color=pythoncom.Empty):
 
     return _rsf.material_reflective_color(material_index, color)
 
-def material_shine(material_index, shine=None):
+def material_shine(material_index, shine=pythoncom.Empty):
 
     return _rsf.material_shine(material_index, shine)
 
-def material_texture(material_index, file_name=None):
+def material_texture(material_index, file_name=pythoncom.Empty):
 
     return _rsf.material_texture(material_index, file_name)
 
-def material_transparency(material_index, transparency=None):
+def material_transparency(material_index, transparency=pythoncom.Empty):
 
     return _rsf.material_transparency(material_index, transparency)
 
-def material_transparency_map(material_index, file_name=None):
+def material_transparency_map(material_index, file_name=pythoncom.Empty):
 
     return _rsf.material_transparency_map(material_index, file_name)
 

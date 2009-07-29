@@ -1,12 +1,14 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
 def add_directional_light(start_point, end_point):
 
     return _rsf.add_directional_light(start_point, end_point)
 
-def add_linear_light(start_point, end_point, width=None):
+def add_linear_light(start_point, end_point, width=pythoncom.Empty):
 
     return _rsf.add_linear_light(start_point, end_point, width)
 
@@ -22,7 +24,7 @@ def add_spot_light(origin, radius, apex):
 
     return _rsf.add_spot_light(origin, radius, apex)
 
-def enable_light(object, enable=None):
+def enable_light(object, enable=pythoncom.Empty):
 
     return _rsf.enable_light(object, enable)
 
@@ -58,7 +60,7 @@ def is_spot_light(object):
 
     return _rsf.is_spot_light(object)
 
-def light_color(object, color=None):
+def light_color(object, color=pythoncom.Empty):
 
     return _rsf.light_color(object, color)
 
@@ -66,15 +68,15 @@ def light_count():
 
     return _rsf.light_count()
 
-def light_direction(object, direction=None):
+def light_direction(object, direction=pythoncom.Empty):
 
     return _rsf.light_direction(object, direction)
 
-def light_location(object, location=None):
+def light_location(object, location=pythoncom.Empty):
 
     return _rsf.light_location(object, location)
 
-def light_name(object, name=None):
+def light_name(object, name=pythoncom.Empty):
 
     return _rsf.light_name(object, name)
 
@@ -86,15 +88,15 @@ def rectangular_light_plane(object):
 
     return _rsf.rectangular_light_plane(object)
 
-def spot_light_hardness(object, hardness=None):
+def spot_light_hardness(object, hardness=pythoncom.Empty):
 
     return _rsf.spot_light_hardness(object, hardness)
 
-def spot_light_radius(object, radius=None):
+def spot_light_radius(object, radius=pythoncom.Empty):
 
     return _rsf.spot_light_radius(object, radius)
 
-def spot_light_shadow_intensity(object, intensity=None):
+def spot_light_shadow_intensity(object, intensity=pythoncom.Empty):
 
     return _rsf.spot_light_shadow_intensity(object, intensity)
 

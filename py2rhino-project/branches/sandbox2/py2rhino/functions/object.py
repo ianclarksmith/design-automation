@@ -1,20 +1,22 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
-def add_object_mesh(object, quality=None, enable=None):
+def add_object_mesh(object, quality=pythoncom.Empty, enable=pythoncom.Empty):
 
     return _rsf.add_object_mesh(object, quality, enable)
 
-def box_morph_object(objects, box_points, copy=None):
+def box_morph_object(objects, box_points, copy=pythoncom.Empty):
 
     return _rsf.box_morph_object(objects, box_points, copy)
 
-def copy_objects(objects, start=None, end=None):
+def copy_objects(objects, start=pythoncom.Empty, end=pythoncom.Empty):
 
     return _rsf.copy_objects(objects, start, end)
 
-def copy_objects_2(translation=None):
+def copy_objects_2(translation=pythoncom.Empty):
 
     return _rsf.copy_objects_2(translation)
 
@@ -22,11 +24,11 @@ def delete_objects(objects):
 
     return _rsf.delete_objects(objects)
 
-def enable_object_mesh(objects, enable=None):
+def enable_object_mesh(objects, enable=pythoncom.Empty):
 
     return _rsf.enable_object_mesh(objects, enable)
 
-def flash_object(objects, style=None):
+def flash_object(objects, style=pythoncom.Empty):
 
     return _rsf.flash_object(objects, style)
 
@@ -46,11 +48,11 @@ def is_object_hidden(object):
 
     return _rsf.is_object_hidden(object)
 
-def is_object_in_box(object, box, mode=None):
+def is_object_in_box(object, box, mode=pythoncom.Empty):
 
     return _rsf.is_object_in_box(object, box, mode)
 
-def is_object_in_group(object, group=None):
+def is_object_in_group(object, group=pythoncom.Empty):
 
     return _rsf.is_object_in_group(object, group)
 
@@ -82,7 +84,7 @@ def is_object_valid(object):
 
     return _rsf.is_object_valid(object)
 
-def is_visible_in_view(object, view=None):
+def is_visible_in_view(object, view=pythoncom.Empty):
 
     return _rsf.is_visible_in_view(object, view)
 
@@ -90,11 +92,11 @@ def lock_objects(objects):
 
     return _rsf.lock_objects(objects)
 
-def match_object_attributes(targets, source=None):
+def match_object_attributes(targets, source=pythoncom.Empty):
 
     return _rsf.match_object_attributes(targets, source)
 
-def mirror_objects(objects, start_pt, end_pt, copy=None):
+def mirror_objects(objects, start_pt, end_pt, copy=pythoncom.Empty):
 
     return _rsf.mirror_objects(objects, start_pt, end_pt, copy)
 
@@ -106,11 +108,11 @@ def move_objects_2(translation):
 
     return _rsf.move_objects_2(translation)
 
-def object_color(objects, color=None):
+def object_color(objects, color=pythoncom.Empty):
 
     return _rsf.object_color(objects, color)
 
-def object_color_source(objects, source=None):
+def object_color_source(objects, source=pythoncom.Empty):
 
     return _rsf.object_color_source(objects, source)
 
@@ -118,7 +120,7 @@ def object_description(object):
 
     return _rsf.object_description(object)
 
-def object_dump(object, type=None):
+def object_dump(object, type=pythoncom.Empty):
 
     return _rsf.object_dump(object, type)
 
@@ -130,19 +132,19 @@ def object_has_mesh(object):
 
     return _rsf.object_has_mesh(object)
 
-def object_layer(objects, layer=None):
+def object_layer(objects, layer=pythoncom.Empty):
 
     return _rsf.object_layer(objects, layer)
 
-def object_layout(object, layout=None, return_name=None):
+def object_layout(object, layout=pythoncom.Empty, return_name=pythoncom.Empty):
 
     return _rsf.object_layout(object, layout, return_name)
 
-def object_linetype(objects, layer=None):
+def object_linetype(objects, layer=pythoncom.Empty):
 
     return _rsf.object_linetype(objects, layer)
 
-def object_linetype_source(objects, source=None):
+def object_linetype_source(objects, source=pythoncom.Empty):
 
     return _rsf.object_linetype_source(objects, source)
 
@@ -150,63 +152,63 @@ def object_material_index(object):
 
     return _rsf.object_material_index(object)
 
-def object_material_source(objects, source=None):
+def object_material_source(objects, source=pythoncom.Empty):
 
     return _rsf.object_material_source(objects, source)
 
-def object_mesh_density(object, density=None):
+def object_mesh_density(object, density=pythoncom.Empty):
 
     return _rsf.object_mesh_density(object, density)
 
-def object_mesh_max_angle(object, angle=None):
+def object_mesh_max_angle(object, angle=pythoncom.Empty):
 
     return _rsf.object_mesh_max_angle(object, angle)
 
-def object_mesh_max_aspect_ratio(object, ratio=None):
+def object_mesh_max_aspect_ratio(object, ratio=pythoncom.Empty):
 
     return _rsf.object_mesh_max_aspect_ratio(object, ratio)
 
-def object_mesh_max_dist_edge_to_srf(object, distance=None):
+def object_mesh_max_dist_edge_to_srf(object, distance=pythoncom.Empty):
 
     return _rsf.object_mesh_max_dist_edge_to_srf(object, distance)
 
-def object_mesh_max_edge_length(object, length=None):
+def object_mesh_max_edge_length(object, length=pythoncom.Empty):
 
     return _rsf.object_mesh_max_edge_length(object, length)
 
-def object_mesh_min_edge_length(object, length=None):
+def object_mesh_min_edge_length(object, length=pythoncom.Empty):
 
     return _rsf.object_mesh_min_edge_length(object, length)
 
-def object_mesh_min_initial_grid_quads(object, quads=None):
+def object_mesh_min_initial_grid_quads(object, quads=pythoncom.Empty):
 
     return _rsf.object_mesh_min_initial_grid_quads(object, quads)
 
-def object_mesh_quality(object, quality=None):
+def object_mesh_quality(object, quality=pythoncom.Empty):
 
     return _rsf.object_mesh_quality(object, quality)
 
-def object_mesh_settings(object, settings=None):
+def object_mesh_settings(object, settings=pythoncom.Empty):
 
     return _rsf.object_mesh_settings(object, settings)
 
-def object_names(objects, names=None):
+def object_names(objects, names=pythoncom.Empty):
 
     return _rsf.object_names(objects, names)
 
-def object_print_color(objects, color=None):
+def object_print_color(objects, color=pythoncom.Empty):
 
     return _rsf.object_print_color(objects, color)
 
-def object_print_color_source(objects, source=None):
+def object_print_color_source(objects, source=pythoncom.Empty):
 
     return _rsf.object_print_color_source(objects, source)
 
-def object_print_width(objects, width=None):
+def object_print_width(objects, width=pythoncom.Empty):
 
     return _rsf.object_print_width(objects, width)
 
-def object_print_width_source(objects, source=None):
+def object_print_width_source(objects, source=pythoncom.Empty):
 
     return _rsf.object_print_width_source(objects, source)
 
@@ -218,23 +220,23 @@ def object_type(object):
 
     return _rsf.object_type(object)
 
-def object_u_r_l(objects, u_r_l=None):
+def object_u_r_l(objects, u_r_l=pythoncom.Empty):
 
     return _rsf.object_u_r_l(objects, u_r_l)
 
-def orient_objects(objects, reference, target, flags=None):
+def orient_objects(objects, reference, target, flags=pythoncom.Empty):
 
     return _rsf.orient_objects(objects, reference, target, flags)
 
-def remap_objects(object, src_plane, dst_plane, copy=None):
+def remap_objects(object, src_plane, dst_plane, copy=pythoncom.Empty):
 
     return _rsf.remap_objects(object, src_plane, dst_plane, copy)
 
-def rotate_objects(objects, point, angle, axis=None, copy=None):
+def rotate_objects(objects, point, angle, axis=pythoncom.Empty, copy=pythoncom.Empty):
 
     return _rsf.rotate_objects(objects, point, angle, axis, copy)
 
-def scale_objects(objects, origin, scale, copy=None):
+def scale_objects(objects, origin, scale, copy=pythoncom.Empty):
 
     return _rsf.scale_objects(objects, origin, scale, copy)
 
@@ -242,7 +244,7 @@ def select_objects(objects):
 
     return _rsf.select_objects(objects)
 
-def shear_objects(objects, origin, ref_pt, scale, copy=None):
+def shear_objects(objects, origin, ref_pt, scale, copy=pythoncom.Empty):
 
     return _rsf.shear_objects(objects, origin, ref_pt, scale, copy)
 
@@ -250,7 +252,7 @@ def show_objects(objects):
 
     return _rsf.show_objects(objects)
 
-def transform_objects(objects, matrix, copy=None):
+def transform_objects(objects, matrix, copy=pythoncom.Empty):
 
     return _rsf.transform_objects(objects, matrix, copy)
 

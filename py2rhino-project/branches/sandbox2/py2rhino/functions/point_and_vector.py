@@ -1,5 +1,7 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
 def is_vector_parallel_to(vector_1, vector_2):
@@ -22,7 +24,7 @@ def point_add(point_1, point_2):
 
     return _rsf.point_add(point_1, point_2)
 
-def point_array_bounding_box(points, view=None, world_coords=None):
+def point_array_bounding_box(points, view=pythoncom.Empty, world_coords=pythoncom.Empty):
 
     return _rsf.point_array_bounding_box(points, view, world_coords)
 
@@ -34,7 +36,7 @@ def point_array_transform(points, xform):
 
     return _rsf.point_array_transform(points, xform)
 
-def point_compare(point_1, point_2, tolerance=None):
+def point_compare(point_1, point_2, tolerance=pythoncom.Empty):
 
     return _rsf.point_compare(point_1, point_2, tolerance)
 
@@ -54,7 +56,7 @@ def point_transform(point, xform):
 
     return _rsf.point_transform(point, xform)
 
-def points_are_coplanar(points, tolerance=None):
+def points_are_coplanar(points, tolerance=pythoncom.Empty):
 
     return _rsf.points_are_coplanar(points, tolerance)
 

@@ -1,12 +1,14 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
-def add_layer(layer=None, color=None, visible=None, locked=None, parent=None):
+def add_layer(layer=pythoncom.Empty, color=pythoncom.Empty, visible=pythoncom.Empty, locked=pythoncom.Empty, parent=pythoncom.Empty):
 
     return _rsf.add_layer(layer, color, visible, locked, parent)
 
-def current_layer(layer=None):
+def current_layer(layer=pythoncom.Empty):
 
     return _rsf.current_layer(layer)
 
@@ -74,7 +76,7 @@ def layer_children(layer):
 
     return _rsf.layer_children(layer)
 
-def layer_color(layer, color=None):
+def layer_color(layer, color=pythoncom.Empty):
 
     return _rsf.layer_color(layer, color)
 
@@ -82,11 +84,11 @@ def layer_count():
 
     return _rsf.layer_count()
 
-def layer_linetype(layer, linetype=None):
+def layer_linetype(layer, linetype=pythoncom.Empty):
 
     return _rsf.layer_linetype(layer, linetype)
 
-def layer_locked(layer, visible=None):
+def layer_locked(layer, visible=pythoncom.Empty):
 
     return _rsf.layer_locked(layer, visible)
 
@@ -94,11 +96,11 @@ def layer_material_index(layer):
 
     return _rsf.layer_material_index(layer)
 
-def layer_mode(layer, mode=None):
+def layer_mode(layer, mode=pythoncom.Empty):
 
     return _rsf.layer_mode(layer, mode)
 
-def layer_names(sort=None):
+def layer_names(sort=pythoncom.Empty):
 
     return _rsf.layer_names(sort)
 
@@ -106,19 +108,19 @@ def layer_order(layer):
 
     return _rsf.layer_order(layer)
 
-def layer_print_color(layer, color=None):
+def layer_print_color(layer, color=pythoncom.Empty):
 
     return _rsf.layer_print_color(layer, color)
 
-def layer_print_width(layer, width=None):
+def layer_print_width(layer, width=pythoncom.Empty):
 
     return _rsf.layer_print_width(layer, width)
 
-def layer_visible(layer, visible=None):
+def layer_visible(layer, visible=pythoncom.Empty):
 
     return _rsf.layer_visible(layer, visible)
 
-def parent_layer(layer, parent=None):
+def parent_layer(layer, parent=pythoncom.Empty):
 
     return _rsf.parent_layer(layer, parent)
 

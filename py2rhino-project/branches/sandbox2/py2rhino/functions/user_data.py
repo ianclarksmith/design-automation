@@ -1,20 +1,22 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
 def attribute_data_count(object):
 
     return _rsf.attribute_data_count(object)
 
-def delete_attribute_data(object, section=None, entry=None):
+def delete_attribute_data(object, section=pythoncom.Empty, entry=pythoncom.Empty):
 
     return _rsf.delete_attribute_data(object, section, entry)
 
-def delete_document_data(section=None, entry=None):
+def delete_document_data(section=pythoncom.Empty, entry=pythoncom.Empty):
 
     return _rsf.delete_document_data(section, entry)
 
-def delete_object_data(object, section=None, entry=None):
+def delete_object_data(object, section=pythoncom.Empty, entry=pythoncom.Empty):
 
     return _rsf.delete_object_data(object, section, entry)
 
@@ -22,19 +24,19 @@ def document_data_count():
 
     return _rsf.document_data_count()
 
-def get_attribute_data(object, section=None, entry=None):
+def get_attribute_data(object, section=pythoncom.Empty, entry=pythoncom.Empty):
 
     return _rsf.get_attribute_data(object, section, entry)
 
-def get_document_data(section=None, entry=None):
+def get_document_data(section=pythoncom.Empty, entry=pythoncom.Empty):
 
     return _rsf.get_document_data(section, entry)
 
-def get_object_data(object, section=None, entry=None):
+def get_object_data(object, section=pythoncom.Empty, entry=pythoncom.Empty):
 
     return _rsf.get_object_data(object, section, entry)
 
-def get_user_text(object, key=None, attach_to_geometry=None):
+def get_user_text(object, key=pythoncom.Empty, attach_to_geometry=pythoncom.Empty):
 
     return _rsf.get_user_text(object, key, attach_to_geometry)
 
@@ -70,7 +72,7 @@ def set_object_data(object, section, entry, value):
 
     return _rsf.set_object_data(object, section, entry, value)
 
-def set_user_text(object, key, value=None, attach_to_geometry=None):
+def set_user_text(object, key, value=pythoncom.Empty, attach_to_geometry=pythoncom.Empty):
 
     return _rsf.set_user_text(object, key, value, attach_to_geometry)
 

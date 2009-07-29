@@ -1,3 +1,4 @@
+import pythoncom
 #------------------------------------------------------------------------------ 
 # Copied from comtypes\automation.py
 # VARIANT, in all it's glory.
@@ -55,23 +56,26 @@ VT_ILLEGAL = 65535
 VT_ILLEGALMASKED = 4095
 VT_TYPEMASK = 4095
 #------------------------------------------------------------------------------ 
-def flatten_params(arrIn):
+def flatten_params(params):
     """helper method to flatten any arrays into one-dimensional arrays compatible with RhinoScript"""
-    if arrIn == None:
+    if params == None:
         return None
-    elif isinstance(arrIn, (list, tuple)):
-        arrOut = []
-        for val in arrIn:
+    if params == pythoncom.Empty:
+        return pythoncom.Empty
+    elif isinstance(params, (list, tuple)):
+        flat_params = ()
+        for val in params:
             if isinstance(val, tuple):
-                arrOut += val
+                flat_params += val
             elif isinstance(val, list):
-                arrOut += tuple(val)
+                flat_params += tuple(val)
             else:
-                arrOut += [val]
-        return arrOut
+                flat_params += (val,)
+        return flat_params
     else:
-        return [arrIn,]
+        return (params,)
 #------------------------------------------------------------------------------ 
+"""
 def select_params(params, params_required, params_magic_numbers, params_flattened):
     tmp_params_magic_numbers = []
     tmp_params_flattened = []
@@ -81,24 +85,26 @@ def select_params(params, params_required, params_magic_numbers, params_flattene
         add_param = False
         if params_required[i]:
             add_param = True
-        if not params_required[i]:
+        else:
             if params[i] != None:
                 add_param = True
-            if params_magic_numbers[i][0] == VT_BOOL:
-                add_param = True
-                params_flattened[i] = False
+            #if params_magic_numbers[i][0] == VT_BOOL:
+            #    add_param = True
+            #    params_flattened[i] = False
         if add_param:
             tmp_params_magic_numbers.append(params_magic_numbers[i])
             tmp_params_flattened.append(params_flattened[i])
-    
+        else:
+            tmp_params_magic_numbers.append(params_magic_numbers[i])
+            tmp_params_flattened.append(pythoncom.Empty)          
     return (tuple(tmp_params_magic_numbers), tuple(tmp_params_flattened))
-            
+"""
 #===============================================================================
 # Run some test
 #===============================================================================
 if __name__ == '__main__':
-    print flatten([[1,[2,3]],[4,5,6]])
-    print flatten(((1,(2,3)),(4,5,6)))
-    print flatten((4,5,6))
-    print flatten(None)
+    print flatten_params([[1,[2,3]],[4,5,6]])
+    print flatten_params(((1,(2,3)),(4,5,6)))
+    print flatten_params((4,5,6))
+    print flatten_params(None)
 

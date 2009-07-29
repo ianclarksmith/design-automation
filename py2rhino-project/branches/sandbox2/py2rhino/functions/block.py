@@ -1,5 +1,7 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
 def block_container_count(block):
@@ -14,7 +16,7 @@ def block_count():
 
     return _rsf.block_count()
 
-def block_description(block, text=None):
+def block_description(block, text=pythoncom.Empty):
 
     return _rsf.block_description(block, text)
 
@@ -38,7 +40,7 @@ def block_instances(block):
 
     return _rsf.block_instances(block)
 
-def block_names(sort=None):
+def block_names(sort=pythoncom.Empty):
 
     return _rsf.block_names(sort)
 
@@ -54,11 +56,11 @@ def block_path(block):
 
     return _rsf.block_path(block)
 
-def block_u_r_l(block, u_r_l=None):
+def block_u_r_l(block, u_r_l=pythoncom.Empty):
 
     return _rsf.block_u_r_l(block, u_r_l)
 
-def block_u_r_l_tag(block, u_r_l=None):
+def block_u_r_l_tag(block, u_r_l=pythoncom.Empty):
 
     return _rsf.block_u_r_l_tag(block, u_r_l)
 
@@ -70,7 +72,7 @@ def explode_block_instance(object):
 
     return _rsf.explode_block_instance(object)
 
-def insert_block(name, point, scale=None, angle=None, normal=None):
+def insert_block(name, point, scale=pythoncom.Empty, angle=pythoncom.Empty, normal=pythoncom.Empty):
 
     return _rsf.insert_block(name, point, scale, angle, normal)
 
@@ -86,7 +88,7 @@ def is_block_embedded(block):
 
     return _rsf.is_block_embedded(block)
 
-def is_block_in_use(block, where=None):
+def is_block_in_use(block, where=pythoncom.Empty):
 
     return _rsf.is_block_in_use(block, where)
 
