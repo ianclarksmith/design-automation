@@ -2,18 +2,17 @@
 
 import exceptions
 import pythoncom
-import py2rhino
-from py2rhino._util import *
-from py2rhino._rhinoscript import IRhinoScript
+from _util import *
+from _rhinoscript import IRhinoScript
 
 class _RhinoscriptFunctions(IRhinoScript):
 
     # Class constructor
-    def __init__(self):
-        if py2rhino._rso is None:
+    def __init__(self, _rso):
+        if _rso is None:
             raise exceptions.Exception
         # initialisation code coped from win32com.client.DispatchBaseClass
-        oobj = py2rhino._rso
+        oobj = _rso
         oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)
         self.__dict__["_oleobj_"] = oobj
 
