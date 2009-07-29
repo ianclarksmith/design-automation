@@ -41,7 +41,7 @@ class View(object):
             format = "." + format
         py2ecotect.conversation.Exec("view.copy" + format)
 
-    def draw_arrow2d(self, x, y, size = ""):
+    def draw_arrow2d(self, offset, size = ""):
         """
         
         Draws a 2D arrow object from the origin point to the specified 2D screen 
@@ -50,20 +50,22 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y 
-        Represents a position on the screen in the X and Y axis as an offset 
-        from the top-left corner in pixels of the display canvas or control 
-        being used. 
+        offset 
+        A list of two values that represent the position on the screen in the 
+        X and Y axis as an offset from the top-left corner in pixels of the 
+        display canvas or control being used. 
         
         [size] 
         This optional parameter sets the size of the object in pixels.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.arrow2d", x, y, 
+        arg_str = string_util._convert_args_to_string("view.draw.arrow2d", 
+                                                      offset[0],
+                                                      offset[1], 
                                                       size)
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_arrowto(self, x, y, z, size = ""):
+    def draw_arrowto(self, absolute_position, size = ""):
         """
         
         Draws a 3D arrow object from the origin point to the specified 3D world 
@@ -72,20 +74,22 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space. 
+        absolute_position
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
         
         [size] 
         This optional parameter sets the size of the object in the current 
         modelling units.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.arrowto", x, y, 
-                                                      z, size)
+        arg_str = string_util._convert_args_to_string("view.draw.arrowto", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2], size)
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_cross(self, x, y, z):
+    def draw_cross(self, absolute_position):
         """
         
         Draws a 2D cross object at the specified 3D world position in the 
@@ -94,15 +98,18 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space. 
+        absolute_position
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space.  
 
         """
-        arg_str = string_util._convert_args_to_string("view.draw.cross", x, y, z)
+        arg_str = string_util._convert_args_to_string("view.draw.cross", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_line2d(self, x, y):
+    def draw_line2d(self, offset):
         """
         
         Draws a 2D line object from the origin point to the specified 2D screen 
@@ -111,16 +118,18 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y 
-        Represents a position on the screen in the X and Y axis as an offset 
-        from the top-left corner in pixels of the display canvas or control 
-        being used.
+        offset 
+        A list of two values that represent the position on the screen in the 
+        X and Y axis as an offset from the top-left corner in pixels of the 
+        display canvas or control being used.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.line2d", x, y)
+        arg_str = string_util._convert_args_to_string("view.draw.line2d", 
+                                                      offset[0],
+                                                      offset[1])
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_lineto(self, x, y, z):
+    def draw_lineto(self, absolute_position):
         """
         
         Draws a 3D line object from the origin point to the specified 3D world 
@@ -129,15 +138,18 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space.
+        absolute_position
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.lineto", x, y, z)
+        arg_str = string_util._convert_args_to_string("view.draw.lineto", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_move2d(self, x, y):
+    def draw_move2d(self, offset):
         """
         
         Moves the 2D origin point to the specified 2D screen location in the 
@@ -146,16 +158,18 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y 
-        Represents a position on the screen in the X and Y axis as an offset 
-        from the top-left corner in pixels of the display canvas or control 
-        being used.
+        offset 
+        A list of two values that represent the position on the screen in the 
+        X and Y axis as an offset from the top-left corner in pixels of the 
+        display canvas or control being used.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.move2d", x, y)
+        arg_str = string_util._convert_args_to_string("view.draw.move2d", 
+                                                      offset[0],
+                                                      offset[1])
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_moveto(self, x, y, z):
+    def draw_moveto(self, absolute_position):
         """
         
         Moves the 3D origin point to the specified 3D world position within the 
@@ -164,15 +178,18 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space.
+        absolute_position
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.moveto", x, y, z)
+        arg_str = string_util._convert_args_to_string("view.draw.moveto", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_pixel(self, x, y, z):
+    def draw_pixel(self, absolute_position):
         """
         
         Draws a pixel at the specified 3D world position within the curent view. 
@@ -180,15 +197,18 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space.
+        absolute_position
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.pixel", x, y, z)
+        arg_str = string_util._convert_args_to_string("view.draw.pixel", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_point(self, x, y ,z):
+    def draw_point(self, absolute_position):
         """
         
         Draws a point at the specified 3D world position within the current 
@@ -197,15 +217,18 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space.
+        absolute_position
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.point", x, y, z)
+        arg_str = string_util._convert_args_to_string("view.draw.point", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_sphere(self, x, y, z, radius):
+    def draw_sphere(self, absolute_position, radius):
         """
         
         Draws a 3D sphere object at the specified 3D world position in the current view. 
@@ -213,17 +236,22 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 dimensional model space. 
+        absolute_position
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space.
+                
         radius 
         The radius of the sphere in the current modelling units.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.sphere", x, y, 
-                                                      z, sphere)
+        arg_str = string_util._convert_args_to_string("view.draw.sphere", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2], 
+                                                      radius)
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_text(self, x, y, z, text):
+    def draw_text(self, absolute_position, text):
         """
         
         Displays a string of text at the specified 3D world position inside the 
@@ -232,19 +260,21 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space. 
+        absolute_position
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
         
         text 
         The text string to be displayed.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.text", x, y, 
-                                                      z, text)
+        arg_str = string_util._convert_args_to_string("view.draw.text", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2], text)
         py2ecotect.conversation.Exec(arg_str)
 
-    def draw_text2d(self, x, y, string):
+    def draw_text2d(self, offset, string):
         """
         
         Displays a string of text at the specified 3D world position inside the 
@@ -253,16 +283,18 @@ class View(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x, y 
-        Represents a position on the screen in the X and Y axis as an offset 
-        from the top-left corner in pixels of the display canvas or control 
-        being used. 
+        offset 
+        A list of two values that represent the position on the screen in the 
+        X and Y axis as an offset from the top-left corner in pixels of the 
+        display canvas or control being used. 
         
         string 
         The text string to be displayed.
         
         """
-        arg_str = string_util._convert_args_to_string("view.draw.text2d", x, y, 
+        arg_str = string_util._convert_args_to_string("view.draw.text2d", 
+                                                      offset[0],
+                                                      offset[1], 
                                                       string)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -332,7 +364,7 @@ class View(object):
         """
         py2ecotect.conversation.Exec("view.minimise")
 
-    def mouse_event(self, action, x, y):
+    def mouse_event(self, action, position):
         """
         
         Simulates mouse events within the main model canvas. For more 
@@ -344,11 +376,9 @@ class View(object):
         action 
         A token corresponding to the table below. 
         
-        x 
-        The position at which to trigger the mouse event on the X-Axis in pixels. 
-        
-        y 
-        The position at which to trigger the mouse event on the Y-Axis in pixels. 
+        position
+        A list of two values that represent the position at which to trigger 
+        the mouse event on the XY-Axis in pixels.
         
         Relevant Data Table(s)
         
@@ -371,7 +401,8 @@ class View(object):
 
         """
         arg_str = string_util._convert_args_to_string("view.mouseevent", 
-                                                      action, x, y)
+                                                      action, 
+                                                      position[0], position[1])
         py2ecotect.conversation.Exec(arg_str)
 
     def move_in(self, shift = False):
@@ -820,7 +851,7 @@ class View(object):
         val = py2ecotect.conversation.Request("get.view.grid.max")
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_grid_max(self, x, y, z):
+    def set_grid_max(self, absolute_position):
         """
         
         This method/property is yet to be documented. 
@@ -828,13 +859,15 @@ class View(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a maximum 
-        point in 3 dimensional model space.
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a maximum point in 3 dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("set.view.grid.max", x, y, 
-                                                      z)
+        arg_str = string_util._convert_args_to_string("set.view.grid.max", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
     def get_grid_min(self):
@@ -856,7 +889,7 @@ class View(object):
         val = py2ecotect.conversation.Request("get.view.grid.min")
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_grid_min(self, x, y, z):
+    def set_grid_min(self, absolute_position):
         """
         
         Sets the minimum starting position of the current display grid. 
@@ -864,13 +897,15 @@ class View(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a minimum 
-        point in 3 dimensional model space. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a minimum point in 3 dimensional model space. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.view.grid.min", x, y, 
-                                                      z)
+        arg_str = string_util._convert_args_to_string("set.view.grid.min", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
     def get_pen(self):
@@ -919,7 +954,7 @@ class View(object):
                                                       width, alpha)
         py2ecotect.conversation.Exec(arg_str)
         
-    def get_point(self, x, y, z):
+    def get_point(self, absolute_position):
         """
         
         Returns the 2D screen position of the specified 3D point within the 
@@ -928,9 +963,9 @@ class View(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -940,7 +975,10 @@ class View(object):
         from the top-left corner in pixels. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.view.point", x, y, z)
+        arg_str = string_util._convert_args_to_string("get.view.point", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float)
 

@@ -18,7 +18,7 @@ class Selection(object):
         """
         py2ecotect.conversation.Exec("selection.delete")
     
-    def duplicate(self, dx, dy, dz):
+    def duplicate(self, offset_distance):
         """
         
         Creates a duplicate copy of currently selected object(s). 
@@ -26,13 +26,16 @@ class Selection(object):
         Parameter(s)
         This command takes the following parameters.
         
-        dx, dy, dz 
-        A value representing the offset distance in each of the X, Y and Z axis, 
-        given in model coordinates, where the duplicate will be placed. 
+        offset_distance 
+        A list of three values that represent the offset distance in each of the 
+        X, Y and Z axis, given in model coordinates, where the duplicate will 
+        be placed. 
         
         """
-        arg_str = string_util._convert_args_to_string("selection.duplicate", dx, 
-                                                      dy, dz)
+        arg_str = string_util._convert_args_to_string("selection.duplicate", 
+                                                      offset_distance[0],
+                                                      offset_distance[1],
+                                                      offset_distance[2])
         py2ecotect.conversation.Exec(arg_str)
         
     def equation(self):
@@ -47,7 +50,7 @@ class Selection(object):
         """
         py2ecotect.conversation.Exec("selection.equation")
     
-    def extrude(self, dx, dy, dz):
+    def extrude(self, offset_distance):
         """
         
         Extrudes currently selected object(s). 
@@ -55,13 +58,16 @@ class Selection(object):
         Parameter(s)
         This command takes the following parameters.
         
-        dx, dy, dz 
-        A value representing the offset distance in each of the X, Y and Z axis, 
-        given in model coordinates. 
+        offset_distance 
+        A list of three values that represent the offset distance in each of the 
+        X, Y and Z axis, given in model coordinates, where the duplicate will 
+        be placed. 
         
         """
-        arg_str = string_util._convert_args_to_string("selection.extrude", dx, 
-                                                      dy, dz)
+        arg_str = string_util._convert_args_to_string("selection.extrude", 
+                                                      offset_distance[0],
+                                                      offset_distance[1],
+                                                      offset_distance[2])
         py2ecotect.conversation.Exec(arg_str)
     
     def group(self):
@@ -88,7 +94,7 @@ class Selection(object):
         """
         py2ecotect.conversation.Exec("selection.link")
     
-    def move(self, dx, dy, dz):
+    def move(self, offset_distance):
         """
         
         Moves the currently selected object(s). 
@@ -96,13 +102,16 @@ class Selection(object):
         Parameter(s)
         This command takes the following parameters.
         
-        dx, dy, dz 
-        A value representing the offset distance in each of the X, Y and Z axis, 
-        given in model coordinates. 
+        offset_distance 
+        A list of three values that represent the offset distance in each of the 
+        X, Y and Z axis, given in model coordinates, where the duplicate will 
+        be placed. 
         
         """
-        arg_str = string_util._convert_args_to_string("selection.move", dx, dy, 
-                                                      dz)
+        arg_str = string_util._convert_args_to_string("selection.move", 
+                                                      offset_distance[0],
+                                                      offset_distance[1],
+                                                      offset_distance[2])
         py2ecotect.conversation.Exec(arg_str)
     
     def normal(self, type):
@@ -225,7 +234,7 @@ class Selection(object):
                                                       azi, alt)
         py2ecotect.conversation.Exec(arg_str)
     
-    def rotate_axis(self, x, y, z):
+    def rotate_axis(self, rotate_angle):
         """
         
         Rotates the selected object(s) by the given angles in each axis. 
@@ -233,18 +242,15 @@ class Selection(object):
         Parameter(s)
         This command takes the following parameters.
         
-        x 
-        The angle to rotate around the X-Axis, in decimal degrees. 
-        
-        y 
-        The angle to rotate around the Y-Axis, in decimal degrees. 
-        
-        z 
-        The angle to rotate around the Z-Axis, in decimal degrees.
+        rotate_angle
+        A list of three values that represent the angle to rotate around the 
+        X-Axis, Y-Axis, and Z-Axis, in decimal degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("selection.rotateaxis", x, 
-                                                      y, z)
+        arg_str = string_util._convert_args_to_string("selection.rotateaxis", 
+                                                      rotate_angle[0],
+                                                      rotate_angle[1],
+                                                      rotate_angle[2])
         py2ecotect.conversation.Exec(arg_str)
     
     def rotate_reverse(self, azi, alt):
@@ -268,7 +274,7 @@ class Selection(object):
                                                       azi, alt)
         py2ecotect.conversation.Exec(arg_str)
     
-    def scale(self, dx, dy, dz):
+    def scale(self, scale_factor):
         """
         
         Scales currently selected objects by a factor of dx, dy and dz in the 
@@ -278,18 +284,15 @@ class Selection(object):
         Parameter(s)
         This command takes the following parameters.
         
-        dx 
-        The scaling factor along the X-Axis. 
-        
-        dy 
-        The scaling factor along the Y-Axis. 
-        
-        dz 
-        The scaling factor along the Z-Axis. 
+        scale_factor
+        A list of three values that represent the scaling factor along the 
+        X, Y, Z Axis
         
         """
-        arg_str = string_util._convert_args_to_string("selection.scale", dx, dy, 
-                                                      dz)
+        arg_str = string_util._convert_args_to_string("selection.scale", 
+                                                      scale_factor[0],
+                                                      scale_factor[1],
+                                                      scale_factor[2])
         py2ecotect.conversation.Exec(arg_str)
     
     def spin(self, angle):
@@ -353,7 +356,7 @@ class Selection(object):
         """
         py2ecotect.conversation.Exec("selection.update")
     
-    def xform(self, trans, x, y, z):
+    def xform(self, trans, function_values):
         """
         
         Apply a generic transform to the selected object(s) in the model. 
@@ -365,8 +368,9 @@ class Selection(object):
         The transformation to use, given as a token corresponding to the 
         following Transformation Types table. 
         
-        x, y, z 
-        Coordinate values specified by the table below. 
+        function_values 
+        A list of three values that represent the coordinate values specified 
+        by the table below. 
         
         Relevant Data Table(s)
         
@@ -385,7 +389,9 @@ class Selection(object):
         
         """
         arg_str = string_util._convert_args_to_string("selection.xform", trans, 
-                                                      x, y, z)
+                                                      function_values[0], 
+                                                      function_values[1], 
+                                                      function_values[2])
         py2ecotect.conversation.Exec(arg_str)
     
     #===========================================================================
