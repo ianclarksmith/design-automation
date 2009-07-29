@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Movie(object):
     
@@ -18,7 +17,7 @@ class Movie(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("movie.addframe")
+        p2e.conversation.Exec("movie.addframe")
 
     def finish(self):
         """
@@ -31,7 +30,7 @@ class Movie(object):
         There are no parameters for this command.
  
         """
-        py2ecotect.conversation.Exec("movie.finish")
+        p2e.conversation.Exec("movie.finish")
 
     def play(self, filename):
         """
@@ -50,8 +49,8 @@ class Movie(object):
         Be aware of the issues with backslashes in filename parameters as described here. 
 
         """
-        arg_str = string_util._convert_args_to_string("movie.play", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("movie.play", filename)
+        p2e.conversation.Exec(arg_str)
 
     def record(self, filename):
         """
@@ -71,8 +70,8 @@ class Movie(object):
         Be aware of the issues with backslashes in filename parameters as described here.
 
         """
-        arg_str = string_util._convert_args_to_string("movie.record", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("movie.record", filename)
+        p2e.conversation.Exec(arg_str)
 
     def show(self, state = True):
         """
@@ -89,8 +88,8 @@ class Movie(object):
         hide it.
         
         """
-        arg_str = string_util._convert_args_to_string("movie.show", state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("movie.show", state)
+        p2e.conversation.Exec(arg_str)
         
     #===========================================================================
     # Properties
@@ -118,8 +117,8 @@ class Movie(object):
         0 or false is negative.
         
         """
-        val = py2ecotect.conversation.Request("get.movie.aero3d")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.movie.aero3d")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_aero_3d(self, state):
         """
@@ -142,9 +141,9 @@ class Movie(object):
         0 or false is negative.
         
         """
-        arg_str = string_util._convert_args_to_string("set.movie.aero3d", 
+        arg_str = p2e.string_util._convert_args_to_string("set.movie.aero3d", 
                                                      state)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_capture(self):
         """
@@ -175,8 +174,8 @@ class Movie(object):
         timer 2 On Timer  
 
         """
-        val = py2ecotect.conversation.Request("get.movie.capture")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.movie.capture")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_capture(self, type):
         """
@@ -200,9 +199,9 @@ class Movie(object):
         timer 2 On Timer  
 
         """
-        arg_str = string_util._convert_args_to_string("set.movie.capture", 
+        arg_str = p2e.string_util._convert_args_to_string("set.movie.capture", 
                                                      type)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_filename(self):
         """
@@ -221,8 +220,8 @@ class Movie(object):
         currently recorded.
         
         """
-        val = py2ecotect.conversation.Request("get.movie.filename")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.movie.filename")
+        return p2e.string_util._convert_str_to_type(val, str)
 
     def set_filename(self, filename):
         """
@@ -241,9 +240,9 @@ class Movie(object):
         currently recorded.
         
         """
-        arg_str = string_util._convert_args_to_string("set.movie.filename", 
+        arg_str = p2e.string_util._convert_args_to_string("set.movie.filename", 
                                                      filename)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_frame_rate(self):
         """
@@ -261,8 +260,8 @@ class Movie(object):
         The number of frames per second. 
 
         """
-        val = py2ecotect.conversation.Request("get.movie.framerate")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.movie.framerate")
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def set_frame_rate(self, parameter):
         """
@@ -279,9 +278,9 @@ class Movie(object):
         the recorded animation.
         
         """
-        arg_str = string_util._convert_args_to_string("set.movie.framerate", 
+        arg_str = p2e.string_util._convert_args_to_string("set.movie.framerate", 
                                                      parameter)
-        py2ecotect.conversation.Exec(arg_str)    
+        p2e.conversation.Exec(arg_str)    
 
     def get_size(self):
         """
@@ -311,8 +310,8 @@ class Movie(object):
         The height used for the animation recording, given in pixels.
         
         """
-        val = py2ecotect.conversation.Request("get.movie.size")
-        return string_util._convert_str_to_list(val, int, float, float)
+        val = p2e.conversation.Request("get.movie.size")
+        return p2e.string_util._convert_str_to_list(val, int, float, float)
 
     def set_size(self, width, height):
         """
@@ -338,9 +337,9 @@ class Movie(object):
         Sets the height to use for the animation recording, measured in pixels.
         
         """
-        arg_str = string_util._convert_args_to_string("set.movie.size", 
+        arg_str = p2e.string_util._convert_args_to_string("set.movie.size", 
                                                      width, height)
-        py2ecotect.conversation.Exec(arg_str)    
+        p2e.conversation.Exec(arg_str)    
 
     def get_source(self):
         """
@@ -367,8 +366,8 @@ class Movie(object):
         window 1 Main Window  
         
         """
-        val = py2ecotect.conversation.Request("get.movie.source")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.movie.source")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_source(self, src):
         """
@@ -407,8 +406,8 @@ class Movie(object):
         window 1 Main Window  
    
         """
-        arg_str = string_util._convert_args_to_string("set.movie.source", src)
-        py2ecotect.conversation.Exec(arg_str)    
+        arg_str = p2e.string_util._convert_args_to_string("set.movie.source", src)
+        p2e.conversation.Exec(arg_str)    
     
     def get_type(self):
         """
@@ -442,8 +441,8 @@ class Movie(object):
         jpg 2 JPEG Files 
 
         """
-        val = py2ecotect.conversation.Request("get.movie.source")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.movie.source")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_type(self, type):
         """
@@ -473,8 +472,8 @@ class Movie(object):
         jpg 2 JPEG Files 
 
         """
-        arg_str = string_util._convert_args_to_string("set.movie.type", type)
-        py2ecotect.conversation.Exec(arg_str)    
+        arg_str = p2e.string_util._convert_args_to_string("set.movie.type", type)
+        p2e.conversation.Exec(arg_str)    
 
     #===========================================================================
     # Properties    

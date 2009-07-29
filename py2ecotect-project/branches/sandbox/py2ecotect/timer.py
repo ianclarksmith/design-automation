@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Timer(object):
     
@@ -16,7 +15,7 @@ class Timer(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("timer.restart")
+        p2e.conversation.Exec("timer.restart")
     
     def start(self):
         """
@@ -27,7 +26,7 @@ class Timer(object):
         There are no parameters for this command.
 
         """
-        py2ecotect.conversation.Exec("timer.start")
+        p2e.conversation.Exec("timer.start")
         
     def stop(self):
         """
@@ -38,7 +37,7 @@ class Timer(object):
         There are no parameters for this command.
 
         """
-        py2ecotect.conversation.Exec("timer.stop")
+        p2e.conversation.Exec("timer.stop")
     
     #===========================================================================
     # Properties
@@ -60,8 +59,8 @@ class Timer(object):
         The number of times the timer has triggered since it was started. 
         
         """
-        val = py2ecotect.conversation.Request("get.timer.count")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.timer.count")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_count(self, count):
         """
@@ -76,8 +75,8 @@ class Timer(object):
         The number of timer triggers to report.
         
         """
-        arg_str = string_util._convert_args_to_string("set.timer.count", count)
-        py2ecotect.conversation.Exec(arg_str)     
+        arg_str = p2e.string_util._convert_args_to_string("set.timer.count", count)
+        p2e.conversation.Exec(arg_str)     
 
     def get_interval(self):
         """
@@ -97,8 +96,8 @@ class Timer(object):
         every second.
         
         """
-        val = py2ecotect.conversation.Request("get.timer.interval")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.timer.interval")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_interval(self, msec):
         """
@@ -116,8 +115,8 @@ class Timer(object):
         (20 times per second). 
         
         """
-        arg_str = string_util._convert_args_to_string("set.timer.interval", msec)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.timer.interval", msec)
+        p2e.conversation.Exec(arg_str)
 
     def get_running(self):
         """
@@ -135,8 +134,8 @@ class Timer(object):
         This is a boolean value where 1 means running and 0 means stopped. 
 
         """
-        val = py2ecotect.conversation.Request("get.timer.running")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.timer.running")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_running(self, running):
         """
@@ -153,9 +152,9 @@ class Timer(object):
         false stops it. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.timer.running", 
+        arg_str = p2e.string_util._convert_args_to_string("set.timer.running", 
                                                       running)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties

@@ -1,5 +1,4 @@
 import py2ecotect as p2e
-from py2ecotect import string_util
 
 class Node(object):
     _object = None

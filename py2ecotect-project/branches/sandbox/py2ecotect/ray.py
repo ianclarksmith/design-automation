@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Ray(object):
     
@@ -20,8 +19,8 @@ class Ray(object):
         not given, the entire ray is drawn.
         
         """
-        arg_str = string_util._convert_args_to_string("ray.draw", depth)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("ray.draw", depth)
+        p2e.conversation.Exec(arg_str)
 
     def shoot(self, type, azi, alt):
         """
@@ -51,9 +50,9 @@ class Ray(object):
         light 2 Rays reflect off opaque objects but pass through transparent objects. 
         
         """
-        arg_str = string_util._convert_args_to_string("ray.shoot", type, azi, 
+        arg_str = p2e.string_util._convert_args_to_string("ray.shoot", type, azi, 
                                                       alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def trace(self, type, offset_distance):
         """
@@ -82,11 +81,11 @@ class Ray(object):
         objects. 
 
         """
-        arg_str = string_util._convert_args_to_string("ray.trace", type, 
+        arg_str = p2e.string_util._convert_args_to_string("ray.trace", type, 
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     #===========================================================================
     # Properties
@@ -108,8 +107,8 @@ class Ray(object):
         An integer value giving the number of reflections.
         
         """
-        val = py2ecotect.conversation.Request("get.ray.depth")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.ray.depth")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_depth(self, depth):
         """
@@ -126,8 +125,8 @@ class Ray(object):
         points will initially default to the world origin.
         
         """
-        arg_str = string_util._convert_args_to_string("set.ray.depth", depth)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.ray.depth", depth)
+        p2e.conversation.Exec(arg_str)
     
     def get_max_depth(self):
         """
@@ -145,8 +144,8 @@ class Ray(object):
         An integer value giving the maximum number of reflections.
         
         """
-        val = py2ecotect.conversation.Request("get.ray.maxdepth")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.ray.maxdepth")
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def set_max_depth(self, depth):
         """
@@ -160,8 +159,8 @@ class Ray(object):
         An integer value specifying the maximum number of reflections.
         
         """
-        arg_str = string_util._convert_args_to_string("set.ray.maxdepth", depth)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.ray.maxdepth", depth)
+        p2e.conversation.Exec(arg_str)
     
     def get_object(self, depth):
         """
@@ -182,9 +181,9 @@ class Ray(object):
         
         """
         #TODO: check return value
-        arg_str = string_util._convert_args_to_string("get.ray.object", depth)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.ray.object", depth)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
         
     def set_object(self, depth, object):
         """
@@ -201,9 +200,9 @@ class Ray(object):
         The zero-based index of the object.
         
         """
-        arg_str = string_util._convert_args_to_string("set.ray.object", depth, 
+        arg_str = p2e.string_util._convert_args_to_string("set.ray.object", depth, 
                                                       object)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_position(self, depth):
         """
@@ -227,9 +226,9 @@ class Ray(object):
         The zero-based index of the object intersected.
         
         """
-        arg_str = string_util._convert_args_to_string("get.ray.position", depth)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, float, float, float, int)
+        arg_str = p2e.string_util._convert_args_to_string("get.ray.position", depth)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, float, float, float, int)
     
     def set_position(self, depth, absolute_position, object = ""):
         """
@@ -251,12 +250,12 @@ class Ray(object):
         intersected. 
                 
         """
-        arg_str = string_util._convert_args_to_string("set.ray.position", depth, 
+        arg_str = p2e.string_util._convert_args_to_string("set.ray.position", depth, 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2],
                                                       object)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_source(self):
         """
@@ -274,8 +273,8 @@ class Ray(object):
         dimensional model space. 
                 
         """
-        val = py2ecotect.conversation.Request("get.ray.source")
-        return string_util._convert_str_to_list(val, float, float, float)
+        val = p2e.conversation.Request("get.ray.source")
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
         
     def set_source(self, absolute_position):
         """
@@ -290,11 +289,11 @@ class Ray(object):
         X, Y and Z axis of the ray point in 3 dimensional model space. 
 
         """
-        arg_str = string_util._convert_args_to_string("set.ray.source", 
+        arg_str = p2e.string_util._convert_args_to_string("set.ray.source", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties

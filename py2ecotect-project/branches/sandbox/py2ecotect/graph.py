@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Graph(object):
     
@@ -19,8 +18,8 @@ class Graph(object):
     
         """
         #TODO: check parameter
-        arg_str = string_util._convert_args_to_string("graph.copy", format)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.copy", format)
+        p2e.conversation.Exec(arg_str)
     
     def dock(self, docked = True):
         """
@@ -38,8 +37,8 @@ class Graph(object):
         affirmative and 0 or false the negative. 
         
         """
-        arg_str = string_util._convert_args_to_string("graph.dock", docked)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.dock", docked)
+        p2e.conversation.Exec(arg_str)
     
     def draw(self):
         """
@@ -68,7 +67,7 @@ class Graph(object):
         There are no parameters for this command.
     
         """
-        py2ecotect.conversation.Exec("graph.draw")
+        p2e.conversation.Exec("graph.draw")
     
     def draw_arrow2d(self, offset, size = 0):
         """
@@ -88,9 +87,9 @@ class Graph(object):
         This optional parameter sets the size of the object in pixels. 
             
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.arrow2d", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.arrow2d", 
                                                       x, y, size)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_arrowto(self, absolute_position, size = 0):
         """
@@ -111,11 +110,11 @@ class Graph(object):
         modelling units.
             
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.arrowto", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.arrowto", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2], size)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_cross(self, absolute_position):
         """
@@ -132,11 +131,11 @@ class Graph(object):
         of its axial scales. 
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.cross", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.cross", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_line2d(self, offset):
         """
@@ -153,10 +152,10 @@ class Graph(object):
         display canvas or control being used. 
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.line2d", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.line2d", 
                                                       offset[0],
                                                       offset[1])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_lineto(self, absolute_position):
         """
@@ -174,11 +173,11 @@ class Graph(object):
         
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.lineto", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.lineto", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_move2d(self, offset):
         """
@@ -196,9 +195,9 @@ class Graph(object):
         display canvas or control being used. 
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.move2d", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.move2d", 
                                                       offset[0], offset[1])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def draw_moveto(self, absolute_position):    
         """
@@ -216,11 +215,11 @@ class Graph(object):
         
         """
         
-        arg_str = string_util._convert_args_to_string("graph.draw.moveto", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.moveto", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_pixel(self, absolute_position):
         """
@@ -236,11 +235,11 @@ class Graph(object):
         of its axial scales.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.pixel", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.pixel", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_point(self, absolute_position):
         """
@@ -257,11 +256,11 @@ class Graph(object):
         of its axial scales.
           
         """    
-        arg_str = string_util._convert_args_to_string("graph.draw.point", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.point", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_sphere(self, absolute_position, radius):
         """
@@ -281,12 +280,12 @@ class Graph(object):
         The radius of the sphere in the current modelling units.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.sphere", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.sphere", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2], 
                                                       radius)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_text(self, absolute_position, text):
         """
@@ -326,11 +325,11 @@ class Graph(object):
         FFFFFF is white, 000000 is black and 0000FF is blue etc. 
     
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.text", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.text", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2], text)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def draw_text2d(self, offset, string):
         """
@@ -370,11 +369,11 @@ class Graph(object):
         FFFFFF is white, 000000 is black and 0000FF is blue etc. 
     
         """
-        arg_str = string_util._convert_args_to_string("graph.draw.text2d", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.draw.text2d", 
                                                       offset[0], 
                                                       offset[1], 
                                                       string)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def mouse_event(self, action, location):
         """
@@ -412,10 +411,10 @@ class Graph(object):
         rdblclick Right mouse button double-clicked 
     
         """
-        arg_str = string_util._convert_args_to_string("graph.mouseevent", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.mouseevent", 
                                                       action, location[0], 
                                                       location[1])
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def pan_down(self, shift = True):
         """
@@ -431,8 +430,8 @@ class Graph(object):
         1 deg is used instead, as if the Shift key were pressed.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.pandown", shift)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.pandown", shift)
+        p2e.conversation.Exec(arg_str)
     
     def pan_left(self, shift = True):
         """
@@ -448,8 +447,8 @@ class Graph(object):
         1 deg is used instead, as if the Shift key were pressed.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.panleft", shift)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.panleft", shift)
+        p2e.conversation.Exec(arg_str)
     
     def pan_right(self, shift = True):
         """
@@ -465,8 +464,8 @@ class Graph(object):
         1 deg is used instead, as if the Shift key were pressed.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.panright", shift)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.panright", shift)
+        p2e.conversation.Exec(arg_str)
     
     def pan_up(self, shift = True):
         """
@@ -482,8 +481,8 @@ class Graph(object):
         1 deg is used instead, as if the Shift key were pressed.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.panup", shift)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.panup", shift)
+        p2e.conversation.Exec(arg_str)
     
     def redraw(self):
         """
@@ -496,7 +495,7 @@ class Graph(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("graph.redraw")
+        p2e.conversation.Exec("graph.redraw")
     
     def save(self, filename):
         """
@@ -517,8 +516,8 @@ class Graph(object):
         A text string specifying the filename to use for the saved file. 
     
         """
-        arg_str = string_util._convert_args_to_string("graph.save", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.save", filename)
+        p2e.conversation.Exec(arg_str)
     
     def save_bmp(self, filename):
         """
@@ -538,8 +537,8 @@ class Graph(object):
         A text string specifying the filename to use for the saved file.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.save.bmp", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.save.bmp", filename)
+        p2e.conversation.Exec(arg_str)
 
         
     def save_results(self, filename):
@@ -562,9 +561,9 @@ class Graph(object):
         A text string specifying the filename to use for the saved file. 
     
         """
-        arg_str = string_util._convert_args_to_string("graph.save.results", 
+        arg_str = p2e.string_util._convert_args_to_string("graph.save.results", 
                                                       filename)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def save_wmf(self, filename):
         """
@@ -584,8 +583,8 @@ class Graph(object):
         A text string specifying the filename to use for the saved file.
         
         """
-        arg_str = string_util._convert_args_to_string("graph.save.wmf", filename)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.save.wmf", filename)
+        p2e.conversation.Exec(arg_str)
     
     def show(self):
         """
@@ -597,7 +596,7 @@ class Graph(object):
         There are no parameters for this command.
     
         """
-        py2ecotect.conversation.Exec("graph.show")
+        p2e.conversation.Exec("graph.show")
     
     def zoom_in(self, shift = True):
         """
@@ -612,8 +611,8 @@ class Graph(object):
         deg is used instead, as if the Shift key were pressed.
     
         """
-        arg_str = string_util._convert_args_to_string("graph.zoomin", shift)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.zoomin", shift)
+        p2e.conversation.Exec(arg_str)
     
     def zoom_out(self, shift = True):
         """
@@ -628,8 +627,8 @@ class Graph(object):
         used instead, as if the Shift key were pressed.
     
         """
-        arg_str = string_util._convert_args_to_string("graph.zoomout", shift)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("graph.zoomout", shift)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -654,8 +653,8 @@ class Graph(object):
         The full name of the font type being used.
     
         """
-        val = py2ecotect.conversation.Request("get.graph.font")
-        return string_util._convert_str_to_list(val, int, str)
+        val = p2e.conversation.Request("get.graph.font")
+        return p2e.string_util._convert_str_to_list(val, int, str)
     
     def set_font(self, size, name):
         """
@@ -677,9 +676,9 @@ class Graph(object):
         in the following example.
         
         """
-        arg_str = string_util._convert_args_to_string("set.graph.font", size, 
+        arg_str = p2e.string_util._convert_args_to_string("set.graph.font", size, 
                                                       name)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_pen(self):
         """
@@ -700,8 +699,8 @@ class Graph(object):
         The thickness of the pen line in pixels. 
     
         """
-        val = py2ecotect.conversation.Request("get.graph.pen")
-        return string_util._convert_str_to_list(val, str, int)
+        val = p2e.conversation.Request("get.graph.pen")
+        return p2e.string_util._convert_str_to_list(val, str, int)
     
     def set_pen(self, colour, width):
         """
@@ -719,9 +718,9 @@ class Graph(object):
         The thickness of the pen line in pixels.
         
         """
-        arg_str = string_util._convert_args_to_string("set.graph.pen", colour, 
+        arg_str = p2e.string_util._convert_args_to_string("set.graph.pen", colour, 
                                                       width)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_point(self, absolute_position):
         """
@@ -746,12 +745,12 @@ class Graph(object):
         corner of the graph canvas, in pixels.
         
         """
-        arg_str = string_util._convert_args_to_string("get.graph.point", 
+        arg_str = p2e.string_util._convert_args_to_string("get.graph.point", 
                                                       absolute_position[0], 
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, int, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, int, int)
     
     def get_pos(self):
         """
@@ -778,8 +777,8 @@ class Graph(object):
         pixels.
         
         """
-        val = py2ecotect.conversation.Request("get.graph.pos")
-        return string_util._convert_str_to_list(val, int, int)
+        val = p2e.conversation.Request("get.graph.pos")
+        return p2e.string_util._convert_str_to_list(val, int, int)
     
     def set_pos(self, left, top):
         """
@@ -803,8 +802,8 @@ class Graph(object):
         graph in pixels.
         
         """
-        arg_str = string_util._convert_args_to_string("set.graph.pos", left, top)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.graph.pos", left, top)
+        p2e.conversation.Exec(arg_str)
     
     def get_size(self):
         """
@@ -826,8 +825,8 @@ class Graph(object):
         The height of the graph in pixels.
         
         """
-        val = py2ecotect.conversation.Request("get.graph.size")
-        return string_util._convert_str_to_list(val, int, int)
+        val = p2e.conversation.Request("get.graph.size")
+        return p2e.string_util._convert_str_to_list(val, int, int)
     
     def set_size(self, width, height):
         """
@@ -846,9 +845,9 @@ class Graph(object):
         Specifies the height of the graph in pixels.
         
         """
-        arg_str = string_util._convert_args_to_string("set.graph.size", width, 
+        arg_str = p2e.string_util._convert_args_to_string("set.graph.size", width, 
                                                       height)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_tab(self):
         """
@@ -879,8 +878,8 @@ class Graph(object):
         5 Acoustic Response 
     
         """
-        val = py2ecotect.conversation.Request("get.graph.tab")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.graph.tab")
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def set_tab(self, index):
         """
@@ -905,8 +904,8 @@ class Graph(object):
         5 Acoustic Response 
     
         """
-        arg_str = string_util._convert_args_to_string("set.graph.tab", index)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.graph.tab", index)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties

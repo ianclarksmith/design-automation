@@ -152,7 +152,7 @@ class Model(object):
         txt yes yes ASCII Text File 
         
         """
-        arg_str = p2e.p2e.string_util._convert_args_to_string("model.import", filename)
+        arg_str = p2e.string_util._convert_args_to_string("model.import", filename)
         p2e.conversation.Exec(arg_str)
     
     def load(self, filename):
@@ -1037,7 +1037,7 @@ class Model(object):
         a value of -1 is returned. 
         
         """
-        args = p2e.p2e.string_util._convert_args_to_string("get.model.prevnode", object, index)
+        args = p2e.string_util._convert_args_to_string("get.model.prevnode", object, index)
         val = p2e.conversation.Request(args)
         return p2e.p2e.string_util._convert_str_to_type(val, int)        
     

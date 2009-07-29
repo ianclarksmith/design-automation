@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Application(object):
     
@@ -17,7 +16,7 @@ class Application(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("app.activate")
+        p2e.conversation.Exec("app.activate")
         
         
     def alert(self, msg, type = ""):
@@ -38,8 +37,8 @@ class Application(object):
         A string containing the message to be displayed.
         
         """
-        arg_str = string_util._convert_args_to_string("app.alert." + type, msg)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.alert." + type, msg)
+        p2e.conversation.Exec(arg_str)
         
     def busy(self, action, message):
         """
@@ -67,9 +66,9 @@ class Application(object):
         using the close action. 
         
         """
-        arg_str = string_util._convert_args_to_string("app.busy" + action, 
+        arg_str = p2e.string_util._convert_args_to_string("app.busy" + action, 
                                                       message)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def center(self):
         """
@@ -82,7 +81,7 @@ class Application(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("app.center")
+        p2e.conversation.Exec("app.center")
         
     def character(self, text):
         """   
@@ -101,8 +100,8 @@ class Application(object):
         selected control. 
         
         """
-        arg_str = string_util._convert_args_to_string("app.character", text)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.character", text)
+        p2e.conversation.Exec(arg_str)
     
     def exit(self):
         """
@@ -117,7 +116,7 @@ class Application(object):
         There are no parameters for this command.
         
         """
-        py2ecotect.conversation.Exec("app.exit")
+        p2e.conversation.Exec("app.exit")
     
     def key(self, keyCode):
         """
@@ -194,8 +193,8 @@ class Application(object):
         VK_SCROLL 145 
         
         """
-        arg_str = string_util._convert_args_to_string("app.key", keyCode)
-        py2py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.key", keyCode)
+        py2p2e.conversation.Exec(arg_str)
     
     
     def maximise(self, state = 1):
@@ -220,8 +219,8 @@ class Application(object):
         
         """
     
-        arg_str = string_util._convert_args_to_string("app.maximise", state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.maximise", state)
+        p2e.conversation.Exec(arg_str)
         
     def menu(self, command, tag = 0):
         """
@@ -589,8 +588,8 @@ class Application(object):
         >>> menu("file.export.external")
         
         """
-        arg_str = string_util._convert_args_to_string("app.menu", command,tag)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.menu", command,tag)
+        p2e.conversation.Exec(arg_str)
     
     def minimise(self, state = 1):
         """
@@ -615,8 +614,8 @@ class Application(object):
         
         """
     
-        arg_str = string_util._convert_args_to_string("app.minimise", state)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.minimise", state)
+        p2e.conversation.Exec(arg_str)
     
     def mouse_event(self, action, x, y):
         """
@@ -678,9 +677,9 @@ class Application(object):
         >>> mouseevent("rclick", 100, 150)
         
         """
-        arg_str = string_util._convert_args_to_string("app.mouseevent", action, 
+        arg_str = p2e.string_util._convert_args_to_string("app.mouseevent", action, 
                                                       x, y)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
      
     def progress(self, percent):
         """
@@ -701,8 +700,8 @@ class Application(object):
         >>> progress(25)
         
         """
-        arg_str = string_util._convert_args_to_string("app.progress", percent)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.progress", percent)
+        p2e.conversation.Exec(arg_str)
         
     def run(self, script):
         """
@@ -731,8 +730,8 @@ class Application(object):
         >>> run("AcousticRays.scr")
         
         """
-        arg_str = string_util._convert_args_to_string("app.run", script)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.run", script)
+        p2e.conversation.Exec(arg_str)
     
     def status(self, msg):
         """
@@ -757,8 +756,8 @@ class Application(object):
         
         """ 
     
-        arg_str = string_util._convert_args_to_string("app.status", msg)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("app.status", msg)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -781,8 +780,8 @@ class Application(object):
         
         """
     
-        val = py2ecotect.conversation.Request("get.app.computer")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.app.computer")
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def get_image(self, type, name = None):
         """
@@ -825,10 +824,10 @@ class Application(object):
         schedule 5 The current schedule 
     
         """
-        arg_str = string_util._convert_args_to_string("get.app.image", type, 
+        arg_str = p2e.string_util._convert_args_to_string("get.app.image", type, 
                                                       name)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def get_menu_tool(self, index):
         """
@@ -853,10 +852,10 @@ class Application(object):
         The full pathname to the associated executable file. 
     
         """
-        arg_str = string_util._convert_args_to_string("get.app.menu.tool", index)
-        val = py2ecotect.conversation.Request(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("get.app.menu.tool", index)
+        val = p2e.conversation.Request(arg_str)
         print val
-        return string_util._convert_str_to_list(val, str)  
+        return p2e.string_util._convert_str_to_list(val, str)  
     
     def set_menu_tool(self, index, name_path):
         """
@@ -878,9 +877,9 @@ class Application(object):
         character.
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.menu.tool", 
+        arg_str = p2e.string_util._convert_args_to_string("set.app.menu.tool", 
                                                       index, name_path)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_menu_wizard(self, index):
         """
@@ -906,10 +905,10 @@ class Application(object):
         The full pathname to the associated script file.
         
         """
-        arg_str = string_util._convert_args_to_string("get.app.menu.wizard", 
+        arg_str = p2e.string_util._convert_args_to_string("get.app.menu.wizard", 
                                                       index)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_list(val, str)  
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_list(val, str)  
     
     def set_menu_wizard(self, index, name_path):
         """
@@ -934,9 +933,9 @@ class Application(object):
         character.
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.menu.wizard", 
+        arg_str = p2e.string_util._convert_args_to_string("set.app.menu.wizard", 
                                                       index, name_path)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
         
     def get_page(self):
@@ -966,8 +965,8 @@ class Application(object):
         4 REPORT Page 
     
         """
-        val = py2ecotect.conversation.Request("get.app.page")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.app.page")
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def set_page(self, page):
         """
@@ -994,8 +993,8 @@ class Application(object):
         4 REPORT Page 
     
         """
-        arg_str = string_util._convert_args_to_string("set.app.page", page)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.app.page", page)
+        p2e.conversation.Exec(arg_str)
     
     def get_panel(self):
         """
@@ -1030,8 +1029,8 @@ class Application(object):
         10 Export Manager 
     
         """
-        val = py2ecotect.conversation.Request("get.app.panel")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.app.panel")
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def set_panel(self, panel):
         """
@@ -1063,8 +1062,8 @@ class Application(object):
         10 Export Manager 
     
         """
-        arg_str = string_util._convert_args_to_string("set.app.panel", panel)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.app.panel", panel)
+        p2e.conversation.Exec(arg_str)
     
     def get_path(self):
         """
@@ -1085,8 +1084,8 @@ class Application(object):
         A text string containing the full home directory path.
         
         """
-        val = py2ecotect.conversation.Request("get.app.path")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.app.path")
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def get_registry(self, key):
         """
@@ -1112,9 +1111,9 @@ class Application(object):
         key.
         
         """
-        arg_str = string_util._convert_args_to_string("get.app.registry", key)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, str)
+        arg_str = p2e.string_util._convert_args_to_string("get.app.registry", key)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def set_registry(self, keyvalue):
         """
@@ -1140,9 +1139,9 @@ class Application(object):
         key.
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.registry", 
+        arg_str = p2e.string_util._convert_args_to_string("set.app.registry", 
                                                       keyvalue)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_screen(self):
         """
@@ -1168,8 +1167,8 @@ class Application(object):
         The vertical height of the screen in pixels.
         
         """
-        val = py2ecotect.conversation.Request("get.app.screen")
-        return string_util._convert_str_to_list(val, int)  
+        val = p2e.conversation.Request("get.app.screen")
+        return p2e.string_util._convert_str_to_list(val, int)  
     
     def get_slider_range(self):
         """
@@ -1201,8 +1200,8 @@ class Application(object):
         The increment/decrement value when using the PageUp/PageDown keys. 
         
         """
-        val = py2ecotect.conversation.Request("get.app.slider.range")
-        return string_util._convert_str_to_list(val, int)  
+        val = p2e.conversation.Request("get.app.slider.range")
+        return p2e.string_util._convert_str_to_list(val, int)  
     
     def set_slider_range(self, min, max, freq, lineSize, pageSize):
         """
@@ -1239,10 +1238,10 @@ class Application(object):
         set value is used. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.slider.range", 
+        arg_str = p2e.string_util._convert_args_to_string("set.app.slider.range", 
                                                      min, max, freq, lineSize, 
                                                      pageSize)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_slider_scale(self):
         """
@@ -1266,8 +1265,8 @@ class Application(object):
         the slider.
         
         """    
-        val = py2ecotect.conversation.Request("get.app.slider.scale")
-        return string_util._convert_str_to_list(val, float, str)
+        val = p2e.conversation.Request("get.app.slider.scale")
+        return p2e.string_util._convert_str_to_list(val, float, str)
         
     def set_slider_scale(self, scale, hint=None):
         """
@@ -1290,9 +1289,9 @@ class Application(object):
         the slider when you move the mouse over the top of it.
         
         """    
-        arg_str = string_util._convert_args_to_string("set.app.slider.scale", 
+        arg_str = p2e.string_util._convert_args_to_string("set.app.slider.scale", 
                                                       scale, hint)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_slider_title(self):
         """
@@ -1309,8 +1308,8 @@ class Application(object):
         This is a string value containing the full title.
         
         """
-        val = py2ecotect.conversation.Request("get.app.slider.title")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.app.slider.title")
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def set_slider_title(self, title):
         """
@@ -1325,9 +1324,9 @@ class Application(object):
         
         """
         
-        arg_str = string_util._convert_args_to_string("set.app.slider.title", 
+        arg_str = p2e.string_util._convert_args_to_string("set.app.slider.title", 
                                                       title)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_username(self):
         """
@@ -1345,8 +1344,8 @@ class Application(object):
         A string value containing the user's login name.
         
         """
-        val = py2ecotect.conversation.Request("get.app.username")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.app.username")
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def get_web_file(self, url):
         """
@@ -1372,9 +1371,9 @@ class Application(object):
         contents. The script will return an error if the download failes.
         
         """
-        arg_str = string_util._convert_args_to_string("get.app.web.file", url)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, str)
+        arg_str = p2e.string_util._convert_args_to_string("get.app.web.file", url)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def get_web_line(self, lineNumber):
         """
@@ -1400,10 +1399,10 @@ class Application(object):
         key.
         
         """
-        arg_str = string_util._convert_args_to_string("get.app.web.line", 
+        arg_str = p2e.string_util._convert_args_to_string("get.app.web.line", 
                                                       lineNumber)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, str)
     
     def set_web_login(self, username = None, password = None):
         """
@@ -1426,9 +1425,9 @@ class Application(object):
         The password you require to login.
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.web.login", 
+        arg_str = p2e.string_util._convert_args_to_string("set.app.web.login", 
                                                       username, password)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_web_page(self, url, text = False):
         """
@@ -1458,13 +1457,13 @@ class Application(object):
         
         """
         if text:
-            arg_str = string_util._convert_args_to_string("get.app.web.page.text", 
+            arg_str = p2e.string_util._convert_args_to_string("get.app.web.page.text", 
                                                           url)
         else:
-            arg_str = string_util._convert_args_to_string("get.app.web.page", 
+            arg_str = p2e.string_util._convert_args_to_string("get.app.web.page", 
                                                           url)
-        val = py2ecotect.conversation.Request(arg_str)
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request(arg_str)
+        return p2e.string_util._convert_str_to_type(val, int)
     
     def get_web_param(self, name = None, index = None):
         """
@@ -1509,15 +1508,15 @@ class Application(object):
         
         """
         if name:
-            arg_str = string_util._convert_args_to_string("get.app.web.param", 
+            arg_str = p2e.string_util._convert_args_to_string("get.app.web.param", 
                                                           name)
-            val = py2ecotect.conversation.Request(arg_str)
-            return string_util._convert_str_to_type(val, str)
+            val = p2e.conversation.Request(arg_str)
+            return p2e.string_util._convert_str_to_type(val, str)
         elif index:
-            arg_str = string_util._convert_args_to_string("get.app.web.param.index", 
+            arg_str = p2e.string_util._convert_args_to_string("get.app.web.param.index", 
                                                          index)
-            val = py2ecotect.conversation.Request(arg_str)
-            return string_util._convert_str_to_list(val, str)
+            val = p2e.conversation.Request(arg_str)
+            return p2e.string_util._convert_str_to_list(val, str)
     
     def get_window(self):
         """
@@ -1544,8 +1543,8 @@ class Application(object):
         The vertical height of the window in screen pixels.
         
         """
-        val = py2ecotect.conversation.Request("get.app.window")
-        return string_util._convert_str_to_list(val, int)
+        val = p2e.conversation.Request("get.app.window")
+        return p2e.string_util._convert_str_to_list(val, int)
     
     def set_window(self, left, top, width, height):
         """
@@ -1576,11 +1575,11 @@ class Application(object):
         not be changed.
         
         """
-        arg_str = string_util._convert_args_to_string("set.app.window", left, 
+        arg_str = p2e.string_util._convert_args_to_string("set.app.window", left, 
                                                      top, 
                                                      width, 
                                                      height)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties

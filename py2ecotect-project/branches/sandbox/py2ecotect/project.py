@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Project(object):
     
@@ -22,8 +21,8 @@ class Project(object):
         The altitude as height above sea level.
         
         """
-        val = py2ecotect.conversation.Request("get.project.altitude")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.project.altitude")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_altitude(self, alt):
         """
@@ -37,9 +36,9 @@ class Project(object):
         The altitude as height above sea level.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.altitude", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.altitude", 
                                                      alt)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_client(self):
         """
@@ -57,8 +56,8 @@ class Project(object):
         A text string containing the result. 
         
         """
-        val = py2ecotect.conversation.Request("get.project.client")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.project.client")
+        return p2e.string_util._convert_str_to_type(val, str)
 
     def set_client(self, client):
         """
@@ -73,9 +72,9 @@ class Project(object):
         A text string containing the new client name.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.client", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.client", 
                                                      client)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
     
     def get_description(self):
         """
@@ -92,8 +91,8 @@ class Project(object):
         A text string containing the result. 
         
         """
-        val = py2ecotect.conversation.Request("get.project.description")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.project.description")
+        return p2e.string_util._convert_str_to_type(val, str)
         
     def set_description(self, description):
         """
@@ -107,9 +106,9 @@ class Project(object):
         A text string containing the new description.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.description", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.description", 
                                                      description)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_latitude(self):
         """
@@ -126,8 +125,8 @@ class Project(object):
         The latitude in decimal degrees.
         
         """
-        val = py2ecotect.conversation.Request("get.project.latitude")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.project.latitude")
+        return p2e.string_util._convert_str_to_type(val, float)
  
     def set_latitude(self, lat):
         """
@@ -141,9 +140,9 @@ class Project(object):
         The latitude in decimal degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.latitude", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.latitude", 
                                                      lat)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_location(self):
         """
@@ -167,8 +166,8 @@ class Project(object):
         The timezone as a GMT offset in decimal hours.
         
         """ 
-        val = py2ecotect.conversation.Request("get.project.location")
-        return string_util._convert_str_to_list(val, float, float, float)
+        val = p2e.conversation.Request("get.project.location")
+        return p2e.string_util._convert_str_to_list(val, float, float, float)
 
     def set_location(self, latitude, longitude, timezone, update = True):
         """
@@ -193,10 +192,10 @@ class Project(object):
         represents the affirmative and 0 or false the negative.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.location", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.location", 
                                                      latitude, longitude, 
                                                      timezone, update)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_loc_name(self):
         """
@@ -213,8 +212,8 @@ class Project(object):
         A text string representing the name of the location.
         
         """
-        val = py2ecotect.conversation.Request("get.project.locname")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.project.locname")
+        return p2e.string_util._convert_str_to_type(val, str)
 
     def set_loc_name(self, name):
         """
@@ -228,9 +227,9 @@ class Project(object):
         A text string representing the new name of the location.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.locname", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.locname", 
                                                      name)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_longitude(self):
         """
@@ -247,8 +246,8 @@ class Project(object):
         The longitude in decimal degrees.
         
         """
-        val = py2ecotect.conversation.Request("get.project.longitude")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.project.longitude")
+        return p2e.string_util._convert_str_to_type(val, float)
           
     def set_longitude(self, lng):
         """
@@ -262,9 +261,9 @@ class Project(object):
         The longitude in decimal degrees.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.longitude", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.longitude", 
                                                      lng)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_north(self):
         """
@@ -281,8 +280,8 @@ class Project(object):
         The angle in degrees between true north and the positive Y axis.
         
         """
-        val = py2ecotect.conversation.Request("get.project.north")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.project.north")
+        return p2e.string_util._convert_str_to_type(val, float)
 
     def set_north(self, north):
         """
@@ -296,9 +295,9 @@ class Project(object):
         The angle in degrees between true north and the positive Y axis.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.north", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.north", 
                                                      north)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
         
     def get_reference(self):
         """
@@ -315,8 +314,8 @@ class Project(object):
         A text string containing the result.
         
         """
-        val = py2ecotect.conversation.Request("get.project.reference")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.project.reference")
+        return p2e.string_util._convert_str_to_type(val, str)
 
     def set_reference(self, description):
         """
@@ -330,9 +329,9 @@ class Project(object):
         A text string containing the new reference number. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.reference", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.reference", 
                                                      description)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_terrain(self):
         """
@@ -358,8 +357,8 @@ class Project(object):
         urban 3 In a dense urban setting (very protected)  
 
         """
-        val = py2ecotect.conversation.Request("get.project.terrain")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.project.terrain")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_terrain(self, terrain):
         """
@@ -383,9 +382,9 @@ class Project(object):
         urban 3 In a dense urban setting (very protected)  
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.terrain", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.terrain", 
                                                      terrain)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_timezone(self):
         """
@@ -402,8 +401,8 @@ class Project(object):
         The time zone as an offset from GMT in decimal hours. 
         
         """
-        val = py2ecotect.conversation.Request("get.project.timezone")
-        return string_util._convert_str_to_type(val, float)
+        val = p2e.conversation.Request("get.project.timezone")
+        return p2e.string_util._convert_str_to_type(val, float)
         
     def set_timezone(self, tz):
         """
@@ -417,9 +416,9 @@ class Project(object):
         A GMT offset value in +/- decimal hours.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.timezone", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.timezone", 
                                                       tz)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_title(self):
         """
@@ -436,8 +435,8 @@ class Project(object):
         A text string containing the result. 
         
         """
-        val = py2ecotect.conversation.Request("get.project.title")
-        return string_util._convert_str_to_type(val, str)
+        val = p2e.conversation.Request("get.project.title")
+        return p2e.string_util._convert_str_to_type(val, str)
 
     def set_title(self, description):
         """
@@ -451,9 +450,9 @@ class Project(object):
         A text string containing the new title.
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.title", 
+        arg_str = p2e.string_util._convert_args_to_string("set.project.title", 
                                                      description)
-        py2ecotect.conversation.Exec(arg_str)
+        p2e.conversation.Exec(arg_str)
 
     def get_type(self):
         """
@@ -480,8 +479,8 @@ class Project(object):
         5 Other 
         
         """
-        val = py2ecotect.conversation.Request("get.project.type")
-        return string_util._convert_str_to_type(val, int)
+        val = p2e.conversation.Request("get.project.type")
+        return p2e.string_util._convert_str_to_type(val, int)
 
     def set_type(self, type):
         """
@@ -505,8 +504,8 @@ class Project(object):
         5 Other 
         
         """
-        arg_str = string_util._convert_args_to_string("set.project.type", type)
-        py2ecotect.conversation.Exec(arg_str)
+        arg_str = p2e.string_util._convert_args_to_string("set.project.type", type)
+        p2e.conversation.Exec(arg_str)
 
     #===========================================================================
     # Properties
