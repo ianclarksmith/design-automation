@@ -268,7 +268,7 @@ is_ellipse = {#ed
     "method_location": "_Object",
     "method_type": "METHOD",
     "method_name": "is_ellipse",
-    "method_parameters": (("","self","REQ")),
+    "method_parameters": (("","self","REQ"),),
     "method_returns": ("boolean","null")
 }
 is_line = {#ed

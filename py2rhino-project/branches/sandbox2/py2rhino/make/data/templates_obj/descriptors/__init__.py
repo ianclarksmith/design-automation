@@ -1,25 +1,11 @@
-from py2rhino.make.data.gen_templates.descriptors import application_methods
-from py2rhino.make.data.gen_templates.descriptors import block_methods
-from py2rhino.make.data.gen_templates.descriptors import curve_methods
-from py2rhino.make.data.gen_templates.descriptors import dimension_methods
-from py2rhino.make.data.gen_templates.descriptors import document_methods
-from py2rhino.make.data.gen_templates.descriptors import geometry_methods
-from py2rhino.make.data.gen_templates.descriptors import group_methods
-from py2rhino.make.data.gen_templates.descriptors import hatch_methods
-from py2rhino.make.data.gen_templates.descriptors import layer_methods
-from py2rhino.make.data.gen_templates.descriptors import light_methods
-from py2rhino.make.data.gen_templates.descriptors import line_and_plane_methods
-from py2rhino.make.data.gen_templates.descriptors import linetype_methods
-from py2rhino.make.data.gen_templates.descriptors import material_methods
-from py2rhino.make.data.gen_templates.descriptors import math_methods
-from py2rhino.make.data.gen_templates.descriptors import mesh_methods
-from py2rhino.make.data.gen_templates.descriptors import object_methods
-from py2rhino.make.data.gen_templates.descriptors import object_grip_methods
-from py2rhino.make.data.gen_templates.descriptors import point_and_vector_methods
-from py2rhino.make.data.gen_templates.descriptors import selection_methods
-from py2rhino.make.data.gen_templates.descriptors import surface_and_polysurface_methods
-from py2rhino.make.data.gen_templates.descriptors import transformation_methods
-from py2rhino.make.data.gen_templates.descriptors import user_data_methods
-from py2rhino.make.data.gen_templates.descriptors import user_interface_methods
-from py2rhino.make.data.gen_templates.descriptors import utility_methods
-from py2rhino.make.data.gen_templates.descriptors import view_methods
+import curve_methods
+import dimension_methods
+import geometry_methods
+import group_methods
+import hatch_methods
+import layer_methods
+import light_methods_updated
+import mesh_methods_updated
+import surface_and_polysurface_methods
+import view_methods
+

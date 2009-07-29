@@ -1,6 +1,6 @@
 import keyword
 from util import *
-from py2rhino.make.data.templates_api import descriptors as obj
+from py2rhino.make.data.templates_obj import descriptors as obj
 
 out_folder = "..\\"
 #===============================================================================
@@ -9,17 +9,19 @@ out_folder = "..\\"
 def get_data_dictionary():
     data_dict = {}
     for function_list_name in obj.__dict__.keys():
-        if function_list_name.endswith('_functions'):
+        if function_list_name.endswith('_methods'):
             function_list = obj.__dict__[function_list_name]
             for function_name in function_list.__dict__.keys():
                 if not function_name.startswith('__'):
+                    print function_list_name, function_name
+                    
                     #get the method data
                     method = function_list.__dict__[function_name]
                     #get the class name
-                    class_name = method['method_location'].split('.')[-1]
-                    if class_name in data_dict.keys():
-                        data_dict[class_name] = {}
-                    data_dict[class_name][function_name] = method
+                    class_list = method['method_location']
+                    if not class_list in data_dict.keys():
+                        data_dict[class_list] = {}
+                    data_dict[class_list][function_name] = method
                     
     
     return data_dict
@@ -30,10 +32,10 @@ def get_data_dictionary():
 def write_rhinoscript_classes(data_dict):
     #Some sub-functions
     #---------------------------------------------------------------------------
-    def write_class_header(f):
+    def write_class_header(class_name, class_parent_name, f):
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
         w(f,'import py2rhino.functions as rf')
-        w(f,'class ', nle=0)
+        w(f,('class ', class_name,'(', class_parent_name,'):'), nle=0)
         
     #---------------------------------------------------------------------------
     def write_init(f):
@@ -45,7 +47,8 @@ def write_rhinoscript_classes(data_dict):
         #get the param data into a set of lists for easy access
         params_name = []
         params_opt_or_req = []
-        num_params = len(method_dict['method_parameters'])
+        param_list = method_dict['method_parameters']
+        num_params = len(param_list)
         
         for param_num in range(num_params):
             #get the list of parameters
@@ -73,22 +76,43 @@ def write_rhinoscript_classes(data_dict):
         #now write the function call
         w(f, ('return _rsf.',function_name,'(', ', '.join(params_name), ')'), tabs=1, nls=1, nle=2)  
     #---------------------------------------------------------------------------
-    for class_name in sorted(data_dict.keys()):
+    for class_list in sorted(data_dict.keys()):
+        #split the list of classes
+        class_list = class_list.split('.')
+        
+        #get the class name
+        class_name = class_list[-1]
+        #get the class parent
+        class_parent_name = 'object'
+        if len(class_list) > 1:
+            class_parent_name = class_list[-2]
+        #get the module name
+        module_name = camel_to_underscore(class_name)
         
         #open the file
-        f = open(out_folder + '_rhinoscript_functions.py', mode='w')
+        f = open(out_folder + module_name + '.py', mode='w')
         
         #write header and init
-        write_class_header(f)
+        write_class_header(class_name, class_parent_name, f)
         write_init(f)        
         
+        #write each method to the class file
         for function_name in sorted(data_dict[class_name].keys()):
+            print function_name
             write_class_method(function_name, data_dict[class_name][function_name], f)
             
         #close the file
         f.close()
     #---------------------------------------------------------------------------
-    
+#===============================================================================
+# Run
+#===============================================================================
+if __name__ == '__main__':
+    data_dict = get_data_dictionary()
+    print data_dict
+    write_rhinoscript_classes(data_dict)
+
+    print "done"
     
     
     

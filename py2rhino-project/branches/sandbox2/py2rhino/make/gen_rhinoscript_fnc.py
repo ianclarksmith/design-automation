@@ -28,18 +28,17 @@ def write_RhinoscriptFunctions_class(data_dict):
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
         w(f,'import exceptions')
         w(f,'import pythoncom')
-        w(f,'import py2rhino')        
-        w(f,'from py2rhino._util import *')
-        w(f,'from py2rhino._rhinoscript import IRhinoScript', nle=2)
+        w(f,'from _util import *')
+        w(f,'from _rhinoscript import IRhinoScript', nle=2)
         w(f,'class _RhinoscriptFunctions(IRhinoScript):', nle=2)
     #---------------------------------------------------------------------------
     def write_init(f):
         w(f,'# Class constructor', tabs=1, nls=0, nle=1)
-        w(f,'def __init__(self):', tabs=1, nls=0, nle=1)
-        w(f,'if py2rhino._rso is None:', tabs=2, nls=0, nle=1)
+        w(f,'def __init__(self, _rso):', tabs=1, nls=0, nle=1)
+        w(f,'if _rso is None:', tabs=2, nls=0, nle=1)
         w(f,'raise exceptions.Exception', tabs=3, nls=0, nle=1)
         w(f,'# initialisation code coped from win32com.client.DispatchBaseClass', tabs=2, nls=0, nle=1)
-        w(f,'oobj = py2rhino._rso', tabs=2, nls=0, nle=1)
+        w(f,'oobj = _rso', tabs=2, nls=0, nle=1)
         w(f,'oobj = oobj._oleobj_.QueryInterface(self.CLSID, pythoncom.IID_IDispatch)', tabs=2, nls=0, nle=1)
         w(f,'self.__dict__["_oleobj_"] = oobj', tabs=2, nls=0, nle=2)
         
@@ -180,8 +179,16 @@ def write_function_modules(data_dict):
 #===============================================================================
 def write_init_file(data_dict):
     f = open(out_folder + '__init__.py', mode='w')
+    
+    w(f, 'from win32com.client import Dispatch')
+    w(f, 'import time')
+    w(f, 'app = Dispatch("Rhino4.Interface")')
+    w(f, 'time.sleep(1)')
+    w(f, 'app.Visible = True')
+    w(f, '_rso = app.GetScriptObject', nle = 2)
+    
     w(f, 'from _rhinoscript_functions import _RhinoscriptFunctions')
-    w(f, '_rsf = _RhinoscriptFunctions()')    
+    w(f, '_rsf = _RhinoscriptFunctions(_rso)', nle=2)    
     for function_list_name in sorted(data_dict.keys()):
         module_name = function_list_name[:-10]
         w(f, ('import ', module_name))
