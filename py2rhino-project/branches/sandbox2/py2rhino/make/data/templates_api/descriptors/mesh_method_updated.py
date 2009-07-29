@@ -113,21 +113,21 @@ mesh_boolean_difference = {#ed
     "method_location": "_Object._MeshType",
     "method_type": "METHOD",
     "method_name": "mesh_boolean_difference",
-    "method_parameters": (("input0","array of str","REQ"),("input1","array of str","REQ"),("delete","bln","OPT")),
+    "method_parameters": (("input_0","array of str","REQ"),("input_1","array of str","REQ"),("delete","bln","OPT")),
     "method_returns": ("array of _Object._MeshType","null")
     }
 mesh_boolean_intersection = {#ed
     "method_location": "_Object._MeshType",
     "method_type": "METHOD",
     "method_name": "mesh_boolean_intersection",
-    "method_parameters": (("input0","array of str","REQ"),("input1","array of str","REQ"),("delete","bln","OPT")),
+    "method_parameters": (("input_0","array of str","REQ"),("input_1","array of str","REQ"),("delete","bln","OPT")),
     "method_returns": ("array of _Object._MeshType","null")
     }
 mesh_boolean_split = {#ed
     "method_location": "_Object._MeshType",
     "method_type": "METHOD",
     "method_name": "mesh_boolean_split",
-    "method_parameters": (("input0","array of str","REQ"),("input1","array of str","REQ"),("delete","bln","OPT")),
+    "method_parameters": (("input_0","array of str","REQ"),("input_1","array of str","REQ"),("delete","bln","OPT")),
     "method_returns": ("array of _Object._MeshType","null")
     }
 mesh_boolean_union = {#ed
@@ -218,7 +218,7 @@ mesh_mesh_intersection = {#ed
     "method_location": "_Object._MeshType",
     "method_type": "METHOD",
     "method_name": "mesh_mesh_intersection",
-    "method_parameters": (("mesh1","str","REQ"),("mesh2","str","REQ"),("tolerance","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("mesh_1","str","REQ"),("tolerance","dbl","OPT")),
     "method_returns": ("array of dbl","null")
     }
 mesh_naked_edge_points = {#ed

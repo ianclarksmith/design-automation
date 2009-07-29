@@ -21,7 +21,7 @@ add_fillet_curve = {#ed
     "method_location": "_Object._CurveType.Curve",
     "method_type": "CONSTRUCTOR",
     "method_name": "fillet_curve",
-    "method_parameters": (("","self","REQ"),("curve0","str","REQ"),("radius","dbl","OPT"),("point0","array of dbl","OPT"),("point1","array of dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("curve_0","str","REQ"),("radius","dbl","OPT"),("point_0","array of dbl","OPT"),("point_1","array of dbl","OPT")),
     "method_returns": ("_Object._CurveType.Curve","null")
 }
 add_interp_crv_on_srf = {#ed
@@ -56,7 +56,7 @@ add_sub_crv = {#ed
     "method_location": "_Object._CurveType.Curve",
     "method_type": "CONSTRUCTOR",
     "method_name": "sub_crv",
-    "method_parameters": (("","self","REQ"),("param0","dbl","REQ"),("param1","dbl","REQ")),
+    "method_parameters": (("","self","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ")),
     "method_returns": ("_Object._CurveType.Curve","null")
 } 
 #===============================================================================
@@ -72,7 +72,7 @@ add_arc = {#ed
     "method_returns": ("_Object._CurveType.Arc","null")
 }
 #myarc = Arc.arc_3pt(....)
-add_arc3_pt = {#ed
+add_arc_3_pt = {#ed
     "method_location": "_Object._CurveType.Arc",
     "method_type": "CONSTRUCTOR",
     "method_name": "arc_3pt",
@@ -120,7 +120,7 @@ add_circle = {#ed
     "method_parameters": (("plane","array of dbl","REQ"),("radius","dbl","REQ")),
     "method_returns": ("_Object._CurveType.Circle","null")
 }
-add_circle3_pt = {#ed
+add_circle_3_pt = {#ed
     "method_location": "_Object._CurveType.Circle",
     "method_type": "CONSTRUCTOR",
     "method_name": "circle_3pt",
@@ -159,7 +159,7 @@ add_ellipse = {#ed
     "method_parameters": (("plane","array of dbl","REQ"),("x_radius","dbl","REQ"),("y_radius","dbl","REQ")),
     "method_returns": ("_Object._CurveType.Ellipse","null")
 }
-add_ellipse3_pt = {#ed
+add_ellipse_3_pt = {#ed
     "method_location": "_Object._CurveType.Ellipse",
     "method_type": "CONSTRUCTOR",
     "method_name": "ellipse_3pt",
@@ -511,7 +511,7 @@ curve_curve_intersection = {#ed
     "method_location": "_Object._CurveType",
     "method_type": "METHOD",
     "method_name": "curve_curve_intersection",
-    "method_parameters": (("","self","REQ"),("object1","str","OPT"),("tolerance","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("object_1","str","OPT"),("tolerance","dbl","OPT")),
     "method_returns": ("array of (int, array of dbl, array of dbl, array of dbl, array of dbl, int, int, int, int","null")
 }
 curve_degree = {#ed
@@ -539,7 +539,7 @@ curve_directions_match = {#ed
     "method_location": "_Object._CurveType",
     "method_type": "METHOD",
     "method_name": "directions_match",
-    "method_parameters": (("","self","REQ"),("curve1","str","REQ")),
+    "method_parameters": (("","self","REQ"),("curve_1","str","REQ")),
     "method_returns": ("boolean","null")
 }
 curve_discontinuity = {#ed
@@ -581,7 +581,7 @@ curve_fillet_points = {#ed
     "method_location": "_Object._CurveType",
     "method_type": "METHOD",
     "method_name": "fillet_points",
-    "method_parameters": (("","self","REQ"),("curve0","str","REQ"),("radius","dbl","OPT"),("base_point0","array of dbl","OPT"),("base_point1","array of dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("curve_0","str","REQ"),("radius","dbl","OPT"),("base_point_0","array of dbl","OPT"),("base_point__1","array of dbl","OPT")),
     "method_returns": ("array of (array of dbl, array of dbl, array of dbl, array of dbl, array of dbl, array of dbl)","_Object._CurveType","null")
 }
 curve_frame = {#ed
@@ -770,14 +770,14 @@ planar_closed_curve_containment = {#ed
     "method_location": "_Object._CurveType",
     "method_type": "METHOD",
     "method_name": "planar_closed_curve_containment",
-    "method_parameters": (("","self","REQ"),("curve1","str","REQ"),("plane","array of dbl","OPT"),("tolerance","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("curve__1","str","REQ"),("plane","array of dbl","OPT"),("tolerance","dbl","OPT")),
     "method_returns": ("number","null")
 }
 planar_curve_collision = {#ed
     "method_location": "_Object._CurveType",
     "method_type": "METHOD",
     "method_name": "planar_curve_collision",
-    "method_parameters": (("","self","REQ"),("curve1","str","REQ"),("plane","array of dbl","OPT"),("tolerance","dbl","OPT")),
+    "method_parameters": (("","self","REQ"),("curve_0","str","REQ"),("plane","array of dbl","OPT"),("tolerance","dbl","OPT")),
     "method_returns": ("bln","null")
 }
 point_in_planar_closed_curve = {#ed
