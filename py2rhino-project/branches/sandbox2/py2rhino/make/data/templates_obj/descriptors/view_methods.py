@@ -27,7 +27,7 @@ named_c_planes = {
     "method_type": "METHOD",
     "method_name": "named_c_planes",
     "method_parameters": (),
-    "method_returns": ("array of _Entity.ConstructionPlane","null")
+    "method_returns": ("array_of _Entity.ConstructionPlane","null")
     }
 restore_named_c_plane = {
     "method_location": "View",
@@ -72,7 +72,7 @@ named_views = {
     "method_type": "METHOD",
     "method_name": "named_views",
     "method_parameters": (),
-    "method_returns": ("array of _Entity.View","null")
+    "method_returns": ("array_of _Entity.View","null")
     }
 rename_view = {
     "method_location": "_Entity.View",
@@ -121,7 +121,7 @@ view_display_modes = {
     "method_type": "METHOD",
     "method_name": "view_display_modes",
     "method_parameters": (("return_name","bln","OPT"),),
-    "method_returns": ("array of dbl","null")
+    "method_returns": ("array_of dbl","null")
     }
 view_title = {
     "method_location": "_Entity.View",
@@ -149,21 +149,21 @@ view_size = {
     "method_type": "METHOD",
     "method_name": "view_size",
     "method_parameters": (("","self","OPT"),),
-    "method_returns": ("array of dbl","null")
+    "method_returns": ("array_of dbl","null")
     }
 view_target = {
     "method_location": "_Entity.View",
     "method_type": "METHOD",
     "method_name": "view_target",
-    "method_parameters": (("","self","OPT"),("target","array of dbl","OPT"),),
-    "method_returns": ("array of dbl","array of dbl","null")
+    "method_parameters": (("","self","OPT"),("target","array_of dbl","OPT"),),
+    "method_returns": ("array_of dbl","array_of dbl","null")
     }
 view_camera = {
     "method_location": "_Entity.View",
     "method_type": "METHOD",
     "method_name": "view_camera",
-    "method_parameters": (("","self","OPT"),("camera","array of dbl","OPT"),),
-    "method_returns": ("array of dbl","array of dbl","null")
+    "method_parameters": (("","self","OPT"),("camera","array_of dbl","OPT"),),
+    "method_returns": ("array_of dbl","array_of dbl","null")
     }
 view_camera_lens = {
     "method_location": "_Entity.View",
@@ -177,27 +177,27 @@ view_camera_plane = {
     "method_type": "METHOD",
     "method_name": "view_camera_plane",
     "method_parameters": (("","self","OPT"),),
-    "method_returns": ("array of (array of dbl,array of dbl,array of dbl,array of dbl)","null")
+    "method_returns": ("array_of (array_of dbl,array_of dbl,array_of dbl,array_of dbl)","null")
     }
 view_camera_target = {
     "method_location": "_Entity.View",
     "method_type": "METHOD",
     "method_name": "view_camera_target",
-    "method_parameters": (("","self","OPT"),("camera","array of dbl","OPT"),("target","array of dbl","OPT"),),
-    "method_returns": ("array of dbl","array of dbl","null")
+    "method_parameters": (("","self","OPT"),("camera","array_of dbl","OPT"),("target","array_of dbl","OPT"),),
+    "method_returns": ("array_of dbl","array_of dbl","null")
     }
 view_camera_up = {
     "method_location": "_Entity.View",
     "method_type": "METHOD",
     "method_name": "view_camera_up",
-    "method_parameters": (("","self","OPT"),("up_vector","array of dbl","OPT"),),
-    "method_returns": ("array of dbl","array of dbl","null")
+    "method_parameters": (("","self","OPT"),("up_vector","array_of dbl","OPT"),),
+    "method_returns": ("array_of dbl","array_of dbl","null")
     }
 zoom_bounding_box = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "zoom_bounding_box",
-    "method_parameters": (("corners","array of dbl","REQ"),("view","str","OPT"),("all","bln","OPT"),),
+    "method_parameters": (("corners","array_of dbl","REQ"),("view","str","OPT"),("all","bln","OPT"),),
     "method_returns": ("null")
     }
 zoom_extents = {
@@ -222,7 +222,7 @@ background_bitmap = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "background_bitmap",
-    "method_parameters": (("","self","OPT"),("file_name","str","OPT"),("point","array of dbl","OPT"),("width","dbl","OPT"),),
+    "method_parameters": (("","self","OPT"),("file_name","str","OPT"),("point","array_of dbl","OPT"),("width","dbl","OPT"),),
     "method_returns": ("string","string","null")
     }
 current_detail = {
@@ -237,7 +237,7 @@ detail_names = {
     "method_type": "METHOD",
     "method_name": "detail_names",
     "method_parameters": (("","self","REQ"),("return_names","bln","OPT"),),
-    "method_returns": ("array of _Entity","null")
+    "method_returns": ("array_of _Entity","null")
     }
 is_background_bitmap = {
     "method_location": "_Entity",
@@ -348,22 +348,22 @@ view_c_plane = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "view_c_plane",
-    "method_parameters": (("","self","OPT"),("plane","array of dbl","OPT"),),
-    "method_returns": ("array of dbl","array of dbl","null")
+    "method_parameters": (("","self","OPT"),("plane","array_of dbl","OPT"),),
+    "method_returns": ("array_of dbl","array_of dbl","null")
     }
 view_names = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "view_names",
     "method_parameters": (("return_names","bln","OPT"),("type","int","OPT"),),
-    "method_returns": ("array of dbl","null")
+    "method_returns": ("array_of dbl","null")
     }
 view_near_corners = {
     "method_location": "_Entity",
     "method_type": "METHOD",
     "method_name": "view_near_corners",
     "method_parameters": (("","self","OPT"),),
-    "method_returns": ("array of dbl","null")
+    "method_returns": ("array_of dbl","null")
     }
 wallpaper = {
     "method_location": "_Entity",
