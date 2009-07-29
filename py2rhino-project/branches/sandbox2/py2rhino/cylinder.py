@@ -1,14 +1,26 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class Cylinder(_SurfaceType):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class Cylinder(p2r._SurfaceType):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def (base, plane, height, height, radius, cap=None):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.add_cylinder(base, plane, height, height, radius, cap)
 
-    def surface_cylinder():
+    @classmethod
+    def (cls, base, plane, height, height, radius, cap=pythoncom.Empty):
 
-        return _rsf.surface_cylinder()
+        return p2r_f.add_cylinder(base, plane, height, height, radius, cap)
+
+
+    def surface_cylinder(self, ):
+
+        return p2r_f.surface_cylinder(self.rhino_id)
 

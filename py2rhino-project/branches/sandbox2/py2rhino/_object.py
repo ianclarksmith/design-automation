@@ -1,182 +1,235 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class _Object(object):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class _Object(p2r.object):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def bounding_box(objects, view=None, world_coords=None):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.bounding_box(objects, view, world_coords)
 
-    def compare_geometry(, object_0):
+    def bounding_box(self, objects, view=pythoncom.Empty, world_coords=pythoncom.Empty):
 
-        return _rsf.compare_geometry(, object_0)
+        return p2r_f.bounding_box(objects, view, world_coords)
 
-    def is_arc(, index=None):
 
-        return _rsf.is_arc(, index)
+    def compare_geometry(self, object_0):
 
-    def is_brep():
+        return p2r_f.compare_geometry(self.rhino_id, object_0)
 
-        return _rsf.is_brep()
 
-    def is_brep_manifold():
+    def is_arc(self, index=pythoncom.Empty):
 
-        return _rsf.is_brep_manifold()
+        return p2r_f.is_arc(self.rhino_id, index)
 
-    def is_circle(, index=None):
 
-        return _rsf.is_circle(, index)
+    def is_brep(self, ):
 
-    def is_clipping_plane():
+        return p2r_f.is_brep(self.rhino_id)
 
-        return _rsf.is_clipping_plane()
 
-    def is_cone():
+    def is_brep_manifold(self, ):
 
-        return _rsf.is_cone()
+        return p2r_f.is_brep_manifold(self.rhino_id)
 
-    def is_curve(, index=None):
 
-        return _rsf.is_curve(, index)
+    def is_circle(self, index=pythoncom.Empty):
 
-    def is_curve_closable(, tolerance=None):
+        return p2r_f.is_circle(self.rhino_id, index)
 
-        return _rsf.is_curve_closable(, tolerance)
 
-    def is_curve_closed(, index=None):
+    def is_clipping_plane(self, ):
 
-        return _rsf.is_curve_closed(, index)
+        return p2r_f.is_clipping_plane(self.rhino_id)
 
-    def in_plane(, plane=None):
 
-        return _rsf.is_curve_in_plane(, plane)
+    def is_cone(self, ):
 
-    def is_curve_linear(, index=None):
+        return p2r_f.is_cone(self.rhino_id)
 
-        return _rsf.is_curve_linear(, index)
 
-    def is_curve_periodic(, index=None):
+    def is_curve(self, index=pythoncom.Empty):
 
-        return _rsf.is_curve_periodic(, index)
+        return p2r_f.is_curve(self.rhino_id, index)
 
-    def is_curve_planar(, index=None):
 
-        return _rsf.is_curve_planar(, index)
+    def is_curve_closable(self, tolerance=pythoncom.Empty):
 
-    def is_curve_rational(, index=None):
+        return p2r_f.is_curve_closable(self.rhino_id, tolerance)
 
-        return _rsf.is_curve_rational(, index)
 
-    def is_cylinder():
+    def is_curve_closed(self, index=pythoncom.Empty):
 
-        return _rsf.is_cylinder()
+        return p2r_f.is_curve_closed(self.rhino_id, index)
 
-    def is_ellipse():
 
-        return _rsf.is_ellipse()
+    def in_plane(self, plane=pythoncom.Empty):
 
-    def is_group():
+        return p2r_f.is_curve_in_plane(self.rhino_id, plane)
 
-        return _rsf.is_group()
 
-    def is_group_empty():
+    def is_curve_linear(self, index=pythoncom.Empty):
 
-        return _rsf.is_group_empty()
+        return p2r_f.is_curve_linear(self.rhino_id, index)
 
-    def is_line(, index=None):
 
-        return _rsf.is_line(, index)
+    def is_curve_periodic(self, index=pythoncom.Empty):
 
-    def is_parameter_on_surface(, parameter):
+        return p2r_f.is_curve_periodic(self.rhino_id, index)
 
-        return _rsf.is_parameter_on_surface(, parameter)
 
-    def is_plane_surface():
+    def is_curve_planar(self, index=pythoncom.Empty):
 
-        return _rsf.is_plane_surface()
+        return p2r_f.is_curve_planar(self.rhino_id, index)
 
-    def is_point():
 
-        return _rsf.is_point()
+    def is_curve_rational(self, index=pythoncom.Empty):
 
-    def is_point_cloud():
+        return p2r_f.is_curve_rational(self.rhino_id, index)
 
-        return _rsf.is_point_cloud()
 
-    def is_point_in_surface(, point):
+    def is_cylinder(self, ):
 
-        return _rsf.is_point_in_surface(, point)
+        return p2r_f.is_cylinder(self.rhino_id)
 
-    def is_point_on_curve(, point, index=None):
 
-        return _rsf.is_point_on_curve(, point, index)
+    def is_ellipse(self, ):
 
-    def is_point_on_surface(, point):
+        return p2r_f.is_ellipse(self.rhino_id)
 
-        return _rsf.is_point_on_surface(, point)
 
-    def is_poly_curve(, index=None):
+    def is_group(self, ):
 
-        return _rsf.is_poly_curve(, index)
+        return p2r_f.is_group(self.rhino_id)
 
-    def is_poly_surface():
 
-        return _rsf.is_poly_surface()
+    def is_line(self, index=pythoncom.Empty):
 
-    def is_poly_surface_closed():
+        return p2r_f.is_line(self.rhino_id, index)
 
-        return _rsf.is_poly_surface_closed()
 
-    def is_poly_surface_planar():
+    def is_parameter_on_surface(self, parameter):
 
-        return _rsf.is_poly_surface_planar()
+        return p2r_f.is_parameter_on_surface(self.rhino_id, parameter)
 
-    def is_polyline(, index=None):
 
-        return _rsf.is_polyline(, index)
+    def is_plane_surface(self, ):
 
-    def is_sphere():
+        return p2r_f.is_plane_surface(self.rhino_id)
 
-        return _rsf.is_sphere()
 
-    def is_surface():
+    def is_point(self, ):
 
-        return _rsf.is_surface()
+        return p2r_f.is_point(self.rhino_id)
 
-    def is_surface_closed(, direction):
 
-        return _rsf.is_surface_closed(, direction)
+    def is_point_cloud(self, ):
 
-    def is_surface_periodic(, direction):
+        return p2r_f.is_point_cloud(self.rhino_id)
 
-        return _rsf.is_surface_periodic(, direction)
 
-    def is_surface_planar(, tolerance=None):
+    def is_point_in_surface(self, point):
 
-        return _rsf.is_surface_planar(, tolerance)
+        return p2r_f.is_point_in_surface(self.rhino_id, point)
 
-    def is_surface_rational():
 
-        return _rsf.is_surface_rational()
+    def is_point_on_curve(self, point, index=pythoncom.Empty):
 
-    def is_surface_singular(, direction):
+        return p2r_f.is_point_on_curve(self.rhino_id, point, index)
 
-        return _rsf.is_surface_singular(, direction)
 
-    def is_surface_trimmed():
+    def is_point_on_surface(self, point):
 
-        return _rsf.is_surface_trimmed()
+        return p2r_f.is_point_on_surface(self.rhino_id, point)
 
-    def is_text():
 
-        return _rsf.is_text()
+    def is_poly_curve(self, index=pythoncom.Empty):
 
-    def is_text_dot():
+        return p2r_f.is_poly_curve(self.rhino_id, index)
 
-        return _rsf.is_text_dot()
 
-    def is_torus():
+    def is_poly_surface(self, ):
 
-        return _rsf.is_torus()
+        return p2r_f.is_poly_surface(self.rhino_id)
+
+
+    def is_poly_surface_closed(self, ):
+
+        return p2r_f.is_poly_surface_closed(self.rhino_id)
+
+
+    def is_poly_surface_planar(self, ):
+
+        return p2r_f.is_poly_surface_planar(self.rhino_id)
+
+
+    def is_polyline(self, index=pythoncom.Empty):
+
+        return p2r_f.is_polyline(self.rhino_id, index)
+
+
+    def is_sphere(self, ):
+
+        return p2r_f.is_sphere(self.rhino_id)
+
+
+    def is_surface(self, ):
+
+        return p2r_f.is_surface(self.rhino_id)
+
+
+    def is_surface_closed(self, direction):
+
+        return p2r_f.is_surface_closed(self.rhino_id, direction)
+
+
+    def is_surface_periodic(self, direction):
+
+        return p2r_f.is_surface_periodic(self.rhino_id, direction)
+
+
+    def is_surface_planar(self, tolerance=pythoncom.Empty):
+
+        return p2r_f.is_surface_planar(self.rhino_id, tolerance)
+
+
+    def is_surface_rational(self, ):
+
+        return p2r_f.is_surface_rational(self.rhino_id)
+
+
+    def is_surface_singular(self, direction):
+
+        return p2r_f.is_surface_singular(self.rhino_id, direction)
+
+
+    def is_surface_trimmed(self, ):
+
+        return p2r_f.is_surface_trimmed(self.rhino_id)
+
+
+    def is_text(self, ):
+
+        return p2r_f.is_text(self.rhino_id)
+
+
+    def is_text_dot(self, ):
+
+        return p2r_f.is_text_dot(self.rhino_id)
+
+
+    def is_torus(self, ):
+
+        return p2r_f.is_torus(self.rhino_id)
+
+
+    def remove_from_all_groups(self, ):
+
+        return p2r_f.remove_object_from_all_groups(self.rhino_id)
 

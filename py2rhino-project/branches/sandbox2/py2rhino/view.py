@@ -1,94 +1,125 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class View(_Entity):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class View(p2r._Entity):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def add_named_view(, view=None):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.add_named_view(, view)
 
-    def current_view(=None, return_name=None):
+    def add_named_view(self, view=pythoncom.Empty):
 
-        return _rsf.current_view(, return_name)
+        return p2r_f.add_named_view(self.rhino_id, view)
 
-    def delete_named_view():
 
-        return _rsf.delete_named_view()
+    def current_view(self, return_name=pythoncom.Empty):
 
-    def maximize_restore_view(=None):
+        return p2r_f.current_view(self.rhino_id, return_name)
 
-        return _rsf.maximize_restore_view()
 
-    def named_views():
+    def delete_named_view(self, ):
 
-        return _rsf.named_views()
+        return p2r_f.delete_named_view(self.rhino_id)
 
-    def rename_view(, new_title):
 
-        return _rsf.rename_view(, new_title)
+    def maximize_restore_view(self, ):
 
-    def restore_named_view(, view=None, restore_bitmap=None):
+        return p2r_f.maximize_restore_view(self.rhino_id)
 
-        return _rsf.restore_named_view(, view, restore_bitmap)
 
-    def rotate_camera(=None, direction=None, angle=None):
+    def named_views(self):
 
-        return _rsf.rotate_camera(, direction, angle)
+        return p2r_f.named_views()
 
-    def rotate_view(=None, direction=None, angle=None):
 
-        return _rsf.rotate_view(, direction, angle)
+    def rename_view(self, new_title):
 
-    def view_camera(=None, camera=None):
+        return p2r_f.rename_view(self.rhino_id, new_title)
 
-        return _rsf.view_camera(, camera)
 
-    def view_camera_lens(=None, length=None):
+    def restore_named_view(self, view=pythoncom.Empty, restore_bitmap=pythoncom.Empty):
 
-        return _rsf.view_camera_lens(, length)
+        return p2r_f.restore_named_view(self.rhino_id, view, restore_bitmap)
 
-    def view_camera_plane(=None):
 
-        return _rsf.view_camera_plane()
+    def rotate_camera(self, direction=pythoncom.Empty, angle=pythoncom.Empty):
 
-    def view_camera_target(=None, camera=None, target=None):
+        return p2r_f.rotate_camera(self.rhino_id, direction, angle)
 
-        return _rsf.view_camera_target(, camera, target)
 
-    def view_camera_up(=None, up_vector=None):
+    def rotate_view(self, direction=pythoncom.Empty, angle=pythoncom.Empty):
 
-        return _rsf.view_camera_up(, up_vector)
+        return p2r_f.rotate_view(self.rhino_id, direction, angle)
 
-    def view_display_mode_ex(=None, mode=None, return_names=None):
 
-        return _rsf.view_display_mode_ex(, mode, return_names)
+    def view_camera(self, camera=pythoncom.Empty):
 
-    def view_display_mode_name():
+        return p2r_f.view_camera(self.rhino_id, camera)
 
-        return _rsf.view_display_mode_name()
 
-    def view_display_modes(return_name=None):
+    def view_camera_lens(self, length=pythoncom.Empty):
 
-        return _rsf.view_display_modes(return_name)
+        return p2r_f.view_camera_lens(self.rhino_id, length)
 
-    def view_projection(=None, mode=None):
 
-        return _rsf.view_projection(, mode)
+    def view_camera_plane(self, ):
 
-    def view_radius(=None, radius=None):
+        return p2r_f.view_camera_plane(self.rhino_id)
 
-        return _rsf.view_radius(, radius)
 
-    def view_size(=None):
+    def view_camera_target(self, camera=pythoncom.Empty, target=pythoncom.Empty):
 
-        return _rsf.view_size()
+        return p2r_f.view_camera_target(self.rhino_id, camera, target)
 
-    def view_target(=None, target=None):
 
-        return _rsf.view_target(, target)
+    def view_camera_up(self, up_vector=pythoncom.Empty):
 
-    def view_title():
+        return p2r_f.view_camera_up(self.rhino_id, up_vector)
 
-        return _rsf.view_title()
+
+    def view_display_mode_ex(self, mode=pythoncom.Empty, return_names=pythoncom.Empty):
+
+        return p2r_f.view_display_mode_ex(self.rhino_id, mode, return_names)
+
+
+    def view_display_mode_name(self, ):
+
+        return p2r_f.view_display_mode_name(self.rhino_id)
+
+
+    def view_display_modes(self, return_name=pythoncom.Empty):
+
+        return p2r_f.view_display_modes(return_name)
+
+
+    def view_projection(self, mode=pythoncom.Empty):
+
+        return p2r_f.view_projection(self.rhino_id, mode)
+
+
+    def view_radius(self, radius=pythoncom.Empty):
+
+        return p2r_f.view_radius(self.rhino_id, radius)
+
+
+    def view_size(self, ):
+
+        return p2r_f.view_size(self.rhino_id)
+
+
+    def view_target(self, target=pythoncom.Empty):
+
+        return p2r_f.view_target(self.rhino_id, target)
+
+
+    def view_title(self, ):
+
+        return p2r_f.view_title(self.rhino_id)
 

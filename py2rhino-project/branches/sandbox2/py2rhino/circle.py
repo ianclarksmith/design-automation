@@ -1,26 +1,41 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class Circle(_CurveType):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class Circle(p2r._CurveType):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def (plane, radius):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.add_circle(plane, radius)
 
-    def circle_3pt(first, second, third):
+    def create_circle(self, plane, radius):
 
-        return _rsf.add_circle_3_pt(first, second, third)
+        return p2r_f.add_circle(plane, radius)
 
-    def center_point(, index=None):
 
-        return _rsf.center_point(, index)
+    @classmethod
+    def create_circle_3pt(cls, first, second, third):
 
-    def circumference(, index=None):
+        return p2r_f.add_circle_3_pt(first, second, third)
 
-        return _rsf.circle_circumference(, index)
 
-    def radius(, index=None):
+    def center_point(self, index=pythoncom.Empty):
 
-        return _rsf.circle_radius(, index)
+        return p2r_f.circle_center_point(self.rhino_id, index)
+
+
+    def circumference(self, index=pythoncom.Empty):
+
+        return p2r_f.circle_circumference(self.rhino_id, index)
+
+
+    def radius(self, index=pythoncom.Empty):
+
+        return p2r_f.circle_radius(self.rhino_id, index)
 

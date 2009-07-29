@@ -1,10 +1,21 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class Line(_CurveType):    # Class constructor
-    def __init__(self):
-        pass
-    def (start, end):
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
 
-        return _rsf.add_line(start, end)
+
+class Line(p2r._CurveType):
+
+
+    # Class constructor
+    def __init__(self):
+        raise Exception("Use the create... methods to create instances of this class.")
+
+
+    @classmethod
+    def create_line(cls, start, end):
+
+        return p2r_f.add_line(start, end)
 

@@ -1,226 +1,230 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class _Entity(object):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class _Entity(p2r.object):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def (points, view=None, text=None):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.add_leader(points, view, text)
 
-    def background_bitmap(=None, file_name=None, point=None, width=None):
+    def background_bitmap(self, file_name=pythoncom.Empty, point=pythoncom.Empty, width=pythoncom.Empty):
 
-        return _rsf.background_bitmap(, file_name, point, width)
+        return p2r_f.background_bitmap(self.rhino_id, file_name, point, width)
 
-    def current_detail(, detail=None, return_names=None):
 
-        return _rsf.current_detail(, detail, return_names)
+    def current_detail(self, detail=pythoncom.Empty, return_names=pythoncom.Empty):
 
-    def detail_names(, return_names=None):
+        return p2r_f.current_detail(self.rhino_id, detail, return_names)
 
-        return _rsf.detail_names(, return_names)
 
-    def is_aligned_dimension():
+    def detail_names(self, return_names=pythoncom.Empty):
 
-        return _rsf.is_aligned_dimension()
+        return p2r_f.detail_names(self.rhino_id, return_names)
 
-    def is_angular_dimension():
 
-        return _rsf.is_angular_dimension()
+    def is_background_bitmap(self, ):
 
-    def is_background_bitmap():
+        return p2r_f.is_background_bitmap(self.rhino_id)
 
-        return _rsf.is_background_bitmap()
 
-    def is_detail(, detail):
+    def is_detail(self, detail):
 
-        return _rsf.is_detail(, detail)
+        return p2r_f.is_detail(self.rhino_id, detail)
 
-    def is_diameter_dimension():
 
-        return _rsf.is_diameter_dimension()
+    def is_hatch(self, ):
 
-    def is_dim_style():
+        return p2r_f.is_hatch(self.rhino_id)
 
-        return _rsf.is_dim_style()
 
-    def is_dim_style_reference():
+    def is_hatch_pattern(self, ):
 
-        return _rsf.is_dim_style_reference()
+        return p2r_f.is_hatch_pattern(self.rhino_id)
 
-    def is_dimension():
 
-        return _rsf.is_dimension()
+    def is_hatch_pattern_current(self, ):
 
-    def is_hatch():
+        return p2r_f.is_hatch_pattern_current(self.rhino_id)
 
-        return _rsf.is_hatch()
 
-    def is_hatch_pattern():
+    def is_hatch_pattern_reference(self, ):
 
-        return _rsf.is_hatch_pattern()
+        return p2r_f.is_hatch_pattern_reference(self.rhino_id)
 
-    def is_hatch_pattern_current():
 
-        return _rsf.is_hatch_pattern_current()
+    def is_layer(self, ):
 
-    def is_hatch_pattern_reference():
+        return p2r_f.is_layer(self.rhino_id)
 
-        return _rsf.is_hatch_pattern_reference()
 
-    def is_layer():
+    def is_layer_changeable(self, ):
 
-        return _rsf.is_layer()
+        return p2r_f.is_layer_changeable(self.rhino_id)
 
-    def is_layer_changeable():
 
-        return _rsf.is_layer_changeable()
+    def is_layer_child_of(self, test):
 
-    def is_layer_child_of(, test):
+        return p2r_f.is_layer_child_of(self.rhino_id, test)
 
-        return _rsf.is_layer_child_of(, test)
 
-    def is_layer_current():
+    def is_layer_current(self, ):
 
-        return _rsf.is_layer_current()
+        return p2r_f.is_layer_current(self.rhino_id)
 
-    def is_layer_empty():
 
-        return _rsf.is_layer_empty()
+    def is_layer_empty(self, ):
 
-    def is_layer_expanded():
+        return p2r_f.is_layer_empty(self.rhino_id)
 
-        return _rsf.is_layer_expanded()
 
-    def is_layer_locked():
+    def is_layer_expanded(self, ):
 
-        return _rsf.is_layer_locked()
+        return p2r_f.is_layer_expanded(self.rhino_id)
 
-    def is_layer_on():
 
-        return _rsf.is_layer_on()
+    def is_layer_locked(self, ):
 
-    def is_layer_parent_of(, test):
+        return p2r_f.is_layer_locked(self.rhino_id)
 
-        return _rsf.is_layer_parent_of(, test)
 
-    def is_layer_reference():
+    def is_layer_on(self, ):
 
-        return _rsf.is_layer_reference()
+        return p2r_f.is_layer_on(self.rhino_id)
 
-    def is_layer_selectable():
 
-        return _rsf.is_layer_selectable()
+    def is_layer_parent_of(self, test):
 
-    def is_layer_visible():
+        return p2r_f.is_layer_parent_of(self.rhino_id, test)
 
-        return _rsf.is_layer_visible()
 
-    def is_layout():
+    def is_layer_reference(self, ):
 
-        return _rsf.is_layout()
+        return p2r_f.is_layer_reference(self.rhino_id)
 
-    def is_leader():
 
-        return _rsf.is_leader()
+    def is_layer_selectable(self, ):
 
-    def is_linear_dimension():
+        return p2r_f.is_layer_selectable(self.rhino_id)
 
-        return _rsf.is_linear_dimension()
 
-    def is_ordinate_dimension():
+    def is_layer_visible(self, ):
 
-        return _rsf.is_ordinate_dimension()
+        return p2r_f.is_layer_visible(self.rhino_id)
 
-    def is_radial_dimension():
 
-        return _rsf.is_radial_dimension()
+    def is_layout(self, ):
 
-    def is_view():
+        return p2r_f.is_layout(self.rhino_id)
 
-        return _rsf.is_view()
 
-    def is_view_current():
+    def is_view(self, ):
 
-        return _rsf.is_view_current()
+        return p2r_f.is_view(self.rhino_id)
 
-    def is_view_maximized(=None):
 
-        return _rsf.is_view_maximized()
+    def is_view_current(self, ):
 
-    def is_view_perspective(=None):
+        return p2r_f.is_view_current(self.rhino_id)
 
-        return _rsf.is_view_perspective()
 
-    def is_view_title_visible(=None):
+    def is_view_maximized(self, ):
 
-        return _rsf.is_view_title_visible()
+        return p2r_f.is_view_maximized(self.rhino_id)
 
-    def is_wallpaper():
 
-        return _rsf.is_wallpaper()
+    def is_view_perspective(self, ):
 
-    def leader_text(, text=None):
+        return p2r_f.is_view_perspective(self.rhino_id)
 
-        return _rsf.leader_text(, text)
 
-    def show_grid(=None, show=None):
+    def is_view_title_visible(self, ):
 
-        return _rsf.show_grid(, show)
+        return p2r_f.is_view_title_visible(self.rhino_id)
 
-    def show_grid_axes(=None, show=None):
 
-        return _rsf.show_grid_axes(, show)
+    def is_wallpaper(self, ):
 
-    def show_view_title(=None, state=None):
+        return p2r_f.is_wallpaper(self.rhino_id)
 
-        return _rsf.show_view_title(, state)
 
-    def show_world_axes(=None, show=None):
+    def show_grid(self, show=pythoncom.Empty):
 
-        return _rsf.show_world_axes(, show)
+        return p2r_f.show_grid(self.rhino_id, show)
 
-    def synchronize_c_planes(=None):
 
-        return _rsf.synchronize_c_planes()
+    def show_grid_axes(self, show=pythoncom.Empty):
 
-    def tilt_view(=None, direction=None, angle=None):
+        return p2r_f.show_grid_axes(self.rhino_id, show)
 
-        return _rsf.tilt_view(, direction, angle)
 
-    def view_c_plane(=None, plane=None):
+    def show_view_title(self, state=pythoncom.Empty):
 
-        return _rsf.view_c_plane(, plane)
+        return p2r_f.show_view_title(self.rhino_id, state)
 
-    def view_names(return_names=None, type=None):
 
-        return _rsf.view_names(return_names, type)
+    def show_world_axes(self, show=pythoncom.Empty):
 
-    def view_near_corners(=None):
+        return p2r_f.show_world_axes(self.rhino_id, show)
 
-        return _rsf.view_near_corners()
 
-    def wallpaper(=None, file_name=None):
+    def synchronize_c_planes(self, ):
 
-        return _rsf.wallpaper(, file_name)
+        return p2r_f.synchronize_c_planes(self.rhino_id)
 
-    def wallpaper_gray_scale(=None, gray_scale=None):
 
-        return _rsf.wallpaper_gray_scale(, gray_scale)
+    def tilt_view(self, direction=pythoncom.Empty, angle=pythoncom.Empty):
 
-    def wallpaper_hidden(=None, hidden=None):
+        return p2r_f.tilt_view(self.rhino_id, direction, angle)
 
-        return _rsf.wallpaper_hidden(, hidden)
 
-    def zoom_bounding_box(corners, view=None, all=None):
+    def view_c_plane(self, plane=pythoncom.Empty):
 
-        return _rsf.zoom_bounding_box(corners, view, all)
+        return p2r_f.view_c_plane(self.rhino_id, plane)
 
-    def zoom_extents(=None, all=None):
 
-        return _rsf.zoom_extents(, all)
+    def view_names(self, return_names=pythoncom.Empty, type=pythoncom.Empty):
 
-    def zoom_selected(=None, all=None):
+        return p2r_f.view_names(return_names, type)
 
-        return _rsf.zoom_selected(, all)
+
+    def view_near_corners(self, ):
+
+        return p2r_f.view_near_corners(self.rhino_id)
+
+
+    def wallpaper(self, file_name=pythoncom.Empty):
+
+        return p2r_f.wallpaper(self.rhino_id, file_name)
+
+
+    def wallpaper_gray_scale(self, gray_scale=pythoncom.Empty):
+
+        return p2r_f.wallpaper_gray_scale(self.rhino_id, gray_scale)
+
+
+    def wallpaper_hidden(self, hidden=pythoncom.Empty):
+
+        return p2r_f.wallpaper_hidden(self.rhino_id, hidden)
+
+
+    def zoom_bounding_box(self, corners, view=pythoncom.Empty, all=pythoncom.Empty):
+
+        return p2r_f.zoom_bounding_box(corners, view, all)
+
+
+    def zoom_extents(self, all=pythoncom.Empty):
+
+        return p2r_f.zoom_extents(self.rhino_id, all)
+
+
+    def zoom_selected(self, all=pythoncom.Empty):
+
+        return p2r_f.zoom_selected(self.rhino_id, all)
 
