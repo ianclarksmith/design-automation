@@ -1,26 +1,31 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class PointCloud(_PointType):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class PointCloud(p2r._PointType):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def (points):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.add_point_cloud(points)
 
-    def (text, point, plane, height=None, font=None, style=None):
+    @classmethod
+    def create_point_cloud(cls, points):
 
-        return _rsf.add_text(text, point, plane, height, font, style)
+        return p2r_f.add_point_cloud(points)
 
-    def (test, point):
 
-        return _rsf.add_text_dot(test, point)
+    def count(self, ):
 
-    def point_cloud_count():
+        return p2r_f.point_cloud_count(self.rhino_id)
 
-        return _rsf.point_cloud_count()
 
-    def point_cloud_points():
+    def points(self, ):
 
-        return _rsf.point_cloud_points()
+        return p2r_f.point_cloud_points(self.rhino_id)
 

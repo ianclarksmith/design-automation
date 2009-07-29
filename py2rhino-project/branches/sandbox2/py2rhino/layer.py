@@ -1,86 +1,116 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class Layer(_Entity):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class Layer(p2r._Entity):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def (=None, color=None, visible=None, locked=None, parent=None):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.add_layer(, color, visible, locked, parent)
 
-    def current_layer(=None):
+    @classmethod
+    def (cls, color=pythoncom.Empty, visible=pythoncom.Empty, locked=pythoncom.Empty, parent=pythoncom.Empty):
 
-        return _rsf.current_layer()
+        return p2r_f.add_layer(self.rhino_id, color, visible, locked, parent)
 
-    def delete_layer():
 
-        return _rsf.delete_layer()
+    def current_layer(self, ):
 
-    def expand_layer(, expand):
+        return p2r_f.current_layer(self.rhino_id)
 
-        return _rsf.expand_layer(, expand)
 
-    def layer_child_count():
+    def delete_layer(self, ):
 
-        return _rsf.layer_child_count()
+        return p2r_f.delete_layer(self.rhino_id)
 
-    def layer_children():
 
-        return _rsf.layer_children()
+    def expand_layer(self, expand):
 
-    def layer_color(, color=None):
+        return p2r_f.expand_layer(self.rhino_id, expand)
 
-        return _rsf.layer_color(, color)
 
-    def layer_count():
+    def layer_child_count(self, ):
 
-        return _rsf.layer_count()
+        return p2r_f.layer_child_count(self.rhino_id)
 
-    def layer_linetype(, linetype=None):
 
-        return _rsf.layer_linetype(, linetype)
+    def layer_children(self, ):
 
-    def layer_locked(, visible=None):
+        return p2r_f.layer_children(self.rhino_id)
 
-        return _rsf.layer_locked(, visible)
 
-    def layer_material_index():
+    def layer_color(self, color=pythoncom.Empty):
 
-        return _rsf.layer_material_index()
+        return p2r_f.layer_color(self.rhino_id, color)
 
-    def layer_mode(, mode=None):
 
-        return _rsf.layer_mode(, mode)
+    def layer_count(self):
 
-    def layer_names(sort=None):
+        return p2r_f.layer_count()
 
-        return _rsf.layer_names(sort)
 
-    def layer_order():
+    def layer_linetype(self, linetype=pythoncom.Empty):
 
-        return _rsf.layer_order()
+        return p2r_f.layer_linetype(self.rhino_id, linetype)
 
-    def layer_print_color(, color=None):
 
-        return _rsf.layer_print_color(, color)
+    def layer_locked(self, visible=pythoncom.Empty):
 
-    def layer_print_width(, width=None):
+        return p2r_f.layer_locked(self.rhino_id, visible)
 
-        return _rsf.layer_print_width(, width)
 
-    def layer_visible(, visible=None):
+    def layer_material_index(self, ):
 
-        return _rsf.layer_visible(, visible)
+        return p2r_f.layer_material_index(self.rhino_id)
 
-    def parent_layer(, parent=None):
 
-        return _rsf.parent_layer(, parent)
+    def layer_mode(self, mode=pythoncom.Empty):
 
-    def purge_layer():
+        return p2r_f.layer_mode(self.rhino_id, mode)
 
-        return _rsf.purge_layer()
 
-    def rename_layer(, new_name):
+    def layer_names(self, sort=pythoncom.Empty):
 
-        return _rsf.rename_layer(, new_name)
+        return p2r_f.layer_names(sort)
+
+
+    def layer_order(self, ):
+
+        return p2r_f.layer_order(self.rhino_id)
+
+
+    def layer_print_color(self, color=pythoncom.Empty):
+
+        return p2r_f.layer_print_color(self.rhino_id, color)
+
+
+    def layer_print_width(self, width=pythoncom.Empty):
+
+        return p2r_f.layer_print_width(self.rhino_id, width)
+
+
+    def layer_visible(self, visible=pythoncom.Empty):
+
+        return p2r_f.layer_visible(self.rhino_id, visible)
+
+
+    def parent_layer(self, parent=pythoncom.Empty):
+
+        return p2r_f.parent_layer(self.rhino_id, parent)
+
+
+    def purge_layer(self, ):
+
+        return p2r_f.purge_layer(self.rhino_id)
+
+
+    def rename_layer(self, new_name):
+
+        return p2r_f.rename_layer(self.rhino_id, new_name)
 

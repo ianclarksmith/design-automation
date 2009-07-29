@@ -1,30 +1,47 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class Arc(_CurveType):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class Arc(p2r._CurveType):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def (plane, radius, angle):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.add_arc(plane, radius, angle)
 
-    def arc_3pt(start, end, point):
+    @classmethod
+    def create_arc(cls, plane, radius, angle):
 
-        return _rsf.add_arc_3_pt(start, end, point)
+        return p2r_f.add_arc(plane, radius, angle)
 
-    def angle(, index=None):
 
-        return _rsf.arc_angle(, index)
+    @classmethod
+    def create_arc_3pt(cls, start, end, point):
 
-    def center_point(, index=None):
+        return p2r_f.add_arc_3_pt(start, end, point)
 
-        return _rsf.arc_center_point(, index)
 
-    def mid_point(, index=None):
+    def angle(self, index=pythoncom.Empty):
 
-        return _rsf.arc_mid_point(, index)
+        return p2r_f.arc_angle(self.rhino_id, index)
 
-    def radius(, index=None):
 
-        return _rsf.arc_radius(, index)
+    def center_point(self, index=pythoncom.Empty):
+
+        return p2r_f.arc_center_point(self.rhino_id, index)
+
+
+    def mid_point(self, index=pythoncom.Empty):
+
+        return p2r_f.arc_mid_point(self.rhino_id, index)
+
+
+    def radius(self, index=pythoncom.Empty):
+
+        return p2r_f.arc_radius(self.rhino_id, index)
 

@@ -6,7 +6,7 @@ import py2rhino as p2r
 from exceptions import Exception
 
 
-class ClippingPlane(p2r._OtherType):
+class TextDot(p2r._TextType):
 
 
     # Class constructor
@@ -14,7 +14,18 @@ class ClippingPlane(p2r._OtherType):
         raise Exception("Use the create... methods to create instances of this class.")
 
 
-    def create_clipping_plane(self, plane, d_u, d_v, views=pythoncom.Empty):
+    @classmethod
+    def create_text_dot(cls, test, point):
 
-        return p2r_f.add_clipping_plane(plane, d_u, d_v, views)
+        return p2r_f.add_text_dot(test, point)
+
+
+    def point(self, point=pythoncom.Empty):
+
+        return p2r_f.text_dot_point(self.rhino_id, point)
+
+
+    def text(self, text=pythoncom.Empty):
+
+        return p2r_f.text_dot_text(self.rhino_id, text)
 

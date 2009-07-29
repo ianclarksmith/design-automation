@@ -1,18 +1,31 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import py2rhino.functions as rf
-class ConstructionPlane(_Entity):    # Class constructor
+import pythoncom
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
+import py2rhino as p2r
+from exceptions import Exception
+
+
+class ConstructionPlane(p2r._Entity):
+
+
+    # Class constructor
     def __init__(self):
-        pass
-    def (, view=None):
+        raise Exception("Use the create... methods to create instances of this class.")
 
-        return _rsf.add_named_c_plane(, view)
 
-    def delete_named_c_plane():
+    @classmethod
+    def (cls, view=pythoncom.Empty):
 
-        return _rsf.delete_named_c_plane()
+        return p2r_f.add_named_c_plane(self.rhino_id, view)
 
-    def named_c_planes():
 
-        return _rsf.named_c_planes()
+    def delete_named_c_plane(self, ):
+
+        return p2r_f.delete_named_c_plane(self.rhino_id)
+
+
+    def named_c_planes(self):
+
+        return p2r_f.named_c_planes()
 
