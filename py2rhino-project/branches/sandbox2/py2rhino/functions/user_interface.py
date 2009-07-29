@@ -70,7 +70,7 @@ def get_point_on_surface(object, message=None):
 
     return _rsf.get_point_on_surface(object, message)
 
-def get_points(draw=None, plane=None, message_1=None, message_2=None, max_points=None, base_point=None):
+def get_points(draw=False, plane=False, message_1=None, message_2=None, max_points=None, base_point=None):
 
     return _rsf.get_points(draw, plane, message_1, message_2, max_points, base_point)
 
