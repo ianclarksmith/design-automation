@@ -15,7 +15,7 @@ mesh_boolean_intersection = {
     "params_html": {
         0: {
             "name": "arrInput0",
-            "py_name": "input0",
+            "py_name": "input_0",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",
@@ -26,7 +26,7 @@ mesh_boolean_intersection = {
         },
         1: {
             "name": "arrInput1",
-            "py_name": "input1",
+            "py_name": "input_1",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_str",

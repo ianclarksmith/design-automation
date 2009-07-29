@@ -87,7 +87,7 @@ last_created_objects = {
     "function_com_id": 485,
     "function_vb_name": "LastCreatedObjects",
     "function_name": "last_created_objects",
-    "function_parameters": (("select","bln","OPT")),
+    "function_parameters": (("select","bln","OPT"),),
     "function_returns": ("array","null")
     }
 last_object = {
@@ -175,7 +175,7 @@ prev_selected_objects = {
     "function_com_id": 486,
     "function_vb_name": "PrevSelectedObjects",
     "function_name": "prev_selected_objects",
-    "function_parameters": (("select","bln","OPT")),
+    "function_parameters": (("select","bln","OPT"),),
     "function_returns": ("array","null")
     }
 reference_objects = {
@@ -200,7 +200,7 @@ unselect_all_objects = {
     "function_vb_name": "UnselectAllObjects",
     "function_name": "unselect_all_objects",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 unselected_objects = {
     "function_location": "selection",

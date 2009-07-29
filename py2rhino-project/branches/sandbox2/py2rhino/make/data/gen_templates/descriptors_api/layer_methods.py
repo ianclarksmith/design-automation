@@ -13,14 +13,14 @@ current_layer = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "current_layer",
-    "method_parameters": (("layer","str","OPT")),
+    "method_parameters": (("layer","str","OPT"),),
     "method_returns": ("string","string","null")
     }
 delete_layer = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "delete_layer",
-    "method_parameters": (("layer","str","REQ")),
+    "method_parameters": (("layer","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 expand_layer = {
@@ -34,15 +34,15 @@ is_layer = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_layer_changeable = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_changeable",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_layer_child_of = {
     "method_location": "Layer",
@@ -55,36 +55,36 @@ is_layer_current = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_current",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_layer_empty = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_empty",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_layer_expanded = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_expanded",
-    "method_parameters": (("layer","str","REQ")),
+    "method_parameters": (("layer","str","REQ"),),
     "method_returns": ("boolean","null")
     }
 is_layer_locked = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_locked",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_layer_on = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_on",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_layer_parent_of = {
     "method_location": "Layer",
@@ -97,35 +97,35 @@ is_layer_reference = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_reference",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_layer_selectable = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_selectable",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 is_layer_visible = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "is_layer_visible",
-    "method_parameters": (("layer","str","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("layer","str","REQ"),),
+    "method_returns": ("null",)
     }
 layer_child_count = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "layer_child_count",
-    "method_parameters": (("layer","str","REQ")),
+    "method_parameters": (("layer","str","REQ"),),
     "method_returns": ("number","null")
     }
 layer_children = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "layer_children",
-    "method_parameters": (("layer","str","REQ")),
+    "method_parameters": (("layer","str","REQ"),),
     "method_returns": ("array","null")
     }
 layer_color = {
@@ -140,7 +140,7 @@ layer_count = {
     "method_type": "METHOD",
     "method_name": "layer_count",
     "method_parameters": (),
-    "method_returns": ("number")
+    "method_returns": ("number",)
     }
 layer_linetype = {
     "method_location": "Layer",
@@ -160,7 +160,7 @@ layer_material_index = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "layer_material_index",
-    "method_parameters": (("layer","str","REQ")),
+    "method_parameters": (("layer","str","REQ"),),
     "method_returns": ("number","null")
     }
 layer_mode = {
@@ -174,14 +174,14 @@ layer_names = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "layer_names",
-    "method_parameters": (("sort","bln","OPT")),
+    "method_parameters": (("sort","bln","OPT"),),
     "method_returns": ("array","null")
     }
 layer_order = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "layer_order",
-    "method_parameters": (("layer","str","REQ")),
+    "method_parameters": (("layer","str","REQ"),),
     "method_returns": ("number","null")
     }
 layer_print_color = {
@@ -216,7 +216,7 @@ purge_layer = {
     "method_location": "Layer",
     "method_type": "METHOD",
     "method_name": "purge_layer",
-    "method_parameters": (("layer","str","REQ")),
+    "method_parameters": (("layer","str","REQ"),),
     "method_returns": ("string","null")
     }
 rename_layer = {

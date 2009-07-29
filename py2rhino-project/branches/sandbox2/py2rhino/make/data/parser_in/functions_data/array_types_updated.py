@@ -21,7 +21,7 @@ curve = {
         "radius": "dbl",
         "angle": "dbl",
     },
-    "add_arc3_pt": {
+    "add_arc_3_pt": {
         "start": "arr_of_dbl",
         "end": "arr_of_dbl",
         "point": "arr_of_dbl",
@@ -30,7 +30,7 @@ curve = {
         "plane": "arr_of_dbl",
         "radius": "dbl",
     },
-    "add_circle3_pt": {
+    "add_circle_3_pt": {
         "first": "arr_of_dbl",
         "second": "arr_of_dbl",
         "third": "arr_of_dbl",
@@ -44,17 +44,17 @@ curve = {
         "x_radius": "dbl",
         "y_radius": "dbl",
     },
-    "add_ellipse3_pt": {
+    "add_ellipse_3_pt": {
         "center": "arr_of_dbl",
         "second": "arr_of_dbl",
         "third": "arr_of_dbl",
     },
     "add_fillet_curve": {
-        "curve0": "str",
-        "curve1": "str",
+        "curve_0": "str",
+        "curve_1": "str",
         "radius": "dbl",
-        "point0": "arr_of_dbl",
-        "point1": "arr_of_dbl",
+        "point_0": "arr_of_dbl",
+        "point_1": "arr_of_dbl",
     },
     "add_interp_crv_on_srf": {
         "object": "str",
@@ -117,11 +117,11 @@ curve = {
         "interval": "dbl",
     },
     "curve_fillet_points": {
-        "curve0": "str",
-        "curve1": "str",
+        "curve_0": "str",
+        "curve_1": "str",
         "radius": "dbl",
-        "base_point0": "arr_of_dbl",
-        "base_point1": "arr_of_dbl",
+        "base_point_0": "arr_of_dbl",
+        "base_point_1": "arr_of_dbl",
     },
     "curve_length": {
         "object": "str",
@@ -171,14 +171,14 @@ curve = {
         "parameter": "arr_of_dbl",
     },
     "planar_closed_curve_containment": {
-        "curve1": "str",
-        "curve2": "str",
+        "curve_1": "str",
+        "curve_2": "str",
         "plane": "arr_of_dbl",
         "tolerance": "dbl",
     },
     "planar_curve_collision": {
-        "curve1": "str",
-        "curve2": "str",
+        "curve_1": "str",
+        "curve_2": "str",
         "plane": "arr_of_dbl",
         "tolerance": "dbl",
     },
@@ -337,9 +337,9 @@ line_and_plane = {
         "parameter": "arr_of_dbl",
     },
     "intersect_planes": {
-        "plane1": "arr_of_dbl",
-        "plane2": "arr_of_dbl",
-        "plane3": "arr_of_dbl",
+        "plane_1": "arr_of_dbl",
+        "plane_2": "arr_of_dbl",
+        "plane_3": "arr_of_dbl",
     },
     "line_closest_point": {
         "line": "arr_of_dbl",
@@ -349,7 +349,7 @@ line_and_plane = {
         "line": "arr_of_dbl",
         "distance": "dbl",
         "point": "arr_of_dbl",
-        "line2": "arr_of_dbl",
+        "line_2": "arr_of_dbl",
     },
     "line_line_intersection": {
         "line_a": "arr_of_dbl",
@@ -359,12 +359,12 @@ line_and_plane = {
     "line_max_distance_to": {
         "line": "arr_of_dbl",
         "point": "arr_of_dbl",
-        "line2": "arr_of_dbl",
+        "line_2": "arr_of_dbl",
     },
     "line_min_distance_to": {
         "line": "arr_of_dbl",
         "point": "arr_of_dbl",
-        "line2": "arr_of_dbl",
+        "line_2": "arr_of_dbl",
     },
     "line_plane": {
         "line": "arr_of_dbl",
@@ -407,8 +407,8 @@ line_and_plane = {
         "point_y": "arr_of_dbl",
     },
     "plane_plane_intersection": {
-        "plane1": "arr_of_dbl",
-        "point2": "arr_of_dbl",
+        "plane_1": "arr_of_dbl",
+        "point_2": "arr_of_dbl",
     },
     "plane_transform": {
         "plane": "arr_of_dbl",
@@ -431,20 +431,20 @@ material = {
 },
 math = {
     "angle": {
-        "point1": "arr_of_dbl",
-        "point2": "arr_of_dbl",
+        "point_1": "arr_of_dbl",
+        "point_2": "arr_of_dbl",
         "world": "bln",
     },
-    "angle2": {
-        "point1": "arr_of_dbl",
-        "point2": "arr_of_dbl",
+    "angle_2": {
+        "point_1": "arr_of_dbl",
+        "point_2": "arr_of_dbl",
     },
     "deviation": {
         "numbers": "arr_of_int",
     },
     "distance": {
-        "point1": "arr_of_dbl",
-        "point2": "arr_of_dbl",
+        "point_1": "arr_of_dbl",
+        "point_2": "arr_of_dbl",
         "point_array": "arr_of_dbl",
     },
     "max": {
@@ -482,18 +482,18 @@ mesh = {
         "objects": "arr_of_str",
     },
     "mesh_boolean_difference": {
-        "input0": "arr_of_str",
-        "input1": "arr_of_str",
+        "input_0": "arr_of_str",
+        "input_1": "arr_of_str",
         "delete": "bln",
     },
     "mesh_boolean_intersection": {
-        "input0": "arr_of_str",
-        "input1": "arr_of_str",
+        "input_0": "arr_of_str",
+        "input_1": "arr_of_str",
         "delete": "bln",
     },
     "mesh_boolean_split": {
-        "input0": "arr_of_str",
-        "input1": "arr_of_str",
+        "input_0": "arr_of_str",
+        "input_1": "arr_of_str",
         "delete": "bln",
     },
     "mesh_boolean_union": {
@@ -676,12 +676,12 @@ object_grip = {
 },
 point_and_vector = {
     "is_vector_parallel_to": {
-        "vector1": "arr_of_dbl",
-        "vector2": "arr_of_dbl",
+        "vector_1": "arr_of_dbl",
+        "vector_2": "arr_of_dbl",
     },
     "is_vector_perpendicular_to": {
-        "vector1": "arr_of_dbl",
-        "vector2": "arr_of_dbl",
+        "vector_1": "arr_of_dbl",
+        "vector_2": "arr_of_dbl",
     },
     "is_vector_tiny": {
         "vector": "arr_of_dbl",
@@ -690,8 +690,8 @@ point_and_vector = {
         "vector": "arr_of_dbl",
     },
     "point_add": {
-        "point1": "arr_of_dbl",
-        "point2": "arr_of_dbl",
+        "point_1": "arr_of_dbl",
+        "point_2": "arr_of_dbl",
     },
     "point_array_bounding_box": {
         "points": "arr_of_dbl",
@@ -707,8 +707,8 @@ point_and_vector = {
         "xform": "arr_of_dbl",
     },
     "point_compare": {
-        "point1": "arr_of_dbl",
-        "point2": "arr_of_dbl",
+        "point_1": "arr_of_dbl",
+        "point_2": "arr_of_dbl",
         "tolerance": "dbl",
     },
     "point_divide": {
@@ -720,8 +720,8 @@ point_and_vector = {
         "scale": "dbl",
     },
     "point_subtract": {
-        "point1": "arr_of_dbl",
-        "point2": "arr_of_dbl",
+        "point_1": "arr_of_dbl",
+        "point_2": "arr_of_dbl",
     },
     "point_transform": {
         "point": "arr_of_dbl",
@@ -746,35 +746,35 @@ point_and_vector = {
         "points": "arr_of_dbl",
     },
     "vector_add": {
-        "vector1": "arr_of_dbl",
-        "vector2": "arr_of_dbl",
+        "vector_1": "arr_of_dbl",
+        "vector_2": "arr_of_dbl",
     },
     "vector_compare": {
-        "vector1": "arr_of_dbl",
-        "vector2": "arr_of_dbl",
+        "vector_1": "arr_of_dbl",
+        "vector_2": "arr_of_dbl",
     },
     "vector_create": {
-        "point1": "arr_of_dbl",
-        "point2": "arr_of_dbl",
+        "point_1": "arr_of_dbl",
+        "point_2": "arr_of_dbl",
     },
     "vector_cross_product": {
-        "vector1": "arr_of_dbl",
-        "vector2": "arr_of_dbl",
+        "vector_1": "arr_of_dbl",
+        "vector_2": "arr_of_dbl",
     },
     "vector_divide": {
         "vector": "arr_of_dbl",
         "divide": "dbl",
     },
     "vector_dot_product": {
-        "vector1": "arr_of_dbl",
-        "vector2": "arr_of_dbl",
+        "vector_1": "arr_of_dbl",
+        "vector_2": "arr_of_dbl",
     },
     "vector_length": {
         "vector": "arr_of_dbl",
     },
     "vector_multiply": {
-        "vector1": "arr_of_dbl",
-        "vector2": "arr_of_dbl",
+        "vector_1": "arr_of_dbl",
+        "vector_2": "arr_of_dbl",
     },
     "vector_reverse": {
         "vector": "arr_of_dbl",
@@ -789,8 +789,8 @@ point_and_vector = {
         "scale": "dbl",
     },
     "vector_subtract": {
-        "vector1": "arr_of_dbl",
-        "vector2": "arr_of_dbl",
+        "vector_1": "arr_of_dbl",
+        "vector_2": "arr_of_dbl",
     },
     "vector_transform": {
         "vector": "arr_of_dbl",
@@ -920,7 +920,7 @@ surface_and_polysurface = {
         "object": "str",
         "plane": "arr_of_dbl",
     },
-    "add_sweep1": {
+    "add_sweep_1": {
         "rail": "str",
         "shapes": "arr_of_str",
         "start_pt": "arr_of_dbl",
@@ -931,7 +931,7 @@ surface_and_polysurface = {
         "simplify": "int",
         "simplify_arg": "va",
     },
-    "add_sweep2": {
+    "add_sweep_2": {
         "rails": "arr_of_str",
         "shapes": "arr_of_str",
         "start_pt": "arr_of_dbl",
@@ -950,13 +950,13 @@ surface_and_polysurface = {
         "direction": "arr_of_dbl",
     },
     "boolean_difference": {
-        "input0": "arr_of_str",
-        "input1": "arr_of_str",
+        "input_0": "arr_of_str",
+        "input_1": "arr_of_str",
         "delete": "bln",
     },
     "boolean_intersection": {
-        "input0": "arr_of_str",
-        "input1": "arr_of_str",
+        "input_0": "arr_of_str",
+        "input_1": "arr_of_str",
         "delete": "bln",
     },
     "boolean_union": {
@@ -1072,18 +1072,18 @@ transformation = {
         "plane": "arr_of_dbl",
     },
     "xform_change_basis": {
-        "plane1": "arr_of_dbl",
-        "plane2": "arr_of_dbl",
-        "x0": "arr_of_dbl",
-        "y0": "arr_of_dbl",
-        "z0": "arr_of_dbl",
-        "x1": "arr_of_dbl",
-        "y1": "arr_of_dbl",
-        "z1": "arr_of_dbl",
+        "plane_1": "arr_of_dbl",
+        "plane_2": "arr_of_dbl",
+        "x_0": "arr_of_dbl",
+        "y_0": "arr_of_dbl",
+        "z_0": "arr_of_dbl",
+        "x_1": "arr_of_dbl",
+        "y_1": "arr_of_dbl",
+        "z_1": "arr_of_dbl",
     },
     "xform_compare": {
-        "xform1": "arr_of_dbl",
-        "xform2": "arr_of_dbl",
+        "xform_1": "arr_of_dbl",
+        "xform_2": "arr_of_dbl",
     },
     "xform_determinant": {
         "xform": "arr_of_dbl",
@@ -1096,26 +1096,26 @@ transformation = {
         "normal": "arr_of_dbl",
     },
     "xform_multiply": {
-        "xform1": "arr_of_dbl",
-        "xform2": "arr_of_dbl",
+        "xform_1": "arr_of_dbl",
+        "xform_2": "arr_of_dbl",
     },
     "xform_planar_projection": {
         "plane": "arr_of_dbl",
     },
     "xform_rotation": {
-        "plane1": "arr_of_dbl",
-        "plane2": "arr_of_dbl",
+        "plane_1": "arr_of_dbl",
+        "plane_2": "arr_of_dbl",
         "angle": "dbl",
         "axis": "arr_of_dbl",
         "start_dir": "arr_of_dbl",
         "end_dir": "arr_of_dbl",
         "point": "arr_of_dbl",
-        "x0": "arr_of_dbl",
-        "y0": "arr_of_dbl",
-        "z0": "arr_of_dbl",
-        "x1": "arr_of_dbl",
-        "y1": "arr_of_dbl",
-        "z1": "arr_of_dbl",
+        "x_0": "arr_of_dbl",
+        "y_0": "arr_of_dbl",
+        "z_0": "arr_of_dbl",
+        "x_1": "arr_of_dbl",
+        "y_1": "arr_of_dbl",
+        "z_1": "arr_of_dbl",
     },
     "xform_scale": {
         "plane": "arr_of_dbl",
@@ -1133,9 +1133,9 @@ transformation = {
     },
     "xform_shear": {
         "plane": "arr_of_dbl",
-        "x1": "arr_of_dbl",
-        "y1": "arr_of_dbl",
-        "z1": "arr_of_dbl",
+        "x_1": "arr_of_dbl",
+        "y_1": "arr_of_dbl",
+        "z_1": "arr_of_dbl",
     },
     "xform_translation": {
         "vector": "arr_of_dbl",
@@ -1178,15 +1178,15 @@ user_interface = {
     "get_box": {
         "mode": "int",
         "point": "arr_of_dbl",
-        "prompt1": "str",
-        "prompt2": "str",
-        "prompt3": "str",
+        "prompt_1": "str",
+        "prompt_2": "str",
+        "prompt_3": "str",
     },
     "get_distance": {
         "point": "arr_of_dbl",
         "distance": "dbl",
-        "message1": "str",
-        "message2": "str",
+        "message_1": "str",
+        "message_2": "str",
     },
     "get_point_on_line": {
         "message": "str",
@@ -1202,17 +1202,17 @@ user_interface = {
     "get_points": {
         "draw": "bln",
         "plane": "bln",
-        "message1": "str",
-        "message2": "str",
+        "message_1": "str",
+        "message_2": "str",
         "max_points": "int",
         "base_point": "arr_of_dbl",
     },
     "get_rectangle": {
         "mode": "int",
         "point": "arr_of_dbl",
-        "prompt1": "str",
-        "prompt2": "str",
-        "prompt3": "str",
+        "prompt_1": "str",
+        "prompt_2": "str",
+        "prompt_3": "str",
     },
     "get_string": {
         "message": "str",
@@ -1255,7 +1255,7 @@ utility = {
         "strings": "arr_of_int",
         "case_sensitive": "bln",
     },
-    "pt2_str": {
+    "pt_2_str": {
         "point": "arr_of_dbl",
         "precision": "n",
         "space": "bln",

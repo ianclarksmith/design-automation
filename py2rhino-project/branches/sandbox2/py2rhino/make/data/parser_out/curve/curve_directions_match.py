@@ -15,7 +15,7 @@ curve_directions_match = {
     "params_html": {
         0: {
             "name": "strCurve1",
-            "py_name": "curve1",
+            "py_name": "curve_1",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,7 +26,7 @@ curve_directions_match = {
         },
         1: {
             "name": "strCurve2",
-            "py_name": "curve2",
+            "py_name": "curve_2",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

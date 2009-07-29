@@ -49,7 +49,7 @@ line_is_farther_than = {
         },
         3: {
             "name": "arrLine2",
-            "py_name": "line2",
+            "py_name": "line_2",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

@@ -15,7 +15,7 @@ compare_geometry = {
     "params_html": {
         0: {
             "name": "strObject1",
-            "py_name": "object1",
+            "py_name": "object_1",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
@@ -26,7 +26,7 @@ compare_geometry = {
         },
         1: {
             "name": "strObject2",
-            "py_name": "object2",
+            "py_name": "object_2",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",

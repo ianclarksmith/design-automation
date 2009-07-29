@@ -7,7 +7,7 @@ add_dim_style = {
     "function_com_id": 455,
     "function_vb_name": "AddDimStyle",
     "function_name": "add_dim_style",
-    "function_parameters": (("dim_style","str","OPT")),
+    "function_parameters": (("dim_style","str","OPT"),),
     "function_returns": ("string","null")
     }
 add_leader = {
@@ -23,7 +23,7 @@ current_dim_style = {
     "function_com_id": 453,
     "function_vb_name": "CurrentDimStyle",
     "function_name": "current_dim_style",
-    "function_parameters": (("dim_style","str","OPT")),
+    "function_parameters": (("dim_style","str","OPT"),),
     "function_returns": ("string","string","null")
     }
 delete_dim_style = {
@@ -31,7 +31,7 @@ delete_dim_style = {
     "function_com_id": 456,
     "function_vb_name": "DeleteDimStyle",
     "function_name": "delete_dim_style",
-    "function_parameters": (("dim_style","str","REQ")),
+    "function_parameters": (("dim_style","str","REQ"),),
     "function_returns": ("string","null")
     }
 dim_scale = {
@@ -39,7 +39,7 @@ dim_scale = {
     "function_com_id": 460,
     "function_vb_name": "DimScale",
     "function_name": "dim_scale",
-    "function_parameters": (("scale","dbl","OPT")),
+    "function_parameters": (("scale","dbl","OPT"),),
     "function_returns": ("number","number","null")
     }
 dim_style_angle_precision = {
@@ -64,7 +64,7 @@ dim_style_count = {
     "function_vb_name": "DimStyleCount",
     "function_name": "dim_style_count",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 dim_style_extension = {
     "function_location": "dimension",
@@ -103,7 +103,7 @@ dim_style_names = {
     "function_com_id": 452,
     "function_vb_name": "DimStyleNames",
     "function_name": "dim_style_names",
-    "function_parameters": (("sort","bln","OPT")),
+    "function_parameters": (("sort","bln","OPT"),),
     "function_returns": ("array","null")
     }
 dim_style_number_format = {
@@ -159,7 +159,7 @@ dimension_text = {
     "function_com_id": 469,
     "function_vb_name": "DimensionText",
     "function_name": "dimension_text",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("string","null")
     }
 dimension_user_text = {
@@ -175,7 +175,7 @@ dimension_value = {
     "function_com_id": 568,
     "function_vb_name": "DimensionValue",
     "function_name": "dimension_value",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 is_aligned_dimension = {
@@ -183,7 +183,7 @@ is_aligned_dimension = {
     "function_com_id": 566,
     "function_vb_name": "IsAlignedDimension",
     "function_name": "is_aligned_dimension",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_angular_dimension = {
@@ -191,7 +191,7 @@ is_angular_dimension = {
     "function_com_id": 338,
     "function_vb_name": "IsAngularDimension",
     "function_name": "is_angular_dimension",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_diameter_dimension = {
@@ -199,7 +199,7 @@ is_diameter_dimension = {
     "function_com_id": 565,
     "function_vb_name": "IsDiameterDimension",
     "function_name": "is_diameter_dimension",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_dim_style = {
@@ -207,23 +207,23 @@ is_dim_style = {
     "function_com_id": 454,
     "function_vb_name": "IsDimStyle",
     "function_name": "is_dim_style",
-    "function_parameters": (("dim_style","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("dim_style","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_dim_style_reference = {
     "function_location": "dimension",
     "function_com_id": 457,
     "function_vb_name": "IsDimStyleReference",
     "function_name": "is_dim_style_reference",
-    "function_parameters": (("dim_style","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("dim_style","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_dimension = {
     "function_location": "dimension",
     "function_com_id": 564,
     "function_vb_name": "IsDimension",
     "function_name": "is_dimension",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_leader = {
@@ -231,7 +231,7 @@ is_leader = {
     "function_com_id": 337,
     "function_vb_name": "IsLeader",
     "function_name": "is_leader",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_linear_dimension = {
@@ -239,7 +239,7 @@ is_linear_dimension = {
     "function_com_id": 339,
     "function_vb_name": "IsLinearDimension",
     "function_name": "is_linear_dimension",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_ordinate_dimension = {
@@ -247,7 +247,7 @@ is_ordinate_dimension = {
     "function_com_id": 659,
     "function_vb_name": "IsOrdinateDimension",
     "function_name": "is_ordinate_dimension",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_radial_dimension = {
@@ -255,7 +255,7 @@ is_radial_dimension = {
     "function_com_id": 340,
     "function_vb_name": "IsRadialDimension",
     "function_name": "is_radial_dimension",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 leader_text = {

@@ -52,7 +52,7 @@ from trim_curve import *
 from is_curve_planar import *
 from curve_closest_point import *
 from join_curves import *
-from add_circle3_pt import *
+from add_circle_3_pt import *
 from make_curve_periodic import *
 from is_curve_closed import *
 from extend_curve_point import *
@@ -74,7 +74,7 @@ from is_arc import *
 from divide_curve_equidistant import *
 from line_fit_from_points import *
 from curve_edit_points import *
-from add_ellipse3_pt import *
+from add_ellipse_3_pt import *
 from curve_degree import *
 from is_curve_rational import *
 from reverse_curve import *
@@ -106,7 +106,7 @@ from curve_dim import *
 from curve_plane import *
 from add_interp_crv_on_srf import *
 from extend_curve_length import *
-from add_arc3_pt import *
+from add_arc_3_pt import *
 from is_curve_in_plane import *
 from curve_arc_length_point import *
 from curve_points import *

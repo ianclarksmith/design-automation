@@ -26,7 +26,7 @@ xform_shear = {
         },
         1: {
             "name": "arrX1",
-            "py_name": "x1",
+            "py_name": "x_1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -37,7 +37,7 @@ xform_shear = {
         },
         2: {
             "name": "arrY1",
-            "py_name": "y1",
+            "py_name": "y_1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",
@@ -48,7 +48,7 @@ xform_shear = {
         },
         3: {
             "name": "arrZ1",
-            "py_name": "z1",
+            "py_name": "z_1",
             "opt_or_req": "Required",
             "type": "Array (3-D Vector)",
             "name_prefix": "arr_of_dbl",

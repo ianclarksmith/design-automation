@@ -15,7 +15,7 @@ point_subtract = {
     "params_html": {
         0: {
             "name": "arrPoint1",
-            "py_name": "point1",
+            "py_name": "point_1",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -26,7 +26,7 @@ point_subtract = {
         },
         1: {
             "name": "arrPoint2",
-            "py_name": "point2",
+            "py_name": "point_2",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

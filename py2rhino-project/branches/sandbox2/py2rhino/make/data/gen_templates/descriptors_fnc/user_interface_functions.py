@@ -55,7 +55,7 @@ get_box = {
     "function_com_id": 342,
     "function_vb_name": "GetBox",
     "function_name": "get_box",
-    "function_parameters": (("mode","int","OPT"),("point","array_of dbl","OPT"),("prompt1","str","OPT"),("prompt2","str","OPT"),("prompt3","str","OPT")),
+    "function_parameters": (("mode","int","OPT"),("point","array_of dbl","OPT"),("prompt_1","str","OPT"),("prompt_2","str","OPT"),("prompt_3","str","OPT")),
     "function_returns": ("array","null")
     }
 get_color = {
@@ -63,7 +63,7 @@ get_color = {
     "function_com_id": 65,
     "function_vb_name": "GetColor",
     "function_name": "get_color",
-    "function_parameters": (("color","lng","OPT")),
+    "function_parameters": (("color","lng","OPT"),),
     "function_returns": ("number","null")
     }
 get_distance = {
@@ -71,7 +71,7 @@ get_distance = {
     "function_com_id": 66,
     "function_vb_name": "GetDistance",
     "function_name": "get_distance",
-    "function_parameters": (("point","array_of dbl","OPT"),("distance","dbl","OPT"),("message1","str","OPT"),("message2","str","OPT")),
+    "function_parameters": (("point","array_of dbl","OPT"),("distance","dbl","OPT"),("message_1","str","OPT"),("message_2","str","OPT")),
     "function_returns": ("number","null")
     }
 get_integer = {
@@ -95,7 +95,7 @@ get_linetype = {
     "function_com_id": 673,
     "function_vb_name": "GetLinetype",
     "function_name": "get_linetype",
-    "function_parameters": (("linetype","str","OPT")),
+    "function_parameters": (("linetype","str","OPT"),),
     "function_returns": ("string","null")
     }
 get_point_on_curve = {
@@ -143,7 +143,7 @@ get_points = {
     "function_com_id": 67,
     "function_vb_name": "GetPoints",
     "function_name": "get_points",
-    "function_parameters": (("draw","bln","OPT"),("plane","bln","OPT"),("message1","str","OPT"),("message2","str","OPT"),("max_points","int","OPT"),("base_point","array_of dbl","OPT")),
+    "function_parameters": (("draw","bln","OPT"),("plane","bln","OPT"),("message_1","str","OPT"),("message_2","str","OPT"),("max_points","int","OPT"),("base_point","array_of dbl","OPT")),
     "function_returns": ("array","null")
     }
 get_print_width = {
@@ -151,7 +151,7 @@ get_print_width = {
     "function_com_id": 674,
     "function_vb_name": "GetPrintWidth",
     "function_name": "get_print_width",
-    "function_parameters": (("print_width","dbl","OPT")),
+    "function_parameters": (("print_width","dbl","OPT"),),
     "function_returns": ("number","null")
     }
 get_real = {
@@ -167,7 +167,7 @@ get_rectangle = {
     "function_com_id": 341,
     "function_vb_name": "GetRectangle",
     "function_name": "get_rectangle",
-    "function_parameters": (("mode","int","OPT"),("point","array_of dbl","OPT"),("prompt1","str","OPT"),("prompt2","str","OPT"),("prompt3","str","OPT")),
+    "function_parameters": (("mode","int","OPT"),("point","array_of dbl","OPT"),("prompt_1","str","OPT"),("prompt_2","str","OPT"),("prompt_3","str","OPT")),
     "function_returns": ("array","null")
     }
 get_string = {
@@ -215,7 +215,7 @@ message_beep = {
     "function_com_id": 149,
     "function_vb_name": "MessageBeep",
     "function_name": "message_beep",
-    "function_parameters": (("beep","int","OPT")),
+    "function_parameters": (("beep","int","OPT"),),
     "function_returns": ()
     }
 message_box = {
@@ -224,7 +224,7 @@ message_box = {
     "function_vb_name": "MessageBox",
     "function_name": "message_box",
     "function_parameters": (("message","str","REQ"),("buttons","int","OPT"),("title","str","OPT")),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 multi_list_box = {
     "function_location": "user_interface",

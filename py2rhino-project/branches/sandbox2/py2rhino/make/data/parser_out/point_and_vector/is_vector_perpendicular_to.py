@@ -15,7 +15,7 @@ is_vector_perpendicular_to = {
     "params_html": {
         0: {
             "name": "arrVector1",
-            "py_name": "vector1",
+            "py_name": "vector_1",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
@@ -26,7 +26,7 @@ is_vector_perpendicular_to = {
         },
         1: {
             "name": "arrVector2",
-            "py_name": "vector2",
+            "py_name": "vector_2",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",

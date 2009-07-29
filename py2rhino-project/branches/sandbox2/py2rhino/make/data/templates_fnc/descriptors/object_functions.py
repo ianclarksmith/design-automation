@@ -31,7 +31,7 @@ copy_objects_2 = {
     "function_com_id": 295,
     "function_vb_name": "CopyObjects",
     "function_name": "copy_objects_2",
-    "function_parameters": (("translation","array_of dbl","OPT")),
+    "function_parameters": (("translation","array_of dbl","OPT"),),
     "function_returns": ("array","null")
     }
 delete_objects = {
@@ -39,7 +39,7 @@ delete_objects = {
     "function_com_id": 186,
     "function_vb_name": "DeleteObjects",
     "function_name": "delete_objects",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
     }
 enable_object_mesh = {
@@ -63,7 +63,7 @@ hide_objects = {
     "function_com_id": 303,
     "function_vb_name": "HideObjects",
     "function_name": "hide_objects",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
     }
 is_layout_object = {
@@ -71,15 +71,15 @@ is_layout_object = {
     "function_com_id": 919,
     "function_vb_name": "IsLayoutObject",
     "function_name": "is_layout_object",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_object = {
     "function_location": "object",
     "function_com_id": 46,
     "function_vb_name": "IsObject",
     "function_name": "is_object",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ()
     }
 is_object_hidden = {
@@ -87,8 +87,8 @@ is_object_hidden = {
     "function_com_id": 47,
     "function_vb_name": "IsObjectHidden",
     "function_name": "is_object_hidden",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_object_in_box = {
     "function_location": "object",
@@ -96,7 +96,7 @@ is_object_in_box = {
     "function_vb_name": "IsObjectInBox",
     "function_name": "is_object_in_box",
     "function_parameters": (("object","str","REQ"),("box","array_of dbl","REQ"),("mode","bln","OPT")),
-    "function_returns": ("null")
+    "function_returns": ("null",)
     }
 is_object_in_group = {
     "function_location": "object",
@@ -104,63 +104,63 @@ is_object_in_group = {
     "function_vb_name": "IsObjectInGroup",
     "function_name": "is_object_in_group",
     "function_parameters": (("object","str","REQ"),("group","str","OPT")),
-    "function_returns": ("null")
+    "function_returns": ("null",)
     }
 is_object_locked = {
     "function_location": "object",
     "function_com_id": 48,
     "function_vb_name": "IsObjectLocked",
     "function_name": "is_object_locked",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_object_normal = {
     "function_location": "object",
     "function_com_id": 49,
     "function_vb_name": "IsObjectNormal",
     "function_name": "is_object_normal",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_object_reference = {
     "function_location": "object",
     "function_com_id": 271,
     "function_vb_name": "IsObjectReference",
     "function_name": "is_object_reference",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_object_selectable = {
     "function_location": "object",
     "function_com_id": 307,
     "function_vb_name": "IsObjectSelectable",
     "function_name": "is_object_selectable",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_object_selected = {
     "function_location": "object",
     "function_com_id": 50,
     "function_vb_name": "IsObjectSelected",
     "function_name": "is_object_selected",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_object_solid = {
     "function_location": "object",
     "function_com_id": 189,
     "function_vb_name": "IsObjectSolid",
     "function_name": "is_object_solid",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_object_valid = {
     "function_location": "object",
     "function_com_id": 522,
     "function_vb_name": "IsObjectValid",
     "function_name": "is_object_valid",
-    "function_parameters": (("object","str","REQ")),
-    "function_returns": ("null")
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("null",)
     }
 is_visible_in_view = {
     "function_location": "object",
@@ -168,14 +168,14 @@ is_visible_in_view = {
     "function_vb_name": "IsVisibleInView",
     "function_name": "is_visible_in_view",
     "function_parameters": (("object","str","REQ"),("view","str","OPT")),
-    "function_returns": ("null")
+    "function_returns": ("null",)
     }
 lock_objects = {
     "function_location": "object",
     "function_com_id": 304,
     "function_vb_name": "LockObjects",
     "function_name": "lock_objects",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
     }
 match_object_attributes = {
@@ -207,7 +207,7 @@ move_objects_2 = {
     "function_com_id": 296,
     "function_vb_name": "MoveObjects",
     "function_name": "move_objects_2",
-    "function_parameters": (("translation","array_of dbl","REQ")),
+    "function_parameters": (("translation","array_of dbl","REQ"),),
     "function_returns": ("number","null")
     }
 object_color = {
@@ -231,7 +231,7 @@ object_description = {
     "function_com_id": 470,
     "function_vb_name": "ObjectDescription",
     "function_name": "object_description",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("string","null")
     }
 object_dump = {
@@ -247,7 +247,7 @@ object_groups = {
     "function_com_id": 193,
     "function_vb_name": "ObjectGroups",
     "function_name": "object_groups",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("array","null")
     }
 object_has_mesh = {
@@ -255,7 +255,7 @@ object_has_mesh = {
     "function_com_id": 867,
     "function_vb_name": "ObjectHasMesh",
     "function_name": "object_has_mesh",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 object_layer = {
@@ -295,7 +295,7 @@ object_material_index = {
     "function_com_id": 194,
     "function_vb_name": "ObjectMaterialIndex",
     "function_name": "object_material_index",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 object_material_source = {
@@ -423,7 +423,7 @@ object_top_group = {
     "function_com_id": 197,
     "function_vb_name": "ObjectTopGroup",
     "function_name": "object_top_group",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("string","null")
     }
 object_type = {
@@ -431,7 +431,7 @@ object_type = {
     "function_com_id": 198,
     "function_vb_name": "ObjectType",
     "function_name": "object_type",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 object_u_r_l = {
@@ -479,7 +479,7 @@ select_objects = {
     "function_com_id": 298,
     "function_vb_name": "SelectObjects",
     "function_name": "select_objects",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
     }
 shear_objects = {
@@ -495,7 +495,7 @@ show_objects = {
     "function_com_id": 305,
     "function_vb_name": "ShowObjects",
     "function_name": "show_objects",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
     }
 transform_objects = {
@@ -511,7 +511,7 @@ unlock_objects = {
     "function_com_id": 306,
     "function_vb_name": "UnlockObjects",
     "function_name": "unlock_objects",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
     }
 unselect_objects = {
@@ -519,6 +519,6 @@ unselect_objects = {
     "function_com_id": 300,
     "function_vb_name": "UnselectObjects",
     "function_name": "unselect_objects",
-    "function_parameters": (("objects","array_of str","REQ")),
+    "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
     }

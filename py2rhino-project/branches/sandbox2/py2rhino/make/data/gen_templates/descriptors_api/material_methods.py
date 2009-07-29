@@ -6,14 +6,14 @@ add_material_to_layer = {
     "method_location": "Material",
     "method_type": "METHOD",
     "method_name": "add_material_to_layer",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("number","null")
     }
 add_material_to_object = {
     "method_location": "Material",
     "method_type": "METHOD",
     "method_name": "add_material_to_object",
-    "method_parameters": (("object","str","REQ")),
+    "method_parameters": (("object","str","REQ"),),
     "method_returns": ("number","null")
     }
 copy_material = {
@@ -27,28 +27,28 @@ is_material_default = {
     "method_location": "Material",
     "method_type": "METHOD",
     "method_name": "is_material_default",
-    "method_parameters": (("material_index","int","REQ")),
-    "method_returns": ("null")
+    "method_parameters": (("material_index","int","REQ"),),
+    "method_returns": ("null",)
     }
 is_material_reference = {
     "method_location": "Material",
     "method_type": "METHOD",
     "method_name": "is_material_reference",
-    "method_parameters": (("material_index","int","REQ")),
+    "method_parameters": (("material_index","int","REQ"),),
     "method_returns": ("boolean","null")
     }
 match_material = {
     "method_location": "Material",
     "method_type": "METHOD",
     "method_name": "match_material",
-    "method_parameters": (("src_material_index","int","REQ")),
+    "method_parameters": (("src_material_index","int","REQ"),),
     "method_returns": ("number","null")
     }
 match_material_2 = {
     "method_location": "Material",
     "method_type": "METHOD",
     "method_name": "match_material_2",
-    "method_parameters": (("src_object","str","REQ"),("dest_objects","arr_of_str","REQ")),
+    "method_parameters": (("src_object","str","REQ"),("dest_objects","array_of str","REQ")),
     "method_returns": ("number","null")
     }
 material_bump = {

@@ -7,7 +7,7 @@ attribute_data_count = {
     "function_com_id": 685,
     "function_vb_name": "AttributeDataCount",
     "function_name": "attribute_data_count",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 delete_attribute_data = {
@@ -40,7 +40,7 @@ document_data_count = {
     "function_vb_name": "DocumentDataCount",
     "function_name": "document_data_count",
     "function_parameters": (),
-    "function_returns": ("number")
+    "function_returns": ("number",)
     }
 get_attribute_data = {
     "function_location": "user_data",
@@ -79,7 +79,7 @@ is_attribute_data = {
     "function_com_id": 686,
     "function_vb_name": "IsAttributeData",
     "function_name": "is_attribute_data",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_document_data = {
@@ -88,14 +88,14 @@ is_document_data = {
     "function_vb_name": "IsDocumentData",
     "function_name": "is_document_data",
     "function_parameters": (),
-    "function_returns": ("boolean")
+    "function_returns": ("boolean",)
     }
 is_object_data = {
     "function_location": "user_data",
     "function_com_id": 279,
     "function_vb_name": "IsObjectData",
     "function_name": "is_object_data",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("boolean","null")
     }
 is_user_text = {
@@ -103,7 +103,7 @@ is_user_text = {
     "function_com_id": 730,
     "function_vb_name": "IsUserText",
     "function_name": "is_user_text",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 object_data_count = {
@@ -111,7 +111,7 @@ object_data_count = {
     "function_com_id": 242,
     "function_vb_name": "ObjectDataCount",
     "function_name": "object_data_count",
-    "function_parameters": (("object","str","REQ")),
+    "function_parameters": (("object","str","REQ"),),
     "function_returns": ("number","null")
     }
 set_attribute_data = {

@@ -37,7 +37,7 @@ get_distance = {
         },
         2: {
             "name": "strMessage1",
-            "py_name": "message1",
+            "py_name": "message_1",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
@@ -48,7 +48,7 @@ get_distance = {
         },
         3: {
             "name": "strMessage2",
-            "py_name": "message2",
+            "py_name": "message_2",
             "opt_or_req": "Optional",
             "type": "String",
             "name_prefix": "str",
