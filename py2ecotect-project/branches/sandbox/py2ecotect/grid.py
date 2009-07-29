@@ -255,7 +255,7 @@ class Grid(object):
         arg_str = string_util._convert_args_to_string("set.grid.axis", axis)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_cell(self, i, j, index = 0):
+    def get_cell(self, position, index = 0):
         """
         
         Retrieves the value stored in the specified grid cell. Two values are 
@@ -267,10 +267,10 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the required cell within the 
-        grid. Each must be an integer between 0 and the current grid size - 1 in 
-        the relevant grid axis. 
+        position 
+        A list of two values that represent the horizontal and vertical 
+        position of the required cell within the grid. Each must be an integer 
+        between 0 and the current grid size - 1 in the relevant grid axis. 
         
         [index] 
         This optional parameter specifies the index of the specified data value 
@@ -284,11 +284,13 @@ class Grid(object):
         The current data value at the specified grid cell.
 
         """
-        arg_str = string_util._convert_args_to_string("get.grid.cell", i, j, index)
+        arg_str = string_util._convert_args_to_string("get.grid.cell", 
+                                                      position[0], position[1], 
+                                                      index)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, int)
 
-    def set_cell(self, i, j, value, index = 0):
+    def set_cell(self, position, value, index = 0):
         """
         
         Sets the value to be stored in the specified grid cell. 
@@ -296,10 +298,11 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the cell within the grid where 
-        the value is to be stored. Each must be an integer between 0 and the 
-        current grid size - 1 in the relevant grid axis. 
+        position 
+        A list of two values that represent the horizontal and vertical position 
+        of the cell within the grid where the value is to be stored. Each must 
+        be an integer between 0 and the current grid size - 1 in the relevant 
+        grid axis. 
         
         value 
         This parameter is the decimal value to be stored within the cell. 
@@ -311,7 +314,8 @@ class Grid(object):
         not specified, the currently displayed index is used by default.
 
         """
-        arg_str = string_util._convert_args_to_string("set.grid.cell", i, j, 
+        arg_str = string_util._convert_args_to_string("set.grid.cell", 
+                                                      position[0], position[1], 
                                                      value, index)
         py2ecotect.conversation.Exec(arg_str)
 
@@ -551,7 +555,7 @@ class Grid(object):
         val = py2ecotect.conversation.Request("get.grid.max")
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_max(self, x, y, z):
+    def set_max(self, absolute_position):
         """
         
         Sets the maximum values of the grid extents for the x, y and z axes. The 
@@ -560,12 +564,16 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of the maximun 
-        extents of the analysis grid in 3 dimensional model space. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of the maximun extents of the analysis grid in 3 
+        dimensional model space. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.grid.max", x, y, z)
+        arg_str = string_util._convert_args_to_string("set.grid.max", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
     def get_min(self):
@@ -588,7 +596,7 @@ class Grid(object):
         val = py2ecotect.conversation.Request("get.grid.min")
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_min(self, x, y, z):
+    def set_min(self, absolute_position):
         """
         
         Sets the minimum values of the grid extents in theX, Y and Z axes. 
@@ -596,12 +604,16 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of the minimun 
-        extents of the analysis grid in 3 dimensional model space.
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of the minimun extents of the analysis grid in 3 
+        dimensional model space.
 
         """
-        arg_str = string_util._convert_args_to_string("set.grid.min", x, y, z)
+        arg_str = string_util._convert_args_to_string("set.grid.min", 
+                                                      absolute_position[0],
+                                                      absolute_position[1],
+                                                      absolute_position[2])
         py2ecotect.conversation.Exec(arg_str)
 
     def get_offset(self):
@@ -643,7 +655,7 @@ class Grid(object):
         arg_str = string_util._convert_args_to_string("set.grid.offset", offset)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_position(self, i, j):
+    def get_position(self, position):
         """
         
         Retrieves the position of a grid point. Three values are returned, being 
@@ -652,10 +664,11 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the cell within the grid where 
-        the value is to be stored. Each must be an integer between 0 and the 
-        current grid size - 1 in the relevant grid axis. 
+        position 
+        A list of two values that represent the horizontal and vertical position 
+        of the cell within the grid where the value is to be stored. Each must 
+        be an integer between 0 and the current grid size - 1 in the relevant 
+        grid axis. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -665,11 +678,13 @@ class Grid(object):
         node in 3 dimensional model space.
         
         """
-        arg_str = string_util._convert_args_to_string("get.grid.position", i, j)
+        arg_str = string_util._convert_args_to_string("get.grid.position", 
+                                                      position[0],
+                                                      position[1])
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_position(self, i, j, pos):
+    def set_position(self, position, pos):
         """
         
         Sets the position of a grid point. Note that setting this value is only 
@@ -680,19 +695,22 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the cell within the grid where 
-        the value is to be stored. Each must be an integer between 0 and the 
-        current grid size - 1 in the relevant axis. 
+        position 
+        A list of two values that represent the horizontal and vertical position 
+        of the cell within the grid where the value is to be stored. Each must 
+        be an integer between 0 and the current grid size - 1 in the relevant 
+        axis. 
         
         pos 
-        Thisparameter is the absolute world coordinate of the cell in the 
+        This parameter is the absolute world coordinate of the cell in the 
         current grid axis. Thus if the axis is currently set to XY (0), then a 
         value of 1500 would equate to a height of 1.5m in the z axis. 
         
         """
-        arg_str = string_util._convert_args_to_string("set.grid.position", i, j,
-                                                     pos)
+        arg_str = string_util._convert_args_to_string("set.grid.position", 
+                                                      position[0],
+                                                      position[1],
+                                                      pos)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_range(self):
@@ -790,7 +808,7 @@ class Grid(object):
         val = py2ecotect.conversation.Request("get.grid.size")
         return string_util._convert_str_to_list(val, int, int, int)
 
-    def set_size(self, ix, jy, kz):
+    def set_size(self, grid_cells):
         """
         
         Sets the number of cells to use with the current analysis grid, for each 
@@ -799,17 +817,20 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        ix, jy, kz 
-        These parameters define the number of grid cells to create in each of 
-        the X, Y and Z axis directions of the analysis grid. If kz is not 
-        specified, the analysis grid becomes a 2D analysis grid.
+        grid_cells 
+        A list of three values that represent that define the number of grid 
+        cells to create in each of the X, Y and Z axis directions of the 
+        analysis grid. If Z axis is not specified, the analysis grid becomes a 
+        2D analysis grid.
         
         """
         arg_str = string_util._convert_args_to_string("set.grid.size", 
-                                                      ix, jy, kz)
+                                                      grid_cells[0],
+                                                      grid_cells[1],
+                                                      grid_cells[2])
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_state(self, i, j):
+    def get_state(self, position):
         """
         
         Retrieves the state of the specified grid cell. The possible values 
@@ -818,10 +839,11 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the cell within the grid where 
-        the value is to be stored. Each must be an integer between 0 and the 
-        current grid size - 1 in the relevant grid axis. 
+        position 
+        A list of two values that represent the horizontal and vertical position 
+        of the cell within the grid where the value is to be stored. Each must 
+        be an integer between 0 and the current grid size - 1 in the relevant 
+        axis. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -840,11 +862,13 @@ class Grid(object):
         -100 Hidden and selected. 
 
         """
-        arg_str = string_util._convert_args_to_string("get.grid.state", i, j)
+        arg_str = string_util._convert_args_to_string("get.grid.state", 
+                                                      position[0],
+                                                      position[1])
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
 
-    def set_state(self, i, j, state):
+    def set_state(self, position, state):
         """
         
         Sets the state of the specified grid cell. The possible values returned 
@@ -853,10 +877,11 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the cell within the grid where 
-        the value is to be stored. Each must be an integer between 0 and the 
-        current grid size - 1 in the relevant grid axis. 
+        position 
+        A list of two values that represent the horizontal and vertical position 
+        of the cell within the grid where the value is to be stored. Each must 
+        be an integer between 0 and the current grid size - 1 in the relevant 
+        axis. 
         
         state 
         This parameter is an integer value that controls how the specified cell 
@@ -873,8 +898,10 @@ class Grid(object):
         -100 Hidden and selected. 
 
         """
-        arg_str = string_util._convert_args_to_string("set.grid.state", i, j, 
-                                                     state)
+        arg_str = string_util._convert_args_to_string("set.grid.state", 
+                                                      position[0],
+                                                      position[1], 
+                                                      state)
         py2ecotect.conversation.Exec(arg_str)
 
     def get_title(self):
@@ -951,6 +978,7 @@ class Grid(object):
         change the units for, and can be an integer in the range 0 to 4. If the 
         [index] parameter is not specified, the currently displayed index is 
         used by default. 
+        
         units 
         Specifies what units of measurement to use, and can be a short string 
         such as Lux or W/m^2. 
@@ -960,7 +988,7 @@ class Grid(object):
                                                      units)
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_vector(self, i, j):
+    def get_vector(self, position):
         """
         
         Retrieves the vector value stored in the specified grid cell. Three 
@@ -969,10 +997,11 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the cell within the grid where 
-        the value is to be stored. Each must be an integer between 0 and the 
-        current grid size - 1 in the relevant grid axis. 
+        position 
+        A list of two values that represent the horizontal and vertical position 
+        of the cell within the grid where the value is to be stored. Each must 
+        be an integer between 0 and the current grid size - 1 in the relevant 
+        grid axis. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -982,11 +1011,12 @@ class Grid(object):
         Z axis, given in model coordinates. 
         
         """
-        arg_str = string_util._convert_args_to_string("get.grid.vector", i, j)
+        arg_str = string_util._convert_args_to_string("get.grid.vector", 
+                                                      position[0], position[1])
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_list(val, float, float, float)
 
-    def set_vector(self, i, j, dx, dy, dz):
+    def set_vector(self, position, offset_distance):
         """
         
         Sets the vector value stored in the specified grid cell. 
@@ -994,20 +1024,26 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the cell within the grid where 
-        the value is to be stored. Each must be an integer between 0 and the 
-        current grid size - 1 in the relevant grid axis. 
-        dx, dy, dz 
-        A vector value representing the offset distance in each of the X, Y and 
-        Z axis, given in model coordinates.
+        position 
+        A list of two values that represent the horizontal and vertical position 
+        of the cell within the grid where the value is to be stored. Each must 
+        be an integer between 0 and the current grid size - 1 in the relevant 
+        grid axis. 
+        
+        offset_distance 
+        A list of three values that represent the vector value representing the 
+        offset distance in each of the X, Y and Z axis, given in model 
+        coordinates.
         
         """
-        arg_str = string_util._convert_args_to_string("set.grid.vector", i, j, 
-                                                     dx, dy, dz)
+        arg_str = string_util._convert_args_to_string("set.grid.vector", 
+                                                      position[0], position[1], 
+                                                     offset_distance[0],
+                                                     offset_distance[1],
+                                                     offset_distance[2])
         py2ecotect.conversation.Exec(arg_str)
 
-    def get_zone(self, i, j, axis = 0, draw = False):
+    def get_zone(self, position, axis = 0, draw = False):
         """
         
         Attempts to determine the zone within which the grid cell resides. This 
@@ -1020,10 +1056,11 @@ class Grid(object):
         Parameter(s)
         This property takes the following parameters.
         
-        i, j 
-        The horizontal and vertical position of the cell within the grid where 
-        the value is to be stored. Each must be an integer between 0 and the 
-        current grid size - 1 in the relevant grid axis. 
+        position 
+        A list of two values that represent the horizontal and vertical position 
+        of the cell within the grid where the value is to be stored. Each must 
+        be an integer between 0 and the current grid size - 1 in the relevant 
+        grid axis. 
         
         [axis] 
         Specifies the axis about which to trace the test ray, according to the 
@@ -1052,8 +1089,9 @@ class Grid(object):
         2 XZ Axis 
 
         """
-        arg_str = string_util._convert_args_to_string("get.grid.zone", i, j, 
-                                                     axis, draw)
+        arg_str = string_util._convert_args_to_string("get.grid.zone", 
+                                                      position[0], position[1], 
+                                                      axis, draw)
         val = py2ecotect.conversation.Request(arg_str)
         return string_util._convert_str_to_type(val, int)
     

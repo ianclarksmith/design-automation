@@ -49,12 +49,15 @@ class Masks(object):
         index 
         The zero-based index of the shading mask where the interpolation will be 
         stored. 
+        
         t1 
         The zero-based index of the shading mask from which the interpolation 
         will begin. 
+        
         t2 
         The zero-based index of the shading mask at which the interpolation 
         will end. 
+        
         fraction 
         The fractional mask bias for the interpolation, typically between 0 (t1) 
         and 1 (t2).
@@ -351,6 +354,7 @@ class Masks(object):
         A decimal value between 0 (unshaded) and 100 (fully shaded) representing 
         the effective percentage shading of the object whose shading mask is 
         specified. 
+        
         cosAngle 
         A decimal fraction representing the effect of direct incidence. This is 
         equal to the cosine of the 3D incidence angle between the centre-point 

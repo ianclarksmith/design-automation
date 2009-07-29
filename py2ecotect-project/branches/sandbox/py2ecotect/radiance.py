@@ -637,7 +637,7 @@ class Radiance(object):
         val = py2ecotect.conversation.Request("get.radiance.sky")
         return string_util._convert_str_to_type(val, int)
 
-    def set_sky(self, skytype):
+    def set_sky(self, sky_type):
         """
         
         Sets how the sky is exported in the sky.rad file. 
@@ -663,7 +663,7 @@ class Radiance(object):
 
         """
         arg_str = string_util._convert_args_to_string("set.radiance.sky", 
-                                                     skytype)
+                                                     sky_type)
         py2ecotect.conversation.Exec(arg_str)    
     
     def get_variability(self):

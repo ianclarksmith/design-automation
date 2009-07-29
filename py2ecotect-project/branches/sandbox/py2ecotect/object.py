@@ -489,7 +489,7 @@ class _Object(object):
                                                      azi, alt)
         p2e.conversation.Exec(arg_str)
 
-    def rotate_axis(self, rx, ry, rz):
+    def rotate_axis(self, rotation_value):
         """
         
         Rotates the specified object about the Transformation Origin (see set.
@@ -498,14 +498,17 @@ class _Object(object):
         Parameter(s)
         This command takes the following parameters.
         
-        rx, ry, rz 
-        The amount of rotation in decimal degrees for each required axis, in a 
-        positive anti-clockwise direction. Use a value of 0 if no rotation is 
-        required for a particular axis. 
+        rotation_value 
+        A list of three values that represent the amount of rotation in decimal 
+        degrees for each required axis, in a positive anti-clockwise direction. 
+        Use a value of 0 if no rotation is required for a particular axis. 
         
         """
         arg_str = p2e.string_util._convert_args_to_string("object.rotateaxis", 
-                                                      self.eco_id, rx, ry, rz)
+                                                      self.eco_id, 
+                                                      rotation_value[0], 
+                                                      rotation_value[1], 
+                                                      rotation_value[2])
         p2e.conversation.Exec(arg_str)
         
     def rotate_reverse(self, azi, alt):
@@ -541,8 +544,11 @@ class _Object(object):
         A list of three scale factors to apply in each of the major axes. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("object.scale", self.eco_id, 
-                                                     scale_factor[0], scale_factor[1], scale_factor[2])
+        arg_str = p2e.string_util._convert_args_to_string("object.scale", 
+                                                          self.eco_id, 
+                                                          scale_factor[0], 
+                                                          scale_factor[1], 
+                                                          scale_factor[2])
         p2e.conversation.Exec(arg_str)
 
     def select(self):
@@ -1174,7 +1180,7 @@ class _Object(object):
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
-    def get_extents_2dpt(self, u, v):
+    def get_extents_2dpt(self, proportional_values):
         """
         
         This command retrieves coordinates for the nominated point on the face 
@@ -1184,11 +1190,12 @@ class _Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        u, v 
-        Proportional values that nominate the point to measure in relation to 
-        the extents of the specified object. For example, to nominate the centre 
-        of the object, the u and v values should be 0.5, whilst the minimum and 
-        maximum extents would be of 0.0 and 1.0 respectively.
+        proportional_values 
+        A list of two proportional values that nominate the point to measure in 
+        relation to the extents of the specified object. For example, to 
+        nominate the centre of the object, the u and v values should be 0.5, 
+        whilst the minimum and maximum extents would be of 0.0 and 1.0 
+        respectively.
         
         This property always assumes you are looking towards the outside face of 
         the object, where the minimum value is always the bottom-left. 
@@ -1202,7 +1209,9 @@ class _Object(object):
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.extents.2dpt", 
-                                                     self.eco_id, u, v)
+                                                     self.eco_id, 
+                                                     proportional_values[0],
+                                                     proportional_values[1])
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -1448,7 +1457,7 @@ class _Object(object):
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
         
-    def get_intersect(self, x1, y1, z1, x2, y2, z2):
+    def get_intersect(self, coordinates_start, coordinates_end):
         """
         
         Returns the coordinates of the intersection point between a line joining 
@@ -1461,11 +1470,11 @@ class _Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        coordinates_1
+        coordinates_start
         A list of 3 values of x1, y1, z1 that are the 3D start point of the 
         intersecting line. 
         
-        coordinates_2
+        coordinates_end
         A list of 3 values of x2, y2, z2 that are the 3D end point of the 
         intersecting line. 
         
@@ -1479,12 +1488,12 @@ class _Object(object):
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.intersect", 
                                                      self.eco_id, 
-                                                     coordinates_1[0], 
-                                                     coordinates_1[1], 
-                                                     coordinates_1[2],
-                                                     coordinates_2[0],
-                                                     coordinates_2[1], 
-                                                     coordinates_2[2])
+                                                     coordinates_start[0], 
+                                                     coordinates_start[1], 
+                                                     coordinates_start[2],
+                                                     coordinates_end[0],
+                                                     coordinates_end[1], 
+                                                     coordinates_end[2])
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
@@ -1667,7 +1676,7 @@ class _Object(object):
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_list(val, float, float, float)
 
-    def set_node_position(self, node, x, y, z):
+    def set_node_position(self, node, absolute_position):
         """
         
         Sets the position of the node in absolute world coordinates for each of 
@@ -1680,13 +1689,16 @@ class _Object(object):
         node 
         The relative index of the node in the specified object to set. 
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of the node in 3 
-        dimensional model space.
+        absolute_position 
+        A list of three values that represents the absolute position in the 
+        X, Y and Z axis of the node in 3 dimensional model space.
         
         """
         arg_str = p2e.string_util._convert_args_to_string("set.object.node.position", 
-                                                     self.eco_id, node, x, y, z)
+                                                     self.eco_id, node, 
+                                                     absolute_position[0],
+                                                     absolute_position[1],
+                                                     absolute_position[2])
         p2e.conversation.Exec(arg_str)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
     def get_nodes(self):
@@ -1899,9 +1911,9 @@ class _Object(object):
         Return Value(s)
         Getting this property returns the following value(s).
         
-        x, y, z 
-        The absolute position in the X, Y and Z axis of the reflected point in 3 
-        dimensional model space.
+        absolute_position 
+        A lost of three values that represent the absolute position in the 
+        X, Y and Z axis of the reflected point in 3 dimensional model space.
         
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.reflect", 
@@ -1950,7 +1962,7 @@ class _Object(object):
                                                      self.eco_id, value)
         p2e.conversation.Exec(arg_str)
 
-    def get_same_side(self, coordinates_1, coordinates_2):
+    def get_same_side(self, coordinates_start, coordinates_end):
         """
         
         Returns a single integer value, either 0 (false) or 1 (true), depending 
@@ -1961,11 +1973,11 @@ class _Object(object):
         Parameter(s)
         This property takes the following parameters.
         
-        coordinates_1
+        coordinates_start
         A list of three values that are the x1 y1 z1 of the first 3D point to 
         use for the comparison. 
         
-        coordinates_2
+        coordinates_end
         A list of three values that are the x2 y2 z2 of the second 3D point to 
         use for the comparison. 
         
@@ -1979,12 +1991,12 @@ class _Object(object):
         """
         arg_str = p2e.string_util._convert_args_to_string("get.object.sameside", 
                                                      self.eco_id, 
-                                                     coordinates_1[0], 
-                                                     coordinates_1[1], 
-                                                     coordinates_1[2],
-                                                     coordinates_2[0], 
-                                                     coordinates_2[1], 
-                                                     coordinates_2[2])
+                                                     coordinates_start[0], 
+                                                     coordinates_start[1], 
+                                                     coordinates_start[2],
+                                                     coordinates_end[0], 
+                                                     coordinates_end[1], 
+                                                     coordinates_end[2])
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, int)
 

@@ -399,7 +399,6 @@ class Calculation(object):
         comparison Temperature/gains comparison . 
         degreedays Monthly degree days. 
     
-    
         """
         arg_str = string_util._convert_args_to_string("calc.shading." + 
                                                       shadingType,cumulative, 

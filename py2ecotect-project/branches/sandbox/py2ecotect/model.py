@@ -5,11 +5,8 @@ _objects = []
 _nodes = []
 
 def _populate():
-    #Ecotect adds a default zone automatically. So add a null object at the 
-    #first position to the list of zones
     num_zones = Model.get_zones()
     for eco_id in range(num_zones):
-        #Ignore the default zone
             p2e.Zone._create_zone_from_id(eco_id)
 
 class Model(object):         
@@ -273,7 +270,7 @@ class Model(object):
     # Properties
     #===========================================================================
     
-    def get_altitude(self, x1, y1, z1, x2, y2, z2):
+    def get_altitude(self, absolute_position_start, absolute_position_end):
         """
         
         Retrieves geometric information from the current ECOTECT model, 
@@ -284,13 +281,13 @@ class Model(object):
         Parameter(s)
         This property takes the following parameters.
     
-        x1, y1, z1 
-        Represents the absolute position in the X, Y and Z axis of a 
-        starting point in 3 dimensional model space.
+        absolute_position_start 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a starting point in 3 dimensional model space.
          
-        x2, y2, z2 
-        Represents the absolute position in the X, Y and Z axis of an end 
-        point in 3 dimensional model space. 
+        absolute_position_end 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of an end point in 3 dimensional model space. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -299,11 +296,17 @@ class Model(object):
         The altitude angle in degrees. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.model.altitude", x1, y1, z1, x2, y2, z2)
+        arg_str = p2e.string_util._convert_args_to_string("get.model.altitude", 
+                                                          absolute_position_start[0],
+                                                          absolute_position_start[1], 
+                                                          absolute_position_start[2],
+                                                          absolute_position_end[0],
+                                                          absolute_position_end[1],
+                                                          absolute_position_end[2])
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)        
         
-    def get_azimuth(self, x1, y1, z1, x2, y2, z2):
+    def get_azimuth(self, absolute_position_start, absolute_position_end):
         """
         
         Retrieves geometric information from the current ECOTECT model, 
@@ -314,13 +317,13 @@ class Model(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x1, y1, z1 
-        Represents the absolute position in the X, Y and Z axis of a 
-        starting point in 3 dimensional model space. 
-        
-        x2, y2, z2 
-        Represents the absolute position in the X, Y and Z axis of an end 
-        point in 3 dimensional model space. 
+        absolute_position_start 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a starting point in 3 dimensional model space.
+         
+        absolute_position_end 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of an end point in 3 dimensional model space. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -329,7 +332,13 @@ class Model(object):
         The azimuth angle in degrees.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.model.azimuth", x1, y1, z1, x2, y2, z2)
+        arg_str = p2e.string_util._convert_args_to_string("get.model.azimuth",
+                                                          absolute_position_start[0],
+                                                          absolute_position_start[1], 
+                                                          absolute_position_start[2],
+                                                          absolute_position_end[0],
+                                                          absolute_position_end[1],
+                                                          absolute_position_end[2])
         val = p2e.conversation.Request(arg_str)
         return p2e.string_util._convert_str_to_type(val, float)           
     
@@ -637,7 +646,7 @@ class Model(object):
         args = p2e.string_util._convert_args_to_string("set.model.display", display)
         p2e.conversation.Exec(args)
     
-    def get_distance(self, x1, y1, z1, x2, y2, z2):
+    def get_distance(self, absolute_position_start, absolute_position_end):
         """
         
         Retrieves geometric information from the current ECOTECT model, 
@@ -648,13 +657,13 @@ class Model(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x1, y1, z1 
-        Represents the absolute position in the X, Y and Z axis of a 
-        starting point in 3 dimensional model space. 
-        
-        x2, y2, z2 
-        Represents the absolute position in the X, Y and Z axis of an end 
-        point in 3 dimensional model space. 
+        absolute_position_start 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a starting point in 3 dimensional model space.
+         
+        absolute_position_end 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of an end point in 3 dimensional model space. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -663,7 +672,13 @@ class Model(object):
         The distance value in the current model units.    
         
         """
-        args = p2e.string_util._convert_args_to_string("get.model.distance", x1, y1, z1, x2, y2, z2)
+        args = p2e.string_util._convert_args_to_string("get.model.distance", 
+                                                       absolute_position_start[0],
+                                                       absolute_position_start[1], 
+                                                       absolute_position_start[2],
+                                                       absolute_position_end[0],
+                                                       absolute_position_end[1],
+                                                       absolute_position_end[2])
         val = p2e.conversation.Request(args)
         return p2e.string_util._convert_str_to_type(val, float)          
     
@@ -905,7 +920,7 @@ class Model(object):
         val = p2e.conversation.Request("get.model.objects")
         return p2e.p2e.string_util._convert_str_to_type(val, int)
     
-    def get_orientation(self, x1, y1, z1, x2, y2, z2):
+    def get_orientation(self, absolute_position_start, absolute_position_end):
         """
         
         Retrieves geometric information from the current ECOTECT model, 
@@ -916,13 +931,13 @@ class Model(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x1, y1, z1 
-        Represents the absolute position in the X, Y and Z axis of a starting 
-        point in 3 dimensional model space. 
-        
-        x2, y2, z2 
-        Represents the absolute position in the X, Y and Z axis of an end point 
-        in 3 dimensional model space. 
+        absolute_position_start 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a starting point in 3 dimensional model space.
+         
+        absolute_position_end 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of an end point in 3 dimensional model space. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -931,7 +946,13 @@ class Model(object):
         The orinetation angle in degrees. 
         
         """
-        args = p2e.p2e.string_util._convert_args_to_string("get.model.orientation", x1, y1, z1, x2, y2, z2)
+        args = p2e.p2e.string_util._convert_args_to_string("get.model.orientation",
+                                                           absolute_position_start[0],
+                                                           absolute_position_start[1], 
+                                                           absolute_position_start[2],
+                                                           absolute_position_end[0],
+                                                           absolute_position_end[1],
+                                                           absolute_position_end[2])
         val = p2e.conversation.Request(args)
         return p2e.p2e.string_util._convert_str_to_type(val, float)        
     
@@ -955,7 +976,7 @@ class Model(object):
         val = p2e.conversation.Request("get.model.origin")
         return p2e.p2e.string_util._convert_str_to_list(val, float)
     
-    def set_origin(self, x, y, z):
+    def set_origin(self, absolute_position):
         """
         
         Sets the location of the Transformation Origin. This is a dynamic point 
@@ -964,12 +985,15 @@ class Model(object):
         Parameter(s)
         This property takes the following parameters.
         
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space. 
+        absolute_position 
+        A list of three values that represent the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
     
         """
-        args = p2e.p2e.string_util._convert_args_to_string("set.model.origin", x, y, z)
+        args = p2e.p2e.string_util._convert_args_to_string("set.model.origin", 
+                                                           absolute_position[0],
+                                                           absolute_position[1],
+                                                           absolute_position[2])
         p2e.conversation.Exec(args)     
     
     def get_path_name(self):
@@ -1195,7 +1219,7 @@ class Model(object):
         val = p2e.conversation.Request("get.model.sunangles")
         return p2e.p2e.string_util._convert_str_to_list(val, float)          
         
-    def get_sun_position(self, dist=0, xyz=(0,0,0)):
+    def get_sun_position(self, dist = 0, xyz = (0,0,0)):
         """
         
         Returns a position value that can be used to represent the Sun location 
@@ -1211,9 +1235,9 @@ class Model(object):
         model. 
         
         [x, y, z] 
-        If these optional parameters are given, the Sun position will be 
-        generated at a location dist away from this position, using the current 
-        Sun angles in the model. 
+        A list of three values. If these optional parameters are given, the Sun 
+        position will be generated at a location dist away from this position, 
+        using the current Sun angles in the model. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1223,7 +1247,9 @@ class Model(object):
         dimensional model space. 
         
         """
-        arg_str = p2e.p2e.string_util._convert_args_to_string("get.model.sunposition", dist, xyz[0], xyz[1], xyz[2])
+        arg_str = p2e.p2e.string_util._convert_args_to_string("get.model.sunposition", 
+                                                              dist, xyz[0], 
+                                                              xyz[1], xyz[2])
         val = p2e.conversation.Request(arg_str)
         return p2e.p2e.string_util._convert_str_to_list(val, float) 
             
