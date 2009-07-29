@@ -1,16 +1,18 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
 def add_alias(alias, macro):
 
     return _rsf.add_alias(alias, macro)
 
-def add_search_path(folder, index=None):
+def add_search_path(folder, index=pythoncom.Empty):
 
     return _rsf.add_search_path(folder, index)
 
-def add_startup_script(script_file, index=None):
+def add_startup_script(script_file, index=pythoncom.Empty):
 
     return _rsf.add_startup_script(script_file, index)
 
@@ -18,7 +20,7 @@ def alias_count():
 
     return _rsf.alias_count()
 
-def alias_macro(alias, macro=None):
+def alias_macro(alias, macro=pythoncom.Empty):
 
     return _rsf.alias_macro(alias, macro)
 
@@ -26,19 +28,19 @@ def alias_names():
 
     return _rsf.alias_names()
 
-def appearance_color(item, color=None):
+def appearance_color(item, color=pythoncom.Empty):
 
     return _rsf.appearance_color(item, color)
 
-def appearance_display(item, show=None):
+def appearance_display(item, show=pythoncom.Empty):
 
     return _rsf.appearance_display(item, show)
 
-def autosave_file(file=None):
+def autosave_file(file=pythoncom.Empty):
 
     return _rsf.autosave_file(file)
 
-def autosave_interval(minutes=None):
+def autosave_interval(minutes=pythoncom.Empty):
 
     return _rsf.autosave_interval(minutes)
 
@@ -50,7 +52,7 @@ def clear_command_history():
 
     return _rsf.clear_command_history()
 
-def command(command, echo=None):
+def command(command, echo=pythoncom.Empty):
 
     return _rsf.command(command, echo)
 
@@ -58,7 +60,7 @@ def command_history():
 
     return _rsf.command_history()
 
-def default_renderer(renderer=None):
+def default_renderer(renderer=pythoncom.Empty):
 
     return _rsf.default_renderer(renderer)
 
@@ -78,19 +80,19 @@ def display_ole_alerts(display):
 
     return _rsf.display_ole_alerts(display)
 
-def edge_analysis_color(color=None):
+def edge_analysis_color(color=pythoncom.Empty):
 
     return _rsf.edge_analysis_color(color)
 
-def edge_analysis_mode(mode=None):
+def edge_analysis_mode(mode=pythoncom.Empty):
 
     return _rsf.edge_analysis_mode(mode)
 
-def enable_autosave(enable=None):
+def enable_autosave(enable=pythoncom.Empty):
 
     return _rsf.enable_autosave(enable)
 
-def enable_history_recording(enable=None):
+def enable_history_recording(enable=pythoncom.Empty):
 
     return _rsf.enable_history_recording(enable)
 
@@ -110,11 +112,11 @@ def get_plug_in_object(plug_in):
 
     return _rsf.get_plug_in_object(plug_in)
 
-def help(topic=None):
+def help(topic=pythoncom.Empty):
 
     return _rsf.help(topic)
 
-def in_command(ignore_runners=None):
+def in_command(ignore_runners=pythoncom.Empty):
 
     return _rsf.in_command(ignore_runners)
 
@@ -146,43 +148,43 @@ def locale_i_d():
 
     return _rsf.locale_i_d()
 
-def ortho(enable=None):
+def ortho(enable=pythoncom.Empty):
 
     return _rsf.ortho(enable)
 
-def osnap(enable=None):
+def osnap(enable=pythoncom.Empty):
 
     return _rsf.osnap(enable)
 
-def osnap_dialog(visible=None):
+def osnap_dialog(visible=pythoncom.Empty):
 
     return _rsf.osnap_dialog(visible)
 
-def osnap_mode(mode=None):
+def osnap_mode(mode=pythoncom.Empty):
 
     return _rsf.osnap_mode(mode)
 
-def planar(enable=None):
+def planar(enable=pythoncom.Empty):
 
     return _rsf.planar(enable)
 
-def plug_ins(types=None, status=None):
+def plug_ins(types=pythoncom.Empty, status=pythoncom.Empty):
 
     return _rsf.plug_ins(types, status)
 
-def print_(message=None):
+def print_(message=pythoncom.Empty):
 
     return _rsf.print_(message)
 
-def print_ex(message=None):
+def print_ex(message=pythoncom.Empty):
 
     return _rsf.print_ex(message)
 
-def project_osnaps(enable=None):
+def project_osnaps(enable=pythoncom.Empty):
 
     return _rsf.project_osnaps(enable)
 
-def prompt(prompt=None):
+def prompt(prompt=pythoncom.Empty):
 
     return _rsf.prompt(prompt)
 
@@ -206,11 +208,11 @@ def search_path_list():
 
     return _rsf.search_path_list()
 
-def send_keystrokes(keys=None, add_return=None):
+def send_keystrokes(keys=pythoncom.Empty, add_return=pythoncom.Empty):
 
     return _rsf.send_keystrokes(keys, add_return)
 
-def snap(enable=None):
+def snap(enable=pythoncom.Empty):
 
     return _rsf.snap(enable)
 
@@ -222,27 +224,27 @@ def startup_script_list():
 
     return _rsf.startup_script_list()
 
-def status_bar_distance(distance=None):
+def status_bar_distance(distance=pythoncom.Empty):
 
     return _rsf.status_bar_distance(distance)
 
-def status_bar_message(message=None):
+def status_bar_message(message=pythoncom.Empty):
 
     return _rsf.status_bar_message(message)
 
-def status_bar_number(number=None):
+def status_bar_number(number=pythoncom.Empty):
 
     return _rsf.status_bar_number(number)
 
-def status_bar_point(point=None):
+def status_bar_point(point=pythoncom.Empty):
 
     return _rsf.status_bar_point(point)
 
-def template_file(filename=None):
+def template_file(filename=pythoncom.Empty):
 
     return _rsf.template_file(filename)
 
-def template_folder(folder=None):
+def template_folder(folder=pythoncom.Empty):
 
     return _rsf.template_folder(folder)
 
@@ -250,7 +252,7 @@ def window_handle():
 
     return _rsf.window_handle()
 
-def working_folder(enable=None):
+def working_folder(enable=pythoncom.Empty):
 
     return _rsf.working_folder(enable)
 

@@ -1,8 +1,10 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
-def add_group(group=None):
+def add_group(group=pythoncom.Empty):
 
     return _rsf.add_group(group)
 

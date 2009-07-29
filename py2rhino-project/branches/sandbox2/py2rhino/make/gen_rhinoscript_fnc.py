@@ -95,15 +95,16 @@ def write_RhinoscriptFunctions_class(data_dict):
         magic_id = function_dict['function_com_id']
         returns_magic_numbers = '(VT_VARIANT, 0)'
         params_magic_numbers = ', '.join(params_magic_numbers)
+        params_flattened = ', '.join(params_flattened)        
         if num_params == 1:
             params_magic_numbers = params_magic_numbers + ','
-        params_flattened = ', '.join(params_flattened)
+            params_flattened = params_flattened + ','
         
-        w(f, ('params = [', ', '.join(params_name), ']'), tabs=2, nls=1, nle=0)
-        w(f, ('required = [', ', '.join(params_required), ']'), tabs=2, nls=1, nle=0)
-        w(f, ('magic = [', params_magic_numbers, ']'), tabs=2, nls=1, nle=0)
-        w(f, ('flattened = [', params_flattened, ']'), tabs=2, nls=1, nle=1)
-        w(f, ('magic, flattened = select_params(params, required, magic, flattened)'), tabs=2, nls=1, nle=1)
+        #w(f, ('params = [', ', '.join(params_name), ']'), tabs=2, nls=1, nle=0)
+        #w(f, ('required = [', ', '.join(params_required), ']'), tabs=2, nls=1, nle=0)
+        w(f, ('magic = (', params_magic_numbers, ')'), tabs=2, nls=1, nle=0)
+        w(f, ('flattened = (', params_flattened, ')'), tabs=2, nls=1, nle=1)
+        #w(f, ('magic, flattened = select_params(params, required, magic, flattened)'), tabs=2, nls=1, nle=1)
     
         #now write the function    
         magic_str = str(magic_id) + ', 1, '+returns_magic_numbers+', magic'
@@ -131,6 +132,7 @@ def write_function_modules(data_dict):
     #---------------------------------------------------------------------------
     def write_module_header(f):
         w(f,'# Auto-generated module that wraps the RhinoscriptFunctions class', nle=2)
+        w(f,'import pythoncom', nle=2)        
         w(f,'_rsf = None', nle=2)
     #---------------------------------------------------------------------------
     def write_module_function(function_dict, f):
@@ -153,7 +155,7 @@ def write_function_modules(data_dict):
             for i in range(num_params):
                 param_str += params_name[i]
                 if params_opt_or_req[i] == 'OPT':
-                    param_str = param_str + '=None'
+                    param_str = param_str + '=pythoncom.Empty'
                 param_str += ', '
             param_str = param_str[:-2]
             w(f, ('(', param_str, '):'), tabs=0, nle=1)

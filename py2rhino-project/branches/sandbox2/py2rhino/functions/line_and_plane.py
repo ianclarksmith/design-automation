@@ -1,5 +1,7 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
 def distance_to_plane(plane, point):
@@ -26,7 +28,7 @@ def line_is_farther_than_2(line, distance, line_2):
 
     return _rsf.line_is_farther_than_2(line, distance, line_2)
 
-def line_line_intersection(line_a, line_b, planar=None):
+def line_line_intersection(line_a, line_b, planar=pythoncom.Empty):
 
     return _rsf.line_line_intersection(line_a, line_b, planar)
 
@@ -62,7 +64,7 @@ def move_plane(plane, origin):
 
     return _rsf.move_plane(plane, origin)
 
-def plane_closest_point(plane, point, return_point=None):
+def plane_closest_point(plane, point, return_point=pythoncom.Empty):
 
     return _rsf.plane_closest_point(plane, point, return_point)
 

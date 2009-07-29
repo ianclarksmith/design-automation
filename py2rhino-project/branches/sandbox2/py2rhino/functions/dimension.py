@@ -1,16 +1,18 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
-def add_dim_style(dim_style=None):
+def add_dim_style(dim_style=pythoncom.Empty):
 
     return _rsf.add_dim_style(dim_style)
 
-def add_leader(points, view=None, text=None):
+def add_leader(points, view=pythoncom.Empty, text=pythoncom.Empty):
 
     return _rsf.add_leader(points, view, text)
 
-def current_dim_style(dim_style=None):
+def current_dim_style(dim_style=pythoncom.Empty):
 
     return _rsf.current_dim_style(dim_style)
 
@@ -18,15 +20,15 @@ def delete_dim_style(dim_style):
 
     return _rsf.delete_dim_style(dim_style)
 
-def dim_scale(scale=None):
+def dim_scale(scale=pythoncom.Empty):
 
     return _rsf.dim_scale(scale)
 
-def dim_style_angle_precision(dim_style, precision=None):
+def dim_style_angle_precision(dim_style, precision=pythoncom.Empty):
 
     return _rsf.dim_style_angle_precision(dim_style, precision)
 
-def dim_style_arrow_size(dim_style, size=None):
+def dim_style_arrow_size(dim_style, size=pythoncom.Empty):
 
     return _rsf.dim_style_arrow_size(dim_style, size)
 
@@ -34,47 +36,47 @@ def dim_style_count():
 
     return _rsf.dim_style_count()
 
-def dim_style_extension(dim_style, extension=None):
+def dim_style_extension(dim_style, extension=pythoncom.Empty):
 
     return _rsf.dim_style_extension(dim_style, extension)
 
-def dim_style_font(dim_style, font=None):
+def dim_style_font(dim_style, font=pythoncom.Empty):
 
     return _rsf.dim_style_font(dim_style, font)
 
-def dim_style_leader_arrow_size(dim_style, size=None):
+def dim_style_leader_arrow_size(dim_style, size=pythoncom.Empty):
 
     return _rsf.dim_style_leader_arrow_size(dim_style, size)
 
-def dim_style_linear_precision(dim_style, precision=None):
+def dim_style_linear_precision(dim_style, precision=pythoncom.Empty):
 
     return _rsf.dim_style_linear_precision(dim_style, precision)
 
-def dim_style_names(sort=None):
+def dim_style_names(sort=pythoncom.Empty):
 
     return _rsf.dim_style_names(sort)
 
-def dim_style_number_format(dim_style, format=None):
+def dim_style_number_format(dim_style, format=pythoncom.Empty):
 
     return _rsf.dim_style_number_format(dim_style, format)
 
-def dim_style_offset(dim_style, offset=None):
+def dim_style_offset(dim_style, offset=pythoncom.Empty):
 
     return _rsf.dim_style_offset(dim_style, offset)
 
-def dim_style_text_alignment(dim_style, alignment=None):
+def dim_style_text_alignment(dim_style, alignment=pythoncom.Empty):
 
     return _rsf.dim_style_text_alignment(dim_style, alignment)
 
-def dim_style_text_gap(dim_style, gap=None):
+def dim_style_text_gap(dim_style, gap=pythoncom.Empty):
 
     return _rsf.dim_style_text_gap(dim_style, gap)
 
-def dim_style_text_height(dim_style, height=None):
+def dim_style_text_height(dim_style, height=pythoncom.Empty):
 
     return _rsf.dim_style_text_height(dim_style, height)
 
-def dimension_style(object, style=None):
+def dimension_style(object, style=pythoncom.Empty):
 
     return _rsf.dimension_style(object, style)
 
@@ -82,7 +84,7 @@ def dimension_text(object):
 
     return _rsf.dimension_text(object)
 
-def dimension_user_text(object, user_text=None):
+def dimension_user_text(object, user_text=pythoncom.Empty):
 
     return _rsf.dimension_user_text(object, user_text)
 
@@ -130,7 +132,7 @@ def is_radial_dimension(object):
 
     return _rsf.is_radial_dimension(object)
 
-def leader_text(object, text=None):
+def leader_text(object, text=pythoncom.Empty):
 
     return _rsf.leader_text(object, text)
 

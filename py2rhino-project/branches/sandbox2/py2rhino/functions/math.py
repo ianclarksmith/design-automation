@@ -1,8 +1,10 @@
 # Auto-generated module that wraps the RhinoscriptFunctions class
 
+import pythoncom
+
 _rsf = None
 
-def angle(point_1, point_2, world=None):
+def angle(point_1, point_2, world=pythoncom.Empty):
 
     return _rsf.angle(point_1, point_2, world)
 
@@ -42,7 +44,7 @@ def min(numbers):
 
     return _rsf.min(numbers)
 
-def polar(point, angle, distance, plane=None):
+def polar(point, angle, distance, plane=pythoncom.Empty):
 
     return _rsf.polar(point, angle, distance, plane)
 
