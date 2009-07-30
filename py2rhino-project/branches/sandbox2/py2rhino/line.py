@@ -10,12 +10,17 @@ class Line(p2r._CurveType):
 
 
     # Class constructor
-    def __init__(self):
-        raise Exception("Use the create... methods to create instances of this class.")
+    def __init__(self, rhino_id=None):
+        if rhino_id==None:
+            raise Exception("Use the create... methods to create instances of this class.")
+        self.rhino_id = rhino_id
 
 
     @classmethod
     def create_line(cls, start, end):
 
-        return p2r_f.add_line(start, end)
+        rhino_id = p2r_f.add_line(start, end)
+
+
+        return cls(rhino_id)
 

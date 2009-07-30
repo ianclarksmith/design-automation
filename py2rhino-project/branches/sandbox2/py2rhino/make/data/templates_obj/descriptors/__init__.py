@@ -1,4 +1,8 @@
+import object_methods
 import curve_methods
+
+"""
+
 import dimension_methods
 import geometry_methods
 import group_methods
@@ -9,3 +13,4 @@ import mesh_methods_updated
 import surface_and_polysurface_methods
 import view_methods
 
+"""

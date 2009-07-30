@@ -1,10 +1,6 @@
-#Fill in the data as follows:
+#The data below will be used to generate the Rhinoscript function wrappers
 
-#For method class, give a list of class names, starting from parent class, or in the case of a function, then the module name.
-#For method type, insert either FUNCTION, METHOD, CONSTRUCTOR, GET_PROPERTY, or SET_PROPERTY.
-#For method name, you may suggest a shorter name when the method has been moved to a sub-class.
-#For method parameters, any parameters that are IDs of Rhino objects will need to be changed to classes.
-#For method returns, any returns that are IDs of Rhino objects will need to be changed to classes.
+#Errors can be fixed by hand here
          
 #===============================================================================
 # NurbsCurve
@@ -15,56 +11,56 @@
 add_curve = {#ed
     "method_location": "_Object._CurveType.NurbsCurve",
     "method_type": "CONSTRUCTOR",
-    "method_name": "create_crv_by_points",
+    "method_name": "create_curve_by_points",
     "method_parameters": (("points","array_of dbl","REQ"),("degree","int","OPT"),),
     "method_returns": ("_Object._CurveType.Curve","null")
 }
 add_nurbs_curve = {#ed
     "method_location": "_Object._CurveType.NurbsCurve",
     "method_type": "CONSTRUCTOR",
-    "method_name": "create_crv",
+    "method_name": "create_curve",
     "method_parameters": (("points","array_of dbl","REQ"),("knots","array_of int","REQ"),("degree","int","REQ"),("weights","array_of int","OPT"),),
     "method_returns": ("_Object._CurveType.NurbsCurve","null")
 }
 add_fillet_curve = {#ed
     "method_location": "_Object._CurveType.NurbsCurve",
     "method_type": "CONSTRUCTOR",
-    "method_name": "create_fillet_crv",
+    "method_name": "create_fillet_curve",
     "method_parameters": (("curve_0","_Object._CurveType.NurbsCurve","REQ"),("curve_1","_Object._CurveType.NurbsCurve","REQ"),("radius","dbl","OPT"),("point_0","array_of dbl","OPT"),("point_1","array_of dbl","OPT"),),
     "method_returns": ("_Object._CurveType.Curve","null")
 }
 add_interp_crv_on_srf = {#ed
     "method_location": "_Object._CurveType.NurbsCurve",
     "method_type": "CONSTRUCTOR",
-    "method_name": "create_interp_crv_on_srf",
+    "method_name": "create_interp_curve_on_srf",
     "method_parameters": (("surface","_Object._CurveType.NurbsCurve","REQ"),("points","array_of dbl","REQ"),),
     "method_returns": ("_Object._CurveType.Curve","null")
 }
 add_interp_crv_on_srf_u_v = {#ed
     "method_location": "_Object._CurveType.NurbsCurve",
     "method_type": "CONSTRUCTOR",
-    "method_name": "create_interp_crv_on_srf_uv",
+    "method_name": "create_interp_curve_on_srf_uv",
     "method_parameters": (("surface","_Object._CurveType.NurbsCurve","REQ"),("points","array_of dbl","REQ"),),
     "method_returns": ("_Object._CurveType.Curve","null")
 }
 add_interp_curve = {#ed
     "method_location": "_Object._CurveType.NurbsCurve",
     "method_type": "CONSTRUCTOR",
-    "method_name": "create_interp_crv",
+    "method_name": "create_interp_curve",
     "method_parameters": (("points","array_of dbl","REQ"),("degree","int","OPT"),("knot_style","int","OPT"),("start_tan","array_of dbl","OPT"),("end_tan","array_of dbl","OPT"),),
     "method_returns": ("_Object._CurveType.Curve","null")
 }
 add_interp_curve_ex = {#ed
     "method_location": "_Object._CurveType.NurbsCurve",
     "method_type": "CONSTRUCTOR",
-    "method_name": "create_interp_crv_ex",
+    "method_name": "create_interp_curve_ex",
     "method_parameters": (("points","array_of dbl","REQ"),("degree","int","OPT"),("knot_style","int","OPT"),("sharp","bln","OPT"),("start_tangent","array_of dbl","OPT"),("end_tangent","array_of dbl","OPT"),),
     "method_returns": ("_Object._CurveType.Curve","null")
 }    
 add_sub_crv = {#ed
     "method_location": "_Object._CurveType.NurbsCurve",
     "method_type": "CONSTRUCTOR",
-    "method_name": "create_sub_crv",
+    "method_name": "create_sub_curve",
     "method_parameters": (("curve","_Object._CurveType.NurbsCurve","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
     "method_returns": ("_Object._CurveType.Curve","null")
 } 
@@ -134,7 +130,6 @@ arc_radius = {#ed
 add_circle = {#ed
     "method_location": "_Object._CurveType.Circle",
     "method_type": "CONSTRUCTOR",
-    "method_type": "METHOD",
     "method_name": "create_circle",
     "method_parameters": (("plane","array_of dbl","REQ"),("radius","dbl","REQ"),),
     "method_returns": ("_Object._CurveType.Circle","null")
@@ -450,7 +445,7 @@ make_curve_periodic = {#ed
     "method_returns": ("_Object._CurveType","_Object._CurveType","null")
 }
 trim_curve = {#ed
-    "method_location": "Curve",
+    "method_location": "_Object._CurveType",
     "method_type": "METHOD",
     "method_name": "trim_curve",
     "method_parameters": (("","self","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT"),),
@@ -480,34 +475,6 @@ curve_domain = {#ed
     "method_parameters": (("","self","REQ"),("index","int","OPT"),),
     "method_returns": ("array_of _Object._CurveType","null")
 }
-curve_boolean_difference = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "boolean_difference",
-    "method_parameters": (("","self","REQ"),("curve","str","REQ"),),
-    "method_returns": ("array_of _Object._CurveType","null")
-}
-curve_boolean_intersection = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "boolean_intersection",
-    "method_parameters": (("","self","REQ"),("curve_a","str","REQ"),),
-    "method_returns": ("array_of _Object._CurveType","null")
-}
-curve_boolean_union = {#ed
-    "method_location": "array_of _Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "boolean_union",
-    "method_parameters": (("curves","array_of _Object","REQ"),),
-    "method_returns": ("array_of _Object._CurveType","null")
-}
-explode_curves = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "explode_curves",
-    "method_parameters": (("objects","array_of _Object","REQ"),("delete","bln","OPT"),),
-    "method_returns": ("array_of _Object._CurveType","null")
-}
 offset_curve = {#ed
     "method_location": "_Object._CurveType",
     "method_type": "METHOD",
@@ -520,13 +487,6 @@ offset_curve_on_surface = {#ed
     "method_type": "METHOD",
     "method_name": "offset_curve_on_surface",
     "method_parameters": (("","self","REQ"),("surface","str","REQ"),("distance","dbl","REQ"),("parameter","array_of dbl","REQ"),),
-    "method_returns": ("array_of _Object._CurveType","null")
-}
-project_curve_to_surface = {#ed
-    "method_location": "_Object._CurveType",
-    "method_type": "METHOD",
-    "method_name": "project_curve_to_surface",
-    "method_parameters": (("curves","array_of _Object","REQ"),("surfaces","array_of str","REQ"),("direction","array_of dbl","REQ"),),
     "method_returns": ("array_of _Object._CurveType","null")
 }
 split_curve = {#ed
@@ -543,6 +503,65 @@ curve_fillet_points = {#ed
     "method_parameters": (("","self","REQ"),("curve_0","str","REQ"),("radius","dbl","OPT"),("base_point_0","array_of dbl","OPT"),("base_point__1","array_of dbl","OPT"),),
     "method_returns": ("array_of (array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl)","_Object._CurveType","null")
 }
+
+###
+
+project_curve_to_surface = {#split
+    0: {
+    "method_location": "Document",
+    "method_type": "FUNCTION",
+    "method_name": "curves_project_to_surface",
+    "method_parameters": (("curves","array_of _Object","REQ"),("surfaces","array_of str","REQ"),("direction","array_of dbl","REQ"),),###
+    "method_returns": ("array_of _Object._CurveType","null")
+    },
+    1: {
+    "method_location": "_Object._CurveType",
+    "method_type": "METHOD",
+    "method_name": "project_to_surface",
+    "method_parameters": (("","self","REQ"),("surfaces","array_of str","REQ"),("direction","array_of dbl","REQ"),),###
+    "method_returns": ("array_of _Object._CurveType","null")
+    }
+}
+explode_curves = {#split
+    0: {                  
+    "method_location": "Document",
+    "method_type": "FUNCTION",
+    "method_name": "curves_explode",
+    "method_parameters": (("objects","array_of _Object","REQ"),("delete","bln","OPT"),),###
+    "method_returns": ("array_of _Object._CurveType","null")
+    },
+    1: {
+    "method_location": "_Object._CurveType",
+    "method_type": "METHOD",
+    "method_name": "explode",
+    "method_parameters": (("","self","REQ"),("delete","bln","OPT"),),###
+    "method_returns": ("array_of _Object._CurveType","null")
+    }
+}
+###
+
+curve_boolean_difference = {#ed
+    "method_location": "_Object._CurveType",
+    "method_type": "METHOD",
+    "method_name": "boolean_difference",
+    "method_parameters": (("","self","REQ"),("curve","str","REQ"),),
+    "method_returns": ("array_of _Object._CurveType","null")
+}
+curve_boolean_intersection = {#ed
+    "method_location": "_Object._CurveType",
+    "method_type": "METHOD",
+    "method_name": "boolean_intersection",
+    "method_parameters": (("","self","REQ"),("curve_a","str","REQ"),),
+    "method_returns": ("array_of _Object._CurveType","null")
+}
+curve_boolean_union = {#ed
+    "method_location": "_Object._CurveType",
+    "method_type": "FUNCTION",
+    "method_name": "boolean_union",
+    "method_parameters": (("curves","array_of _Object","REQ"),),#there is no self parameter
+    "method_returns": ("array_of _Object._CurveType","null")
+}
+
 #------------------------------------------------------------------------------ 
 #methods that do not return curves
 
@@ -779,7 +798,7 @@ divide_curve = {#ed
     "method_returns": ("array_of dbl","array_of dbl","null")
 }
 divide_curve_equidistant = {#ed
-    "method_location": "_Object._CurveType.Curve",
+    "method_location": "_Object._CurveType",
     "method_type": "METHOD",
     "method_name": "divide_curve_equidistant",
     "method_parameters": (("","self","REQ"),("distance","dbl","REQ"),("create","bln","OPT"),("points","bln","OPT"),),

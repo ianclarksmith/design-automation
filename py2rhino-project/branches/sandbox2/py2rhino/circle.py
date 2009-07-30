@@ -10,19 +10,28 @@ class Circle(p2r._CurveType):
 
 
     # Class constructor
-    def __init__(self):
-        raise Exception("Use the create... methods to create instances of this class.")
+    def __init__(self, rhino_id=None):
+        if rhino_id==None:
+            raise Exception("Use the create... methods to create instances of this class.")
+        self.rhino_id = rhino_id
 
 
-    def create_circle(self, plane, radius):
+    @classmethod
+    def create_circle(cls, plane, radius):
 
-        return p2r_f.add_circle(plane, radius)
+        rhino_id = p2r_f.add_circle(plane, radius)
+
+
+        return cls(rhino_id)
 
 
     @classmethod
     def create_circle_3pt(cls, first, second, third):
 
-        return p2r_f.add_circle_3_pt(first, second, third)
+        rhino_id = p2r_f.add_circle_3_pt(first, second, third)
+
+
+        return cls(rhino_id)
 
 
     def center_point(self, index=pythoncom.Empty):

@@ -1,10 +1,7 @@
-#Fill in the data as follows:
+#The data below will be used to generate the Rhinoscript function wrappers
 
-#For method class, give a list of class names, starting from parent class, or in the case of a function, then the module name.
-#For method type, insert either FUNCTION, METHOD, CONSTRUCTOR, GET_PROPERTY, or SET_PROPERTY.
-#For method name, you may suggest a shorter name when the method has been moved to a sub-class.
-#For method parameters, any parameters that are IDs of Rhino objects will need to be changed to classes.
-#For method returns, any returns that are IDs of Rhino objects will need to be changed to classes.
+#Errors can be fixed by hand here
+
 #===============================================================================
 # Group
 #===============================================================================
