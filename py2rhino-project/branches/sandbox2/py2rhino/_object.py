@@ -1,12 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import pythoncom
-from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
-import py2rhino as p2r
 from exceptions import Exception
+from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f
 
-
-class _Object(p2r.object):
+class _Object(object):
 
 
     # Class constructor

@@ -6,7 +6,7 @@ import py2rhino as p2r
 from exceptions import Exception
 
 
-class Document(p2r.object):
+class Document(object):
 
 
     # Class constructor

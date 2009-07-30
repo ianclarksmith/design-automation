@@ -83,7 +83,7 @@ def write_rhinoscript_classes(data_dict):
         w(f,'import py2rhino as p2r')
         w(f,'from exceptions import Exception')           
         #w(f,'_rsf = None', nls=1, nle=1)   
-        w(f,('class ', class_name,'(p2r.', class_parent_name,'):'), nls=2)
+        w(f,('class ', class_name,'(', class_parent_name,'):'), nls=2)
         
     #---------------------------------------------------------------------------
     def write_init(f):
@@ -196,7 +196,7 @@ def write_rhinoscript_classes(data_dict):
         #get the class parent
         class_parent_name = 'object'
         if len(class_list) > 1:
-            class_parent_name = class_list[-2]
+            class_parent_name = 'p2r.' + class_list[-2]
         #get the module name
         module_name = camel_to_underscore(class_name)
         
