@@ -43,137 +43,130 @@ class Timer(object):
     # Properties
     #===========================================================================
     
-    def get_count(self):
-        """
-        
-        Retrieves the number of times the OnTimer(count) event has been 
-        triggered since it was first started. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The number of times the timer has triggered since it was started. 
-        
-        """
-        val = p2e.conversation.Request("get.timer.count")
-        return p2e._util._convert_str_to_type(val, int)
-
-    def set_count(self, count):
-        """
-        
-        Sets the counter value for the number of times the OnTimer(count) event 
-        has been triggered since it was first started. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        count 
-        The number of timer triggers to report.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.timer.count", count)
-        p2e.conversation.Exec(arg_str)     
-
-    def get_interval(self):
-        """
-        
-        Retrieves the timer interval in milliseconds. This is basically the 
-        time gap between each calling of the OnTimer(count) event. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        msec 
-        The number of milliseconds (thousandths of a second) between each 
-        triggerering of the timer. Thus, a value of 1000 would mean one call 
-        every second.
-        
-        """
-        val = p2e.conversation.Request("get.timer.interval")
-        return p2e._util._convert_str_to_type(val, int)
-
-    def set_interval(self, msec):
-        """
-        
-        Sets the timer interval in milliseconds between each calling of the 
-        OnTimer(count) event. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        msec 
-        The number of milliseconds (thousandths of a second) between each 
-        triggerering of the timer. Thus, a value of 1000 would mean one call 
-        every second. The minimum time gap you can set is 50 milliseconds 
-        (20 times per second). 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.timer.interval", msec)
-        p2e.conversation.Exec(arg_str)
-
-    def get_running(self):
-        """
-        
-        Retrieves a value that shows whether the timmer is currently running or 
-        not. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        running 
-        This is a boolean value where 1 means running and 0 means stopped. 
-
-        """
-        val = p2e.conversation.Request("get.timer.running")
-        return p2e._util._convert_str_to_type(val, int)
-
-    def set_running(self, running):
-        """
-        
-        Sets the status of the timer to running or not. Sending 0 or false is 
-        the same as calling timer.stop whilst 1 or true is the same as calling 
-        timer.restart. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        running 
-        This is a boolean value where 1 or true sets the timer running and 0 or 
-        false stops it. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.timer.running", 
-                                                      running)
-        p2e.conversation.Exec(arg_str)
+    @apply
+    def count():
+        def fget(self):
+            """
+            
+            Retrieves the number of times the OnTimer(count) event has been 
+            triggered since it was first started. 
     
-    #===========================================================================
-    # Properties
-    #===========================================================================
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The number of times the timer has triggered since it was started. 
+            
+            """
+            val = p2e.conversation.Request("get.timer.count")
+            return p2e._util._convert_str_to_type(val, int)
     
-    count= property(fget = get_count, fset = set_count, 
-                        doc = "The number of times the OnTimer(count) event has"
-                        " been triggered since it was first started")
+        def fset(self, count):
+            """
+            
+            Sets the counter value for the number of times the OnTimer(count) event 
+            has been triggered since it was first started. 
     
-    interval = property(fget = get_interval, fset = set_interval, 
-                        doc = "The timer interval in milliseconds. This is"
-                        " basically the time gap between each calling of the"
-                        " OnTimer(count) event")
+            Parameter(s)
+            This property takes the following parameters.
+            
+            count 
+            The number of timer triggers to report.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.timer.count", count)
+            p2e.conversation.Exec(arg_str)     
+        
+        return property(**locals())
     
-    running = property(fget = get_running, fset = set_running, 
-                        doc = "A value that shows whether the timmer is"
-                        " currently running or not")
-
-
+    @apply
+    def interval():
+        def fget(self):
+            """
+            
+            Retrieves the timer interval in milliseconds. This is basically the 
+            time gap between each calling of the OnTimer(count) event. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            msec 
+            The number of milliseconds (thousandths of a second) between each 
+            triggerering of the timer. Thus, a value of 1000 would mean one call 
+            every second.
+            
+            """
+            val = p2e.conversation.Request("get.timer.interval")
+            return p2e._util._convert_str_to_type(val, int)
+    
+        def fset(self, msec):
+            """
+            
+            Sets the timer interval in milliseconds between each calling of the 
+            OnTimer(count) event. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            msec 
+            The number of milliseconds (thousandths of a second) between each 
+            triggerering of the timer. Thus, a value of 1000 would mean one call 
+            every second. The minimum time gap you can set is 50 milliseconds 
+            (20 times per second). 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.timer.interval", msec)
+            p2e.conversation.Exec(arg_str)
+        
+        return property(**locals())
+    
+    @apply
+    def running():
+        def fget(self):
+            """
+            
+            Retrieves a value that shows whether the timmer is currently running or 
+            not. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            running 
+            This is a boolean value where 1 means running and 0 means stopped. 
+    
+            """
+            val = p2e.conversation.Request("get.timer.running")
+            return p2e._util._convert_str_to_type(val, int)
+    
+        def fset(self, running):
+            """
+            
+            Sets the status of the timer to running or not. Sending 0 or false is 
+            the same as calling timer.stop whilst 1 or true is the same as calling 
+            timer.restart. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            running 
+            This is a boolean value where 1 or true sets the timer running and 0 or 
+            false stops it. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.timer.running", 
+                                                          running)
+            p2e.conversation.Exec(arg_str)
+        
+        return property(**locals())
 
     
 if __name__ == "__main__":

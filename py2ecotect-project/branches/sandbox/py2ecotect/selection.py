@@ -397,220 +397,252 @@ class Selection(object):
     # Properties
     #===========================================================================
     
-    def get_alternate(self):
-        """
-        
-        Retrieves the alternate material index of all currently selected 
-        objects. A negative result indicates that the alternate material varies 
-        within the selection. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        index 
-        The zero-based index of the alternate material assigned
-        
-        """
-        val = p2e.conversation.Request("get.selection.alternate")
-        return p2e._util._convert_str_to_type(val, int)
-        
-    def set_alternate(self, index):
-        """
-        
-        Sets the alternate material index of all currently selected objects. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        index 
-        A zero-based index of the material to be assigned, as obtained from the 
-        get.material.index property. This parameter can also be given as a 
-        string containing the material name, in which case it must not contain 
-        any white-space characters and is case sensitive.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.selection.alternate", 
-                                                     index)
-        p2e.conversation.Exec(arg_str)
+    @apply
+    def alternate():
+        def fget(self):
+            """
+            
+            Retrieves the alternate material index of all currently selected 
+            objects. A negative result indicates that the alternate material varies 
+            within the selection. 
     
-    def get_area(self):
-        """
-        
-        Retrieves the surface area (in m^2) of the current selection set, if 
-        planar. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A decimal value containing the specified data. 
-
-        """
-        val = p2e.conversation.Request("get.selection.area")
-        return p2e._util._convert_str_to_type(val, float)
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            index 
+            The zero-based index of the alternate material assigned
+            
+            """
+            val = p2e.conversation.Request("get.selection.alternate")
+            return p2e._util._convert_str_to_type(val, int)
+            
+        def fset(self, index):
+            """
+            
+            Sets the alternate material index of all currently selected objects. 
     
-    def get_attr_1(self):
-        """
+            Parameter(s)
+            This property takes the following parameters.
+            
+            index 
+            A zero-based index of the material to be assigned, as obtained from the 
+            get.material.index property. This parameter can also be given as a 
+            string containing the material name, in which case it must not contain 
+            any white-space characters and is case sensitive.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.selection.alternate", 
+                                                         index)
+            p2e.conversation.Exec(arg_str)
         
-        Retrieves the value for the attr1 slot of the current selection set. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A decimal value containing the specified data. 
-        
-        """
-        val = p2e.conversation.Request("get.selection.attr1")
-        return p2e._util._convert_str_to_type(val, float)
+        return property(**locals())
     
-    def set_attr_1(self, value):
-        """
-        
-        Sets the value for the attr1 slot of the current selection set. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        value 
-        The decimal value to be stored.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.selection.attr1", 
-                                                     value)
-        p2e.conversation.Exec(arg_str)
+    @apply
+    def area():
+        def fget(self):
+            """
+            
+            Retrieves the surface area (in m^2) of the current selection set, if 
+            planar. 
     
-    def get_attr_2(self):
-        """
-        
-        Retrieves the value for the attr2 slot of the current selection set. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A decimal value containing the specified data. 
-        
-        """
-        val = p2e.conversation.Request("get.selection.attr2")
-        return p2e._util._convert_str_to_type(val, float)
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data. 
     
-    def set_attr_2(self, value):
-        """
+            """
+            val = p2e.conversation.Request("get.selection.area")
+            return p2e._util._convert_str_to_type(val, float)
         
-        Sets the value for the attr2 slot of the current selection set. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        value 
-        The decimal value to be stored.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.selection.attr2", 
-                                                     value)
-        p2e.conversation.Exec(arg_str)
+        return property(**locals())
     
-    def get_attr_3(self):
-        """
-        
-        Retrieves the value for the attr3 slot of the current selection set. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A decimal value containing the specified data. 
-        
-        """
-        val = p2e.conversation.Request("get.selection.attr3")
-        return p2e._util._convert_str_to_type(val, float)
+    @apply
+    def attr_1():
+        def fget(self):
+            """
+            
+            Retrieves the value for the attr1 slot of the current selection set. 
     
-    def set_attr_3(self, value):
-        """
-        
-        Sets the value for the attr3 slot of the current selection set. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        value 
-        The decimal value to be stored.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.selection.attr3", 
-                                                     value)
-        p2e.conversation.Exec(arg_str)
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data. 
+            
+            """
+            val = p2e.conversation.Request("get.selection.attr1")
+            return p2e._util._convert_str_to_type(val, float)
+     
+        def fset(self, value):
+            """
+            
+            Sets the value for the attr1 slot of the current selection set. 
     
-    def get_count(self):
-        """
+            Parameter(s)
+            This property takes the following parameters.
+            
+            value 
+            The decimal value to be stored.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.selection.attr1", 
+                                                         value)
+            p2e.conversation.Exec(arg_str)
         
-        Returns the number of objects in the current selection set. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The number of objects in current selection set. 
-
-        """
-        val = p2e.conversation.Request("get.selection.count")
-        return p2e._util._convert_str_to_type(val, int)
-        
-    def get_exposure(self):
-        """
-        
-        Retrieves the surface area exposed to outside conditions (in m^2) of 
-        the current selection set, if planar. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A decimal value containing the specified data. 
-        
-        """
-        val = p2e.conversation.Request("get.selection.exposure")
-        return p2e._util._convert_str_to_type(val, float)
+        return property(**locals())
     
-    def get_length(self):
-        """
+    @apply
+    def attr_2():
+        def fget(self):
+            """
+            
+            Retrieves the value for the attr2 slot of the current selection set. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data. 
+            
+            """
+            val = p2e.conversation.Request("get.selection.attr2")
+            return p2e._util._convert_str_to_type(val, float)
         
-        Retrieves the total length (m) of the current selection set, if linear. 
-
-        Parameter(s)
-        There are no parameters for this property.
+        def fset(self, value):
+            """
+            
+            Sets the value for the attr2 slot of the current selection set. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            value 
+            The decimal value to be stored.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.selection.attr2", 
+                                                         value)
+            p2e.conversation.Exec(arg_str)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+        return property(**locals())
+    
+    @apply
+    def attr_3():
+        def fget(self):
+            """
+            
+            Retrieves the value for the attr3 slot of the current selection set. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data. 
+            
+            """
+            val = p2e.conversation.Request("get.selection.attr3")
+            return p2e._util._convert_str_to_type(val, float)
         
-        value 
-        A decimal value containing the specified data.
+        def fset(self, value):
+            """
+            
+            Sets the value for the attr3 slot of the current selection set. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            value 
+            The decimal value to be stored.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.selection.attr3", 
+                                                         value)
+            p2e.conversation.Exec(arg_str)
         
-        """
-        val = p2e.conversation.Request("get.selection.length")
-        return p2e._util._convert_str_to_type(val, float)
+        return property(**locals())
+    
+    @apply
+    def count():
+        def fget(self):
+            """
+            
+            Returns the number of objects in the current selection set. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The number of objects in current selection set. 
+    
+            """
+            val = p2e.conversation.Request("get.selection.count")
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())
+    
+    @apply
+    def exposure():
+        def fget(self):
+            """
+            
+            Retrieves the surface area exposed to outside conditions (in m^2) of 
+            the current selection set, if planar. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data. 
+            
+            """
+            val = p2e.conversation.Request("get.selection.exposure")
+            return p2e._util._convert_str_to_type(val, float)
+        
+        return property(**locals())
+    
+    @apply
+    def length():
+        def fget(self):
+            """
+            
+            Retrieves the total length (m) of the current selection set, if linear. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data.
+            
+            """
+            val = p2e.conversation.Request("get.selection.length")
+            return p2e._util._convert_str_to_type(val, float)
+        
+        return property(**locals())
     
     def get_material(self):
         """
@@ -655,96 +687,112 @@ class Selection(object):
         arg_str = p2e._util._convert_args_to_string("set.selection.material", 
                                                      index, both)
         p2e.conversation.Exec(arg_str)
-        
-    def get_next(self):
-        """
-        
-        Returns the index of the next object in the current selection set. A 
-        negative value indicates the end of the list. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        index 
-        The zero-based index of the next selected object. 
-
-        """
-        val = p2e.conversation.Request("get.selection.next")
-        return p2e._util._convert_str_to_type(val, int)
-        
-    def get_panel_area(self):
-        """
-        
-        Retrieves the surface overlapping a WINDOW / DOOR in adjacent zone (m^2). 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A decimal value containing the specified data.
-        
-        """
-        val = p2e.conversation.Request("get.selection.panelarea")
-        return p2e._util._convert_str_to_type(val, float)
     
-    def get_prev(self):
-        """
-        
-        Returns the index of the previous object in the current selection set. 
-        A negative value indicates the end of the list. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        index 
-        The zero-based index of the next previous object. 
-
-        """
-        val = p2e.conversation.Request("get.selection.prev")
-        return p2e._util._convert_str_to_type(val, int)
+    @apply
+    def next():
+        def fget(self):
+            """
+            
+            Returns the index of the next object in the current selection set. A 
+            negative value indicates the end of the list. 
     
-    def get_resolution(self):
-        """
-        
-        Retrieves the curve resolution for virtual polylines. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A decimal value containing the specified data.
-        
-        """
-        val = p2e.conversation.Request("get.selection.resolution")
-        return p2e._util._convert_str_to_type(val, float)
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            index 
+            The zero-based index of the next selected object. 
     
-    def set_resolution(self, value):
-        """
+            """
+            val = p2e.conversation.Request("get.selection.next")
+            return p2e._util._convert_str_to_type(val, int)
         
-        Sets the curve resolution for virtual polylines. 
-
-        Parameter(s)
-        This property takes the following parameters.
+        return property(**locals())
+    
+    @apply
+    def panel_area():
+        def fget(self):
+            """
+            
+            Retrieves the surface overlapping a WINDOW / DOOR in adjacent zone (m^2). 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data.
+            
+            """
+            val = p2e.conversation.Request("get.selection.panelarea")
+            return p2e._util._convert_str_to_type(val, float)
         
-        value 
-        An integer specifying the curve resolution.
+        return property(**locals())
+    
+    @apply
+    def prev():
+        def fget(self):
+            """
+            
+            Returns the index of the previous object in the current selection set. 
+            A negative value indicates the end of the list. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            index 
+            The zero-based index of the next previous object. 
+    
+            """
+            val = p2e.conversation.Request("get.selection.prev")
+            return p2e._util._convert_str_to_type(val, int)
         
-        """
-        arg_str = p2e._util._convert_args_to_string("set.selection.resolution", 
-                                                     value)
-        p2e.conversation.Exec(arg_str)
+        return property(**locals())
+    
+    @apply
+    def resolution():
+        def fget(self):
+            """
+            
+            Retrieves the curve resolution for virtual polylines. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data.
+            
+            """
+            val = p2e.conversation.Request("get.selection.resolution")
+            return p2e._util._convert_str_to_type(val, float)
+        
+        def fset(self, value):
+            """
+            
+            Sets the curve resolution for virtual polylines. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            value 
+            An integer specifying the curve resolution.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.selection.resolution", 
+                                                         value)
+            p2e.conversation.Exec(arg_str)
+        
+        return property(**locals())
     
     def get_type(self):
         """
@@ -825,74 +873,29 @@ class Selection(object):
         arg_str = p2e._util._convert_args_to_string("set.selection.type", 
                                                      type, state)
         p2e.conversation.Exec(arg_str)
+    
+    @apply
+    def underground():
+        def fget(self):
+            """
+            
+            Retrieves the surface area exposed to ground conditions (m2), if planar. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the specified data.
+            
+            """
+            val = p2e.conversation.Request("get.selection.underground")
+            #TODO: Result is different
+            return p2e._util._convert_str_to_type(val, float)
         
-    def get_underground(self):
-        """
-        
-        Retrieves the surface area exposed to ground conditions (m2), if planar. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A decimal value containing the specified data.
-        
-        """
-        val = p2e.conversation.Request("get.selection.underground")
-        #TODO: Result is different
-        return p2e._util._convert_str_to_type(val, float)
-    
-    #===========================================================================
-    # Properties
-    #===========================================================================
-    
-    alternate = property(fget = get_alternate, fset = set_alternate, 
-                        doc = "The alternate material index of all currently"
-                        " selected objects")
-    
-    area = property(fget = get_area, doc = "The surface area (in m^2) of the"
-                    " current selection set, if planar")
-    
-    attr_1 = property(fget = get_attr_1, fset = set_attr_1, 
-                        doc = "The value for the attr1 slot of the current"
-                        " selection set.")
-    
-    attr_2 = property(fget = get_attr_2, fset = set_attr_2, 
-                        doc = "The value for the attr2 slot of the current"
-                        " selection set")
-    
-    attr_3 = property(fget = get_attr_3, fset = set_attr_3, 
-                        doc = "The value for the attr3 slot of the current"
-                        " selection set. ")
-    
-    count = property(fget = get_count, doc = "The number of objects in the"
-                     " current selection set")
-    
-    exposure = property(fget = get_exposure, doc = "The surface area exposed to"
-                        " outside conditions (in m^2) of the current selection"
-                        " set, if planar")
-    
-    length = property(fget = get_length, doc = "The total length (m) of the"
-                      " current selection set, if linear")
-    
-    next = property(fget = get_next, doc = "The index of the next object in the"
-                    " current selection set")
-    
-    panel_area = property(fget = get_panel_area, doc = "The surface overlapping a"
-                         " WINDOW / DOOR in adjacent zone (m^2)")
-    
-    prev = property(fget = get_prev, doc = "The index of the previous object in"
-                    " the current selection set")
-    
-    resolution = property(fget = get_resolution, doc = "The curve resolution"
-                          " for virtual polylines")
-    
-    underground = property(fget = get_underground, doc = "The surface area"
-                           " exposed to ground conditions (m^2), if planar")
-    
+        return property(**locals())
     
     
 if __name__ == "__main__":
@@ -904,7 +907,7 @@ if __name__ == "__main__":
     #print x.get_length()
     #print x.get_material()
     #x.set_material(39, 0)
-    print x.underground
+    #print x.underground
 
     
 

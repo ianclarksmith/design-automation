@@ -132,43 +132,47 @@ class Weather(object):
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)
 
-    def get_country(self):
-        """
+    @apply
+    def country():
+        def fget(self):
+            """
+            
+            Retrieves the name of the state/country in the currently loaded weather 
+            data set. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            result 
+            A text string representing the state/country in the current weather 
+            data set.
+            
+            """
+            val = p2e.conversation.Request("get.weather.country")
+            return p2e._util._convert_str_to_type(val, str)
+            
+        def fset(self, name):
+            """
+            
+            Sets the name of the state/country in the currently loaded weather data 
+            set. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            name 
+            A text string representing the state/country given to the current 
+            weather data set.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.weather.country", 
+                                                         name)
+            p2e.conversation.Exec(arg_str)
         
-        Retrieves the name of the state/country in the currently loaded weather 
-        data set. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        result 
-        A text string representing the state/country in the current weather 
-        data set.
-        
-        """
-        val = p2e.conversation.Request("get.weather.country")
-        return p2e._util._convert_str_to_type(val, str)
-        
-    def set_country(self, name):
-        """
-        
-        Sets the name of the state/country in the currently loaded weather data 
-        set. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        name 
-        A text string representing the state/country given to the current 
-        weather data set.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.weather.country", 
-                                                     name)
-        p2e.conversation.Exec(arg_str)
+        return property(**locals())
 
     def get_diffuse_solar(self, day, hour):
         """
@@ -271,58 +275,66 @@ class Weather(object):
         arg_str = p2e._util._convert_args_to_string("set.weather.direction", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)     
-
-    def get_file(self):
-        """
+    
+    @apply
+    def file():
+        def fget(self):
+            """
+            
+            Retrieves the the full pathname of the currently loaded weather data file. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            filename 
+            A text string containing the full path to the current weather data file.
+            
+            """
+            val = p2e.conversation.Request("get.weather.file")
+            return p2e._util._convert_str_to_type(val, str)
         
-        Retrieves the the full pathname of the currently loaded weather data file. 
-
-        Parameter(s)
-        There are no parameters for this property.
+        return property(**locals())
+    
+    @apply
+    def name():
+        def fget(self):
+            """
+            
+            Retrieves the name of the location in the currently loaded weather data 
+            set. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            result 
+            A text string representing the name of the current weather data set.
+            
+            """
+            val = p2e.conversation.Request("get.weather.name")
+            return p2e._util._convert_str_to_type(val, str)
+            
+        def fset(self, name):
+            """
+            
+            Sets the name of the location in the currently loaded weather data set. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            name 
+            A string representing the location given to the current weather data set.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.weather.name", name)
+            p2e.conversation.Exec(arg_str)    
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        filename 
-        A text string containing the full path to the current weather data file.
-        
-        """
-        val = p2e.conversation.Request("get.weather.file")
-        return p2e._util._convert_str_to_type(val, str)
-
-    def get_name(self):
-        """
-        
-        Retrieves the name of the location in the currently loaded weather data 
-        set. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        result 
-        A text string representing the name of the current weather data set.
-        
-        """
-        val = p2e.conversation.Request("get.weather.name")
-        return p2e._util._convert_str_to_type(val, str)
-        
-    def set_name(self, name):
-        """
-        
-        Sets the name of the location in the currently loaded weather data set. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        name 
-        A string representing the location given to the current weather data set.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.weather.name", name)
-        p2e.conversation.Exec(arg_str)     
+        return property(**locals()) 
         
     def get_rainfall(self, day, hour):
         """

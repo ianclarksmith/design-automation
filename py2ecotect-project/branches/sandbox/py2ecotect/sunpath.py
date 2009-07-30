@@ -261,45 +261,53 @@ class Sunpath(object):
     # Properties
     #===========================================================================
     
-    def get_display(self):
-        """
+    @apply
+    def display():
+        def fget(self):
+            """
+            
+            Retrieves the current display and data overlay settings. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            display 
+            An integer taken from the following Sunpath Display Types table. 
+            
+            overlay 
+            An integer taken from the following Sunpath Data Overlay Types table.
+            
+            """
+            val = p2e.conversation.Request("get.sunpath.display")
+            return p2e._util._convert_str_to_list(val, int, int)
         
-        Retrieves the current display and data overlay settings. 
-
-        Parameter(s)
-        There are no parameters for this property.
+        return property(**locals())
+    
+    @apply
+    def focus():
+        def fget(self):
+            """
+            
+            Retrieves the position of the current SunPath focus point. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            Represents the absolute position in the X, Y and Z axis of the focus 
+            point in 3 dimensional model space.
+            
+            """
+            val = p2e.conversation.Request("get.sunpath.focus")
+            return p2e._util._convert_str_to_list(val, float, float, float)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        display 
-        An integer taken from the following Sunpath Display Types table. 
-        
-        overlay 
-        An integer taken from the following Sunpath Data Overlay Types table.
-        
-        """
-        val = p2e.conversation.Request("get.sunpath.display")
-        return p2e._util._convert_str_to_list(val, int, int)
-
-    def get_focus(self):
-        """
-        
-        Retrieves the position of the current SunPath focus point. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of the focus 
-        point in 3 dimensional model space.
-        
-        """
-        val = p2e.conversation.Request("get.sunpath.focus")
-        return p2e._util._convert_str_to_list(val, float, float, float)
+        return property(**locals())
 
     def get_point(self, point):
         """
@@ -408,38 +416,30 @@ class Sunpath(object):
         arg_str = p2e._util._convert_args_to_string("set.sunpath.size", width, 
                                                       height)
         p2e.conversation.Exec(arg_str)
-        
-    def get_visible(self):
-        """
-        
-        Displays or hides the SunPath Diagram dialog box. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        shown 
-        This is a boolean value where 1 or true means show the dialog and 0 or 
-        false means hide it. 
-
-        """
-        val = p2e.conversation.Request("get.sunpath.visible")
-        return p2e._util._convert_str_to_type(val, int)
     
-    #===========================================================================
-    # Properties
-    #===========================================================================
+    @apply
+    def visible():    
+        def fget(self):
+            """
+            
+            Displays or hides the SunPath Diagram dialog box. 
     
-    display = property(fget = get_display, doc = "The current display and data"
-                       " overlay settings")
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            shown 
+            This is a boolean value where 1 or true means show the dialog and 0 or 
+            false means hide it. 
     
-    focus = property(fget = get_focus, doc = "The position of the current"
-                     " SunPath focus point")
+            """
+            val = p2e.conversation.Request("get.sunpath.visible")
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())
     
-    visible = property(fget = get_visible, doc = "Displays or hides the SunPath"
-                       " Diagram dialog box")
 
 if __name__ == "__main__":
     x = Sunpath()
