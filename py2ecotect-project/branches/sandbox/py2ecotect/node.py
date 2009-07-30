@@ -276,14 +276,18 @@ class Node(object):
     #===========================================================================
     # Properties
     #===========================================================================
-
-    def get_eco_id(self):
-        """
+    
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the node object
+            
+            """
+            return p2e.model._nodes.index(self)
         
-        Id of the node object
-        
-        """
-        return p2e.model._nodes.index(self)
+        return property(**locals())
     
     def get_flag(self, flag):
         """
@@ -346,109 +350,121 @@ class Node(object):
         arg_str = p2e._util._convert_args_to_string("set.node.flag", self.eco_id,
                                                        flag, state) 
         p2e.conversation.Exec(arg_str)
+    
+    @apply
+    def flags():
+        def fget(self):
+            """
+            
+            Retrieves a value representing the total of all the node's flags. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            flags 
+            The bitwise total of all the flags currently set. The table below gives 
+            the bitwise values of each available node flag. 
+            
+            Relevant Data Table(s)
+            table_NodeFlags.txt
+          
+            """
+            arg_str = p2e._util._convert_args_to_string("get.node.flags", self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())
+    
+    @apply
+    def link():    
+        def fget(self):
+            """
+            
+            Gets the node or object this node is linked to. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            link 
+            The zero-based index of the object or node to which the specified node 
+            is linked.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.node.link", self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
 
-    def get_flags(self):
-        """
+        def fset(self, link):
+            """
+            
+            Sets individual flags that control the display of attribute values. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            link 
+            The zero-based index of the object or node to which the specified node 
+            is to be linked.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.node.link", self.eco_id, 
+                                                          link)
+            p2e.conversation.Exec(arg_str)
         
-        Retrieves a value representing the total of all the node's flags. 
-
-        Parameter(s)
-        There are no parameters for this property.
+        return property(**locals())
+    
+    @apply
+    def modifier():    
+        def fget(self):
+            """
+            Gets the node modifier value. This is decimal value whose use depends on 
+            the inter-node relationships to which this node is a party. Typically it 
+            stores the relative offset along the extrusion vector when it is part of 
+            an object created from the extrusion of a parent. For non-linked object, 
+            you are free to use it for anything you wish. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+             
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            mod 
+            The decimal value of the node modifier.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.node.modifier", 
+                                                          self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, float)
+    
+        def fset(self, mod):
+            """
+            
+            Sets the node modifier value. This is decimal value whose use depends on 
+            the inter-node relationships to which this node is a party. Typically it 
+            stores the relative offset along the extrusion vector when it is part of 
+            an object created from the extrusion of a parent. For non-linked object, 
+            you are free to use it for anything you wish. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            mod 
+            The new decimal value of the node modifier.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.node.modifier", 
+                                                          self.eco_id, mod)
+            p2e.conversation.Exec(arg_str)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        flags 
-        The bitwise total of all the flags currently set. The table below gives 
-        the bitwise values of each available node flag. 
-        
-        Relevant Data Table(s)
-        table_NodeFlags.txt
-      
-        """
-        arg_str = p2e._util._convert_args_to_string("get.node.flags", self.eco_id)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
-        
-    def get_link(self):
-        """
-        
-        Gets the node or object this node is linked to. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        link 
-        The zero-based index of the object or node to which the specified node 
-        is linked.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("get.node.link", self.eco_id)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
-
-    def set_link(self, link):
-        """
-        
-        Sets individual flags that control the display of attribute values. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        link 
-        The zero-based index of the object or node to which the specified node 
-        is to be linked.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.node.link", self.eco_id, 
-                                                      link)
-        p2e.conversation.Exec(arg_str)
-
-    def get_modifier(self):
-        """
-        Gets the node modifier value. This is decimal value whose use depends on 
-        the inter-node relationships to which this node is a party. Typically it 
-        stores the relative offset along the extrusion vector when it is part of 
-        an object created from the extrusion of a parent. For non-linked object, 
-        you are free to use it for anything you wish. 
-
-        Parameter(s)
-        There are no parameters for this property.
-         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        mod 
-        The decimal value of the node modifier.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("get.node.modifier", 
-                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, float)
-
-    def set_modifier(self, mod):
-        """
-        
-        Sets the node modifier value. This is decimal value whose use depends on 
-        the inter-node relationships to which this node is a party. Typically it 
-        stores the relative offset along the extrusion vector when it is part of 
-        an object created from the extrusion of a parent. For non-linked object, 
-        you are free to use it for anything you wish. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        mod 
-        The new decimal value of the node modifier.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.node.modifier", 
-                                                      self.eco_id, mod)
-        p2e.conversation.Exec(arg_str)
+        return property(**locals())
         
     def _get_object(self):
         return _object
@@ -494,44 +510,48 @@ class Node(object):
                                                       absolute_position[1], 
                                                       absolute_position[2])
         p2e.conversation.Exec(arg_str)
-
-    def get_selected(self):
-        """
+    
+    @apply
+    def selected():    
+        def fget(self):
+            """
+            
+            Retrieves the selection state of the specified node. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+             
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            state 
+            If this value is 1, then the node is selected. If 0 the node is not selected. 
+    
+            """
+            arg_str = p2e._util._convert_args_to_string("get.node.selected", 
+                                                          self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+    
+        def fset(self, state = 1):
+            """
+            
+            Sets the selection state of the specified node. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            [state] 
+            Determines whether to select or deselect the specified node. This can be 
+            given as either the words true or false or also as boolean integers 1 or 
+            0. If not given, this parameter defaults to true. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.node.selected", 
+                                                          self.eco_id, state)
+            p2e.conversation.Exec(arg_str)
         
-        Retrieves the selection state of the specified node. 
-
-        Parameter(s)
-        There are no parameters for this property.
-         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        state 
-        If this value is 1, then the node is selected. If 0 the node is not selected. 
-
-        """
-        arg_str = p2e._util._convert_args_to_string("get.node.selected", 
-                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
-
-    def set_selected(self, state = 1):
-        """
-        
-        Sets the selection state of the specified node. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        [state] 
-        Determines whether to select or deselect the specified node. This can be 
-        given as either the words true or false or also as boolean integers 1 or 
-        0. If not given, this parameter defaults to true. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.node.selected", 
-                                                      self.eco_id, state)
-        p2e.conversation.Exec(arg_str)
+        return property(**locals())
 
     def get_type(self):
         """
@@ -603,28 +623,7 @@ class Node(object):
             arg_str = p2e._util._convert_args_to_string("set.node.type", 
                                                           self.eco_id, type, link)
             p2e.conversation.Exec(arg_str)
-
-    #===========================================================================
-    # Properties    
-    #===========================================================================
-
-    eco_id = property(fget = get_eco_id, doc = "The Ecotect ID of the Node object")
-    
-    flags = property(fget = get_flags, doc = "A value representing the total of"
-                     " all the node's flags")
-    
-    link = property(fget = get_link, fset = set_link, 
-                        doc = "The node or object this node is linked to")
-    
-    modifier = property(fget = get_modifier, fset = set_modifier, 
-                        doc = "The node modifier value")
-    
-    object = property(fget = _get_object,
-                        doc = "The object to which this node belongs")
-    
-    selected = property(fget = get_selected, fset = set_selected, 
-                        doc = "The selection state of the specified node")
-
+            
 if __name__ == "__main__":
     #x = Node(255, 3, 1000, 2000, 0)
     

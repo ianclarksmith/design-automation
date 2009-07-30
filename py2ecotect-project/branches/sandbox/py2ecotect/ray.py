@@ -91,76 +91,84 @@ class Ray(object):
     # Properties
     #===========================================================================
     
-    def get_depth(self):
-        """
-        
-        Retrieves the number of reflections contained in the currently 
-        generated ray. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        depth 
-        An integer value giving the number of reflections.
-        
-        """
-        val = p2e.conversation.Request("get.ray.depth")
-        return p2e._util._convert_str_to_type(val, int)
-
-    def set_depth(self, depth):
-        """
-        
-        Creates a ray which can then be set with calls to the set.ray.position 
-        command. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        depth 
-        An integer value specifying the number of reflections. This parameter 
-        must be less than or equal to get.ray.maxdepth and all intersection 
-        points will initially default to the world origin.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.ray.depth", depth)
-        p2e.conversation.Exec(arg_str)
+    @apply
+    def depth():
+        def fget(self):
+            """
+            
+            Retrieves the number of reflections contained in the currently 
+            generated ray. 
     
-    def get_max_depth(self):
-        """
-        
-        Retrieves the maximum number of reflections to which rays will be 
-        traced. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        max 
-        An integer value giving the maximum number of reflections.
-        
-        """
-        val = p2e.conversation.Request("get.ray.maxdepth")
-        return p2e._util._convert_str_to_type(val, int)
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            depth 
+            An integer value giving the number of reflections.
+            
+            """
+            val = p2e.conversation.Request("get.ray.depth")
+            return p2e._util._convert_str_to_type(val, int)
     
-    def set_max_depth(self, depth):
-        """
+        def fset(self, depth):
+            """
+            
+            Creates a ray which can then be set with calls to the set.ray.position 
+            command. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            depth 
+            An integer value specifying the number of reflections. This parameter 
+            must be less than or equal to get.ray.maxdepth and all intersection 
+            points will initially default to the world origin.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.ray.depth", depth)
+            p2e.conversation.Exec(arg_str)
         
-        Sets the maximum number of reflections to which rays will be traced. 
-
-        Parameter(s)
-        This property takes the following parameters.
+        return property(**locals())
+    
+    @apply
+    def max_depth():
+        def fget(self):
+            """
+            
+            Retrieves the maximum number of reflections to which rays will be 
+            traced. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            max 
+            An integer value giving the maximum number of reflections.
+            
+            """
+            val = p2e.conversation.Request("get.ray.maxdepth")
+            return p2e._util._convert_str_to_type(val, int)
         
-        depth 
-        An integer value specifying the maximum number of reflections.
+        def fset(self, depth):
+            """
+            
+            Sets the maximum number of reflections to which rays will be traced. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            depth 
+            An integer value specifying the maximum number of reflections.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.ray.maxdepth", depth)
+            p2e.conversation.Exec(arg_str)
         
-        """
-        arg_str = p2e._util._convert_args_to_string("set.ray.maxdepth", depth)
-        p2e.conversation.Exec(arg_str)
+        return property(**locals())
     
     def get_object(self, depth):
         """
@@ -295,18 +303,6 @@ class Ray(object):
                                                       absolute_position[2])
         p2e.conversation.Exec(arg_str)
     
-    #===========================================================================
-    # Properties
-    #===========================================================================
-    
-    depth = property(fget = get_depth, fset = set_depth, 
-                        doc = "The number of reflections contained in the"
-                        " currently generated ray")
-    
-    max_depth= property(fget = get_max_depth, fset = set_max_depth, 
-                        doc = "The maximum number of reflections to which rays"
-                        " will be traced")
-
 if __name__ == "__main__":
     x = Ray()
     

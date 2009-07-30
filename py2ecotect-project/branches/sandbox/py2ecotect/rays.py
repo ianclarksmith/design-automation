@@ -114,223 +114,251 @@ class Rays(object):
     # Properties
     #===========================================================================
     
-    def get_altitude(self):
-        """
-        
-        Retrieves the controlling altitude angle when using the spherical or 
-        cylindrical methods in the rays.spray command. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        alt 
-        The altitude in degrees. 
-        
-        """
-        val = p2e.conversation.Request("get.rays.altitude")
-        return p2e._util._convert_str_to_type(val, float)
-
-    def set_altitude(self, angle):
-        """
-        
-        Sets the controlling altitude angle when using the spherical or 
-        cylindrical methods in the rays.spray command. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        angle 
-        Specifies the angle to use, in decimal degrees.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.altitude", angle)
-        p2e.conversation.Exec(arg_str)
+    @apply
+    def altitude():
+        def fget(self):
+            """
+            
+            Retrieves the controlling altitude angle when using the spherical or 
+            cylindrical methods in the rays.spray command. 
     
-    def get_angle(self):
-        """
-        
-        Retrieves the angular increment between rays when using the spherical or 
-        cylindrical methods in the rays.spray command. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        angle 
-        The angular increment in degrees.
-        
-        """
-        val = p2e.conversation.Request("get.rays.angle")
-        return p2e._util._convert_str_to_type(val, float)
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            alt 
+            The altitude in degrees. 
+            
+            """
+            val = p2e.conversation.Request("get.rays.altitude")
+            return p2e._util._convert_str_to_type(val, float)
     
-    def set_angle(self, angle):
-        """
-        
-        Sets the angular increment between rays when using the spherical or 
-        cylindrical methods in the rays.spray command. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        angle 
-        Specifies the angle to use, in decimal degrees
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.angle", angle)
-        p2e.conversation.Exec(arg_str)
+        def fset(self, angle):
+            """
+            
+            Sets the controlling altitude angle when using the spherical or 
+            cylindrical methods in the rays.spray command. 
     
-    def get_avg_absorption(self, band):
-        """
+            Parameter(s)
+            This property takes the following parameters.
+            
+            angle 
+            Specifies the angle to use, in decimal degrees.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.altitude", angle)
+            p2e.conversation.Exec(arg_str)
         
-        Retrieves the average absorption co-efficient of all incident rays at 
-        the given frequency band. 
-
-        Parameter(s)
-        This property takes the following parameters.
+        return property(**locals())
+    
+    @apply
+    def angle():
+        def fget(self):
+            """
+            
+            Retrieves the angular increment between rays when using the spherical or 
+            cylindrical methods in the rays.spray command. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            angle 
+            The angular increment in degrees.
+            
+            """
+            val = p2e.conversation.Request("get.rays.angle")
+            return p2e._util._convert_str_to_type(val, float)
         
-        band 
-        An index of the frequency corresponding to the following Centre 
-        Frequencies table. 
+        def fset(self, angle):
+            """
+            
+            Sets the angular increment between rays when using the spherical or 
+            cylindrical methods in the rays.spray command. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            angle 
+            Specifies the angle to use, in decimal degrees
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.angle", angle)
+            p2e.conversation.Exec(arg_str)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+        return property(**locals())
+    
+    @apply
+    def avg_absorption():
+        def fget(self, band):
+            """
+            
+            Retrieves the average absorption co-efficient of all incident rays at 
+            the given frequency band. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            band 
+            An index of the frequency corresponding to the following Centre 
+            Frequencies table. 
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            avgabs 
+            A decimal value containing the average absorption co-efficient. 
+            
+            Relevant Data Table(s)
+            
+            Octave Frequencies 
+            Value Frequency 
+            0 63 Hz 
+            1 125 Hz 
+            2 250 Hz 
+            3 500 Hz 
+            4 1000 Hz 
+            5 2000 Hz 
+            6 4000 Hz 
+            7 8000 Hz 
+            8 16000 Hz 
+    
+            """
+            arg_str = p2e._util._convert_args_to_string("get.rays.avgabsorption", 
+                                                          band)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, float)
         
-        avgabs 
-        A decimal value containing the average absorption co-efficient. 
+        return property(**locals())
+    
+    @apply
+    def azimuth():
+        def fget(self):
+            """
+            
+            Retrieves the controlling azimuth angle when using the spherical or 
+            cylindrical methods in the rays.spray command. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            azi 
+            The azimuth in degrees. 
+            
+            """
+            val = p2e.conversation.Request("get.rays.azimuth")
+            return p2e._util._convert_str_to_type(val, float)
+            
+        def fset(self, angle):
+            """
+            
+            Sets the controlling azimuth angle when using the spherical or 
+            cylindrical methods in the rays.spray command. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            angle 
+            The angle in degrees to use. 
+    
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.azimuth", angle)
+            p2e.conversation.Exec(arg_str)
         
-        Relevant Data Table(s)
+        return property(**locals())
         
-        Octave Frequencies 
-        Value Frequency 
-        0 63 Hz 
-        1 125 Hz 
-        2 250 Hz 
-        3 500 Hz 
-        4 1000 Hz 
-        5 2000 Hz 
-        6 4000 Hz 
-        7 8000 Hz 
-        8 16000 Hz 
-
-        """
-        arg_str = p2e._util._convert_args_to_string("get.rays.avgabsorption", 
-                                                      band)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, float)
-
-    def get_azimuth(self):
-        """
+    @apply
+    def count():
+        def fget(self):
+            """
+            
+            Retrieves the number of rays in the ray list. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The number of rays in the ray list. 
+    
+            """
+            val = p2e.conversation.Request("get.rays.count")
+            return p2e._util._convert_str_to_type(val, int)
         
-        Retrieves the controlling azimuth angle when using the spherical or 
-        cylindrical methods in the rays.spray command. 
-
-        Parameter(s)
-        There are no parameters for this property.
+        return property(**locals())
+    
+    @apply
+    def distance():
+        def fget(self):
+            """
+            
+            Retrieves the distance on which the animation is based. It is possible 
+            to use this to find the travel distance of the longest ray. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            dist 
+            A decimal value containing the distance. 
+    
+            """
+            val = p2e.conversation.Request("get.rays.distance")
+            return p2e._util._convert_str_to_type(val, float)
+    
+        def fset(self, dist):
+            """
+            
+            Sets the distance on which the animation is based. It's possible to use 
+            this to control the timing of an animation. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            dist 
+            A decimal value specifying the required distance, in the current modelling units.
+                    
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.distance", dist)
+            p2e.conversation.Exec(arg_str)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+        return property(**locals())
+    
+    @apply
+    def edt10():
+        def fget(self):
+            """
+            
+            Retrieves the Reverberation Time over 60dB taken from the line-of-best 
+            fit of all currently stored acoustic rays. Note that this value is only 
+            set during a calculation - see calc.acousticresponse for more 
+            information. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            edt10 
+            A decimal value containing the early decay time in seconds.
+            
+            """
+            val = p2e.conversation.Request("get.rays.edt10")
+            return p2e._util._convert_str_to_type(val, float)
         
-        azi 
-        The azimuth in degrees. 
-        
-        """
-        val = p2e.conversation.Request("get.rays.azimuth")
-        return p2e._util._convert_str_to_type(val, float)
-        
-    def set_azimuth(self, angle):
-        """
-        
-        Sets the controlling azimuth angle when using the spherical or 
-        cylindrical methods in the rays.spray command. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        angle 
-        The angle in degrees to use. 
-
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.azimuth", angle)
-        p2e.conversation.Exec(arg_str)
-
-    def get_count(self):
-        """
-        
-        Retrieves the number of rays in the ray list. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The number of rays in the ray list. 
-
-        """
-        val = p2e.conversation.Request("get.rays.count")
-        return p2e._util._convert_str_to_type(val, int)
-
-    def get_distance(self):
-        """
-        
-        Retrieves the distance on which the animation is based. It is possible 
-        to use this to find the travel distance of the longest ray. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        dist 
-        A decimal value containing the distance. 
-
-        """
-        val = p2e.conversation.Request("get.rays.distance")
-        return p2e._util._convert_str_to_type(val, float)
-
-    def set_distance(self, dist):
-        """
-        
-        Sets the distance on which the animation is based. It's possible to use 
-        this to control the timing of an animation. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        dist 
-        A decimal value specifying the required distance, in the current modelling units.
-                
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.distance", dist)
-        p2e.conversation.Exec(arg_str)
-
-    def get_edt10(self):
-        """
-        
-        Retrieves the Reverberation Time over 60dB taken from the line-of-best 
-        fit of all currently stored acoustic rays. Note that this value is only 
-        set during a calculation - see calc.acousticresponse for more 
-        information. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        edt10 
-        A decimal value containing the early decay time in seconds.
-        
-        """
-        val = p2e.conversation.Request("get.rays.edt10")
-        return p2e._util._convert_str_to_type(val, float)
+        return property(**locals())
 
     def get_flag(self, flag):
         """
@@ -410,227 +438,259 @@ class Rays(object):
         arg_str = p2e._util._convert_args_to_string("set.rays.flag", flag, 
                                                       state)
         p2e.conversation.Exec(arg_str)
-
-    def get_increment(self):
-        """
+    
+    @apply
+    def increment():
+        def fget(self):
+            """
+            
+            Retrieves the animation frame increment in milliseconds. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            inc 
+            The current increment in milliseconds.
+            
+            """
+            val = p2e.conversation.Request("get.rays.increment")
+            return p2e._util._convert_str_to_type(val, float)
+    
+        def fset(self, inc):
+            """
+            
+            Sets the animation frame increment in milliseconds. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            inc 
+            The increment to set in milliseconds. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.increment", inc)
+            p2e.conversation.Exec(arg_str)
         
-        Retrieves the animation frame increment in milliseconds. 
-
-        Parameter(s)
-        There are no parameters for this property.
+        return property(**locals())
+    
+    @apply
+    def max_distance():
+        def fget(self):
+            """
+            
+            Retrieves the maximum distance travelled by the longest ray. This is 
+            useful to know when changing the rays.distance property. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            distance 
+            The maximum distance travelled. 
+    
+            """
+            val = p2e.conversation.Request("get.rays.maxdistance")
+            return p2e._util._convert_str_to_type(val, float)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+        return property(**locals())
+    
+    @apply
+    def mean_free_path_length():
+        def fget(self):
+            """
+            
+            Retrieves the average travel distance between striking surfaces, 
+            averaged over all traced rays. Note that this value is only set during 
+            a calculation - see calc.acousticresponse for more information. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            length 
+            A decimal value containing the mean free path length. 
+    
+            """
+            val = p2e.conversation.Request("get.rays.meanfreepathlength")
+            return p2e._util._convert_str_to_type(val, float)
         
-        inc 
-        The current increment in milliseconds.
+        return property(**locals())
+    
+    @apply
+    def nodes():
+        def fget(self):
+            """
+            
+            Retrieves the number of ray nodes in the ray list. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The number of ray nodes in the ray list.
+            
+            """
+            val = p2e.conversation.Request("get.rays.nodes")
+            return p2e._util._convert_str_to_type(val, int)
         
-        """
-        val = p2e.conversation.Request("get.rays.increment")
-        return p2e._util._convert_str_to_type(val, float)
-
-    def set_increment(self, inc):
-        """
+        return property(**locals())
+    
+    @apply
+    def precision():
+        def fget(self):
+            """
+            
+            Retrieves the distance between points when rays are generated towards 
+            tagged acoustic reflectors using the reflectors method in the 
+            rays.spray command. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            precision 
+            A decimal value containing the distance. 
+            
+            """
+            val = p2e.conversation.Request("get.rays.precision")
+            return p2e._util._convert_str_to_type(val, float)
+    
+        def fset(self, precision):
+            """
+            
+            Sets the currently set distance between points when rays are generated 
+            towards tagged acoustic reflectors using the reflectors method in the 
+            rays.spray command. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            precision 
+            A decimal value representing the distance.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.precision", 
+                                                          precision)
+            p2e.conversation.Exec(arg_str)
         
-        Sets the animation frame increment in milliseconds. 
-
-        Parameter(s)
-        This property takes the following parameters.
+        return property(**locals())
+    
+    @apply
+    def random():
+        def fget(self):
+            """
+            
+            Retrieves the currently set number of random rays to be generated when 
+            the random method is used in the rays.spray command. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            rays 
+            An integer value respresenting the number of rays generated. 
+    
+            """
+            val = p2e.conversation.Request("get.rays.random")
+            return p2e._util._convert_str_to_type(val, int)
+            
+        def fset(self, rays):
+            """
+            
+            Sets the currently set number of random rays to be generated when the 
+            random method is used in the rays.spray command. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            rays 
+            An integer value respresenting the number of rays to generate. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.random", 
+                                                          rays)
+            p2e.conversation.Exec(arg_str)
         
-        inc 
-        The increment to set in milliseconds. 
+        return property(**locals())
+    
+    @apply
+    def reflections():
+        def fget(self):
+            """
+            
+            Retrieves the currently set maximum number of refections to test during 
+            any subsequent ray spraying calculation. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            bounces 
+            The maximum number of reflections.
+            
+            """
+            val = p2e.conversation.Request("get.rays.reflections")
+            return p2e._util._convert_str_to_type(val, int)
+    
+        def fset(self):
+            """
+            
+            Sets the currently set maximum number of refections to test during any 
+            subsequent ray spraying calculation. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            bounces 
+            The maximum number of reflections.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.reflections", 
+                                                          bounces)
+            p2e.conversation.Exec(arg_str)
         
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.increment", inc)
-        p2e.conversation.Exec(arg_str)
-
-    def get_max_distance(self):
-        """
+        return property(**locals())
+    
+    @apply
+    def rt60():
+        def fget(self):
+            """
+            
+            Retrieves the value of the currently set Reverberation Time o ver 60dB 
+            taken from the line-of-best fit of all currently stored acoustic rays. 
+            Note that this value is only set during a calculation - see 
+            calc.acousticresponse for more information. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            rt60 
+            A decimal value containing the reverberation time in seconds. 
+            
+            """
+            val = p2e.conversation.Request("get.rays.rt60")
+            return p2e._util._convert_str_to_type(val, float)
         
-        Retrieves the maximum distance travelled by the longest ray. This is 
-        useful to know when changing the rays.distance property. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        distance 
-        The maximum distance travelled. 
-
-        """
-        val = p2e.conversation.Request("get.rays.maxdistance")
-        return p2e._util._convert_str_to_type(val, float)
-
-    def get_mean_free_path_length(self):
-        """
-        
-        Retrieves the average travel distance between striking surfaces, 
-        averaged over all traced rays. Note that this value is only set during 
-        a calculation - see calc.acousticresponse for more information. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        length 
-        A decimal value containing the mean free path length. 
-
-        """
-        val = p2e.conversation.Request("get.rays.meanfreepathlength")
-        return p2e._util._convert_str_to_type(val, float)
-
-    def get_nodes(self):
-        """
-        
-        Retrieves the number of ray nodes in the ray list. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The number of ray nodes in the ray list.
-        
-        """
-        val = p2e.conversation.Request("get.rays.nodes")
-        return p2e._util._convert_str_to_type(val, int)
-
-    def get_precision(self):
-        """
-        
-        Retrieves the distance between points when rays are generated towards 
-        tagged acoustic reflectors using the reflectors method in the 
-        rays.spray command. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        precision 
-        A decimal value containing the distance. 
-        
-        """
-        val = p2e.conversation.Request("get.rays.precision")
-        return p2e._util._convert_str_to_type(val, float)
-
-    def set_precision(self, precision):
-        """
-        
-        Sets the currently set distance between points when rays are generated 
-        towards tagged acoustic reflectors using the reflectors method in the 
-        rays.spray command. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        precision 
-        A decimal value representing the distance.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.precision", 
-                                                      precision)
-        p2e.conversation.Exec(arg_str)
-
-    def get_random(self):
-        """
-        
-        Retrieves the currently set number of random rays to be generated when 
-        the random method is used in the rays.spray command. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        rays 
-        An integer value respresenting the number of rays generated. 
-
-        """
-        val = p2e.conversation.Request("get.rays.random")
-        return p2e._util._convert_str_to_type(val, int)
-        
-    def set_random(self, rays):
-        """
-        
-        Sets the currently set number of random rays to be generated when the 
-        random method is used in the rays.spray command. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        rays 
-        An integer value respresenting the number of rays to generate. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.random", 
-                                                      rays)
-        p2e.conversation.Exec(arg_str)
-
-    def get_reflections(self):
-        """
-        
-        Retrieves the currently set maximum number of refections to test during 
-        any subsequent ray spraying calculation. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        bounces 
-        The maximum number of reflections.
-        
-        """
-        val = p2e.conversation.Request("get.rays.reflections")
-        return p2e._util._convert_str_to_type(val, int)
-
-    def set_reflections(self):
-        """
-        
-        Sets the currently set maximum number of refections to test during any 
-        subsequent ray spraying calculation. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        bounces 
-        The maximum number of reflections.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.reflections", 
-                                                      bounces)
-        p2e.conversation.Exec(arg_str)
-
-    def get_rt60(self):
-        """
-        
-        Retrieves the value of the currently set Reverberation Time o ver 60dB 
-        taken from the line-of-best fit of all currently stored acoustic rays. 
-        Note that this value is only set during a calculation - see 
-        calc.acousticresponse for more information. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        rt60 
-        A decimal value containing the reverberation time in seconds. 
-        
-        """
-        val = p2e.conversation.Request("get.rays.rt60")
-        return p2e._util._convert_str_to_type(val, float)
+        return property(**locals())
 
     def get_scale(self):
         """
@@ -685,160 +745,86 @@ class Rays(object):
         arg_str = p2e._util._convert_args_to_string("set.rays.scale", min, 
                                                       max, inc)
         p2e.conversation.Exec(arg_str)
-
-    def get_source(self):
-        """
+    
+    @apply
+    def source():
+        def fget(self):
+            """
+            
+            Retrieves the zero-based index number of the SPEAKER object currently 
+            being used as the sound source. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            index 
+            The zero-based index number of the SPEAKER object to be used.
+            
+            """
+            val = p2e.conversation.Request("get.rays.source")
+            return p2e._util._convert_str_to_type(val, int)
+            
+        def fset(self, index):
+            """
+            
+            Sets the the SPEAKER object to be used as the sound source. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            index 
+            The zero-based index number of the SPEAKER object to be used. If this 
+            is not specified, the first visible SPEAKER object found will be used. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.source", index)
+            p2e.conversation.Exec(arg_str)
         
-        Retrieves the zero-based index number of the SPEAKER object currently 
-        being used as the sound source. 
-
-        Parameter(s)
-        There are no parameters for this property.
+        return property(**locals())
+    
+    @apply
+    def units():
+        def fget(self):
+            """
+            
+            Retrieves the units currently being used for each ray. This value is 
+            also displayed at the top of the legend. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            units 
+            An text string representing the units to use. 
+            
+            """
+            val = p2e.conversation.Request("get.rays.units")
+            return p2e._util._convert_str_to_type(val, str)
+    
+        def fset(self, units):
+            """
+            
+            Sets the units used for each ray. This is also displayed at the top of 
+            the legend. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            units 
+            An text string representing the units to use. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.rays.units", units)
+            p2e.conversation.Exec(arg_str)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        index 
-        The zero-based index number of the SPEAKER object to be used.
-        
-        """
-        val = p2e.conversation.Request("get.rays.source")
-        return p2e._util._convert_str_to_type(val, int)
-        
-    def set_source(self, index):
-        """
-        
-        Sets the the SPEAKER object to be used as the sound source. 
+        return property(**locals())
 
-        Parameter(s)
-        This property takes the following parameters.
-        
-        index 
-        The zero-based index number of the SPEAKER object to be used. If this 
-        is not specified, the first visible SPEAKER object found will be used. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.source", index)
-        p2e.conversation.Exec(arg_str)
-
-    def get_units(self):
-        """
-        
-        Retrieves the units currently being used for each ray. This value is 
-        also displayed at the top of the legend. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        units 
-        An text string representing the units to use. 
-        
-        """
-        val = p2e.conversation.Request("get.rays.units")
-        return p2e._util._convert_str_to_type(val, str)
-
-    def set_units(self, units):
-        """
-        
-        Sets the units used for each ray. This is also displayed at the top of 
-        the legend. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        units 
-        An text string representing the units to use. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.rays.units", units)
-        p2e.conversation.Exec(arg_str)
-
-    #===========================================================================
-    # Properties
-    #===========================================================================
     
-    altitude = property(fget = get_altitude, fset = set_altitude, 
-                        doc = "The controlling altitude angle when using the"
-                        " spherical or cylindrical methods in the"
-                        " rays.spray command")
-    
-    angle = property(fget = get_angle, fset = set_angle, 
-                        doc = "The angular increment between rays when using"
-                        " the spherical or cylindrical methods in the"
-                        " rays.spray command")
-    
-    avg_absorption= property(fget = get_avg_absorption, doc = "The average"
-                             " absorption co-efficient of all incident rays at"
-                             " the given frequency band")
-    
-    azimuth = property(fget = get_azimuth, fset = set_azimuth, 
-                        doc = "The controlling azimuth angle when using the"
-                        " spherical or cylindrical methods in the"
-                        " rays.spray command")
-    
-    count = property(fget = get_count, doc = "The number of rays in the ray list")
-    
-    distance = property(fget = get_distance, fset = set_distance, 
-                        doc = "The distance on which the animation is based."
-                        " It is possible to use this to find the travel"
-                        " distance of the longest ray")
-    
-    edt10 = property(fget = get_edt10, doc = "The Reverberation Time over 60dB"
-                     " taken from the line-of-best fit of all currently stored"
-                     " acoustic rays")
-    
-    increment = property(fget = get_increment, fset = set_increment, 
-                        doc = "The animation frame increment in milliseconds")
-    
-    max_distance = property(fget = get_max_distance, doc = "The maximum"
-                            " distance travelled by the longest ray")
-    
-    mean_free_path_length = property(fget = get_mean_free_path_length, 
-                        doc = "The average travel distance between striking"
-                        " surfaces, averaged over all traced rays")
-    
-    nodes = property(fget = get_nodes, doc = "The number of ray nodes in the"
-                     " ray list")
-    
-    precision = property(fget = get_precision, fset = set_precision, 
-                        doc = "The distance between points when rays are"
-                        " generated towards tagged acoustic reflectors using"
-                        " the reflectors method in the rays.spray command")
-    
-    random = property(fget = get_random, fset = set_random, 
-                        doc = "The currently set number of random rays to be"
-                        " generated when the random method is used in the"
-                        " rays.spray command")
-    
-    reflections = property(fget = get_reflections, fset = set_reflections, 
-                        doc = "The currently set maximum number of refections"
-                        " to test during any subsequent ray spraying calculation")
-    
-    rt60 = property(fget = get_rt60, doc = "The value of the currently set"
-                    " Reverberation Time o ver 60dB taken from the line-of-best"
-                    " fit of all currently stored acoustic rays")
-    
-    source = property(fget = get_source, fset = set_source, 
-                        doc = "The zero-based index number of the SPEAKER"
-                        " object currently being used as the sound source")
-    
-    units  = property(fget = get_units, fset = set_units, 
-                        doc = "The units used for each ray. This is also"
-                        " displayed at the top of the legend")
-
-
-
-
-
-
-
-
-     
-
-
 if __name__ == "__main__":
     x = Rays()
     

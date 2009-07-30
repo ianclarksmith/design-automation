@@ -726,64 +726,67 @@ class View(object):
     #===========================================================================
     # Properties
     #===========================================================================
+    @apply
+    def align():
+        def fget(self):
+            """
+            
+            Retrieves the the alignment of output text by the view.draw.text. 
     
-    def get_align(self):
-        """
-        
-        Retrieves the the alignment of output text by the view.draw.text. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        alignment 
-        The alignment parameter is an integer value representing binary bits, as 
-        shown in the Text Align table below. Horizontal and vertical alignments 
-        are combined by adding the corresponding values. 
-        
-        Relevant Data Table(s)
-        Text Alignment Codes 
-        Value Description 
-        0 LEFT and TOP 
-        2 RIGHT 
-        6 CENTER 
-        8 BOTTOM 
-        24 BASELINE 
-        
-        """
-        val = p2e.conversation.Request("get.view.align")
-        return p2e._util._convert_str_to_type(val, int)
-
-    def set_align(self, alignment):
-        """
-        
-        This command allows you to set the alignment of any subsequent output 
-        text by the view.draw.text. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        alignment 
-        The alignment parameter is an integer value representing binary bits, 
-        as shown in the Text Align table below. To combine horizontal and 
-        vertical alignments, add the corresponding values together. 
-        
-        Relevant Data Table(s)
-        
-        Text Alignment Codes 
-        Value Description 
-        0 LEFT and TOP 
-        2 RIGHT 
-        6 CENTER 
-        8 BOTTOM 
-        24 BASELINE 
-
-        """
-        arg_str = p2e._util._convert_args_to_string("set.view.align", 
-                                                      alignment)
-        p2e.conversation.Exec(arg_str)
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            alignment 
+            The alignment parameter is an integer value representing binary bits, as 
+            shown in the Text Align table below. Horizontal and vertical alignments 
+            are combined by adding the corresponding values. 
+            
+            Relevant Data Table(s)
+            Text Alignment Codes 
+            Value Description 
+            0 LEFT and TOP 
+            2 RIGHT 
+            6 CENTER 
+            8 BOTTOM 
+            24 BASELINE 
+            
+            """
+            val = p2e.conversation.Request("get.view.align")
+            return p2e._util._convert_str_to_type(val, int)
+    
+        def fset(self, alignment):
+            """
+            
+            This command allows you to set the alignment of any subsequent output 
+            text by the view.draw.text. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            alignment 
+            The alignment parameter is an integer value representing binary bits, 
+            as shown in the Text Align table below. To combine horizontal and 
+            vertical alignments, add the corresponding values together. 
+            
+            Relevant Data Table(s)
+            
+            Text Alignment Codes 
+            Value Description 
+            0 LEFT and TOP 
+            2 RIGHT 
+            6 CENTER 
+            8 BOTTOM 
+            24 BASELINE 
+    
+            """
+            arg_str = p2e._util._convert_args_to_string("set.view.align", 
+                                                          alignment)
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
 
     def get_font(self):
         """
@@ -1039,23 +1042,13 @@ class View(object):
         val = p2e.conversation.Request("get.view.visible")
         return p2e._util._convert_str_to_type(val, int)
     
-    #===========================================================================
-    # Properties
-    #===========================================================================
-    
-    align = property(fget = get_align, fset = set_align, 
-                        doc = "The alignment of output text by the view.draw."
-                        "text")
-
-
-
         
 
 if __name__ == "__main__":
     x = View()
     
     #x.copy()
-    x.draw_arrow2d(100, 250)
+    #x.draw_arrow2d(100, 250)
     #x.draw_arrowto(50, 100, 100)
     #x.draw_cross(2300.0, 5400.0, 2400.0)
     #x.draw_text(2300, 5400, 2400, "TEST")
