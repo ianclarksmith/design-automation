@@ -38,7 +38,7 @@ class Grid3D(object):
         axis of the 2D grid, you will get invalid 2D results.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("grid3d.getframe", index)
+        arg_str = p2e._util._convert_args_to_string("grid3d.getframe", index)
         p2e.conversation.Exec(arg_str)
 
     def initialise(self):
@@ -85,7 +85,7 @@ class Grid3D(object):
         axis of the 2D grid, you will end up with invalid 2D results.
         
         """
-        arg_str = p2e.p2e.string_util._convert_args_to_string("grid3d.setframe", index)
+        arg_str = p2e.p2e._util._convert_args_to_string("grid3d.setframe", index)
         p2e.conversation.Exec(arg_str)
     
     #===========================================================================
@@ -129,7 +129,7 @@ class Grid3D(object):
         1024 Cell should be blocked no matter what is in it. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.grid3d.blockage", 
+        arg_str = p2e._util._convert_args_to_string("set.grid3d.blockage", 
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2], state)
@@ -177,12 +177,12 @@ class Grid3D(object):
         -100 Hidden and selected. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.grid3d.cell", 
+        arg_str = p2e._util._convert_args_to_string("get.grid3d.cell", 
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2], index)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, float, int)
+        return p2e._util._convert_str_to_list(val, float, int)
 
     def set_cell(self, cell_index, value, index = 0):
         """
@@ -207,7 +207,7 @@ class Grid3D(object):
         currently displayed index is used. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.grid3d.cell", 
+        arg_str = p2e._util._convert_args_to_string("set.grid3d.cell", 
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2], value, 
@@ -244,12 +244,12 @@ class Grid3D(object):
         bounded grid volume. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.grid3d.index", 
+        arg_str = p2e._util._convert_args_to_string("get.grid3d.index", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, float, float, float, bool)
+        return p2e._util._convert_str_to_list(val, float, float, float, bool)
 
     def get_position(self, cell_index):
         """
@@ -274,12 +274,12 @@ class Grid3D(object):
         in 3 dimensional model space.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.grid3d.position", 
+        arg_str = p2e._util._convert_args_to_string("get.grid3d.position", 
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, float, float, float)
+        return p2e._util._convert_str_to_list(val, float, float, float)
 
     def get_state(self, cell_index):
         """
@@ -313,12 +313,12 @@ class Grid3D(object):
         -100 Hidden and selected 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.grid3d.state", 
+        arg_str = p2e._util._convert_args_to_string("get.grid3d.state", 
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_state(self, cell_index, state):
         """
@@ -349,7 +349,7 @@ class Grid3D(object):
         -100 Hidden and selected. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.grid3d.state", 
+        arg_str = p2e._util._convert_args_to_string("set.grid3d.state", 
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2], state)
@@ -389,13 +389,13 @@ class Grid3D(object):
         bounded grid volume.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.grid3d.value", 
+        arg_str = p2e._util._convert_args_to_string("get.grid3d.value", 
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2], 
                                                       index)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, int, bool)
+        return p2e._util._convert_str_to_list(val, int, bool)
 
     def get_vector(self, cell_index):
         """
@@ -418,12 +418,12 @@ class Grid3D(object):
         given in model coordinates. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.grid3d.vector", 
+        arg_str = p2e._util._convert_args_to_string("get.grid3d.vector", 
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, float, float, float)
+        return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_vector(self, i, j, k, offset_distance):
         """
@@ -442,7 +442,7 @@ class Grid3D(object):
         X, Y and Z axis, given in model coordinates. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.grid3d.vector", 
+        arg_str = p2e._util._convert_args_to_string("set.grid3d.vector", 
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2], 

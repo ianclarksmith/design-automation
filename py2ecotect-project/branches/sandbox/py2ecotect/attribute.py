@@ -35,9 +35,9 @@ class Attribute(object):
         colours 4 Display object attribute as a fill colous. 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.attribute.flag", flag)
+        arg_str = p2e._util._convert_args_to_string("get.attribute.flag", flag)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
     
     def set_flag(flag, state = True):
         """
@@ -68,7 +68,7 @@ class Attribute(object):
         >>> set_flag("text", False)
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.attribute.flag", 
+        arg_str = p2e._util._convert_args_to_string("set.attribute.flag", 
                                                       flag, state)
         p2e.conversation.Exec(arg_str)
     
@@ -98,7 +98,7 @@ class Attribute(object):
     
         """
         val = p2e.conversation.Request("get.attribute.flags")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
     
     def get_name(index):
         """
@@ -119,10 +119,10 @@ class Attribute(object):
         A text string containing the name name of the attribute.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.attribute.name", 
+        arg_str = p2e._util._convert_args_to_string("get.attribute.name", 
                                                       index)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
     
     def set_name(index, name):
         """
@@ -139,7 +139,7 @@ class Attribute(object):
         attributes.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.attribute.name", 
+        arg_str = p2e._util._convert_args_to_string("set.attribute.name", 
                                                       index, name)
         p2e.conversation.Exec(arg_str)
     
@@ -163,7 +163,7 @@ class Attribute(object):
         
         """
         val = p2e.conversation.Request("get.attribute.scale")
-        return p2e.string_util._convert_str_to_list(val, float)
+        return p2e._util._convert_str_to_list(val, float)
     
     def set_scale(min, max):
         """
@@ -181,7 +181,7 @@ class Attribute(object):
         Sets the maximum scale value to be used.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.attribute.scale", 
+        arg_str = p2e._util._convert_args_to_string("set.attribute.scale", 
                                                       min, max)
         p2e.conversation.Exec(arg_str)
     
@@ -222,7 +222,7 @@ class Attribute(object):
         42 Flow Rate 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.attribute.type", 
+        arg_str = p2e._util._convert_args_to_string("set.attribute.type", 
                                                       index, type)
         p2e.conversation.Exec(arg_str)
     
@@ -246,10 +246,10 @@ class Attribute(object):
         The units of measurement used, for example Lux.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.attribute.units", 
+        arg_str = p2e._util._convert_args_to_string("get.attribute.units", 
                                                       type)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
     
     def set_units(type, units):
         """
@@ -269,7 +269,7 @@ class Attribute(object):
         Specifies the units of measurement to be used. For example Lux.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.attribute.units", 
+        arg_str = p2e._util._convert_args_to_string("set.attribute.units", 
                                                       type, units)
         p2e.conversation.Exec(arg_str)
 

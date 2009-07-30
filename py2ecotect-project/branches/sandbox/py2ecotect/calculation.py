@@ -43,7 +43,7 @@ class Calculation(object):
         8 16000 Hz 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("calc.acousticresponse", 
+        arg_str = p2e._util._convert_args_to_string("calc.acousticresponse", 
                                                       type, frequency)
         p2e.conversation.Exec(arg_str)
     
@@ -75,7 +75,7 @@ class Calculation(object):
         are calculated and shading is ignored.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("calc.adjacencies" , 100, 
+        arg_str = p2e._util._convert_args_to_string("calc.adjacencies" , 100, 
                                                      True)
         p2e.conversation.Exec(arg_str)
     
@@ -165,7 +165,7 @@ class Calculation(object):
             return
         else:
             try:
-                arg_str = p2e.string_util._convert_args_to_string("calc.insolation", 
+                arg_str = p2e._util._convert_args_to_string("calc.insolation", 
                                                           target, type, select3D, 
                                                          accumulation, metric)
                 threading.Thread(target = self.do_calc(arg_str))
@@ -247,7 +247,7 @@ class Calculation(object):
     
         """
         try:
-            arg_str = p2e.string_util._convert_args_to_string("calc.insolation", 
+            arg_str = p2e._util._convert_args_to_string("calc.insolation", 
                                                           period, shading, 
                                                           ground, direct)
             p2e.conversation.Exec(arg_str)
@@ -305,7 +305,7 @@ class Calculation(object):
         4 Compare: Before - After 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("calc.lighting", target, 
+        arg_str = p2e._util._convert_args_to_string("calc.lighting", target, 
                                                       type, select3D, 
                                                       comparison)
         p2e.conversation.Exec(arg_str)
@@ -339,7 +339,7 @@ class Calculation(object):
         coal Hourly Coal Use 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("calc.resources", type)
+        arg_str = p2e._util._convert_args_to_string("calc.resources", type)
         p2e.conversation.Exec(arg_str)
     
     def shading_percentage(self, cumulative, startDay, stopDay, startTime, 
@@ -399,7 +399,7 @@ class Calculation(object):
         degreedays Monthly degree days. 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("calc.shading." + 
+        arg_str = p2e._util._convert_args_to_string("calc.shading." + 
                                                       shadingType,cumulative, 
                                                       startDay, stopDay, 
                                                       startTime, stopTime)
@@ -448,7 +448,7 @@ class Calculation(object):
         degreedays Monthly degree days. 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("calc.thermal." + 
+        arg_str = p2e._util._convert_args_to_string("calc.thermal." + 
                                                       selector, zone)
         p2e.conversation.Exec(arg_str)
     
@@ -495,7 +495,7 @@ class Calculation(object):
         
         """
         val = p2e.conversation.Request("get.calc.dates")
-        return p2e.string_util._convert_str_to_list(val, int, int, bool)
+        return p2e._util._convert_str_to_list(val, int, int, bool)
     
     def set_dates(self, startDay, stopDay, incDay = 1):
         """
@@ -518,67 +518,71 @@ class Calculation(object):
         stop dates are inclusive of the date range.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.calc.dates", 
+        arg_str = p2e._util._convert_args_to_string("set.calc.dates", 
                                                       startDay, stopDay, incDay)
         p2e.conversation.Exec(arg_str)
     
-    def get_precision(self):
-        """
+    @apply
+    def precision():
+        def fget(self):
+            """
+            
+            Retrieves the level of precision used in lighting calculations for the 
+            calc.lighting command. 
         
-        Retrieves the level of precision used in lighting calculations for the 
-        calc.lighting command. 
-    
-        Parameter(s)
-        There are no parameters for this property.
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            precision 
+            An integer value corresponding to one of the items in the following 
+            Calculation Precision table. 
+            
+            Relevant Data Table(s)
+            
+            Available Calculation Precisions 
+            Token Value Description 
+            full 0 Full Precision 
+            veryhigh 1 Very High Precision 
+            high 2 High Precision 
+            medium 3 Medium Precision 
+            low 4 Low Precision 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+            """
+            val = p2e.conversation.Request("get.calc.precision")
+            return p2e._util._convert_str_to_type(val, int)
         
-        precision 
-        An integer value corresponding to one of the items in the following 
-        Calculation Precision table. 
+        def fset(self, precision):
+            """
+            
+            Sets the precision of lighting calculations to be used with the calc.
+            lighting command. 
         
-        Relevant Data Table(s)
+            Parameter(s)
+            This property takes the following parameters.
+            
+            precision 
+            Determines the calculation accuracy by controlling the number of test 
+            rays sprayed from each test point, according to the following table. 
+            
+            Relevant Data Table(s)
+            
+            Available Calculation Precisions 
+            Token Value Description 
+            full 0 Full Precision 
+            veryhigh 1 Very High Precision 
+            high 2 High Precision 
+            medium 3 Medium Precision 
+            low 4 Low Precision 
         
-        Available Calculation Precisions 
-        Token Value Description 
-        full 0 Full Precision 
-        veryhigh 1 Very High Precision 
-        high 2 High Precision 
-        medium 3 Medium Precision 
-        low 4 Low Precision 
-    
-        """
-        val = p2e.conversation.Request("get.calc.precision")
-        return p2e.string_util._convert_str_to_type(val, int)
-    
-    def set_precision(self, precision):
-        """
+            """
+            arg_str = p2e._util._convert_args_to_string("set.calc.precision", 
+                                                          precision)
+            p2e.conversation.Exec(arg_str)
         
-        Sets the precision of lighting calculations to be used with the calc.
-        lighting command. 
-    
-        Parameter(s)
-        This property takes the following parameters.
-        
-        precision 
-        Determines the calculation accuracy by controlling the number of test 
-        rays sprayed from each test point, according to the following table. 
-        
-        Relevant Data Table(s)
-        
-        Available Calculation Precisions 
-        Token Value Description 
-        full 0 Full Precision 
-        veryhigh 1 Very High Precision 
-        high 2 High Precision 
-        medium 3 Medium Precision 
-        low 4 Low Precision 
-    
-        """
-        arg_str = p2e.string_util._convert_args_to_string("set.calc.precision", 
-                                                      precision)
-        p2e.conversation.Exec(arg_str)
+        return property(**locals())
     
     def get_sky(self):
         """
@@ -606,7 +610,7 @@ class Calculation(object):
     
         """
         val = p2e.conversation.Request("get.calc.sky")
-        return p2e.string_util._convert_str_to_list(val, int)
+        return p2e._util._convert_str_to_list(val, int)
     
     def set_material_default(self, sky, level):
         """
@@ -630,7 +634,7 @@ class Calculation(object):
         uniform 1 CIE Uniform Sky 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.material.default", 
+        arg_str = p2e._util._convert_args_to_string("set.material.default", 
                                                       sky, level)
         p2e.conversation.Exec(arg_str)
     
@@ -663,7 +667,7 @@ class Calculation(object):
         
         """
         val = p2e.conversation.Request("get.calc.times")
-        return p2e.string_util._convert_str_to_list(val, float, float, bool)
+        return p2e._util._convert_str_to_list(val, float, float, bool)
     
     def set_times(self, startDay, stopDay, incDay = 1):
         """
@@ -686,75 +690,67 @@ class Calculation(object):
         stop times are inclusive of the date range.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.calc.times", 
+        arg_str = p2e._util._convert_args_to_string("set.calc.times", 
                                                       startDay, stopDay, incDay)
         p2e.conversation.Exec(arg_str)
     
-    def get_windows(self):
-        """
+    @apply
+    def windows():
+        def fget(self):
+            """
+            
+            Gets the window conditions for lighting calculations using the 
+            calc.lighting command. 
         
-        Gets the window conditions for lighting calculations using the 
-        calc.lighting command. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            cleanliness 
+            An index representing the average cleanliness of windows in the model, 
+            as given in the following table. 
+            
+            Relevant Data Table(s)
+            
+            Window Cleanliness Values 
+            Value Description 
+            0 Clean Windows (x 1.00) 
+            1 Average Windows (x 0.90) 
+            2 Dirty Windows (x 0.75) 
+        
+            """
+            val = p2e.conversation.Request("get.calc.windows")
+            return p2e._util._convert_str_to_type(val, str)
     
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        cleanliness 
-        An index representing the average cleanliness of windows in the model, 
-        as given in the following table. 
-        
-        Relevant Data Table(s)
-        
-        Window Cleanliness Values 
-        Value Description 
-        0 Clean Windows (x 1.00) 
-        1 Average Windows (x 0.90) 
-        2 Dirty Windows (x 0.75) 
+        def fset(self, cleanliness):
+            """
+            
+            Sets the precision of lighting calculations to be used with the 
+            calc.lighting command. 
     
-        """
-        val = p2e.conversation.Request("get.calc.windows")
-        return p2e.string_util._convert_str_to_type(val, str)
-
-    def set_windows(self, cleanliness):
-        """
-        
-        Sets the precision of lighting calculations to be used with the 
-        calc.lighting command. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        cleanliness 
-        An index representing the average cleanliness of windows in the model, 
-        as given in the following table. 
-        
-        Relevant Data Table(s)
-        
-        Window Cleanliness Values 
-        Value Description 
-        0 Clean Windows (x 1.00) 
-        1 Average Windows (x 0.90) 
-        2 Dirty Windows (x 0.75) 
-
-        """
-        arg_str = p2e.string_util._convert_args_to_string("set.calc.windows", 
-                                                      cleanliness)
-        p2e.conversation.Exec(arg_str)
+            Parameter(s)
+            This property takes the following parameters.
+            
+            cleanliness 
+            An index representing the average cleanliness of windows in the model, 
+            as given in the following table. 
+            
+            Relevant Data Table(s)
+            
+            Window Cleanliness Values 
+            Value Description 
+            0 Clean Windows (x 1.00) 
+            1 Average Windows (x 0.90) 
+            2 Dirty Windows (x 0.75) 
     
-        #=======================================================================
-        # Properties    
-        #=======================================================================
-
-    precision = property(fget = get_precision, fset = set_precision, 
-                        doc = "The level of precision used in lighting"
-                        " calculations for the calc.lighting command")
-    
-    windows = property(fget = get_windows, fset = set_windows, 
-                        doc = "The window conditions for lighting calculations"
-                        " using the calc.lighting command")
+            """
+            arg_str = p2e._util._convert_args_to_string("set.calc.windows", 
+                                                          cleanliness)
+            p2e.conversation.Exec(arg_str)
+        
+        return property(**locals())
 
 if __name__ == "__main__":
     x = Calculation()

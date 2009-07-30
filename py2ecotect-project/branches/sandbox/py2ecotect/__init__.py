@@ -34,5 +34,6 @@ from py2ecotect.node import Node
 from py2ecotect.select import Select 
 from py2ecotect.selection import Selection
 from py2ecotect.view import View 
+from py2ecotect import _util
 
 p2e.model._populate() 

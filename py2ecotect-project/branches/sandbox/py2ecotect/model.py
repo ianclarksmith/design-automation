@@ -5,7 +5,8 @@ _objects = []
 _nodes = []
 
 def _populate():
-    num_zones = Model.get_zones()
+    val = p2e.conversation.Request("get.model.zones")
+    num_zones = p2e._util._convert_str_to_type(val, int)    
     for eco_id in range(num_zones):
             p2e.Zone._create_zone_from_id(eco_id)
 
@@ -41,7 +42,7 @@ class Model(object):
         >>> dump("C:\\Test\\mytest.eco")
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("model.dump", filename)
+        arg_str = p2e._util._convert_args_to_string("model.dump", filename)
         p2e.conversation.Exec(arg_str)
     
     def export_file(self, filename, fileformat):
@@ -101,7 +102,7 @@ class Model(object):
         
         """
         #TODO: add error checking
-        arg_str = p2e.string_util._convert_args_to_string("model.export" + fileformat, filename)
+        arg_str = p2e._util._convert_args_to_string("model.export" + fileformat, filename)
         p2e.conversation.Exec(arg_str)
     
     def import_file(self, filename):
@@ -152,7 +153,7 @@ class Model(object):
         txt yes yes ASCII Text File 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("model.import", filename)
+        arg_str = p2e._util._convert_args_to_string("model.import", filename)
         p2e.conversation.Exec(arg_str)
     
     def load(self, filename):
@@ -171,7 +172,7 @@ class Model(object):
         filename =  C:\Temp\Test.eco
         
         """
-        arg_str = p2e.string_util.p2e.string_util._convert_args_to_string("model.load", filename)
+        arg_str = p2e.p2e._util._convert_args_to_string("model.load", filename)
         p2e.conversation.Exec(arg_str)
         
         #Clear model lists
@@ -248,7 +249,7 @@ class Model(object):
         This command takes the following parameters.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("model.saveas", filename)        
+        arg_str = p2e._util._convert_args_to_string("model.saveas", filename)        
         p2e.conversation.Exec(arg_str)
         
     def update(self):
@@ -296,7 +297,7 @@ class Model(object):
         The altitude angle in degrees. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.model.altitude", 
+        arg_str = p2e._util._convert_args_to_string("get.model.altitude", 
                                                           absolute_position_start[0],
                                                           absolute_position_start[1], 
                                                           absolute_position_start[2],
@@ -304,7 +305,7 @@ class Model(object):
                                                           absolute_position_end[1],
                                                           absolute_position_end[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)        
+        return p2e._util._convert_str_to_type(val, float)        
         
     def get_azimuth(self, absolute_position_start, absolute_position_end):
         """
@@ -332,7 +333,7 @@ class Model(object):
         The azimuth angle in degrees.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.model.azimuth",
+        arg_str = p2e._util._convert_args_to_string("get.model.azimuth",
                                                           absolute_position_start[0],
                                                           absolute_position_start[1], 
                                                           absolute_position_start[2],
@@ -340,64 +341,76 @@ class Model(object):
                                                           absolute_position_end[1],
                                                           absolute_position_end[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)           
+        return p2e._util._convert_str_to_type(val, float)           
     
-    def get_current_node(self):
-        """
+    @apply
+    def current_node():
+        def fget(self):
+            """
+            
+            Returns the zero-based index of the last selected node within the 
+            currently loaded ECOTECT model. 
         
-        Returns the zero-based index of the last selected node within the 
-        currently loaded ECOTECT model. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            node 
+            The zero-based index of the current node. 
+            
+            """
+            val = p2e.conversation.Request("get.model.currentnode")
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())  
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def current_object():
+        def fget(self):
+            """
+            
+            Returns the zero-based index of the last selected object within the 
+            currently loaded ECOTECT model. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            object 
+            The zero-based index of the current object in the model.
+             
+            """
+            val = p2e.conversation.Request("get.model.currentobject")
+            return p2e._util._convert_str_to_type(val, int)   
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        node 
-        The zero-based index of the current node. 
-        
-        """
-        val = p2e.conversation.Request("get.model.currentnode")
-        return p2e.string_util._convert_str_to_type(val, int)  
+        return property(**locals())  
     
-    def get_current_object(self):
-        """
+    @apply
+    def current_zone():
+        def fget(self):
+            """
+            
+            Returns the zero-based index of the current zone in the currently 
+            loaded ECOTECT model. Thus, the Outside zone is always 0. 
         
-        Returns the zero-based index of the last selected object within the 
-        currently loaded ECOTECT model. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            model.currentzone 
+            The zero-based index of the current zone. 
+            
+            """
+            val = p2e.conversation.Request("get.model.currentzone")
+            return p2e._util._convert_str_to_type(val, int)   
         
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        object 
-        The zero-based index of the current object in the model.
-         
-        """
-        val = p2e.conversation.Request("get.model.currentobject")
-        return p2e.string_util._convert_str_to_type(val, int)   
-    
-    def get_current_zone(self):
-        """
-        
-        Returns the zero-based index of the current zone in the currently 
-        loaded ECOTECT model. Thus, the Outside zone is always 0. 
-    
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        model.currentzone 
-        The zero-based index of the current zone. 
-        
-        """
-        val = p2e.conversation.Request("get.model.currentzone")
-        return p2e.string_util._convert_str_to_type(val, int)   
+        return property(**locals())  
     
     def get_date(self):
         """
@@ -419,7 +432,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.date")
-        return p2e.string_util._convert_str_to_list(val, int)  
+        return p2e._util._convert_str_to_list(val, int)  
     
     def set_date(self, day, month, time=None):
         """
@@ -440,66 +453,74 @@ class Model(object):
         
         """
         if time:
-            arg_str = p2e.string_util._convert_args_to_string("set.model.date", day, month, time)
+            arg_str = p2e._util._convert_args_to_string("set.model.date", day, month, time)
         else:
-            arg_str = p2e.string_util._convert_args_to_string("set.model.date", day, month)
+            arg_str = p2e._util._convert_args_to_string("set.model.date", day, month)
         p2e.conversation.Exec(arg_str)
-        
-    def get_date_string(self):
-        """
-        
-        Retrieves a formated string containing the current model date. 
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def date_string():    
+        def fget(self):
+            """
+            
+            Retrieves a formated string containing the current model date. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            dateStr 
+            A formated date string. 
+            
+            """
+            val = p2e.conversation.Request("get.model.datestring")
+            return p2e._util._convert_str_to_type(val, str)
         
-        dateStr 
-        A formated date string. 
-        
-        """
-        val = p2e.conversation.Request("get.model.datestring")
-        return p2e.string_util._convert_str_to_type(val, str)
-                
-    def get_daylight_savings(self):
-        """
-        
-        Retrieves the status of the daylight savings flag. 
-        
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        state 
-        The daylight savings setting given as a boolean value where 1 
-        represents the affirmative and 0 the negative. When true, the 
-        current time is offset by one hour. 
-        
-        """
-        val = p2e.conversation.Request("get.model.daylightsavings")
-        return p2e.string_util._convert_str_to_type(val, bool)          
+        return property(**locals())
     
-    def set_daylight_savings(self, state):
-        """
+    @apply
+    def daylight_savings():            
+        def fget(self):
+            """
+            
+            Retrieves the status of the daylight savings flag. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            state 
+            The daylight savings setting given as a boolean value where 1 
+            represents the affirmative and 0 the negative. When true, the 
+            current time is offset by one hour. 
+            
+            """
+            val = p2e.conversation.Request("get.model.daylightsavings")
+            return p2e._util._convert_str_to_type(val, bool)          
         
-        Sets the status of the daylight savings flag. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        [state] 
-        Sets the daylight savings flag. This is a boolean value where 1 or true 
-        represents the affirmative and 0 or false the negative. When set to 
-        true, the current time is offset by one hour.
-        
-        """
-        args = p2e.string_util._convert_args_to_string("set.model.daylightsavings", 
-                                                   state)
-        p2e.conversation.Exec(args)
+        def fset(self, state):
+            """
+            
+            Sets the status of the daylight savings flag. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            [state] 
+            Sets the daylight savings flag. This is a boolean value where 1 or true 
+            represents the affirmative and 0 or false the negative. When set to 
+            true, the current time is offset by one hour.
+            
+            """
+            args = p2e._util._convert_args_to_string("set.model.daylightsavings", 
+                                                       state)
+            p2e.conversation.Exec(args)
+            
+        return property(**locals())
         
         
     def get_day_of_the_year(self):
@@ -521,7 +542,7 @@ class Model(object):
         
         """
         val = p2e.conversation.Request("get.model.dayoftheyear")
-        return p2e.string_util._convert_str_to_type(val, int)  
+        return p2e._util._convert_str_to_type(val, int)  
     
     def set_day_of_the_year(self, day, time=None):
         """
@@ -539,112 +560,120 @@ class Model(object):
          
         """
         if time:
-            arg_str = p2e.string_util._convert_args_to_string("set.model.dayoftheyear", 
+            arg_str = p2e._util._convert_args_to_string("set.model.dayoftheyear", 
                                                           day, time)
         else:
-            arg_str = p2e.string_util._convert_args_to_string("set.model.dayoftheyear", 
+            arg_str = p2e._util._convert_args_to_string("set.model.dayoftheyear", 
                                                           day)
         p2e.conversation.Exec(arg_str)
     
-    def get_directory(self):
-        """
+    @apply
+    def directory():
+        def fget(self):
+            """
+            
+            Returns the drive and directory in which the currently loaded 
+            ECOTECT model is located. This is essentially the full pathname, but 
+            without the filename component. 
         
-        Returns the drive and directory in which the currently loaded 
-        ECOTECT model is located. This is essentially the full pathname, but 
-        without the filename component. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            path 
+            A text string containing the current directory path. 
+        
+            """
+            val = p2e.conversation.Request("get.model.directory")
+            return p2e._util._convert_str_to_type(val, str)
+        
+        def fset(self, path):
+            """
+            
+            Sets the drive and directory to use with the currently loaded 
+            ECOTECT model. 
+        
+            Parameter(s)
+            This property takes the following parameters.
+            
+            path 
+            A string value that defines the directory to use. Include both the 
+            drive letter and full directory path. However, be aware of the 
+            issues with backslashes in filename parameters as described in the 
+            ECOTECT help file.
+            
+            """
+            args = p2e._util._convert_args_to_string("set.model.directory", path)
+            arg_str = p2e._util._convert_args_to_string(args)
+            p2e.conversation.Exec(arg_str)
+        
+        return property(**locals())
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def display():
+        def fget(self):
+            """
+            
+            Retrieves the current information display. When retrieving this 
+            value, a single integer value is returned corresponding to items in 
+            the Model Display table. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            display 
+            What information is displayed in the model. This is given as an 
+            integer value from the Model Display table below. 
+                        
+            Token Value Description 
+            model 0 Default model only. 
+            shadows 1 Shadows and reflections 
+            normals 2 Surface normals. 
+            sketch 3 Sketched view. 
+            winddata 5 Wind distribution data. 
+            sprayedrays 7 Sprayed acoustic rays. 
+            values 8 Object attribute values. 
+            zonetemps 9 Zone temperatures 
+            rays 10 Acoustic rays and particles. 
+            
+            """
+            val = p2e.conversation.Request("get.model.display")
+            return p2e._util._convert_str_to_type(val, int)        
         
-        path 
-        A text string containing the current directory path. 
-    
-        """
-        val = p2e.conversation.Request("get.model.directory")
-        return p2e.string_util._convert_str_to_type(val, str)
-    
-    def set_directory(self, path):
-        """
+        def fset(self, display):
+            """
+            
+            This property sets the current information display. 
         
-        Sets the drive and directory to use with the currently loaded 
-        ECOTECT model. 
-    
-        Parameter(s)
-        This property takes the following parameters.
+            Parameter(s)
+            This property takes the following parameters.
+            
+            display 
+            Sets what information to display in the model. This can be specified 
+            as either a token or value parameter, as outlined in the Model 
+            Display table below. 
+            
+            Token Value Description 
+            model 0 Default model only. 
+            shadows 1 Shadows and reflections 
+            normals 2 Surface normals. 
+            sketch 3 Sketched view. 
+            winddata 5 Wind distribution data. 
+            sprayedrays 7 Sprayed acoustic rays. 
+            values 8 Object attribute values. 
+            zonetemps 9 Zone temperatures 
+            rays 10 Acoustic rays and particles. 
+            
+            """
+            args = p2e._util._convert_args_to_string("set.model.display", display)
+            p2e.conversation.Exec(args)
         
-        path 
-        A string value that defines the directory to use. Include both the 
-        drive letter and full directory path. However, be aware of the 
-        issues with backslashes in filename parameters as described in the 
-        ECOTECT help file.
-        
-        """
-        args = p2e.string_util._convert_args_to_string("set.model.directory", path)
-        arg_str = p2e.string_util._convert_args_to_string(args)
-        p2e.conversation.Exec(arg_str)
-    
-    def get_display(self):
-        """
-        
-        Retrieves the current information display. When retrieving this 
-        value, a single integer value is returned corresponding to items in 
-        the Model Display table. 
-    
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        display 
-        What information is displayed in the model. This is given as an 
-        integer value from the Model Display table below. 
-                    
-        Token Value Description 
-        model 0 Default model only. 
-        shadows 1 Shadows and reflections 
-        normals 2 Surface normals. 
-        sketch 3 Sketched view. 
-        winddata 5 Wind distribution data. 
-        sprayedrays 7 Sprayed acoustic rays. 
-        values 8 Object attribute values. 
-        zonetemps 9 Zone temperatures 
-        rays 10 Acoustic rays and particles. 
-        
-        """
-        val = p2e.conversation.Request("get.model.display")
-        return p2e.string_util._convert_str_to_type(val, int)        
-    
-    def set_display(self, display):
-        """
-        
-        This property sets the current information display. 
-    
-        Parameter(s)
-        This property takes the following parameters.
-        
-        display 
-        Sets what information to display in the model. This can be specified 
-        as either a token or value parameter, as outlined in the Model 
-        Display table below. 
-        
-        Token Value Description 
-        model 0 Default model only. 
-        shadows 1 Shadows and reflections 
-        normals 2 Surface normals. 
-        sketch 3 Sketched view. 
-        winddata 5 Wind distribution data. 
-        sprayedrays 7 Sprayed acoustic rays. 
-        values 8 Object attribute values. 
-        zonetemps 9 Zone temperatures 
-        rays 10 Acoustic rays and particles. 
-        
-        """
-        args = p2e.string_util._convert_args_to_string("set.model.display", display)
-        p2e.conversation.Exec(args)
+        return property(**locals())
     
     def get_distance(self, absolute_position_start, absolute_position_end):
         """
@@ -672,7 +701,7 @@ class Model(object):
         The distance value in the current model units.    
         
         """
-        args = p2e.string_util._convert_args_to_string("get.model.distance", 
+        args = p2e._util._convert_args_to_string("get.model.distance", 
                                                        absolute_position_start[0],
                                                        absolute_position_start[1], 
                                                        absolute_position_start[2],
@@ -680,85 +709,100 @@ class Model(object):
                                                        absolute_position_end[1],
                                                        absolute_position_end[2])
         val = p2e.conversation.Request(args)
-        return p2e.string_util._convert_str_to_type(val, float)          
+        return p2e._util._convert_str_to_type(val, float)          
     
+    @apply
+    def filename():
+        def fget(self):
+            """
+            
+            Returns the filename of the currently loaded ECOTECT model. This is 
+            the filename only, with no drive or directory components. 
+        
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            filename 
+            A text string containing the filename. 
+            
+            """
+            val = p2e.conversation.Request("get.model.filename")
+            return p2e._util._convert_str_to_type(val, str)
+        
+        return property(**locals())
     
-    def get_filename(self):
-        """
+    @apply
+    def last_node():
+        def fget(self):
+            """
+            
+            Returns the zero-based index of the last added/inserted node within 
+            the currently loaded ECOTECT model. 
         
-        Returns the filename of the currently loaded ECOTECT model. This is 
-        the filename only, with no drive or directory components. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            node 
+            The zero-based index of the last created or inserted node. If no 
+            such node exists, a value of -1 is returned. 
+            
+            """
+            val = p2e.conversation.Request("get.model.lastnode")
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def materials():
+        def fget(self):
+            """
+            
+            Returns the number of materials stored in the currently loaded 
+            ECOTECT model. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The total number of materials defined within the current model's 
+            element library. 
+            
+            """
+            val = p2e.conversation.Request("get.model.materials")
+            return p2e._util._convert_str_to_type(val, int)
         
-        filename 
-        A text string containing the filename. 
-        
-        """
-        val = p2e.conversation.Request("get.model.filename")
-        return p2e.string_util._convert_str_to_type(val, str)
+        return property(**locals())      
     
-    def get_last_node(self):
-        """
+    @apply
+    def month():
+        def fget(self):
+            """
+            
+            Returns the current month. 
         
-        Returns the zero-based index of the last added/inserted node within 
-        the currently loaded ECOTECT model. 
-    
-        Parameter(s)
-        There are no parameters for this property.
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            month 
+            The current model month given as an integer index between 0 and 11.
+             
+            """
+            val = p2e.conversation.Request("get.model.month")
+            return p2e._util._convert_str_to_type(val, int)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        node 
-        The zero-based index of the last created or inserted node. If no 
-        such node exists, a value of -1 is returned. 
-        
-        """
-        val = p2e.conversation.Request("get.model.lastnode")
-        return p2e.string_util._convert_str_to_type(val, int)
-    
-    def get_materials(self):
-        """
-        
-        Returns the number of materials stored in the currently loaded 
-        ECOTECT model. 
-    
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The total number of materials defined within the current model's 
-        element library. 
-        
-        """
-        val = p2e.conversation.Request("get.model.materials")
-        return p2e.string_util._convert_str_to_type(val, int)      
-    
-    def get_month(self):
-        """
-        
-        Returns the current month. 
-    
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        month 
-        The current model month given as an integer index between 0 and 11.
-         
-        """
-        val = p2e.conversation.Request("get.model.month")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return property(**locals())
     
     def get_next_node(self, object, index):
         """
@@ -783,9 +827,9 @@ class Model(object):
         value of -1 is returned. 
         
         """
-        args = p2e.string_util._convert_args_to_string("get.model.nextnode", object, index)
+        args = p2e._util._convert_args_to_string("get.model.nextnode", object, index)
         val = p2e.conversation.Request(args)
-        return p2e.string_util._convert_str_to_type(val, int)       
+        return p2e._util._convert_str_to_type(val, int)       
     
     def get_next_object(self, startat, type, flag, tag, zone):
         """
@@ -875,50 +919,57 @@ class Model(object):
         32768 *Generic calculation marker. 
     
         """
-        args = p2e.string_util._convert_args_to_string("get.model.nextobject", startat, type, flag, tag, zone)
+        args = p2e._util._convert_args_to_string("get.model.nextobject", startat, type, flag, tag, zone)
         val = p2e.conversation.Request(args)
-        return p2e.string_util._convert_str_to_type(val, int)          
+        return p2e._util._convert_str_to_type(val, int)          
     
-    def get_nodes(self):
-        """
+    @apply
+    def number_of_nodes():
+        def fget(self):
+            """
+            
+            Returns the number of individual object nodes within the currently 
+            loaded ECOTECT model. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The total number of nodes within the current model. 
+            
+            """
+            val = p2e.conversation.Request("get.model.nodes")
+            return p2e._util._convert_str_to_type(val, int)
         
-        Returns the number of individual object nodes within the currently 
-        loaded ECOTECT model. 
-        
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The total number of nodes within the current model. 
-        
-        """
-        val = p2e.conversation.Request("get.model.nodes")
-        return p2e.string_util._convert_str_to_type(val, int)          
+        return property(**locals())          
     
-    @classmethod
-    def get_objects(self):
-        """
+    @apply
+    def number_of_objects():
+        def fget(self):
+            """
+            
+            Returns the number of objects in the currently loaded ECOTECT model. 
+            
+            Parameter(s)
+            This property takes the following parameters.
+            
+            count 
+            The total number of objects in the current model. 
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The total number of objects in the current model.
+             
+            """
+            val = p2e.conversation.Request("get.model.objects")
+            return p2e._util._convert_str_to_type(val, int)
         
-        Returns the number of objects in the currently loaded ECOTECT model. 
-        
-        Parameter(s)
-        This property takes the following parameters.
-        
-        count 
-        The total number of objects in the current model. 
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The total number of objects in the current model.
-         
-        """
-        val = p2e.conversation.Request("get.model.objects")
-        return p2e.p2e.string_util._convert_str_to_type(val, int)
+        return property(**locals())
     
     def get_orientation(self, absolute_position_start, absolute_position_end):
         """
@@ -946,7 +997,7 @@ class Model(object):
         The orinetation angle in degrees. 
         
         """
-        args = p2e.p2e.string_util._convert_args_to_string("get.model.orientation",
+        args = p2e._util._convert_args_to_string("get.model.orientation",
                                                            absolute_position_start[0],
                                                            absolute_position_start[1], 
                                                            absolute_position_start[2],
@@ -954,7 +1005,7 @@ class Model(object):
                                                            absolute_position_end[1],
                                                            absolute_position_end[2])
         val = p2e.conversation.Request(args)
-        return p2e.p2e.string_util._convert_str_to_type(val, float)        
+        return p2e._util._convert_str_to_type(val, float)        
     
     def get_origin(self):
         """
@@ -974,7 +1025,7 @@ class Model(object):
          
         """
         val = p2e.conversation.Request("get.model.origin")
-        return p2e.p2e.string_util._convert_str_to_list(val, float)
+        return p2e.p2e._util._convert_str_to_list(val, float)
     
     def set_origin(self, absolute_position):
         """
@@ -990,29 +1041,33 @@ class Model(object):
         X, Y and Z axis of a point in 3 dimensional model space. 
     
         """
-        args = p2e.p2e.string_util._convert_args_to_string("set.model.origin", 
+        args = p2e._util._convert_args_to_string("set.model.origin", 
                                                            absolute_position[0],
                                                            absolute_position[1],
                                                            absolute_position[2])
         p2e.conversation.Exec(args)     
     
-    def get_path_name(self):
-        """
+    @apply
+    def path_name():
+        def fget(self):
+            """
+            
+            Returns the full pathname of the currently loaded ECOTECT model. This 
+            includes the full drive, directory and filename specification. 
         
-        Returns the full pathname of the currently loaded ECOTECT model. This 
-        includes the full drive, directory and filename specification. 
-    
-        Parameter(s)
-        There are no parameters for this property.
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            pathname 
+            A text string containing the full pathname.
+            
+            """
+            return p2e.conversation.Request("get.model.pathname")
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        pathname 
-        A text string containing the full pathname.
-        
-        """
-        return p2e.conversation.Request("get.model.pathname")
+        return property(**locals())
     
     def get_prev_node(self, object, index):
         """
@@ -1037,9 +1092,9 @@ class Model(object):
         a value of -1 is returned. 
         
         """
-        args = p2e.string_util._convert_args_to_string("get.model.prevnode", object, index)
+        args = p2e._util._convert_args_to_string("get.model.prevnode", object, index)
         val = p2e.conversation.Request(args)
-        return p2e.p2e.string_util._convert_str_to_type(val, int)        
+        return p2e._util._convert_str_to_type(val, int)        
     
     def get_prev_object(self, startat, type, flag, tag, zone):
         """
@@ -1129,95 +1184,103 @@ class Model(object):
         32768 *Generic calculation marker. 
         
         """
-        args = p2e.p2e.string_util._convert_args_to_string("get.model.prevobject", startat, type, flag, tag, zone)
+        args = p2e._util._convert_args_to_string("get.model.prevobject", startat, type, flag, tag, zone)
         val = p2e.conversation.Request(args)
-        return p2e.p2e.string_util._convert_str_to_type(val, int)         
+        return p2e._util._convert_str_to_type(val, int)         
     
-    def get_snap(self):
-        """
-        
-        Retrieves the current information display
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        display 
-        What information is displayed in the model. This is given as an integer 
-        value from the Model Display table below. 
-        
-        Relevant Data Table(s)
-        
-        Model Display Options 
-        Token Value Description 
-        model 0 Default model only. 
-        shadows 1 Shadows and reflections 
-        normals 2 Surface normals. 
-        sketch 3 Sketched view. 
-        winddata 5 Wind distribution data. 
-        sprayedrays 7 Sprayed acoustic rays. 
-        values 8 Object attribute values. 
-        zonetemps 9 Zone temperatures 
-        rays 10 Acoustic rays and particles 
-
-        """
-        val = p2e.conversation.Request("get.model.snap")
-        return p2e.p2e.string_util._convert_str_to_type(val, bool)         
+    @apply
+    def snap():
+        def fget(self):
+            """
+            
+            Retrieves the current information display
     
-    def set_snap(self, snap):
-        """
-        
-        This property sets the current information display. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        display 
-        Sets what information to display in the model. This can be specified as
-         either a token or value parameter, as outlined in the Model Display
-          table below. 
-        
-        Relevant Data Table(s)
-        
-        Model Display Options
-         Token Value Description 
-        model 0 Default model only. 
-        shadows 1 Shadows and reflections 
-        normals 2 Surface normals. 
-        sketch 3 Sketched view. 
-        winddata 5 Wind distribution data. 
-        sprayedrays 7 Sprayed acoustic rays. 
-        values 8 Object attribute values. 
-        zonetemps 9 Zone temperatures 
-        rays 10 Acoustic rays and particles. 
-
-        """
-        args = p2e.p2e.string_util._convert_args_to_string("set.model.snap", snap)
-        p2e.conversation.Exec(args)
-        
-    def get_sun_angles(self):
-        """
-        
-        Returns two values, being the azimuth and altitude of the Sun for the 
-        current date and time, given in decimal degrees. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            display 
+            What information is displayed in the model. This is given as an integer 
+            value from the Model Display table below. 
+            
+            Relevant Data Table(s)
+            
+            Model Display Options 
+            Token Value Description 
+            model 0 Default model only. 
+            shadows 1 Shadows and reflections 
+            normals 2 Surface normals. 
+            sketch 3 Sketched view. 
+            winddata 5 Wind distribution data. 
+            sprayedrays 7 Sprayed acoustic rays. 
+            values 8 Object attribute values. 
+            zonetemps 9 Zone temperatures 
+            rays 10 Acoustic rays and particles 
     
-        Parameter(s)
-        There are no parameters for this property.
+            """
+            val = p2e.conversation.Request("get.model.snap")
+            return p2e._util._convert_str_to_type(val, bool)         
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+        def fset(self, snap):
+            """
+            
+            This property sets the current information display. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            display 
+            Sets what information to display in the model. This can be specified as
+             either a token or value parameter, as outlined in the Model Display
+              table below. 
+            
+            Relevant Data Table(s)
+            
+            Model Display Options
+             Token Value Description 
+            model 0 Default model only. 
+            shadows 1 Shadows and reflections 
+            normals 2 Surface normals. 
+            sketch 3 Sketched view. 
+            winddata 5 Wind distribution data. 
+            sprayedrays 7 Sprayed acoustic rays. 
+            values 8 Object attribute values. 
+            zonetemps 9 Zone temperatures 
+            rays 10 Acoustic rays and particles. 
+    
+            """
+            args = p2e._util._convert_args_to_string("set.model.snap", snap)
+            p2e.conversation.Exec(args)
         
-        azi 
-        The current solar azimuth given in degrees. 
+        return property(**locals())
+    
+    @apply
+    def sun_angles():    
+        def fget(self):
+            """
+            
+            Returns two values, being the azimuth and altitude of the Sun for the 
+            current date and time, given in decimal degrees. 
         
-        alt 
-        The current solar altitude given in degrees. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            azi 
+            The current solar azimuth given in degrees. 
+            
+            alt 
+            The current solar altitude given in degrees. 
+            
+            """
+            val = p2e.conversation.Request("get.model.sunangles")
+            return p2e._util._convert_str_to_list(val, float)
         
-        """
-        val = p2e.conversation.Request("get.model.sunangles")
-        return p2e.p2e.string_util._convert_str_to_list(val, float)          
+        return property(**locals())          
         
     def get_sun_position(self, dist = 0, xyz = (0,0,0)):
         """
@@ -1247,277 +1310,224 @@ class Model(object):
         dimensional model space. 
         
         """
-        arg_str = p2e.p2e.string_util._convert_args_to_string("get.model.sunposition", 
+        arg_str = p2e._util._convert_args_to_string("get.model.sunposition", 
                                                               dist, xyz[0], 
                                                               xyz[1], xyz[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.p2e.string_util._convert_str_to_list(val, float) 
+        return p2e._util._convert_str_to_list(val, float) 
+    
+    @apply
+    def sunrise():
+        def fget(self):
+            """
             
-    def get_sunrise(self):
-        """
+            Returns the sunrise time as a 24 hour decimal value. Thus, 6:30am would 
+            be returned as 6.5. 
         
-        Returns the sunrise time as a 24 hour decimal value. Thus, 6:30am would 
-        be returned as 6.5. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            sunrise 
+            The time of sunrise given as a decimal hour. 
+            
+            """
+            val = p2e.conversation.Request("get.model.sunrise")
+            return p2e._util._convert_str_to_type(val, float)
+        
+        return property(**locals())   
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def sun_set():
+        def fget(self):
+            """
+            
+            Returns the sunset time as a 24 hour decimal value. Thus, 6:30pm would 
+            be returned as 18.5. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            sunset 
+            The time of sunset given as a decimal hour. 
+            
+            """
+            val = p2e.conversation.Request("get.model.sunset")
+            return p2e._util._convert_str_to_type(val, float)
         
-        sunrise 
-        The time of sunrise given as a decimal hour. 
-        
-        """
-        val = p2e.conversation.Request("get.model.sunrise")
-        return p2e.p2e.string_util._convert_str_to_type(val, float)  
-        
-    def get_sun_set(self):
-        """
-        
-        Returns the sunset time as a 24 hour decimal value. Thus, 6:30pm would 
-        be returned as 18.5. 
+        return property(**locals())        
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def time():
+        def fget(self):
+            """
+            
+            Retrieves the current time of day. The time value returned is a decimal 
+            value between 0.0 and 23.99. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            time 
+            A decimal value between 0.0 and 23.99. 
+            
+            """
+            val = p2e.conversation.Request("get.model.time")
+            return p2e._util._convert_str_to_type(val, float)          
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+        def fset(self, time):
+            """
+            
+            Sets the current time of day. 
+            
+            Parameter(s)
+            This property takes the following parameters.
+            
+            time 
+            The time given in decimal hours, between 0.0 and 23.99. 
+            
+            """
+            args = p2e._util._convert_args_to_string("set.model.time", time)
+            p2e.conversation.Exec(args)
         
-        sunset 
-        The time of sunset given as a decimal hour. 
-        
-        """
-        val = p2e.conversation.Request("get.model.sunset")
-        return p2e.p2e.string_util._convert_str_to_type(val, float)        
+        return property(**locals())
     
-    def get_time(self):
-        """
-        
-        Retrieves the current time of day. The time value returned is a decimal 
-        value between 0.0 and 23.99. 
-        
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        time 
-        A decimal value between 0.0 and 23.99. 
-        
-        """
-        val = p2e.conversation.Request("get.model.time")
-        return p2e.p2e.string_util._convert_str_to_type(val, float)          
+    @apply
+    def time_string():
+        def fget(self):
+            """
+            
+            Retrieves a formated string containing the current model time. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            timeStr 
+            A formated time string. 
+            
+            """
+            val = p2e.conversation.Request("get.model.timestring")
+            return p2e._util._convert_str_to_type(val, str)
     
-    def set_time(self, time):
-        """
-        
-        Sets the current time of day. 
-        
-        Parameter(s)
-        This property takes the following parameters.
-        
-        time 
-        The time given in decimal hours, between 0.0 and 23.99. 
-        
-        """
-        args = p2e.p2e.string_util._convert_args_to_string("set.model.time", time)
-        p2e.conversation.Exec(args)
+        return property(**locals())
     
-    def get_time_string(self):
-        """
+    @apply
+    def cap_extrusions():
+        def fget(self):
+            """
+            
+            Retrieves the capextrusions flag. When capextrusions is set to true or 
+            1, extruding an object automatically generates a top or 'lid' to cap off 
+            the volume. When set to false or 0, no lid is generated. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            state 
+            A boolean value where 1 represents the affirmative and 0 the negative.
+             
+            """
+            val = p2e.conversation.Request("get.model.xform.capextrusions")
+            return p2e._util._convert_str_to_type(val, bool)          
         
-        Retrieves a formated string containing the current model time. 
+        def fset(self, state = True):
+            """
+            
+            Sets the capextrusions flag. 
+            
+            Parameter(s)
+            This property takes the following parameters.
+            
+            [state] 
+            When set to true, extruding an object automatically generates a top or 
+            'lid' to cap off the volume. When set to false, no lid is generated. 
+            
+            """
+            args = p2e._util._convert_args_to_string("set.model.xform.capextrusions", state)
+            p2e.conversation.Exec(args)
         
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        timeStr 
-        A formated time string. 
-        
-        """
-        val = p2e.conversation.Request("get.model.timestring")
-        return p2e.p2e.string_util._convert_str_to_type(val, str)
-        
-    def get_cap_extrusions(self):
-        """
-        
-        Retrieves the capextrusions flag. When capextrusions is set to true or 
-        1, extruding an object automatically generates a top or 'lid' to cap off 
-        the volume. When set to false or 0, no lid is generated. 
-        
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        state 
-        A boolean value where 1 represents the affirmative and 0 the negative.
-         
-        """
-        val = p2e.conversation.Request("get.model.xform.capextrusions")
-        return p2e.p2e.string_util._convert_str_to_type(val, bool)          
-        
-    def set_cap_extrusions(self, state = True):
-        """
-        
-        Sets the capextrusions flag. 
-        
-        Parameter(s)
-        This property takes the following parameters.
-        
-        [state] 
-        When set to true, extruding an object automatically generates a top or 
-        'lid' to cap off the volume. When set to false, no lid is generated. 
-        
-        """
-        args = p2e.p2e.string_util._convert_args_to_string("set.model.xform.capextrusions", state)
-        p2e.conversation.Exec(args)
+        return property(**locals())
     
-    def get_vectors(self):
-        """
+    @apply
+    def vectors():
+        def fget(self):
+            """
+            
+            Retrieves the xform.vectors flag. With transform vectors set to true or 
+            1, rotating an object with offset-linked children will also rotate the 
+            offset vector. When set to false or 0, the offset vector remains the 
+            same even though each object rotates individually. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            state 
+            A boolean value where 1 represents the affirmative and 0 the negative.
+             
+            """
+            val = p2e.conversation.Request("get.model.xform.vectors")
+            return p2e._util._convert_str_to_type(val, bool)
         
-        Retrieves the xform.vectors flag. With transform vectors set to true or 
-        1, rotating an object with offset-linked children will also rotate the 
-        offset vector. When set to false or 0, the offset vector remains the 
-        same even though each object rotates individually. 
+        def fset(self, state = True):
+            """
+            
+            Returns the number of zones in the currently loaded ECOTECT model as a 
+            single integer. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The total number of zones in the current model. 
+            
+            """
+            args = p2e._util._convert_args_to_string("set.model.xform.vectors", state)
+            p2e.conversation.Exec(args)
         
-        Parameter(s)
-        There are no parameters for this property.
+        return property(**locals())
+    
+    @apply
+    def zones():
+        def fget(self):
+            """
+            
+            Returns the number of zones in the currently loaded ECOTECT model as a 
+            single integer. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The total number of zones in the current model.
+            
+            """
+            val = p2e.conversation.Request("get.model.zones")
+            return p2e._util._convert_str_to_type(val, int)
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        state 
-        A boolean value where 1 represents the affirmative and 0 the negative.
-         
-        """
-        val = p2e.conversation.Request("get.model.xform.vectors")
-        return p2e.p2e.string_util._convert_str_to_type(val, bool)
-    
-    def set_vectors(self, state = True):
-        """
-        
-        Returns the number of zones in the currently loaded ECOTECT model as a 
-        single integer. 
-        
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The total number of zones in the current model. 
-        
-        """
-        args = p2e.p2e.string_util._convert_args_to_string("set.model.xform.vectors", state)
-        p2e.conversation.Exec(args)
-    
-    @classmethod
-    def get_zones(self):
-        """
-        
-        Returns the number of zones in the currently loaded ECOTECT model as a 
-        single integer. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        count 
-        The total number of zones in the current model.
-        
-        """
-        val = p2e.conversation.Request("get.model.zones")
-        return p2e.p2e.string_util._convert_str_to_type(val, int)
-    
-    #===========================================================================
-    # Properties    
-    #===========================================================================
-    
-    current_node = property(fget = get_current_node, doc = "The zero-based index"
-                           " of the last selected node within the currently"
-                           " loaded ECOTECT model")
-    
-    current_object = property(fget = get_current_object, doc = "The zero-based"
-                             " index of the last selected object within the"
-                             " currently loaded ECOTECT model")
-    
-    current_zone = property(fget = get_current_zone, doc = "The zero-based index"
-                           " of the current zone in the currently loaded"
-                           " ECOTECT model")
-    
-    date_string = property(fget = get_date_string, doc = "A formated string"
-                           " containing the current model date")
-    
-    daylight_savings = property(fget = get_daylight_savings, fset = set_daylight_savings, 
-                                doc = "The status of the daylight savings flag")
-    
-    directory = property(fget = get_directory, fset = set_directory, 
-                        doc = "The drive and directory in which the currently"
-                        " loaded ECOTECT model is located. This is essentially"
-                        " the full pathname, but without the filename component")
-    
-    display = property(fget = get_display, fset = set_display, 
-                        doc = "The current information display")
-    
-    filename = property(fget = get_filename, doc = "The filename of the"
-                       " currently loaded ECOTECT model. This is the filename"
-                       " only, with no drive or directory components")
-    
-    last_node = property(fget = get_last_node, doc = "The zero-based index of the"
-                        " last added/inserted node within the currently loaded"
-                        " ECOTECT model")
-    
-    materials = property(fget = get_materials, doc = "The number of materials"
-                         " stored in the currently loaded ECOTECT model")
-    
-    month = property(fget = get_month, doc = "The current month")
-    
-    nodes = property(fget = get_nodes, doc = "The number of individual object"
-                     " nodes within the currently loaded ECOTECT model")
-    
-    path_name = property(fget = get_path_name, doc = "The full pathname of the"
-                         " currently loaded ECOTECT model. This includes the"
-                         " full drive, directory and filename specification")
-    
-    snap = property(fget = get_snap, fset = set_snap, 
-                        doc = "The current information display")
-    
-    sun_angles= property(fget = get_sun_angles, doc = "The azimuth and altitude"
-                         " of the Sun for the current date and time, given in"
-                         " decimal degrees")
-    
-    sunrise = property(fget = get_sunrise, doc = "Tthe sunrise time as a 24"
-                       " hour decimal value. Thus, 6:30am would be returned"
-                       " as 6.5")
-    
-    sun_set = property(fget = get_sun_set, doc = "The sunset time as a 24 hour"
-                       " decimal value. Thus, 6:30pm would be returned as 18.5")
-    
-    time = property(fget = get_time, fset = set_time, 
-                        doc = "The current time of day")
-    
-    time_string = property(fget = get_time_string, doc = "A formated string"
-                           " containing the current model time")
-    
-    cap_extrusions = property(fget = get_cap_extrusions, fset = set_cap_extrusions, 
-                        doc = "The capextrusions flag")
-    
-    vectors = property(fget = get_vectors, fset = set_vectors, 
-                        doc = "The xform.vectors flag")
-    
-    zones = property(fget = get_zones, doc = """
-        The number of zones in the currently loaded 
-        ECOTECT model as a single integer""")
+        return property(**locals())
     
 #===============================================================================
 # Main function used for testing

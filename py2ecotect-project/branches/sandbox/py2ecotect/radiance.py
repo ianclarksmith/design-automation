@@ -23,7 +23,7 @@ class Radiance(object):
         by its Radiance calculation functions.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("radiance.load", filename)
+        arg_str = p2e._util._convert_args_to_string("radiance.load", filename)
         p2e.conversation.Exec(arg_str)
 
     def load_grid(self, filename = ""):
@@ -43,7 +43,7 @@ class Radiance(object):
         by its Radiance calculation functions. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("radiance.load.grid", 
+        arg_str = p2e._util._convert_args_to_string("radiance.load.grid", 
                                                       filename)
         p2e.conversation.Exec(arg_str)
 
@@ -64,7 +64,7 @@ class Radiance(object):
         by its Radiance calculation functions.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("radiance.load.object", 
+        arg_str = p2e._util._convert_args_to_string("radiance.load.object", 
                                                       filename)
         p2e.conversation.Exec(arg_str)
 
@@ -80,7 +80,7 @@ class Radiance(object):
         The full directory path of where the rendering output will be stored. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("radiance.render", 
+        arg_str = p2e._util._convert_args_to_string("radiance.render", 
                                                       filename)
         p2e.conversation.Exec(arg_str)
 
@@ -112,7 +112,7 @@ class Radiance(object):
         
         """
         val = p2e.conversation.Request("get.radiance.action")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_action(self, action = 3):
         """
@@ -137,7 +137,7 @@ class Radiance(object):
         3 Final Render (Default) 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.action", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.action", 
                                                      action)
         p2e.conversation.Exec(arg_str)
 
@@ -165,7 +165,7 @@ class Radiance(object):
 
         """
         val = p2e.conversation.Request("get.radiance.detail")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_detail(self, detail):
         """
@@ -187,7 +187,7 @@ class Radiance(object):
         high 2 High 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.detail", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.detail", 
                                                      detail)
         p2e.conversation.Exec(arg_str)
 
@@ -230,10 +230,10 @@ class Radiance(object):
         32768 Do not display images when complete  
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.radiance.flag", 
+        arg_str = p2e._util._convert_args_to_string("get.radiance.flag", 
                                                      flag)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_flag(self, flag, state = True):
         """
@@ -274,7 +274,7 @@ class Radiance(object):
         32768 Do not display images when complete  
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.flag", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.flag", 
                                                      flag, state)
         p2e.conversation.Exec(arg_str)
 
@@ -303,7 +303,7 @@ class Radiance(object):
         
         """
         val = p2e.conversation.Request("get.radiance.imagetype")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
         
     def set_image_type(self, type):
         """
@@ -326,7 +326,7 @@ class Radiance(object):
         3 Sky Component (%) 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.imagetype", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.imagetype", 
                                                      type)
         p2e.conversation.Exec(arg_str)
 
@@ -356,7 +356,7 @@ class Radiance(object):
 
         """
         val = p2e.conversation.Request("get.radiance.lights")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_light_data(self, lights):
         """
@@ -378,7 +378,7 @@ class Radiance(object):
         3 Generate as Markers 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.lightdata", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.lightdata", 
                                                      lights)
         p2e.conversation.Exec(arg_str)
         
@@ -410,7 +410,7 @@ class Radiance(object):
 
         """
         val = p2e.conversation.Request("get.radiance.pointdata")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_point_data(self, type):
         """
@@ -438,7 +438,7 @@ class Radiance(object):
         3 Currently selected objects  
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.pointdata", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.pointdata", 
                                                      type)
         p2e.conversation.Exec(arg_str)
 
@@ -467,7 +467,7 @@ class Radiance(object):
         
         """
         val = p2e.conversation.Request("get.radiance.quality")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_quality(self, quality):
         """
@@ -483,7 +483,7 @@ class Radiance(object):
                 
         """
         
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.quality", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.quality", 
                                                      quality)
         p2e.conversation.Exec(arg_str)
 
@@ -504,7 +504,7 @@ class Radiance(object):
         
         """
         val = p2e.conversation.Request("get.radiance.reflections")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
         
     def set_reflections(self, bounces):
         """
@@ -520,7 +520,7 @@ class Radiance(object):
         each ray.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.reflections", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.reflections", 
                                                      bounces)
         p2e.conversation.Exec(arg_str)
 
@@ -543,7 +543,7 @@ class Radiance(object):
 
         """
         val = p2e.conversation.Request("get.radiance.resolution")
-        return p2e.string_util._convert_str_to_list(val, int, int)
+        return p2e._util._convert_str_to_list(val, int, int)
 
     def set_resolution(self,  xres, yres):
         """
@@ -563,7 +563,7 @@ class Radiance(object):
         The resulting image height in pixels.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.resolution", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.resolution", 
                                                      xres, yres)
         p2e.conversation.Exec(arg_str)
 
@@ -584,7 +584,7 @@ class Radiance(object):
         
         """
         val = p2e.conversation.Request("get.radiance.scale")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
         
     def set_scale(self, scale):
         """
@@ -600,7 +600,7 @@ class Radiance(object):
         A decimal value specifying the new scaling value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.scale", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.scale", 
                                                      scale)
         p2e.conversation.Exec(arg_str)    
 
@@ -634,7 +634,7 @@ class Radiance(object):
         
         """
         val = p2e.conversation.Request("get.radiance.sky")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_sky(self, sky_type):
         """
@@ -661,7 +661,7 @@ class Radiance(object):
         6 Uniform sky 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.sky", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.sky", 
                                                      sky_type)
         p2e.conversation.Exec(arg_str)    
     
@@ -689,7 +689,7 @@ class Radiance(object):
         
         """
         val = p2e.conversation.Request("get.radiance.variability")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_variability(self, variability):
         """
@@ -713,7 +713,7 @@ class Radiance(object):
         high 2 High 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.variability", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.variability", 
                                                      variability)
         p2e.conversation.Exec(arg_str)    
 
@@ -741,7 +741,7 @@ class Radiance(object):
 
         """
         val = p2e.conversation.Request("get.radiance.viewtype")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_view_type(self, type):
         """
@@ -764,7 +764,7 @@ class Radiance(object):
         1 Exterior view 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.radiance.viewtype", 
+        arg_str = p2e._util._convert_args_to_string("set.radiance.viewtype", 
                                                      type)
         p2e.conversation.Exec(arg_str)    
 
