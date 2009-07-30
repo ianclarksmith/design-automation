@@ -31,7 +31,7 @@ class Select(object):
         get.material.index property.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.alternate", 
+        arg_str = p2e._util._convert_args_to_string("select.alternate", 
                                                       index)
         p2e.conversation.Exec(arg_str)
 
@@ -58,7 +58,7 @@ class Select(object):
         The element type as given in the add.object command. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.element", 
+        arg_str = p2e._util._convert_args_to_string("select.element", 
                                                       index)
         p2e.conversation.Exec(arg_str)
 
@@ -74,7 +74,7 @@ class Select(object):
         Specifies the index of the objects to select. Repeat as required.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.index", 
+        arg_str = p2e._util._convert_args_to_string("select.index", 
                                                       index)
         p2e.conversation.Exec(arg_str)
         
@@ -123,7 +123,7 @@ class Select(object):
         5 Front (-Y Axis) 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.normals", 
+        arg_str = p2e._util._convert_args_to_string("select.normals", 
                                                       index)
         p2e.conversation.Exec(arg_str)
         
@@ -141,7 +141,7 @@ class Select(object):
         of the Selection Information panel. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.object", 
+        arg_str = p2e._util._convert_args_to_string("select.object", 
                                                       index)
         p2e.conversation.Exec(arg_str)
 
@@ -181,7 +181,7 @@ class Select(object):
         get.material.index property.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.primary", 
+        arg_str = p2e._util._convert_args_to_string("select.primary", 
                                                       index)
         p2e.conversation.Exec(arg_str)
 
@@ -198,7 +198,7 @@ class Select(object):
         get.schedule.index property.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.schedule", 
+        arg_str = p2e._util._convert_args_to_string("select.schedule", 
                                                       index)
         p2e.conversation.Exec(arg_str)
         
@@ -232,7 +232,7 @@ class Select(object):
         32768 TAGGED_MARKER* Generic calculation marker. 
  
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.tag", 
+        arg_str = p2e._util._convert_args_to_string("select.tag", 
                                                       index)
         p2e.conversation.Exec(arg_str)
         
@@ -248,7 +248,7 @@ class Select(object):
         The zero-based index value of the zone to use. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("select.zone", 
+        arg_str = p2e._util._convert_args_to_string("select.zone", 
                                                       index)
         p2e.conversation.Exec(arg_str)
 

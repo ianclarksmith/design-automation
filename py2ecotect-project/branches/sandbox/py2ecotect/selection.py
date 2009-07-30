@@ -31,7 +31,7 @@ class Selection(object):
         be placed. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.duplicate", 
+        arg_str = p2e._util._convert_args_to_string("selection.duplicate", 
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
@@ -63,7 +63,7 @@ class Selection(object):
         be placed. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.extrude", 
+        arg_str = p2e._util._convert_args_to_string("selection.extrude", 
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
@@ -107,7 +107,7 @@ class Selection(object):
         be placed. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.move", 
+        arg_str = p2e._util._convert_args_to_string("selection.move", 
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
@@ -131,7 +131,7 @@ class Selection(object):
         3 Towards positive Z axis. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.normal", type)
+        arg_str = p2e._util._convert_args_to_string("selection.normal", type)
         p2e.conversation.Exec(arg_str)
     
     def nudge(self, dir):
@@ -151,7 +151,7 @@ class Selection(object):
         3, -3 In the Z axis. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.nudge", dir)
+        arg_str = p2e._util._convert_args_to_string("selection.nudge", dir)
         p2e.conversation.Exec(arg_str)
     
     def orient(self, azi, alt):
@@ -170,7 +170,7 @@ class Selection(object):
         The altitude angle in degrees. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.nudge", 
+        arg_str = p2e._util._convert_args_to_string("selection.nudge", 
                                                       azi, alt)
         p2e.conversation.Exec(arg_str)
         
@@ -206,7 +206,7 @@ class Selection(object):
         2 Around the Y axis. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.revolve", 
+        arg_str = p2e._util._convert_args_to_string("selection.revolve", 
                                                       axis, angle, segs)
         p2e.conversation.Exec(arg_str)
     
@@ -229,7 +229,7 @@ class Selection(object):
         The altitude angle in degrees. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.rotate", 
+        arg_str = p2e._util._convert_args_to_string("selection.rotate", 
                                                       azi, alt)
         p2e.conversation.Exec(arg_str)
     
@@ -246,7 +246,7 @@ class Selection(object):
         X-Axis, Y-Axis, and Z-Axis, in decimal degrees.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.rotateaxis", 
+        arg_str = p2e._util._convert_args_to_string("selection.rotateaxis", 
                                                       rotate_angle[0],
                                                       rotate_angle[1],
                                                       rotate_angle[2])
@@ -269,7 +269,7 @@ class Selection(object):
         The altitude angle in degrees. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.rotatereverse", 
+        arg_str = p2e._util._convert_args_to_string("selection.rotatereverse", 
                                                       azi, alt)
         p2e.conversation.Exec(arg_str)
     
@@ -288,7 +288,7 @@ class Selection(object):
         X, Y, Z Axis
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.scale", 
+        arg_str = p2e._util._convert_args_to_string("selection.scale", 
                                                       scale_factor[0],
                                                       scale_factor[1],
                                                       scale_factor[2])
@@ -307,7 +307,7 @@ class Selection(object):
         The angle of rotation in degrees. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.spin", angle)
+        arg_str = p2e._util._convert_args_to_string("selection.spin", angle)
         p2e.conversation.Exec(arg_str)
     
     def ungroup(self):
@@ -387,7 +387,7 @@ class Selection(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("selection.xform", trans, 
+        arg_str = p2e._util._convert_args_to_string("selection.xform", trans, 
                                                       function_values[0], 
                                                       function_values[1], 
                                                       function_values[2])
@@ -415,7 +415,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.alternate")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
         
     def set_alternate(self, index):
         """
@@ -432,7 +432,7 @@ class Selection(object):
         any white-space characters and is case sensitive.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.selection.alternate", 
+        arg_str = p2e._util._convert_args_to_string("set.selection.alternate", 
                                                      index)
         p2e.conversation.Exec(arg_str)
     
@@ -453,7 +453,7 @@ class Selection(object):
 
         """
         val = p2e.conversation.Request("get.selection.area")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def get_attr_1(self):
         """
@@ -471,7 +471,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.attr1")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def set_attr_1(self, value):
         """
@@ -485,7 +485,7 @@ class Selection(object):
         The decimal value to be stored.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.selection.attr1", 
+        arg_str = p2e._util._convert_args_to_string("set.selection.attr1", 
                                                      value)
         p2e.conversation.Exec(arg_str)
     
@@ -505,7 +505,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.attr2")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def set_attr_2(self, value):
         """
@@ -519,7 +519,7 @@ class Selection(object):
         The decimal value to be stored.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.selection.attr2", 
+        arg_str = p2e._util._convert_args_to_string("set.selection.attr2", 
                                                      value)
         p2e.conversation.Exec(arg_str)
     
@@ -539,7 +539,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.attr3")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def set_attr_3(self, value):
         """
@@ -553,7 +553,7 @@ class Selection(object):
         The decimal value to be stored.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.selection.attr3", 
+        arg_str = p2e._util._convert_args_to_string("set.selection.attr3", 
                                                      value)
         p2e.conversation.Exec(arg_str)
     
@@ -573,7 +573,7 @@ class Selection(object):
 
         """
         val = p2e.conversation.Request("get.selection.count")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
         
     def get_exposure(self):
         """
@@ -592,7 +592,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.exposure")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def get_length(self):
         """
@@ -610,7 +610,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.length")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def get_material(self):
         """
@@ -630,7 +630,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.material")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
     
     def set_material(self, index, both):
         """
@@ -652,7 +652,7 @@ class Selection(object):
         where 1 or true represents the affirmative and 0 or false the negative.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.selection.material", 
+        arg_str = p2e._util._convert_args_to_string("set.selection.material", 
                                                      index, both)
         p2e.conversation.Exec(arg_str)
         
@@ -673,7 +673,7 @@ class Selection(object):
 
         """
         val = p2e.conversation.Request("get.selection.next")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
         
     def get_panel_area(self):
         """
@@ -691,7 +691,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.panelarea")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def get_prev(self):
         """
@@ -710,7 +710,7 @@ class Selection(object):
 
         """
         val = p2e.conversation.Request("get.selection.prev")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
     
     def get_resolution(self):
         """
@@ -728,7 +728,7 @@ class Selection(object):
         
         """
         val = p2e.conversation.Request("get.selection.resolution")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def set_resolution(self, value):
         """
@@ -742,7 +742,7 @@ class Selection(object):
         An integer specifying the curve resolution.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.selection.resolution", 
+        arg_str = p2e._util._convert_args_to_string("set.selection.resolution", 
                                                      value)
         p2e.conversation.Exec(arg_str)
     
@@ -783,7 +783,7 @@ class Selection(object):
 
         """
         val = p2e.conversation.Request("get.selection.type")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
     
     def set_type(self, type, state = True):
         """
@@ -822,7 +822,7 @@ class Selection(object):
         camera 15 
   
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.selection.type", 
+        arg_str = p2e._util._convert_args_to_string("set.selection.type", 
                                                      type, state)
         p2e.conversation.Exec(arg_str)
         
@@ -843,7 +843,7 @@ class Selection(object):
         """
         val = p2e.conversation.Request("get.selection.underground")
         #TODO: Result is different
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     #===========================================================================
     # Properties

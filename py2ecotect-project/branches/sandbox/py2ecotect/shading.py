@@ -31,7 +31,7 @@ class Shading(object):
         low 3 Use single point at object centre. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.shading.accuracy", 
+        arg_str = p2e._util._convert_args_to_string("set.shading.accuracy", 
                                                      accuracy)
         p2e.conversation.Exec(arg_str)
 
@@ -56,7 +56,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.angles")
-        return p2e.string_util._convert_str_to_list(val, float, float)
+        return p2e._util._convert_str_to_list(val, float, float)
 
     def set_angles(self, azi, alt):
         """
@@ -75,7 +75,7 @@ class Shading(object):
         The altitude value in degrees.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.shading.angles", 
+        arg_str = p2e._util._convert_args_to_string("set.shading.angles", 
                                                      azi, alt)
         p2e.conversation.Exec(arg_str)
 
@@ -99,7 +99,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.bothsides")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_both_sides(self, state):
         """
@@ -116,7 +116,7 @@ class Shading(object):
         affirmative and 0 or false the negative. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.shading.bothsides", 
+        arg_str = p2e._util._convert_args_to_string("set.shading.bothsides", 
                                                      state)
         p2e.conversation.Exec(arg_str)
 
@@ -153,7 +153,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.components")
-        return p2e.string_util._convert_str_to_list(val, float, float, float)
+        return p2e._util._convert_str_to_list(val, float, float, float)
 
     def get_diffuse(self):
         """
@@ -174,7 +174,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.diffuse")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_direct(self):
         """
@@ -195,7 +195,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.direct")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_direct_only(self):
         """
@@ -215,7 +215,7 @@ class Shading(object):
 
         """
         val = p2e.conversation.Request("get.shading.directonly")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
         
     def set_direct_only(self, state):
         """
@@ -231,7 +231,7 @@ class Shading(object):
         the negative. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.shading.directonly", 
+        arg_str = p2e._util._convert_args_to_string("set.shading.directonly", 
                                                      state)
         p2e.conversation.Exec(arg_str)
 
@@ -259,7 +259,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.percentage")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
         
     def get_percentage_angle(self, azi, alt):
         """
@@ -296,10 +296,10 @@ class Shading(object):
         A decimal value containing the shading value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.shading.percentage.angle", 
+        arg_str = p2e._util._convert_args_to_string("get.shading.percentage.angle", 
                                                       azi, alt)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
         
     def get_percentage_date_time(self, day, time):
         """
@@ -328,10 +328,10 @@ class Shading(object):
         A decimal value containing the shading value
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.shading.percentage.datetime", 
+        arg_str = p2e._util._convert_args_to_string("get.shading.percentage.datetime", 
                                                       day, time)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_percentage_index(self, x, y):
         """
@@ -362,10 +362,10 @@ class Shading(object):
         A decimal value containing the shading value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.shading.percentage.index", 
+        arg_str = p2e._util._convert_args_to_string("get.shading.percentage.index", 
                                                       x, y)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_range(self, fromDay, toDay):
         """
@@ -401,7 +401,7 @@ class Shading(object):
 
         """
         val = p2e.conversation.Request("get.shading.range")
-        return p2e.string_util._convert_str_to_list(val, float, float, float)
+        return p2e._util._convert_str_to_list(val, float, float, float)
 
     def get_rays(self):
         """
@@ -421,7 +421,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.rays")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_rays(self, state):
         """
@@ -436,7 +436,7 @@ class Shading(object):
         true represents the affirmative and 0 or false the negative. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.shading.rays", 
+        arg_str = p2e._util._convert_args_to_string("set.shading.rays", 
                                                      state)
         p2e.conversation.Exec(arg_str)
 
@@ -459,7 +459,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.skycomponent")
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_update(self):
         """
@@ -481,7 +481,7 @@ class Shading(object):
         
         """
         val = p2e.conversation.Request("get.shading.update")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_update(self, state):
         """
@@ -499,7 +499,7 @@ class Shading(object):
         the selected object's own shading mask.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.shading.state", 
+        arg_str = p2e._util._convert_args_to_string("set.shading.state", 
                                                      state)
         p2e.conversation.Exec(arg_str)
     

@@ -99,9 +99,9 @@ class Results(object):
         for the resource used or 1 for the resource collected.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.array", i, j)
+        arg_str = p2e._util._convert_args_to_string("get.results.array", i, j)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_conduction(self, zone, hour):
         """
@@ -127,10 +127,10 @@ class Results(object):
         A decimal value containing the specified gains value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.conduction", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.conduction", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_daily(self, zone):
         """
@@ -153,10 +153,10 @@ class Results(object):
         A decimal value containing the specified gains value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.daily", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.daily", 
                                                       zone)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_fabric(self, zone, hour):
         """
@@ -182,10 +182,10 @@ class Results(object):
         A decimal value containing the specified gains value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.fabric", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.fabric", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_glazing_fabric(self, zone, hour):
         """
@@ -209,10 +209,10 @@ class Results(object):
         A decimal value containing the specified gains value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.glazingfabric", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.glazingfabric", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_indirect(self, zone, hour):
         """
@@ -238,10 +238,10 @@ class Results(object):
         A decimal value containing the specified gains value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.indirect", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.indirect", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_internal(self, zone, hour):
         """
@@ -267,10 +267,10 @@ class Results(object):
         A decimal value containing the specified gains value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.internal", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.internal", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_opaque_fabric(self, zone, hour):
         """
@@ -296,10 +296,10 @@ class Results(object):
         A decimal value containing the specified gains value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.opaquefabric", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.opaquefabric", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_solar(self, zone, hour):
         """
@@ -325,10 +325,10 @@ class Results(object):
         A decimal value containing the specified gains value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.solar", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.solar", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_gains_total(self, zone, hour):
         """
@@ -354,10 +354,10 @@ class Results(object):
         A decimal value containing the specified gains value.
         
         """ 
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.total", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.total", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)   
+        return p2e._util._convert_str_to_type(val, float)   
 
     def get_gains_ventilation(self, zone, hour):
         """
@@ -383,10 +383,10 @@ class Results(object):
         A decimal value containing the specified gains value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.ventilation", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.ventilation", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)   
+        return p2e._util._convert_str_to_type(val, float)   
 
     def get_gains_zonal(self, zone, hour):
         """
@@ -412,10 +412,10 @@ class Results(object):
         A decimal value containing the specified gains value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.gains.zonal", 
+        arg_str = p2e._util._convert_args_to_string("get.results.gains.zonal", 
                                                       zone, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)   
+        return p2e._util._convert_str_to_type(val, float)   
 
     def get_solar_absorbed(self, hour):
         """
@@ -436,10 +436,10 @@ class Results(object):
         A decimal value containing the specified solar value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.absorbed", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.absorbed", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)   
+        return p2e._util._convert_str_to_type(val, float)   
         
     def get_solar_angle(self, hour):
         """
@@ -460,10 +460,10 @@ class Results(object):
         A decimal value containing the specified solar value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.angle", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.angle", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)   
+        return p2e._util._convert_str_to_type(val, float)   
         
     def get_solar_area(self, hour):
         """
@@ -484,10 +484,10 @@ class Results(object):
         A decimal value containing the specified solar value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.area", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.area", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)   
+        return p2e._util._convert_str_to_type(val, float)   
 
     def get_solar_available(self, hour):
         """
@@ -509,10 +509,10 @@ class Results(object):
         A decimal value containing the specified solar value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.available", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.available", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)   
+        return p2e._util._convert_str_to_type(val, float)   
 
     def get_solar_diffuse(self, hour):
         """
@@ -533,10 +533,10 @@ class Results(object):
         A decimal value containing the specified solar value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.diffuse", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.diffuse", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_solar_direct(self, hour):
         """
@@ -557,10 +557,10 @@ class Results(object):
         A decimal value containing the specified solar value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.direct", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.direct", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_solar_global(self, hour):
         """
@@ -581,10 +581,10 @@ class Results(object):
         A decimal value containing the specified solar value. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.global", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.global", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_solar_incident(self, hour):
         """
@@ -605,10 +605,10 @@ class Results(object):
         A decimal value containing the specified solar value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.incident", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.incident", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_solar_reflected(self, hour):
         """
@@ -629,10 +629,10 @@ class Results(object):
         A decimal value containing the specified solar value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.reflected", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.reflected", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_solar_shading(self, hour):
         """
@@ -653,10 +653,10 @@ class Results(object):
         A decimal value containing the specified solar value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.shading", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.shading", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def get_solar_transmitted(self, hour):
         """
@@ -677,10 +677,10 @@ class Results(object):
         A decimal value containing the specified solar value.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.results.solar.transmitted", 
+        arg_str = p2e._util._convert_args_to_string("get.results.solar.transmitted", 
                                                       hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
 
 

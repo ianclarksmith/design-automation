@@ -19,7 +19,7 @@ class View(object):
         degrees from which the model is viewed.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.axonometric", azi)
+        arg_str = p2e._util._convert_args_to_string("view.axonometric", azi)
         p2e.conversation.Exec(arg_str)
 
     def copy(self, format = ""):
@@ -58,7 +58,7 @@ class View(object):
         This optional parameter sets the size of the object in pixels.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.arrow2d", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.arrow2d", 
                                                       offset[0],
                                                       offset[1], 
                                                       size)
@@ -82,7 +82,7 @@ class View(object):
         modelling units.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.arrowto", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.arrowto", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2], size)
@@ -102,7 +102,7 @@ class View(object):
         X, Y and Z axis of a point in 3 dimensional model space.  
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.cross", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.cross", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
@@ -123,7 +123,7 @@ class View(object):
         display canvas or control being used.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.line2d", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.line2d", 
                                                       offset[0],
                                                       offset[1])
         p2e.conversation.Exec(arg_str)
@@ -142,7 +142,7 @@ class View(object):
         X, Y and Z axis of a point in 3 dimensional model space. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.lineto", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.lineto", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
@@ -163,7 +163,7 @@ class View(object):
         display canvas or control being used.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.move2d", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.move2d", 
                                                       offset[0],
                                                       offset[1])
         p2e.conversation.Exec(arg_str)
@@ -182,7 +182,7 @@ class View(object):
         X, Y and Z axis of a point in 3 dimensional model space. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.moveto", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.moveto", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
@@ -201,7 +201,7 @@ class View(object):
         X, Y and Z axis of a point in 3 dimensional model space.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.pixel", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.pixel", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
@@ -221,7 +221,7 @@ class View(object):
         X, Y and Z axis of a point in 3 dimensional model space.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.point", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.point", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
@@ -243,7 +243,7 @@ class View(object):
         The radius of the sphere in the current modelling units.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.sphere", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.sphere", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2], 
@@ -267,7 +267,7 @@ class View(object):
         The text string to be displayed.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.text", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.text", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2], text)
@@ -291,7 +291,7 @@ class View(object):
         The text string to be displayed.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.draw.text2d", 
+        arg_str = p2e._util._convert_args_to_string("view.draw.text2d", 
                                                       offset[0],
                                                       offset[1], 
                                                       string)
@@ -399,7 +399,7 @@ class View(object):
         rdblclick Right mouse button double-clicked 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.mouseevent", 
+        arg_str = p2e._util._convert_args_to_string("view.mouseevent", 
                                                       action, 
                                                       position[0], position[1])
         p2e.conversation.Exec(arg_str)
@@ -417,7 +417,7 @@ class View(object):
         instead. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.movein", shift)
+        arg_str = p2e._util._convert_args_to_string("view.movein", shift)
         p2e.conversation.Exec(arg_str)
         
     def move_out(self, shift = False):
@@ -433,7 +433,7 @@ class View(object):
         instead.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.moveout", shift)
+        arg_str = p2e._util._convert_args_to_string("view.moveout", shift)
         p2e.conversation.Exec(arg_str)
 
     def pan_down(self, shift = False):
@@ -449,7 +449,7 @@ class View(object):
         instead.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.pandown", shift)
+        arg_str = p2e._util._convert_args_to_string("view.pandown", shift)
         p2e.conversation.Exec(arg_str)
 
     def pan_left(self, shift = False):
@@ -465,7 +465,7 @@ class View(object):
         instead. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.panleft", shift)
+        arg_str = p2e._util._convert_args_to_string("view.panleft", shift)
         p2e.conversation.Exec(arg_str)
         
     def pan_right(self, shift = False):
@@ -481,7 +481,7 @@ class View(object):
         instead. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.panright", shift)
+        arg_str = p2e._util._convert_args_to_string("view.panright", shift)
         p2e.conversation.Exec(arg_str)
 
     def pan_up(self, shift = False):
@@ -497,7 +497,7 @@ class View(object):
         instead. 
   
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.panup", shift)
+        arg_str = p2e._util._convert_args_to_string("view.panup", shift)
         p2e.conversation.Exec(arg_str)
 
     def perspective(self):
@@ -556,7 +556,7 @@ class View(object):
         An integer value between 1 and 5 specifying the index of the stored view. 
         
         """ 
-        arg_str = p2e.string_util._convert_args_to_string("view.restore", index)
+        arg_str = p2e._util._convert_args_to_string("view.restore", index)
         p2e.conversation.Exec(arg_str)
 
     def rotate_down(self, shift = False):
@@ -572,7 +572,7 @@ class View(object):
         rotation instead.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.rotatedown", shift)
+        arg_str = p2e._util._convert_args_to_string("view.rotatedown", shift)
         p2e.conversation.Exec(arg_str)
 
     def rotate_left(self, shift = False):
@@ -588,7 +588,7 @@ class View(object):
         rotation instead. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.rotateleft", shift)
+        arg_str = p2e._util._convert_args_to_string("view.rotateleft", shift)
         p2e.conversation.Exec(arg_str)
         
     def rotate_right(self, shift = False):
@@ -604,7 +604,7 @@ class View(object):
         rotation instead.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.rotateright", shift)
+        arg_str = p2e._util._convert_args_to_string("view.rotateright", shift)
         p2e.conversation.Exec(arg_str)
         
     def rotate_up(self, shift = False):
@@ -619,7 +619,7 @@ class View(object):
         If this optional parameter is set to true, 1% will be used for the rotation instead.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.rotateup", shift)
+        arg_str = p2e._util._convert_args_to_string("view.rotateup", shift)
         p2e.conversation.Exec(arg_str)
 
     def save(self, filename, format = ""):
@@ -643,7 +643,7 @@ class View(object):
         """
         if len(format) != 0:
             format = "." + format
-        arg_str = p2e.string_util._convert_args_to_string("view.save" + format, 
+        arg_str = p2e._util._convert_args_to_string("view.save" + format, 
                                                       filename)
         p2e.conversation.Exec(arg_str)
 
@@ -673,7 +673,7 @@ class View(object):
         view will be assigned. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.store", index)
+        arg_str = p2e._util._convert_args_to_string("view.store", index)
         p2e.conversation.Exec(arg_str)
 
     def zoom(self, factor):
@@ -688,7 +688,7 @@ class View(object):
         A decimal value given as a multiplier.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.store", factor)
+        arg_str = p2e._util._convert_args_to_string("view.store", factor)
         p2e.conversation.Exec(arg_str)
 
     def zoom_in(self, shift = False):
@@ -704,7 +704,7 @@ class View(object):
         instead. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.zoomin", shift)
+        arg_str = p2e._util._convert_args_to_string("view.zoomin", shift)
         p2e.conversation.Exec(arg_str)
 
     def zoom_out(self, shift = False):
@@ -720,7 +720,7 @@ class View(object):
         instead. 
                 
         """
-        arg_str = p2e.string_util._convert_args_to_string("view.zoomout", shift)
+        arg_str = p2e._util._convert_args_to_string("view.zoomout", shift)
         p2e.conversation.Exec(arg_str)
         
     #===========================================================================
@@ -754,7 +754,7 @@ class View(object):
         
         """
         val = p2e.conversation.Request("get.view.align")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_align(self, alignment):
         """
@@ -781,7 +781,7 @@ class View(object):
         24 BASELINE 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.view.align", 
+        arg_str = p2e._util._convert_args_to_string("set.view.align", 
                                                       alignment)
         p2e.conversation.Exec(arg_str)
 
@@ -805,7 +805,7 @@ class View(object):
         
         """
         val = p2e.conversation.Request("get.view.font")
-        return p2e.string_util._convert_str_to_list(val, int, str)
+        return p2e._util._convert_str_to_list(val, int, str)
 
     def set_font(self, size, name):
         """
@@ -827,7 +827,7 @@ class View(object):
         in the following example.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.view.font", 
+        arg_str = p2e._util._convert_args_to_string("set.view.font", 
                                                       size, name)
         p2e.conversation.Exec(arg_str)
 
@@ -848,7 +848,7 @@ class View(object):
         
         """
         val = p2e.conversation.Request("get.view.grid.max")
-        return p2e.string_util._convert_str_to_list(val, float, float, float)
+        return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_grid_max(self, absolute_position):
         """
@@ -863,7 +863,7 @@ class View(object):
         X, Y and Z axis of a maximum point in 3 dimensional model space.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.view.grid.max", 
+        arg_str = p2e._util._convert_args_to_string("set.view.grid.max", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
@@ -886,7 +886,7 @@ class View(object):
 
         """
         val = p2e.conversation.Request("get.view.grid.min")
-        return p2e.string_util._convert_str_to_list(val, float, float, float)
+        return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_grid_min(self, absolute_position):
         """
@@ -901,7 +901,7 @@ class View(object):
         X, Y and Z axis of a minimum point in 3 dimensional model space. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.view.grid.min", 
+        arg_str = p2e._util._convert_args_to_string("set.view.grid.min", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
@@ -926,7 +926,7 @@ class View(object):
         
         """
         val = p2e.conversation.Request("get.view.pen")
-        return p2e.string_util._convert_str_to_list(val, str, float)
+        return p2e._util._convert_str_to_list(val, str, float)
 
     def set_pen(self, color, width = 0, alpha = 0.0):
         """
@@ -949,7 +949,7 @@ class View(object):
         1(opaque). 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.view.pen", color, 
+        arg_str = p2e._util._convert_args_to_string("set.view.pen", color, 
                                                       width, alpha)
         p2e.conversation.Exec(arg_str)
         
@@ -974,12 +974,12 @@ class View(object):
         from the top-left corner in pixels. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.view.point", 
+        arg_str = p2e._util._convert_args_to_string("get.view.point", 
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, float, float)
+        return p2e._util._convert_str_to_list(val, float, float)
 
     def get_size(self):
         """
@@ -1000,7 +1000,7 @@ class View(object):
         
         """
         val = p2e.conversation.Request("get.view.size")
-        return p2e.string_util._convert_str_to_list(val, float, float)
+        return p2e._util._convert_str_to_list(val, float, float)
         
     def set_size(self, width, height):
         """
@@ -1017,7 +1017,7 @@ class View(object):
         The new height of the view canvas.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.view.size", width, 
+        arg_str = p2e._util._convert_args_to_string("set.view.size", width, 
                                                       height)
         p2e.conversation.Exec(arg_str)
 
@@ -1037,7 +1037,7 @@ class View(object):
         
         """
         val = p2e.conversation.Request("get.view.visible")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
     
     #===========================================================================
     # Properties

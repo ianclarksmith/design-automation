@@ -24,7 +24,7 @@ class Weather(object):
         be loaded. If not given, then the last loaded weather file will be used. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("weather.load", filename)
+        arg_str = p2e._util._convert_args_to_string("weather.load", filename)
         p2e.conversation.Exec(arg_str)
     
     #===========================================================================
@@ -53,10 +53,10 @@ class Weather(object):
         A value in Watts representing the beam solar radiation.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.weather.beamsolar", 
+        arg_str = p2e._util._convert_args_to_string("get.weather.beamsolar", 
                                                      day, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def set_beam_solar(self, day, hour, value):
         """
@@ -78,7 +78,7 @@ class Weather(object):
 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.beamsolar", 
+        arg_str = p2e._util._convert_args_to_string("set.weather.beamsolar", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)
 
@@ -104,10 +104,10 @@ class Weather(object):
         A percentage value representing the cloudiness.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.weather.cloudiness", 
+        arg_str = p2e._util._convert_args_to_string("get.weather.cloudiness", 
                                                      day, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def set_cloudiness(self, day, hour, value):
         """
@@ -128,7 +128,7 @@ class Weather(object):
         A percentage value representing the cloudiness.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.cloudiness", 
+        arg_str = p2e._util._convert_args_to_string("set.weather.cloudiness", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)
 
@@ -150,7 +150,7 @@ class Weather(object):
         
         """
         val = p2e.conversation.Request("get.weather.country")
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
         
     def set_country(self, name):
         """
@@ -166,7 +166,7 @@ class Weather(object):
         weather data set.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.country", 
+        arg_str = p2e._util._convert_args_to_string("set.weather.country", 
                                                      name)
         p2e.conversation.Exec(arg_str)
 
@@ -192,10 +192,10 @@ class Weather(object):
         A value in Watts representing the diffuse solar radiation. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.weather.diffusesolar", 
+        arg_str = p2e._util._convert_args_to_string("get.weather.diffusesolar", 
                                                      day, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def set_diffuse_solar(self, day, hour, value):
        """
@@ -216,7 +216,7 @@ class Weather(object):
         A value in Watts representing the diffuse solar radiation.
        
        """
-       arg_str = p2e.string_util._convert_args_to_string("set.weather.diffusesolar", 
+       arg_str = p2e._util._convert_args_to_string("set.weather.diffusesolar", 
                                                      day, hour, value)
        p2e.conversation.Exec(arg_str)     
 
@@ -243,10 +243,10 @@ class Weather(object):
         represents North.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.weather.direction", 
+        arg_str = p2e._util._convert_args_to_string("get.weather.direction", 
                                                      day, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
     
     def set_direction(self, day, hour, value):
         """
@@ -268,7 +268,7 @@ class Weather(object):
         represents North.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.direction", 
+        arg_str = p2e._util._convert_args_to_string("set.weather.direction", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)     
 
@@ -288,7 +288,7 @@ class Weather(object):
         
         """
         val = p2e.conversation.Request("get.weather.file")
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
 
     def get_name(self):
         """
@@ -307,7 +307,7 @@ class Weather(object):
         
         """
         val = p2e.conversation.Request("get.weather.name")
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
         
     def set_name(self, name):
         """
@@ -321,7 +321,7 @@ class Weather(object):
         A string representing the location given to the current weather data set.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.name", name)
+        arg_str = p2e._util._convert_args_to_string("set.weather.name", name)
         p2e.conversation.Exec(arg_str)     
         
     def get_rainfall(self, day, hour):
@@ -340,10 +340,10 @@ class Weather(object):
         An integer value between 0 and 23 representing the hour of the day.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.weather.rainfall", 
+        arg_str = p2e._util._convert_args_to_string("get.weather.rainfall", 
                                                      day, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def set_rainfall(self, day, hour, value):
         """
@@ -364,7 +364,7 @@ class Weather(object):
         A value specifying the amount of rainfall in millimeters.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.rainfall", 
+        arg_str = p2e._util._convert_args_to_string("set.weather.rainfall", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)     
 
@@ -390,10 +390,10 @@ class Weather(object):
         A value specifying the relative humidity as a percentage.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.weather.relhumidity", 
+        arg_str = p2e._util._convert_args_to_string("get.weather.relhumidity", 
                                                      day, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
         
     def set_rel_humidity(self, day, hour, value):
         """
@@ -414,7 +414,7 @@ class Weather(object):
         A value specifying the relative humidity as a percentage.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.relhumidity", 
+        arg_str = p2e._util._convert_args_to_string("set.weather.relhumidity", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)     
 
@@ -440,10 +440,10 @@ class Weather(object):
         A value specifying the wind speed speed in kilometers per hour 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.weather.speed", 
+        arg_str = p2e._util._convert_args_to_string("get.weather.speed", 
                                                      day, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def set_speed(self, day, hour, value):
         """
@@ -464,7 +464,7 @@ class Weather(object):
         A value specifying the wind speed speed in kilometers per hour.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.speed", 
+        arg_str = p2e._util._convert_args_to_string("set.weather.speed", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)     
 
@@ -490,10 +490,10 @@ class Weather(object):
         A value specifying the temperature to set in degrees celsius.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.weather.temperature", 
+        arg_str = p2e._util._convert_args_to_string("get.weather.temperature", 
                                                      day, hour)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def set_temperature(self, day, hour, value):
         """
@@ -514,7 +514,7 @@ class Weather(object):
         A value specifying the temperature to set in degrees celsius.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.weather.temperature", 
+        arg_str = p2e._util._convert_args_to_string("set.weather.temperature", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)     
     

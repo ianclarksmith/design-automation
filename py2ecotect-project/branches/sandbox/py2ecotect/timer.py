@@ -60,7 +60,7 @@ class Timer(object):
         
         """
         val = p2e.conversation.Request("get.timer.count")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_count(self, count):
         """
@@ -75,7 +75,7 @@ class Timer(object):
         The number of timer triggers to report.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.timer.count", count)
+        arg_str = p2e._util._convert_args_to_string("set.timer.count", count)
         p2e.conversation.Exec(arg_str)     
 
     def get_interval(self):
@@ -97,7 +97,7 @@ class Timer(object):
         
         """
         val = p2e.conversation.Request("get.timer.interval")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_interval(self, msec):
         """
@@ -115,7 +115,7 @@ class Timer(object):
         (20 times per second). 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.timer.interval", msec)
+        arg_str = p2e._util._convert_args_to_string("set.timer.interval", msec)
         p2e.conversation.Exec(arg_str)
 
     def get_running(self):
@@ -135,7 +135,7 @@ class Timer(object):
 
         """
         val = p2e.conversation.Request("get.timer.running")
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_running(self, running):
         """
@@ -152,7 +152,7 @@ class Timer(object):
         false stops it. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.timer.running", 
+        arg_str = p2e._util._convert_args_to_string("set.timer.running", 
                                                       running)
         p2e.conversation.Exec(arg_str)
     

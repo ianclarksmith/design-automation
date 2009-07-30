@@ -76,7 +76,7 @@ class Node(object):
         node._object = object
         
         #execute ecotect instruction
-        arg_str = p2e.string_util._convert_args_to_string("add.node", object.eco_id, index, 
+        arg_str = p2e._util._convert_args_to_string("add.node", object.eco_id, index, 
                                                      point[0], point[1], 
                                                      point[2], nodeType, link)
         p2e.conversation.Request(arg_str)
@@ -87,7 +87,7 @@ class Node(object):
     def delete(self):
         
         #execute ecotect instruction
-        arg_str = p2e.string_util._convert_args_to_string("object.delnode", 
+        arg_str = p2e._util._convert_args_to_string("object.delnode", 
                                             self._object.eco_id, self.eco_id)
         p2e.conversation.Exec(arg_str)
         
@@ -120,7 +120,7 @@ class Node(object):
         each of the major X, Y and Z axis.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("node.move", self.eco_id, 
+        arg_str = p2e._util._convert_args_to_string("node.move", self.eco_id, 
                                                       move_distance[0], 
                                                       move_distance[1], 
                                                       move_distance[2])
@@ -146,7 +146,7 @@ class Node(object):
         3, -3 In the Z axis. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("node.nudge", self.eco_id, dir)
+        arg_str = p2e._util._convert_args_to_string("node.nudge", self.eco_id, dir)
         p2e.conversation.Exec(arg_str)
 
     def rotate(self, azi, alt):
@@ -167,7 +167,7 @@ class Node(object):
         The altitude angle of rotation, in decimal degrees. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("node.rotate", self.eco_id, 
+        arg_str = p2e._util._convert_args_to_string("node.rotate", self.eco_id, 
                                                       azi, alt)
         p2e.conversation.Exec(arg_str)
 
@@ -187,7 +187,7 @@ class Node(object):
         Use a value of 0 if no rotation is required for a particular axis.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("node.rotateaxis", 
+        arg_str = p2e._util._convert_args_to_string("node.rotateaxis", 
                                                       self.eco_id,
                                                       rotation_value[0], 
                                                       rotation_value[1], 
@@ -211,7 +211,7 @@ class Node(object):
         The altitude angle of rotation, in decimal degrees. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("node.rotatereverse", 
+        arg_str = p2e._util._convert_args_to_string("node.rotatereverse", 
                                                       self.eco_id, azi, alt)
         p2e.conversation.Exec(arg_str)
 
@@ -228,7 +228,7 @@ class Node(object):
         of the major X, Y and Z axis.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("node.scale", self.eco_id,
+        arg_str = p2e._util._convert_args_to_string("node.scale", self.eco_id,
                                                       scale_factor[0], 
                                                       scale_factor[1], 
                                                       scale_factor[2])
@@ -266,7 +266,7 @@ class Node(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("node.xform", 
+        arg_str = p2e._util._convert_args_to_string("node.xform", 
                                                       self.eco_id, trans,
                                                       function_values[0],
                                                       function_values[1],
@@ -313,10 +313,10 @@ class Node(object):
         colours 4 Display object attribute as a fill colous. 
 
         """
-        arg_str = p2e.p2e.string_util._convert_args_to_string("get.node.flag", self.eco_id, 
+        arg_str = p2e.p2e._util._convert_args_to_string("get.node.flag", self.eco_id, 
                                                       flag)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
         
     def set_flag(self, flag, state = True):
         """
@@ -343,7 +343,7 @@ class Node(object):
         colours 4 Display object attribute as a fill colous. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.node.flag", self.eco_id,
+        arg_str = p2e._util._convert_args_to_string("set.node.flag", self.eco_id,
                                                        flag, state) 
         p2e.conversation.Exec(arg_str)
 
@@ -366,9 +366,9 @@ class Node(object):
         table_NodeFlags.txt
       
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.node.flags", self.eco_id)
+        arg_str = p2e._util._convert_args_to_string("get.node.flags", self.eco_id)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
         
     def get_link(self):
         """
@@ -386,9 +386,9 @@ class Node(object):
         is linked.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.node.link", self.eco_id)
+        arg_str = p2e._util._convert_args_to_string("get.node.link", self.eco_id)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_link(self, link):
         """
@@ -403,7 +403,7 @@ class Node(object):
         is to be linked.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.node.link", self.eco_id, 
+        arg_str = p2e._util._convert_args_to_string("set.node.link", self.eco_id, 
                                                       link)
         p2e.conversation.Exec(arg_str)
 
@@ -425,10 +425,10 @@ class Node(object):
         The decimal value of the node modifier.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.node.modifier", 
+        arg_str = p2e._util._convert_args_to_string("get.node.modifier", 
                                                       self.eco_id)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, float)
+        return p2e._util._convert_str_to_type(val, float)
 
     def set_modifier(self, mod):
         """
@@ -446,7 +446,7 @@ class Node(object):
         The new decimal value of the node modifier.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.node.modifier", 
+        arg_str = p2e._util._convert_args_to_string("set.node.modifier", 
                                                       self.eco_id, mod)
         p2e.conversation.Exec(arg_str)
         
@@ -470,9 +470,9 @@ class Node(object):
         dimensional model space. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.node.position", self.eco_id)
+        arg_str = p2e._util._convert_args_to_string("get.node.position", self.eco_id)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, float, float, float)
+        return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_position(self, absolute_position):
         """
@@ -488,7 +488,7 @@ class Node(object):
         X, Y and Z axis of the node in 3 dimensional model space.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.node.position", 
+        arg_str = p2e._util._convert_args_to_string("set.node.position", 
                                                       self.eco_id, 
                                                       absolute_position[0], 
                                                       absolute_position[1], 
@@ -510,10 +510,10 @@ class Node(object):
         If this value is 1, then the node is selected. If 0 the node is not selected. 
 
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.node.selected", 
+        arg_str = p2e._util._convert_args_to_string("get.node.selected", 
                                                       self.eco_id)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_selected(self, state = 1):
         """
@@ -529,7 +529,7 @@ class Node(object):
         0. If not given, this parameter defaults to true. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.node.selected", 
+        arg_str = p2e._util._convert_args_to_string("set.node.selected", 
                                                       self.eco_id, state)
         p2e.conversation.Exec(arg_str)
 
@@ -563,9 +563,9 @@ class Node(object):
         spline 8 Control node for a virtual spline curve. 
   
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.node.type", self.eco_id)
+        arg_str = p2e._util._convert_args_to_string("get.node.type", self.eco_id)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
 
     def set_type(self, type, link = -1):
         """
@@ -600,7 +600,7 @@ class Node(object):
         if type == 2 and  link != -1:
             return
         else:
-            arg_str = p2e.string_util._convert_args_to_string("set.node.type", 
+            arg_str = p2e._util._convert_args_to_string("set.node.type", 
                                                           self.eco_id, type, link)
             p2e.conversation.Exec(arg_str)
 

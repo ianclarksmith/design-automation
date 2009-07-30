@@ -37,7 +37,7 @@ class Application(object):
         A string containing the message to be displayed.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("app.alert." + type, msg)
+        arg_str = p2e._util._convert_args_to_string("app.alert." + type, msg)
         p2e.conversation.Exec(arg_str)
         
     def busy(self, action, message):
@@ -66,7 +66,7 @@ class Application(object):
         using the close action. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("app.busy" + action, 
+        arg_str = p2e._util._convert_args_to_string("app.busy" + action, 
                                                       message)
         p2e.conversation.Exec(arg_str)
     
@@ -100,7 +100,7 @@ class Application(object):
         selected control. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("app.character", text)
+        arg_str = p2e._util._convert_args_to_string("app.character", text)
         p2e.conversation.Exec(arg_str)
     
     def exit(self):
@@ -193,7 +193,7 @@ class Application(object):
         VK_SCROLL 145 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("app.key", keyCode)
+        arg_str = p2e._util._convert_args_to_string("app.key", keyCode)
         py2p2e.conversation.Exec(arg_str)
     
     
@@ -219,7 +219,7 @@ class Application(object):
         
         """
     
-        arg_str = p2e.string_util._convert_args_to_string("app.maximise", state)
+        arg_str = p2e._util._convert_args_to_string("app.maximise", state)
         p2e.conversation.Exec(arg_str)
         
     def menu(self, command, tag = 0):
@@ -588,7 +588,7 @@ class Application(object):
         >>> menu("file.export.external")
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("app.menu", command,tag)
+        arg_str = p2e._util._convert_args_to_string("app.menu", command,tag)
         p2e.conversation.Exec(arg_str)
     
     def minimise(self, state = 1):
@@ -614,7 +614,7 @@ class Application(object):
         
         """
     
-        arg_str = p2e.string_util._convert_args_to_string("app.minimise", state)
+        arg_str = p2e._util._convert_args_to_string("app.minimise", state)
         p2e.conversation.Exec(arg_str)
     
     def mouse_event(self, action, x, y):
@@ -677,7 +677,7 @@ class Application(object):
         >>> mouseevent("rclick", 100, 150)
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("app.mouseevent", action, 
+        arg_str = p2e._util._convert_args_to_string("app.mouseevent", action, 
                                                       x, y)
         p2e.conversation.Exec(arg_str)
      
@@ -700,7 +700,7 @@ class Application(object):
         >>> progress(25)
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("app.progress", percent)
+        arg_str = p2e._util._convert_args_to_string("app.progress", percent)
         p2e.conversation.Exec(arg_str)
         
     def run(self, script):
@@ -730,7 +730,7 @@ class Application(object):
         >>> run("AcousticRays.scr")
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("app.run", script)
+        arg_str = p2e._util._convert_args_to_string("app.run", script)
         p2e.conversation.Exec(arg_str)
     
     def status(self, msg):
@@ -756,32 +756,35 @@ class Application(object):
         
         """ 
     
-        arg_str = p2e.string_util._convert_args_to_string("app.status", msg)
+        arg_str = p2e._util._convert_args_to_string("app.status", msg)
         p2e.conversation.Exec(arg_str)
     
     #===========================================================================
     # Properties
     #===========================================================================
+    @apply
+    def computer():
+        def fget(self):
+            """
+            
+            Returns the system name of the computer the application is currently 
+            running on. 
         
-    def get_computer(self):
-        """
+            Parameter(s)
+            There are no parameters for this property.
         
-        Returns the system name of the computer the application is currently 
-        running on. 
-    
-        Parameter(s)
-        There are no parameters for this property.
-    
-        Return Value(s)
-        Getting this property returns the following value(s).
-    
-        name 
-        A text string containing the computer name. 
+            Return Value(s)
+            Getting this property returns the following value(s).
         
-        """
-    
-        val = p2e.conversation.Request("get.app.computer")
-        return p2e.string_util._convert_str_to_type(val, str)
+            name 
+            A text string containing the computer name. 
+            
+            """
+        
+            val = p2e.conversation.Request("get.app.computer")
+            return p2e._util._convert_str_to_type(val, str)
+        
+        return property(**locals())
     
     def get_image(self, type, name = None):
         """
@@ -824,10 +827,10 @@ class Application(object):
         schedule 5 The current schedule 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.app.image", type, 
+        arg_str = p2e._util._convert_args_to_string("get.app.image", type, 
                                                       name)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
     
     def get_menu_tool(self, index):
         """
@@ -852,10 +855,10 @@ class Application(object):
         The full pathname to the associated executable file. 
     
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.app.menu.tool", index)
+        arg_str = p2e._util._convert_args_to_string("get.app.menu.tool", index)
         val = p2e.conversation.Request(arg_str)
         print val
-        return p2e.string_util._convert_str_to_list(val, str)  
+        return p2e._util._convert_str_to_list(val, str)  
     
     def set_menu_tool(self, index, name_path):
         """
@@ -877,7 +880,7 @@ class Application(object):
         character.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.app.menu.tool", 
+        arg_str = p2e._util._convert_args_to_string("set.app.menu.tool", 
                                                       index, name_path)
         p2e.conversation.Exec(arg_str)
     
@@ -905,10 +908,10 @@ class Application(object):
         The full pathname to the associated script file.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.app.menu.wizard", 
+        arg_str = p2e._util._convert_args_to_string("get.app.menu.wizard", 
                                                       index)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_list(val, str)  
+        return p2e._util._convert_str_to_list(val, str)  
     
     def set_menu_wizard(self, index, name_path):
         """
@@ -933,159 +936,170 @@ class Application(object):
         character.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.app.menu.wizard", 
+        arg_str = p2e._util._convert_args_to_string("set.app.menu.wizard", 
                                                       index, name_path)
         p2e.conversation.Exec(arg_str)
         
+    @apply
+    def page ():    
+        def fget(self):
+            """
+            
+            Gets the currently active page in the ECOTECT application window. The 
+            returned value will correspond to one of the items in the following 
+            table. 
         
-    def get_page(self):
-        """
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            page 
+            The numerical index of the current application page. 
+            
+            Relevant Data Table(s)
+            
+            Available Application Pages 
+            ID Description 
+            0 PROJECT Page 
+            1 3D EDITOR Page 
+            2 VISUALISATION Page 
+            3 ANALYSIS Page 
+            4 REPORT Page 
         
-        Gets the currently active page in the ECOTECT application window. The 
-        returned value will correspond to one of the items in the following 
-        table. 
+            """
+            val = p2e.conversation.Request("get.app.page")
+            return p2e._util._convert_str_to_type(val, int)
+        
+        def fset(self, page):
+            """
+            
+            Sets the currently active page in the ECOTECT application window. These 
+            correspond to the pages with tabs running down the far left side marked 
+            as shown in the following table. 
+        
+            Parameter(s)
+            This property takes the following parameters.
+        
+            page 
+            The numerical index of the desired application page, as given in the 
+            following table. 
+            
+            Relevant Data Table(s)
+            
+            Available Application Pages 
+            ID Description 
+            0 PROJECT Page 
+            1 3D EDITOR Page 
+            2 VISUALISATION Page 
+            3 ANALYSIS Page 
+            4 REPORT Page 
+        
+            """
+            arg_str = p2e._util._convert_args_to_string("set.app.page", page)
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def panel ():    
+        def fget(self):
+            """
+            Gets the currently active panel in the ECOTECT application window. These 
+            correspond to the tabbed panels on the right hand side of the window, as 
+            shown in the following table. Getting this value returns the integer 
+            value corresponding to each item in the table. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            panel 
+            The numerical index of the current application panel. 
+            
+            Relevant Data Table(s)
+            
+            Available Application Panels 
+            ID Description 
+            0 Selection Information 
+            1 Zone Management 
+            2 Material Assignments 
+            3 Display Settings 
+            4 Visualisation Settings 
+            5 Shadow Settings 
+            6 Analysis Grid 
+            7 Rays and Particles 
+            8 Scripts and Wizards 
+            9 Object Transformation 
+            10 Export Manager 
         
-        page 
-        The numerical index of the current application page. 
+            """
+            val = p2e.conversation.Request("get.app.panel")
+            return p2e._util._convert_str_to_type(val, int)
         
-        Relevant Data Table(s)
+        def fset(self, panel):
+            """
+            Sets the currently active panel in the ECOTECT application window. These 
+            correspond to the tabbed panels on the right hand side of the window, 
+            as shown in the following table. 
         
-        Available Application Pages 
-        ID Description 
-        0 PROJECT Page 
-        1 3D EDITOR Page 
-        2 VISUALISATION Page 
-        3 ANALYSIS Page 
-        4 REPORT Page 
+            Parameter(s)
+            This property takes the following parameters.
+            
+            panel 
+            Either a string containing the panel token or the numerical index of the 
+            desired application panel. 
+            
+            Relevant Data Table(s)
+            
+            Available Application 
+            Panels ID Description 
+            0 Selection Information 
+            1 Zone Management 
+            2 Material Assignments 
+            3 Display Settings 
+            4 Visualisation Settings 
+            5 Shadow Settings 
+            6 Analysis Grid 
+            7 Rays and Particles 
+            8 Scripts and Wizards 
+            9 Object Transformation 
+            10 Export Manager 
+        
+            """
+            arg_str = p2e._util._convert_args_to_string("set.app.panel", panel)
+            p2e.conversation.Exec(arg_str)
+        
+        return property(**locals())
     
-        """
-        val = p2e.conversation.Request("get.app.page")
-        return p2e.string_util._convert_str_to_type(val, int)
-    
-    def set_page(self, page):
-        """
+    @apply
+    def path ():   
+        def fget(self):
+            """
+            
+            Getting this property returns a single text string containing the 
+            installation home directory of the ECOTECT application which, by 
+            default, is usually 'C:\Program Files\Square One'. This can be useful 
+            if you need to locate example or tutorial files in your script. This 
+            property is read only. 
         
-        Sets the currently active page in the ECOTECT application window. These 
-        correspond to the pages with tabs running down the far left side marked 
-        as shown in the following table. 
-    
-        Parameter(s)
-        This property takes the following parameters.
-    
-        page 
-        The numerical index of the desired application page, as given in the 
-        following table. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            path 
+            A text string containing the full home directory path.
+            
+            """
+            val = p2e.conversation.Request("get.app.path")
+            return p2e._util._convert_str_to_type(val, str)
         
-        Relevant Data Table(s)
-        
-        Available Application Pages 
-        ID Description 
-        0 PROJECT Page 
-        1 3D EDITOR Page 
-        2 VISUALISATION Page 
-        3 ANALYSIS Page 
-        4 REPORT Page 
-    
-        """
-        arg_str = p2e.string_util._convert_args_to_string("set.app.page", page)
-        p2e.conversation.Exec(arg_str)
-    
-    def get_panel(self):
-        """
-        Gets the currently active panel in the ECOTECT application window. These 
-        correspond to the tabbed panels on the right hand side of the window, as 
-        shown in the following table. Getting this value returns the integer 
-        value corresponding to each item in the table. 
-    
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        panel 
-        The numerical index of the current application panel. 
-        
-        Relevant Data Table(s)
-        
-        Available Application Panels 
-        ID Description 
-        0 Selection Information 
-        1 Zone Management 
-        2 Material Assignments 
-        3 Display Settings 
-        4 Visualisation Settings 
-        5 Shadow Settings 
-        6 Analysis Grid 
-        7 Rays and Particles 
-        8 Scripts and Wizards 
-        9 Object Transformation 
-        10 Export Manager 
-    
-        """
-        val = p2e.conversation.Request("get.app.panel")
-        return p2e.string_util._convert_str_to_type(val, int)
-    
-    def set_panel(self, panel):
-        """
-        Sets the currently active panel in the ECOTECT application window. These 
-        correspond to the tabbed panels on the right hand side of the window, 
-        as shown in the following table. 
-    
-        Parameter(s)
-        This property takes the following parameters.
-        
-        panel 
-        Either a string containing the panel token or the numerical index of the 
-        desired application panel. 
-        
-        Relevant Data Table(s)
-        
-        Available Application 
-        Panels ID Description 
-        0 Selection Information 
-        1 Zone Management 
-        2 Material Assignments 
-        3 Display Settings 
-        4 Visualisation Settings 
-        5 Shadow Settings 
-        6 Analysis Grid 
-        7 Rays and Particles 
-        8 Scripts and Wizards 
-        9 Object Transformation 
-        10 Export Manager 
-    
-        """
-        arg_str = p2e.string_util._convert_args_to_string("set.app.panel", panel)
-        p2e.conversation.Exec(arg_str)
-    
-    def get_path(self):
-        """
-        
-        Getting this property returns a single text string containing the 
-        installation home directory of the ECOTECT application which, by 
-        default, is usually 'C:\Program Files\Square One'. This can be useful 
-        if you need to locate example or tutorial files in your script. This 
-        property is read only. 
-    
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        path 
-        A text string containing the full home directory path.
-        
-        """
-        val = p2e.conversation.Request("get.app.path")
-        return p2e.string_util._convert_str_to_type(val, str)
+        return property(**locals())
     
     def get_registry(self, key):
         """
@@ -1111,9 +1125,9 @@ class Application(object):
         key.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.app.registry", key)
+        arg_str = p2e._util._convert_args_to_string("get.app.registry", key)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
     
     def set_registry(self, keyvalue):
         """
@@ -1139,36 +1153,40 @@ class Application(object):
         key.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.app.registry", 
+        arg_str = p2e._util._convert_args_to_string("set.app.registry", 
                                                       keyvalue)
         p2e.conversation.Exec(arg_str)
-        
-    def get_screen(self):
-        """
-        
-        Retrieve the position and size of the main Windows screen area. 
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def screen():    
+        def fget(self):
+            """
+            
+            Retrieve the position and size of the main Windows screen area. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            left 
+            The position of the left side of the screen in pixels.
+             
+            top 
+            The position of the top side of the screen in pixels.
+             
+            width 
+            The horizontal width of the screen in pixels.
+             
+            height 
+            The vertical height of the screen in pixels.
+            
+            """
+            val = p2e.conversation.Request("get.app.screen")
+            return p2e._util._convert_str_to_list(val, int) 
         
-        left 
-        The position of the left side of the screen in pixels.
-         
-        top 
-        The position of the top side of the screen in pixels.
-         
-        width 
-        The horizontal width of the screen in pixels.
-         
-        height 
-        The vertical height of the screen in pixels.
-        
-        """
-        val = p2e.conversation.Request("get.app.screen")
-        return p2e.string_util._convert_str_to_list(val, int)  
+        return property(**locals()) 
     
     def get_slider_range(self):
         """
@@ -1201,7 +1219,7 @@ class Application(object):
         
         """
         val = p2e.conversation.Request("get.app.slider.range")
-        return p2e.string_util._convert_str_to_list(val, int)  
+        return p2e._util._convert_str_to_list(val, int)  
     
     def set_slider_range(self, min, max, freq, lineSize, pageSize):
         """
@@ -1238,7 +1256,7 @@ class Application(object):
         set value is used. 
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.app.slider.range", 
+        arg_str = p2e._util._convert_args_to_string("set.app.slider.range", 
                                                      min, max, freq, lineSize, 
                                                      pageSize)
         p2e.conversation.Exec(arg_str)
@@ -1266,7 +1284,7 @@ class Application(object):
         
         """    
         val = p2e.conversation.Request("get.app.slider.scale")
-        return p2e.string_util._convert_str_to_list(val, float, str)
+        return p2e._util._convert_str_to_list(val, float, str)
         
     def set_slider_scale(self, scale, hint=None):
         """
@@ -1289,63 +1307,71 @@ class Application(object):
         the slider when you move the mouse over the top of it.
         
         """    
-        arg_str = p2e.string_util._convert_args_to_string("set.app.slider.scale", 
+        arg_str = p2e._util._convert_args_to_string("set.app.slider.scale", 
                                                       scale, hint)
         p2e.conversation.Exec(arg_str)
     
-    def get_slider_title(self):
-        """
+    @apply
+    def slider_title():
+        def fget(self):
+            """
+            
+            Retrieves the current title displayed on the main slider. 
         
-        Retrieves the current title displayed on the main slider. 
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            title 
+            This is a string value containing the full title.
+            
+            """
+            val = p2e.conversation.Request("get.app.slider.title")
+            return p2e._util._convert_str_to_type(val, str)
+        
+        def fset(self, title):
+            """
+            
+            Sets the title to be displayed on the main slider. 
+        
+            Parameter(s)
+            This property takes the following parameters.
+            
+            title 
+            This is a string value containing the full title.
+            
+            """
+            
+            arg_str = p2e._util._convert_args_to_string("set.app.slider.title", 
+                                                          title)
+            p2e.conversation.Exec(arg_str)
+        
+        return property(**locals())
     
-        Parameter(s)
-        There are no parameters for this property.
+    @apply
+    def username():
+        def fget(self):
+            """
+            
+            Returns the login name of the currently logged in user on the computer 
+            running ECOTECT. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            name 
+            A string value containing the user's login name.
+            
+            """
+            val = p2e.conversation.Request("get.app.username")
+            return p2e._util._convert_str_to_type(val, str)
         
-        title 
-        This is a string value containing the full title.
-        
-        """
-        val = p2e.conversation.Request("get.app.slider.title")
-        return p2e.string_util._convert_str_to_type(val, str)
-    
-    def set_slider_title(self, title):
-        """
-        
-        Sets the title to be displayed on the main slider. 
-    
-        Parameter(s)
-        This property takes the following parameters.
-        
-        title 
-        This is a string value containing the full title.
-        
-        """
-        
-        arg_str = p2e.string_util._convert_args_to_string("set.app.slider.title", 
-                                                      title)
-        p2e.conversation.Exec(arg_str)
-    
-    def get_username(self):
-        """
-        
-        Returns the login name of the currently logged in user on the computer 
-        running ECOTECT. 
-    
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        name 
-        A string value containing the user's login name.
-        
-        """
-        val = p2e.conversation.Request("get.app.username")
-        return p2e.string_util._convert_str_to_type(val, str)
+        return property(**locals())
     
     def get_web_file(self, url):
         """
@@ -1371,9 +1397,9 @@ class Application(object):
         contents. The script will return an error if the download failes.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.app.web.file", url)
+        arg_str = p2e._util._convert_args_to_string("get.app.web.file", url)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
     
     def get_web_line(self, lineNumber):
         """
@@ -1399,10 +1425,10 @@ class Application(object):
         key.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("get.app.web.line", 
+        arg_str = p2e._util._convert_args_to_string("get.app.web.line", 
                                                       lineNumber)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, str)
+        return p2e._util._convert_str_to_type(val, str)
     
     def set_web_login(self, username = None, password = None):
         """
@@ -1425,7 +1451,7 @@ class Application(object):
         The password you require to login.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.app.web.login", 
+        arg_str = p2e._util._convert_args_to_string("set.app.web.login", 
                                                       username, password)
         p2e.conversation.Exec(arg_str)
     
@@ -1457,13 +1483,13 @@ class Application(object):
         
         """
         if text:
-            arg_str = p2e.string_util._convert_args_to_string("get.app.web.page.text", 
+            arg_str = p2e._util._convert_args_to_string("get.app.web.page.text", 
                                                           url)
         else:
-            arg_str = p2e.string_util._convert_args_to_string("get.app.web.page", 
+            arg_str = p2e._util._convert_args_to_string("get.app.web.page", 
                                                           url)
         val = p2e.conversation.Request(arg_str)
-        return p2e.string_util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_type(val, int)
     
     def get_web_param(self, name = None, index = None):
         """
@@ -1508,15 +1534,15 @@ class Application(object):
         
         """
         if name:
-            arg_str = p2e.string_util._convert_args_to_string("get.app.web.param", 
+            arg_str = p2e._util._convert_args_to_string("get.app.web.param", 
                                                           name)
             val = p2e.conversation.Request(arg_str)
-            return p2e.string_util._convert_str_to_type(val, str)
+            return p2e._util._convert_str_to_type(val, str)
         elif index:
-            arg_str = p2e.string_util._convert_args_to_string("get.app.web.param.index", 
+            arg_str = p2e._util._convert_args_to_string("get.app.web.param.index", 
                                                          index)
             val = p2e.conversation.Request(arg_str)
-            return p2e.string_util._convert_str_to_list(val, str)
+            return p2e._util._convert_str_to_list(val, str)
     
     def get_window(self):
         """
@@ -1544,7 +1570,7 @@ class Application(object):
         
         """
         val = p2e.conversation.Request("get.app.window")
-        return p2e.string_util._convert_str_to_list(val, int)
+        return p2e._util._convert_str_to_list(val, int)
     
     def set_window(self, left, top, width, height):
         """
@@ -1575,41 +1601,11 @@ class Application(object):
         not be changed.
         
         """
-        arg_str = p2e.string_util._convert_args_to_string("set.app.window", left, 
+        arg_str = p2e._util._convert_args_to_string("set.app.window", left, 
                                                      top, 
                                                      width, 
                                                      height)
         p2e.conversation.Exec(arg_str)
-    
-    #===========================================================================
-    # Properties
-    #===========================================================================
-    
-    computer = property(fget = get_computer, doc = "The system name of the"
-                        " computer the application is currently running on")
-
-    page = property(fget = get_page, fset = set_page, 
-                        doc = "The currently active page in the ECOTECT"
-                        " application window")
-    
-    panel = property(fget = get_panel, fset = set_panel, 
-                        doc = "The currently active panel in the ECOTECT"
-                        " application window")
-    path = property(fget = get_path, doc = "This property returns a single text"
-                    " string containing the installation home directory of the"
-                    " ECOTECT application which, by default, is usually"
-                    " 'C:\Program Files\Square One'")
-    
-    screen = property(fget = get_screen, doc = "The position and size of the"
-                      " main Windows screen area")
-    
-    slider_title = property(fget = get_slider_title, doc = "The current title"
-                            " displayed on the main slider")
-    
-    username = property(fget = get_username, doc = "The login name of the"
-                        " currently logged in user on the computer running"
-                        " ECOTECT")
-    
 
 
 
@@ -1659,6 +1655,8 @@ if __name__ == "__main__":
     #x.set_menu_tool(9, "Therm 6.0|C:\\Tools\\Therm6.exe")
     #print x.get_menu_wizard(7)
     #x.set_menu_wizard(7, "My Zone Wizard|C:\\Temp\\MyZoneWizard.scr")
+    #print x.computer
+    
     
     print "Tests completed"
         
