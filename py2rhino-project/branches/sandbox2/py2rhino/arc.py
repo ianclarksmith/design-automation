@@ -10,20 +10,28 @@ class Arc(p2r._CurveType):
 
 
     # Class constructor
-    def __init__(self):
-        raise Exception("Use the create... methods to create instances of this class.")
+    def __init__(self, rhino_id=None):
+        if rhino_id==None:
+            raise Exception("Use the create... methods to create instances of this class.")
+        self.rhino_id = rhino_id
 
 
     @classmethod
     def create_arc(cls, plane, radius, angle):
 
-        return p2r_f.add_arc(plane, radius, angle)
+        rhino_id = p2r_f.add_arc(plane, radius, angle)
+
+
+        return cls(rhino_id)
 
 
     @classmethod
     def create_arc_3pt(cls, start, end, point):
 
-        return p2r_f.add_arc_3_pt(start, end, point)
+        rhino_id = p2r_f.add_arc_3_pt(start, end, point)
+
+
+        return cls(rhino_id)
 
 
     def angle(self, index=pythoncom.Empty):

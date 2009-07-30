@@ -10,20 +10,28 @@ class Ellipse(p2r._CurveType):
 
 
     # Class constructor
-    def __init__(self):
-        raise Exception("Use the create... methods to create instances of this class.")
+    def __init__(self, rhino_id=None):
+        if rhino_id==None:
+            raise Exception("Use the create... methods to create instances of this class.")
+        self.rhino_id = rhino_id
 
 
     @classmethod
     def create_ellipse(cls, plane, x_radius, y_radius):
 
-        return p2r_f.add_ellipse(plane, x_radius, y_radius)
+        rhino_id = p2r_f.add_ellipse(plane, x_radius, y_radius)
+
+
+        return cls(rhino_id)
 
 
     @classmethod
     def create_ellipse_3pt(cls, center, second, third):
 
-        return p2r_f.add_ellipse_3_pt(center, second, third)
+        rhino_id = p2r_f.add_ellipse_3_pt(center, second, third)
+
+
+        return cls(rhino_id)
 
 
     def center_point(self, ):

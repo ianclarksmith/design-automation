@@ -10,7 +10,7 @@ copy_objects = {
 
     "syntax_html": {
         0: ("arrObjects", "arrStart", "arrEnd"),
-        1: ("strObject", "arrTranslation"),
+        1: ("arrObjects", "arrTranslation"),
     },
 
     "params_html": {
