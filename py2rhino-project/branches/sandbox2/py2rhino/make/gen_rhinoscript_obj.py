@@ -1,7 +1,7 @@
 import keyword
 from exceptions import Exception
 from util import *
-from py2rhino.make.data.templates_obj import descriptors as obj
+from py2rhino.make.data.templates_obj import descriptors as des_obj
 
 out_folder = "..\\"
 #===============================================================================
@@ -9,9 +9,9 @@ out_folder = "..\\"
 #===============================================================================
 def check_class_strings():
     class_map = {}
-    for function_list_name in obj.__dict__.keys():
+    for function_list_name in des_obj.__dict__.keys():
         if function_list_name.endswith('_methods'):
-            function_list = obj.__dict__[function_list_name]
+            function_list = des_obj.__dict__[function_list_name]
             for function_name in function_list.__dict__.keys():
                 if not function_name.startswith('__'):
                     print function_list_name, function_name
@@ -44,9 +44,9 @@ def check_class_strings():
 #===============================================================================
 def get_data_dictionary():
     data_dict = {}
-    for function_list_name in obj.__dict__.keys():
+    for function_list_name in des_obj.__dict__.keys():
         if function_list_name.endswith('_methods'):
-            function_list = obj.__dict__[function_list_name]
+            function_list = des_obj.__dict__[function_list_name]
             for function_name in function_list.__dict__.keys():
                 if not function_name.startswith('__'):
                     print function_list_name, function_name
@@ -76,14 +76,14 @@ def get_data_dictionary():
 def write_rhinoscript_classes(data_dict):
     #Some sub-functions
     #---------------------------------------------------------------------------
-    def write_class_header(module_name, class_name, class_parent_name, f):
+    def write_class_header(class_name, parent_module_name, parent_class_name, f):
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
         w(f,'import pythoncom')
-        if class_parent_name != 'object':
-            w(f,('from py2rhino.', module_name, ' import ', class_parent_name))
+        if parent_class_name != 'object':
+            w(f,('from py2rhino.', parent_module_name, ' import ', parent_class_name))
         w(f,'from exceptions import Exception')           
         w(f,'_rsf = None', nls=1, nle=2)   
-        w(f,('class ', class_name,'(', class_parent_name,'):'), nle=2)
+        w(f,('class ', class_name,'(', parent_class_name,'):'), nle=2)
         
     #---------------------------------------------------------------------------
     def write_init(f):
@@ -183,28 +183,28 @@ def write_rhinoscript_classes(data_dict):
             else:
                 raise Exception('Cannot understand return type')
         else:
-            w(f, ('return p2r_f.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)#TODO: deal with return types
+            w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)#TODO: deal with return types
     #---------------------------------------------------------------------------
     for class_str in sorted(data_dict.keys()):
         
-
         #split the list of classes
         class_list = class_str.split('.')
         #check the class name
         class_name = class_list[-1]
         
         #get the class parent
-        class_parent_name = 'object'
+        parent_class_name = 'object'
         if len(class_list) > 1:
-            class_parent_name = class_list[-2]
-        #get the module name
+            parent_class_name = class_list[-2]
+        #get the module names
         module_name = camel_to_underscore(class_name)
+        parent_module_name = camel_to_underscore(parent_class_name)
         
         #open the file
         f = open(out_folder + module_name + '.py', mode='w')
         
         #write header and init
-        write_class_header(module_name, class_name, class_parent_name, f)
+        write_class_header(class_name, parent_module_name, parent_class_name, f)
         write_init(f)        
         
         #write each method to the class file
