@@ -76,24 +76,24 @@ def get_data_dictionary():
 def write_rhinoscript_classes(data_dict):
     #Some sub-functions
     #---------------------------------------------------------------------------
-    def write_class_header(class_name, class_parent_name, f):
+    def write_class_header(module_name, class_name, class_parent_name, f):
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
         w(f,'import pythoncom')
-        w(f,'from py2rhino.functions._rhinoscript_functions import _RhinoscriptFunctions as p2r_f')
-        w(f,'import py2rhino as p2r')
+        if class_parent_name != 'object':
+            w(f,('from py2rhino.', module_name, ' import ', class_parent_name))
         w(f,'from exceptions import Exception')           
-        #w(f,'_rsf = None', nls=1, nle=1)   
-        w(f,('class ', class_name,'(', class_parent_name,'):'), nls=2)
+        w(f,'_rsf = None', nls=1, nle=2)   
+        w(f,('class ', class_name,'(', class_parent_name,'):'), nle=2)
         
     #---------------------------------------------------------------------------
     def write_init(f):
-        w(f,'# Class constructor', tabs=1, nls=2, nle=1)
-        w(f,'def __init__(self, rhino_id=None):', tabs=1, nls=0, nle=1)
-        w(f,'if rhino_id==None:', tabs=2, nls=0, nle=1)
-        w(f,'raise Exception("Use the create... methods to create instances of this class.")', tabs=3, nls=0, nle=1)
-        w(f,'self.rhino_id = rhino_id', tabs=2, nls=0, nle=2)
+        w(f,'# Class constructor', tabs=1)
+        w(f,'def __init__(self, rhino_id=None):', tabs=1)
+        w(f,'if rhino_id==None:', tabs=2)
+        w(f,'raise Exception("Use the create... methods to create instances of this class.")', tabs=3)
+        w(f,'self.rhino_id = rhino_id', tabs=2, nle=2)
     #---------------------------------------------------------------------------
-    def write_class_method(function_name, method_dict, f):
+    def write_class_method(function_name, class_name, method_dict, f):
         #get the param data into a set of lists for easy access
         params_name = []
         params_opt_or_req = []
@@ -108,17 +108,17 @@ def write_rhinoscript_classes(data_dict):
             params_type.append(param_list[param_num][1])            
             params_opt_or_req.append(param_list[param_num][2])
         
-        #get the type of method
-        method_type = method_dict['method_type']
-        
-        #if this is a constructor, make it a class method
-        if method_type == 'CONSTRUCTOR':
+        #if this is a constructor or a class method, make it a class method
+        method_type = method_dict['method_type']        
+        if method_type in ('CONSTRUCTOR', 'CLASS_METHOD'):
             w(f, '@classmethod', tabs=1, nls=1, nle=0)
             self_or_cls = 'cls'
         else:
             self_or_cls = 'self'
+            
         #create the method signature
-        w(f, ('def ', method_dict['method_name']), tabs=1, nls=1, nle=0)
+        method_name = method_dict['method_name']
+        w(f, ('def ', method_name), tabs=1, nls=1, nle=0)
         if num_params > 0:
             params = []
             for i in range(num_params):
@@ -175,11 +175,11 @@ def write_rhinoscript_classes(data_dict):
         
         #now write the function call
         if method_type == 'CONSTRUCTOR':
-            w(f, ('rhino_id = p2r_f.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
+            w(f, ('rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
             if return_type.startswith('_Object') or return_type.startswith('_Entity'):
-                w(f, ('return cls(rhino_id)'), tabs=2, nls=1, nle=2)
+                w(f, ('return '+class_name+'(rhino_id)'), tabs=2, nls=1, nle=2)
             elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity') :
-                w(f, ('return map(lambda i: cls(i), rhino_id)'), tabs=2, nls=1, nle=2)
+                w(f, ('return map(lambda i: '+class_name+'(i), rhino_id)'), tabs=2, nls=1, nle=2)
             else:
                 raise Exception('Cannot understand return type')
         else:
@@ -196,7 +196,7 @@ def write_rhinoscript_classes(data_dict):
         #get the class parent
         class_parent_name = 'object'
         if len(class_list) > 1:
-            class_parent_name = 'p2r.' + class_list[-2]
+            class_parent_name = class_list[-2]
         #get the module name
         module_name = camel_to_underscore(class_name)
         
@@ -204,14 +204,14 @@ def write_rhinoscript_classes(data_dict):
         f = open(out_folder + module_name + '.py', mode='w')
         
         #write header and init
-        write_class_header(class_name, class_parent_name, f)
+        write_class_header(module_name, class_name, class_parent_name, f)
         write_init(f)        
         
         #write each method to the class file
         for function_name in sorted(data_dict[class_str].keys()):
             print class_name
             print function_name
-            write_class_method(function_name, data_dict[class_str][function_name], f)
+            write_class_method(function_name, class_name, data_dict[class_str][function_name], f)
             
         #close the file
         f.close()
@@ -221,6 +221,15 @@ def write_rhinoscript_classes(data_dict):
 #===============================================================================
 def write_init_file(data_dict):
     f = open(out_folder + '__init__.py', mode='w')
+    w(f, ('from win32com.client import Dispatch'))
+    w(f, ('import time'))
+    w(f, ('app = Dispatch("Rhino4.Interface")'))
+    w(f, ('time.sleep(1)'))
+    w(f, ('app.Visible = True'))
+    w(f, ('_rso = app.GetScriptObject'), nle=2)
+
+    w(f, ('from functions._rhinoscript_functions import _RhinoscriptFunctions'))
+    w(f, ('_rsf = _RhinoscriptFunctions(_rso)'), nle=2)
     
     classes = {}
     for class_str in sorted(data_dict.keys()):
@@ -234,7 +243,10 @@ def write_init_file(data_dict):
         classes[class_name] = module_name
         
     for class_name in sorted(classes.keys()):
-        w(f, ('from ', classes[class_name], ' import ', class_name))
+        module_name = classes[class_name]
+        w(f, ('import ', module_name))
+        w(f, (module_name, '._rsf = _rsf'))        
+        w(f, ('from ', module_name, ' import ', class_name))
         
     #close the file
     f.close()
