@@ -63,7 +63,7 @@ class Select(object):
                                                       index)
         p2e.conversation.Exec(arg_str)
 
-    def index(self, index):
+    def index(self, objects):
         """
         
         Selects multiple objects. 
@@ -71,12 +71,15 @@ class Select(object):
         Parameter(s)
         This command takes the following parameters.
         
-        index 
-        Specifies the index of the objects to select. Repeat as required.
+        objects 
+        A list of objects to select.
         
         """
-        arg_str = p2e._util._convert_args_to_string("select.index", 
-                                                      index)
+        eco_ids = ""
+        #for i in objects:
+        #    eco_ids += i.eco_id + ", " 
+            
+        arg_str = p2e._util._convert_args_to_string("select.index", eco_ids)
         p2e.conversation.Exec(arg_str)
         
     def invert(self):
