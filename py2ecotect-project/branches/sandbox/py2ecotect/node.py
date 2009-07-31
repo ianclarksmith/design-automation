@@ -409,12 +409,11 @@ class Node(object):
             This property takes the following parameters.
             
             link 
-            The zero-based index of the object or node to which the specified node 
-            is to be linked.
+            The object or node to which the specified node is to be linked.
             
             """
             arg_str = p2e._util._convert_args_to_string("set.node.link", self.eco_id, 
-                                                          link)
+                                                          link.eco_id)
             p2e.conversation.Exec(arg_str)
         
         return property(**locals())

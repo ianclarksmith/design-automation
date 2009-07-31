@@ -767,7 +767,7 @@ class Rays(object):
             val = p2e.conversation.Request("get.rays.source")
             return p2e._util._convert_str_to_type(val, int)
             
-        def fset(self, index):
+        def fset(self, speaker_object):
             """
             
             Sets the the SPEAKER object to be used as the sound source. 
@@ -775,12 +775,17 @@ class Rays(object):
             Parameter(s)
             This property takes the following parameters.
             
-            index 
-            The zero-based index number of the SPEAKER object to be used. If this 
-            is not specified, the first visible SPEAKER object found will be used. 
+            speaker_object 
+            The SPEAKER object to be used. If this is not specified, the first 
+            visible SPEAKER object found will be used. 
             
             """
-            arg_str = p2e._util._convert_args_to_string("set.rays.source", index)
+            if speaker_object:
+                arg_str = p2e._util._convert_args_to_string("set.rays.source", 
+                                                            speaker_object.eco_id)                
+            else:
+                arg_str = p2e._util._convert_args_to_string("set.rays.source")
+            
             p2e.conversation.Exec(arg_str)
         
         return property(**locals())

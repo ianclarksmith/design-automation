@@ -1,5 +1,4 @@
-import py2ecotect
-from py2ecotect import string_util
+import py2ecotect as p2e
 
 class Results(object):
     
@@ -115,7 +114,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use. 
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -128,7 +127,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.conduction", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
@@ -144,7 +143,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use.
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -154,7 +153,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.daily", 
-                                                      zone)
+                                                      zone.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
@@ -170,7 +169,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use.
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -183,7 +182,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.fabric", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
@@ -199,7 +198,8 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use.
+        
         hour 
         The hour to retrieve, being from 0 to 23. 
         Return Value(s)
@@ -210,7 +210,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.glazingfabric", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
@@ -226,7 +226,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use. 
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -239,7 +239,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.indirect", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
@@ -255,7 +255,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use.
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -268,7 +268,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.internal", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
@@ -284,7 +284,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use.
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -297,7 +297,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.opaquefabric", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
@@ -313,7 +313,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to retrieve. 
+        The zone object to use.
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -326,7 +326,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.solar", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
@@ -342,7 +342,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use.
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -355,7 +355,7 @@ class Results(object):
         
         """ 
         arg_str = p2e._util._convert_args_to_string("get.results.gains.total", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)   
 
@@ -371,7 +371,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use.
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -384,7 +384,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.ventilation", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)   
 
@@ -400,7 +400,7 @@ class Results(object):
         This property takes the following parameters.
         
         zone 
-        The zero-based index of the zone to use. 
+        The zone object to use.
         
         hour 
         The hour to retrieve, being from 0 to 23. 
@@ -413,7 +413,7 @@ class Results(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.results.gains.zonal", 
-                                                      zone, hour)
+                                                      zone.eco_id, hour)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)   
 

@@ -155,7 +155,7 @@ class _Object(object):
         #Update model lists
         p2e.model.objects.remove(self)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
-    def del_node(self, node, Node):
+    def del_node(self, node):
         """
         
         The delnode command removes the specified node from the specified object. 
@@ -164,16 +164,16 @@ class _Object(object):
         This command takes the following parameters.
 
         node 
-        The zero-based node index belonging to the object. 
+        The node belonging to the object. 
         
         """
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delnode", self.eco_id, 
-                                                     node)
+                                                     node.eco_id)
         p2e.conversation.Exec(arg_str)
         
         #Update model lists
-        p2e.model.nodes.remove(Node)
+        p2e.model.nodes.remove(node)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
     def duplicate(self, move_distance):
         """
@@ -212,13 +212,12 @@ class _Object(object):
         This command takes the following parameters.
         
         parent 
-        Specifies the zero-based index of the object the child object is linked 
-        with.
+        Specifies the object the child object is linked with.
         
         """
         arg_str = p2e._util._convert_args_to_string("object.link", 
                                                           self.eco_id, 
-                                                          parent)
+                                                          parent.eco_id)
         p2e.conversation.Exec(arg_str)     
         
     #===========================================================================
@@ -1742,7 +1741,7 @@ class _Object(object):
         This property takes the following parameters.
         
         node 
-        The relative index of the node in the specified object to retrieve. 
+        The node in the specified object to retrieve. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1753,7 +1752,7 @@ class _Object(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.object.node.position", 
-                                                     self.eco_id, node)
+                                                     self.eco_id, node.eco_id)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
 
@@ -1768,7 +1767,7 @@ class _Object(object):
         This property takes the following parameters.
         
         node 
-        The relative index of the node in the specified object to set. 
+        The node in the specified object to set. 
         
         absolute_position 
         A list of three values that represents the absolute position in the 
@@ -1776,7 +1775,7 @@ class _Object(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("set.object.node.position", 
-                                                     self.eco_id, node, 
+                                                     self.eco_id, node.eco_id, 
                                                      absolute_position[0],
                                                      absolute_position[1],
                                                      absolute_position[2])
@@ -2494,72 +2493,72 @@ class Line(_Geometry):
 
 class  Roof(_Plane):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Plane._create_object_by_points("roof", "plane", points)
 
 class  Floor(_Plane):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Plane._create_object_by_points("floor", "plane", points)
 
 class  Ceiling(_Plane):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Plane._create_object_by_points("ceiling", "plane", points)
 
 class  Wall(_Plane):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Plane._create_object_by_points("wall", "plane", points)
 
 class  Partition(_Plane):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Plane._create_object_by_points("partition", "plane", points)
 
 class  Void(_Hole):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Hole._create_object_by_points("void", "plane", points)
 
 class  Window(_Hole):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Hole._create_object_by_points("window", "plane", points)
 
 class  Panel(_Hole):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Hole._create_object_by_points("panel", "plane", points)
 
 class  Door(_Hole):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Hole._create_object_by_points("door", "plane", points)
 
 class  Speaker(_Vector):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Vector._create_object_by_points("speaker", "source", points)
 
 class  Light(_Vector):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Vector._create_object_by_points("light", "source", points)
 
 class  Appliance(_Vector):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Vector._create_object_by_points("appliance", "", points)
 
 class  SolarCollector(_Vector):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Vector._create_object_by_points("solarcollector", "", points)
 
 class  Camera(_Vector):
     @classmethod
-    def create_point(self, points):
+    def create(self, points):
         return _Vector._create_object_by_points("camera", "", points)
 
 

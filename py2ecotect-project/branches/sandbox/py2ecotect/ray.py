@@ -196,7 +196,7 @@ class Ray(object):
     def set_object(self, depth, object):
         """
         
-        Sets the object index at the specified reflection depth. 
+        Sets the object at the specified reflection depth. 
 
         Parameter(s)
         This property takes the following parameters.
@@ -205,11 +205,11 @@ class Ray(object):
         An integer value representing the depth. 
         
         object 
-        The zero-based index of the object.
+        The object to set.
         
         """
         arg_str = p2e._util._convert_args_to_string("set.ray.object", depth, 
-                                                      object)
+                                                      object.eco_id)
         p2e.conversation.Exec(arg_str)
         
     def get_position(self, depth):
@@ -258,11 +258,20 @@ class Ray(object):
         intersected. 
                 
         """
-        arg_str = p2e._util._convert_args_to_string("set.ray.position", depth, 
-                                                      absolute_position[0],
-                                                      absolute_position[1],
-                                                      absolute_position[2],
-                                                      object)
+        if object == "":
+            arg_str = p2e._util._convert_args_to_string("set.ray.position", 
+                                                        depth, 
+                                                        absolute_position[0],
+                                                        absolute_position[1], 
+                                                        absolute_position[2], 
+                                                        object)
+        else:
+            arg_str = p2e._util._convert_args_to_string("set.ray.position", 
+                                                        depth, 
+                                                        absolute_position[0],
+                                                        absolute_position[1], 
+                                                        absolute_position[2], 
+                                                        object.eco_id)
         p2e.conversation.Exec(arg_str)
 
     def get_source(self):
