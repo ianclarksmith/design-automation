@@ -55,7 +55,8 @@ class Select(object):
         This command takes the following parameters.
         
         index 
-        The element type as given in the add.object command. 
+        The element type as given in the add.object command(in ecotect). 
+        For python reference, look at _create_object() in _Object class . 
         
         """
         arg_str = p2e._util._convert_args_to_string("select.element", 
@@ -127,7 +128,7 @@ class Select(object):
                                                       index)
         p2e.conversation.Exec(arg_str)
         
-    def object(self, index):
+    def object(self, object):
         """
         
         Selects the specified object, if it is visible. 
@@ -135,14 +136,12 @@ class Select(object):
         Parameter(s)
         This command takes the following parameters.
         
-        index 
-        The ordinal number of the object to be selected obtained either 
-        programatically (from the add.object command) or by looking at the top 
-        of the Selection Information panel. 
+        object 
+        The object to be selected. 
 
         """
         arg_str = p2e._util._convert_args_to_string("select.object", 
-                                                      index)
+                                                      object.eco_id)
         p2e.conversation.Exec(arg_str)
 
     def parent(self):
@@ -236,7 +235,7 @@ class Select(object):
                                                       index)
         p2e.conversation.Exec(arg_str)
         
-    def zone(self, index):
+    def zone(self, zone):
         """
         
         Selects all visible objects located on the specified zone. 
@@ -244,12 +243,12 @@ class Select(object):
         Parameter(s)
         This command takes the following parameters.
         
-        index 
-        The zero-based index value of the zone to use. 
+        zone 
+        The zone to use. 
         
         """
         arg_str = p2e._util._convert_args_to_string("select.zone", 
-                                                      index)
+                                                      zone.eco_id)
         p2e.conversation.Exec(arg_str)
 
 

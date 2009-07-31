@@ -804,7 +804,7 @@ class Model(object):
         
         return property(**locals())
     
-    def get_next_node(self, object, index):
+    def get_next_node(self, object, node):
         """
         
         Returns the zero-based absolute index of the next node in the specified 
@@ -814,10 +814,10 @@ class Model(object):
         This property takes the following parameters.
         
         object 
-        The zero-based index of the object to use. 
+        The object to use. 
         
         index 
-        The zero-based index of the node within the current object to use. 
+        The node within the current object to use. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -827,7 +827,8 @@ class Model(object):
         value of -1 is returned. 
         
         """
-        args = p2e._util._convert_args_to_string("get.model.nextnode", object, index)
+        args = p2e._util._convert_args_to_string("get.model.nextnode", 
+                                                 object.eco_id, node.eco_id)
         val = p2e.conversation.Request(args)
         return p2e._util._convert_str_to_type(val, int)       
     
@@ -859,8 +860,8 @@ class Model(object):
         parameter, enter it as a negative value, such as -1. 
         
         zone 
-        The zero-based index of the zone to which the object must belong. To 
-        ignore this parameter, enter it as a negative value, such as -1. 
+        The zone to which the object must belong. To ignore this parameter, 
+        enter it as a negative value, such as -1. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -919,7 +920,15 @@ class Model(object):
         32768 *Generic calculation marker. 
     
         """
-        args = p2e._util._convert_args_to_string("get.model.nextobject", startat, type, flag, tag, zone)
+        #When -1 is entered for the zone parameter
+        if zone < 0:
+            args = p2e._util._convert_args_to_string("get.model.nextobject", 
+                                                     startat, type, flag, tag, 
+                                                     zone)
+        else:
+            args = p2e._util._convert_args_to_string("get.model.nextobject", 
+                                                     startat, type, flag, tag, 
+                                                     zone.eco_id)
         val = p2e.conversation.Request(args)
         return p2e._util._convert_str_to_type(val, int)          
     
@@ -1069,7 +1078,7 @@ class Model(object):
         
         return property(**locals())
     
-    def get_prev_node(self, object, index):
+    def get_prev_node(self, object, node):
         """
         
         Returns the zero-based absolute index of the previous node in the 
@@ -1079,10 +1088,10 @@ class Model(object):
         This property takes the following parameters.
         
         object 
-        The zero-based index of the object to use. 
-        index 
+        The object to use. 
         
-        The zero-based index of the current node in the current object to use. 
+        index 
+        The current node in the current object to use. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1092,7 +1101,8 @@ class Model(object):
         a value of -1 is returned. 
         
         """
-        args = p2e._util._convert_args_to_string("get.model.prevnode", object, index)
+        args = p2e._util._convert_args_to_string("get.model.prevnode", 
+                                                 object.eco_id, node.eco_id)
         val = p2e.conversation.Request(args)
         return p2e._util._convert_str_to_type(val, int)        
     
@@ -1124,8 +1134,8 @@ class Model(object):
         this parameter, enter it as a negative value such as -1. 
         
         zone 
-        The zero-based index of the zone to which the object must belong. To 
-        ignore this parameter, enter it as a negative value such as -1. 
+        The zone to which the object must belong. To ignore this parameter, 
+        enter it as a negative value such as -1. 
         
         Return Value(s)
         Getting this property returns the following value(s).
@@ -1184,7 +1194,15 @@ class Model(object):
         32768 *Generic calculation marker. 
         
         """
-        args = p2e._util._convert_args_to_string("get.model.prevobject", startat, type, flag, tag, zone)
+        #When -1 is entered for the zone parameter
+        if zone < 0:
+            args = p2e._util._convert_args_to_string("get.model.prevobject", 
+                                                     startat, type, flag, tag, 
+                                                     zone)
+        else:
+            args = p2e._util._convert_args_to_string("get.model.prevobject", 
+                                                     startat, type, flag, tag, 
+                                                     zone.eco_id)
         val = p2e.conversation.Request(args)
         return p2e._util._convert_str_to_type(val, int)         
     
