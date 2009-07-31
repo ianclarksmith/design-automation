@@ -529,23 +529,6 @@ class Weather(object):
         arg_str = p2e._util._convert_args_to_string("set.weather.temperature", 
                                                      day, hour, value)
         p2e.conversation.Exec(arg_str)     
-    
-    #===========================================================================
-    # Properties
-    #===========================================================================
-    
-    country = property(fget = get_country, fset = set_country, 
-                        doc = "The name of the state/country in the currently"
-                        " loaded weather data set")
-    
-    file = property(fget = get_file, doc = "The full pathname of the currently"
-                    " loaded weather data file")
-    
-    name = property(fget = get_name, doc = "The name of the location in the"
-                    " currently loaded weather data set")
-
-
-
 
 
 

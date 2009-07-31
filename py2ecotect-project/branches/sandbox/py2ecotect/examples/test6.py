@@ -10,8 +10,8 @@ m = Model()
 
 zones = model._zones
 print len(zones)
-print m.get_nodes()
-print m.get_zones()
+print m.number_of_nodes
+print m.zones
 
 
 zn1 = Zone.create_zone("TEST")
@@ -19,16 +19,17 @@ zn1 = Zone.create_zone("TEST")
 
 
 points = [(0,0,0),(10000,0,0),(10000,10000,0),(0,10000,0)]
-wall_1 = Wall.e.create_point(points)
+wall_1 = Wall.create_point(points)
 #print wall_1.get_area()
 #wall_1.add_node((10000,10000,10000))
 
 
 
-objects = zn1.get_objects()
+
+objects = zn1.objects
 nodes = []
 for i in objects:
-    nodes.append(i.get_nodes())
+    nodes.append(i.nodes)
 
 print nodes
 

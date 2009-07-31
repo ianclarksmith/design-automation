@@ -15,7 +15,7 @@ class _Object(object):
         #assert obj.eco_id == object_eco_id
         
         #update model nodes lists
-        for node_num in range(obj.first_node(), obj.last_node()):
+        for node_num in range(obj.first_node, obj.last_node):
             p2e.Node._create_node_from_id(object_eco_id, node_num)
         
         #update object properties and lists
@@ -1800,7 +1800,7 @@ class _Object(object):
             
             """
             nodes = []
-            for node_num in range(self.get_first_node(), self.get_last_node()):
+            for node_num in range(self.first_node, self.last_node):
                 nodes.append(p2e.model._nodes[node_num])
             return nodes
         
