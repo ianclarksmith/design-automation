@@ -5,6 +5,7 @@ from py2ecotect.view import View
 from py2ecotect import model
 from py2ecotect.model import Model
 from py2ecotect.results import Results
+from py2ecotect.select import Select
 
 m = Model()
 #m.load_new()
@@ -24,6 +25,10 @@ wall_1 = Wall.create(points)
 #print wall_1.get_area()
 #wall_1.add_node((10000,10000,10000))
 #print "Next object:" , m.get_next_object(-1, -1, -1, -1, zn1)
+
+sel = Select()
+sel.index([wall_1])
+
 
 res = Results()
 print res.get_gains_conduction(zn1, 3)
