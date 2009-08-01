@@ -531,33 +531,3 @@ class Weather(object):
         p2e.conversation.Exec(arg_str)     
 
 
-
-if __name__ == "__main__":
-    x = Weather()
-    
-    #x.load("C:\Program Files\Autodesk\Ecotect 2009\Weather\Germany-Munich.wea")
-    #print x.get_beam_solar(300, 17)
-    #x.set_beam_solar(300, 17, 500)
-    #print x.get_cloudiness(300, 17)
-    #x.set_cloudiness(300, 17, 75)
-    #print x.get_country()
-    #x.set_country("Singapore")
-    #print x.get_diffuse_solar(300, 17)
-    #x.set_diffuse_solar(300, 17, 88)
-    #print x.get_direction(300, 17)
-    #x.set_direction(300, 17, 4)
-    #print x.get_file()
-    #print x.get_name()
-    #x.set_name("TEST")
-    #print x.get_rainfall(300, 17)
-    #x.set_rainfall(300, 17, 100)
-    #print x.get_speed(300, 17)
-    #x.set_speed(300, 17, 45.7)
-    #print x.get_temperature(300, 17)
-    #x.set_temperature(300, 17, 45.9)
-    
-    print x.file
-
-    
-
-    print "Tests completed"

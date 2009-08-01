@@ -312,15 +312,3 @@ class Ray(object):
                                                       absolute_position[2])
         p2e.conversation.Exec(arg_str)
     
-if __name__ == "__main__":
-    x = Ray()
-    
-    #print x.get_object(3)
-    #print x.get_position(3)
-    #x.set_position(3, 50, 80, 10, 1)
-    #print x.get_source()
-    #print x.depth
-    #x.depth = 9
-    
-
-    print "Tests completed"

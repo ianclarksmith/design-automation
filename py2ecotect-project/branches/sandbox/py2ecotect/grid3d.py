@@ -451,28 +451,3 @@ class Grid3D(object):
                                                       offset_distance[2])
         p2e.conversation.Exec(arg_str)
 
-
-
-
-
-if __name__ == "__main__":
-    x = Grid3D()
-    
-    #x.delete()
-    #x.getframe(4)
-    #x.reset()
-    #x.get_blockage(5, 3, 4, 64)
-    #print x.get_cell(15, 25, 4)
-    #x.set_cell(15, 25, 4, 0.32)
-    #x.get_index(5500.0, 2500.0, 1800.0)
-    #print x.get_position(21, 34, 12)
-    #print x.get_state(12, 15, 7)
-    #x.set_state(12, 15, 7, -99)
-    #print x.get_value(5500.0, 2500.0, 1800.0, 0)
-    #print x.get_vector(24, 42, 12)
-    #x.set_vector(24, 42, 12, 0, -230, -900)
-    
-    
-    
-    
-    print "Tests completed"

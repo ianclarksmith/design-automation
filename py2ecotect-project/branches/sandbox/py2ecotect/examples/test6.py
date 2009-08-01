@@ -1,6 +1,6 @@
 from py2ecotect.zone import Zone
 from py2ecotect.object import _Object
-from py2ecotect.object import Wall
+from py2ecotect.object import *
 from py2ecotect.view import View
 from py2ecotect import model
 from py2ecotect.model import Model
@@ -26,8 +26,11 @@ wall_1 = Wall.create(points)
 #wall_1.add_node((10000,10000,10000))
 #print "Next object:" , m.get_next_object(-1, -1, -1, -1, zn1)
 
+points = [(13600,5300,0)]
+point_1 = Point.create(points)
+
 sel = Select()
-sel.index([wall_1])
+sel.index([wall_1, point_1])
 
 
 res = Results()

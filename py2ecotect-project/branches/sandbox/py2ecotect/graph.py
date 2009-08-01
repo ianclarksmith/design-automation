@@ -911,47 +911,6 @@ class Graph(object):
         
         return property(**locals())
 
-if __name__ == "__main__":
-    
-    x = Graph()
-    #copy("wmf")
-    #x.dock()
-    #draw()
-    #draw_arrow2d(20, 40)
-    #draw_arrowto(70, 110, 100)
-    #draw_cross(2300.0, 5400.0, 2400.0)
-    #draw_line2d(100, 200)
-    #draw_lineto(50, 100, 150)
-    #draw_move2d(100,200)
-    #draw_pixel(100, 150, 500)
-    #draw_point(50, 100, 100)
-    #draw_sphere(50, 100, 100, 1000)
-    #draw_text(50, 100, 100, "TEST")
-    #mouseevent("rclick", 15, 45)
-    #pandown()
-    #redraw()
-    #save("C:\Test\graph1.bmp")
-    #save_results("C:\Test\graph1results.csv")
-    #save_wmf("C:\Test\graph1results.wmf")
-    #show()
-    #zoomin()
-    #zoomout()
-    #print get_font()
-    #set_font(8, "Arial")
-    #print get_pen()
-    #set_pen("FFFF99", 3)
-    #print get_point(200, 400, 0)
-    #print get_pos()
-    #set_pos(480, 640)
-    #print get_size()
-    #set_size(500,250)
-    #print x.get_tab()
-    #set_tab(0)
-    
-    #print x.tab
-    #x.tab = 3
-    
-    print "Tests completed"
     
     
     

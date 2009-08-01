@@ -898,17 +898,3 @@ class Selection(object):
         return property(**locals())
     
     
-if __name__ == "__main__":
-    x = Selection()
-    #x.delete()
-    
-    #print x.get_alternate()
-    #print x.get_count()
-    #print x.get_length()
-    #print x.get_material()
-    #x.set_material(39, 0)
-    #print x.underground
-
-    
-
-    print "Tests completed"

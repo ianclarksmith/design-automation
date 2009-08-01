@@ -1990,23 +1990,3 @@ class Material(object):
         arg_str = p2e._util._convert_args_to_string("set.material.weight", 
                                                      material, value)
         p2e.conversation.Exec(arg_str)
-
-if __name__ == "__main__":
-    x = Material()
-    
-    #x.edit(54)
-    #print x.get_absorption(54)
-    #x.set_absorption(54, 0.98)
-    #print x.get_admittance(34)
-    #x.set_admittance(34, 10.000)
-    #print x.get_colour(34)
-    #x.set_colour(34, "0xFF8800", "0xFF8800")
-    #print x.get_costperunit(34)
-    #x.set_costperunit(34, 5.50)
-    #print x.get_costtype(34)
-    #print x.get_layer_conductivity(34, 2)
-    #print x.get_layer_width(34, 2)
-    
-    
-    
-    print "Tests completed"

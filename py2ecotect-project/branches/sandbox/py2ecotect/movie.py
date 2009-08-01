@@ -503,11 +503,3 @@ class Movie(object):
             
         return property(**locals())    
 
-
-if __name__ == "__main__":
-    x = Movie()
-    
-    #x.add_frame()
-    #print x.filename
-
-    print "Tests completed"

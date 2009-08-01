@@ -169,19 +169,3 @@ class Timer(object):
         return property(**locals())
 
     
-if __name__ == "__main__":
-    x = Timer()
-    
-    
-    #print x.get_count()
-    #x.set_count(12)
-    #print x.get_interval()
-    #x.set_interval(55)
-    #print x.get_running()
-    #x.set_running(0)
-    #x.start()
-    #print x.running
-    #x.running = 1
-    
-
-    print "Tests completed"

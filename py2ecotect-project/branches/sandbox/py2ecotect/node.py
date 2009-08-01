@@ -623,25 +623,3 @@ class Node(object):
                                                           self.eco_id, type, link)
             p2e.conversation.Exec(arg_str)
             
-if __name__ == "__main__":
-    #x = Node(255, 3, 1000, 2000, 0)
-    
-    #print x.id
-    #x.move(101, 0, 0, 1500)
-    #print x.add_node(102, 3, 1000, 2000, 0,)
-    #print x.get_flag(1636, "text")
-    #x.set_flag(1636, "text", "False")
-    #print x.get_flags(1636)
-    #print x.get_link(1636)
-    #x.set_link(1636, 25)
-    #print x.get_modifier(1636)
-    #x.set_modifier(1636, 2400)
-    #print x.get_position(9055)
-    #x.set_position(1636, 1200, 2321, 600.0)
-    #print x.get_selected(1636)
-    #x.set_selected(1636)
-    #print x.get_type(9055)
-    #x.set_type(9055, 8)
-    
-    
-    print "Tests completed"

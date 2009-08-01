@@ -829,18 +829,5 @@ class Rays(object):
         
         return property(**locals())
 
-    
-if __name__ == "__main__":
-    x = Rays()
-    
-    #print x.get_altitude()
-    #x.set_altitude(54)
-    #print x.get_max_distance()
-    #print x.get_reflections()
-    #print x.get_scale()
-    #print x.units
-    #x.units = "TEST"
-    
 
-    print "Tests completed"
 

@@ -470,28 +470,3 @@ class Masks(object):
         arg_str = p2e._util._convert_args_to_string("set.masks.shading", index, 
                                                      azi, alt, value)
         p2e.conversation.Exec(arg_str)
-
-if __name__ == "__main__":
-    x = Masks()
-    
-    #x.clear()
-    #x.copy(1, 5)
-    # x.interpolate(10, 2, 5, 0.5)
-    #x.load()
-    #x.save()
-    #x.update(1)
-    #print x.add_mask(3)
-    #print x.get_count()
-    #print x.get_data(4, 9, 8)
-    #x.set_data(4, 9, 8, 0.225)
-    #print x.get_object(2)
-    #print x.get_percentage(1)
-    #print x.get_percentage_angle(1, 45, 90)
-    #print x.get_percentage_datetime(4, 300, 15)
-    #print x.get_percentage_index(1, 5, 5)
-    #print x.get_shading(4, 0, 45)
-    #x.set_shading(1, 0, 45, 0.5)
-    #print x.count
-    
-    
-    print "Tests completed"

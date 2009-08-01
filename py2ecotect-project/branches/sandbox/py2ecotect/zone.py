@@ -2969,35 +2969,3 @@ class Zone(object):
         
         return property(**locals())
     
-
-if __name__ == "__main__":
-    #x = Zone("HELLO")
-    #print x.id
-    #print x.activity
-    #x.activity = 9
-    #print x.admittance
-    #x.admittance = 2.5
-    #print x.airspeed
-    #x.airspeed = 22.5
-    #print x.applianceenergy
-    #x.applianceenergy = 0.99
-    #print x.get_reverbtime(0)
-    #print x.get_ventilationrate()
-    #x.set_ventilationrate(0.49)
-    #print x.get_volume()
-    #print x.get_windowarea()
-    #x.set_windowarea(5)
-    #print x.windowarea
-    #print x.colour
-    #x.windowarea = 2.5
-    #print x.get_floor_area()
-    #x.set_floor_area(2.5)
-    #print x.get_heating(9)
-    #print x.get_interzonal_gains()
-    
-    """PROBLEM
-    print x.set_selected(False)
-    """
-    
-
-    print "Tests completed"

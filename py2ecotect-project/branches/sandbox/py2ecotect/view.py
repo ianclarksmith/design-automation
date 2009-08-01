@@ -1043,27 +1043,3 @@ class View(object):
         return p2e._util._convert_str_to_type(val, int)
     
         
-
-if __name__ == "__main__":
-    x = View()
-    
-    #x.copy()
-    #x.draw_arrow2d(100, 250)
-    #x.draw_arrowto(50, 100, 100)
-    #x.draw_cross(2300.0, 5400.0, 2400.0)
-    #x.draw_text(2300, 5400, 2400, "TEST")
-    #x.save("C:\\Test\\myview.wmf", "wmf")
-    #print x.get_align()
-    #x.set_align(6)
-    #print x.get_font()
-    #x.set_font(12, "Arial")
-    #print x.get_grid_max()
-    #print x.get_pen()
-    #x.set_pen("FF8800", 10, 0.9)
-    #print x.get_point(100, 50, 100)
-    #print x.align
-    #x.align = 24
-    
-    
-
-    print "Tests completed"
