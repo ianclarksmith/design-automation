@@ -1607,58 +1607,6 @@ class Application(object):
                                                      height)
         p2e.conversation.Exec(arg_str)
 
-
-
-
-
-
-
-if __name__ == "__main__":
-    x = Application()
-    #activate()
-    #alert("Bye",  "warning")
-    #busy("open","BUSY")
-    #center()
-    #character("HHH")
-    #exit()
-    #key(144)
-    #maximise(0)
-    #menu("file.export.external")
-    #minimise(0)
-    #mouseevent("rclick", 100, 150)
-    #progress(25)
-    #run("AcousticRays.scr")
-    #status("Reading zone data|Please wait...")
-    #print x.get_computer()
-    #print get_image(0, "MyImage12.jpg")
-    #print get_menu_tool(7) 
-    #print get_page()
-    #set_page(1)
-    #print get_panel()
-    #set_panel(9)
-    #print get_path()
-    #print get_screen()
-    #get_slider_range()
-    #set_slider_range(-180, 180, 15, 1, 30)
-    #print get_slider_scale()
-    #print get_slider_title()
-    #set_slider_title("BYE!!")
-    #print get_username()
-    #print get_web_file("http://squ1.org/example.cgi?type=ModelData")
-    #print get_web_line("9")
-    #print get_web_page("http://squ1.org/exampleData?type=wea")
-    #print get_window()
-    #set_window(50, 25, 640, 480)
-    #print x.computer
-    #print x.username
-    #print x.get_menu_tool(9)
-    #x.set_menu_tool(9, "Therm 6.0|C:\\Tools\\Therm6.exe")
-    #print x.get_menu_wizard(7)
-    #x.set_menu_wizard(7, "My Zone Wizard|C:\\Temp\\MyZoneWizard.scr")
-    #print x.computer
-    
-    
-    print "Tests completed"
         
         
         

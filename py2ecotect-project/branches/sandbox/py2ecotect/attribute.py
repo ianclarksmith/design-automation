@@ -273,22 +273,6 @@ class Attribute(object):
                                                       type, units)
         p2e.conversation.Exec(arg_str)
 
-if __name__ == "__main__":
-    x = Attribute()
-    
-    #set_flag("text", False)
-    #print get_flag(1)
-    #print get_flags()
-    #set_name(0, "")
-    #print get_name(0)
-    #set_scale(100, 1000)
-    #print get_scale()
-    #set_type(0, 42)
-    #set_units(1, "LUX" )
-    #print get_units(1)
-    
-    print "Tests completed"
-    
     
     
     

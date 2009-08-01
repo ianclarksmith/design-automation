@@ -440,16 +440,4 @@ class Sunpath(object):
         
         return property(**locals())
     
-
-if __name__ == "__main__":
-    x = Sunpath()
-    
-    #print x.get_display()
-    #print x.get_focus()
-    #print x.get_pos()
-    #print x.get_size()
-    #print x.visible
-    
-
-    print "Tests completed"
  

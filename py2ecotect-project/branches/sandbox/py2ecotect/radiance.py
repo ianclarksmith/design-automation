@@ -812,20 +812,3 @@ class Radiance(object):
         
         return property(**locals())    
 
-
-if __name__ == "__main__":
-    x = Radiance()
-    
-    #x.load("C:\\Program Files\\Autodesk\\Ecotect 2009\\Weather\\UK-LondonE")
-    #print x.get_action()
-    #x.set_action(2)
-    #print x.get_flag(1024)
-    #x.set_flag(1024)
-    #print x.get_lights()
-    #x.set_lights(2)
-    #print x.get_resolution()
-    #print x.view_type
-    #x.view_type = 1
-
-
-    print "Tests completed"

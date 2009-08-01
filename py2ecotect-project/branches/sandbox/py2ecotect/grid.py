@@ -1122,55 +1122,6 @@ class Grid(object):
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
-
-if __name__ == "__main__":
-    x = Grid()
-    
-    #x.export("C:\\Test\\grid.csv")
-    #x.fit_selection(True)
-    #x.fit_values()
-    #x.import_data("C:\\Test\\grid.csv")
-    #x.reset()
-    #x.save("C:\\Test\\grid.grd")
-    #x.show()
-    #print x.get_average()
-    #print x.get_axis()
-    #x.set_axis(1)
-    #print x.get_cell(5, 5, 3)
-    #x.set_cell(5, 5, 3.1415, 3)
-    #print x.get_data()
-    #x.set_data(3)
-    #print x.get_description(1)
-    #x.set_description(1, "TEST")
-    #print x.get_flag(1)
-    #x.set_flag(1)
-    #x.set_fraction(0.75)
-    #print x.get_max()
-    #x.set_max(5000, 7500, 3000)
-    #print x.get_min()
-    #x.set_min(5000, 7500, 3000)
-    #print x.get_offset()
-    #x.set_offset(700)
-    #print x.get_position(5, 10)
-    #x.set_position(12, 24, 1500.0)
-    #print x.get_range()
-    #print x.get_scale()
-    #x.set_scale(3000, 10000, 500)
-    #print x.get_size()
-    #x.set_size(25, 40, 16)
-    #print x.get_state(5, 10)
-    #x.set_state(5, 10, -99)
-    #print x.get_title()
-    #x.set_title("TEST")
-    #print x.get_units(3)
-    #x.set_units("W/m2", 3)
-    #print x.get_vector(5, 10)
-    #x.set_vector(5, 10, 0, 245, 100)
-    #print x.get_zone(5, 3, True)
-    #print x.title
-    #x.title = "TEST"
-    
-    print "Tests completed"
     
     
     

@@ -555,11 +555,3 @@ class Project(object):
         
         return property(**locals())
 
-
-if __name__ == "__main__":
-    x = Project()
-    #x.type = 3
-    #print x.title
-    #x.title = "HELLO"
-    
-    print "Tests completed"

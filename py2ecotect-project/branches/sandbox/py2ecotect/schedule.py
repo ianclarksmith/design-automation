@@ -450,19 +450,3 @@ class Schedule(object):
                                                      schedule, index, name)
         p2e.conversation.Exec(arg_str)
 
-
-
-
-        
-    
-    
-    
-    
-if __name__ == "__main__":
-    x = Schedule()
-    
-    #x.add("HELLO")
-
-    
-
-    print "Tests completed"

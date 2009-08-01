@@ -340,17 +340,3 @@ class Project_Data(object):
         p2e.conversation.Exec(arg_str)
 
 
-if __name__ == "__main__":
-    x = Project_Data()
-    
-    #print x.get_data("EXPORT.RADIANCE.MYDATA")
-    #x.set_data("EXPORT.RADIANCE.MYDATA", "TEST")
-    #x.set_data(["EXPORT.RADIANCE.MYDATA", "asd"])
-    #x.add_data("EXPORT.RADIANCE.MYDATA", "xcvx")
-    #print x.get_format("EXPORT.RADIANCE.MYDATA")
-    #x.format = ["EXPORT.RADIANCE.MYDATA",1]
-    #x.set_format("EXPORT.RADIANCE.MYDATA", 2)
-    #print x.get_param("EXPORT.RADIANCE.MYDATA", "title")
-    #x.set_param("EXPORT.RADIANCE.MYDATA", "title=This is a test")
-    
-    print "Tests completed"

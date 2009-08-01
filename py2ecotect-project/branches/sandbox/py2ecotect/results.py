@@ -682,14 +682,3 @@ class Results(object):
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
-
-
-
-if __name__ == "__main__":
-    x = Results()
-    
-    #print x.get_array(3, 7)
-    #print x.get_gains_glazing_fabric(12, 3)
-    
-
-    print "Tests completed"

@@ -543,12 +543,3 @@ class Shading(object):
         
         return property(**locals())
     
-
-if __name__ == "__main__":
-    x = Shading()
-    
-    #print x.get_components()
-    #print x.sky_component
-    
-
-    print "Tests completed"

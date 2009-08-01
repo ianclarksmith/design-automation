@@ -76,8 +76,8 @@ class Select(object):
         
         """
         eco_ids = ""
-        #for i in objects:
-        #    eco_ids += i.eco_id + ", " 
+        for i in objects:
+            eco_ids += str(i.eco_id) + ", "
             
         arg_str = p2e._util._convert_args_to_string("select.index", eco_ids)
         p2e.conversation.Exec(arg_str)
