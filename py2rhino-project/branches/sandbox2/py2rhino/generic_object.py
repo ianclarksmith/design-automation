@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._object_root import _ObjectRoot
 from py2rhino._object_root_functions_groups import _ObjectRootFunctionsGroups
 from py2rhino._object_root_functions_material import _ObjectRootFunctionsMaterial
@@ -32,8 +33,3 @@ class GenericObject(_ObjectRoot):
         self.transform = _ObjectRootFunctionsTransform(rhino_id)
         self.type = _ObjectRootFunctionsType(rhino_id)
         self.utility = _ObjectRootFunctionsUtil(rhino_id)
-
-    def delete(self, ):
-
-        return _rsf.delete_objects(self.rhino_id)
-

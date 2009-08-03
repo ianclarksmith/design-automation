@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 
 _rsf = None
 
@@ -14,12 +15,8 @@ class _ObjectRootFunctionsGroups(object):
         self.rhino_id = rhino_id
 
 
-    def groups(self, ):
-
+    def groups(self):
         return _rsf.object_groups(self.rhino_id)
 
-
-    def top_group(self, ):
-
+    def top_group(self):
         return _rsf.object_top_group(self.rhino_id)
-

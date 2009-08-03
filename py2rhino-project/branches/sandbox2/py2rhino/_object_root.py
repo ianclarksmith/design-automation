@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 
 _rsf = None
 
@@ -14,7 +15,5 @@ class _ObjectRoot(object):
         self.rhino_id = rhino_id
 
 
-    def delete(self, ):
-
+    def delete(self):
         return _rsf.delete_objects(self.rhino_id)
-

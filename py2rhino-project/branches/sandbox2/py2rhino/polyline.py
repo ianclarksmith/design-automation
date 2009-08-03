@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root import _CurveRoot
 from py2rhino._curve_root_functions_area import _CurveRootFunctionsArea
 from py2rhino._polyline_attributes import _PolylineAttributes
@@ -48,15 +49,17 @@ class Polyline(_CurveRoot):
 
         rhino_id = _rsf.add_polyline(points)
 
-
-        return Polyline(rhino_id)
-
+        if rhino_id:
+            return Polyline(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_polyline_from_curve(cls, curve, angle_tolerance=pythoncom.Empty, tolerance=pythoncom.Empty, delete_input=pythoncom.Empty):
 
         rhino_id = _rsf.convert_curve_to_polyline(curve.rhino_id, angle_tolerance, tolerance, delete_input)
 
-
-        return Polyline(rhino_id)
-
+        if rhino_id:
+            return Polyline(rhino_id)
+        else:
+            return None

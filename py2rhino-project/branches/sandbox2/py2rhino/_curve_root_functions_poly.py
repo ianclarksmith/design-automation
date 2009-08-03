@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 
 _rsf = None
 
@@ -16,5 +17,5 @@ class _CurveRootFunctionsPoly(object):
 
     def explode(self, delete=pythoncom.Empty):
 
-        return _rsf.explode_curves(self.rhino_id, delete)
+        return map(lambda i: _CurveRoot(i), rhino_id)
 

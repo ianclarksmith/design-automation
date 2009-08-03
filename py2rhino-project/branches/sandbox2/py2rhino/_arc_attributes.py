@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root_attributes import _CurveRootAttributes
 
 _rsf = None
@@ -15,22 +16,14 @@ class _ArcAttributes(_CurveRootAttributes):
         self.rhino_id = rhino_id
 
 
-    def angle(self, index=pythoncom.Empty):
+    def angle(self):
+        return _rsf.arc_angle(self.rhino_id, pythoncom.Empty)
 
-        return _rsf.arc_angle(self.rhino_id, index)
+    def center_point(self):
+        return _rsf.arc_center_point(self.rhino_id, pythoncom.Empty)
 
+    def mid_point(self):
+        return _rsf.arc_mid_point(self.rhino_id, pythoncom.Empty)
 
-    def center_point(self, index=pythoncom.Empty):
-
-        return _rsf.arc_center_point(self.rhino_id, index)
-
-
-    def mid_point(self, index=pythoncom.Empty):
-
-        return _rsf.arc_mid_point(self.rhino_id, index)
-
-
-    def radius(self, index=pythoncom.Empty):
-
-        return _rsf.arc_radius(self.rhino_id, index)
-
+    def radius(self):
+        return _rsf.arc_radius(self.rhino_id, pythoncom.Empty)

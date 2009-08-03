@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root import _CurveRoot
 from py2rhino._curve_root_functions_area import _CurveRootFunctionsArea
 from py2rhino._curve_root_functions_evaluate import _CurveRootFunctionsEvaluate

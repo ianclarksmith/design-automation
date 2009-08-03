@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 
 _rsf = None
 
@@ -14,12 +15,8 @@ class _ObjectRootFunctionsMaterial(object):
         self.rhino_id = rhino_id
 
 
-    def index(self, ):
-
+    def index(self):
         return _rsf.object_material_index(self.rhino_id)
 
-
     def source(self, source=pythoncom.Empty):
-
         return _rsf.object_material_source(self.rhino_id, source)
-

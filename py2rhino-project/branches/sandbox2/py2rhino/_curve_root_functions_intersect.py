@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 
 _rsf = None
 
@@ -16,15 +17,11 @@ class _CurveRootFunctionsIntersect(object):
 
     def brep_intersection(self, brep, tolerance=pythoncom.Empty):
 
-        return _rsf.curve_brep_intersect(self.rhino_id, brep, tolerance)
+        return map(lambda i: _CurveRoot(i), rhino_id)
 
 
     def curve_intersection(self, curve=pythoncom.Empty, tolerance=pythoncom.Empty):
-
         return _rsf.curve_curve_intersection(self.rhino_id, curve, tolerance)
 
-
     def surface_intersection(self, surface, tolerance=pythoncom.Empty, angle_tolerance=pythoncom.Empty):
-
         return _rsf.curve_surface_intersection(self.rhino_id, surface, tolerance, angle_tolerance)
-

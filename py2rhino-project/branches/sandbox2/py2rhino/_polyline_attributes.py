@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root_attributes import _CurveRootAttributes
 
 _rsf = None
@@ -15,7 +16,5 @@ class _PolylineAttributes(_CurveRootAttributes):
         self.rhino_id = rhino_id
 
 
-    def vertices(self, index=pythoncom.Empty):
-
-        return _rsf.polyline_vertices(self.rhino_id, index)
-
+    def vertices(self):
+        return _rsf.polyline_vertices(self.rhino_id, pythoncom.Empty)

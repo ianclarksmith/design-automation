@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root import _CurveRoot
 from py2rhino._arc_attributes import _ArcAttributes
 from py2rhino._curve_root_functions_evaluate import _CurveRootFunctionsEvaluate
@@ -46,24 +47,27 @@ class Arc(_CurveRoot):
 
         rhino_id = _rsf.add_arc(plane, radius, angle)
 
-
-        return Arc(rhino_id)
-
+        if rhino_id:
+            return Arc(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_arc_3pt(cls, start, end, point):
 
         rhino_id = _rsf.add_arc_3_pt(start, end, point)
 
-
-        return Arc(rhino_id)
-
+        if rhino_id:
+            return Arc(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_arc_fillet(cls, curve_0, curve_1, radius=pythoncom.Empty, point_0=pythoncom.Empty, point_1=pythoncom.Empty):
 
         rhino_id = _rsf.add_fillet_curve(curve_0.rhino_id, curve_1.rhino_id, radius, point_0, point_1)
 
-
-        return Arc(rhino_id)
-
+        if rhino_id:
+            return Arc(rhino_id)
+        else:
+            return None

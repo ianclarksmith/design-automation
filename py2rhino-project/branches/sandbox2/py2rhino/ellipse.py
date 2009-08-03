@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root import _CurveRoot
 from py2rhino._curve_root_functions_area import _CurveRootFunctionsArea
 from py2rhino._ellipse_attributes import _EllipseAttributes
@@ -48,15 +49,17 @@ class Ellipse(_CurveRoot):
 
         rhino_id = _rsf.add_ellipse(plane, x_radius, y_radius)
 
-
-        return Ellipse(rhino_id)
-
+        if rhino_id:
+            return Ellipse(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_ellipse_3pt(cls, center, second, third):
 
         rhino_id = _rsf.add_ellipse_3_pt(center, second, third)
 
-
-        return Ellipse(rhino_id)
-
+        if rhino_id:
+            return Ellipse(rhino_id)
+        else:
+            return None
