@@ -1,35 +1,35 @@
-str2_pt = {
-    "input_folder_name": "Utility_Methods",
-    "input_file_name": "Str2Pt",
-    "output_package_name": "utility",
-    "output_module_name": "str2_pt",
+delete_object = {
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "DeleteObject",
+    "output_package_name": "object",
+    "output_module_name": "delete_object",
 
     "doc_html": """
-        Converts a formatted string value into a 3-D point value.
+        Deletes a single object from the document.
     """,
 
     "syntax_html": {
-        0: ("strPoint"),
+        0: ("strObject"),
     },
 
     "params_html": {
         0: {
-            "name": "strPoint",
-            "py_name": "point",
+            "name": "strObject",
+            "py_name": "object",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
-            "name_main": "Point",
+            "name_main": "Object",
             "doc": """
-        A string that contains a delimited point like "1,2,3".
+        The identifier of the object to delete.
             """
         },
     },
 
     "returns_html": {
         0: {
-            "type": "array",
-            "doc": "A 3-D point if successful."
+            "type": "boolean",
+            "doc": "True or false indicating success or failure."
         },
         1: {
             "type": "null",
@@ -37,11 +37,11 @@ str2_pt = {
         },
     },
 
-    "id_com": 409,
+    "id_com": 185,
 
     "params_com": {
         0: {
-            "name": "vaStr",
+            "name": "vaObject",
             "opt_or_req": "Required",
             "type": "tagVARIANT",
         },

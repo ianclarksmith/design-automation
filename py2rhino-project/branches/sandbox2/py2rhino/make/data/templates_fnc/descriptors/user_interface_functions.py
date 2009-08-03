@@ -98,6 +98,14 @@ get_linetype = {
     "function_parameters": (("linetype","str","OPT"),),
     "function_returns": ("string","null")
     }
+get_point = {
+    "function_location": "user_interface",
+    "function_com_id": 61,
+    "function_vb_name": "GetPoint",
+    "function_name": "get_point",
+    "function_parameters": (("message","str","OPT"),("point","arr","OPT"),("distance","dbl","OPT"),("plane","bln","OPT")),
+    "function_returns": ("array","null")
+    }
 get_point_on_curve = {
     "function_location": "user_interface",
     "function_com_id": 147,
@@ -233,6 +241,14 @@ multi_list_box = {
     "function_name": "multi_list_box",
     "function_parameters": (("items","array_of str","REQ"),("message","str","OPT"),("title","str","OPT")),
     "function_returns": ("array","null")
+    }
+open_file_name = {
+    "function_location": "user_interface",
+    "function_com_id": 151,
+    "function_vb_name": "OpenFileName",
+    "function_name": "open_file_name",
+    "function_parameters": (("title","str","OPT"),("filter","str","OPT"),("folder","str","OPT"),("filename","str","OPT"),("extension","str","OPT")),
+    "function_returns": ("string","null")
     }
 open_file_names = {
     "function_location": "user_interface",

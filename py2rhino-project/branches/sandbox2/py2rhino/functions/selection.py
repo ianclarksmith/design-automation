@@ -16,6 +16,10 @@ def get_curve_object(message=pythoncom.Empty, pre_select=pythoncom.Empty, select
 
     return _rsf.get_curve_object(message, pre_select, select)
 
+def get_object(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
+
+    return _rsf.get_object(message, type, pre_select, select, objects)
+
 def get_object_ex(message=pythoncom.Empty, type=pythoncom.Empty, pre_select=pythoncom.Empty, select=pythoncom.Empty, objects=pythoncom.Empty):
 
     return _rsf.get_object_ex(message, type, pre_select, select, objects)

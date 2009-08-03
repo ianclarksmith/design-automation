@@ -49,7 +49,7 @@ string_to_type_map = {
     #"array_of ???":"Array of ???", 
     "va":"Variant",
     "n":"Integer",
-    #"arr":"Array of ????"
+    "arr":"Array of ????"
 }
 
 #mapping from type to magic numbers
@@ -72,5 +72,5 @@ string_to_magic_map = {
     #"array_of ???":"VT_VARIANT",               
     "va":"VT_VARIANT",
     "n":"VT_I2",
-    #"arr":"VT_VARIANT"
+    "arr":"VT_VARIANT"
 }

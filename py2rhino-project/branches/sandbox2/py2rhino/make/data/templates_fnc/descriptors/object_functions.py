@@ -18,6 +18,22 @@ box_morph_object = {
     "function_parameters": (("objects","array_of str","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("string","array","null")
     }
+copy_object = {
+    "function_location": "object",
+    "function_com_id": 184,
+    "function_vb_name": "CopyObject",
+    "function_name": "copy_object",
+    "function_parameters": (("object","str","REQ"),("start","arr","OPT"),("end","arr","OPT")),
+    "function_returns": ("string","null")
+    }
+copy_object_2 = {
+    "function_location": "object",
+    "function_com_id": 184,
+    "function_vb_name": "CopyObject",
+    "function_name": "copy_object_2",
+    "function_parameters": (("object","str","REQ"),("translation","arr","OPT")),
+    "function_returns": ("string","null")
+    }
 copy_objects = {
     "function_location": "object",
     "function_com_id": 295,
@@ -33,6 +49,14 @@ copy_objects_2 = {
     "function_name": "copy_objects_2",
     "function_parameters": (("translation","array_of dbl","OPT"),),
     "function_returns": ("array","null")
+    }
+delete_object = {
+    "function_location": "object",
+    "function_com_id": 185,
+    "function_vb_name": "DeleteObject",
+    "function_name": "delete_object",
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("boolean","null")
     }
 delete_objects = {
     "function_location": "object",
@@ -57,6 +81,14 @@ flash_object = {
     "function_name": "flash_object",
     "function_parameters": (("objects","array_of str","REQ"),("style","bln","OPT")),
     "function_returns": ()
+    }
+hide_object = {
+    "function_location": "object",
+    "function_com_id": 187,
+    "function_vb_name": "HideObject",
+    "function_name": "hide_object",
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("boolean","null")
     }
 hide_objects = {
     "function_location": "object",
@@ -170,6 +202,14 @@ is_visible_in_view = {
     "function_parameters": (("object","str","REQ"),("view","str","OPT")),
     "function_returns": ("null",)
     }
+lock_object = {
+    "function_location": "object",
+    "function_com_id": 190,
+    "function_vb_name": "LockObject",
+    "function_name": "lock_object",
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("boolean","null")
+    }
 lock_objects = {
     "function_location": "object",
     "function_com_id": 304,
@@ -186,6 +226,14 @@ match_object_attributes = {
     "function_parameters": (("targets","array_of str","REQ"),("source","str","OPT")),
     "function_returns": ("number","null")
     }
+mirror_object = {
+    "function_location": "object",
+    "function_com_id": 589,
+    "function_vb_name": "MirrorObject",
+    "function_name": "mirror_object",
+    "function_parameters": (("object","str","REQ"),("start_pt","arr","REQ"),("end_pt","arr","REQ"),("copy","bln","OPT")),
+    "function_returns": ("string","null")
+    }
 mirror_objects = {
     "function_location": "object",
     "function_com_id": 590,
@@ -193,6 +241,22 @@ mirror_objects = {
     "function_name": "mirror_objects",
     "function_parameters": (("objects","array_of str","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("string","null")
+    }
+move_object = {
+    "function_location": "object",
+    "function_com_id": 270,
+    "function_vb_name": "MoveObject",
+    "function_name": "move_object",
+    "function_parameters": (("object","str","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ")),
+    "function_returns": ("boolean","null")
+    }
+move_object_2 = {
+    "function_location": "object",
+    "function_com_id": 270,
+    "function_vb_name": "MoveObject",
+    "function_name": "move_object_2",
+    "function_parameters": (("object","str","REQ"),("translation","array_of dbl","REQ")),
+    "function_returns": ("boolean","null")
     }
 move_objects = {
     "function_location": "object",
@@ -378,6 +442,14 @@ object_mesh_settings = {
     "function_parameters": (("object","str","REQ"),("settings","int","OPT")),
     "function_returns": ("boolean","boolean","null")
     }
+object_name = {
+    "function_location": "object",
+    "function_com_id": 196,
+    "function_vb_name": "ObjectName",
+    "function_name": "object_name",
+    "function_parameters": (("objects","arr","REQ"),("name","str","OPT")),
+    "function_returns": ("string","string","number","null")
+    }
 object_names = {
     "function_location": "object",
     "function_com_id": 639,
@@ -442,6 +514,14 @@ object_u_r_l = {
     "function_parameters": (("objects","array_of str","REQ"),("u_r_l","str","OPT")),
     "function_returns": ("string","string","number","null")
     }
+orient_object = {
+    "function_location": "object",
+    "function_com_id": 390,
+    "function_vb_name": "OrientObject",
+    "function_name": "orient_object",
+    "function_parameters": (("object","str","REQ"),("reference","arr","REQ"),("target","arr","REQ"),("flags","int","OPT")),
+    "function_returns": ("string","null")
+    }
 orient_objects = {
     "function_location": "object",
     "function_com_id": 391,
@@ -449,6 +529,14 @@ orient_objects = {
     "function_name": "orient_objects",
     "function_parameters": (("objects","array_of str","REQ"),("reference","array_of dbl","REQ"),("target","array_of dbl","REQ"),("flags","int","OPT")),
     "function_returns": ("array","null")
+    }
+remap_object = {
+    "function_location": "object",
+    "function_com_id": 655,
+    "function_vb_name": "RemapObject",
+    "function_name": "remap_object",
+    "function_parameters": (("object","str","REQ"),("src_plane","arr","REQ"),("dst_plane","arr","REQ"),("copy","bln","OPT")),
+    "function_returns": ("string","null")
     }
 remap_objects = {
     "function_location": "object",
@@ -458,12 +546,28 @@ remap_objects = {
     "function_parameters": (("object","array_of str","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("array","null")
     }
+rotate_object = {
+    "function_location": "object",
+    "function_com_id": 392,
+    "function_vb_name": "RotateObject",
+    "function_name": "rotate_object",
+    "function_parameters": (("object","str","REQ"),("point","arr","REQ"),("angle","dbl","REQ"),("axis","arr","OPT"),("copy","bln","OPT")),
+    "function_returns": ("string","null")
+    }
 rotate_objects = {
     "function_location": "object",
     "function_com_id": 393,
     "function_vb_name": "RotateObjects",
     "function_name": "rotate_objects",
     "function_parameters": (("objects","array_of str","REQ"),("point","array_of dbl","REQ"),("angle","dbl","REQ"),("axis","array_of dbl","OPT"),("copy","bln","OPT")),
+    "function_returns": ("string","null")
+    }
+scale_object = {
+    "function_location": "object",
+    "function_com_id": 585,
+    "function_vb_name": "ScaleObject",
+    "function_name": "scale_object",
+    "function_parameters": (("object","str","REQ"),("origin","arr","REQ"),("scale","arr","REQ"),("copy","bln","OPT")),
     "function_returns": ("string","null")
     }
 scale_objects = {
@@ -474,6 +578,14 @@ scale_objects = {
     "function_parameters": (("objects","array_of str","REQ"),("origin","array_of dbl","REQ"),("scale","array_of dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("array","null")
     }
+select_object = {
+    "function_location": "object",
+    "function_com_id": 200,
+    "function_vb_name": "SelectObject",
+    "function_name": "select_object",
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("boolean","null")
+    }
 select_objects = {
     "function_location": "object",
     "function_com_id": 298,
@@ -481,6 +593,14 @@ select_objects = {
     "function_name": "select_objects",
     "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
+    }
+shear_object = {
+    "function_location": "object",
+    "function_com_id": 587,
+    "function_vb_name": "ShearObject",
+    "function_name": "shear_object",
+    "function_parameters": (("object","str","REQ"),("origin","arr","REQ"),("ref_pt","arr","REQ"),("scale","arr","REQ"),("copy","bln","OPT")),
+    "function_returns": ("string","null")
     }
 shear_objects = {
     "function_location": "object",
@@ -490,6 +610,14 @@ shear_objects = {
     "function_parameters": (("objects","array_of str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
     "function_returns": ("array","null")
     }
+show_object = {
+    "function_location": "object",
+    "function_com_id": 201,
+    "function_vb_name": "ShowObject",
+    "function_name": "show_object",
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("boolean","null")
+    }
 show_objects = {
     "function_location": "object",
     "function_com_id": 305,
@@ -497,6 +625,14 @@ show_objects = {
     "function_name": "show_objects",
     "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
+    }
+transform_object = {
+    "function_location": "object",
+    "function_com_id": 272,
+    "function_vb_name": "TransformObject",
+    "function_name": "transform_object",
+    "function_parameters": (("object","str","REQ"),("matrix","arr","REQ"),("copy","bln","OPT")),
+    "function_returns": ("boolean","null")
     }
 transform_objects = {
     "function_location": "object",
@@ -506,6 +642,14 @@ transform_objects = {
     "function_parameters": (("objects","array_of str","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),
     "function_returns": ("array","null")
     }
+unlock_object = {
+    "function_location": "object",
+    "function_com_id": 202,
+    "function_vb_name": "UnlockObject",
+    "function_name": "unlock_object",
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("boolean","null")
+    }
 unlock_objects = {
     "function_location": "object",
     "function_com_id": 306,
@@ -513,6 +657,14 @@ unlock_objects = {
     "function_name": "unlock_objects",
     "function_parameters": (("objects","array_of str","REQ"),),
     "function_returns": ("number","null")
+    }
+unselect_object = {
+    "function_location": "object",
+    "function_com_id": 299,
+    "function_vb_name": "UnselectObject",
+    "function_name": "unselect_object",
+    "function_parameters": (("object","str","REQ"),),
+    "function_returns": ("boolean","null")
     }
 unselect_objects = {
     "function_location": "object",

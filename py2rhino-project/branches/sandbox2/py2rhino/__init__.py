@@ -8,8 +8,8 @@ _rso = app.GetScriptObject
 from functions._rhinoscript_functions import _RhinoscriptFunctions
 _rsf = _RhinoscriptFunctions(_rso)
 
-print _rsf
-
+import _util
+_util._rsf = _rsf
 import arc
 arc._rsf = _rsf
 from arc import Arc
@@ -34,10 +34,3 @@ from nurbs_curve import NurbsCurve
 import polyline
 polyline._rsf = _rsf
 from polyline import Polyline
-
-
-
-
-
-
-

@@ -10,6 +10,14 @@ add_clipping_plane = {
     "function_parameters": (("plane","array_of dbl","REQ"),("d_u","dbl","REQ"),("d_v","dbl","REQ"),("views","array_of str","OPT")),
     "function_returns": ("string","null")
     }
+add_point = {
+    "function_location": "geometry",
+    "function_com_id": 68,
+    "function_vb_name": "AddPoint",
+    "function_name": "add_point",
+    "function_parameters": (("point","arr","REQ"),),
+    "function_returns": ("string","null")
+    }
 add_point_cloud = {
     "function_location": "geometry",
     "function_com_id": 69,

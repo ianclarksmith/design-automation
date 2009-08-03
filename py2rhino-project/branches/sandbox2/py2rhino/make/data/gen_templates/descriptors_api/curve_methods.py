@@ -97,7 +97,7 @@ add_nurbs_curve = {
     "method_location": "Curve",
     "method_type": "METHOD",
     "method_name": "add_nurbs_curve",
-    "method_parameters": (("points","array_of dbl","REQ"),("knots","array_of int","REQ"),("degree","int","REQ"),("weights","array_of int","OPT")),
+    "method_parameters": (("points","array_of dbl","REQ"),("knots","array_of dbl","REQ"),("degree","int","REQ"),("weights","array_of dbl","OPT")),
     "method_returns": ("string","null")
     }
 add_polyline = {

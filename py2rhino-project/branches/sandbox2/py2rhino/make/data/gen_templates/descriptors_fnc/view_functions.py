@@ -146,6 +146,14 @@ maximize_restore_view = {
     "function_parameters": (("view","str","OPT"),),
     "function_returns": ()
     }
+named_c_plane = {
+    "function_location": "view",
+    "function_com_id": 286,
+    "function_vb_name": "NamedCPlane",
+    "function_name": "named_c_plane",
+    "function_parameters": (("name","str","REQ"),),
+    "function_returns": ("array","null")
+    }
 named_c_planes = {
     "function_location": "view",
     "function_com_id": 258,
@@ -297,6 +305,14 @@ view_camera_up = {
     "function_name": "view_camera_up",
     "function_parameters": (("view","str","OPT"),("up_vector","array_of dbl","OPT")),
     "function_returns": ("array","array","null")
+    }
+view_display_mode = {
+    "function_location": "view",
+    "function_com_id": 290,
+    "function_vb_name": "ViewDisplayMode",
+    "function_name": "view_display_mode",
+    "function_parameters": (("view","str","OPT"),("mode","int","OPT")),
+    "function_returns": ("number","number","null")
     }
 view_display_mode_ex = {
     "function_location": "view",

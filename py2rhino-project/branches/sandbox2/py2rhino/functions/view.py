@@ -76,6 +76,10 @@ def maximize_restore_view(view=pythoncom.Empty):
 
     return _rsf.maximize_restore_view(view)
 
+def named_c_plane(name):
+
+    return _rsf.named_c_plane(name)
+
 def named_c_planes():
 
     return _rsf.named_c_planes()
@@ -151,6 +155,10 @@ def view_camera_target(view=pythoncom.Empty, camera=pythoncom.Empty, target=pyth
 def view_camera_up(view=pythoncom.Empty, up_vector=pythoncom.Empty):
 
     return _rsf.view_camera_up(view, up_vector)
+
+def view_display_mode(view=pythoncom.Empty, mode=pythoncom.Empty):
+
+    return _rsf.view_display_mode(view, mode)
 
 def view_display_mode_ex(view=pythoncom.Empty, mode=pythoncom.Empty, return_names=pythoncom.Empty):
 

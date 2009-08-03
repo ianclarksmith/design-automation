@@ -5,16 +5,20 @@ from exceptions import Exception
 from py2rhino import _util
 from py2rhino._object_root_functions_type import _ObjectRootFunctionsType
 
+
 _rsf = None
+
 
 class _CurveRootFunctionsType(_ObjectRootFunctionsType):
 
     # Class constructor
-    def __init__(self, rhino_id=None):
+    def __init__(self, rhino_id, _class, _rsf_in):
         if rhino_id==None:
             raise Exception("rhino_id is required.")
         self.rhino_id = rhino_id
-
+        self._class = _class
+        global _rsf
+        _rsf = _rsf_in
 
     def is_arc(self):
         return _rsf.is_arc(self.rhino_id, pythoncom.Empty)

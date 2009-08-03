@@ -23,6 +23,13 @@ get_curve_object = {
     "method_parameters": (("message","str","OPT"),("pre_select","bln","OPT"),("select","bln","OPT")),
     "method_returns": ("array","null")
     }
+get_object = {
+    "method_location": "Selection",
+    "method_type": "METHOD",
+    "method_name": "get_object",
+    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","arr","OPT")),
+    "method_returns": ("string","null")
+    }
 get_object_ex = {
     "method_location": "Selection",
     "method_type": "METHOD",

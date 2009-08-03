@@ -4,6 +4,10 @@ import pythoncom
 from exceptions import Exception
 from py2rhino import _util
 from py2rhino._object_root import _ObjectRoot
+
+
+_rsf = None
+from py2rhino._object_root_functions_deform import _ObjectRootFunctionsDeform
 from py2rhino._object_root_functions_groups import _ObjectRootFunctionsGroups
 from py2rhino._object_root_functions_material import _ObjectRootFunctionsMaterial
 from py2rhino._object_root_properties import _ObjectRootProperties
@@ -14,22 +18,22 @@ from py2rhino._object_root_functions_transform import _ObjectRootFunctionsTransf
 from py2rhino._object_root_functions_type import _ObjectRootFunctionsType
 from py2rhino._object_root_functions_util import _ObjectRootFunctionsUtil
 
-_rsf = None
 
 class GenericObject(_ObjectRoot):
 
     # Class constructor
-    def __init__(self, rhino_id=None):
+    def __init__(self, rhino_id):
         if rhino_id==None:
             raise Exception("Use the create... methods to create instances of this class.")
         self.rhino_id = rhino_id
 
-        self.groups = _ObjectRootFunctionsGroups(rhino_id)
-        self.materials = _ObjectRootFunctionsMaterial(rhino_id)
-        self.properties = _ObjectRootProperties(rhino_id)
-        self.render = _ObjectRootFunctionsRender(rhino_id)
-        self.state = _ObjectRootFunctionsState(rhino_id)
-        self.test = _ObjectRootFunctionsTest(rhino_id)
-        self.transform = _ObjectRootFunctionsTransform(rhino_id)
-        self.type = _ObjectRootFunctionsType(rhino_id)
-        self.utility = _ObjectRootFunctionsUtil(rhino_id)
+        self.deform = _ObjectRootFunctionsDeform(rhino_id, GenericObject, _rsf )
+        self.groups = _ObjectRootFunctionsGroups(rhino_id, GenericObject, _rsf )
+        self.materials = _ObjectRootFunctionsMaterial(rhino_id, GenericObject, _rsf )
+        self.properties = _ObjectRootProperties(rhino_id, GenericObject, _rsf )
+        self.render = _ObjectRootFunctionsRender(rhino_id, GenericObject, _rsf )
+        self.state = _ObjectRootFunctionsState(rhino_id, GenericObject, _rsf )
+        self.test = _ObjectRootFunctionsTest(rhino_id, GenericObject, _rsf )
+        self.transform = _ObjectRootFunctionsTransform(rhino_id, GenericObject, _rsf )
+        self.type = _ObjectRootFunctionsType(rhino_id, GenericObject, _rsf )
+        self.utility = _ObjectRootFunctionsUtil(rhino_id, GenericObject, _rsf )

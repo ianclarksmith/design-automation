@@ -4,16 +4,20 @@ import pythoncom
 from exceptions import Exception
 from py2rhino import _util
 
+
 _rsf = None
+
 
 class _CurveRootFunctionsManipulate(object):
 
     # Class constructor
-    def __init__(self, rhino_id=None):
+    def __init__(self, rhino_id, _class, _rsf_in):
         if rhino_id==None:
             raise Exception("rhino_id is required.")
         self.rhino_id = rhino_id
-
+        self._class = _class
+        global _rsf
+        _rsf = _rsf_in
 
     def curve_arc_length_point(self, length, from_start=pythoncom.Empty):
         return _rsf.curve_arc_length_point(self.rhino_id, length, from_start)

@@ -111,7 +111,7 @@ add_nurbs_curve = {
     "function_com_id": 309,
     "function_vb_name": "AddNurbsCurve",
     "function_name": "add_nurbs_curve",
-    "function_parameters": (("points","array_of dbl","REQ"),("knots","array_of int","REQ"),("degree","int","REQ"),("weights","array_of int","OPT")),
+    "function_parameters": (("points","array_of dbl","REQ"),("knots","array_of dbl","REQ"),("degree","int","REQ"),("weights","array_of dbl","OPT")),
     "function_returns": ("string","null")
     }
 add_polyline = {

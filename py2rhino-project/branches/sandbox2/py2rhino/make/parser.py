@@ -38,18 +38,8 @@ def parse_docs():
             if file != ".svn":
                 non_svn_files.append(file)
                 
-        #remove files with duplicates ending in 's'
-        files = []
-        for file in non_svn_files:
-            file_s = file[:-4] + 's' + file[-4:]
-            if not file_s in non_svn_files:
-                files.append(file)
-            else:
-                pass
-                #print "found plural method", file_s
-                
         #now start parsing
-        for file in files:
+        for file in non_svn_files:
             
             file_name = file[:-4]
             if file_name != folder_name:
@@ -324,6 +314,7 @@ def write_modules(data):
         
         #now create all the files in the package folder
         for file_name in data[folder_name]:
+            
             #create the file for the module
             mod_name = camel_to_underscore(file_name)
             if keyword.iskeyword(mod_name):
