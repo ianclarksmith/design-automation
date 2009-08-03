@@ -1,7 +1,7 @@
 import keyword
 from exceptions import Exception
 from util import *
-from py2rhino.make.data import tmp as des_obj
+from py2rhino.make.data.templates_obj import descriptors as des_obj
 
 out_folder = "..\\"
 #===============================================================================
