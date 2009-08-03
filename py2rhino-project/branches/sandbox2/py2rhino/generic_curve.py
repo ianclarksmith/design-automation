@@ -44,4 +44,4 @@ class GenericCurve(_CurveRoot):
         self.test = _CurveRootFunctionsTest(rhino_id)
         self.transform = _ObjectRootFunctionsTransform(rhino_id)
         self.type = _CurveRootFunctionsType(rhino_id)
-        self.utility = _ObjectRootFunctionsUtil(rhino_id)
+        self.util = _ObjectRootFunctionsUtil(rhino_id)
