@@ -8,6 +8,8 @@ _rso = app.GetScriptObject
 from functions._rhinoscript_functions import _RhinoscriptFunctions
 _rsf = _RhinoscriptFunctions(_rso)
 
+print _rsf
+
 import arc
 arc._rsf = _rsf
 from arc import Arc
