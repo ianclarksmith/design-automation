@@ -725,7 +725,7 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def add_nurbs_curve(self, points, knots, degree, weights):
 
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_I2, 1), (VT_I2, 1), (VT_ARRAY + VT_I2, 1))
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_I2, 1), (VT_ARRAY + VT_R8, 1))
         flattened = (flatten_params(points), flatten_params(knots), degree, flatten_params(weights))
 
         return self._ApplyTypes_(309, 1, (VT_VARIANT, 0), magic, u"AddNurbsCurve", None, *flattened)
