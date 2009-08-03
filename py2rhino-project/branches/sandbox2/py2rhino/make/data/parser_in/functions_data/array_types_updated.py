@@ -85,9 +85,9 @@ curve = {
     },
     "add_nurbs_curve": {
         "points": "arr_of_dbl",
-        "knots": "arr_of_int",
+        "knots": "arr_of_dbl",
         "degree": "int",
-        "weights": "arr_of_int",
+        "weights": "arr_of_dbl",
     },
     "add_polyline": {
         "points": "arr_of_dbl",
