@@ -4,10 +4,10 @@ import py2rhino as p2r
 points = ( (0,0,0),(10,0,0),(20,0,0),(30,0,0),(40,0,0) )
 
 
-cv1 = p2r.NurbsCurve.create_by_points(points)
+arc1 = p2r.Arc.create_arc_3pt((0,0,0), (20,0,0), (10,10,0))
+arc1.transform.move((0,0,0), (10,0,0))
 
-cv1.evaluate.evaluate(0.5)
-cv1.modify.simplify_curve()
+
 
 
 
