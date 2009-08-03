@@ -1,7 +1,10 @@
 import py2rhino.functions as p2r
 import math
+import random
 from datetime import datetime
 
+#------------------------------------------------------------------------------ 
+#TODO: Insert page number
 def draw_sine_wave():
     a = -8.0
     b = 8.0
@@ -135,53 +138,252 @@ def who_framed_the_surface():
     p2r.document.enable_redraw(True)
     print "done"
     
-who_framed_the_surface()
+#who_framed_the_surface()
 
-'''Call FlatWorm()
-Sub FlatWorm()
-    Dim crvObject : crvObject = Rhino.GetObject("Pick a backbone curve", 4, True, False)
-    If IsNull(crvObject) Then Exit Sub
-
-    Dim intSamples : intSamples = Rhino.GetInteger("Number of cross sections", 100, 5)
-    If IsNull(intSamples) Then Exit Sub
-
-    Dim dblBendRadius : dblBendRadius = Rhino.GetReal("Bend plane radius", 0.5, 0.001)
-    If IsNull(dblBendRadius) Then Exit Sub
-
-    Dim dblPerpRadius : dblPerpRadius = Rhino.GetReal("Ribbon plane radius", 2.0, 0.001)
-    If IsNull(dblPerpRadius) Then Exit Sub
-
-    Dim crvDomain : crvDomain = Rhino.CurveDomain(crvObject)
-    Dim t, N
-
-    Dim arrCrossSections(), CrossSectionPlane
-    Dim crvCurvature, crvPoint, crvTangent, crvPerp, crvNormal
+def flat_worm():
+    crv_object =p2r.selection.get_objects("Pick a backbone curve", 4, True, False)[0]
+    int_samples = p2r.user_interface.get_integer("Number of cross sections", 100, 5)
+    bend_radius = p2r.user_interface.get_real("Bend plane radius", 0.5, 0.001)
+    perp_radius = p2r.user_interface.get_real("Ribbon plane radius", 2.0, 0.001)
+    crv_domain = p2r.curve.curve_domain(crv_object)
+    n = -1
+    t = crv_domain[0]
+    cross_selections = []
+    while t <= crv_domain[1]+1e-9:
+        n += 1
+        crv_curvature =p2r.curve.curve_curvature(crv_object, t)
+        pt_o = p2r.point_and_vector
+        if crv_curvature== None:
+            crv_point = p2r.curve.evaluate_curve(crv_object, t)
+            crv_tangent = p2r.curve.curve_tangent(crv_object, t)
+            crv_perp = (0,0,1)
+            crv_normal = pt_o.vector_cross_product(crv_tangent,crv_perp)
+        else:
+            crv_point = crv_curvature[0]
+            crv_tangent = crv_curvature[1]
+            crv_perp = pt_o.vector_unitize(crv_curvature[4])
+            crv_normal = pt_o.vector_cross_product(crv_tangent, crv_perp)
+        cross_section_plane = p2r.line_and_plane.plane_from_frame(crv_point, crv_perp, crv_normal)
+        ellipse = p2r.curve.add_ellipse(cross_section_plane, bend_radius, perp_radius)
+        cross_selections.append(ellipse)
+        t += (crv_domain[1] - crv_domain[0])/int_samples
+    p2r.surface_and_polysurface.add_loft_srf(cross_selections)
+    p2r.object.delete_objects(cross_selections)
     
-    N = -1
-    For t = crvDomain(0) To crvDomain(1) + 1e-9 Step (crvDomain(1)-crvDomain(0))/intSamples
-        N = N+1
-        crvCurvature = Rhino.CurveCurvature(crvObject, t)
-        If IsNull(crvCurvature) Then
-            crvPoint = Rhino.EvaluateCurve(crvObject, t)
-            crvTangent = Rhino.CurveTangent(crvObject, t)
-            crvPerp = Array(0,0,1)
-            crvNormal = Rhino.VectorCrossProduct(crvTangent, crvPerp)
-        Else
-            crvPoint = crvCurvature(0)
-            crvTangent = crvCurvature(1)
-            crvPerp = Rhino.VectorUnitize(crvCurvature(4))
-            crvNormal = Rhino.VectorCrossProduct(crvTangent, crvPerp)
-        End If
-        
-        CrossSectionPlane = Rhino.PlaneFromFrame(crvPoint, crvPerp, crvNormal)
-        
-        ReDim Preserve arrCrossSections(N)
-        arrCrossSections(N) = Rhino.AddEllipse(CrossSectionPlane, dblBendRadius, dblPerpRadius)
-    Next
+#flat_worm()
 
-    If N < 1 Then Exit Sub
+def blend_corners():
+    id_polyline = p2r.selection.get_objects("Polyline to blend", 4, True, True)[0]
+    arr_v = p2r.curve.polyline_vertices(id_polyline)
+    new_v = []
+    radius = p2r.user_interface.get_real("Blend Radius", 1.0, 1.0)
+    n = -1
+    def Between(a,b):
+        return ((a[0]+b[0])/2, (a[1]+b[1])/2, (a[2]+b[2])/2)
+    for i in range(0, len(arr_v)-2):
+        a = arr_v[i]
+        b = arr_v[i+1]
+        vec_segment = p2r.point_and_vector.point_subtract(b, a)
+        vec_segment = p2r.point_and_vector.vector_unitize(vec_segment)
+        
+        if radius < 0.5 * (p2r.math.distance(a, b)):
+            vec_segment = p2r.point_and_vector.vector_scale(vec_segment, radius)
+        else:
+            vec_segment = p2r.point_and_vector.vector_create(vec_segment, 0.5 * p2r.math.distance(a, b))
+        
+        w1 = p2r.point_and_vector.vector_add(a, vec_segment)
+        w2 = p2r.point_and_vector.vector_subtract(b, vec_segment)
+        
+        new_v.append(a)
+        new_v.append(Between(a,w1))
+        new_v.append(w1)
+        new_v.append(Between(w1,w2))
+        new_v.append(w2)
+        new_v.append(Between(w2,b))
+        n = n + 6
+    new_v.append(arr_v[len(arr_v)-1])
+    p2r.curve.add_curve(new_v, 5)
+    p2r.object.delete_objects(id_polyline)
+#blend_corners()
+
+def create_curvature_graph():
+    def add_curvature_graph(id_crv,span_samples,scale):
+        all_geometry = []
+        k = p2r.curve.curve_knots(id_crv)
+        print k, "length: ", len(k)
+        for i in range(0,len(k)-1):
+            print "k:", k[i], "k+1: ", k[i+1]
+            tmp_geometry = add_curvature_graph_section(id_crv,k[i],k[i+1],span_samples,scale)
+        if not (tmp_geometry == None):
+            all_geometry = all_geometry + tmp_geometry
+        p2r.group.add_objects_to_group(all_geometry, p2r.group.add_group())
+        print "A"
+        return all_geometry
     
-    Call Rhino.AddLoftSrf(arrCrossSections)
-    Call Rhino.DeleteObjects(arrCrossSections)
-End Sub
-'''
+    def add_curvature_graph_section(id_crv,t0,t1,samples,scale):
+        add_curvature_graph_section = None
+        arr_a = []
+        arr_b = []
+        arr_objects = []
+        n = -1
+        t_step = (t1-t0)/samples
+        t = t0
+        while t <= (t1+(0.5*t_step)):
+            if (t>= t1):
+                t = t1-1e-10
+            n = n + 1
+            c_data = p2r.curve.curve_curvature(id_crv, t)
+            print c_data
+            if c_data == None:
+                a= arr_a.append(p2r.curve.evaluate_curve(id_crv, t))
+                arr_b.append(a) 
+                arr_objects.append("")
+            else:
+                c_data_1 = p2r.point_and_vector.vector_scale(c_data[4],scale)
+                print "c_data_1: ", c_data_1
+                c_data_2 = (c_data[0],c_data[1],c_data[2],c_data[3],c_data_1)
+                print "c_data_2: ",c_data_2[0]
+                arr_objects.append(p2r.curve.add_line(arr_a.append(c_data_2[0]), arr_b.append(p2r.point_and_vector.vector_subtract(c_data[0], c_data_2[4]))))
+            t += t_step
+        arr_objects.append.p2r.curve.add_interp_curve(arr_b)    
+        print "b"
+        return arr_objects
+    #---------------------------------------------------------------------------------
+    id_curves = p2r.selection.get_objects("Curves for curvature graph", 4, False, True, True)
+    print id_curves  
+    samples = 10
+    scale = 1.0
+    arr_preview=[]
+    arr_preview_size = len(id_curves)
+    cont = True
+    while cont == True:
+        print arr_preview_size
+        p2r.document.enable_redraw(False)
+        for i in range(0,arr_preview_size):
+            print id_curves[i]
+            arr_preview.append(add_curvature_graph(id_curves[i], samples, scale))
+        p2r.document.enable_redraw(True)
+        b_result = p2r.user_interface.get_string("Curvature settings", "Accept", ("Samples", "Scale", "Accept"))
+        if b_result.upper() == "ACCEPT":
+            break
+        elif b_result.upper() == "SAMPLES":
+            b_result = p2r.user_interface.get_integer("Number of samples per knot-span", samples, 3, 100)
+            if b_result ==None:
+                samples = b_result
+        elif b_result.upper() == "SCALES":
+            b_result = p2r.user_interface.get_real("Scale of the graph", scale, 0.01, 1000.0)
+            if b_result == None:
+                scale = b_result
+        if i == arr_preview_size-1:
+            cont = False
+    print "done"              
+#create_curvature_graph()
+
+def random_point_in_cone(origin,direction,min_distance,max_distance,max_angle):
+    vec_twig = p2r.point_and_vector.vector_unitize(direction)
+    vec_twig = p2r.point_and_vector.vector_scale(vec_twig, min_distance + random.random()  * (max_distance - min_distance))
+    mutation_plane = p2r.line_and_plane.plane_from_normal((0,0,0), vec_twig)
+    vec_twig = p2r.point_and_vector.vector_rotate(vec_twig, random.random() * max_angle, mutation_plane[1])
+    vec_twig = p2r.point_and_vector.vector_rotate(vec_twig, random.random() * 360, direction)
+    return p2r.point_and_vector.point_add(origin, vec_twig)
+    
+
+def add_arc_dir(pt_start, pt_end, vec_dir):
+    vec_base = p2r.point_and_vector.point_subtract(pt_end, pt_start)
+    if p2r.point_and_vector.vector_length(vec_base) == 0.0:
+        return
+    if p2r.point_and_vector.is_vector_parallel_to(vec_base, vec_dir):
+        return p2r.curve.add_line(pt_start, pt_end)
+    vec_base = p2r.point_and_vector.vector_unitize(vec_base)
+    vec_dir = p2r.point_and_vector.vector_unitize(vec_dir)
+    vec_bisector = p2r.point_and_vector.vector_add(vec_dir, vec_base)
+    vec_bisector = p2r.point_and_vector.vector_unitize(vec_bisector)
+    dot_prod = p2r.point_and_vector.vector_dot_product(vec_bisector, vec_dir)
+    mid_length = (0.5* p2r.math.distance(pt_start, pt_end))/ dot_prod
+    vec_bisector = p2r.point_and_vector.vector_scale(vec_bisector,mid_length)
+    return p2r.curve.add_arc_3_pt(pt_start, pt_end, p2r.point_and_vector.point_add(pt_start, vec_bisector))
+
+def recursive_growth(pt_start, vec_dir, props, generation):
+    if generation > props[2]:
+        return
+    new_props = [props[0], props[1], props[2]]
+    props_1 = props[3] * props[4]
+    new_props.append(props_1)
+    new_props.append(props[4])
+    new_props_1 = props[5] * props[6]
+    if new_props_1 > 90:
+        new_props.append(90)
+    else:
+        new_props.append(new_props_1)
+    new_props.append(props[6])
+    max_n = props[0] + random.random() * (props[1] - props[0])
+    n =1
+    while n <= max_n:
+        pt_grow = random_point_in_cone(pt_start, vec_dir, 0.25*props[3], props[3], props[5])
+        new_twig = add_arc_dir(pt_start,pt_grow,vec_dir)
+        
+        
+        if not new_twig == None:
+            vec_grow = p2r.curve.curve_tangent(new_twig, p2r.curve.curve_domain(new_twig)[1])
+            recursive_growth(pt_grow,vec_grow,new_props,generation+1)
+        n +=1
+        
+def plant_generator():
+    pt_root = p2r.user_interface.get_points(message_1="Root point for plant")
+    if pt_root == None:
+        return
+    prop_min_twig_count = 0
+    prop_max_twig_count = 8
+    prop_max_generations = 5
+    prop_max_twig_length = 10.0
+    prop_length_mutation = 0.75
+    prop_max_twig_angle = 30.0
+    prop_angle_mutation = 0.85
+
+    local_value = p2r.user_interface.get_integer("Minimum twig count",prop_min_twig_count)
+    if local_value == None:
+        return
+    prop_min_twig_count = local_value
+    
+    local_value = p2r.user_interface.get_integer("Maximum twig count",prop_max_twig_count)
+    if local_value == None:
+        return
+    prop_max_twig_count = local_value
+    
+    local_value = p2r.user_interface.get_integer("Maximum branch generations",prop_max_generations,1,1000)
+    if local_value == None:
+        return
+    prop_max_generations = local_value
+    
+    local_value = p2r.user_interface.get_real("Maximum twig length",prop_max_twig_length,0.01)
+    if local_value == None:
+        return
+    prop_max_twig_length = local_value
+    
+    local_value = p2r.user_interface.get_real("Twig length mutation",prop_length_mutation,0.01)
+    if local_value == None:
+        return
+    prop_length_mutation = local_value
+    
+    local_value = p2r.user_interface.get_real("Maximum twig angle",prop_max_twig_angle,0.0,90.0)
+    if local_value == None:
+        return
+    prop_max_twig_angle = local_value
+    
+    local_value = p2r.user_interface.get_real("Twig angle mutation", prop_angle_mutation, 0.01)
+    if local_value == None:
+        return
+    prop_angle_mutation = local_value
+    
+    ##is there a randomize method?
+
+    p2r.document.enable_redraw(False)
+    
+    growth_props = [prop_min_twig_count,prop_max_twig_count,prop_max_generations,prop_max_twig_length,prop_length_mutation,prop_max_twig_angle,prop_angle_mutation]
+    
+    recursive_growth((0,0,0),(0,0,1),growth_props,1)
+    p2r.document.enable_redraw(True)
+    
+plant_generator()
+
+
