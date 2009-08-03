@@ -54,6 +54,7 @@ class GenericCurve(object):
     holds = {
                    
         #general object holds
+        "deform": "_ObjectRootFunctionsDeform",          
         "properties": "_ObjectRootProperties",        
         "groups": "_ObjectRootFunctionsGroups",
         "materials": "_ObjectRootFunctionsMaterial",
@@ -82,6 +83,7 @@ class NurbsCurve(object):
     holds = {
                    
         #general object holds
+        "deform": "_ObjectRootFunctionsDeform",          
         "properties": "_ObjectRootProperties",        
         "groups": "_ObjectRootFunctionsGroups",
         "materials": "_ObjectRootFunctionsMaterial",
@@ -163,6 +165,7 @@ class Arc(object):
     holds = {
                    
         #general object holds
+        "deform": "_ObjectRootFunctionsDeform",          
         "properties": "_ObjectRootProperties",        
         "groups": "_ObjectRootFunctionsGroups",
         "materials": "_ObjectRootFunctionsMaterial",
@@ -231,6 +234,7 @@ class Circle():
     holds = {
                    
         #general object holds
+        "deform": "_ObjectRootFunctionsDeform",          
         "properties": "_ObjectRootProperties",        
         "groups": "_ObjectRootFunctionsGroups",
         "materials": "_ObjectRootFunctionsMaterial",
@@ -290,6 +294,7 @@ class Ellipse(object):
     holds = {
                    
         #general object holds
+        "deform": "_ObjectRootFunctionsDeform",          
         "properties": "_ObjectRootProperties",        
         "groups": "_ObjectRootFunctionsGroups",
         "materials": "_ObjectRootFunctionsMaterial",
@@ -344,6 +349,7 @@ class Line(object):
     holds = {
                    
         #general object holds
+        "deform": "_ObjectRootFunctionsDeform",          
         "properties": "_ObjectRootProperties",        
         "groups": "_ObjectRootFunctionsGroups",
         "materials": "_ObjectRootFunctionsMaterial",
@@ -381,6 +387,7 @@ class Polyline(object):
     holds = {
                    
         #general object holds
+        "deform": "_ObjectRootFunctionsDeform",          
         "properties": "_ObjectRootProperties",        
         "groups": "_ObjectRootFunctionsGroups",
         "materials": "_ObjectRootFunctionsMaterial",

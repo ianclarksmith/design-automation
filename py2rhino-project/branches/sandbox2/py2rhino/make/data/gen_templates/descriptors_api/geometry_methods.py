@@ -9,6 +9,13 @@ add_clipping_plane = {
     "method_parameters": (("plane","array_of dbl","REQ"),("d_u","dbl","REQ"),("d_v","dbl","REQ"),("views","array_of str","OPT")),
     "method_returns": ("string","null")
     }
+add_point = {
+    "method_location": "Geometry",
+    "method_type": "METHOD",
+    "method_name": "add_point",
+    "method_parameters": (("point","arr","REQ"),),
+    "method_returns": ("string","null")
+    }
 add_point_cloud = {
     "method_location": "Geometry",
     "method_type": "METHOD",

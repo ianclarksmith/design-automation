@@ -52,6 +52,10 @@ def get_linetype(linetype=pythoncom.Empty):
 
     return _rsf.get_linetype(linetype)
 
+def get_point(message=pythoncom.Empty, point=pythoncom.Empty, distance=pythoncom.Empty, plane=pythoncom.Empty):
+
+    return _rsf.get_point(message, point, distance, plane)
+
 def get_point_on_curve(object, message=pythoncom.Empty):
 
     return _rsf.get_point_on_curve(object, message)
@@ -119,6 +123,10 @@ def message_box(message, buttons=pythoncom.Empty, title=pythoncom.Empty):
 def multi_list_box(items, message=pythoncom.Empty, title=pythoncom.Empty):
 
     return _rsf.multi_list_box(items, message, title)
+
+def open_file_name(title=pythoncom.Empty, filter=pythoncom.Empty, folder=pythoncom.Empty, filename=pythoncom.Empty, extension=pythoncom.Empty):
+
+    return _rsf.open_file_name(title, filter, folder, filename, extension)
 
 def open_file_names(title=pythoncom.Empty, filter=pythoncom.Empty, folder=pythoncom.Empty, filename=pythoncom.Empty, extension=pythoncom.Empty):
 

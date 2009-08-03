@@ -10,7 +10,7 @@ move_objects = {
 
     "syntax_html": {
         0: ("arrObjects", "arrStart", "arrEnd"),
-        1: ("arrObjects", "arrTranslation"),
+        1: ("strObject", "arrTranslation"),
     },
 
     "params_html": {

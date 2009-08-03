@@ -29,7 +29,7 @@ add_nurbs_curve = {
             "py_name": "knots",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr_of_int",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Knots",
             "doc": """
         The knot values for the curve.  The number of elements in arrKnots must equal the number of elements in arrPoints plus intDegree minus one (1).
@@ -51,7 +51,7 @@ add_nurbs_curve = {
             "py_name": "weights",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr_of_int",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Weights",
             "doc": """
         The weight values for the curve.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).

@@ -29,6 +29,7 @@ from view_near_corners import *
 from view_display_mode_name import *
 from named_c_planes import *
 from view_camera_lens import *
+from view_display_mode import *
 from view_camera_up import *
 from add_named_view import *
 from show_world_axes import *
@@ -44,6 +45,7 @@ from is_view_perspective import *
 from view_camera_plane import *
 from wallpaper_hidden import *
 from view_target import *
+from named_c_plane import *
 from zoom_extents import *
 from zoom_bounding_box import *
 from named_views import *

@@ -128,6 +128,13 @@ maximize_restore_view = {
     "method_parameters": (("view","str","OPT"),),
     "method_returns": ()
     }
+named_c_plane = {
+    "method_location": "View",
+    "method_type": "METHOD",
+    "method_name": "named_c_plane",
+    "method_parameters": (("name","str","REQ"),),
+    "method_returns": ("array","null")
+    }
 named_c_planes = {
     "method_location": "View",
     "method_type": "METHOD",
@@ -260,6 +267,13 @@ view_camera_up = {
     "method_name": "view_camera_up",
     "method_parameters": (("view","str","OPT"),("up_vector","array_of dbl","OPT")),
     "method_returns": ("array","array","null")
+    }
+view_display_mode = {
+    "method_location": "View",
+    "method_type": "METHOD",
+    "method_name": "view_display_mode",
+    "method_parameters": (("view","str","OPT"),("mode","int","OPT")),
+    "method_returns": ("number","number","null")
     }
 view_display_mode_ex = {
     "method_location": "View",

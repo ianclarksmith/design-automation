@@ -564,6 +564,12 @@ object = {
         "end_pt": "arr_of_dbl",
         "copy": "bln",
     },
+    "move_object": {
+        "object": "str",
+        "start": "arr_of_dbl",
+        "end": "arr_of_dbl",
+        "translation": "arr_of_dbl",
+    },    
     "move_objects": {
         "objects": "arr_of_str",
         "start": "arr_of_dbl",

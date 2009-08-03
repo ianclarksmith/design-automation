@@ -12,6 +12,14 @@ def box_morph_object(objects, box_points, copy=pythoncom.Empty):
 
     return _rsf.box_morph_object(objects, box_points, copy)
 
+def copy_object(object, start=pythoncom.Empty, end=pythoncom.Empty):
+
+    return _rsf.copy_object(object, start, end)
+
+def copy_object_2(object, translation=pythoncom.Empty):
+
+    return _rsf.copy_object_2(object, translation)
+
 def copy_objects(objects, start=pythoncom.Empty, end=pythoncom.Empty):
 
     return _rsf.copy_objects(objects, start, end)
@@ -19,6 +27,10 @@ def copy_objects(objects, start=pythoncom.Empty, end=pythoncom.Empty):
 def copy_objects_2(translation=pythoncom.Empty):
 
     return _rsf.copy_objects_2(translation)
+
+def delete_object(object):
+
+    return _rsf.delete_object(object)
 
 def delete_objects(objects):
 
@@ -31,6 +43,10 @@ def enable_object_mesh(objects, enable=pythoncom.Empty):
 def flash_object(objects, style=pythoncom.Empty):
 
     return _rsf.flash_object(objects, style)
+
+def hide_object(object):
+
+    return _rsf.hide_object(object)
 
 def hide_objects(objects):
 
@@ -88,6 +104,10 @@ def is_visible_in_view(object, view=pythoncom.Empty):
 
     return _rsf.is_visible_in_view(object, view)
 
+def lock_object(object):
+
+    return _rsf.lock_object(object)
+
 def lock_objects(objects):
 
     return _rsf.lock_objects(objects)
@@ -96,9 +116,21 @@ def match_object_attributes(targets, source=pythoncom.Empty):
 
     return _rsf.match_object_attributes(targets, source)
 
+def mirror_object(object, start_pt, end_pt, copy=pythoncom.Empty):
+
+    return _rsf.mirror_object(object, start_pt, end_pt, copy)
+
 def mirror_objects(objects, start_pt, end_pt, copy=pythoncom.Empty):
 
     return _rsf.mirror_objects(objects, start_pt, end_pt, copy)
+
+def move_object(object, start, end):
+
+    return _rsf.move_object(object, start, end)
+
+def move_object_2(object, translation):
+
+    return _rsf.move_object_2(object, translation)
 
 def move_objects(objects, start, end):
 
@@ -192,6 +224,10 @@ def object_mesh_settings(object, settings=pythoncom.Empty):
 
     return _rsf.object_mesh_settings(object, settings)
 
+def object_name(objects, name=pythoncom.Empty):
+
+    return _rsf.object_name(objects, name)
+
 def object_names(objects, names=pythoncom.Empty):
 
     return _rsf.object_names(objects, names)
@@ -224,41 +260,81 @@ def object_u_r_l(objects, u_r_l=pythoncom.Empty):
 
     return _rsf.object_u_r_l(objects, u_r_l)
 
+def orient_object(object, reference, target, flags=pythoncom.Empty):
+
+    return _rsf.orient_object(object, reference, target, flags)
+
 def orient_objects(objects, reference, target, flags=pythoncom.Empty):
 
     return _rsf.orient_objects(objects, reference, target, flags)
+
+def remap_object(object, src_plane, dst_plane, copy=pythoncom.Empty):
+
+    return _rsf.remap_object(object, src_plane, dst_plane, copy)
 
 def remap_objects(object, src_plane, dst_plane, copy=pythoncom.Empty):
 
     return _rsf.remap_objects(object, src_plane, dst_plane, copy)
 
+def rotate_object(object, point, angle, axis=pythoncom.Empty, copy=pythoncom.Empty):
+
+    return _rsf.rotate_object(object, point, angle, axis, copy)
+
 def rotate_objects(objects, point, angle, axis=pythoncom.Empty, copy=pythoncom.Empty):
 
     return _rsf.rotate_objects(objects, point, angle, axis, copy)
+
+def scale_object(object, origin, scale, copy=pythoncom.Empty):
+
+    return _rsf.scale_object(object, origin, scale, copy)
 
 def scale_objects(objects, origin, scale, copy=pythoncom.Empty):
 
     return _rsf.scale_objects(objects, origin, scale, copy)
 
+def select_object(object):
+
+    return _rsf.select_object(object)
+
 def select_objects(objects):
 
     return _rsf.select_objects(objects)
+
+def shear_object(object, origin, ref_pt, scale, copy=pythoncom.Empty):
+
+    return _rsf.shear_object(object, origin, ref_pt, scale, copy)
 
 def shear_objects(objects, origin, ref_pt, scale, copy=pythoncom.Empty):
 
     return _rsf.shear_objects(objects, origin, ref_pt, scale, copy)
 
+def show_object(object):
+
+    return _rsf.show_object(object)
+
 def show_objects(objects):
 
     return _rsf.show_objects(objects)
+
+def transform_object(object, matrix, copy=pythoncom.Empty):
+
+    return _rsf.transform_object(object, matrix, copy)
 
 def transform_objects(objects, matrix, copy=pythoncom.Empty):
 
     return _rsf.transform_objects(objects, matrix, copy)
 
+def unlock_object(object):
+
+    return _rsf.unlock_object(object)
+
 def unlock_objects(objects):
 
     return _rsf.unlock_objects(objects)
+
+def unselect_object(object):
+
+    return _rsf.unselect_object(object)
 
 def unselect_objects(objects):
 

@@ -3,9 +3,10 @@ from reference_objects import *
 from get_objects import *
 from get_objects_ex import *
 from get_point_coordinates import *
-from prev_selected_objects import *
-from objects_by_group import *
 from objects_by_name import *
+from objects_by_group import *
+from get_object import *
+from prev_selected_objects import *
 from last_created_objects import *
 from objects_by_layer import *
 from objects_by_color import *

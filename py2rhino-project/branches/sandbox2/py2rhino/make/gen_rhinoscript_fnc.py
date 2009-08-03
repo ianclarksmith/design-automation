@@ -54,7 +54,6 @@ def write_RhinoscriptFunctions_class(data_dict):
         params_required = [] 
         
         num_params = len(function_dict['function_parameters'])
-        
         for param_num in range(num_params):
             #get the list of parameters
             param_list = function_dict['function_parameters']
@@ -62,6 +61,9 @@ def write_RhinoscriptFunctions_class(data_dict):
             param_py_name = param_list[param_num][0]
             param_type = param_list[param_num][1]
             param_opt_or_req = param_list[param_num][2]
+            #check if we still have arrays with no type specified
+            if param_type == 'arr':
+                print '\tThe following function has "arr" parameters: ', function_dict['function_name']
             #flattened?
             param_flattened = param_py_name
             if param_type.startswith('array'):
@@ -118,6 +120,7 @@ def write_RhinoscriptFunctions_class(data_dict):
     write_init(f)
     
     for function_list_name in sorted(data_dict.keys()):
+        print function_list_name
         for function_name in sorted(data_dict[function_list_name].keys()):
             write_class_function(data_dict[function_list_name][function_name], f)
             

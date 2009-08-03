@@ -86,6 +86,13 @@ get_linetype = {
     "method_parameters": (("linetype","str","OPT"),),
     "method_returns": ("string","null")
     }
+get_point = {
+    "method_location": "UserInterface",
+    "method_type": "METHOD",
+    "method_name": "get_point",
+    "method_parameters": (("message","str","OPT"),("point","arr","OPT"),("distance","dbl","OPT"),("plane","bln","OPT")),
+    "method_returns": ("array","null")
+    }
 get_point_on_curve = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
@@ -204,6 +211,13 @@ multi_list_box = {
     "method_name": "multi_list_box",
     "method_parameters": (("items","array_of str","REQ"),("message","str","OPT"),("title","str","OPT")),
     "method_returns": ("array","null")
+    }
+open_file_name = {
+    "method_location": "UserInterface",
+    "method_type": "METHOD",
+    "method_name": "open_file_name",
+    "method_parameters": (("title","str","OPT"),("filter","str","OPT"),("folder","str","OPT"),("filename","str","OPT"),("extension","str","OPT")),
+    "method_returns": ("string","null")
     }
 open_file_names = {
     "method_location": "UserInterface",

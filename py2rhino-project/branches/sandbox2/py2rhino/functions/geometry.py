@@ -8,6 +8,10 @@ def add_clipping_plane(plane, d_u, d_v, views=pythoncom.Empty):
 
     return _rsf.add_clipping_plane(plane, d_u, d_v, views)
 
+def add_point(point):
+
+    return _rsf.add_point(point)
+
 def add_point_cloud(points):
 
     return _rsf.add_point_cloud(points)

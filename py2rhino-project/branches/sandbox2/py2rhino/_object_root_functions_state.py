@@ -4,16 +4,20 @@ import pythoncom
 from exceptions import Exception
 from py2rhino import _util
 
+
 _rsf = None
+
 
 class _ObjectRootFunctionsState(object):
 
     # Class constructor
-    def __init__(self, rhino_id=None):
+    def __init__(self, rhino_id, _class, _rsf_in):
         if rhino_id==None:
             raise Exception("rhino_id is required.")
         self.rhino_id = rhino_id
-
+        self._class = _class
+        global _rsf
+        _rsf = _rsf_in
 
     def flash(self, style=pythoncom.Empty):
         return _rsf.flash_object()

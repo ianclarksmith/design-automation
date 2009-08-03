@@ -1,19 +1,31 @@
-add_arc3_pt = {
-    "input_folder_name": "Curve_Methods",
-    "input_file_name": "AddArc3Pt",
-    "output_package_name": "curve",
-    "output_module_name": "add_arc3_pt",
+move_object = {
+    "input_folder_name": "Object_Methods",
+    "input_file_name": "MoveObject",
+    "output_package_name": "object",
+    "output_module_name": "move_object",
 
     "doc_html": """
-        Adds a 3-point arc curve to the document.
+        Moves a single object.
     """,
 
     "syntax_html": {
-        0: ("arrStart", "arrEnd", "arrPoint"),
+        0: ("strObject", "arrStart", "arrEnd"),
+        1: ("strObject", "arrTranslation"),
     },
 
     "params_html": {
         0: {
+            "name": "strObject",
+            "py_name": "object",
+            "opt_or_req": "Required",
+            "type": "String",
+            "name_prefix": "str",
+            "name_main": "Object",
+            "doc": """
+        The identifier of the object to move.
+            """
+        },
+        1: {
             "name": "arrStart",
             "py_name": "start",
             "opt_or_req": "Required",
@@ -21,10 +33,10 @@ add_arc3_pt = {
             "name_prefix": "arr_of_dbl",
             "name_main": "Start",
             "doc": """
-        The starting point of the arc.
+        The 3-D starting, or base, point of the move operation.
             """
         },
-        1: {
+        2: {
             "name": "arrEnd",
             "py_name": "end",
             "opt_or_req": "Required",
@@ -32,26 +44,26 @@ add_arc3_pt = {
             "name_prefix": "arr_of_dbl",
             "name_main": "End",
             "doc": """
-        The ending point of the arc.
+        The 3-D ending point of the move operation.
             """
         },
-        2: {
-            "name": "arrPoint",
-            "py_name": "point",
+        3: {
+            "name": "arrTranslation",
+            "py_name": "translation",
             "opt_or_req": "Required",
             "type": "Array",
             "name_prefix": "arr_of_dbl",
-            "name_main": "Point",
+            "name_main": "Translation",
             "doc": """
-        A point on the arc.
+        The 3-D translation vector.
             """
         },
     },
 
     "returns_html": {
         0: {
-            "type": "string",
-            "doc": "The identifier of the new object if successful."
+            "type": "boolean",
+            "doc": "The identifier of the moved object if successful."
         },
         1: {
             "type": "null",
@@ -59,22 +71,22 @@ add_arc3_pt = {
         },
     },
 
-    "id_com": 82,
+    "id_com": 270,
 
     "params_com": {
         0: {
-            "name": "vaPt1",
+            "name": "vaObject",
             "opt_or_req": "Required",
             "type": "tagVARIANT",
         },
         1: {
-            "name": "vaPt2",
+            "name": "vaStart",
             "opt_or_req": "Required",
             "type": "tagVARIANT",
         },
         2: {
-            "name": "vaPt3",
-            "opt_or_req": "Required",
+            "name": "vaEnd",
+            "opt_or_req": "Optional",
             "type": "tagVARIANT",
         },
     },

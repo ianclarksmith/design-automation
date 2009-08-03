@@ -1899,6 +1899,13 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(904, 1, (VT_VARIANT, 0), magic, u"AddClippingPlane", None, *flattened)
 
+    def add_point(self, point):
+
+        magic = ((VT_VARIANT, 1),)
+        flattened = (point,)
+
+        return self._ApplyTypes_(68, 1, (VT_VARIANT, 0), magic, u"AddPoint", None, *flattened)
+
     def add_point_cloud(self, points):
 
         magic = ((VT_ARRAY + VT_R8, 1),)
@@ -3397,6 +3404,20 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(918, 1, (VT_VARIANT, 0), magic, u"BoxMorphObject", None, *flattened)
 
+    def copy_object(self, object, start, end):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1))
+        flattened = (object, start, end)
+
+        return self._ApplyTypes_(184, 1, (VT_VARIANT, 0), magic, u"CopyObject", None, *flattened)
+
+    def copy_object_2(self, object, translation):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1))
+        flattened = (object, translation)
+
+        return self._ApplyTypes_(184, 1, (VT_VARIANT, 0), magic, u"CopyObject", None, *flattened)
+
     def copy_objects(self, objects, start, end):
 
         magic = ((VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
@@ -3410,6 +3431,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         flattened = (flatten_params(translation),)
 
         return self._ApplyTypes_(295, 1, (VT_VARIANT, 0), magic, u"CopyObjects", None, *flattened)
+
+    def delete_object(self, object):
+
+        magic = ((VT_BSTR, 1),)
+        flattened = (object,)
+
+        return self._ApplyTypes_(185, 1, (VT_VARIANT, 0), magic, u"DeleteObject", None, *flattened)
 
     def delete_objects(self, objects):
 
@@ -3431,6 +3459,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         flattened = (flatten_params(objects), style)
 
         return self._ApplyTypes_(869, 1, (VT_VARIANT, 0), magic, u"FlashObject", None, *flattened)
+
+    def hide_object(self, object):
+
+        magic = ((VT_BSTR, 1),)
+        flattened = (object,)
+
+        return self._ApplyTypes_(187, 1, (VT_VARIANT, 0), magic, u"HideObject", None, *flattened)
 
     def hide_objects(self, objects):
 
@@ -3530,6 +3565,13 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(727, 1, (VT_VARIANT, 0), magic, u"IsVisibleInView", None, *flattened)
 
+    def lock_object(self, object):
+
+        magic = ((VT_BSTR, 1),)
+        flattened = (object,)
+
+        return self._ApplyTypes_(190, 1, (VT_VARIANT, 0), magic, u"LockObject", None, *flattened)
+
     def lock_objects(self, objects):
 
         magic = ((VT_VARIANT, 1),)
@@ -3544,12 +3586,33 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(781, 1, (VT_VARIANT, 0), magic, u"MatchObjectAttributes", None, *flattened)
 
+    def mirror_object(self, object, start_pt, end_pt, copy):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
+        flattened = (object, start_pt, end_pt, copy)
+
+        return self._ApplyTypes_(589, 1, (VT_VARIANT, 0), magic, u"MirrorObject", None, *flattened)
+
     def mirror_objects(self, objects, start_pt, end_pt, copy):
 
         magic = ((VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_BOOL, 1))
         flattened = (flatten_params(objects), flatten_params(start_pt), flatten_params(end_pt), copy)
 
         return self._ApplyTypes_(590, 1, (VT_VARIANT, 0), magic, u"MirrorObjects", None, *flattened)
+
+    def move_object(self, object, start, end):
+
+        magic = ((VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1))
+        flattened = (object, flatten_params(start), flatten_params(end))
+
+        return self._ApplyTypes_(270, 1, (VT_VARIANT, 0), magic, u"MoveObject", None, *flattened)
+
+    def move_object_2(self, object, translation):
+
+        magic = ((VT_BSTR, 1), (VT_ARRAY + VT_R8, 1))
+        flattened = (object, flatten_params(translation))
+
+        return self._ApplyTypes_(270, 1, (VT_VARIANT, 0), magic, u"MoveObject", None, *flattened)
 
     def move_objects(self, objects, start, end):
 
@@ -3712,6 +3775,13 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(865, 1, (VT_VARIANT, 0), magic, u"ObjectMeshSettings", None, *flattened)
 
+    def object_name(self, objects, name):
+
+        magic = ((VT_VARIANT, 1), (VT_BSTR, 1))
+        flattened = (objects, name)
+
+        return self._ApplyTypes_(196, 1, (VT_VARIANT, 0), magic, u"ObjectName", None, *flattened)
+
     def object_names(self, objects, names):
 
         magic = ((VT_VARIANT, 1), (VT_VARIANT, 1))
@@ -3768,12 +3838,26 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(199, 1, (VT_VARIANT, 0), magic, u"ObjectURL", None, *flattened)
 
+    def orient_object(self, object, reference, target, flags):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_I2, 1))
+        flattened = (object, reference, target, flags)
+
+        return self._ApplyTypes_(390, 1, (VT_VARIANT, 0), magic, u"OrientObject", None, *flattened)
+
     def orient_objects(self, objects, reference, target, flags):
 
         magic = ((VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_I2, 1))
         flattened = (flatten_params(objects), flatten_params(reference), flatten_params(target), flags)
 
         return self._ApplyTypes_(391, 1, (VT_VARIANT, 0), magic, u"OrientObjects", None, *flattened)
+
+    def remap_object(self, object, src_plane, dst_plane, copy):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
+        flattened = (object, src_plane, dst_plane, copy)
+
+        return self._ApplyTypes_(655, 1, (VT_VARIANT, 0), magic, u"RemapObject", None, *flattened)
 
     def remap_objects(self, object, src_plane, dst_plane, copy):
 
@@ -3782,12 +3866,26 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(656, 1, (VT_VARIANT, 0), magic, u"RemapObjects", None, *flattened)
 
+    def rotate_object(self, object, point, angle, axis, copy):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
+        flattened = (object, point, angle, axis, copy)
+
+        return self._ApplyTypes_(392, 1, (VT_VARIANT, 0), magic, u"RotateObject", None, *flattened)
+
     def rotate_objects(self, objects, point, angle, axis, copy):
 
         magic = ((VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_BOOL, 1))
         flattened = (flatten_params(objects), flatten_params(point), angle, flatten_params(axis), copy)
 
         return self._ApplyTypes_(393, 1, (VT_VARIANT, 0), magic, u"RotateObjects", None, *flattened)
+
+    def scale_object(self, object, origin, scale, copy):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
+        flattened = (object, origin, scale, copy)
+
+        return self._ApplyTypes_(585, 1, (VT_VARIANT, 0), magic, u"ScaleObject", None, *flattened)
 
     def scale_objects(self, objects, origin, scale, copy):
 
@@ -3796,12 +3894,26 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(586, 1, (VT_VARIANT, 0), magic, u"ScaleObjects", None, *flattened)
 
+    def select_object(self, object):
+
+        magic = ((VT_BSTR, 1),)
+        flattened = (object,)
+
+        return self._ApplyTypes_(200, 1, (VT_VARIANT, 0), magic, u"SelectObject", None, *flattened)
+
     def select_objects(self, objects):
 
         magic = ((VT_VARIANT, 1),)
         flattened = (flatten_params(objects),)
 
         return self._ApplyTypes_(298, 1, (VT_VARIANT, 0), magic, u"SelectObjects", None, *flattened)
+
+    def shear_object(self, object, origin, ref_pt, scale, copy):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
+        flattened = (object, origin, ref_pt, scale, copy)
+
+        return self._ApplyTypes_(587, 1, (VT_VARIANT, 0), magic, u"ShearObject", None, *flattened)
 
     def shear_objects(self, objects, origin, ref_pt, scale, copy):
 
@@ -3810,12 +3922,26 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(588, 1, (VT_VARIANT, 0), magic, u"ShearObjects", None, *flattened)
 
+    def show_object(self, object):
+
+        magic = ((VT_BSTR, 1),)
+        flattened = (object,)
+
+        return self._ApplyTypes_(201, 1, (VT_VARIANT, 0), magic, u"ShowObject", None, *flattened)
+
     def show_objects(self, objects):
 
         magic = ((VT_VARIANT, 1),)
         flattened = (flatten_params(objects),)
 
         return self._ApplyTypes_(305, 1, (VT_VARIANT, 0), magic, u"ShowObjects", None, *flattened)
+
+    def transform_object(self, object, matrix, copy):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_BOOL, 1))
+        flattened = (object, matrix, copy)
+
+        return self._ApplyTypes_(272, 1, (VT_VARIANT, 0), magic, u"TransformObject", None, *flattened)
 
     def transform_objects(self, objects, matrix, copy):
 
@@ -3824,12 +3950,26 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(302, 1, (VT_VARIANT, 0), magic, u"TransformObjects", None, *flattened)
 
+    def unlock_object(self, object):
+
+        magic = ((VT_BSTR, 1),)
+        flattened = (object,)
+
+        return self._ApplyTypes_(202, 1, (VT_VARIANT, 0), magic, u"UnlockObject", None, *flattened)
+
     def unlock_objects(self, objects):
 
         magic = ((VT_VARIANT, 1),)
         flattened = (flatten_params(objects),)
 
         return self._ApplyTypes_(306, 1, (VT_VARIANT, 0), magic, u"UnlockObjects", None, *flattened)
+
+    def unselect_object(self, object):
+
+        magic = ((VT_BSTR, 1),)
+        flattened = (object,)
+
+        return self._ApplyTypes_(299, 1, (VT_VARIANT, 0), magic, u"UnselectObject", None, *flattened)
 
     def unselect_objects(self, objects):
 
@@ -3844,6 +3984,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         flattened = (object, enable)
 
         return self._ApplyTypes_(499, 1, (VT_VARIANT, 0), magic, u"EnableObjectGrips", None, *flattened)
+
+    def get_object_grip(self, message, pre_select, select):
+
+        magic = ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1))
+        flattened = (message, pre_select, select)
+
+        return self._ApplyTypes_(561, 1, (VT_VARIANT, 0), magic, u"GetObjectGrip", None, *flattened)
 
     def get_object_grips(self, message, pre_select, select):
 
@@ -3865,6 +4012,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         flattened = (object,)
 
         return self._ApplyTypes_(500, 1, (VT_VARIANT, 0), magic, u"ObjectGripCount", None, *flattened)
+
+    def object_grip_location(self, object, index, point):
+
+        magic = ((VT_BSTR, 1), (VT_I2, 1), (VT_VARIANT, 1))
+        flattened = (object, index, point)
+
+        return self._ApplyTypes_(556, 1, (VT_VARIANT, 0), magic, u"ObjectGripLocation", None, *flattened)
 
     def object_grip_locations(self, object, points):
 
@@ -3894,6 +4048,13 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(559, 1, (VT_VARIANT, 0), magic, u"PrevObjectGrip", None, *flattened)
 
+    def select_object_grip(self, object, index):
+
+        magic = ((VT_BSTR, 1), (VT_I2, 1))
+        flattened = (object, index)
+
+        return self._ApplyTypes_(554, 1, (VT_VARIANT, 0), magic, u"SelectObjectGrip", None, *flattened)
+
     def select_object_grips(self, object):
 
         magic = ((VT_BSTR, 1),)
@@ -3907,6 +4068,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         flattened = (object,)
 
         return self._ApplyTypes_(560, 1, (VT_VARIANT, 0), magic, u"SelectedObjectGrips", None, *flattened)
+
+    def unselect_object_grip(self, object, index):
+
+        magic = ((VT_BSTR, 1), (VT_I2, 1))
+        flattened = (object, index)
+
+        return self._ApplyTypes_(555, 1, (VT_VARIANT, 0), magic, u"UnselectObjectGrip", None, *flattened)
 
     def unselect_object_grips(self, object):
 
@@ -4152,6 +4320,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         flattened = (message, pre_select, select)
 
         return self._ApplyTypes_(575, 1, (VT_VARIANT, 0), magic, u"GetCurveObject", None, *flattened)
+
+    def get_object(self, message, type, pre_select, select, objects):
+
+        magic = ((VT_BSTR, 1), (VT_I2, 1), (VT_BOOL, 1), (VT_BOOL, 1), (VT_VARIANT, 1))
+        flattened = (message, type, pre_select, select, objects)
+
+        return self._ApplyTypes_(32, 1, (VT_VARIANT, 0), magic, u"GetObject", None, *flattened)
 
     def get_object_ex(self, message, type, pre_select, select, objects):
 
@@ -5455,6 +5630,13 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(673, 1, (VT_VARIANT, 0), magic, u"GetLinetype", None, *flattened)
 
+    def get_point(self, message, point, distance, plane):
+
+        magic = ((VT_BSTR, 1), (VT_VARIANT, 1), (VT_R8, 1), (VT_BOOL, 1))
+        flattened = (message, point, distance, plane)
+
+        return self._ApplyTypes_(61, 1, (VT_VARIANT, 0), magic, u"GetPoint", None, *flattened)
+
     def get_point_on_curve(self, object, message):
 
         magic = ((VT_BSTR, 1), (VT_BSTR, 1))
@@ -5573,6 +5755,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         flattened = (flatten_params(items), message, title)
 
         return self._ApplyTypes_(57, 1, (VT_VARIANT, 0), magic, u"MultiListBox", None, *flattened)
+
+    def open_file_name(self, title, filter, folder, filename, extension):
+
+        magic = ((VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1), (VT_BSTR, 1))
+        flattened = (title, filter, folder, filename, extension)
+
+        return self._ApplyTypes_(151, 1, (VT_VARIANT, 0), magic, u"OpenFileName", None, *flattened)
 
     def open_file_names(self, title, filter, folder, filename, extension):
 
@@ -5917,6 +6106,13 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(257, 1, (VT_VARIANT, 0), magic, u"MaximizeRestoreView", None, *flattened)
 
+    def named_c_plane(self, name):
+
+        magic = ((VT_BSTR, 1),)
+        flattened = (name,)
+
+        return self._ApplyTypes_(286, 1, (VT_VARIANT, 0), magic, u"NamedCPlane", None, *flattened)
+
     def named_c_planes(self):
 
         magic = ()
@@ -6049,6 +6245,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         flattened = (view, flatten_params(up_vector))
 
         return self._ApplyTypes_(517, 1, (VT_VARIANT, 0), magic, u"ViewCameraUp", None, *flattened)
+
+    def view_display_mode(self, view, mode):
+
+        magic = ((VT_BSTR, 1), (VT_I2, 1))
+        flattened = (view, mode)
+
+        return self._ApplyTypes_(290, 1, (VT_VARIANT, 0), magic, u"ViewDisplayMode", None, *flattened)
 
     def view_display_mode_ex(self, view, mode, return_names):
 

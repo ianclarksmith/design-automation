@@ -16,6 +16,7 @@ def get_data_dictionary():
                 for j in sorted(mod.__dict__.keys()):
                     if not j.startswith("__"):
                         data[i][j] = mod.__dict__[j]
+
     return data
 
 #===============================================================================
@@ -64,7 +65,6 @@ def write_methods(data_dict):
                     returns_data = get_returns_data(method_dict)
                     write_descriptor_for_api_methods(api_location, params_data, returns_data, f1)
                     write_descriptor_for_functions(fnc_location, fnc_com_id, fnc_vb_name, params_data, returns_data, f2)
-                print module_name, method_name
             else:
                 params_data = get_params_data(method_dict, -1)
                 returns_data = get_returns_data(method_dict)
@@ -78,7 +78,7 @@ def write_methods(data_dict):
     init1.close()
     init2.close()
     init3.close()    
-    print counter
+
 #------------------------------------------------------------------------------ 
 def get_params_data(method_dict, method_num):
     
@@ -86,7 +86,6 @@ def get_params_data(method_dict, method_num):
     py_method_name = method_dict['output_module_name']
     if method_num > 0:
         py_method_name = py_method_name + '_' + str(method_num + 1)
-        print '\t', py_method_name
     if keyword.iskeyword(py_method_name):
         py_method_name += '_'
     
@@ -161,6 +160,7 @@ def write_descriptor_for_api_methods(location, params_data, returns_data, f):
     w(f, '}', tabs=1, nls=0, nle=1)
 #------------------------------------------------------------------------------ 
 def write_descriptor_for_functions(location, id, vb_name, params_data, returns_data, f):
+    
     #get the data
     py_method_name, params_name, params_type, params_opt_or_req, params_doc = params_data
     returns_type, returns_doc = returns_data
@@ -213,7 +213,7 @@ def write_returns(returns_type, f):
     w(f, ')', tabs=0, nls=0, nle=1)   
 #------------------------------------------------------------------------------ 
 def write_method_docs(location, method_data, f):
-    pass
+    pass #TODO: add some docs somewhere
 #------------------------------------------------------------------------------ 
 def get_type_string(str):
     if str.startswith("arr_of_"):

@@ -1,27 +1,27 @@
-str2_pt_array = {
-    "input_folder_name": "Utility_Methods",
-    "input_file_name": "Str2PtArray",
-    "output_package_name": "utility",
-    "output_module_name": "str2_pt_array",
+named_c_plane = {
+    "input_folder_name": "View_Methods",
+    "input_file_name": "NamedCPlane",
+    "output_package_name": "view",
+    "output_module_name": "named_c_plane",
 
     "doc_html": """
-        Converts a formatted string value into an array of 3-D point value.
+        Returns the plane geometry of the specified named construction plane.
     """,
 
     "syntax_html": {
-        0: ("strPoints"),
+        0: ("strName"),
     },
 
     "params_html": {
         0: {
-            "name": "strPoints",
-            "py_name": "points",
+            "name": "strName",
+            "py_name": "name",
             "opt_or_req": "Required",
             "type": "String",
             "name_prefix": "str",
-            "name_main": "Points",
+            "name_main": "Name",
             "doc": """
-        A string that contains an unknown number of space delimited points like "1,2,3 4,5,6 7,8,9".
+        The name of a named construction plane.
             """
         },
     },
@@ -29,7 +29,7 @@ str2_pt_array = {
     "returns_html": {
         0: {
             "type": "array",
-            "doc": "An array of 3-D points if successful."
+            "doc": "An array containing the plane. The elements of a construction plane array are as follows:"
         },
         1: {
             "type": "null",
@@ -37,11 +37,11 @@ str2_pt_array = {
         },
     },
 
-    "id_com": 410,
+    "id_com": 286,
 
     "params_com": {
         0: {
-            "name": "vaStr",
+            "name": "vaName",
             "opt_or_req": "Required",
             "type": "tagVARIANT",
         },

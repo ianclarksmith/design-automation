@@ -26,6 +26,14 @@ get_curve_object = {
     "function_parameters": (("message","str","OPT"),("pre_select","bln","OPT"),("select","bln","OPT")),
     "function_returns": ("array","null")
     }
+get_object = {
+    "function_location": "selection",
+    "function_com_id": 32,
+    "function_vb_name": "GetObject",
+    "function_name": "get_object",
+    "function_parameters": (("message","str","OPT"),("type","int","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","arr","OPT")),
+    "function_returns": ("string","null")
+    }
 get_object_ex = {
     "function_location": "selection",
     "function_com_id": 819,
