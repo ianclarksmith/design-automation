@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root_attributes import _CurveRootAttributes
 
 _rsf = None

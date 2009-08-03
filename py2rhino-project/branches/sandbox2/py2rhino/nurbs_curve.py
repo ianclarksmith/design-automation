@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root import _CurveRoot
 from py2rhino._curve_root_functions_area import _CurveRootFunctionsArea
 from py2rhino._arc_attributes import _ArcAttributes
@@ -44,73 +45,89 @@ class NurbsCurve(_CurveRoot):
         self.utility = _ObjectRootFunctionsUtil(rhino_id)
 
     @classmethod
-    def create_curve_by_points(cls, points, degree=pythoncom.Empty):
+    def create_by_points(cls, points, degree=pythoncom.Empty):
 
         rhino_id = _rsf.add_curve(points, degree)
 
-
-        return NurbsCurve(rhino_id)
-
+        if rhino_id:
+            return NurbsCurve(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_interp_curve_on_surface(cls, surface, points):
 
         rhino_id = _rsf.add_interp_crv_on_srf(surface.rhino_id, points)
 
-
-        return NurbsCurve(rhino_id)
-
+        if rhino_id:
+            return NurbsCurve(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_interp_curve_on_surface_uv(cls, surface, points):
 
         rhino_id = _rsf.add_interp_crv_on_srf_u_v(surface.rhino_id, points)
 
-
-        return NurbsCurve(rhino_id)
-
+        if rhino_id:
+            return NurbsCurve(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_interp_curve(cls, points, degree=pythoncom.Empty, knot_style=pythoncom.Empty, start_tan=pythoncom.Empty, end_tan=pythoncom.Empty):
 
         rhino_id = _rsf.add_interp_curve(points, degree, knot_style, start_tan, end_tan)
 
-
-        return NurbsCurve(rhino_id)
-
+        if rhino_id:
+            return NurbsCurve(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_interp_curve_ex(cls, points, degree=pythoncom.Empty, knot_style=pythoncom.Empty, sharp=pythoncom.Empty, start_tangent=pythoncom.Empty, end_tangent=pythoncom.Empty):
 
         rhino_id = _rsf.add_interp_curve_ex(points, degree, knot_style, sharp, start_tangent, end_tangent)
 
-
-        return NurbsCurve(rhino_id)
-
+        if rhino_id:
+            return NurbsCurve(rhino_id)
+        else:
+            return None
 
     @classmethod
-    def create_curve(cls, points, knots, degree, weights=pythoncom.Empty):
+    def create(cls, points, knots, degree, weights=pythoncom.Empty):
 
         rhino_id = _rsf.add_nurbs_curve(points, knots, degree, weights)
 
-
-        return NurbsCurve(rhino_id)
-
+        if rhino_id:
+            return NurbsCurve(rhino_id)
+        else:
+            return None
 
     @classmethod
-    def create_offset_curve_on_surface(cls, curve, surface, distance, parameter):
+    def create_by_offset_on_surface(cls, curve, surface, distance, parameter):
 
         rhino_id = _rsf.offset_curve_on_surface(curve.rhino_id, surface, distance, parameter)
 
+        if rhino_id:
+            return NurbsCurve(rhino_id)
+        else:
+            return None
 
-        return NurbsCurve(rhino_id)
+    @classmethod
+    def create_by_projection_to_mesh(cls, curves, meshes, direction):
+
+        rhino_id = _rsf.project_curve_to_mesh(map(lambda i: i.rhino_id, curves), meshes, direction)
+
+
+        return map(lambda i: NurbsCurve(i), rhino_id)
 
 
     @classmethod
-    def create_project_curve_to_surface(cls, curve, surfaces, direction):
+    def create_by_projection_to_surface(cls, curve, surfaces, direction):
 
         rhino_id = _rsf.project_curve_to_surface(curve.rhino_id, surfaces, direction)
 
 
-        return NurbsCurve(rhino_id)
+        return map(lambda i: NurbsCurve(i), rhino_id)
 

@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root import _CurveRoot
 from py2rhino._curve_root_functions_evaluate import _CurveRootFunctionsEvaluate
 from py2rhino._object_root_functions_groups import _ObjectRootFunctionsGroups
@@ -44,6 +45,7 @@ class Line(_CurveRoot):
 
         rhino_id = _rsf.add_line(start, end)
 
-
-        return Line(rhino_id)
-
+        if rhino_id:
+            return Line(rhino_id)
+        else:
+            return None

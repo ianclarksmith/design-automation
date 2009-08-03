@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root_attributes import _CurveRootAttributes
 
 _rsf = None
@@ -15,12 +16,8 @@ class _EllipseAttributes(_CurveRootAttributes):
         self.rhino_id = rhino_id
 
 
-    def center_point(self, ):
-
+    def center_point(self):
         return _rsf.ellipse_center_point(self.rhino_id)
 
-
-    def quad_points(self, ):
-
+    def quad_points(self):
         return _rsf.ellipse_quad_points(self.rhino_id)
-

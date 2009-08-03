@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 
 _rsf = None
 
@@ -15,9 +16,11 @@ class _CurveRootFunctionsModify(object):
 
 
     def close_curve(self, tolerance=pythoncom.Empty):
-
-        return _rsf.close_curve(self.rhino_id, tolerance)
-
+        rhino_id = _rsf.close_curve(self.rhino_id, tolerance)
+        if rhino_id:
+            return True
+        else:
+            return False
 
     def seam(self, parameter):
 
@@ -25,19 +28,25 @@ class _CurveRootFunctionsModify(object):
 
 
     def extend_curve(self, type, side, objects):
-
-        return _rsf.extend_curve(self.rhino_id, type, side, objects)
-
+        rhino_id = _rsf.extend_curve(self.rhino_id, type, side, objects)
+        if rhino_id:
+            return True
+        else:
+            return False
 
     def extend_curve_length(self, type, side, length):
-
-        return _rsf.extend_curve_length(self.rhino_id, type, side, length)
-
+        rhino_id = _rsf.extend_curve_length(self.rhino_id, type, side, length)
+        if rhino_id:
+            return True
+        else:
+            return False
 
     def extend_curve_point(self, side, point):
-
-        return _rsf.extend_curve_point(self.rhino_id, side, point)
-
+        rhino_id = _rsf.extend_curve_point(self.rhino_id, side, point)
+        if rhino_id:
+            return True
+        else:
+            return False
 
     def fair_curve(self, tolerance=pythoncom.Empty):
 
@@ -45,29 +54,30 @@ class _CurveRootFunctionsModify(object):
 
 
     def fit_curve(self, degree=pythoncom.Empty, tolerance=pythoncom.Empty, angle_tolerance=pythoncom.Empty):
-
-        return _rsf.fit_curve(self.rhino_id, degree, tolerance, angle_tolerance)
-
+        rhino_id = _rsf.fit_curve(self.rhino_id, degree, tolerance, angle_tolerance)
+        if rhino_id:
+            return True
+        else:
+            return False
 
     def insert_curve_knot(self, parameter, symmetrical=pythoncom.Empty):
 
         return _rsf.insert_curve_knot(self.rhino_id, parameter, symmetrical)
 
 
-    def make_curve_non_periodic(self, delete=pythoncom.Empty):
+    def make_curve_non_periodic(self):
+        rhino_id = _rsf.make_curve_non_periodic(self.rhino_id, False)
+        if rhino_id:
+            return True
+        else:
+            return False
 
-        return _rsf.make_curve_non_periodic(self.rhino_id, delete)
-
-
-    def make_curve_periodic(self, delete=pythoncom.Empty):
-
-        return _rsf.make_curve_periodic(self.rhino_id, delete)
-
-
-    def project_curve_to_mesh(self, curves, meshes, direction):
-
-        return _rsf.project_curve_to_mesh(map(lambda i: i.rhino_id, curves), meshes, direction)
-
+    def make_curve_periodic(self):
+        rhino_id = _rsf.make_curve_periodic(self.rhino_id, False)
+        if rhino_id:
+            return True
+        else:
+            return False
 
     def rebuild_curve(self, degree=pythoncom.Empty, point_count=pythoncom.Empty):
 
@@ -79,7 +89,7 @@ class _CurveRootFunctionsModify(object):
         return _rsf.remove_curve_knot(self.rhino_id, parameter)
 
 
-    def reverse_curve(self, ):
+    def reverse_curve(self):
 
         return _rsf.reverse_curve(self.rhino_id)
 
@@ -90,6 +100,8 @@ class _CurveRootFunctionsModify(object):
 
 
     def trim_curve(self, interval, delete=pythoncom.Empty):
-
-        return _rsf.trim_curve(self.rhino_id, interval, delete)
-
+        rhino_id = _rsf.trim_curve(self.rhino_id, interval, delete)
+        if rhino_id:
+            return True
+        else:
+            return False

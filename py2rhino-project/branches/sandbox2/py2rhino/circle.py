@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+from py2rhino import _util
 from py2rhino._curve_root import _CurveRoot
 from py2rhino._curve_root_functions_area import _CurveRootFunctionsArea
 from py2rhino._circle_attributes import _CircleAttributes
@@ -48,15 +49,17 @@ class Circle(_CurveRoot):
 
         rhino_id = _rsf.add_circle(plane, radius)
 
-
-        return Circle(rhino_id)
-
+        if rhino_id:
+            return Circle(rhino_id)
+        else:
+            return None
 
     @classmethod
     def create_circle_3pt(cls, first, second, third):
 
         rhino_id = _rsf.add_circle_3_pt(first, second, third)
 
-
-        return Circle(rhino_id)
-
+        if rhino_id:
+            return Circle(rhino_id)
+        else:
+            return None

@@ -85,12 +85,17 @@ def get_data_dictionary(debug=False):
 # Write the classes
 #===============================================================================
 def write_rhinoscript_classes(data_dict):
+    
+    
+    
+    
     #Some sub-functions
     #---------------------------------------------------------------------------
     def write_class_header(class_name, parent_class_name, class_dict, f):
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
         w(f,'import pythoncom')
         w(f,'from exceptions import Exception')
+        w(f,'from py2rhino import _util')        
         
         #import the parent
         parent_module_name = camel_to_underscore(parent_class_name)        
@@ -124,10 +129,29 @@ def write_rhinoscript_classes(data_dict):
         
     #---------------------------------------------------------------------------
     def write_method(function_name, class_name, method_type, method_dict, f):
+        
+        #a list of simple types
+        simple_types = ('bln', 'int', 'lng', 'dbl', 'str', 'n', 'va')
+        
+        #a list of class types
+        class_types = (
+                       'Arc', 
+                       'Circle', 
+                       'Ellipse', 
+                       'GenericCurve',
+                       'GenericObject',
+                       'NurbsCurve',
+                       'Polyline'
+                       )
+                        #'PolygonMesh',
+
+        
         #get the param data into a set of lists for easy access
         params_name = []
         params_opt_or_req = []
         params_type = []
+        params_default = []
+        params_hidden = []                
         
         param_list = method_dict['method_parameters']
         num_params = len(param_list)
@@ -137,7 +161,16 @@ def write_rhinoscript_classes(data_dict):
             params_name.append(param_list[param_num][0])
             params_type.append(param_list[param_num][1])            
             params_opt_or_req.append(param_list[param_num][2])
-        
+            if len(param_list[param_num]) > 3:
+                params_default.append(param_list[param_num][3])
+            else:
+                params_default.append(None)
+            if len(param_list[param_num]) > 4 and param_list[param_num][4] == "HIDE":
+                params_hidden.append(True)                   
+            else:
+                params_hidden.append(False)
+                
+                
         #if this is a constructor or a class method, make it a class method  
         if method_type in ('CONSTRUCTOR', 'CLASS_METHOD'):
             w(f, '@classmethod', tabs=1, nls=1, nle=0)
@@ -146,35 +179,48 @@ def write_rhinoscript_classes(data_dict):
             self_or_cls = 'self'
             
         #create the method signature
-        #TODO:add support for hidden parameters
         method_name = method_dict['method_name']
         w(f, ('def ', method_name), tabs=1, nls=1, nle=0)
         if num_params > 0:
             params = []
             for i in range(num_params):
                 param_str = ''
-                if params_type[i] == 'self':
-                    pass #skip the self
+                if params_type[i] == 'SELF':
+                    pass #skip the self parameters
+                elif params_hidden[i]:
+                    pass #skip the hidden parameters
                 else:
                     param_str = params_name[i]
                     if params_opt_or_req[i] == 'OPT':
                         param_str = param_str + '=pythoncom.Empty'
                     params.append(param_str)
-            params = ', '.join(params)
-            w(f, ('(',self_or_cls,', ', params, '):'), tabs=0, nle=1)
+            if len(params) > 0:
+                params = ', '.join(params)
+                w(f, ('(',self_or_cls,', ', params, '):'), tabs=0, nle=1)
+            else:
+                w(f, ('(',self_or_cls, '):'), tabs=0, nle=1)
         else:
             w(f, ('(',self_or_cls,'):'), tabs=0, nle=1)
         
         #TODO: write the documentation
         
-        #a list of simple types
-        simple_types = ('bln', 'int', 'lng', 'dbl', 'str', 'n', 'va')
+        print class_name, method_name
+
         
         #create the arguments
         args = []        
         if num_params > 0:
             for i in range(num_params):
-                if params_type[i] == 'self':
+                if params_hidden[i]:
+                    if params_default[i] == 'EMPTY':
+                        args.append('pythoncom.Empty')
+                    elif params_default[i] == 'TRUE':
+                        args.append('True')
+                    elif params_default[i] == 'FALSE':
+                        args.append('False')                                                
+                    else:
+                        raise Exception('Cannot understand default param value')
+                elif params_type[i] == 'SELF':
                     args.append('self.rhino_id')
                 elif params_type[i] in simple_types:
                     args.append(params_name[i])
@@ -186,10 +232,10 @@ def write_rhinoscript_classes(data_dict):
                     params_type_tail = params_type[i][9:]
                     if params_type_tail in simple_types:
                         args.append(params_name[i])
-                    elif params_type_tail.startswith('_Object'):
+                    elif params_type_tail.startswith('_Object') or params_type_tail.startswith('_Entity'):
                         args.append('map(lambda i: i.rhino_id, '+params_name[i] + ')')
                     else:
-                        #args.append('trouble')#TODO: complete this bit
+                        #this will highlight anything I have forgotten
                         raise Exception('Cannot understand array type')
                 else:
                     raise Exception('Cannot understand param type')
@@ -198,25 +244,83 @@ def write_rhinoscript_classes(data_dict):
         
         #get the return type
         return_type = method_dict['method_returns']
-        if len(return_type) > 0:
+        if len(return_type) == 0:
+            return_type = None
+        elif len(return_type) < 3:
             return_type = return_type[0]
         else:
-            return_type = None
+            raise Exception('Method does not have the right number of returns')
         
-        #now write the function call
+        
+        #the function call for constructors
         if method_type == 'CONSTRUCTOR':
             w(f, ('rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
-            if return_type.startswith('_Object') or return_type.startswith('_Entity') or return_type == 'self':
-                w(f, ('return '+class_name+'(rhino_id)'), tabs=2, nls=1, nle=2)
-            elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity') or return_type == 'array_of self':
+            if return_type == 'SELF':
+                w(f, ('if rhino_id:'), tabs=2)
+                w(f, ('return '+class_name+'(rhino_id)'), tabs=3)
+                w(f, ('else:'), tabs=2)
+                w(f, ('return None'), tabs=3)
+            elif return_type == 'array_of SELF':
                 w(f, ('return map(lambda i: '+class_name+'(i), rhino_id)'), tabs=2, nls=1, nle=2)
             else:
-                raise Exception('Cannot understand return type')
+                raise Exception('Cannot understand return type for constructor')
+        
+        #the function call for methods
+        elif method_type == 'METHOD':
+            if class_name.endswith('Modify'):
+                if return_type == 'str':
+                    w(f, ('rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('if rhino_id:'), tabs=2)
+                    w(f, ('return True'), tabs=3)
+                    w(f, ('else:'), tabs=2)
+                    w(f, ('return False'), tabs=3)                             
+                elif return_type == 'bln':
+                    w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)#TODO: deal with return types
+                else:
+                    raise Exception('The Modify method is returning something strange')
+            elif return_type == None:
+                w(f, ('return _rsf.',function_name,'()'), tabs=2)
+            elif return_type in simple_types or return_type == 'number':
+                w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2)
+            elif return_type.startswith('array_of') and return_type[9:] in simple_types or return_type[9:] == 'number':
+                w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2)
+            elif return_type.startswith('SELF'):
+                    w(f, ('rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('if rhino_id:'), tabs=2)
+                    w(f, ('return ', class_name, '(rhino_id)'), tabs=3)
+                    w(f, ('else:'), tabs=2)
+                    w(f, ('return None'), tabs=3)  
+            elif return_type.startswith('_Object') or return_type.startswith('_Entity'):
+                return_class_name = return_type.split('.')[-1]
+                if return_class_name in class_types:
+                    w(f, ('rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('if rhino_id:'), tabs=2)
+                    w(f, ('return ', return_class_name, '(rhino_id)'), tabs=3)
+                    w(f, ('else:'), tabs=2)
+                    w(f, ('return None'), tabs=3)  
+                else:
+                    w(f, ('rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('if rhino_id:'), tabs=2)
+                    w(f, ('return _util.wrap(rhino_id)'), tabs=3)
+                    w(f, ('else:'), tabs=2)
+                    w(f, ('return None'), tabs=3)
+            elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity'):
+                return_class_name = return_type.split('.')[-1]
+                w(f, ('return map(lambda i: '+return_class_name+'(i), rhino_id)'), tabs=2, nls=1, nle=2)
+            else:
+                raise Exception('The method returns something very strange')
+            
+        #the function call for class methods
+        elif method_type == 'CLASS_METHOD':
+            pass #ignore these for the moment
+            #w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
+            
+            
+        #anything else
         else:
-            w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)#TODO: deal with return types
+            raise Exception('Cannot understand method type')
     #---------------------------------------------------------------------------
     for class_name in sorted(data_dict.keys()):
-        print class_name
         
         class_dict = data_dict[class_name]
         
@@ -239,7 +343,6 @@ def write_rhinoscript_classes(data_dict):
         
         #write each constructor to the class file
         for function_name in sorted(class_dict['constructors'].keys()):
-            print function_name
             method_dict = class_dict['constructors'][function_name]
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
@@ -249,7 +352,6 @@ def write_rhinoscript_classes(data_dict):
 
         #write each method to the class file
         for function_name in sorted(class_dict['methods'].keys()):
-            print function_name
             method_dict = class_dict['methods'][function_name]
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
@@ -259,13 +361,12 @@ def write_rhinoscript_classes(data_dict):
 
         #write each class method to the class file
         for function_name in sorted(class_dict['class_methods'].keys()):
-            print function_name
-            method_dict = class_dict['static_methods'][function_name]
+            method_dict = class_dict['class_methods'][function_name]
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
-                    write_method(function_name, class_name, 'STATIC_METHOD', method_dict[i], f)
+                    write_method(function_name, class_name, 'CLASS_METHOD', method_dict[i], f)
             else:
-                write_method(function_name, class_name, 'STATIC_METHOD', method_dict, f)
+                write_method(function_name, class_name, 'CLASS_METHOD', method_dict, f)
             
         #close the file
         f.close()
