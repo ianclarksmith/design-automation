@@ -1,6 +1,4 @@
 import py2ecotect as p2e
-from py2ecotect import application
-from py2ecotect.application import Application
 
 class Calculation(object):
     
@@ -159,47 +157,14 @@ class Calculation(object):
         sky 6 Total Visible Sky  
         
         """
-        import threading
         
         if type == "reference" and  metric is None:
             return
         else:
-            try:
-                arg_str = p2e._util._convert_args_to_string("calc.insolation", 
+            arg_str = p2e._util._convert_args_to_string("calc.insolation", 
                                                           target, type, select3D, 
                                                          accumulation, metric)
-                threading.Thread(target = self.do_calc(arg_str))
-                self.wait()
-                #p2e.conversation.Exec(arg_str)
-            except:
-                print "exception caught"
-                #print self.get_sky()
-                #print Application().get_username()
-                
-                
-                """
-                try:
-                    self.get_sky()
-                except:
-                    self.get_sky()
-                #while (len(value) == 0):
-                print "exception occured"
-                """
-    def do_calc(self, arg_str):
-        try:
             p2e.conversation.Exec(arg_str)
-        except:
-            pass
-                
-    def wait(self):
-        while(True):
-            try:
-                print "waiting 1"
-                x = self.get_sky()
-                print x
-                if x: break
-            except:
-                print "waiting 2"
 
     def insolation_2(self, period, shading, ground, direct):
         """
@@ -760,7 +725,7 @@ if __name__ == "__main__":
     #adjacencies()
     """
     #comfort()
-    x.insolation_1("grid", "incidence", True, 0, "photosynthetic")
+    #x.insolation_1("grid", "incidence", True, 0, "photosynthetic")
     #insolation_2("day", 2,True,False)
     #lighting("grid", "daylight", True)
     #resources("load")

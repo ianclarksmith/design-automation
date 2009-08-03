@@ -77,7 +77,7 @@ class Zone(object):
         p2e.conversation.Exec(arg_str)
         
         #Delete objects of this zone
-        objects = self.get_objects()
+        objects = self.objects
         for i in objects:
             i.delete()
             

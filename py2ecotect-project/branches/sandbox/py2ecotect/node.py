@@ -6,11 +6,11 @@ class Node(object):
     # Methods that affect relationships between things
     #===========================================================================  
     @classmethod
-    def _create_node_from_id(cls, object_eco_id, node_eco_id):
+    def _create_node_from_id(cls, obj, node_eco_id):
         
         #create the node
         node = cls()
-        node._object = object
+        node._object = obj
         
         #update model nodes lists
         p2e.model._nodes.append(node)
@@ -79,10 +79,12 @@ class Node(object):
         arg_str = p2e._util._convert_args_to_string("add.node", object.eco_id, index, 
                                                      point[0], point[1], 
                                                      point[2], nodeType, link)
-        p2e.conversation.Request(arg_str)
-
-        #update model lists
-        p2e.model._nodes.append(node)  
+        eco_id = p2e.conversation.Request(arg_str)
+        
+        if eco_id != -1:
+            #update model lists
+            p2e.model._nodes.append(node)
+        return eco_id  
     #---------------------------------------------------------------------------
     def delete(self):
         
@@ -92,7 +94,7 @@ class Node(object):
         p2e.conversation.Exec(arg_str)
         
         #Update node lists
-        p2e.model.nodes.remove(self)
+        p2e.model._nodes.remove(self)
         
         #set object to none
         _object = None
@@ -468,47 +470,51 @@ class Node(object):
     def _get_object(self):
         return _object
     
-    def get_position(self):
-        """
-        
-        Retrieves the position of the node in absolute world coordinates in each 
-        of the major axes. Three coordinate values are returned. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of the node in 3 
-        dimensional model space. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("get.node.position", self.eco_id)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float, float)
-
-    def set_position(self, absolute_position):
-        """
-        
-        Sets the position of the node in absolute world coordinates in each of 
-        the major axes. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position 
-        A list of three values that represents the absolute position in the 
-        X, Y and Z axis of the node in 3 dimensional model space.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.node.position", 
-                                                      self.eco_id, 
-                                                      absolute_position[0], 
-                                                      absolute_position[1], 
-                                                      absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+    @apply
+    def position():
+        def fget(self):
+            """
+            
+            Retrieves the position of the node in absolute world coordinates in each 
+            of the major axes. Three coordinate values are returned. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            Represents the absolute position in the X, Y and Z axis of the node in 3 
+            dimensional model space. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.node.position", self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_list(val, float, float, float)
+    
+        def fset(self, absolute_position):
+            """
+            
+            Sets the position of the node in absolute world coordinates in each of 
+            the major axes. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            absolute_position 
+            A list of three values that represents the absolute position in the 
+            X, Y and Z axis of the node in 3 dimensional model space.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.node.position", 
+                                                          self.eco_id, 
+                                                          absolute_position[0], 
+                                                          absolute_position[1], 
+                                                          absolute_position[2])
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
     
     @apply
     def selected():    

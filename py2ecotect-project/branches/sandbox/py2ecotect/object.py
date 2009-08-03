@@ -16,15 +16,17 @@ class _Object(object):
         
         #update model nodes lists
         for node_num in range(obj.first_node, obj.last_node):
-            p2e.Node._create_node_from_id(object_eco_id, node_num)
+            p2e.Node._create_node_from_id(obj, node_num)
         
+        #return the object to the duplicate method
+        return obj
+    
         #update object properties and lists
         #TODO: figure out the parents / children
-        
-        return obj
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
     @classmethod
-    def _create_object(cls, elemType, objType, selected = True, link = 0):
+    def _create_object(cls, obj, elemType, objType, points, selected = True, link = 0):  
         """
         
         Use this command to create new objects in the model. It returns the 
@@ -93,40 +95,32 @@ class _Object(object):
         child 2444 
 
         """
-        #create the object
-        obj = cls()        
-        
         #TODO: figure out how link works
         
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("add.object", elemType, 
                                                      objType, selected, link)
-        p2e.conversation.Request(arg_str)
+        eco_id = p2e.conversation.Request(arg_str)
         
-        #update model lists
-        p2e.model._objects.append(obj)       
-        
-        #TODO: parent and children...?
-        
-        #return the object
-        return obj
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
-    @classmethod
-    def _create_object_by_points(cls, elemType, objType, points, selected = True, link = 0):  
-        
-        obj = cls._create_object(elemType, objType, selected = True, link = 0)
-        for node_num in range(len(points)):
+        if eco_id != -1:
             
-            #execute ecotect instruction
-            node = p2e.Node._create_node(obj, node_num, points[node_num])
+            #TODO: parent and children...?
             
-        obj.done()
-        
-        return obj
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+            #update model lists
+            p2e.model._objects.append(obj)  
+    
+            for node_num in range(len(points)):
+                #execute ecotect instruction
+                node_id = p2e.Node._create_node(obj, node_num, points[node_num])
+                if node_id == -1:
+                    return -1
+            obj.done()
+
+        return eco_id
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~       
     def add_node(self, point):
         #execute ecotect instruction
-        node = p2e.Node._create_node(self, self.get_number_of_nodes() -1, point)
+        node = p2e.Node._create_node(self, self.number_of_nodes -1, point)
         self.done()
         
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
@@ -148,14 +142,14 @@ class _Object(object):
         p2e.conversation.Exec(arg_str)
         
         #Delete nodes of this object
-        nodes = self.get_nodes()
+        nodes = self.nodes
         for i in nodes:
             i.delete()
             
         #Update model lists
-        p2e.model.objects.remove(self)
+        p2e.model._objects.remove(self)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
-    def del_node(self, node):
+    def del_node(self, node, nodeIndex):
         """
         
         The delnode command removes the specified node from the specified object. 
@@ -169,11 +163,11 @@ class _Object(object):
         """
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delnode", self.eco_id, 
-                                                     node.eco_id)
+                                                     nodeIndex)
         p2e.conversation.Exec(arg_str)
         
         #Update model lists
-        p2e.model.nodes.remove(node)
+        p2e.model._nodes.remove(node)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
     def duplicate(self, move_distance):
         """
@@ -197,10 +191,10 @@ class _Object(object):
         p2e.conversation.Exec(arg_str)
         
         #get the id of the new object
-        eco_id = Model.get_objects() - 1
+        eco_id = p2e.model.Model().number_of_objects - 1
         
         #create the object
-        return Object.create_object_from_id(eco_id)
+        return self._create_object_from_id(eco_id)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
     def link(self, parent):
         """
@@ -355,6 +349,25 @@ class _Object(object):
         arg_str = p2e._util._convert_args_to_string("object.orient", self.eco_id, 
                                                      azi, alt)
         p2e.conversation.Exec(arg_str)
+        
+    def reverse(self):
+
+        nodes = self.nodes
+        points = []
+        for i in nodes[1:]:
+            print "\t",i.position
+            points.append(i.position)
+        
+        counter = 1
+        for i in nodes[1:]:
+            self.del_node(i, counter)
+            counter += 1
+            
+        points.reverse()
+        for i in points:
+            self.add_node(i)
+        self.done()
+        
 
     def revolve(self, axis, angle, segs):
         """
@@ -2484,80 +2497,432 @@ class _Vector(_Object):
 class Point(_Geometry):
     @classmethod
     def create(self, points):
-        return _Geometry._create_object_by_points("point", "point", points)
+        """
+        
+        Use this function to create new point objects in the model. It returns 
+        the point object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the point.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The point object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "point", "point", points)
+        if id == -1: return None
+        return obj
         
 class Line(_Geometry):
     @classmethod
     def create(self, points):
-        return _Geometry._create_object_by_points("line", "plane", points)
+        """
+        
+        Use this function to create new line objects in the model. It returns 
+        the line object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the line.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The line object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "line", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Roof(_Plane):
     @classmethod
     def create(self, points):
-        return _Plane._create_object_by_points("roof", "plane", points)
+        """
+        
+        Use this function to create new roof objects in the model. It returns 
+        the roof object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the roof.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The roof object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "roof", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Floor(_Plane):
     @classmethod
     def create(self, points):
-        return _Plane._create_object_by_points("floor", "plane", points)
+        """
+        
+        Use this function to create new fllor objects in the model. It returns 
+        the floor object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the floor.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The floor object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "floor", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Ceiling(_Plane):
     @classmethod
     def create(self, points):
-        return _Plane._create_object_by_points("ceiling", "plane", points)
+        """
+        
+        Use this function to create new ceiling objects in the model. It returns 
+        the ceiling object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the ceiling.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The ceiling object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "ceiling", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Wall(_Plane):
     @classmethod
     def create(self, points):
-        return _Plane._create_object_by_points("wall", "plane", points)
+        """
+        
+        Use this function to create new wall objects in the model. It returns the 
+        wall object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the wall.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The wall object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Wall()
+        id = _Plane._create_object(obj, "wall", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Partition(_Plane):
     @classmethod
     def create(self, points):
-        return _Plane._create_object_by_points("partition", "plane", points)
+        """
+        
+        Use this function to create new partition objects in the model. It 
+        returns the partition object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the partition.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The partition object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "partition", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Void(_Hole):
     @classmethod
     def create(self, points):
-        return _Hole._create_object_by_points("void", "plane", points)
+        """
+        
+        Use this function to create new void objects in the model. It returns 
+        the void object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the void.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The void object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "void", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Window(_Hole):
     @classmethod
     def create(self, points):
-        return _Hole._create_object_by_points("window", "plane", points)
+        """
+        
+        Use this function to create new window objects in the model. It returns 
+        the window object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the window.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The window object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "window", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Panel(_Hole):
     @classmethod
     def create(self, points):
-        return _Hole._create_object_by_points("panel", "plane", points)
+        """
+        
+        Use this function to create new panel objects in the model. It returns 
+        the panel object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the panel.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The panel object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "panel", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Door(_Hole):
     @classmethod
     def create(self, points):
-        return _Hole._create_object_by_points("door", "plane", points)
+        """
+        
+        Use this function to create new door objects in the model. It returns 
+        the door object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the door.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The door object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "door", "plane", points)
+        if id == -1: return None
+        return obj
 
 class  Speaker(_Vector):
     @classmethod
     def create(self, points):
-        return _Vector._create_object_by_points("speaker", "source", points)
+        """
+        
+        Use this function to create new speaker objects in the model. It returns 
+        the speaker object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the speaker.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The speaker object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "speaker", "source", points)
+        if id == -1: return None
+        return obj
 
 class  Light(_Vector):
     @classmethod
     def create(self, points):
-        return _Vector._create_object_by_points("light", "source", points)
+        """
+        
+        Use this function to create new light objects in the model. It returns 
+        the light object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the light.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The light object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "light", "source", points)
+        if id == -1: return None
+        return obj
 
 class  Appliance(_Vector):
     @classmethod
     def create(self, points):
-        return _Vector._create_object_by_points("appliance", "", points)
+        """
+        
+        Use this function to create new appliance objects in the model. It 
+        returns the appliance object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the appliance.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The appliance object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "appliance", "", points)
+        if id == -1: return None
+        return obj
 
 class  SolarCollector(_Vector):
     @classmethod
     def create(self, points):
-        return _Vector._create_object_by_points("solarcollector", "", points)
+        """
+        
+        Use this function to create new solarcollector objects in the model. 
+        It returns the solarcollector object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the solarcollector.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The solarcollector object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "solarcollector", "", points)
+        if id == -1: return None
+        return obj
 
 class  Camera(_Vector):
     @classmethod
     def create(self, points):
-        return _Vector._create_object_by_points("camera", "", points)
+        """
+        
+        Use this function to create new camera objects in the model. It returns 
+        the camera object just added. 
+
+        Parameter(s)
+        This function takes the following parameters.
+        
+        points 
+        The ordered list of points that define the camera.
+        
+        Return Value(s)
+        This function returns the following value(s).
+        
+        object 
+        The camera object just added. None is returned if the operation 
+        failed. 
+        
+        """        
+        obj = Point()
+        id = _Plane._create_object(obj, "camera", "", points)
+        if id == -1: return None
+        return obj
 
