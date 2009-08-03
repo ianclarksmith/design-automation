@@ -1,2 +1,0 @@
-import object_methods
-import curve_methods
