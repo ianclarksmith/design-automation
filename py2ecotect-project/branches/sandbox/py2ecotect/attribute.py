@@ -1,7 +1,7 @@
 import py2ecotect as p2e
 
 class Attribute(object):
-    
+    #TODO: decide what type of methods these are
     #===========================================================================
     # Properties
     #===========================================================================
