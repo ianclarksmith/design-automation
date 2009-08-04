@@ -549,87 +549,93 @@ class Grid(object):
             p2e.conversation.Exec(arg_str)
         
         return property(**locals())
+    
+    @apply
+    def max():
+        def fget(self):
+            """
+            
+            Retreives the values for the maximum extent of the grid for the x y and 
+            z axes. The axial values are given in absolute world co-ordinates. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            The absolute position in the X, Y and Z axis of the maximun extents of 
+            the analysis grid in 3 dimensional model space.
+    
+            """
+            val = p2e.conversation.Request("get.grid.max")
+            return p2e._util._convert_str_to_list(val, float, float, float)
+    
+        def fset(self, absolute_position):
+            """
+            
+            Sets the maximum values of the grid extents for the x, y and z axes. The 
+            axial values are specified in absolute world co-ordinates. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            absolute_position 
+            A list of three values that represent the absolute position in the 
+            X, Y and Z axis of the maximun extents of the analysis grid in 3 
+            dimensional model space. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.grid.max", 
+                                                          absolute_position[0],
+                                                          absolute_position[1],
+                                                          absolute_position[2])
+            p2e.conversation.Exec(arg_str)
+        return property(**locals())
 
-    def get_max(self):
-        """
-        
-        Retreives the values for the maximum extent of the grid for the x y and 
-        z axes. The axial values are given in absolute world co-ordinates. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        The absolute position in the X, Y and Z axis of the maximun extents of 
-        the analysis grid in 3 dimensional model space.
-
-        """
-        val = p2e.conversation.Request("get.grid.max")
-        return p2e._util._convert_str_to_list(val, float, float, float)
-
-    def set_max(self, absolute_position):
-        """
-        
-        Sets the maximum values of the grid extents for the x, y and z axes. The 
-        axial values are specified in absolute world co-ordinates. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position 
-        A list of three values that represent the absolute position in the 
-        X, Y and Z axis of the maximun extents of the analysis grid in 3 
-        dimensional model space. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.grid.max", 
-                                                      absolute_position[0],
-                                                      absolute_position[1],
-                                                      absolute_position[2])
-        p2e.conversation.Exec(arg_str)
-
-    def get_min(self):
-        """
-        
-        Retreives the values for the minimum extent of the grid for the x y and 
-        z axes. The axial values are given in absolute world co-ordinates. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        The absolute position in the X, Y and Z axis of the minimun extents of 
-        the analysis grid in 3 dimensional model space.
-        
-        """
-        val = p2e.conversation.Request("get.grid.min")
-        return p2e._util._convert_str_to_list(val, float, float, float)
-
-    def set_min(self, absolute_position):
-        """
-        
-        Sets the minimum values of the grid extents in theX, Y and Z axes. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position 
-        A list of three values that represent the absolute position in the 
-        X, Y and Z axis of the minimun extents of the analysis grid in 3 
-        dimensional model space.
-
-        """
-        arg_str = p2e._util._convert_args_to_string("set.grid.min", 
-                                                      absolute_position[0],
-                                                      absolute_position[1],
-                                                      absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+    @apply
+    def min():
+        def fget(self):
+            """
+            
+            Retreives the values for the minimum extent of the grid for the x y and 
+            z axes. The axial values are given in absolute world co-ordinates. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            The absolute position in the X, Y and Z axis of the minimun extents of 
+            the analysis grid in 3 dimensional model space.
+            
+            """
+            val = p2e.conversation.Request("get.grid.min")
+            return p2e._util._convert_str_to_list(val, float, float, float)
+    
+        def fset(self, absolute_position):
+            """
+            
+            Sets the minimum values of the grid extents in theX, Y and Z axes. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            absolute_position 
+            A list of three values that represent the absolute position in the 
+            X, Y and Z axis of the minimun extents of the analysis grid in 3 
+            dimensional model space.
+    
+            """
+            arg_str = p2e._util._convert_args_to_string("set.grid.min", 
+                                                          absolute_position[0],
+                                                          absolute_position[1],
+                                                          absolute_position[2])
+            p2e.conversation.Exec(arg_str)
+        return property(**locals())
     
     @apply
     def offset():

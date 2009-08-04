@@ -10,6 +10,9 @@ class _Object(object):
         #create the object
         obj = cls()
         
+        #add the functions
+        obj.trns = None #_ObjectRootFncTransform(object_eco_id)
+        
         #update model objects lists
         p2e.model._objects.append(obj)
         #assert obj.eco_id == object_eco_id
@@ -95,7 +98,8 @@ class _Object(object):
         child 2444 
 
         """
-        #TODO: figure out how link works
+        #add the functions
+        obj.trns = None #_ObjectRootFncTransform(object_eco_id)
         
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("add.object", elemType, 
@@ -103,8 +107,6 @@ class _Object(object):
         eco_id = p2e.conversation.Request(arg_str)
         
         if eco_id != -1:
-            
-            #TODO: parent and children...?
             
             #update model lists
             p2e.model._objects.append(obj)  
@@ -173,7 +175,7 @@ class _Object(object):
         #Update model lists
         p2e.model._nodes.remove(node)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
-    def duplicate(self, move_distance):
+    def copy(self, move_distance):
         """
         
         Creates a duplicate copy of the specified object a distance of x, y and 
@@ -200,6 +202,8 @@ class _Object(object):
         #create the object
         return self._create_object_from_id(eco_id)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+    
+    #TODO: check clash with property
     def link(self, parent):
         """
         
@@ -364,6 +368,7 @@ class _Object(object):
         p2e.conversation.Exec(arg_str)
         
     def reverse(self):
+        #Check to see which objects are selected
         selection = p2e.selection.Selection()
         m = p2e.model
         first_index = selection.next
@@ -382,24 +387,9 @@ class _Object(object):
         #Select this object and reverse normal
         self.select()
         selection.reverse()
-        print selected_objects
         
         #Re-select the previous objects
         p2e.select.Select().index(selected_objects)
-        """
-        nodes = self.nodes
-        points = []
-        for i in nodes[1:]:
-            points.append(i.position)
-        
-        for i in nodes[1:]:
-            self.del_node(i, 1)
-            
-        points.reverse()
-        for i in points:
-            self.add_node(i)
-        self.done()
-        """
         
     #TODO: update lists
     def revolve(self, axis, angle, segs):
@@ -2259,6 +2249,7 @@ class _Object(object):
             return p2e._util._convert_str_to_type(val, int)
         
         def fset(self, state = True):
+            #TODO:call selection.update
             """
             
             Sets the selection state of the specified object.

@@ -783,8 +783,9 @@ class Material(object):
         arg_str = p2e._util._convert_args_to_string("set.material.greenhousegas", 
                                                      material, value)
         p2e.conversation.Exec(arg_str)
-
-    def get_index(self, name):
+    
+    @staticmethod
+    def get_index(name):
         """
         
         This property returns the zero-based index of the material with a name 

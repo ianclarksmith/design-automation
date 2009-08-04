@@ -72,33 +72,36 @@ class Attribute(object):
                                                       flag, state)
         p2e.conversation.Exec(arg_str)
     
-    def get_flags():
-        """
+    @apply
+    def flags():
+        def fget():
+            """
+            
+            Retrieves a value representing the total of all the attribute flags that 
+            control the display of attribute values. 
         
-        Retrieves a value representing the total of all the attribute flags that 
-        control the display of attribute values. 
-    
-        Parameter(s)
-        There are no parameters for this property.
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            flags 
+            The bitwise total of all the flags currently set. The table below gives 
+            the bitwise values of each available attribute flag. 
+            
+            Relevant Data Table(s)
+            
+            Available Attribute Flags 
+            Token Value Description 
+            text 1 Display object attribute as a text value 
+            vectors 2 Display object attribute as a vector. 
+            colours 4 Display object attribute as a fill colous. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        flags 
-        The bitwise total of all the flags currently set. The table below gives 
-        the bitwise values of each available attribute flag. 
-        
-        Relevant Data Table(s)
-        
-        Available Attribute Flags 
-        Token Value Description 
-        text 1 Display object attribute as a text value 
-        vectors 2 Display object attribute as a vector. 
-        colours 4 Display object attribute as a fill colous. 
-    
-        """
-        val = p2e.conversation.Request("get.attribute.flags")
-        return p2e._util._convert_str_to_type(val, int)
+            """
+            val = p2e.conversation.Request("get.attribute.flags")
+            return p2e._util._convert_str_to_type(val, int)
+        return property(**locals())
     
     def get_name(index):
         """
