@@ -82,6 +82,8 @@ sel.index([wall_4, wall_1])
 
 
 wall_3.reverse()
-print m.current_object
+#print m.current_object
+
+print m.number_of_materials
 
 

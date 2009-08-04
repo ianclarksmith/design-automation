@@ -1145,13 +1145,6 @@ class Application(object):
         To set a value, you must include both the key name and the value to be 
         set, separated by an equal '=' character. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        value 
-        A text string containing the value, if any, associated with the given 
-        key.
-        
         """
         arg_str = p2e._util._convert_args_to_string("set.app.registry", 
                                                       keyvalue)
