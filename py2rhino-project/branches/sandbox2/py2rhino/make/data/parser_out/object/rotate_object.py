@@ -29,7 +29,7 @@ rotate_object = {
             "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Point",
             "doc": """
         The 3-D center point of the rotation.
@@ -51,7 +51,7 @@ rotate_object = {
             "py_name": "axis",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Axis",
             "doc": """
         A 3-D vector that identifies the axis of rotation. If omitted, the Z axis of the active construction plane is used as the rotation axis.

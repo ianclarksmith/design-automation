@@ -29,7 +29,7 @@ get_point = {
             "py_name": "point",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Point",
             "doc": """
         A zero-based, one-dimensional array containing three numbers identifying a starting, or base, point.

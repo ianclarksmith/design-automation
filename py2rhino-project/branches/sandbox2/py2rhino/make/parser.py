@@ -222,8 +222,8 @@ def parse_docs():
                 module_methods = types.__dict__[module_name][0] #@UndefinedVariable
                 if method_name in module_methods.keys():
                     for param in content_params:
-                        #print param
-                        #print module_methods[method_name]
+                        print method_name
+                        print param['py_name']
                         param['name_prefix'] = module_methods[method_name][param['py_name']]
                             
                 #now get the returns

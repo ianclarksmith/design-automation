@@ -29,7 +29,7 @@ shear_object = {
             "py_name": "origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Origin",
             "doc": """
         The origin of the shear transformation.
@@ -40,7 +40,7 @@ shear_object = {
             "py_name": "ref_pt",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "RefPt",
             "doc": """
         The reference point of the shear transformation.
@@ -51,7 +51,7 @@ shear_object = {
             "py_name": "scale",
             "opt_or_req": "Required",
             "type": "Number",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_int",
             "name_main": "Scale",
             "doc": """
         An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.

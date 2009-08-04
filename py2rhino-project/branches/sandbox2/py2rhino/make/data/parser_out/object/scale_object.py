@@ -29,7 +29,7 @@ scale_object = {
             "py_name": "origin",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Origin",
             "doc": """
         The origin of the scale transformation.
@@ -40,7 +40,7 @@ scale_object = {
             "py_name": "scale",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Scale",
             "doc": """
         An array of three numbers that identify the X axis, Y axis, and Z axis scale factors to apply. Scaling is based on the active construction plane.

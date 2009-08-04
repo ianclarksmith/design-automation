@@ -45,7 +45,7 @@ transform_object = {
             "py_name": "matrix",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_str",
             "name_main": "Matrix",
             "doc": """
         The transformation matrix (4x4 array of numbers).

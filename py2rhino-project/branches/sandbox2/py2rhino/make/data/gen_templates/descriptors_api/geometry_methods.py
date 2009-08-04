@@ -13,7 +13,7 @@ add_point = {
     "method_location": "Geometry",
     "method_type": "METHOD",
     "method_name": "add_point",
-    "method_parameters": (("point","arr","REQ"),),
+    "method_parameters": (("point","array_of dbl","REQ"),),
     "method_returns": ("string","null")
     }
 add_point_cloud = {

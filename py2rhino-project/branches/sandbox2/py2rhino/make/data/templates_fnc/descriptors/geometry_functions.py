@@ -15,7 +15,7 @@ add_point = {
     "function_com_id": 68,
     "function_vb_name": "AddPoint",
     "function_name": "add_point",
-    "function_parameters": (("point","arr","REQ"),),
+    "function_parameters": (("point","array_of dbl","REQ"),),
     "function_returns": ("string","null")
     }
 add_point_cloud = {

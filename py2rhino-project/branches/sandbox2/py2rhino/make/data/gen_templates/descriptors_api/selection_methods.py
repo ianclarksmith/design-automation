@@ -27,7 +27,7 @@ get_object = {
     "method_location": "Selection",
     "method_type": "METHOD",
     "method_name": "get_object",
-    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","arr","OPT")),
+    "method_parameters": (("message","str","OPT"),("type","int","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","array_of str","OPT")),
     "method_returns": ("string","null")
     }
 get_object_ex = {

@@ -31,7 +31,7 @@ get_object = {
     "function_com_id": 32,
     "function_vb_name": "GetObject",
     "function_name": "get_object",
-    "function_parameters": (("message","str","OPT"),("type","int","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","arr","OPT")),
+    "function_parameters": (("message","str","OPT"),("type","int","OPT"),("pre_select","bln","OPT"),("select","bln","OPT"),("objects","array_of str","OPT")),
     "function_returns": ("string","null")
     }
 get_object_ex = {

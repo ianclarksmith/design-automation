@@ -90,7 +90,7 @@ get_point = {
     "method_location": "UserInterface",
     "method_type": "METHOD",
     "method_name": "get_point",
-    "method_parameters": (("message","str","OPT"),("point","arr","OPT"),("distance","dbl","OPT"),("plane","bln","OPT")),
+    "method_parameters": (("message","str","OPT"),("point","array_of dbl","OPT"),("distance","dbl","OPT"),("plane","bln","OPT")),
     "method_returns": ("array","null")
     }
 get_point_on_curve = {

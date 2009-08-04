@@ -47,7 +47,7 @@ object_grip_location = {
     "function_com_id": 556,
     "function_vb_name": "ObjectGripLocation",
     "function_name": "object_grip_location",
-    "function_parameters": (("object","str","REQ"),("index","int","REQ"),("point","arr","OPT")),
+    "function_parameters": (("object","str","REQ"),("index","int","REQ"),("point","array_of dbl","OPT")),
     "function_returns": ("array","array","null")
     }
 object_grip_locations = {
