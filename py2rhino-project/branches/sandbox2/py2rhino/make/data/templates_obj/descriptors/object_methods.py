@@ -2,7 +2,7 @@
 #===============================================================================
 # DocumentObjectFunctions
 #===============================================================================
-class _DocumentObjectFunctions(object):
+class _DocumentObjectFunc(object):
     inherits = None
     class ClassMethods(object):
         #material
@@ -105,7 +105,7 @@ class _DocumentObjectFunctions(object):
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
         transform_objects = {
-            "method_name": "transform",
+            "method_name": "trfm",
             "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
@@ -195,33 +195,40 @@ class GenericObject(object):
     inherits = ("_ObjectRoot",)
     holds = {
         #general holds
-        "deform": "_ObjectRootFunctionsDeform",          
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
-        "utility": "_ObjectRootFunctionsUtil",
+        "defm": "_ObjectRootDefm",          
+        "prop": "_ObjectRootProp",        
+        "grps": "_ObjectRootGrps",
+        "mtrl": "_ObjectRootMtrl",
+        "rndr": "_ObjectRootRndr",
+        "stat": "_ObjectRootStat",
+        "trfm": "_ObjectRootTrfm",
+        "util": "_ObjectRootUtil",
         
-        "test": "_ObjectRootFunctionsTest",#will be inherited 
-        "type": "_ObjectRootFunctionsType",#exposed only here        
+        "test": "_ObjectRootTest",#will be inherited 
+        "type": "_ObjectRootType",#exposed only here        
     }
 #===============================================================================
 # ObjectRoot
 #===============================================================================
 class _ObjectRoot(object):
     inherits = None
+    
+    pass
+#===============================================================================
+# ObjectGroups
+#===============================================================================
+class _ObjectRootModf(object):
+    inherits = None
     class Methods(object):
         delete_objects = {
             "method_name": "delete",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("number","null")        
-            }
+            }        
 #===============================================================================
 # ObjectGroups
 #===============================================================================
-class _ObjectRootFunctionsGroups(object):
+class _ObjectRootGrps(object):
     inherits = None
     class Methods(object):
         object_groups = {
@@ -237,7 +244,7 @@ class _ObjectRootFunctionsGroups(object):
 #===============================================================================
 # ObjectMaterial
 #===============================================================================
-class _ObjectRootFunctionsMaterial(object):
+class _ObjectRootMtrl(object):
     inherits = None
     class Methods(object):
         object_material_index = {
@@ -253,7 +260,7 @@ class _ObjectRootFunctionsMaterial(object):
 #===============================================================================
 # ObjectProperties - color, layer
 #===============================================================================
-class _ObjectRootProperties(object):
+class _ObjectRootProp(object):
     inherits = None
     class Methods(object):
         object_color = {
@@ -314,9 +321,9 @@ class _ObjectRootProperties(object):
             }
         """
 #===============================================================================
-# _ObjectRootFunctionsRender
+# _ObjectRootRndr
 #===============================================================================
-class _ObjectRootFunctionsRender(object):
+class _ObjectRootRndr(object):
     inherits = None
     class Methods(object):
         enable_object_mesh = {
@@ -382,7 +389,7 @@ class _ObjectRootFunctionsRender(object):
 #===============================================================================
 # ObjectState
 #===============================================================================
-class _ObjectRootFunctionsState(object):
+class _ObjectRootStat(object):
     inherits = None
     class Methods(object):
         select_objects = {
@@ -439,7 +446,7 @@ class _ObjectRootFunctionsState(object):
 #===============================================================================
 # ObjectRootTest
 #===============================================================================
-class _ObjectRootFunctionsTest(object):
+class _ObjectRootTest(object):
     inherits = None
     class Methods(object):
         is_layout_object = {
@@ -505,7 +512,7 @@ class _ObjectRootFunctionsTest(object):
 #===============================================================================
 # ObjectTransform
 #===============================================================================
-class _ObjectRootFunctionsTransform(object):
+class _ObjectRootTrfm(object):
     inherits = None
     class Methods(object):
         copy_object = {
@@ -552,11 +559,11 @@ class _ObjectRootFunctionsTransform(object):
             "method_name": "remap",
             "method_parameters": (("","SELF","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
             "method_returns": ("SELF","null")#GenericObject
-            }        
+            }
 #===============================================================================
 # ObjectTransform
 #===============================================================================
-class _ObjectRootFunctionsDeform(object):
+class _ObjectRootDefm(object):
     inherits = None
     class Methods(object):
         box_morph_object = {#no plural version
@@ -570,14 +577,14 @@ class _ObjectRootFunctionsDeform(object):
             "method_returns": ("_ObjectRoot","null")#GenericObject
             }
         transform_object = {
-            "method_name": "transform",
+            "method_name": "trfm",
             "method_parameters": (("","SELF","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
             "method_returns": ("_ObjectRoot","null")#GenericObject
             }
 #===============================================================================
-# _ObjectRootFunctionsType
+# _ObjectRootType
 #===============================================================================
-class _ObjectRootFunctionsType(object):
+class _ObjectRootType(object):
     inherits = None
     class Methods(object):     
         object_type = {
@@ -589,7 +596,7 @@ class _ObjectRootFunctionsType(object):
 #===============================================================================
 # ObjectUtil
 #===============================================================================
-class _ObjectRootFunctionsUtil(object):
+class _ObjectRootUtil(object):
     inherits = None
     class Methods(object):
         object_dump = {
