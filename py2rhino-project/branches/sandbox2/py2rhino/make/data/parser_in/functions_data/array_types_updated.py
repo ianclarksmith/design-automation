@@ -619,7 +619,7 @@ object = {
     "object_name": {
         "object": "str",
         "objects": "arr_of_str",
-        "names": "str",
+        "name": "str",
     },
     "object_names": {
         "objects": "arr_of_str",
@@ -716,7 +716,7 @@ object = {
         "objects": "arr_of_str",
     },
     "transform_object": {
-        "objects": "str",
+        "object": "str",
         "matrix": "arr_of_str",
         "copy": "bln",
     },
@@ -736,7 +736,7 @@ object_grip = {
     "object_grip_location": {
         "object": "str",
         "index": "int",
-        "points": "arr_of_dbl",
+        "point": "arr_of_dbl",
     },
     "object_grip_locations": {
         "object": "str",
@@ -1277,7 +1277,7 @@ user_interface = {
     },
     "get_point": {
         "message": "str",
-        "points": "arr_of_dbl",
+        "point": "arr_of_dbl",
         "distance": "dbl",
         "plane": "bln",
     },

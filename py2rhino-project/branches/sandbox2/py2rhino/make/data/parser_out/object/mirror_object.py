@@ -29,7 +29,7 @@ mirror_object = {
             "py_name": "start_pt",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "StartPt",
             "doc": """
         The start of the mirror plane.
@@ -40,7 +40,7 @@ mirror_object = {
             "py_name": "end_pt",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "EndPt",
             "doc": """
         The end of the mirror plane.

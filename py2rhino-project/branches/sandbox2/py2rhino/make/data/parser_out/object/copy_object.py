@@ -30,7 +30,7 @@ copy_object = {
             "py_name": "start",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Start",
             "doc": """
         The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
@@ -41,7 +41,7 @@ copy_object = {
             "py_name": "end",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "End",
             "doc": """
         The 3-D ending point of the copy operation.
@@ -52,7 +52,7 @@ copy_object = {
             "py_name": "translation",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Translation",
             "doc": """
         The 3-D translation vector.

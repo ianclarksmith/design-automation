@@ -23,7 +23,7 @@ copy_object = {
     "function_com_id": 184,
     "function_vb_name": "CopyObject",
     "function_name": "copy_object",
-    "function_parameters": (("object","str","REQ"),("start","arr","OPT"),("end","arr","OPT")),
+    "function_parameters": (("object","str","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
     "function_returns": ("string","null")
     }
 copy_object_2 = {
@@ -31,7 +31,7 @@ copy_object_2 = {
     "function_com_id": 184,
     "function_vb_name": "CopyObject",
     "function_name": "copy_object_2",
-    "function_parameters": (("object","str","REQ"),("translation","arr","OPT")),
+    "function_parameters": (("object","str","REQ"),("translation","array_of dbl","OPT")),
     "function_returns": ("string","null")
     }
 copy_objects = {
@@ -231,7 +231,7 @@ mirror_object = {
     "function_com_id": 589,
     "function_vb_name": "MirrorObject",
     "function_name": "mirror_object",
-    "function_parameters": (("object","str","REQ"),("start_pt","arr","REQ"),("end_pt","arr","REQ"),("copy","bln","OPT")),
+    "function_parameters": (("object","str","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("string","null")
     }
 mirror_objects = {
@@ -447,7 +447,7 @@ object_name = {
     "function_com_id": 196,
     "function_vb_name": "ObjectName",
     "function_name": "object_name",
-    "function_parameters": (("objects","arr","REQ"),("name","str","OPT")),
+    "function_parameters": (("objects","array_of str","REQ"),("name","str","OPT")),
     "function_returns": ("string","string","number","null")
     }
 object_names = {
@@ -519,7 +519,7 @@ orient_object = {
     "function_com_id": 390,
     "function_vb_name": "OrientObject",
     "function_name": "orient_object",
-    "function_parameters": (("object","str","REQ"),("reference","arr","REQ"),("target","arr","REQ"),("flags","int","OPT")),
+    "function_parameters": (("object","str","REQ"),("reference","array_of dbl","REQ"),("target","array_of dbl","REQ"),("flags","int","OPT")),
     "function_returns": ("string","null")
     }
 orient_objects = {
@@ -535,7 +535,7 @@ remap_object = {
     "function_com_id": 655,
     "function_vb_name": "RemapObject",
     "function_name": "remap_object",
-    "function_parameters": (("object","str","REQ"),("src_plane","arr","REQ"),("dst_plane","arr","REQ"),("copy","bln","OPT")),
+    "function_parameters": (("object","str","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("string","null")
     }
 remap_objects = {
@@ -551,7 +551,7 @@ rotate_object = {
     "function_com_id": 392,
     "function_vb_name": "RotateObject",
     "function_name": "rotate_object",
-    "function_parameters": (("object","str","REQ"),("point","arr","REQ"),("angle","dbl","REQ"),("axis","arr","OPT"),("copy","bln","OPT")),
+    "function_parameters": (("object","str","REQ"),("point","array_of dbl","REQ"),("angle","dbl","REQ"),("axis","array_of dbl","OPT"),("copy","bln","OPT")),
     "function_returns": ("string","null")
     }
 rotate_objects = {
@@ -567,7 +567,7 @@ scale_object = {
     "function_com_id": 585,
     "function_vb_name": "ScaleObject",
     "function_name": "scale_object",
-    "function_parameters": (("object","str","REQ"),("origin","arr","REQ"),("scale","arr","REQ"),("copy","bln","OPT")),
+    "function_parameters": (("object","str","REQ"),("origin","array_of dbl","REQ"),("scale","array_of dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("string","null")
     }
 scale_objects = {
@@ -599,7 +599,7 @@ shear_object = {
     "function_com_id": 587,
     "function_vb_name": "ShearObject",
     "function_name": "shear_object",
-    "function_parameters": (("object","str","REQ"),("origin","arr","REQ"),("ref_pt","arr","REQ"),("scale","arr","REQ"),("copy","bln","OPT")),
+    "function_parameters": (("object","str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
     "function_returns": ("string","null")
     }
 shear_objects = {
@@ -631,7 +631,7 @@ transform_object = {
     "function_com_id": 272,
     "function_vb_name": "TransformObject",
     "function_name": "transform_object",
-    "function_parameters": (("object","str","REQ"),("matrix","arr","REQ"),("copy","bln","OPT")),
+    "function_parameters": (("object","str","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),
     "function_returns": ("boolean","null")
     }
 transform_objects = {

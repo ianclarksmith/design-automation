@@ -20,14 +20,14 @@ copy_object = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "copy_object",
-    "method_parameters": (("object","str","REQ"),("start","arr","OPT"),("end","arr","OPT")),
+    "method_parameters": (("object","str","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
     "method_returns": ("string","null")
     }
 copy_object_2 = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "copy_object_2",
-    "method_parameters": (("object","str","REQ"),("translation","arr","OPT")),
+    "method_parameters": (("object","str","REQ"),("translation","array_of dbl","OPT")),
     "method_returns": ("string","null")
     }
 copy_objects = {
@@ -202,7 +202,7 @@ mirror_object = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "mirror_object",
-    "method_parameters": (("object","str","REQ"),("start_pt","arr","REQ"),("end_pt","arr","REQ"),("copy","bln","OPT")),
+    "method_parameters": (("object","str","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
     "method_returns": ("string","null")
     }
 mirror_objects = {
@@ -391,7 +391,7 @@ object_name = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "object_name",
-    "method_parameters": (("objects","arr","REQ"),("name","str","OPT")),
+    "method_parameters": (("objects","array_of str","REQ"),("name","str","OPT")),
     "method_returns": ("string","string","number","null")
     }
 object_names = {
@@ -454,7 +454,7 @@ orient_object = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "orient_object",
-    "method_parameters": (("object","str","REQ"),("reference","arr","REQ"),("target","arr","REQ"),("flags","int","OPT")),
+    "method_parameters": (("object","str","REQ"),("reference","array_of dbl","REQ"),("target","array_of dbl","REQ"),("flags","int","OPT")),
     "method_returns": ("string","null")
     }
 orient_objects = {
@@ -468,7 +468,7 @@ remap_object = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "remap_object",
-    "method_parameters": (("object","str","REQ"),("src_plane","arr","REQ"),("dst_plane","arr","REQ"),("copy","bln","OPT")),
+    "method_parameters": (("object","str","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
     "method_returns": ("string","null")
     }
 remap_objects = {
@@ -482,7 +482,7 @@ rotate_object = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "rotate_object",
-    "method_parameters": (("object","str","REQ"),("point","arr","REQ"),("angle","dbl","REQ"),("axis","arr","OPT"),("copy","bln","OPT")),
+    "method_parameters": (("object","str","REQ"),("point","array_of dbl","REQ"),("angle","dbl","REQ"),("axis","array_of dbl","OPT"),("copy","bln","OPT")),
     "method_returns": ("string","null")
     }
 rotate_objects = {
@@ -496,7 +496,7 @@ scale_object = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "scale_object",
-    "method_parameters": (("object","str","REQ"),("origin","arr","REQ"),("scale","arr","REQ"),("copy","bln","OPT")),
+    "method_parameters": (("object","str","REQ"),("origin","array_of dbl","REQ"),("scale","array_of dbl","REQ"),("copy","bln","OPT")),
     "method_returns": ("string","null")
     }
 scale_objects = {
@@ -524,7 +524,7 @@ shear_object = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "shear_object",
-    "method_parameters": (("object","str","REQ"),("origin","arr","REQ"),("ref_pt","arr","REQ"),("scale","arr","REQ"),("copy","bln","OPT")),
+    "method_parameters": (("object","str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
     "method_returns": ("string","null")
     }
 shear_objects = {
@@ -552,7 +552,7 @@ transform_object = {
     "method_location": "Object",
     "method_type": "METHOD",
     "method_name": "transform_object",
-    "method_parameters": (("object","str","REQ"),("matrix","arr","REQ"),("copy","bln","OPT")),
+    "method_parameters": (("object","str","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),
     "method_returns": ("boolean","null")
     }
 transform_objects = {

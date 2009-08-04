@@ -29,7 +29,7 @@ remap_object = {
             "py_name": "src_plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "SrcPlane",
             "doc": """
         The source plane to transform from.
@@ -40,7 +40,7 @@ remap_object = {
             "py_name": "dst_plane",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "DstPlane",
             "doc": """
         The destination plane to transform to.

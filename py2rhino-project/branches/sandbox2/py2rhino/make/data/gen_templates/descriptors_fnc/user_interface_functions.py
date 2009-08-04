@@ -103,7 +103,7 @@ get_point = {
     "function_com_id": 61,
     "function_vb_name": "GetPoint",
     "function_name": "get_point",
-    "function_parameters": (("message","str","OPT"),("point","arr","OPT"),("distance","dbl","OPT"),("plane","bln","OPT")),
+    "function_parameters": (("message","str","OPT"),("point","array_of dbl","OPT"),("distance","dbl","OPT"),("plane","bln","OPT")),
     "function_returns": ("array","null")
     }
 get_point_on_curve = {

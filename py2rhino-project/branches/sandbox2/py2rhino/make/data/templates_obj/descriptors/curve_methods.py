@@ -54,22 +54,20 @@ class GenericCurve(object):
     holds = {
                    
         #general object holds
-        "deform": "_ObjectRootFunctionsDeform",          
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
+        "defm": "_ObjectRootFunctionsDeform",          
+        "prps": "_ObjectRootProperties",        
+        "grps": "_ObjectRootFunctionsGroups",
+        "mtrl": "_ObjectRootFunctionsMaterial",
+        "rndr": "_ObjectRootFunctionsRender",
+        "stat": "_ObjectRootFunctionsState",
+        "trfm": "_ObjectRootFunctionsTransform",
         "util": "_ObjectRootFunctionsUtil",        
   
         #general curve holds
-        "intersect": "_CurveRootFunctionsIntersect",
-        "modify": "_CurveRootFunctionsModify",
-        "manipulate": "_CurveRootFunctionsManipulate",
-        "evaluate": "_CurveRootFunctionsEvaluate",
-        "area": "_CurveRootFunctionsArea",
-        "poly": "_CurveRootFunctionsPoly",
+        "mdfy": "_CurveRootFunctionsModify",
+        "mnpl": "_CurveRootFunctionsManipulate",
+        "eval": "_CurveRootFunctionsEvaluate",
+        "clsd": "_CurveRootFunctionsClosed",
         "test": "_CurveRootFunctionsTest",#inherits from object tests
         "type": "_CurveRootFunctionsType",#exposed only here
     }
@@ -83,21 +81,21 @@ class NurbsCurve(object):
     holds = {
                    
         #general object holds
-        "deform": "_ObjectRootFunctionsDeform",          
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
-        "utility": "_ObjectRootFunctionsUtil",        
+        "defm": "_ObjectRootFunctionsDeform",          
+        "prps": "_ObjectRootProperties",        
+        "grps": "_ObjectRootFunctionsGroups",
+        "mtrl": "_ObjectRootFunctionsMaterial",
+        "rndr": "_ObjectRootFunctionsRender",
+        "stat": "_ObjectRootFunctionsState",
+        "trns": "_ObjectRootFunctionsTransform",
+        "util": "_ObjectRootFunctionsUtil",        
   
         #general curve holds
-        "intersect": "_CurveRootFunctionsIntersect",
-        "modify": "_CurveRootFunctionsModify",
-        "manipulate": "_CurveRootFunctionsManipulate",
-        "evaluate": "_CurveRootFunctionsEvaluate",
-        "area": "_CurveRootFunctionsArea",
+        "intr": "_CurveRootFunctionsIntersect",
+        "modf": "_CurveRootFunctionsModify",
+        "mnpl": "_CurveRootFunctionsManipulate",
+        "eval": "_CurveRootFunctionsEvaluate",
+        "clsd": "_CurveRootFunctionsClosed",
         "test": "_CurveRootFunctionsTest",#inherits from object tests
         
         #arc holds
@@ -165,20 +163,19 @@ class Arc(object):
     holds = {
                    
         #general object holds
-        "deform": "_ObjectRootFunctionsDeform",          
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
-        "utility": "_ObjectRootFunctionsUtil",        
+        "defm": "_ObjectRootFunctionsDeform",          
+        "prps": "_ObjectRootProperties",        
+        "grps": "_ObjectRootFunctionsGroups",
+        "mtrl": "_ObjectRootFunctionsMaterial",
+        "rndr": "_ObjectRootFunctionsRender",
+        "stat": "_ObjectRootFunctionsState",
+        "trns": "_ObjectRootFunctionsTransform",
+        "util": "_ObjectRootFunctionsUtil",        
   
         #general curve holds
-        "intersect": "_CurveRootFunctionsIntersect",
-        "modify": "_CurveRootFunctionsModify",
-        "manipulate": "_CurveRootFunctionsManipulate",
-        "evaluate": "_CurveRootFunctionsEvaluate",
+        "modf": "_CurveRootFunctionsModify",
+        "mnpl": "_CurveRootFunctionsManipulate",
+        "eval": "_CurveRootFunctionsEvaluate",
         "test": "_CurveRootFunctionsTest",#inherits from object tests
         
         #arc holds
@@ -234,21 +231,20 @@ class Circle():
     holds = {
                    
         #general object holds
-        "deform": "_ObjectRootFunctionsDeform",          
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
-        "utility": "_ObjectRootFunctionsUtil",        
+        "defm": "_ObjectRootFunctionsDeform",          
+        "prps": "_ObjectRootProperties",        
+        "grps": "_ObjectRootFunctionsGroups",
+        "mtrl": "_ObjectRootFunctionsMaterial",
+        "rndr": "_ObjectRootFunctionsRender",
+        "stat": "_ObjectRootFunctionsState",
+        "trns": "_ObjectRootFunctionsTransform",
+        "util": "_ObjectRootFunctionsUtil",        
   
         #general curve holds
-        "intersect": "_CurveRootFunctionsIntersect",
-        "modify": "_CurveRootFunctionsModify",
-        "manipulate": "_CurveRootFunctionsManipulate",
-        "evaluate": "_CurveRootFunctionsEvaluate",
-        "area": "_CurveRootFunctionsArea",
+        "modf": "_CurveRootFunctionsModify",
+        "mnpl": "_CurveRootFunctionsManipulate",
+        "eval": "_CurveRootFunctionsEvaluate",
+        "clsd": "_CurveRootFunctionsClosed",
         "test": "_CurveRootFunctionsTest",#inherits from object tests
         
         #circle holds
@@ -294,21 +290,20 @@ class Ellipse(object):
     holds = {
                    
         #general object holds
-        "deform": "_ObjectRootFunctionsDeform",          
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
-        "utility": "_ObjectRootFunctionsUtil",        
+        "defm": "_ObjectRootFunctionsDeform",          
+        "prps": "_ObjectRootProperties",        
+        "grps": "_ObjectRootFunctionsGroups",
+        "mtrl": "_ObjectRootFunctionsMaterial",
+        "rndr": "_ObjectRootFunctionsRender",
+        "stat": "_ObjectRootFunctionsState",
+        "trns": "_ObjectRootFunctionsTransform",
+        "util": "_ObjectRootFunctionsUtil",        
   
         #general curve holds
-        "intersect": "_CurveRootFunctionsIntersect",
-        "modify": "_CurveRootFunctionsModify",
-        "manipulate": "_CurveRootFunctionsManipulate",
-        "evaluate": "_CurveRootFunctionsEvaluate",
-        "area": "_CurveRootFunctionsArea",
+        "modf": "_CurveRootFunctionsModify",
+        "mnpl": "_CurveRootFunctionsManipulate",
+        "eval": "_CurveRootFunctionsEvaluate",
+        "clsd": "_CurveRootFunctionsClosed",
         "test": "_CurveRootFunctionsTest",#inherits from object tests
         
         #ellipse holds
@@ -349,20 +344,19 @@ class Line(object):
     holds = {
                    
         #general object holds
-        "deform": "_ObjectRootFunctionsDeform",          
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
-        "utility": "_ObjectRootFunctionsUtil",        
+        "defm": "_ObjectRootFunctionsDeform",          
+        "prps": "_ObjectRootProperties",        
+        "grps": "_ObjectRootFunctionsGroups",
+        "mtrl": "_ObjectRootFunctionsMaterial",
+        "rndr": "_ObjectRootFunctionsRender",
+        "stat": "_ObjectRootFunctionsState",
+        "trns": "_ObjectRootFunctionsTransform",
+        "util": "_ObjectRootFunctionsUtil",        
   
         #general curve holds
-        "intersect": "_CurveRootFunctionsIntersect",
-        "modify": "_CurveRootFunctionsModify",
-        "manipulate": "_CurveRootFunctionsManipulate",
-        "evaluate": "_CurveRootFunctionsEvaluate",
+        "modf": "_CurveRootFunctionsModify",
+        "mnpl": "_CurveRootFunctionsManipulate",
+        "eval": "_CurveRootFunctionsEvaluate",
         "test": "_CurveRootFunctionsTest",#inherits from object tests
         
         #line holds
@@ -387,21 +381,20 @@ class Polyline(object):
     holds = {
                    
         #general object holds
-        "deform": "_ObjectRootFunctionsDeform",          
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
-        "utility": "_ObjectRootFunctionsUtil",        
+        "defm": "_ObjectRootFunctionsDeform",          
+        "prps": "_ObjectRootProperties",        
+        "grps": "_ObjectRootFunctionsGroups",
+        "mtrl": "_ObjectRootFunctionsMaterial",
+        "rndr": "_ObjectRootFunctionsRender",
+        "stat": "_ObjectRootFunctionsState",
+        "trns": "_ObjectRootFunctionsTransform",
+        "util": "_ObjectRootFunctionsUtil",        
   
         #general curve holds
-        "intersect": "_CurveRootFunctionsIntersect",
-        "modify": "_CurveRootFunctionsModify",
-        "manipulate": "_CurveRootFunctionsManipulate",
-        "evaluate": "_CurveRootFunctionsEvaluate",
-        "area": "_CurveRootFunctionsArea",
+        "modf": "_CurveRootFunctionsModify",
+        "mnpl": "_CurveRootFunctionsManipulate",
+        "eval": "_CurveRootFunctionsEvaluate",
+        "clsd": "_CurveRootFunctionsClosed",
         "test": "_CurveRootFunctionsTest",#inherits from object tests
         
         #polyline holds
@@ -439,21 +432,19 @@ class PolyCurve(object):
     holds = {
                    
         #general object holds
-        "properties": "_ObjectRootProperties",        
-        "groups": "_ObjectRootFunctionsGroups",
-        "materials": "_ObjectRootFunctionsMaterial",
-        "render": "_ObjectRootFunctionsRender",
-        "state": "_ObjectRootFunctionsState",
-        "transform": "_ObjectRootFunctionsTransform",
-        "utility": "_ObjectRootFunctionsUtil",        
+        "prps": "_ObjectRootProperties",        
+        "grps": "_ObjectRootFunctionsGroups",
+        "mtrl": "_ObjectRootFunctionsMaterial",
+        "rndr": "_ObjectRootFunctionsRender",
+        "stat": "_ObjectRootFunctionsState",
+        "trns": "_ObjectRootFunctionsTransform",
+        "util": "_ObjectRootFunctionsUtil",        
   
         #general curve holds
-        "intersect": "_CurveRootFunctionsIntersect",
-        "modify": "_CurveRootFunctionsModify",
-        "manipulate": "_CurveRootFunctionsManipulate",
-        "evaluate": "_CurveRootFunctionsEvaluate",
-        "area": "_CurveRootFunctionsArea",
-        "poly": "_CurveRootFunctionsPoly",
+        "modf": "_CurveRootFunctionsModify",
+        "mnpl": "_CurveRootFunctionsManipulate",
+        "eval": "_CurveRootFunctionsEvaluate",
+        "clsd": "_CurveRootFunctionsClosed",
         "test": "_CurveRootFunctionsTest",#inherits from object tests
         
         #PolyCurve holds
@@ -472,6 +463,12 @@ class PolyCurve(object):
             "method_parameters": (("","SELF","REQ"),("index","int","OPT"),),
             "method_returns": ("number","null")
         }
+        
+        explode_curves = {#this has the delete parameter - polys only
+            "method_name": "explode",
+            "method_parameters": (("","SELF","REQ"),("delete","bln","OPT"),),###
+            "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
+        }        
 """
 
 #===============================================================================
@@ -752,27 +749,6 @@ class _CurveRootAttributes(object):
             "method_returns": ("array_of dbl", "null")
         }        
 #===============================================================================
-# _CurveRootIntersect
-#===============================================================================
-class _CurveRootFunctionsIntersect(object):
-    inherits = None
-    class Methods(object):
-        curve_brep_intersect = {#TODO:can return either curve objects or point objects
-            "method_name": "brep_intersection",
-            "method_parameters": (("","SELF","REQ"),("brep","str","REQ"),("tolerance","dbl","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
-        }
-        curve_curve_intersection = {#TODO: figure this one out
-            "method_name": "curve_intersection",
-            "method_parameters": (("","SELF","REQ"),("curve","str","OPT"),("tolerance","dbl","OPT"),),
-            "method_returns": ("array_of dbl","null")#this is actually the wrong return value, but it works...
-        }
-        curve_surface_intersection = {#TODO: figure this one out
-            "method_name": "surface_intersection",
-            "method_parameters": (("","SELF","REQ"),("surface","str","REQ"),("tolerance","dbl","OPT"),("angle_tolerance","dbl","OPT"),),
-            "method_returns": ("array_of dbl","null")#this is actually the wrong return value, but it works...
-        }      
-#===============================================================================
 # _CurveRootManipulateFunctions
 #===============================================================================
 class _CurveRootFunctionsManipulate(object):
@@ -843,11 +819,32 @@ class _CurveRootFunctionsManipulate(object):
             "method_name": "radius",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("number","null")
-        }        
+        }
+        
+        
+        #TODO: fix these mixed return values
+        """
+        curve_brep_intersect = {#TODO:can return either curve objects or point objects
+            "method_name": "brep_intersection",
+            "method_parameters": (("","SELF","REQ"),("brep","str","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
+        }
+        """
+        
+        curve_curve_intersection = {#TODO: figure this one out
+            "method_name": "curve_intersection",
+            "method_parameters": (("","SELF","REQ"),("curve","str","OPT"),("tolerance","dbl","OPT"),),
+            "method_returns": ("array_of number","null")#check return values...
+        }
+        curve_surface_intersection = {#TODO: figure this one out
+            "method_name": "surface_intersection",
+            "method_parameters": (("","SELF","REQ"),("surface","str","REQ"),("tolerance","dbl","OPT"),("angle_tolerance","dbl","OPT"),),
+            "method_returns": ("array_of number","null")#check return values...
+        }  
 #===============================================================================
 # _CurveRootClosedPlanarFunctions
 #===============================================================================
-class _CurveRootFunctionsArea(object):
+class _CurveRootFunctionsClosed(object):
     inherits = None
     class Methods(object):
         planar_curve_collision = {#TODO: confirm if this is in the right place
@@ -875,6 +872,9 @@ class _CurveRootFunctionsArea(object):
             "method_parameters": (("","SELF","REQ"),("curve__1","str","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT"),),
             "method_returns": ("number","null")
         }
+        
+        #booleans return curves or polycurves        
+        
         curve_boolean_difference = {#ed
             "method_name": "boolean_difference",
             "method_parameters": (("","SELF","REQ"),("curve","str","REQ"),),
@@ -885,7 +885,7 @@ class _CurveRootFunctionsArea(object):
             "method_parameters": (("","SELF","REQ"),("curve_a","str","REQ"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
         }
-        curve_boolean_union = {#ed
+        curve_boolean_union = {#this has no self
             "method_name": "boolean_union",
             "method_parameters": (("curves","array_of _ObjectRoot","REQ"),),#TODO: for this method, there is no SELF parameter
             "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
@@ -901,6 +901,13 @@ class _CurveRootFunctionsEvaluate(object):
             "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("derivative","int","REQ"),),
             "method_returns": ("array_of dbl","null")
         }
+        evaluate_curve = {#ed
+            "method_name": "evaluate",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        
+        
         curve_frame = {#ed
             "method_name": "frame",
             "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
@@ -916,27 +923,11 @@ class _CurveRootFunctionsEvaluate(object):
             "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
             "method_returns": ("array_of dbl","null")
         }
-        evaluate_curve = {#ed
-            "method_name": "evaluate",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("array_of dbl","null")
-        }
         curve_tangent = {#ed
             "method_name": "tangent",
             "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl","null")
         }        
-#===============================================================================
-# _CurveRootPolyFunctions
-#===============================================================================
-class _CurveRootFunctionsPoly(object):
-    inherits = None
-    class Methods(object):
-        explode_curves = {#this has the delete parameter - polys only
-            "method_name": "explode",
-            "method_parameters": (("","SELF","REQ"),("delete","bln","OPT"),),###
-            "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
-        }
 #===============================================================================
 # Mesh
 #===============================================================================

@@ -18,7 +18,7 @@ add_point = {
             "py_name": "point",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_dbl",
             "name_main": "Point",
             "doc": """
         A 3-D point.

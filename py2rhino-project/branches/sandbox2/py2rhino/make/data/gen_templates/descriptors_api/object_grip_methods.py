@@ -41,7 +41,7 @@ object_grip_location = {
     "method_location": "ObjectGrip",
     "method_type": "METHOD",
     "method_name": "object_grip_location",
-    "method_parameters": (("object","str","REQ"),("index","int","REQ"),("point","arr","OPT")),
+    "method_parameters": (("object","str","REQ"),("index","int","REQ"),("point","array_of dbl","OPT")),
     "method_returns": ("array","array","null")
     }
 object_grip_locations = {

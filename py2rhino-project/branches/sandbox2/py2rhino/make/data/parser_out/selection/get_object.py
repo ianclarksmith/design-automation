@@ -99,7 +99,7 @@ get_object = {
             "py_name": "objects",
             "opt_or_req": "Optional",
             "type": "Array",
-            "name_prefix": "arr",
+            "name_prefix": "arr_of_str",
             "name_main": "Objects",
             "doc": """
         An array of strings identifying the objects that are allowed to be selected.
