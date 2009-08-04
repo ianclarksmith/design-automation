@@ -238,6 +238,9 @@ geometry = {
     "add_point_cloud": {
         "points": "arr_of_dbl",
     },
+    "add_point": {
+        "point": "arr_of_dbl",
+    },
     "add_points": {
         "points": "arr_of_dbl",
     },
@@ -520,6 +523,7 @@ mesh = {
         "objects": "arr_of_str",
     },
 },
+
 object = {
     "box_morph_object": {
         "objects": "arr_of_str",
@@ -528,6 +532,12 @@ object = {
     },
     "copy_objects": {
         "objects": "arr_of_str",
+        "start": "arr_of_dbl",
+        "end": "arr_of_dbl",
+        "translation": "arr_of_dbl",
+    },
+    "copy_object": {
+        "object": "str",
         "start": "arr_of_dbl",
         "end": "arr_of_dbl",
         "translation": "arr_of_dbl",
@@ -557,6 +567,12 @@ object = {
     "match_object_attributes": {
         "targets": "arr_of_str",
         "source": "str",
+    },
+    "mirror_object": {
+        "object": "str",
+        "start_pt": "arr_of_dbl",
+        "end_pt": "arr_of_dbl",
+        "copy": "bln",
     },
     "mirror_objects": {
         "objects": "arr_of_str",
@@ -600,6 +616,11 @@ object = {
         "objects": "arr_of_str",
         "source": "int",
     },
+    "object_name": {
+        "object": "str",
+        "objects": "arr_of_str",
+        "names": "str",
+    },
     "object_names": {
         "objects": "arr_of_str",
         "names": "arr_of_str",
@@ -624,11 +645,23 @@ object = {
         "objects": "arr_of_str",
         "u_r_l": "str",
     },
+    "orient_object": {
+        "object": "str",
+        "reference": "arr_of_dbl",
+        "target": "arr_of_dbl",
+        "flags": "int",
+    },
     "orient_objects": {
         "objects": "arr_of_str",
         "reference": "arr_of_dbl",
         "target": "arr_of_dbl",
         "flags": "int",
+    },
+    "remap_object": {
+        "object": "str",
+        "src_plane": "arr_of_dbl",
+        "dst_plane": "arr_of_dbl",
+        "copy": "bln",
     },
     "remap_objects": {
         "object": "arr_of_str",
@@ -636,11 +669,24 @@ object = {
         "dst_plane": "arr_of_dbl",
         "copy": "bln",
     },
+    "rotate_object": {
+        "object": "str",
+        "point": "arr_of_dbl",
+        "angle": "dbl",
+        "axis": "arr_of_dbl",
+        "copy": "bln",
+    },
     "rotate_objects": {
         "objects": "arr_of_str",
         "point": "arr_of_dbl",
         "angle": "dbl",
         "axis": "arr_of_dbl",
+        "copy": "bln",
+    },
+    "scale_object": {
+        "object": "str",
+        "origin": "arr_of_dbl",
+        "scale": "arr_of_dbl",
         "copy": "bln",
     },
     "scale_objects": {
@@ -652,6 +698,13 @@ object = {
     "select_objects": {
         "objects": "arr_of_str",
     },
+    "shear_object": {
+        "object": "str",
+        "origin": "arr_of_dbl",
+        "ref_pt": "arr_of_dbl",
+        "scale": "arr_of_int",
+        "copy": "bln",
+    },
     "shear_objects": {
         "objects": "arr_of_str",
         "origin": "arr_of_dbl",
@@ -661,6 +714,11 @@ object = {
     },
     "show_objects": {
         "objects": "arr_of_str",
+    },
+    "transform_object": {
+        "objects": "str",
+        "matrix": "arr_of_str",
+        "copy": "bln",
     },
     "transform_objects": {
         "objects": "arr_of_str",
@@ -675,6 +733,11 @@ object = {
     },
 },
 object_grip = {
+    "object_grip_location": {
+        "object": "str",
+        "index": "int",
+        "points": "arr_of_dbl",
+    },
     "object_grip_locations": {
         "object": "str",
         "points": "arr_of_dbl",
@@ -808,6 +871,13 @@ point_and_vector = {
 },
 selection = {
     "get_object_ex": {
+        "message": "str",
+        "type": "int",
+        "pre_select": "bln",
+        "select": "bln",
+        "objects": "arr_of_str",
+    },
+    "get_object": {
         "message": "str",
         "type": "int",
         "pre_select": "bln",
@@ -1204,6 +1274,12 @@ user_interface = {
         "message": "str",
         "plane": "arr_of_dbl",
         "point": "arr_of_dbl",
+    },
+    "get_point": {
+        "message": "str",
+        "points": "arr_of_dbl",
+        "distance": "dbl",
+        "plane": "bln",
     },
     "get_points": {
         "draw": "bln",
