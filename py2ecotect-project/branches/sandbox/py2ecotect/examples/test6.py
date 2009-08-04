@@ -6,6 +6,7 @@ from py2ecotect import model
 from py2ecotect.model import Model
 from py2ecotect.results import Results
 from py2ecotect.select import Select
+from py2ecotect.selection import Selection
 import time
 
 m = Model()
@@ -57,9 +58,6 @@ door = Door.create(points)
 points = [(13600,5300,0)]
 point_1 = Point.create(points)
 
-sel = Select()
-sel.index([wall_1, point_1])
-
 
 #res = Results()
 #print res.get_gains_conduction(zn1, 3)
@@ -76,19 +74,14 @@ print nodes
 """
 #zn1.delete()
 
-
 v = View()
 v.redraw()
 
+sel = Select()
+sel.index([wall_4, wall_1])
 
-nodes = wall_4.nodes
-for i in nodes:
-    print i.position
-wall_4.reverse()
-v.redraw()
-print "----------------------------"
-nodes = wall_4.nodes
-for i in nodes:
-    print i.position
+
+wall_3.reverse()
+print m.current_object
 
 

@@ -86,11 +86,24 @@ class Node(object):
             p2e.model._nodes.append(node)
         return eco_id  
     #---------------------------------------------------------------------------
-    def delete(self):
+    def delete(self, node_index = 0):
+        
+        """
+        
+        The delete function removes the specified node from its object. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        [node_index]
+        The index of the node belonging to the object. It is not the id of the 
+        node. Default value is 0.
+        
+        """
         
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delnode", 
-                                            self._object.eco_id, self.eco_id)
+                                            self._object.eco_id, node_index)
         p2e.conversation.Exec(arg_str)
         
         #Update node lists

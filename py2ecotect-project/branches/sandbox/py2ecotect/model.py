@@ -759,7 +759,7 @@ class Model(object):
         return property(**locals())
     
     @apply
-    def materials():
+    def number_of_materials():
         def fget(self):
             """
             

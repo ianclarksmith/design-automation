@@ -149,7 +149,7 @@ class _Object(object):
         #Update model lists
         p2e.model._objects.remove(self)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
-    def del_node(self, node, nodeIndex):
+    def del_node(self, node, node_index = 0):
         """
         
         The delnode command removes the specified node from the specified object. 
@@ -160,10 +160,14 @@ class _Object(object):
         node 
         The node belonging to the object. 
         
+        [node_index]
+        The index of the node belonging to the object. It is not the id of the 
+        node. Default value is 0.
+        
         """
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delnode", self.eco_id, 
-                                                     nodeIndex)
+                                                     node_index)
         p2e.conversation.Exec(arg_str)
         
         #Update model lists
@@ -235,7 +239,8 @@ class _Object(object):
   
         """
         p2e.conversation.Exec("object.done")
-        
+    
+    #TODO: update lists
     def extrude(self, extrude_distance):
         """
         
@@ -249,12 +254,20 @@ class _Object(object):
         object in each of the major axes.
         
         """
+        before_extrude_len = p2e.model.Model().number_of_objects
+        
         arg_str = p2e._util._convert_args_to_string("object.extrude", 
                                                           self.eco_id, 
                                                           extrude_distance[0], 
                                                           extrude_distance[1], 
                                                           extrude_distance[2])
         p2e.conversation.Exec(arg_str)
+        
+        after_extrude_len = p2e.model.Model().number_of_objects
+        
+        for eco_id in range(before_extrude_len, after_extrude_len):
+            self._create_object_from_id(eco_id)
+        
 
     def move(self, move_distance):
         """
@@ -351,24 +364,44 @@ class _Object(object):
         p2e.conversation.Exec(arg_str)
         
     def reverse(self):
-
+        selection = p2e.selection.Selection()
+        m = p2e.model
+        first_index = selection.next
+        index = -1;
+        selected_objects = []
+        if (first_index == -1): 
+            #Only one object is selected. So selection.next() returns -1
+            selected_objects.append(m._objects[m.Model().current_object])
+        else:
+            selected_objects.append(m._objects[first_index])
+            while(True):
+                index = selection.next
+                if (first_index == index): break
+                selected_objects.append(m._objects[index])
+                
+        #Select this object and reverse normal
+        self.select()
+        selection.reverse()
+        print selected_objects
+        
+        #Re-select the previous objects
+        p2e.select.Select().index(selected_objects)
+        """
         nodes = self.nodes
         points = []
         for i in nodes[1:]:
-            print "\t",i.position
             points.append(i.position)
         
-        counter = 1
         for i in nodes[1:]:
-            self.del_node(i, counter)
-            counter += 1
+            self.del_node(i, 1)
             
         points.reverse()
         for i in points:
             self.add_node(i)
         self.done()
+        """
         
-
+    #TODO: update lists
     def revolve(self, axis, angle, segs):
         """
         
@@ -397,11 +430,19 @@ class _Object(object):
         0 Around the Z axis. 
         1 Around the X axis. 
         2 Around the Y axis. 
-
+        
         """
+        before_extrude_len = p2e.model.Model().number_of_objects
+        
         arg_str = p2e._util._convert_args_to_string("object.revolve", self.eco_id, 
                                                      axis, angle, segs)
         p2e.conversation.Exec(arg_str)
+        
+        after_extrude_len = p2e.model.Model().number_of_objects
+        
+        for eco_id in range(before_extrude_len, after_extrude_len):
+            self._create_object_from_id(eco_id)
+
 
     def rotate(self, azi, alt):
         """
@@ -489,8 +530,7 @@ class _Object(object):
     def select(self):
         """
         
-        Selects the specified object or, if multiple object indexes are given, 
-        then all the specified objects. 
+        Selects this object. 
 
         Parameter(s)
         There are no parameters for this command.
@@ -1184,6 +1224,8 @@ class _Object(object):
             arg_str = p2e._util._convert_args_to_string("set.object.type", 
                                                          self.eco_id, type)
             p2e.conversation.Exec(arg_str)
+            
+            
             
         return property(**locals())
         
@@ -2389,7 +2431,8 @@ class _Object(object):
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
-
+    
+    #TODO: change to prop
     def get_vector(self):
         """
         
