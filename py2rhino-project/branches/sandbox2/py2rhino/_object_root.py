@@ -2,6 +2,7 @@
 
 import pythoncom
 from exceptions import Exception
+import py2rhino as p2r
 from py2rhino import _util
 
 
@@ -11,13 +12,10 @@ _rsf = None
 class _ObjectRoot(object):
 
     # Class constructor
-    def __init__(self, rhino_id, _class, _rsf_in):
-        if rhino_id==None:
-            raise Exception("rhino_id is required.")
-        self.rhino_id = rhino_id
+    def __init__(self, _rhino_id, _class, _rsf_in):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
         self._class = _class
         global _rsf
         _rsf = _rsf_in
-
-    def delete(self):
-        return _rsf.delete_objects(self.rhino_id)

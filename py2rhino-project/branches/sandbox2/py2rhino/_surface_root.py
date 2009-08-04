@@ -10,7 +10,7 @@ from py2rhino._object_root import _ObjectRoot
 _rsf = None
 
 
-class _CurveRoot(_ObjectRoot):
+class _SurfaceRoot(_ObjectRoot):
 
     # Class constructor
     def __init__(self, _rhino_id, _class, _rsf_in):

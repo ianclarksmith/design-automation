@@ -4,13 +4,12 @@ import pythoncom
 from exceptions import Exception
 import py2rhino as p2r
 from py2rhino import _util
-from py2rhino._object_root import _ObjectRoot
 
 
 _rsf = None
 
 
-class _CurveRoot(_ObjectRoot):
+class _ObjectRootGrps(object):
 
     # Class constructor
     def __init__(self, _rhino_id, _class, _rsf_in):
@@ -20,3 +19,9 @@ class _CurveRoot(_ObjectRoot):
         self._class = _class
         global _rsf
         _rsf = _rsf_in
+
+    def groups(self):
+        return _rsf.object_groups(self._rhino_id)
+
+    def top_group(self):
+        return _rsf.object_top_group(self._rhino_id)

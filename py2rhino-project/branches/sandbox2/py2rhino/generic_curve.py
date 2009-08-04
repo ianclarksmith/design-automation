@@ -2,50 +2,45 @@
 
 import pythoncom
 from exceptions import Exception
+import py2rhino as p2r
 from py2rhino import _util
 from py2rhino._curve_root import _CurveRoot
 
 
 _rsf = None
-from py2rhino._curve_root_functions_area import _CurveRootFunctionsArea
-from py2rhino._object_root_functions_deform import _ObjectRootFunctionsDeform
-from py2rhino._curve_root_functions_evaluate import _CurveRootFunctionsEvaluate
-from py2rhino._object_root_functions_groups import _ObjectRootFunctionsGroups
-from py2rhino._curve_root_functions_intersect import _CurveRootFunctionsIntersect
-from py2rhino._curve_root_functions_manipulate import _CurveRootFunctionsManipulate
-from py2rhino._object_root_functions_material import _ObjectRootFunctionsMaterial
-from py2rhino._curve_root_functions_modify import _CurveRootFunctionsModify
-from py2rhino._curve_root_functions_poly import _CurveRootFunctionsPoly
-from py2rhino._object_root_properties import _ObjectRootProperties
-from py2rhino._object_root_functions_render import _ObjectRootFunctionsRender
-from py2rhino._object_root_functions_state import _ObjectRootFunctionsState
-from py2rhino._curve_root_functions_test import _CurveRootFunctionsTest
-from py2rhino._object_root_functions_transform import _ObjectRootFunctionsTransform
-from py2rhino._curve_root_functions_type import _CurveRootFunctionsType
-from py2rhino._object_root_functions_util import _ObjectRootFunctionsUtil
+from py2rhino._object_root_defm import _ObjectRootDefm
+from py2rhino._curve_root_eval import _CurveRootEval
+from py2rhino._curve_root_func_oorc import _CurveRootFuncOorc
+from py2rhino._object_root_grps import _ObjectRootGrps
+from py2rhino._curve_root_mdfy import _CurveRootMdfy
+from py2rhino._object_root_mtrl import _ObjectRootMtrl
+from py2rhino._object_root_prop import _ObjectRootProp
+from py2rhino._object_root_rndr import _ObjectRootRndr
+from py2rhino._object_root_stat import _ObjectRootStat
+from py2rhino._curve_root_test import _CurveRootTest
+from py2rhino._object_root_trfm import _ObjectRootTrfm
+from py2rhino._curve_root_type import _CurveRootType
+from py2rhino._object_root_util import _ObjectRootUtil
 
 
 class GenericCurve(_CurveRoot):
 
     # Class constructor
-    def __init__(self, rhino_id):
-        if rhino_id==None:
+    def __init__(self, _rhino_id):
+        if _rhino_id==None:
             raise Exception("Use the create... methods to create instances of this class.")
-        self.rhino_id = rhino_id
+        self._rhino_id = _rhino_id
 
-        self.area = _CurveRootFunctionsArea(rhino_id, GenericCurve, _rsf )
-        self.deform = _ObjectRootFunctionsDeform(rhino_id, GenericCurve, _rsf )
-        self.evaluate = _CurveRootFunctionsEvaluate(rhino_id, GenericCurve, _rsf )
-        self.groups = _ObjectRootFunctionsGroups(rhino_id, GenericCurve, _rsf )
-        self.intersect = _CurveRootFunctionsIntersect(rhino_id, GenericCurve, _rsf )
-        self.manipulate = _CurveRootFunctionsManipulate(rhino_id, GenericCurve, _rsf )
-        self.materials = _ObjectRootFunctionsMaterial(rhino_id, GenericCurve, _rsf )
-        self.modify = _CurveRootFunctionsModify(rhino_id, GenericCurve, _rsf )
-        self.poly = _CurveRootFunctionsPoly(rhino_id, GenericCurve, _rsf )
-        self.properties = _ObjectRootProperties(rhino_id, GenericCurve, _rsf )
-        self.render = _ObjectRootFunctionsRender(rhino_id, GenericCurve, _rsf )
-        self.state = _ObjectRootFunctionsState(rhino_id, GenericCurve, _rsf )
-        self.test = _CurveRootFunctionsTest(rhino_id, GenericCurve, _rsf )
-        self.transform = _ObjectRootFunctionsTransform(rhino_id, GenericCurve, _rsf )
-        self.type = _CurveRootFunctionsType(rhino_id, GenericCurve, _rsf )
-        self.util = _ObjectRootFunctionsUtil(rhino_id, GenericCurve, _rsf )
+        self.defm = _ObjectRootDefm(_rhino_id, GenericCurve, _rsf )
+        self.eval = _CurveRootEval(_rhino_id, GenericCurve, _rsf )
+        self.func = _CurveRootFuncOorc(_rhino_id, GenericCurve, _rsf )
+        self.grps = _ObjectRootGrps(_rhino_id, GenericCurve, _rsf )
+        self.mdfy = _CurveRootMdfy(_rhino_id, GenericCurve, _rsf )
+        self.mtrl = _ObjectRootMtrl(_rhino_id, GenericCurve, _rsf )
+        self.prop = _ObjectRootProp(_rhino_id, GenericCurve, _rsf )
+        self.rndr = _ObjectRootRndr(_rhino_id, GenericCurve, _rsf )
+        self.stat = _ObjectRootStat(_rhino_id, GenericCurve, _rsf )
+        self.test = _CurveRootTest(_rhino_id, GenericCurve, _rsf )
+        self.trfm = _ObjectRootTrfm(_rhino_id, GenericCurve, _rsf )
+        self.type = _CurveRootType(_rhino_id, GenericCurve, _rsf )
+        self.util = _ObjectRootUtil(_rhino_id, GenericCurve, _rsf )
