@@ -1,6 +1,46 @@
 import py2ecotect as p2e
+from exceptions import Exception
 
 class _Object(object):
+    
+    def __init__(self, object_eco_id, points):
+        
+        if object_eco_id == -1 or object_eco_id == None:
+            raise Exception
+        
+        #update model lists
+        p2e.model._objects.append(self)  
+        
+        #add the functions
+        self.child = p2e.object._ObjectRootFncChild(object_eco_id)
+        self.mnpl = p2e.object._ObjectRootFncMnpl(object_eco_id)
+        self.modf = p2e.object._ObjectRootFncModf(object_eco_id)
+        self.mtrl = p2e.object._ObjectRootFncMtrl(object_eco_id)
+        self.node = p2e.object._ObjectRootFncNode(object_eco_id)
+        self.prop = p2e.object._ObjectRootFncProp(object_eco_id)
+        self.stat = p2e.object._ObjectRootFncStat(object_eco_id)
+        self.trns = p2e.object._ObjectRootFncTrns(object_eco_id)
+        
+        if points == None:
+            #add exisiting nodes
+            for node_num in range(self.node.first_node, self.node.last_node):
+                p2e.Node(self, node_num)
+                
+        else:
+            #add new nodes
+            for node_num in range(len(points)):
+                #execute ecotect instruction
+                node_eco_id = p2e.Node._gen_node(self, node_num, points[node_num])
+                if node_eco_id != -1:
+                    p2e.Node(self, node_eco_id)
+                else:
+                    pass
+                    #raise Exception
+            self.done() 
+
+        
+
+        
     #===========================================================================
     # Methods that affect relationships between objects
     #===========================================================================
@@ -14,15 +54,7 @@ class _Object(object):
         p2e.model._objects.append(obj)
         #assert obj.eco_id == object_eco_id
         
-        #add the functions
-        obj.child = p2e.object._ObjectRootFncChild(object_eco_id)
-        obj.mnpl = p2e.object._ObjectRootFncMnpl(object_eco_id)
-        obj.modf = p2e.object._ObjectRootFncModf(object_eco_id)
-        obj.mtrl = p2e.object._ObjectRootFncMtrl(object_eco_id)
-        obj.node = p2e.object._ObjectRootFncNode(object_eco_id)
-        obj.prop = p2e.object._ObjectRootFncProp(object_eco_id)
-        obj.stat = p2e.object._ObjectRootFncStat(object_eco_id)
-        obj.trns = p2e.object._ObjectRootFncTrns(object_eco_id)
+
         
         #update model nodes lists
         for node_num in range(obj.node.first_node, obj.node.last_node):
@@ -32,10 +64,10 @@ class _Object(object):
         return obj
     
         #update object properties and lists
-        #TODO: figure out the parents / children
+
  
     @classmethod
-    def _create_object(cls, obj, elemType, objType, points, selected = True, link = 0):  
+    def _gen_object(cls, elemType, objType, selected = True, link = 0):  
         """
         
         Use this command to create new objects in the model. It returns the 
@@ -110,28 +142,6 @@ class _Object(object):
                                                      objType, selected, link)
         val = p2e.conversation.Request(arg_str)
         eco_id = p2e._util._convert_str_to_type(val, int)
-        
-        if eco_id != -1:
-            
-            #update model lists
-            p2e.model._objects.append(obj)
-            
-            #add the functions
-            obj.child = p2e.object._ObjectRootFncChild(eco_id)
-            obj.mnpl = p2e.object._ObjectRootFncMnpl(eco_id)
-            obj.modf = p2e.object._ObjectRootFncModf(eco_id)
-            obj.mtrl = p2e.object._ObjectRootFncMtrl(eco_id)
-            obj.node = p2e.object._ObjectRootFncNode(eco_id)
-            obj.prop = p2e.object._ObjectRootFncProp(eco_id)
-            obj.stat = p2e.object._ObjectRootFncStat(eco_id)
-            obj.trns = p2e.object._ObjectRootFncTrns(eco_id)  
-    
-            for node_num in range(len(points)):
-                #execute ecotect instruction
-                node_id = p2e.Node._create_node(obj, node_num, points[node_num])
-                if node_id == -1:
-                    return -1
-            obj.done()
 
         return eco_id
         
@@ -207,7 +217,7 @@ class _Object(object):
         after_extrude_len = p2e.model.Model().number_of_objects
         
         for eco_id in range(before_extrude_len, after_extrude_len):
-            self._create_object_from_id(eco_id)
+            p2e._Object(eco_id, None)
         
     def revolve(self, axis, angle, segs):
         """
@@ -248,7 +258,7 @@ class _Object(object):
         after_extrude_len = p2e.model.Model().number_of_objects
         
         for eco_id in range(before_extrude_len, after_extrude_len):
-            self._create_object_from_id(eco_id)
+            p2e._Object(eco_id, None)
 
     #===========================================================================
     # Properties
@@ -421,7 +431,7 @@ class _ObjectRootFncTrns(object):
         eco_id = p2e.model.Model().number_of_objects - 1
         
         #create the object
-        return self._create_object_from_id(eco_id)
+        return _Object(eco_id, None)
     
     def move(self, move_distance):
         """
@@ -2749,10 +2759,10 @@ class Point(_Geometry):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "point", "point", points)
+        
+        eco_id = Point._gen_object("point", "point")
         if id == -1: return None
-        return obj
+        return Point(eco_id, points)
         
 class Line(_Geometry):
     @classmethod
@@ -2776,10 +2786,9 @@ class Line(_Geometry):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "line", "plane", points)
+        eco_id = Line._gen_object("line", "plane")
         if id == -1: return None
-        return obj
+        return Line(eco_id, points)
 
 class  Roof(_Plane):
     @classmethod
@@ -2803,10 +2812,9 @@ class  Roof(_Plane):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "roof", "plane", points)
+        eco_id = Roof._gen_object("roof", "plane")
         if id == -1: return None
-        return obj
+        return Roof(eco_id, points)
 
 class  Floor(_Plane):
     @classmethod
@@ -2830,10 +2838,9 @@ class  Floor(_Plane):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "floor", "plane", points)
+        eco_id = Floor._gen_object("floor", "plane")
         if id == -1: return None
-        return obj
+        return Floor(eco_id, points)
 
 class  Ceiling(_Plane):
     @classmethod
@@ -2857,10 +2864,9 @@ class  Ceiling(_Plane):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "ceiling", "plane", points)
+        eco_id = Ceiling._gen_object("ceiling", "plane")
         if id == -1: return None
-        return obj
+        return Ceiling(eco_id, points)
 
 class  Wall(_Plane):
     @classmethod
@@ -2884,10 +2890,9 @@ class  Wall(_Plane):
         failed. 
         
         """        
-        obj = Wall()
-        id = _Plane._create_object(obj, "wall", "plane", points)
+        eco_id = Wall._gen_object("wall", "plane")
         if id == -1: return None
-        return obj
+        return Wall(eco_id, points)
 
 class  Partition(_Plane):
     @classmethod
@@ -2911,10 +2916,9 @@ class  Partition(_Plane):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "partition", "plane", points)
+        eco_id = Partition._gen_object("partition", "plane")
         if id == -1: return None
-        return obj
+        return Partition(eco_id, points)
 
 class  Void(_Hole):
     @classmethod
@@ -2938,10 +2942,9 @@ class  Void(_Hole):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "void", "plane", points)
+        eco_id = Void._gen_object("void", "plane")
         if id == -1: return None
-        return obj
+        return Void(eco_id, points)
 
 class  Window(_Hole):
     @classmethod
@@ -2965,10 +2968,9 @@ class  Window(_Hole):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "window", "plane", points)
+        eco_id = Window._gen_object("window", "plane")
         if id == -1: return None
-        return obj
+        return Window(eco_id, points)
 
 class  Panel(_Hole):
     @classmethod
@@ -2992,10 +2994,9 @@ class  Panel(_Hole):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "panel", "plane", points)
+        eco_id = Panel._gen_object("panel", "plane")
         if id == -1: return None
-        return obj
+        return Panel(eco_id, points)
 
 class  Door(_Hole):
     @classmethod
@@ -3019,10 +3020,9 @@ class  Door(_Hole):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "door", "plane", points)
+        eco_id = Door._gen_object("door", "plane")
         if id == -1: return None
-        return obj
+        return Door(eco_id, points)
 
 class  Speaker(_Vector):
     @classmethod
@@ -3046,10 +3046,9 @@ class  Speaker(_Vector):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "speaker", "source", points)
+        eco_id = Speaker._gen_object("speaker", "source")
         if id == -1: return None
-        return obj
+        return Speaker(eco_id, points)
 
 class  Light(_Vector):
     @classmethod
@@ -3073,10 +3072,9 @@ class  Light(_Vector):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "light", "source", points)
+        eco_id = Light._gen_object("light", "source")
         if id == -1: return None
-        return obj
+        return Light(eco_id, points)
 
 class  Appliance(_Vector):
     @classmethod
@@ -3100,10 +3098,9 @@ class  Appliance(_Vector):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "appliance", "", points)
+        eco_id = Appliance._gen_object("appliance", "")
         if id == -1: return None
-        return obj
+        return Appliance(eco_id, points)
 
 class  SolarCollector(_Vector):
     @classmethod
@@ -3127,10 +3124,9 @@ class  SolarCollector(_Vector):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "solarcollector", "", points)
+        eco_id = SolarCollector._gen_object("solarcollector", "")
         if id == -1: return None
-        return obj
+        return SolarCollector(eco_id, points)
 
 class  Camera(_Vector):
     @classmethod
@@ -3154,8 +3150,7 @@ class  Camera(_Vector):
         failed. 
         
         """        
-        obj = Point()
-        id = _Plane._create_object(obj, "camera", "", points)
+        eco_id = Camera._gen_object("camera", "")
         if id == -1: return None
-        return obj
+        return Camera(eco_id, points)
 

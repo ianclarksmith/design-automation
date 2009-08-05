@@ -8,7 +8,7 @@ def _populate():
     val = p2e.conversation.Request("get.model.zones")
     num_zones = p2e._util._convert_str_to_type(val, int)    
     for eco_id in range(num_zones):
-            p2e.Zone._create_zone_from_id(eco_id)
+            p2e.Zone(eco_id)
 
 class Model(object):         
 

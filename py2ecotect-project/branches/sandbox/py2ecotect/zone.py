@@ -5,23 +5,19 @@ class Zone(object):
     #===========================================================================
     # Methods that affect relationships between objects
     #===========================================================================
-    @classmethod
-    def _create_zone_from_id(cls, zone_eco_id):
-        
-        #create the object
-        zone = cls()
+    def __init__(self, zone_eco_id):
         
         #update model zones list
-        p2e.model._zones.append(zone)
-        assert zone.eco_id == zone_eco_id
+        p2e.model._zones.append(self)
+        assert self.eco_id == zone_eco_id
         
         #update model objects list
-        zone.current
-        object_id = zone.get_next_object(-1, -1, -1, -1)
+        self.current
+        object_id = self.get_next_object(-1, -1, -1, -1)
         prev_id = object_id
         while (object_id != -1):
-            p2e._Object._create_object_from_id(object_id)
-            object_id = zone.get_next_object(prev_id, -1, -1, -1)
+            p2e._Object(object_id, None)
+            object_id = self.get_next_object(prev_id, -1, -1, -1)
             prev_id = object_id
             
     @classmethod
@@ -48,19 +44,14 @@ class Zone(object):
         that the operation failed. 
         
         """
-        
-        #create the node
-        zone = cls()
-        
+
         #execute ecotect instruction        
         arg_str = p2e._util._convert_args_to_string("add.zone", name)
-        p2e.conversation.Request(arg_str)
-        
-        #update the model lists
-        p2e.model._zones.append(zone)
+        val = p2e.conversation.Request(arg_str)
+        eco_id = p2e._util._convert_str_to_type(val, int)
         
         #return the zone
-        return zone
+        return Zone(eco_id)
     #---------------------------------------------------------------------------
     def delete(self):
         """
