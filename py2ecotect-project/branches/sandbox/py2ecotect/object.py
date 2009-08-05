@@ -9,16 +9,23 @@ class _Object(object):
         
         #create the object
         obj = cls()
-        
-        #add the functions
-        obj.trns = None #_ObjectRootFncTransform(object_eco_id)
-        
+
         #update model objects lists
         p2e.model._objects.append(obj)
         #assert obj.eco_id == object_eco_id
         
+        #add the functions
+        obj.child = p2e.object._ObjectRootFncChild(object_eco_id)
+        obj.mnpl = p2e.object._ObjectRootFncMnpl(object_eco_id)
+        obj.modf = p2e.object._ObjectRootFncModf(object_eco_id)
+        obj.mtrl = p2e.object._ObjectRootFncMtrl(object_eco_id)
+        obj.node = p2e.object._ObjectRootFncNode(object_eco_id)
+        obj.prop = p2e.object._ObjectRootFncProp(object_eco_id)
+        obj.stat = p2e.object._ObjectRootFncStat(object_eco_id)
+        obj.trns = p2e.object._ObjectRootFncTrns(object_eco_id)
+        
         #update model nodes lists
-        for node_num in range(obj.first_node, obj.last_node):
+        for node_num in range(obj.node.first_node, obj.node.last_node):
             p2e.Node._create_node_from_id(obj, node_num)
         
         #return the object to the duplicate method
@@ -26,8 +33,7 @@ class _Object(object):
     
         #update object properties and lists
         #TODO: figure out the parents / children
-
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+ 
     @classmethod
     def _create_object(cls, obj, elemType, objType, points, selected = True, link = 0):  
         """
@@ -98,18 +104,27 @@ class _Object(object):
         child 2444 
 
         """
-        #add the functions
-        obj.trns = None #_ObjectRootFncTransform(object_eco_id)
         
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("add.object", elemType, 
                                                      objType, selected, link)
-        eco_id = p2e.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
+        eco_id = p2e._util._convert_str_to_type(val, int)
         
         if eco_id != -1:
             
             #update model lists
-            p2e.model._objects.append(obj)  
+            p2e.model._objects.append(obj)
+            
+            #add the functions
+            obj.child = p2e.object._ObjectRootFncChild(eco_id)
+            obj.mnpl = p2e.object._ObjectRootFncMnpl(eco_id)
+            obj.modf = p2e.object._ObjectRootFncModf(eco_id)
+            obj.mtrl = p2e.object._ObjectRootFncMtrl(eco_id)
+            obj.node = p2e.object._ObjectRootFncNode(eco_id)
+            obj.prop = p2e.object._ObjectRootFncProp(eco_id)
+            obj.stat = p2e.object._ObjectRootFncStat(eco_id)
+            obj.trns = p2e.object._ObjectRootFncTrns(eco_id)  
     
             for node_num in range(len(points)):
                 #execute ecotect instruction
@@ -119,13 +134,7 @@ class _Object(object):
             obj.done()
 
         return eco_id
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~       
-    def add_node(self, point):
-        #execute ecotect instruction
-        node = p2e.Node._create_node(self, self.number_of_nodes -1, point)
-        self.done()
         
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
     def delete(self):
         """
         
@@ -150,77 +159,6 @@ class _Object(object):
             
         #Update model lists
         p2e.model._objects.remove(self)
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
-    def del_node(self, node, node_index = 0):
-        """
-        
-        The delnode command removes the specified node from the specified object. 
-
-        Parameter(s)
-        This command takes the following parameters.
-
-        node 
-        The node belonging to the object. 
-        
-        [node_index]
-        The index of the node belonging to the object. It is not the id of the 
-        node. Default value is 0.
-        
-        """
-        #execute ecotect instruction
-        arg_str = p2e._util._convert_args_to_string("object.delnode", self.eco_id, 
-                                                     node_index)
-        p2e.conversation.Exec(arg_str)
-        
-        #Update model lists
-        p2e.model._nodes.remove(node)
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
-    def copy(self, move_distance):
-        """
-        
-        Creates a duplicate copy of the specified object a distance of x, y and 
-        z in each of the major axes. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        move_distance
-        A list of three values that specifies a distance to move the duplicate 
-        object in each of the major axes. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("object.duplicate", 
-                                                      self.eco_id, 
-                                                      move_distance[0], 
-                                                      move_distance[1], 
-                                                      move_distance[2])
-        p2e.conversation.Exec(arg_str)
-        
-        #get the id of the new object
-        eco_id = p2e.model.Model().number_of_objects - 1
-        
-        #create the object
-        return self._create_object_from_id(eco_id)
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
-    
-    #TODO: check clash with property
-    def link(self, parent):
-        """
-        
-        This command link two objects together to create a parent-child 
-        relationship between the two objects. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        parent 
-        Specifies the object the child object is linked with.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("object.link", 
-                                                          self.eco_id, 
-                                                          parent.eco_id)
-        p2e.conversation.Exec(arg_str)     
         
     #===========================================================================
     # Properties that affect relationships between objects
@@ -244,7 +182,6 @@ class _Object(object):
         """
         p2e.conversation.Exec("object.done")
     
-    #TODO: update lists
     def extrude(self, extrude_distance):
         """
         
@@ -272,126 +209,6 @@ class _Object(object):
         for eco_id in range(before_extrude_len, after_extrude_len):
             self._create_object_from_id(eco_id)
         
-
-    def move(self, move_distance):
-        """
-        
-        This command moves the specified object. 
-
-        Parameter(s)
-        This command takes the following parameters.
-
-        move_distance
-        A list of three values that specifies a distance to move the specified 
-        object in each of the major axes.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("object.move",
-                                                          self.eco_id, 
-                                                          move_distance[0], 
-                                                          move_distance[1], 
-                                                          move_distance[2])
-        p2e.conversation.Exec(arg_str)
-
-    def normal_move(self, type):
-        """
-        
-        This command orients the surface normals of the specified object in the 
-        given model direction. 
-
-        Parameter(s)
-        This command takes the following parameters. 
-        
-        type 
-        An integer with a value corresponding to the Object Normal Directions 
-        table below. 
-        
-        Relevant Data Table(s)
-        
-        Object Normal Directions 
-        Value Description 
-        0 Towards current sun position. 
-        1 Towards positive X axis. 
-        2 Towards positive Y axis. 
-        3 Towards positive Z axis. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("object.normal", self.eco_id, 
-                                                     type)
-        p2e.conversation.Exec(arg_str)
-
-    def nudge(self, dir):
-        """
-        
-        Nudges the specified object in the given axis direction, by the current 
-        grid snap distance setting. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        dir 
-        A number representing the three major axes as given in the Nudge Direction 
-        table. If the value is negative, the direction is in the negative axial 
-        direction. 
-        
-        Relevant Data Table(s)
-        
-        Nudge Directions 
-        Value Description 
-        1, -1 In the X axis. 
-        2, -2 In the Y axis. 
-        3, -3 In the Z axis. 
-    
-        """
-        arg_str = p2e._util._convert_args_to_string("object.nudge", 
-                                                      self.eco_id, dir)
-        p2e.conversation.Exec(arg_str)
-
-    def orient(self, azi, alt):
-        """
-        
-        Orients the surface normals of the specified object to the given azimuth 
-        and altitude angles. 
-
-        Parameter(s)
-        This command takes the following parameters.
-        
-        azi 
-        The horizontal angle of orientation, given in degrees. 
-        
-        alt 
-        The vertical angle of orientation, given in degrees. 
-  
-        """
-        arg_str = p2e._util._convert_args_to_string("object.orient", self.eco_id, 
-                                                     azi, alt)
-        p2e.conversation.Exec(arg_str)
-        
-    def reverse(self):
-        #Check to see which objects are selected
-        selection = p2e.selection.Selection()
-        m = p2e.model
-        first_index = selection.next
-        index = -1;
-        selected_objects = []
-        if (first_index == -1): 
-            #Only one object is selected. So selection.next() returns -1
-            selected_objects.append(m._objects[m.Model().current_object])
-        else:
-            selected_objects.append(m._objects[first_index])
-            while(True):
-                index = selection.next
-                if (first_index == index): break
-                selected_objects.append(m._objects[index])
-                
-        #Select this object and reverse normal
-        self.select()
-        selection.reverse()
-        
-        #Re-select the previous objects
-        p2e.select.Select().index(selected_objects)
-        
-    #TODO: update lists
     def revolve(self, axis, angle, segs):
         """
         
@@ -433,7 +250,246 @@ class _Object(object):
         for eco_id in range(before_extrude_len, after_extrude_len):
             self._create_object_from_id(eco_id)
 
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the object
+        
+            """
+            return p2e.model._objects.index(self)
 
+        return property(**locals())
+
+    def get_activation(self, day, hour):
+        """
+        
+        Returns the fractional activation value of the specified object for the 
+        given day and hour. This will be a value between 0 - 1, where 0 is off 
+        and 1 is on. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        day 
+        The julian date, given as an integer between 1 and 365. 
+        
+        hour 
+        The hour of the day and must be an integer between 0 and 23, where 0 is 
+        midnight on the previous day and 23 is 11:00pm on the given day. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        activation 
+        The fractional activation value of the specified object for the given 
+        day and hour. This will be a value between 0 - 1, where 0 is off and 1 
+        is on.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("get.object.activation", 
+                                                     self.eco_id, day, hour)
+        val = p2e.conversation.Request(arg_str)
+        return p2e._util._convert_str_to_type(val, float)
+
+    def get_coplanar(self, absolute_position):
+        """
+        
+        Determines if a point is co-planar with the specified object. Obviously 
+        this only works with objects that are closed planar surfaces. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        absolute_position
+        A list of three values that represents the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        colanar 
+        A boolean value where 1 means that the point is coplanar and 0 means 
+        that it isn't. 
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("get.object.coplanar", 
+                                                     self.eco_id, 
+                                                     absolute_position[0], 
+                                                     absolute_position[1], 
+                                                     absolute_position[2])
+        val = p2e.conversation.Request(arg_str)
+        return p2e._util._convert_str_to_type(val, int)
+ 
+    @apply
+    def zone():  
+        def fget(self):
+            """
+            
+            Retrieves the zone index of the specified object. The value returned 
+            corresponds with the numerical order of the zone in the Zone Management 
+            Panel. For example, if the specified object is part of the second zone 
+            in the Zone Management panel, the value returned will be 2. The Outside 
+            zone is always 0. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            link 
+            The zero-based index of the zone the specified object is assigned to.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.zone", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e.model._zones[p2e._util._convert_str_to_type(val, int)]
+        
+        def fset(self, index):
+            """
+            
+            Sets the specified object as a zone of the given index. The value set 
+            should correspond with the numerical order of the required zone in the 
+            Zone Management Panel. For example, if the specified object is to be 
+            part of the second zone in the Zone Management panel, the set value 
+            should be 2. The Outside zone is always 0. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            index 
+            The zero-based index of the zone the specified object will be assigned 
+            to.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.zone", 
+                                                         self.eco_id, index)
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
+
+class _ObjectRootFncTrns(object):
+    
+    def __init__(self, id):
+        self._eco_id = id
+        
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the object
+        
+            """
+            return self._eco_id
+
+        return property(**locals())
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
+    def copy(self, move_distance):
+        """
+        
+        Creates a duplicate copy of the specified object a distance of x, y and 
+        z in each of the major axes. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        move_distance
+        A list of three values that specifies a distance to move the duplicate 
+        object in each of the major axes. 
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("object.duplicate", 
+                                                      self.eco_id, 
+                                                      move_distance[0], 
+                                                      move_distance[1], 
+                                                      move_distance[2])
+        p2e.conversation.Exec(arg_str)
+        
+        #get the id of the new object
+        eco_id = p2e.model.Model().number_of_objects - 1
+        
+        #create the object
+        return self._create_object_from_id(eco_id)
+    
+    def move(self, move_distance):
+        """
+        
+        This command moves the specified object. 
+
+        Parameter(s)
+        This command takes the following parameters.
+
+        move_distance
+        A list of three values that specifies a distance to move the specified 
+        object in each of the major axes.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("object.move",
+                                                          self.eco_id, 
+                                                          move_distance[0], 
+                                                          move_distance[1], 
+                                                          move_distance[2])
+        p2e.conversation.Exec(arg_str)
+        
+    def nudge(self, dir):
+        """
+        
+        Nudges the specified object in the given axis direction, by the current 
+        grid snap distance setting. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        dir 
+        A number representing the three major axes as given in the Nudge Direction 
+        table. If the value is negative, the direction is in the negative axial 
+        direction. 
+        
+        Relevant Data Table(s)
+        
+        Nudge Directions 
+        Value Description 
+        1, -1 In the X axis. 
+        2, -2 In the Y axis. 
+        3, -3 In the Z axis. 
+    
+        """
+        arg_str = p2e._util._convert_args_to_string("object.nudge", 
+                                                      self.eco_id, dir)
+        p2e.conversation.Exec(arg_str)
+        
+    def orient(self, azi, alt):
+        """
+        
+        Orients the surface normals of the specified object to the given azimuth 
+        and altitude angles. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        azi 
+        The horizontal angle of orientation, given in degrees. 
+        
+        alt 
+        The vertical angle of orientation, given in degrees. 
+  
+        """
+        arg_str = p2e._util._convert_args_to_string("object.orient", self.eco_id, 
+                                                     azi, alt)
+        p2e.conversation.Exec(arg_str)
+        
     def rotate(self, azi, alt):
         """
         
@@ -516,18 +572,6 @@ class _Object(object):
                                                           scale_factor[1], 
                                                           scale_factor[2])
         p2e.conversation.Exec(arg_str)
-
-    def select(self):
-        """
-        
-        Selects this object. 
-
-        Parameter(s)
-        There are no parameters for this command.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("object.select", self.eco_id)
-        p2e.conversation.Exec(arg_str)
         
     def spin(self, spin):
         """
@@ -544,23 +588,7 @@ class _Object(object):
         """
         arg_str = p2e._util._convert_args_to_string("object.spin", self.eco_id, spin)
         p2e.conversation.Exec(arg_str)
-
-    def update(self):
-        """
         
-        Use this command to check and refresh inter-object relationships for the 
-        specified object. Complex model with many inter-relationships can take a 
-        little time to regenerate so ECOTECT doesn't do this automatically after 
-        each script-based manipulation. You can also use model.update to do this 
-        for all objects in the model at once. 
-
-        Parameter(s)
-        There are no parameters for this command.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("object.update", self.eco_id)
-        p2e.conversation.Exec(arg_str)
-
     def xform(self, trans, function_values):
         """
         
@@ -601,11 +629,12 @@ class _Object(object):
                                                           function_values[1], 
                                                           function_values[2])
         p2e.conversation.Exec(arg_str)
-
-    #===========================================================================
-    # Properties
-    #===========================================================================
     
+class _ObjectRootFncModf(object):
+    
+    def __init__(self, id):
+        self._eco_id = id
+        
     @apply
     def eco_id():
         def fget(self):
@@ -614,40 +643,227 @@ class _Object(object):
             Id of the object
         
             """
-            return p2e.model._objects.index(self)
+            return self._eco_id
 
         return property(**locals())
-
-    def get_activation(self, day, hour):
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
+    def link(self, parent):
         """
         
-        Returns the fractional activation value of the specified object for the 
-        given day and hour. This will be a value between 0 - 1, where 0 is off 
-        and 1 is on. 
+        This command link two objects together to create a parent-child 
+        relationship between the two objects. 
 
         Parameter(s)
-        This property takes the following parameters.
+        This command takes the following parameters.
         
-        day 
-        The julian date, given as an integer between 1 and 365. 
-        
-        hour 
-        The hour of the day and must be an integer between 0 and 23, where 0 is 
-        midnight on the previous day and 23 is 11:00pm on the given day. 
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        activation 
-        The fractional activation value of the specified object for the given 
-        day and hour. This will be a value between 0 - 1, where 0 is off and 1 
-        is on.
+        parent 
+        Specifies the object the child object is linked with.
         
         """
-        arg_str = p2e._util._convert_args_to_string("get.object.activation", 
-                                                     self.eco_id, day, hour)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, float)
+        arg_str = p2e._util._convert_args_to_string("object.link", 
+                                                          self.eco_id, 
+                                                          parent.eco_id)
+        p2e.conversation.Exec(arg_str)
+        
+    def normal_move(self, type):
+        """
+        
+        This command orients the surface normals of the specified object in the 
+        given model direction. 
+
+        Parameter(s)
+        This command takes the following parameters. 
+        
+        type 
+        An integer with a value corresponding to the Object Normal Directions 
+        table below. 
+        
+        Relevant Data Table(s)
+        
+        Object Normal Directions 
+        Value Description 
+        0 Towards current sun position. 
+        1 Towards positive X axis. 
+        2 Towards positive Y axis. 
+        3 Towards positive Z axis. 
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("object.normal", self.eco_id, 
+                                                     type)
+        p2e.conversation.Exec(arg_str)   
+        
+    def normal_reverse(self):
+        #Check to see which objects are selected
+        selection = p2e.selection.Selection()
+        m = p2e.model
+        first_index = selection.next
+        index = -1;
+        selected_objects = []
+        if (first_index == -1): 
+            #Only one object is selected. So selection.next() returns -1
+            selected_objects.append(m._objects[m.Model().current_object])
+        else:
+            selected_objects.append(m._objects[first_index])
+            while(True):
+                index = selection.next
+                if (first_index == index): break
+                selected_objects.append(m._objects[index])
+                
+        #Select this object and reverse normal
+        self.select()
+        selection.reverse()
+        
+        #Re-select the previous objects
+        p2e.select.Select().index(selected_objects)  
+
+class _ObjectRootFncStat(object):
+    
+    def __init__(self, id):
+        self._eco_id = id
+        
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the object
+        
+            """
+            return self._eco_id
+
+        return property(**locals())
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
+    def select(self):
+        """
+        
+        Selects this object. 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("object.select", self.eco_id)
+        p2e.conversation.Exec(arg_str)
+
+    def update(self):
+        """
+        
+        Use this command to check and refresh inter-object relationships for the 
+        specified object. Complex model with many inter-relationships can take a 
+        little time to regenerate so ECOTECT doesn't do this automatically after 
+        each script-based manipulation. You can also use model.update to do this 
+        for all objects in the model at once. 
+
+        Parameter(s)
+        There are no parameters for this command.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("object.update", self.eco_id)
+        p2e.conversation.Exec(arg_str)
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
+    @apply
+    def current():    
+        def fset(self):
+            """
+            
+            Several actions within ECOTECT act on the current object (sun-path 
+            diagrams, etc). Set this property of an object to ensure that it is the 
+            current object before invoking a command. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.current", 
+                                                         self.eco_id)
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
+    
+    @apply
+    def selected():  
+        def fget(self):
+            """
+            
+            Retrieves the selection state of the specified object. A value of 1 
+            means the object is part of the current selection set, whilst a value of 
+            0 means that it is not. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            selected 
+            This is a boolean value where 1 represents that the object is selected 
+            and 0 that it is not. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.selected", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+        
+        def fset(self, state = True):
+            """
+            
+            Sets the selection state of the specified object.
+    
+            Note: Once you finish selecting the individual objects you want, you 
+            should then call the selection.update command. 
+            
+            Parameter(s)
+            This property takes the following parameters.
+            
+            [state] 
+            This optional parameter determines whether to set the object as selected 
+            or not. This is a boolean value where 1 or true represents the 
+            affirmative and 0 or false the negative. If not given, this parameter 
+            defaults to true. Setting an object as selected also sets that object 
+            as the current object.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.selected", 
+                                                         self.eco_id, state)
+            p2e.conversation.Exec(arg_str)
+            
+            p2e.selection.Selection().update()
+            
+        return property(**locals())
+
+class _ObjectRootFncMtrl(object):
+    
+    def __init__(self, id):
+        self._eco_id = id
+        
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the object
+        
+            """
+            return self._eco_id
+
+        return property(**locals())
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
     
     @apply
     def alternate():
@@ -699,41 +915,79 @@ class _Object(object):
             p2e.conversation.Exec(arg_str)
             
         return property(**locals())
+    
+    @apply
+    def material():
+        def fget(self):
+            """
+            
+            Retrieves the index of the object's primary material. It is also 
+            possible to access all material properties this way. Thus, you could use 
+            something like get("object.material.absorption", 23) to retrieve data 
+            from the primary material assigned to this object. See the material 
+            object for more details. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            matIndex 
+            The zero-based index of the assigned primary material. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.material", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+    
+        def fset(self, material):
+            """
+            
+            Sets the index of the object's primary material. It is also possible to 
+            set any material properties this way. For example, you could use 
+            something like set("object.material.absorption", 23, 0.57) to set data 
+            for the primary material assigned to this object. See the material 
+            object for more details. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            material 
+            Either a material name or an integer, being the zero-based index of the 
+            material to be assigned from within the material list. You can obtain 
+            this index manually from the material name using the get.material.index 
+            command.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.material", 
+                                                         self.eco_id, material)
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
 
-    def get_angle(self, type):
-        """
+class _ObjectRootFncProp(object):
+    
+    def __init__(self, id):
+        self._eco_id = id
         
-        Returns the angle, in degrees, of the surface normal of a planar object. 
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the object
+        
+            """
+            return self._eco_id
 
-        Parameter(s)
-        This property takes the following parameters.
-        
-        type 
-        What the surface normal angle is measured in relation to, and may be 
-        given as a token or value corresponding to the Object Angles table. 
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        angle 
-        The resulting angle in degrees. 
-        
-        Relevant Data Table(s)
-        
-        Object Angles 
-        Token Value Description 
-        azimuth 0 Angle of surface in horizontal plane to positive Y axis. 
-        altitude 1 Angle of surface in vertical plane with the ground. 
-        sunangle 2 3D angle between surface normal and current sun position. 
-        north 3 Angle of surface in horizontal plane to current North Point. 
-        eye 4 3D angle between surface normal and current eye position. 
-
-        """
-        arg_str = p2e._util._convert_args_to_string("get.object.angle", 
-                                                     self.eco_id, type)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, float)
-
+        return property(**locals())
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
     @apply
     def area():
         def fget(self):
@@ -884,222 +1138,15 @@ class _Object(object):
             p2e.conversation.Exec(arg_str)
         
         return property(**locals())
-
-    def get_center(self):
-        """
-        
-        Returns three decimal values corresponding to the X, Y and Z components 
-        of geometric centre for the specified object. The values of the object 
-        centre are given in absolute world coordinates. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of the centre 
-        point in 3 dimensional model space. 
-
-        """
-        arg_str = p2e._util._convert_args_to_string("get.object.center", 
-                                                     self.eco_id)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float, float)
-
-    def set_center(self, absolute_position):
-        """
-        
-        Sets the centre point for the specified object - the object is moved so 
-        that its center is aligned to the point specified. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position
-        A list of three values that represents the absolute position in the 
-        X, Y and Z axis of a point in 3 dimensional model space.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.object.center", 
-                                                          self.eco_id, 
-                                                          absolute_position[0], 
-                                                          absolute_position[1], 
-                                                          absolute_position[2])
-        p2e.conversation.Exec(arg_str)
-
-    def get_child_extents(self, absolute = True):
-        """
-        
-        Returns the size and location of a child object within a parent object. 
-        For example, if you have a WINDOW object located with an WALL, the first 
-        two returned values are the location of the bottom left corner of the 
-        WINDOW, and the next two values are the size of the window given as a 
-        relative proportion to the size of WALL. Note that this command always 
-        assumes you are looking at the outside face of the object, where the 
-        minimum extent is always the bottom-left. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        [absolute] 
-        This optional parameter, if set to true, will return the size of the 
-        child object as absolute values, rather than as a relative proportion 
-        to the parent object. 
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        u 
-        The horizontal location of the bottom left hand corner of the child object. 
-        
-        v 
-        The vertical location of the bottom left hand corner of the child object. 
-        
-        wu 
-        The relative width of the child object. 
-        
-        hv 
-        The relative height of the child object. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("get.object.child.extents", 
-                                                     self.eco_id, absolute)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float, float, float)
-
-    def set_child_extents(self, u, v, wu, hv):
-        """
-        
-        Sets the size and location of a child object within a parent object. For 
-        example, if you have a WINDOW object located with an WALL, the first two 
-        returned values are the location of the bottom left corner of the WINDOW, 
-        and the next two values are the size of the window given as a relative 
-        proportion to the size of WALL.
-
-        Note that this command is intended for use with child objects, which 
-        must reside within the bounds of their parent object. Any parameter 
-        values greater than 1.0 are assumed to be absolute coordinates, as 
-        opposed to a fraction of the parent size. For the same reason, negative 
-        parameter values are ignored, with the corresponding dimension remaining 
-        unchanged. 
-        
-        Parameter(s)
-        This property takes the following parameters.
-        
-        u 
-        The horizontal location of the bottom left hand corner of the child 
-        object. Note that this command always assumes you are looking towards 
-        the outside face of the object, where the minimum extents is always the 
-        bottom-left. 
-        
-        v 
-        The vertical location of the bottom left hand corner of the child object. 
-        Note that this command always assumes you are looking towards the outside 
-        face of the object, where the minimum extents is always the bottom-left. 
-        
-        wu 
-        The width of the child object, as a relative proportion to the size of 
-        the parent object. For example, a value of 0.5 would make the width of 
-        the child object half the size of the parent object. 
-        
-        hv 
-        The height of the child object, as a relative proportion to the size of 
-        the parent object. For example, a value of 0.75 would make the height of 
-        the child object 3/4 the size of the parent object.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.object.child.extents", 
-                                                     self.eco_id, u, v, wu, hv)
-        p2e.conversation.Exec(arg_str)
-
-    def get_coplanar(self, absolute_position):
-        """
-        
-        Determines if a point is co-planar with the specified object. Onviously 
-        this only works with objects that are closed planar surfaces. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position
-        A list of three values that represents the absolute position in the 
-        X, Y and Z axis of a point in 3 dimensional model space. 
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        colanar 
-        A boolean value where 1 means that the point is coplanar and 0 means 
-        that it isn't. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("get.object.coplanar", 
-                                                     self.eco_id, 
-                                                     absolute_position[0], 
-                                                     absolute_position[1], 
-                                                     absolute_position[2])
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
     
     @apply
-    def current():    
-        def fset(self):
-            """
-            
-            Several actions within ECOTECT act on the current object (sun-path 
-            diagrams, etc). Set this property of an object to ensure that it is the 
-            current object before invoking a command. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("set.object.current", 
-                                                         self.eco_id)
-            p2e.conversation.Exec(arg_str)
-            
-        return property(**locals())
-
-    def get_distance_to(self, absolute_position):
-        """
-        
-        Returns a single floating point value, being the distance between the 
-        specified object and the specified 3D point. If this is a POINT object, 
-        the distance is the point-to-point distance. If the object is planar, it 
-        is the distance of the specified point in line with the plane of the 
-        object, even if this point is outside the object's boundaries. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position
-        A list of three values that represents the absolute position in the 
-        X, Y and Z axis of a point in 3 dimensional model space. 
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        dist 
-        The distance fro the point to the object.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("get.object.distanceto", 
-                                                     self.eco_id, 
-                                                     absolute_position[0], 
-                                                     absolute_position[1], 
-                                                     absolute_position[2])
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, float)
-
-    @apply
-    def equation():
+    def center(): 
         def fget(self):
             """
             
-            Getting this property returns the values used to calculate the plane 
-            equation for the specified object. 
+            Returns three decimal values corresponding to the X, Y and Z components 
+            of geometric centre for the specified object. The values of the object 
+            centre are given in absolute world coordinates. 
     
             Parameter(s)
             There are no parameters for this property.
@@ -1107,31 +1154,37 @@ class _Object(object):
             Return Value(s)
             Getting this property returns the following value(s).
             
-            A, B, C, D 
-            Four decimal values corresponding to A, B, C and D from the plane 
-            equation:
-            Ax + By + Cz = D 
-            
+            x, y, z 
+            Represents the absolute position in the X, Y and Z axis of the centre 
+            point in 3 dimensional model space. 
+    
             """
-            arg_str = p2e._util._convert_args_to_string("get.object.equation", 
+            arg_str = p2e._util._convert_args_to_string("get.object.center", 
                                                          self.eco_id)
             val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_list(val, float, float, float, float)
- 
-        def fset(self):
+            return p2e._util._convert_str_to_list(val, float, float, float)
+    
+        def fset(self, absolute_position):
             """
             
-            When this property is set, ECOTECT recalculates the plane equation 
-            Ax + By + Cz = D for the specified object. 
+            Sets the centre point for the specified object - the object is moved so 
+            that its center is aligned to the point specified. 
     
             Parameter(s)
-            There are no parameters for this property.
+            This property takes the following parameters.
+            
+            absolute_position
+            A list of three values that represents the absolute position in the 
+            X, Y and Z axis of a point in 3 dimensional model space.
             
             """
-            arg_str = p2e._util._convert_args_to_string("set.object.equation", 
-                                                         self.eco_id)
+            arg_str = p2e._util._convert_args_to_string("set.object.center", 
+                                                              self.eco_id, 
+                                                              absolute_position[0], 
+                                                              absolute_position[1], 
+                                                              absolute_position[2])
             p2e.conversation.Exec(arg_str)
-        
+            
         return property(**locals())
     
     @apply
@@ -1175,6 +1228,7 @@ class _Object(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.type", 
                                                          self.eco_id)
+            print "ECO_ID:", self.eco_id
             val = p2e.conversation.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
@@ -1215,17 +1269,15 @@ class _Object(object):
                                                          self.eco_id, type)
             p2e.conversation.Exec(arg_str)
             
-            
-            
         return property(**locals())
-        
+    
     @apply
-    def exposure():
+    def equation():
         def fget(self):
             """
             
-            This command retrieves the surface area of an object that is exposed to 
-            outside conditions. This command only works for planar objects. 
+            Getting this property returns the values used to calculate the plane 
+            equation for the specified object. 
     
             Parameter(s)
             There are no parameters for this property.
@@ -1233,156 +1285,67 @@ class _Object(object):
             Return Value(s)
             Getting this property returns the following value(s).
             
-            value 
-            A decimal value containing the requested object data.
+            A, B, C, D 
+            Four decimal values corresponding to A, B, C and D from the plane 
+            equation:
+            Ax + By + Cz = D 
             
             """
-            arg_str = p2e._util._convert_args_to_string("get.object.exposure", 
+            arg_str = p2e._util._convert_args_to_string("get.object.equation", 
                                                          self.eco_id)
             val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, float)
+            return p2e._util._convert_str_to_list(val, float, float, float, float)
+ 
+        def fset(self):
+            """
+            
+            When this property is set, ECOTECT recalculates the plane equation 
+            Ax + By + Cz = D for the specified object. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.equation", 
+                                                         self.eco_id)
+            p2e.conversation.Exec(arg_str)
         
         return property(**locals())
+    
+    def get_angle(self, type):
+        """
+        
+        Returns the angle, in degrees, of the surface normal of a planar object. 
 
-    @apply
-    def extents():
-        def fget(self):
-            """
-            
-            Retrieves the overall size for the specified object, measured in 
-            millimetres. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            dx, dy, dz 
-            The overall dimensions of the object in each of the X, Y and Z axis. 
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.extents", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_list(val, float, float, float)
+        Parameter(s)
+        This property takes the following parameters.
         
-        return property(**locals())
-    
-    @apply
-    def extents_2dpt():
-        def fget(self, proportional_values):
-            """
-            
-            This command retrieves coordinates for the nominated point on the face 
-            of the specified object. Note that this command only works for planar 
-            objects. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            proportional_values 
-            A list of two proportional values that nominate the point to measure in 
-            relation to the extents of the specified object. For example, to 
-            nominate the centre of the object, the u and v values should be 0.5, 
-            whilst the minimum and maximum extents would be of 0.0 and 1.0 
-            respectively.
-            
-            This property always assumes you are looking towards the outside face of 
-            the object, where the minimum value is always the bottom-left. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            x, y, z 
-            Represents the absolute position in the X, Y and Z axis of a point in 3 
-            dimensional model space.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.extents.2dpt", 
-                                                         self.eco_id, 
-                                                         proportional_values[0],
-                                                         proportional_values[1])
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_list(val, float, float, float)
+        type 
+        What the surface normal angle is measured in relation to, and may be 
+        given as a token or value corresponding to the Object Angles table. 
         
-        return property(**locals())
-    
-    @apply
-    def extents_max():
-        def fget(self):
-            """
-            
-            Retrieves the 3D coordinates for the maximum extent of the selected 
-            object. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            x, y, z 
-            Represents the absolute position in the X, Y and Z axis of the maximum 
-            point in 3 dimensional model space.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.extents.max", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_list(val, float, float, float)
+        Return Value(s)
+        Getting this property returns the following value(s).
         
-        return property(**locals())
-    
-    @apply
-    def extents_min():
-        def fget(self):
-            """
-            
-            Retrieves the coordinates for the minimum extent of the selected object. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            x, y, z 
-            Represents the absolute position in the X, Y and Z axis of the minimum 
-            point in 3 dimensional model space.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.extents.min", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_list(val, float, float, float)
+        angle 
+        The resulting angle in degrees. 
         
-        return property(**locals())
+        Relevant Data Table(s)
+        
+        Object Angles 
+        Token Value Description 
+        azimuth 0 Angle of surface in horizontal plane to positive Y axis. 
+        altitude 1 Angle of surface in vertical plane with the ground. 
+        sunangle 2 3D angle between surface normal and current sun position. 
+        north 3 Angle of surface in horizontal plane to current North Point. 
+        eye 4 3D angle between surface normal and current eye position. 
 
-    @apply
-    def first_node():
-        def fget(self):
-            """
-            
-            Returns the zero-based absolute index of its first node. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            nodeIndex 
-            The zero-based index of the object's first node.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.firstnode", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-        
-        return property(**locals())
-        
+        """
+        arg_str = p2e._util._convert_args_to_string("get.object.angle", 
+                                                     self.eco_id, type)
+        val = p2e.conversation.Request(arg_str)
+        return p2e._util._convert_str_to_type(val, float)
+
     def get_flag(self, flag):
         """
         
@@ -1489,6 +1452,469 @@ class _Object(object):
                                                      self.eco_id, flag, state)
         p2e.conversation.Exec(arg_str)
         
+    @apply
+    def length():
+        def fget(self):
+            """
+            
+            Retrieves the length value for the specified object, measured in 
+            millimetres. This command only works on linear objects. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the requested object data.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.length", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, float)
+        
+        return property(**locals())
+    
+    @apply
+    def link():
+        def fget(self):
+            """
+            
+            Getting this property returns the absolute index of the object to which 
+            the specified object is linked. If the object is not linked to any other 
+            object, it returns a value of -1. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            link 
+            The zero-based index of the linked object.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.link", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())
+
+    @apply
+    def mask():
+        def fget(self):
+            """
+            
+            Retrieves the index of the object's shading mask. The shading mask 
+            assigned to each object determines when and by how much the object is 
+            overshadowed at any particular time. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            mask 
+            An integer value between -1 and the value given by get.masks.count - 1, 
+            being the zero-based index of the shading mask in the current list.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.mask", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+    
+        def fset(self, index):
+            """
+            
+            Sets the index of the object's shading mask. The shading mask assigned 
+            to each object determines when and by how much the object is 
+            overshadowed at any particular time. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            index 
+            An integer value between -1 and the value given by get.masks.count - 1, 
+            being the zero-based index of the shading mask in the current list. 
+    
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.mask", 
+                                                         self.eco_id, index)
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
+    
+    @apply
+    def normal():
+        def fget(self):
+            """
+            
+            Retrieves the values corresponding to the x, y and z axis components for 
+            the normal of the specified object. Note that all surface normals in 
+            ECOTECT are normalised such that they are of unit length 
+            (ie: length = 1.0). 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            dx, dy, dz 
+            A vector value representing the offset distance in each of the X, Y and 
+            Z axis, given in model coordinates, of the object's normal.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.normal", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_list(val, float, float, float)
+        
+        return property(**locals())
+    
+    @apply
+    def panel_area():
+        def fget(self):
+            """
+            
+            Retrieves the surface area value overlapping with a WINDOW or DOOR 
+            object in an adjacent zone, measured in square metres. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the requested object data.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.panelarea", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, float)
+        
+        return property(**locals())
+    
+    @apply
+    def resolution():
+        def fget(self):
+            """
+            
+            Retrieves the current curve resolution to use for virtual polylines, for 
+            the specified object. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the requested object data.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.resolution", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, float)
+    
+        def fset(self, value):
+            """
+            
+            Sets the curve resolution to use for virtual polylines, for the 
+            specified object. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            value 
+            The value to use for the virtual polyline curve resolution.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.node.position", 
+                                                         self.eco_id, value)
+            p2e.conversation.Exec(arg_str)
+        
+        return property(**locals())
+    
+    @apply
+    def schedule():
+        def fget(self):
+            """
+            
+            Retrieves the index value for the specified object's activation 
+            schedule. The activation schedule determines when and how much an object 
+            is turned on or off.
+    
+            It is also possible to access all schedule properties this way. Thus, 
+            you could use something like get("object.schedule.name", 23) to retrieve 
+            data from the schedule assigned to this object. See the schedule object 
+            for more details. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            schIndex 
+            The zero-based index of the schedule assigned to this object. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.schedule", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+            
+        def fset(self, schedule):
+            """
+            
+            Sets the index value to use for the specified object's activation 
+            schedule. The activation schedule determines when and how much an object 
+            is turned on or off.
+    
+            It is also possible to access all schedule properties this way. Thus, 
+            you could use something like set("object.schedule.name", 23, "NightWork") 
+            to set data from the schedule assigned to this object. See the schedule 
+            object for more details. 
+            
+            Parameter(s)
+            This property takes the following parameters.
+            
+            schedule 
+            Either a schedule name or as the zero-based index of the schedule to be 
+            assigned from within the model's schedule list. This index value can be 
+            obtained manually from the schedule name, using the get.schedule.index 
+            command.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.schedule", 
+                                                         self.eco_id, schedule)
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
+    
+    @apply
+    def tag():  
+        def fget(self, tag):
+            """
+            
+            Retrieves information about tags that have been assigned to the 
+            specified object. Tags are simply indicators to ECOTECT that the object 
+            performs additional functions or is specifically marked for certain 
+            calculations. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            tag 
+            An integer value representing a binary bit, as shown in the Object Tags 
+            table. The value returned for the nominated tag will be a boolean 
+            integer value - 0 for off, or 1 for on. 
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            state 
+            A value representing whether the particular tag is set or not. This is a 
+            boolean value where 1 represents the affirmative and 0 the negative. 
+            
+            Relevant Data Table(s)
+            
+            Object Tag Codes Value Description Notes 
+            1 TAGGED_PICKED* User clicked near one of it's lines. 
+            2 TAGGED_PREVIOUS* Part of the previous selection set. 
+            16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
+            32 TAGGED_SHADED Shadows are cast onto this object. 
+            64 TAGGED_ERROR Object has violated an inter-object relationship. 
+            128 TAGGED_UPDATE Object has changed and needs an update. 
+            256 TAGGED_MIRROR Object produces solar reflections. 
+            512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
+            4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
+            16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
+            32768 TAGGED_MARKER* Generic calculation marker. 
+    
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.tag", 
+                                                         self.eco_id, tag)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+            
+        def fset(self, tag, state = True):
+            """
+            
+            Sets tags for the specified object. Tags are simply indicators to 
+            ECOTECT that the object performs additional functions or is specifically 
+            marked for certain calculations. To test multiple tags at once, simply 
+            add their values together. The optional [true|false] parameter 
+            determines whether set or reset the tag(s), defaulting to true. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            tag 
+            An integer value representing a binary bit, as shown in the Object Tags 
+            table. To test multiple tags at once, simply add their values together. 
+            
+            [state] 
+            An optional parameter determining whether to set or reset the tag(s). 
+            This is a boolean value where 1 or true represents the affirmative and 0 
+            or false the negative. If not given, it defaults to true. 
+            
+            Relevant Data Table(s)
+            
+            Object Tag Codes 
+            Value Description Notes 
+            1 TAGGED_PICKED* User clicked near one of it's lines. 
+            2 TAGGED_PREVIOUS* Part of the previous selection set. 
+            16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
+            32 TAGGED_SHADED Shadows are cast onto this object. 
+            64 TAGGED_ERROR Object has violated an inter-object relationship. 
+            128 TAGGED_UPDATE Object has changed and needs an update. 
+            256 TAGGED_MIRROR Object produces solar reflections. 
+            512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
+            4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
+            16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
+            32768 TAGGED_MARKER* Generic calculation marker. 
+    
+    
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.tag", 
+                                                         self.eco_id, tag, state)
+            p2e.conversation.Exec(arg_str)
+            
+        return property(**locals())
+    
+    @apply
+    def vector():  
+        def fget(self):
+            """
+            
+            Retrieves the extrusion vector of the specified object. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            dx, dy, dz 
+            A vector value representing the offset distance in each of the X, Y and 
+            Z axis, given in model coordinates, of the object's extrusion vector.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.vector", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_list(val, float, float, float)
+    
+        def fset(self, vector):
+            """
+            
+            Sets the extrusion vector of the specified object. 
+    
+            Parameter(s)
+            This property takes the following parameters. 
+            
+            vector
+            A list of three vector values representing the offset distance in each 
+            of the X, Y and Z axis, given in model coordinates. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.object.vector", 
+                                                         self.eco_id, 
+                                                         vector[0], 
+                                                         vector[1], 
+                                                         vector[2])
+            p2e.conversation.Exec(arg_str)
+        return property(**locals())
+
+class _ObjectRootFncMnpl(object):
+    
+    def __init__(self, id):
+        self._eco_id = id
+        
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the object
+        
+            """
+            return self._eco_id
+
+        return property(**locals())
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
+    @apply
+    def exposure():
+        def fget(self):
+            """
+            
+            This command retrieves the surface area of an object that is exposed to 
+            outside conditions. This command only works for planar objects. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            value 
+            A decimal value containing the requested object data.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.exposure", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, float)
+        
+        return property(**locals())
+    
+    def get_distance_to(self, absolute_position):
+        """
+        
+        Returns a single floating point value, being the distance between the 
+        specified object and the specified 3D point. If this is a POINT object, 
+        the distance is the point-to-point distance. If the object is planar, it 
+        is the distance of the specified point in line with the plane of the 
+        object, even if this point is outside the object's boundaries. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        absolute_position
+        A list of three values that represents the absolute position in the 
+        X, Y and Z axis of a point in 3 dimensional model space. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        dist 
+        The distance fro the point to the object.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("get.object.distanceto", 
+                                                     self.eco_id, 
+                                                     absolute_position[0], 
+                                                     absolute_position[1], 
+                                                     absolute_position[2])
+        val = p2e.conversation.Request(arg_str)
+        return p2e._util._convert_str_to_type(val, float)
+        
+    
     def get_incidence(self, coordinates):
         """
         
@@ -1602,331 +2028,6 @@ class _Object(object):
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
     
-    @apply
-    def last_node():
-        def fget(self):
-            """
-            
-            Returns the zero-based absolute index of its last node. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-             
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            nodeIndex 
-            The zero-based index of the object's last node. 
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.lastnode", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-        
-        return property(**locals())
-
-    @apply
-    def length():
-        def fget(self):
-            """
-            
-            Retrieves the length value for the specified object, measured in 
-            millimetres. This command only works on linear objects. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the requested object data.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.length", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, float)
-        
-        return property(**locals())
-    
-    @apply
-    def link():
-        def fget(self):
-            """
-            
-            Getting this property returns the absolute index of the object to which 
-            the specified object is linked. If the object is not linked to any other 
-            object, it returns a value of -1. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            link 
-            The zero-based index of the linked object.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.link", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-        
-        return property(**locals())
-
-    @apply
-    def mask():
-        def fget(self):
-            """
-            
-            Retrieves the index of the object's shading mask. The shading mask 
-            assigned to each object determines when and by how much the object is 
-            overshadowed at any particular time. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            mask 
-            An integer value between -1 and the value given by get.masks.count - 1, 
-            being the zero-based index of the shading mask in the current list.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.mask", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-    
-        def fset(self, index):
-            """
-            
-            Sets the index of the object's shading mask. The shading mask assigned 
-            to each object determines when and by how much the object is 
-            overshadowed at any particular time. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            index 
-            An integer value between -1 and the value given by get.masks.count - 1, 
-            being the zero-based index of the shading mask in the current list. 
-    
-            """
-            arg_str = p2e._util._convert_args_to_string("set.object.mask", 
-                                                         self.eco_id, index)
-            p2e.conversation.Exec(arg_str)
-            
-        return property(**locals())
-    
-    @apply
-    def material():
-        def fget(self):
-            """
-            
-            Retrieves the index of the object's primary material. It is also 
-            possible to access all material properties this way. Thus, you could use 
-            something like get("object.material.absorption", 23) to retrieve data 
-            from the primary material assigned to this object. See the material 
-            object for more details. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            matIndex 
-            The zero-based index of the assigned primary material. 
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.material", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-    
-        def fset(self, material):
-            """
-            
-            Sets the index of the object's primary material. It is also possible to 
-            set any material properties this way. For example, you could use 
-            something like set("object.material.absorption", 23, 0.57) to set data 
-            for the primary material assigned to this object. See the material 
-            object for more details. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            material 
-            Either a material name or an integer, being the zero-based index of the 
-            material to be assigned from within the material list. You can obtain 
-            this index manually from the material name using the get.material.index 
-            command.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("set.object.material", 
-                                                         self.eco_id, material)
-            p2e.conversation.Exec(arg_str)
-            
-        return property(**locals())
-
-    def get_node_position(self, node):
-        """
-        
-        Retrieves the position of the node in absolute world coordinates for 
-        each of the major axes. Three coordinate values are returned. In fact, 
-        it is possible to access all node properties this way - see the node 
-        object for more details. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        node 
-        The node in the specified object to retrieve. 
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of the node in 3 
-        dimensional model space.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("get.object.node.position", 
-                                                     self.eco_id, node.eco_id)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float, float)
-
-    def set_node_position(self, node, absolute_position):
-        """
-        
-        Sets the position of the node in absolute world coordinates for each of 
-        the major axes. In fact, it is possible to set all node properties this 
-        way - see the node object for more details. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        node 
-        The node in the specified object to set. 
-        
-        absolute_position 
-        A list of three values that represents the absolute position in the 
-        X, Y and Z axis of the node in 3 dimensional model space.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.object.node.position", 
-                                                     self.eco_id, node.eco_id, 
-                                                     absolute_position[0],
-                                                     absolute_position[1],
-                                                     absolute_position[2])
-        p2e.conversation.Exec(arg_str)
-    
-    @apply
-    def nodes():
-        def fget(self):
-            """
-            
-            Returns the nodes of this object. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            nodes 
-            A list of nodes in this object. 
-            
-            """
-            nodes = []
-            for node_num in range(self.first_node, self.last_node):
-                nodes.append(p2e.model._nodes[node_num])
-            return nodes
-        
-        return property(**locals())
-    
-    @apply
-    def number_of_nodes():
-        def fget(self):
-            """
-            
-            Returns the number of nodes in the specified object. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            count 
-            The number of nodes in this object. 
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.node", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-        
-        return property(**locals())
-    
-    @apply
-    def normal():
-        def fget(self):
-            """
-            
-            Retrieves the values corresponding to the x, y and z axis components for 
-            the normal of the specified object. Note that all surface normals in 
-            ECOTECT are normalised such that they are of unit length 
-            (ie: length = 1.0). 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            dx, dy, dz 
-            A vector value representing the offset distance in each of the X, Y and 
-            Z axis, given in model coordinates, of the object's normal.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.normal", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_list(val, float, float, float)
-        
-        return property(**locals())
-    
-    @apply
-    def panel_area():
-        def fget(self):
-            """
-            
-            Retrieves the surface area value overlapping with a WINDOW or DOOR 
-            object in an adjacent zone, measured in square metres. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the requested object data.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.panelarea", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, float)
-        
-        return property(**locals())
-
     @apply
     def pt_even():
         def fget(self):
@@ -2085,48 +2186,6 @@ class _Object(object):
                                                      absolute_position[2])
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
-    
-    @apply
-    def resolution():
-        def fget(self):
-            """
-            
-            Retrieves the current curve resolution to use for virtual polylines, for 
-            the specified object. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            value 
-            A decimal value containing the requested object data.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.resolution", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, float)
-    
-        def fset(self, value):
-            """
-            
-            Sets the curve resolution to use for virtual polylines, for the 
-            specified object. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            value 
-            The value to use for the virtual polyline curve resolution.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("set.object.node.position", 
-                                                         self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
-        
-        return property(**locals())
 
     def get_same_side(self, coordinates_start, coordinates_end):
         """
@@ -2167,114 +2226,6 @@ class _Object(object):
         return p2e._util._convert_str_to_type(val, int)
     
     @apply
-    def schedule():
-        def fget(self):
-            """
-            
-            Retrieves the index value for the specified object's activation 
-            schedule. The activation schedule determines when and how much an object 
-            is turned on or off.
-    
-            It is also possible to access all schedule properties this way. Thus, 
-            you could use something like get("object.schedule.name", 23) to retrieve 
-            data from the schedule assigned to this object. See the schedule object 
-            for more details. 
-            
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            schIndex 
-            The zero-based index of the schedule assigned to this object. 
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.schedule", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-            
-        def fset(self, schedule):
-            """
-            
-            Sets the index value to use for the specified object's activation 
-            schedule. The activation schedule determines when and how much an object 
-            is turned on or off.
-    
-            It is also possible to access all schedule properties this way. Thus, 
-            you could use something like set("object.schedule.name", 23, "NightWork") 
-            to set data from the schedule assigned to this object. See the schedule 
-            object for more details. 
-            
-            Parameter(s)
-            This property takes the following parameters.
-            
-            schedule 
-            Either a schedule name or as the zero-based index of the schedule to be 
-            assigned from within the model's schedule list. This index value can be 
-            obtained manually from the schedule name, using the get.schedule.index 
-            command.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("set.object.schedule", 
-                                                         self.eco_id, schedule)
-            p2e.conversation.Exec(arg_str)
-            
-        return property(**locals())
-    
-    @apply
-    def selected():  
-        def fget(self):
-            """
-            
-            Retrieves the selection state of the specified object. A value of 1 
-            means the object is part of the current selection set, whilst a value of 
-            0 means that it is not. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            selected 
-            This is a boolean value where 1 represents that the object is selected 
-            and 0 that it is not. 
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.selected", 
-                                                         self.eco_id)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-        
-        def fset(self, state = True):
-            #TODO:call selection.update
-            """
-            
-            Sets the selection state of the specified object.
-    
-            Note: Once you finish selecting the individual objects you want, you 
-            should then call the selection.update command. 
-            
-            Parameter(s)
-            This property takes the following parameters.
-            
-            [state] 
-            This optional parameter determines whether to set the object as selected 
-            or not. This is a boolean value where 1 or true represents the 
-            affirmative and 0 or false the negative. If not given, this parameter 
-            defaults to true. Setting an object as selected also sets that object 
-            as the current object.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("set.object.selected", 
-                                                         self.eco_id, state)
-            p2e.conversation.Exec(arg_str)
-            
-        return property(**locals())
-    
-    @apply
     def sun_angles():  
         def fget(self):
             """
@@ -2306,98 +2257,6 @@ class _Object(object):
             return p2e._util._convert_str_to_list(val, float, float)
         
         return property(**locals())
-    
-    @apply
-    def tag():  
-        def fget(self, tag):
-            """
-            
-            Retrieves information about tags that have been assigned to the 
-            specified object. Tags are simply indicators to ECOTECT that the object 
-            performs additional functions or is specifically marked for certain 
-            calculations. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            tag 
-            An integer value representing a binary bit, as shown in the Object Tags 
-            table. The value returned for the nominated tag will be a boolean 
-            integer value - 0 for off, or 1 for on. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            state 
-            A value representing whether the particular tag is set or not. This is a 
-            boolean value where 1 represents the affirmative and 0 the negative. 
-            
-            Relevant Data Table(s)
-            
-            Object Tag Codes Value Description Notes 
-            1 TAGGED_PICKED* User clicked near one of it's lines. 
-            2 TAGGED_PREVIOUS* Part of the previous selection set. 
-            16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
-            32 TAGGED_SHADED Shadows are cast onto this object. 
-            64 TAGGED_ERROR Object has violated an inter-object relationship. 
-            128 TAGGED_UPDATE Object has changed and needs an update. 
-            256 TAGGED_MIRROR Object produces solar reflections. 
-            512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
-            4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
-            16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
-            32768 TAGGED_MARKER* Generic calculation marker. 
-    
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.tag", 
-                                                         self.eco_id, tag)
-            val = p2e.conversation.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-            
-        def fset(self, tag, state = True):
-            """
-            
-            Sets tags for the specified object. Tags are simply indicators to 
-            ECOTECT that the object performs additional functions or is specifically 
-            marked for certain calculations. To test multiple tags at once, simply 
-            add their values together. The optional [true|false] parameter 
-            determines whether set or reset the tag(s), defaulting to true. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            tag 
-            An integer value representing a binary bit, as shown in the Object Tags 
-            table. To test multiple tags at once, simply add their values together. 
-            
-            [state] 
-            An optional parameter determining whether to set or reset the tag(s). 
-            This is a boolean value where 1 or true represents the affirmative and 0 
-            or false the negative. If not given, it defaults to true. 
-            
-            Relevant Data Table(s)
-            
-            Object Tag Codes 
-            Value Description Notes 
-            1 TAGGED_PICKED* User clicked near one of it's lines. 
-            2 TAGGED_PREVIOUS* Part of the previous selection set. 
-            16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
-            32 TAGGED_SHADED Shadows are cast onto this object. 
-            64 TAGGED_ERROR Object has violated an inter-object relationship. 
-            128 TAGGED_UPDATE Object has changed and needs an update. 
-            256 TAGGED_MIRROR Object produces solar reflections. 
-            512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
-            4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
-            16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
-            32768 TAGGED_MARKER* Generic calculation marker. 
-    
-    
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("set.object.tag", 
-                                                         self.eco_id, tag, state)
-            p2e.conversation.Exec(arg_str)
-            
-        return property(**locals())
         
     @apply
     def underground():  
@@ -2422,60 +2281,67 @@ class _Object(object):
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
+
+class _ObjectRootFncNode(object):
     
-    #TODO: change to prop
-    def get_vector(self):
-        """
+    def __init__(self, id):
+        self._eco_id = id
         
-        Retrieves the extrusion vector of the specified object. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        dx, dy, dz 
-        A vector value representing the offset distance in each of the X, Y and 
-        Z axis, given in model coordinates, of the object's extrusion vector.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("get.object.vector", 
-                                                     self.eco_id)
-        val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_list(val, float, float, float)
-
-    def set_vector(self, vector):
-        """
-        
-        Sets the extrusion vector of the specified object. 
-
-        Parameter(s)
-        This property takes the following parameters. 
-        
-        vector
-        A list of three vector values representing the offset distance in each 
-        of the X, Y and Z axis, given in model coordinates. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.object.vector", 
-                                                     self.eco_id, 
-                                                     vector[0], 
-                                                     vector[1], 
-                                                     vector[2])
-        p2e.conversation.Exec(arg_str)
-        
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
     @apply
-    def zone():  
+    def eco_id():
         def fget(self):
             """
             
-            Retrieves the zone index of the specified object. The value returned 
-            corresponds with the numerical order of the zone in the Zone Management 
-            Panel. For example, if the specified object is part of the second zone 
-            in the Zone Management panel, the value returned will be 2. The Outside 
-            zone is always 0. 
+            Id of the object
+        
+            """
+            return self._eco_id
+
+        return property(**locals())
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
+    def add_node(self, point):
+        #execute ecotect instruction
+        node = p2e.Node._create_node(self, self.number_of_nodes -1, point)
+        self.done()
+        
+    def del_node(self, node, node_index = 0):
+        """
+        
+        The delnode command removes the specified node from the specified object. 
+
+        Parameter(s)
+        This command takes the following parameters.
+
+        node 
+        The node belonging to the object. 
+        
+        [node_index]
+        The index of the node belonging to the object. It is not the id of the 
+        node. Default value is 0.
+        
+        """
+        #execute ecotect instruction
+        arg_str = p2e._util._convert_args_to_string("object.delnode", self.eco_id, 
+                                                     node_index)
+        p2e.conversation.Exec(arg_str)
+        
+        #Update model lists
+        p2e.model._nodes.remove(node)
+        
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
+    @apply
+    def first_node():
+        def fget(self):
+            """
+            
+            Returns the zero-based absolute index of its first node. 
     
             Parameter(s)
             There are no parameters for this property.
@@ -2483,37 +2349,370 @@ class _Object(object):
             Return Value(s)
             Getting this property returns the following value(s).
             
-            link 
-            The zero-based index of the zone the specified object is assigned to.
+            nodeIndex 
+            The zero-based index of the object's first node.
             
             """
-            arg_str = p2e._util._convert_args_to_string("get.object.zone", 
+            arg_str = p2e._util._convert_args_to_string("get.object.firstnode", 
                                                          self.eco_id)
             val = p2e.conversation.Request(arg_str)
-            return p2e.model._zones[p2e._util._convert_str_to_type(val, int)]
-        #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-        def fset(self, index):
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())
+    
+    @apply
+    def last_node():
+        def fget(self):
             """
             
-            Sets the specified object as a zone of the given index. The value set 
-            should correspond with the numerical order of the required zone in the 
-            Zone Management Panel. For example, if the specified object is to be 
-            part of the second zone in the Zone Management panel, the set value 
-            should be 2. The Outside zone is always 0. 
+            Returns the zero-based absolute index of its last node. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+             
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            nodeIndex 
+            The zero-based index of the object's last node. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.lastnode", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())    
+
+    def get_node_position(self, node):
+        """
+        
+        Retrieves the position of the node in absolute world coordinates for 
+        each of the major axes. Three coordinate values are returned. In fact, 
+        it is possible to access all node properties this way - see the node 
+        object for more details. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The node in the specified object to retrieve. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of the node in 3 
+        dimensional model space.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("get.object.node.position", 
+                                                     self.eco_id, node.eco_id)
+        val = p2e.conversation.Request(arg_str)
+        return p2e._util._convert_str_to_list(val, float, float, float)
+
+    def set_node_position(self, node, absolute_position):
+        """
+        
+        Sets the position of the node in absolute world coordinates for each of 
+        the major axes. In fact, it is possible to set all node properties this 
+        way - see the node object for more details. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        node 
+        The node in the specified object to set. 
+        
+        absolute_position 
+        A list of three values that represents the absolute position in the 
+        X, Y and Z axis of the node in 3 dimensional model space.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("set.object.node.position", 
+                                                     self.eco_id, node.eco_id, 
+                                                     absolute_position[0],
+                                                     absolute_position[1],
+                                                     absolute_position[2])
+        p2e.conversation.Exec(arg_str)
+    
+    @apply
+    def nodes():
+        def fget(self):
+            """
+            
+            Returns the nodes of this object. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            nodes 
+            A list of nodes in this object. 
+            
+            """
+            nodes = []
+            for node_num in range(self.first_node, self.last_node):
+                nodes.append(p2e.model._nodes[node_num])
+            return nodes
+        
+        return property(**locals())
+    
+    @apply
+    def number_of_nodes():
+        def fget(self):
+            """
+            
+            Returns the number of nodes in the specified object. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            count 
+            The number of nodes in this object. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.node", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_type(val, int)
+        
+        return property(**locals())
+
+class _ObjectRootFncChild(object):
+    
+    def __init__(self, id):
+        self._eco_id = id
+        
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the object
+        
+            """
+            return self._eco_id
+
+        return property(**locals())
+    
+    #===========================================================================
+    # Properties
+    #===========================================================================
+    
+    @apply
+    def extents():
+        def fget(self):
+            """
+            
+            Retrieves the overall size for the specified object, measured in 
+            millimetres. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            dx, dy, dz 
+            The overall dimensions of the object in each of the X, Y and Z axis. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.extents", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_list(val, float, float, float)
+        
+        return property(**locals())
+    
+    @apply
+    def extents_2dpt():
+        def fget(self, proportional_values):
+            """
+            
+            This command retrieves coordinates for the nominated point on the face 
+            of the specified object. Note that this command only works for planar 
+            objects. 
     
             Parameter(s)
             This property takes the following parameters.
             
-            index 
-            The zero-based index of the zone the specified object will be assigned 
-            to.
+            proportional_values 
+            A list of two proportional values that nominate the point to measure in 
+            relation to the extents of the specified object. For example, to 
+            nominate the centre of the object, the u and v values should be 0.5, 
+            whilst the minimum and maximum extents would be of 0.0 and 1.0 
+            respectively.
+            
+            This property always assumes you are looking towards the outside face of 
+            the object, where the minimum value is always the bottom-left. 
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            Represents the absolute position in the X, Y and Z axis of a point in 3 
+            dimensional model space.
             
             """
-            arg_str = p2e._util._convert_args_to_string("set.object.zone", 
-                                                         self.eco_id, index)
-            p2e.conversation.Exec(arg_str)
-            
+            arg_str = p2e._util._convert_args_to_string("get.object.extents.2dpt", 
+                                                         self.eco_id, 
+                                                         proportional_values[0],
+                                                         proportional_values[1])
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_list(val, float, float, float)
+        
         return property(**locals())
+    
+    @apply
+    def extents_max():
+        def fget(self):
+            """
+            
+            Retrieves the 3D coordinates for the maximum extent of the selected 
+            object. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            Represents the absolute position in the X, Y and Z axis of the maximum 
+            point in 3 dimensional model space.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.extents.max", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_list(val, float, float, float)
+        
+        return property(**locals())
+    
+    @apply
+    def extents_min():
+        def fget(self):
+            """
+            
+            Retrieves the coordinates for the minimum extent of the selected object. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            Represents the absolute position in the X, Y and Z axis of the minimum 
+            point in 3 dimensional model space.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("get.object.extents.min", 
+                                                         self.eco_id)
+            val = p2e.conversation.Request(arg_str)
+            return p2e._util._convert_str_to_list(val, float, float, float)
+        
+        return property(**locals())
+    
+    def get_child_extents(self, absolute = True):
+        """
+        
+        Returns the size and location of a child object within a parent object. 
+        For example, if you have a WINDOW object located with an WALL, the first 
+        two returned values are the location of the bottom left corner of the 
+        WINDOW, and the next two values are the size of the window given as a 
+        relative proportion to the size of WALL. Note that this command always 
+        assumes you are looking at the outside face of the object, where the 
+        minimum extent is always the bottom-left. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        [absolute] 
+        This optional parameter, if set to true, will return the size of the 
+        child object as absolute values, rather than as a relative proportion 
+        to the parent object. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        u 
+        The horizontal location of the bottom left hand corner of the child object. 
+        
+        v 
+        The vertical location of the bottom left hand corner of the child object. 
+        
+        wu 
+        The relative width of the child object. 
+        
+        hv 
+        The relative height of the child object. 
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("get.object.child.extents", 
+                                                     self.eco_id, absolute)
+        val = p2e.conversation.Request(arg_str)
+        return p2e._util._convert_str_to_list(val, float, float, float, float)
+
+    def set_child_extents(self, u, v, wu, hv):
+        """
+        
+        Sets the size and location of a child object within a parent object. For 
+        example, if you have a WINDOW object located with an WALL, the first two 
+        returned values are the location of the bottom left corner of the WINDOW, 
+        and the next two values are the size of the window given as a relative 
+        proportion to the size of WALL.
+
+        Note that this command is intended for use with child objects, which 
+        must reside within the bounds of their parent object. Any parameter 
+        values greater than 1.0 are assumed to be absolute coordinates, as 
+        opposed to a fraction of the parent size. For the same reason, negative 
+        parameter values are ignored, with the corresponding dimension remaining 
+        unchanged. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        u 
+        The horizontal location of the bottom left hand corner of the child 
+        object. Note that this command always assumes you are looking towards 
+        the outside face of the object, where the minimum extents is always the 
+        bottom-left. 
+        
+        v 
+        The vertical location of the bottom left hand corner of the child object. 
+        Note that this command always assumes you are looking towards the outside 
+        face of the object, where the minimum extents is always the bottom-left. 
+        
+        wu 
+        The width of the child object, as a relative proportion to the size of 
+        the parent object. For example, a value of 0.5 would make the width of 
+        the child object half the size of the parent object. 
+        
+        hv 
+        The height of the child object, as a relative proportion to the size of 
+        the parent object. For example, a value of 0.75 would make the height of 
+        the child object 3/4 the size of the parent object.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("set.object.child.extents", 
+                                                     self.eco_id, u, v, wu, hv)
+        p2e.conversation.Exec(arg_str)
+
+
+
+
+
+
+
+
+
 
 
 class _Geometry(_Object):

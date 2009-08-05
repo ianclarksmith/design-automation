@@ -784,8 +784,7 @@ class Material(object):
                                                      material, value)
         p2e.conversation.Exec(arg_str)
     
-    @staticmethod
-    def get_index(name):
+    def get_index(self, name):
         """
         
         This property returns the zero-based index of the material with a name 

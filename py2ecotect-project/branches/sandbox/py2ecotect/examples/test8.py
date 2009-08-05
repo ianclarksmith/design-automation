@@ -18,12 +18,18 @@ point_1 = Point.create(points)
 points = [(13600,5300,450)]
 point_2 = Point.create(points)
 
+#print floor.modf.link(point_1)
+
 #floor.extrude([0, 0, 2400])
-floor.revolve(0, 180, 10)
+#floor.revolve(0, 180, 10)
+
+point_1.stat.selected = False
+
+point_1.stat.selected = True
 
 
 for i in model._objects:
-    print i.element_type
+    print i.prop.element_type, i.eco_id
 
 v = View()
 v.redraw()
