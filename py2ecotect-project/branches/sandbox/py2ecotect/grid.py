@@ -379,7 +379,7 @@ class Grid(object):
 
         Parameter(s)
         This property takes the following parameters.
-        #TODO: Check param
+
         index 
         This optional parameter specifies the particular slot to return the 
         description for, and can be an integer in the range 0 to 4. 

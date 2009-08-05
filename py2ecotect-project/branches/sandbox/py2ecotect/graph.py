@@ -17,7 +17,6 @@ class Graph(object):
         There are no parameters for this command.
     
         """
-        #TODO: check parameter
         arg_str = p2e._util._convert_args_to_string("graph.copy", format)
         p2e.conversation.Exec(arg_str)
     
