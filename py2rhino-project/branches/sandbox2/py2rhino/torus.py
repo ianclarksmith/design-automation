@@ -4,23 +4,23 @@ import pythoncom
 from exceptions import Exception
 import py2rhino as p2r
 from py2rhino import _util
-from py2rhino._surface_root import _SurfaceRoot
+from py2rhino._rhinoscript_classes import _SurfaceRoot
 
 
 _rsf = None
-from py2rhino._object_root_defm import _ObjectRootDefm
-from py2rhino._surface_root_eval import _SurfaceRootEval
-from py2rhino._surface_root_func_oorc import _SurfaceRootFuncOorc
-from py2rhino._surface_root_genr import _SurfaceRootGenr
-from py2rhino._object_root_grps import _ObjectRootGrps
-from py2rhino._surface_root_mdfy import _SurfaceRootMdfy
-from py2rhino._object_root_mtrl import _ObjectRootMtrl
-from py2rhino._torus_prop import _TorusProp
-from py2rhino._object_root_rndr import _ObjectRootRndr
-from py2rhino._object_root_stat import _ObjectRootStat
-from py2rhino._surface_root_test import _SurfaceRootTest
-from py2rhino._object_root_trfm import _ObjectRootTrfm
-from py2rhino._object_root_util import _ObjectRootUtil
+from py2rhino._rhinoscript_classes import _ObjectRootDefm
+from py2rhino._rhinoscript_classes import _SurfaceRootEval
+from py2rhino._rhinoscript_classes import _SurfaceRootFuncOorc
+from py2rhino._rhinoscript_classes import _SurfaceRootGenr
+from py2rhino._rhinoscript_classes import _ObjectRootGrps
+from py2rhino._rhinoscript_classes import _SurfaceRootMdfy
+from py2rhino._rhinoscript_classes import _ObjectRootMtrl
+from py2rhino._rhinoscript_classes import _TorusProp
+from py2rhino._rhinoscript_classes import _ObjectRootRndr
+from py2rhino._rhinoscript_classes import _ObjectRootStat
+from py2rhino._rhinoscript_classes import _SurfaceRootTest
+from py2rhino._rhinoscript_classes import _ObjectRootTrfm
+from py2rhino._rhinoscript_classes import _ObjectRootUtil
 
 
 class Torus(_SurfaceRoot):
@@ -46,9 +46,19 @@ class Torus(_SurfaceRoot):
         self.util = _ObjectRootUtil(_rhino_id, Torus, _rsf )
 
     @classmethod
-    def create(cls, base, plane, major_radius, minor_radius, direction=pythoncom.Empty):
+    def create(cls, base, major_radius, minor_radius, direction=pythoncom.Empty):
 
-        _rhino_id = _rsf.add_torus(base, plane, major_radius, minor_radius, direction)
+        _rhino_id = _rsf.add_torus(base, major_radius, minor_radius, direction)
+
+        if _rhino_id:
+            return Torus(_rhino_id)
+        else:
+            return None
+
+    @classmethod
+    def create_by_plane(cls, plane, major_radius, minor_radius):
+
+        _rhino_id = _rsf.add_torus_2(plane, major_radius, minor_radius)
 
         if _rhino_id:
             return Torus(_rhino_id)
