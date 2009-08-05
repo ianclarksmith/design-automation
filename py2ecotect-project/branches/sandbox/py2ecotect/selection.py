@@ -891,9 +891,10 @@ class Selection(object):
             A decimal value containing the specified data.
             
             """
+            #Return value is different. It returns 2 values. So a list 
+            #of 2 values is returned
             val = p2e.conversation.Request("get.selection.underground")
-            #TODO: Result is different
-            return p2e._util._convert_str_to_type(val, float)
+            return p2e._util._convert_str_to_list(val, float, float)
         
         return property(**locals())
     

@@ -188,10 +188,11 @@ class Ray(object):
         The zero-based index of the object.
         
         """
-        #TODO: check return value
+        #Return value is different. It returns 4 values. So a list 
+        #of 4 values is returned
         arg_str = p2e._util._convert_args_to_string("get.ray.object", depth)
         val = p2e.conversation.Request(arg_str)
-        return p2e._util._convert_str_to_type(val, int)
+        return p2e._util._convert_str_to_list(val, float, float, float, float)
         
     def set_object(self, depth, object):
         """

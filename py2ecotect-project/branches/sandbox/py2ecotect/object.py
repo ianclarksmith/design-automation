@@ -2717,14 +2717,6 @@ class _ObjectRootFncChild(object):
 
 
 
-
-
-
-
-
-
-
-
 class _Geometry(_Object):
     pass
 
