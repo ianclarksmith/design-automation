@@ -21,7 +21,7 @@ point_2 = Point.create(points)
 
 #print floor.modf.link(point_1)
 
-#floor.extrude([0, 0, 2400])
+floor.extrude([0, 0, 2400])
 #floor.revolve(0, 180, 10)
 
 point_1.stat.selected = False
