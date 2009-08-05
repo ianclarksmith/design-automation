@@ -4,23 +4,23 @@ import pythoncom
 from exceptions import Exception
 import py2rhino as p2r
 from py2rhino import _util
-from py2rhino._curve_root import _CurveRoot
+from py2rhino._rhinoscript_classes import _CurveRoot
 
 
 _rsf = None
-from py2rhino._object_root_defm import _ObjectRootDefm
-from py2rhino._curve_root_eval import _CurveRootEval
-from py2rhino._curve_root_func_open import _CurveRootFuncOpen
-from py2rhino._line_genr import _LineGenr
-from py2rhino._object_root_grps import _ObjectRootGrps
-from py2rhino._curve_root_mdfy import _CurveRootMdfy
-from py2rhino._object_root_mtrl import _ObjectRootMtrl
-from py2rhino._object_root_prop import _ObjectRootProp
-from py2rhino._object_root_rndr import _ObjectRootRndr
-from py2rhino._object_root_stat import _ObjectRootStat
-from py2rhino._curve_root_test import _CurveRootTest
-from py2rhino._object_root_trfm import _ObjectRootTrfm
-from py2rhino._object_root_util import _ObjectRootUtil
+from py2rhino._rhinoscript_classes import _ObjectRootDefm
+from py2rhino._rhinoscript_classes import _CurveRootEval
+from py2rhino._rhinoscript_classes import _CurveRootFuncOpen
+from py2rhino._rhinoscript_classes import _LineGenr
+from py2rhino._rhinoscript_classes import _ObjectRootGrps
+from py2rhino._rhinoscript_classes import _CurveRootMdfy
+from py2rhino._rhinoscript_classes import _ObjectRootMtrl
+from py2rhino._rhinoscript_classes import _ObjectRootProp
+from py2rhino._rhinoscript_classes import _ObjectRootRndr
+from py2rhino._rhinoscript_classes import _ObjectRootStat
+from py2rhino._rhinoscript_classes import _CurveRootTest
+from py2rhino._rhinoscript_classes import _ObjectRootTrfm
+from py2rhino._rhinoscript_classes import _ObjectRootUtil
 
 
 class Line(_CurveRoot):
