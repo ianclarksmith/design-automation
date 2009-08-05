@@ -1,7 +1,7 @@
 import keyword
 from exceptions import Exception
 from util import *
-from py2rhino.make.data.templates_obj import descriptors as des_obj
+from py2rhino.make.data import tmp as des_obj
 
 out_folder = "..\\"
 #===============================================================================
@@ -96,10 +96,9 @@ def write_rhinoscript_classes(data_dict):
         w(f,'from py2rhino import _util')   
         
         #import the parent
-        for parent_class_name in parent_class_list:
-            parent_module_name = camel_to_underscore(parent_class_name)        
+        for parent_class_name in parent_class_list:      
             if parent_class_name != 'object':
-                w(f,('from py2rhino.', parent_module_name, ' import ', parent_class_name))
+                w(f,('from py2rhino._rhinoscript_classes import ', parent_class_name))
         
         #write the global _rsf variable and set it to None    
         w(f,'_rsf = None', nls=2)   
@@ -107,10 +106,11 @@ def write_rhinoscript_classes(data_dict):
         #import the holds
         for hold_name in sorted(class_dict['holds'].keys()):
             hold_class_name = class_dict['holds'][hold_name]
-            hold_module_name = camel_to_underscore(hold_class_name)
-            w(f,('from py2rhino.', hold_module_name, ' import ', hold_class_name))
-
-        w(f,('class ', class_name,'(', parent_class_name,'):'), nls=2, nle=2)
+            w(f,('from py2rhino._rhinoscript_classes import ', hold_class_name))
+            
+    #---------------------------------------------------------------------------
+    def write_class_name(class_name, parent_class_list, f):
+        w(f,('class ', class_name,'(', ','.join(parent_class_list),'):'), nls=2, nle=2)
         
     #---------------------------------------------------------------------------
     def write_init(class_name, module_name, class_dict, f):
@@ -324,7 +324,12 @@ def write_rhinoscript_classes(data_dict):
                     w(f, ('return None'), tabs=3)
             elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity'):
                 return_class_name = return_type.split('.')[-1]
-                w(f, ('return map(lambda i: p2r.'+return_class_name+'(i), self._rhino_id)'), tabs=2, nls=1, nle=2)#TODO:this needs more work
+                if return_class_name in class_types:
+                    w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('return map(lambda i: p2r.'+return_class_name+'(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
+                else:
+                    w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('return map(lambda i: p2r._util.wrap(i), _rhino_ids)'), tabs=2, nle=1)
             else:
                 raise Exception('The method returns something very strange')
             
@@ -338,23 +343,21 @@ def write_rhinoscript_classes(data_dict):
         else:
             raise Exception('Cannot understand method type')
     #---------------------------------------------------------------------------
-    for class_name in sorted(data_dict.keys()):
-        
-        class_dict = data_dict[class_name]
-        
+    def write_class(class_name, class_dict, f):
         #get the class parent
         parent_class_list = ('object', )
         if class_dict["inherits"] != None:
             parent_class_list = class_dict["inherits"]
             
-        #get the module names
+        #write the file header
+        if class_name.startswith('_'):
+            write_class_name(class_name, parent_class_list, f)
+        else:
+            write_class_header(class_name, parent_class_list, class_dict, f)
+            write_class_name(class_name, parent_class_list, f)            
+        
+        #write init
         module_name = camel_to_underscore(class_name)
-        
-        #open the file
-        f = open(out_folder + module_name + '.py', mode='w')
-        
-        #write header and init
-        write_class_header(class_name, parent_class_list, class_dict, f)
         write_init(class_name, module_name, class_dict, f)        
         
         #write each constructor to the class file
@@ -384,8 +387,41 @@ def write_rhinoscript_classes(data_dict):
             else:
                 write_method(function_name, class_name, 'CLASS_METHOD', method_dict, f)
             
-        #close the file
-        f.close()
+    #---------------------------------------------------------------------------
+    #open the base file
+    fb = open(out_folder + '_rhinoscript_classes.py', mode='w')
+    
+    w(fb,'# Auto-generated wrapper for Rhino4 RhinoScript classes')
+    w(fb,'import pythoncom')
+    w(fb,'from exceptions import Exception')        
+    w(fb,'import py2rhino as p2r')   
+    w(fb,'from py2rhino import _util')   
+    w(fb,'_rsf = None') 
+
+    for class_name in sorted(data_dict.keys()):
+        class_dict = data_dict[class_name]
+        if class_name.startswith('_') and class_name.endswith('Root'):
+            write_class(class_name, class_dict, fb)
+
+    for class_name in sorted(data_dict.keys()):
+        class_dict = data_dict[class_name]
+        if class_name.startswith('_') and class_name.find('Root') != -1 and not class_name.endswith('Root'):
+            write_class(class_name, class_dict, fb)
+            
+    for class_name in sorted(data_dict.keys()):
+        class_dict = data_dict[class_name]
+        if class_name.startswith('_') and class_name.find('Root') == -1 and not class_name.endswith('Root'):
+            write_class(class_name, class_dict, fb)
+
+    for class_name in sorted(data_dict.keys()):
+        class_dict = data_dict[class_name]
+        if not class_name.startswith('_'):
+            module_name = camel_to_underscore(class_name)
+            f = open(out_folder + module_name + '.py', mode='w')
+            write_class(class_name, class_dict, f)
+            f.close()
+
+    fb.close()
     #---------------------------------------------------------------------------
 #===============================================================================
 # Write the init file
