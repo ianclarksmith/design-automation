@@ -5,20 +5,18 @@ class Node(object):
     #===========================================================================
     # Methods that affect relationships between things
     #===========================================================================  
-    @classmethod
-    def _create_node_from_id(cls, obj, node_eco_id):
+    def __init__(self, obj, node_eco_id):
         
         #create the node
-        node = cls()
-        node._object = obj
+        self._object = obj
         
         #update model nodes lists
-        p2e.model._nodes.append(node)
-        assert node.eco_id == node_eco_id
+        p2e.model._nodes.append(self)
+        assert self.eco_id == node_eco_id
         
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
     @classmethod
-    def _create_node(cls, object, index, point, nodeType = 0, link = 0):
+    def _gen_node(cls, object, index, point, nodeType = 0, link = 0):
         """
         
         Use this command to create new nodes in the model. It returns the 
@@ -70,21 +68,15 @@ class Node(object):
         spline 8 Control node for a virtual spline curve. 
         
         """
-        
-        #create the node
-        node = cls()
-        node._object = object
-        
+
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("add.node", object.eco_id, index, 
                                                      point[0], point[1], 
                                                      point[2], nodeType, link)
-        eco_id = p2e.conversation.Request(arg_str)
+        val = p2e.conversation.Request(arg_str)
+        eco_id = p2e._util._convert_str_to_type(val, int)
         
-        if eco_id != -1:
-            #update model lists
-            p2e.model._nodes.append(node)
-        return eco_id  
+        return eco_id
     #---------------------------------------------------------------------------
     def delete(self, node_index = 0):
         
