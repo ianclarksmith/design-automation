@@ -7,6 +7,7 @@ from py2ecotect.model import Model
 from py2ecotect.results import Results
 from py2ecotect.select import Select
 from py2ecotect.selection import Selection
+from py2ecotect.ray import Ray
 import time
 
 points = [(0,0,0),(10000,0,0),(10000,10000,0),(0,10000,0)]
@@ -21,7 +22,7 @@ point_2 = Point.create(points)
 #print floor.modf.link(point_1)
 
 #floor.extrude([0, 0, 2400])
-floor.revolve(0, 180, 10)
+#floor.revolve(0, 180, 10)
 
 point_1.stat.selected = False
 
@@ -30,9 +31,12 @@ point_1.stat.selected = False
 selection = Selection()
 print selection.underground
 
+ray = Ray()
+print ray.get_object(1)
 
-for i in model._objects:
-    print i.prop.element_type, i.eco_id
+
+#for i in model._objects:
+#    print i.prop.element_type, i.eco_id
 
 v = View()
 v.redraw()
