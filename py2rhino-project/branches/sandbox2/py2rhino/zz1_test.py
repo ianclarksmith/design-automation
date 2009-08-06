@@ -1,9 +1,40 @@
 #from py2rhino.nurbs_curve import NurbsCurve
 import py2rhino as p2r
+arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
+sphere1 = p2r.Sphere.create((0,0,0), 10)
+arc2 = p2r.Arc.create_by_3pt((2,0,0), (20,0,0), (12,10,0))
+print sphere1.modf.flip()
 
 
 
 
+
+#####################Return none in functional and obj####################################
+#nurve_surface1  = p2r.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+#print nurve_surface1.genr.fit()
+#sphere1 = p2r.Sphere.create((0,0,0), 10)
+#print sphere1.genr.make_non_periodic(1)
+##########################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################
+#portion below, informed boss on 6 aug~~
+#####################################################################
+
+'''
 ########error: u'Type mismatch in parameter. Float required.#################
 #arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
 #arc1.defm.shear((0,0,0), (10,0,0),45.0)
@@ -74,4 +105,6 @@ import py2rhino as p2r
 #cone2 = p2r.Cone.create_by_plane((0,0,0), 8, 5)
 #print cone1
 ###########################################################################################
+'''
+
 print "done"
