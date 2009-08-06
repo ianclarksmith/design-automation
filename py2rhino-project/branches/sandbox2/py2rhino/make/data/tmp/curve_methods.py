@@ -46,7 +46,7 @@ class GenericCurve(object):
         "eval": "_CurveRootEval",
         "func": "_CurveRootFuncOorc",
         "test": "_CurveRootTest",#inherits from object tests
-        "type": "_CurveRootType",#exposed only here
+        "func": "_CurveRootType",#exposed only here
         
         #properties
         "prop": "_ObjectRootProp",
@@ -73,12 +73,11 @@ class NurbsCurve(object):
         #general curve holds
         "modf": "_CurveRootMdfy",
         "eval": "_CurveRootEval",
-        "func": "_CurveRootFuncOorc",
         "test": "_CurveRootTest",#inherits from object tests
         
         #properties
         "prop": "_ObjectRootProp",
-        "genr": "_NurbsCurveGenr",
+        "func": "_NurbsCurveFunc",
     }
     class Constructors(object):
         add_nurbs_curve = {#ed
@@ -87,7 +86,7 @@ class NurbsCurve(object):
             "method_returns": ("SELF","null")
         }        
         add_curve = {#ed
-            "method_name": "create_by_points",
+            "method_name": "create_by_pnts",
             "method_parameters": (("points","array_of dbl","REQ"),("degree","int","OPT"),),
             "method_returns": ("SELF","null")
         }
@@ -121,27 +120,29 @@ class NurbsCurve(object):
             "method_parameters": (("curves","array_of _ObjectRoot","REQ"),("meshes","array_of str","REQ"),("direction","array_of dbl","REQ"),),
             "method_returns": ("array_of SELF","null")
         }
+        
 #===============================================================================
-# _NurbsCurveGenr
+# _NurbsCurveFunc
 #===============================================================================
-class _NurbsCurveGenr(object):
-    inherits = ('_CurveRootGenr',)
+class _NurbsCurveFunc(object):
+    inherits = ('_CurveRootFuncOorc',)
     class Methods(object):  
+        #TODO: can these all be constructors
         split_curve = {#this has the delete parameter
             "method_name": "split",
             "method_parameters": (("","SELF","REQ"),("parameters","array_of dbl","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot.NurbsCurve","null")
-        }
-        add_sub_crv = {#ed
-            "method_name": "sub",
-            "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
         }
         offset_curve = {
             "method_name": "offset",
             "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot.NurbsCurve","null")
         } 
+        add_sub_crv = {#ed
+            "method_name": "crv_sub",
+            "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
+        }        
         trim_curve = {#ed
             "method_name": "trim",
             "method_parameters": (("","SELF","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT"),),
@@ -171,13 +172,12 @@ class Arc(object):
   
         #general curve holds
         "modf": "_CurveRootMdfy",
-        "func": "_CurveRootFuncOpen",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object tests
         
         #arc holds
         "prop": "_ArcProp",
-        "genr": "_ArcGenr",        
+        "func": "_ArcFunc",        
     }    
     class Constructors(object):
         add_arc = {#ed
@@ -197,10 +197,10 @@ class Arc(object):
         }
         
 #===============================================================================
-# _ArcGenr
+# _ArcFunc
 #===============================================================================
-class _ArcGenr(object):
-    inherits = ('_CurveRootGenr',)
+class _ArcFunc(object):
+    inherits = ('_CurveRootFuncOpen',)
     class Methods(object):      
         split_curve = {#this has the delete parameter
             "method_name": "split",
@@ -234,12 +234,12 @@ class _ArcProp(object):
             "method_returns": ("number","null")
         }
         arc_center_point = {#ed
-            "method_name": "center_point",
+            "method_name": "center_pnt",
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl","null")
         }
         arc_mid_point = {#ed
-            "method_name": "mid_point",
+            "method_name": "mid_pnt",
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl","null")
         }
@@ -267,22 +267,21 @@ class EllipticalArc(object):
   
         #general curve holds
         "modf": "_CurveRootMdfy",
-        "func": "_CurveRootFuncOpen",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object tests
         
         #ell arc holds
         "prop": "_ObjectRootProp",
-        "genr": "_EllipticalArcGenr",        
+        "func": "_EllipticalArcFunc",        
     }    
 
     #no constructors
         
 #===============================================================================
-# _EllipticalArcGenr
+# _EllipticalArcFunc
 #===============================================================================
-class _EllipticalArcGenr(object):
-    inherits = ('_CurveRootGenr',)
+class _EllipticalArcFunc(object):
+    inherits = ('_CurveRootFuncOpen',)
     class Methods(object):      
         split_curve = {#this has the delete parameter
             "method_name": "split",
@@ -324,12 +323,11 @@ class Circle():
         #general curve holds
         "modf": "_CurveRootMdfy",
         "eval": "_CurveRootEval",
-        "func": "_CurveRootFuncClsd",
         "test": "_CurveRootTest",#inherits from object tests
         
         #circle holds
         "prop": "_CircleProp",
-        "genr": "_CircleGenr",        
+        "func": "_CircleFunc",        
     }      
     class Constructors(object):
         add_circle = {#ed
@@ -343,10 +341,10 @@ class Circle():
             "method_returns": ("SELF","null")
         }
 #===============================================================================
-# _CircleGenr
+# _CircleFunc
 #===============================================================================
-class _CircleGenr(object):
-    inherits = ('_CurveRootGenr',)
+class _CircleFunc(object):
+    inherits = ('_CurveRootFuncClsd',)
     class Methods(object):      
         split_curve = {#this has the delete parameter
             "method_name": "split",
@@ -375,7 +373,7 @@ class _CircleProp():
     inherits = ("_CurveRootProp", )
     class Methods(object):      
         circle_center_point = {#ed
-            "method_name": "center_point",
+            "method_name": "center_pnt",
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl","null")
         }
@@ -409,12 +407,11 @@ class Ellipse(object):
         #general curve holds
         "modf": "_CurveRootMdfy",
         "eval": "_CurveRootEval",
-        "func": "_CurveRootFuncClsd",
         "test": "_CurveRootTest",#inherits from object tests
         
         #ellipse holds
         "prop": "_EllipseProp",
-        "genr": "_EllipseGenr",        
+        "func": "_EllipseFunc",        
     } 
     class Constructors(object):
         add_ellipse = {#ed
@@ -428,13 +425,13 @@ class Ellipse(object):
             "method_returns": ("SELF","null")
         }
 #===============================================================================
-# _EllipseGenr
+# _EllipseFunc
 #===============================================================================
-class _EllipseGenr(object):     
-    inherits = ('_CurveRootGenr',)
+class _EllipseFunc(object):     
+    inherits = ('_CurveRootFuncClsd',)
     class Methods(object):     
         split_curve = {#this has the delete parameter
-            "method_name": "plit",
+            "method_name": "split",
             "method_parameters": (("","SELF","REQ"),("parameters","array_of dbl","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot.EllipticalArc","null")
         }
@@ -460,12 +457,12 @@ class _EllipseProp(object):
     inherits = ("_CurveRootProp", )
     class Methods(object):
         ellipse_center_point = {#ed
-            "method_name": "center_point",
+            "method_name": "center_pnt",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of dbl","null")
         }
         ellipse_quad_points = {#ed
-            "method_name": "quad_points",
+            "method_name": "quad_pnts",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of dbl","null")
         } 
@@ -488,13 +485,12 @@ class Line(object):
   
         #general curve holds
         "modf": "_CurveRootMdfy",
-        "func": "_CurveRootFuncOpen",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object tests
         
         #properties
         "prop": "_ObjectRootProp",
-        "genr": "_LineGenr",        
+        "func": "_LineFunc",        
     }     
     class Constructors(object):
         add_line = {#ed
@@ -503,10 +499,10 @@ class Line(object):
             "method_returns": ("SELF","null")
         }
 #===============================================================================
-# _LineGenr
+# _LineFunc
 #===============================================================================
-class _LineGenr(object):
-    inherits = ('_CurveRootGenr',)
+class _LineFunc(object):
+    inherits = ('_CurveRootFuncOpen',)
     class Methods(object):     
         split_curve = {#this has the delete parameter
             "method_name": "split",
@@ -547,13 +543,12 @@ class Polyline(object):
   
         #general curve holds
         "modf": "_CurveRootMdfy",
-        "func": "_CurveRootFuncOorc",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object tests
         
         #polyline holds
         "prop": "_PolylineProp",
-        "prop": "_PolylineGenr",        
+        "func": "_PolylineFunc",        
     }     
     class Constructors(object):
         add_polyline = {
@@ -567,10 +562,10 @@ class Polyline(object):
             "method_returns": ("SELF","null")
         } 
 #===============================================================================
-# _LineGenr
+# _PolylineFunc
 #===============================================================================
-class _PolylineGenr(object):
-    inherits = ('_CurveRootGenr',)
+class _PolylineFunc(object):
+    inherits = ('_CurveRootFuncOorc',)
     class Methods(object):     
         #TODO: think about these return values
         split_curve = {#this has the delete parameter
@@ -578,19 +573,19 @@ class _PolylineGenr(object):
             "method_parameters": (("","SELF","REQ"),("parameters","array_of dbl","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot.Polyline","null")#this could return a line
         }
-        add_sub_crv = {#ed
-            "method_name": "sub",
-            "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.Polyline","null")#this could return a line
-        }
         offset_curve = {
             "method_name": "offset",
             "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot.Polyline","null")#this could return a line
-        } 
+        }
         trim_curve = {#ed
             "method_name": "trim",
             "method_parameters": (("","SELF","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Polyline","null")#this could return a line
+        }         
+        add_sub_crv = {#ed
+            "method_name": "sub",
+            "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._CurveRoot.Polyline","null")#this could return a line
         }        
 #===============================================================================
@@ -700,17 +695,17 @@ class _CurveRootProp(object):
             "method_returns": ("number","null")
         }
         curve_start_point = {#ed
-            "method_name": "start_point",
+            "method_name": "start_pnt",
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl","null")
         }        
         curve_mid_point = {#TODO: test mid_point function
-            "method_name": "mid_point",
+            "method_name": "mid_pnt",
             "method_parameters": (("","SELF","REQ"),),#no index - this looks inconsistent - may be an error?
             "method_returns": ("array_of dbl","null")
         }
         curve_end_point = {#ed
-            "method_name": "end_point",
+            "method_name": "end_pnt",
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl","null")
         }        
@@ -733,18 +728,18 @@ class _CurveRootProp(object):
         }
         #control points     
         curve_point_count = {#ed
-            "method_name": "control_point_count",
+            "method_name": "control_pnt_count",
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("number","null")
         }
         curve_points = {#ed
-            "method_name": "control_points",
+            "method_name": "control_pnts",
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl","null")
         }
         #edit points
         curve_edit_points = {#ed
-            "method_name": "edit_points",
+            "method_name": "edit_pnts",
             "method_parameters": (("","SELF","REQ"),("return_parameters","bln","OPT"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl", "null")
         } 
@@ -863,7 +858,7 @@ class _CurveRootGenr(object):
 # _CurveRootMdfy
 #===============================================================================
 class _CurveRootMdfy(object):
-    inherits = ('_ObjectRootModf', )
+    inherits = ('_ObjectRootMdfy', )
     class Methods(object):
         curve_seam = {#ed
             "method_name": "seam",
@@ -905,7 +900,7 @@ class _CurveRootMdfy(object):
 # _CurveRootFunc
 #===============================================================================
 class _CurveRootFunc(object):
-    inherits = None
+    inherits = ("_ObjectRootFunc",)
     class Methods(object):
         
         planar_curve_collision = {
@@ -937,12 +932,12 @@ class _CurveRootFunc(object):
         }
         """
         curve_arc_length_point = {#ed
-            "method_name": "crv_arc_length_point",
+            "method_name": "crv_arc_length_pnt",
             "method_parameters": (("","SELF","REQ"),("length","dbl","REQ"),("from_start","bln","OPT"),),
             "method_returns": ("array_of dbl","null")
         }
         curve_contour_points = {#ed
-            "method_name": "contour_points",
+            "method_name": "contour_pnts",
             "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("interval","dbl","OPT"),),
             "method_returns": ("array_of dbl","null")
         }
@@ -952,7 +947,7 @@ class _CurveRootFunc(object):
             "method_returns": ("array_of number","null")
         }
         line_fit_from_points = {#ed
-            "method_name": "line_fit_from_points",
+            "method_name": "line_fit_from_pnts",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of dbl","null")
         }
@@ -964,13 +959,13 @@ class _CurveRootFunc(object):
         #TODO: fix these mixed return values
         """
         curve_fillet_points = {#TODO:documentation is not clear
-            "method_name": "fillet_points",
+            "method_name": "fillet_pnts",
             "method_parameters": (("","SELF","REQ"),("curve_0","str","REQ"),("radius","dbl","OPT"),("base_point_0","array_of dbl","OPT"),("base_point__1","array_of dbl","OPT"),),
             "method_returns": ("array_of (array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl)","_ObjectRoot._CurveRoot","null")
         }
         """
-        curve_closest_point = {#ed
-            "method_name": "closest_point",
+        curve_closest_pnt = {#ed
+            "method_name": "closest_pnt",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("number","null")
         }
@@ -1024,7 +1019,7 @@ class _CurveRootFuncOpen(object):
             "method_returns": ("str","null")
         }
         extend_curve_point = {
-            "method_name": "open_crv_extend_point",
+            "method_name": "open_crv_extend_pnt",
             "method_parameters": (("","SELF","REQ"),("side","int","REQ"),("point","array_of dbl","REQ"),),
             "method_returns": ("str","null")
         } 
@@ -1046,7 +1041,7 @@ class _CurveRootFuncClsd(object):
             "method_returns": ("array_of dbl","null")
         }
         point_in_planar_closed_curve = {
-            "method_name": "closed_crv_point_inside",
+            "method_name": "closed_crv_pnt_inside",
             "method_parameters": (("point","array_of dbl","REQ"),("","SELF","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT"),),
             "method_returns": ("number","null")
         }
@@ -1063,7 +1058,7 @@ class _CurveRootFuncClsd(object):
             "method_parameters": (("","SELF","REQ"),("curve","str","REQ"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
         }
-        curve_boolean_intersection = {#ed
+        curve_boolean_intersection = {#TODO: fix error
             "method_name": "boolean_intersection",
             "method_parameters": (("","SELF","REQ"),("curve_a","str","REQ"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
@@ -1078,7 +1073,7 @@ class _CurveRootFuncClsd(object):
 # _CurveRootClosedFuncOorc - polylines, nurbscurves, polycurves
 #===============================================================================
 class _CurveRootFuncOorc(object):
-    inherits = ('_CurveRootFuncClsd','_CurveRootFuncClsd')
+    inherits = ('_CurveRootFuncOpen','_CurveRootFuncClsd')
     
     
 #===============================================================================
