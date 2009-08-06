@@ -218,7 +218,13 @@ class _ObjectRoot(object):
 #===============================================================================
 # ObjectGroups
 #===============================================================================
-class _ObjectRootModf(object):
+class _ObjectRootMdfy(object):
+    inherits = None
+    
+#===============================================================================
+# ObjectFunc
+#===============================================================================
+class _ObjectRootFunc(object):    
     inherits = None
     class Methods(object):
         delete_objects = {
@@ -522,7 +528,7 @@ class _ObjectRootTrfm(object):
             "method_returns": ("SELF","null")        
             }
         copy_object_2 = {
-            "method_name": "copy_and_xform",#renamed
+            "method_name": "copy_by_vec",#renamed
             "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("SELF","null")         
             }       
@@ -537,7 +543,7 @@ class _ObjectRootTrfm(object):
             "method_returns": ("SELF","null")   
             }
         move_object_2 = {
-            "method_name": "move_and_xform",
+            "method_name": "move_by_vec",
             "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","REQ"),),#first param was missing here
             "method_returns": ("SELF","null")       
             }

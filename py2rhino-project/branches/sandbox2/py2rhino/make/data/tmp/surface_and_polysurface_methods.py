@@ -28,12 +28,12 @@ class PolySurface(object):
     class Constructors(object):
         extrude_surface = {#ed
             "method_name": "create_by_srf_extrude",
-            "method_parameters": (("","SELF","REQ"),("curve","str","REQ"),("cap","bln","OPT"),),
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("curve","str","REQ"),("cap","bln","OPT"),),
             "method_returns": ("SELF","null")
             }   
         join_surfaces = {#ed
             "method_name": "create_by_srf_join",
-            "method_parameters": (("","SELF","REQ"),("delete","bln","OPT"),),
+            "method_parameters": (("surfaces","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
             "method_returns": ("SELF","null")
             }
 #===============================================================================
@@ -42,7 +42,7 @@ class PolySurface(object):
 class _PolySurfaceProp(object):
     inherits = ("_SurfaceRootProp", )         
     class Methods(object):
-        explode_polysurfaces = {#ed
+        explode_polysurfaces = {#TODO: this is in the worng place
             "method_name": "explode",
             "method_parameters": (("objects","array_of _Object","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot.NurbsSurface","null")
@@ -123,7 +123,7 @@ class _ConeProp(object):
     inherits = ("_SurfaceRootProp", )         
     class Methods(object):
         surface_cone = {#ed
-            "method_name": "cone_definition",
+            "method_name": "cone_def",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of number","null")
             }
@@ -207,7 +207,7 @@ class NurbsSurface(object):
             "method_returns": ("SELF","null")
             }
         extrude_curve_point = {#ed
-            "method_name": "create_by_extrude_crv_point",
+            "method_name": "create_by_extrude_crv_pnt",
             "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("point","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
             }
@@ -341,7 +341,7 @@ class _CylinderProp(object):
     inherits = ("_SurfaceRootProp", )         
     class Methods(object):
         surface_cylinder = {#ed
-            "method_name": "cylinder_definition",
+            "method_name": "cylinder_def",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of number","null")
             }
@@ -509,7 +509,7 @@ class _SurfaceRootType(object):
 # _CurveRootTest
 #===============================================================================
 class _SurfaceRootTest(object):
-    inherits = ("_ObjectRootType",)
+    inherits = ("_ObjectRootTest",)
     class Methods(object):
         is_plane_surface = {#ed
             "method_name": "is_plane_surface",
@@ -537,12 +537,12 @@ class _SurfaceRootTest(object):
             "method_returns": ("bln","null")
             }
         is_point_in_surface = {#ed
-            "method_name": "is_point_in_srf",
+            "method_name": "is_pnt_in_srf",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),),
             "method_returns": ("bln","null")
             }
         is_point_on_surface = {#ed
-            "method_name": "is_point_on_srf",
+            "method_name": "is_pnt_on_srf",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),),
             "method_returns": ("bln","null")
             }
@@ -591,7 +591,7 @@ class _SurfaceRootTest(object):
 # _CurveRootModify
 #===============================================================================
 class _SurfaceRootMdfy(object):
-    inherits = None
+    inherits = ("_ObjectRootMdfy",)
     class Methods(object):
         rebuild_surface = {#ed
             "method_name": "rebuild",
@@ -686,7 +686,7 @@ class _SurfaceRootEval(object):
 # _SurfaceRootAttributes
 #===============================================================================
 class _SurfaceRootProp(object):
-    inherits = None
+    inherits = ("_ObjectRootProp", )
     class Methods(object):
         surface_degree = {#ed
             "method_name": "degree",
@@ -719,18 +719,18 @@ class _SurfaceRootProp(object):
             "method_returns": ("array_of dbl","null")
             }
         surface_point_count = {#ed
-            "method_name": "point_count",
+            "method_name": "pnt_count",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of int","null")
             }
         surface_points = {#ed
-            "method_name": "points",
+            "method_name": "pnts",
             "method_parameters": (("","SELF","REQ"),("return_all","bln","OPT"),),
             "method_returns": ("array_of int","null")
             }
 
         surface_contour_points = {#ed
-            "method_name": "contour_points",
+            "method_name": "contour_pnts",
             "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("interval","dbl","OPT"),("angle","dbl","OPT"),),
             "method_returns": ("array_of dbl","null")
             }
@@ -750,7 +750,7 @@ class _SurfaceRootProp(object):
             "method_returns": ("array_of dbl","null")
             }
         surface_edit_points = {#ed
-            "method_name": "edit_points",
+            "method_name": "edit_pnts",
             "method_parameters": (("","SELF","REQ"),("return_parameters","bln","OPT"),("return_all","bln","OPT"),),
             "method_returns": ("array_of dbl","null")
             }
@@ -773,7 +773,7 @@ class _SurfaceRootProp(object):
 # _SurfaceRootFunc
 #===============================================================================
 class _SurfaceRootFunc(object):
-    inherits = None
+    inherits = ("_ObjectRootFunc",)
     class Methods(object):
         cap_planar_holes = {#ed
             "method_name": "cap_planar_holes",
@@ -781,7 +781,7 @@ class _SurfaceRootFunc(object):
             "method_returns": ("bln","null")
             }
         surface_closest_point = {#ed
-            "method_name": "closest_point",
+            "method_name": "closest_pnt",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),),
             "method_returns": ("array_of number","null")
             }
@@ -809,7 +809,7 @@ class _SurfaceRootFuncClsd(object):
     
     class Methods(object):
         brep_closest_point = {#ed
-            "method_name": "brep_closest_point",
+            "method_name": "brep_closest_pnt",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),),
             "method_returns": ("array_of number","null")
             }        
@@ -833,20 +833,19 @@ class _SurfaceRootFuncClsd(object):
         
         boolean_difference = {
             "method_name": "boolean_difference",
-            "method_parameters": (("","SELF","REQ"),("input_1","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("breps","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot","null")
             }
         boolean_intersection = {
             "method_name": "boolean_intersection",
-            "method_parameters": (("","SELF","REQ"),("input_1","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("breps","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot","null")
             }
-        boolean_union = {#this has no SELF
+        boolean_union = {#TODO: this has no SELF
             "method_name": "boolean_union",
-            "method_parameters": (("input","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),#TODO: for this method, there is no SELF parameter
+            "method_parameters": (("breps","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),#TODO: for this method, there is no SELF parameter
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot","null")
             }
-
 
         split_brep = {#ed
             "method_name": "split_brep",

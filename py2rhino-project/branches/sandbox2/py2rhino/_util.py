@@ -1,11 +1,11 @@
 #some utility functions
 import py2rhino as p2r
-
-_rsf = None
+from py2rhino.functions import curve
+from py2rhino.functions import object
 
 def wrap(rhino_id):
     #TODO: implement this function    
-    object_type = _rsf.object_type(rhino_id)
+    object_type = object.object_type(rhino_id)
     
     """
     0:  Unknown object
@@ -27,14 +27,14 @@ def wrap(rhino_id):
     268435456: Phantom
     536870912: Clipping plane
     """
+    
     if object_type == 4:
-        if _rsf.is_arc(rhino_id): return p2r.Arc(rhino_id)
-        elif _rsf.is_circle(rhino_id): return p2r.Circle(rhino_id)
-        elif _rsf.is_curve(rhino_id): return p2r.NurbsCurve(rhino_id)
-        elif _rsf.is_ellipse(rhino_id): return p2r.Ellipse(rhino_id)
-        elif _rsf.is_line(rhino_id): return p2r.Line(rhino_id)
-        elif _rsf.is_polyline(rhino_id): return p2r.Polyline(rhino_id)
-        else: return None
-    
-    
+        if curve.is_arc(rhino_id): return p2r.Arc(rhino_id)
+        elif curve.is_circle(rhino_id): return p2r.Circle(rhino_id)
+        elif curve.is_curve(rhino_id): return p2r.NurbsCurve(rhino_id)
+        elif curve.is_ellipse(rhino_id): return p2r.Ellipse(rhino_id)
+        elif curve.is_line(rhino_id): return p2r.Line(rhino_id)
+        elif curve.is_polyline(rhino_id): return p2r.Polyline(rhino_id)
+
+    print "conversion of type not yet implemented"#TODO: add surfaces
     return None 
