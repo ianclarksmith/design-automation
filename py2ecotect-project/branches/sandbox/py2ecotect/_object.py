@@ -337,7 +337,7 @@ class _Object(object):
             arg_str = p2e._util._convert_args_to_string("get.object.zone", 
                                                          self.eco_id)
             val = p2e._app.Request(arg_str)
-            return p2e.model._zones[p2e._util._convert_str_to_type(val, int)]
+            return p2e._model._zones[p2e._util._convert_str_to_type(val, int)]
         
         def fset(self, index):
             """
@@ -405,7 +405,7 @@ class _ObjectRootFncTrfm(object):
         p2e._app.Exec(arg_str)
         
         #get the id of the new object
-        eco_id = p2e.model.Model().number_of_objects - 1
+        eco_id = p2e._model.Model().number_of_objects - 1
         
         #create the object
         return _Object(eco_id, None)
@@ -685,8 +685,8 @@ class _ObjectRootFncMdfy(object):
         
     def normal_reverse(self):
         #Check to see which objects are selected
-        selection = p2e.selection.Selection()
-        m = p2e.model
+        selection = p2e._selection.Selection()
+        m = p2e._model
         first_index = selection.next
         index = -1;
         selected_objects = []
@@ -705,7 +705,7 @@ class _ObjectRootFncMdfy(object):
         selection.reverse()
         
         #Re-select the previous objects
-        p2e.select.Select().index(selected_objects)  
+        p2e._select.Select().index(selected_objects)  
 
 class _ObjectRootFncStat(object):
     
@@ -827,7 +827,7 @@ class _ObjectRootFncStat(object):
                                                          self.eco_id, state)
             p2e._app.Exec(arg_str)
             
-            p2e.selection.Selection().update()
+            p2e._selection.Selection().update()
             
         return property(**locals())
 
@@ -1215,7 +1215,6 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.type", 
                                                          self.eco_id)
-            print "ECO_ID:", self.eco_id
             val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
