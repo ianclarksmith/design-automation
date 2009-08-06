@@ -702,14 +702,14 @@ object = {
         "object": "str",
         "origin": "arr_of_dbl",
         "ref_pt": "arr_of_dbl",
-        "scale": "arr_of_int",
+        "scale": "dbl",
         "copy": "bln",
     },
     "shear_objects": {
         "objects": "arr_of_str",
         "origin": "arr_of_dbl",
         "ref_pt": "arr_of_dbl",
-        "scale": "arr_of_int",
+        "scale": "dbl",
         "copy": "bln",
     },
     "show_objects": {

@@ -102,7 +102,7 @@ class _DocumentObjectFunc(object):
             }
         shear_objects = {
             "method_name": "shear",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","dbl","REQ"),("copy","bln","OPT")),
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
         transform_objects = {
@@ -580,7 +580,7 @@ class _ObjectRootDefm(object):
             }          
         shear_object = {
             "method_name": "shear",
-            "method_parameters": (("","SELF","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
+            "method_parameters": (("","SELF","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("angle","dbl","REQ"),("copy","bln","OPT")),
             "method_returns": ("_ObjectRoot","null")#GenericObject
             }
         transform_object = {

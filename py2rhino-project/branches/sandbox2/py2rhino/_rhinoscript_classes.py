@@ -232,11 +232,11 @@ class _ObjectRootDefm(object):
         else:
             return None
 
-    def shear(self, origin, ref_pt, scale, copy=pythoncom.Empty):
+    def shear(self, origin, ref_pt, angle, copy=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: ShearObject
         """
-        _rhino_id = _rsf.shear_object(self._rhino_id, origin, ref_pt, scale, copy)
+        _rhino_id = _rsf.shear_object(self._rhino_id, origin, ref_pt, angle, copy)
         if _rhino_id:
             return p2r._util.wrap(_rhino_id)
         else:
