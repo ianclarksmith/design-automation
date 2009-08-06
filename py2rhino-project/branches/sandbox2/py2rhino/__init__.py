@@ -1,9 +1,9 @@
 from win32com.client import Dispatch
 import time
-_app = Dispatch("Rhino4.Interface")
+app = Dispatch("Rhino4.Interface")
 time.sleep(1)
-_app.Visible = True
-_rso = _app.GetScriptObject
+app.Visible = True
+_rso = app.GetScriptObject
 
 from functions._rhinoscript_functions import _RhinoscriptFunctions
 _rsf = _RhinoscriptFunctions(_rso)

@@ -3910,8 +3910,8 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def shear_object(self, object, origin, ref_pt, scale, copy):
 
-        magic = ((VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_I2, 1), (VT_BOOL, 1))
-        flattened = (object, flatten_params(origin), flatten_params(ref_pt), flatten_params(scale), copy)
+        magic = ((VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
+        flattened = (object, flatten_params(origin), flatten_params(ref_pt), scale, copy)
 
         return self._ApplyTypes_(587, 1, (VT_VARIANT, 0), magic, u"ShearObject", None, *flattened)
 
