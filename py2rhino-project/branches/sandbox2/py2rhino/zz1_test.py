@@ -3,6 +3,11 @@ import py2rhino as p2r
 
 
 
+
+########error: u'Type mismatch in parameter. Float required.#################
+#arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
+#arc1.defm.shear((0,0,0), (10,0,0),45.0)
+#############################################################################
 ####name should be sphere_definition, not cyclinder_definition###############
 #sphere1 = p2r.Sphere.create((0,0,0), 10)
 #print sphere1.prop.cylinder_definition()
@@ -47,6 +52,11 @@ import py2rhino as p2r
 #arc1 = p2r.Arc.create((0,0,0), 5, 90)
 #arc2 = p2r.Arc.create((10,0,0), 5, 90)
 #print arc1.stat.match_object_attributes(arc2)
+
+#circle1 = p2r.Circle.create((0,0,0), 10)
+#circle2 = p2r.Circle.create((0,0,0), 10)
+#print circle1
+#print p2r.NurbsSurface.create_by_sweep_1(circle2, circle1)
 ###########################################################################################################
 
 
