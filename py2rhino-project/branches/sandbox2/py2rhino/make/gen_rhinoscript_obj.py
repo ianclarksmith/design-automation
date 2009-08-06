@@ -189,8 +189,8 @@ def write_rhinoscript_classes(data_dict):
                 
         #if this is a constructor or a class method, make it a class method  
         if method_type in ('CONSTRUCTOR', 'CLASS_METHOD'):
-            w(f, '@classmethod', tabs=1, nls=1, nle=0)
-            self_or_cls = 'cls'
+            w(f, '@staticmethod', tabs=1, nls=1, nle=0)
+            self_or_cls = None #'cls'
         else:
             self_or_cls = 'self'
             
@@ -212,11 +212,20 @@ def write_rhinoscript_classes(data_dict):
                     params.append(param_str)
             if len(params) > 0:
                 params = ', '.join(params)
-                w(f, ('(',self_or_cls,', ', params, '):'), tabs=0, nle=1)
+                if self_or_cls:
+                    w(f, ('(',self_or_cls,', ', params, '):'), tabs=0, nle=1)
+                else:
+                    w(f, ('(', params, '):'), tabs=0, nle=1)
             else:
-                w(f, ('(',self_or_cls, '):'), tabs=0, nle=1)
+                if self_or_cls:
+                    w(f, ('(',self_or_cls, '):'), tabs=0, nle=1)
+                else:
+                    w(f, '():', tabs=0, nle=1)
         else:
-            w(f, ('(',self_or_cls,'):'), tabs=0, nle=1)
+            if self_or_cls:
+                w(f, ('(',self_or_cls,'):'), tabs=0, nle=1)
+            else:
+                w(f, '():', tabs=0, nle=1)
         
         #TODO: write the documentation
         w(f, '"""', tabs=2)

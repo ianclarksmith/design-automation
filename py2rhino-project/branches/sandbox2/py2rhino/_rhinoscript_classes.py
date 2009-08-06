@@ -1918,8 +1918,8 @@ class Arc(_CurveRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Arc)
         self.util = _ObjectRootUtil(_rhino_id, Arc)
 
-    @classmethod
-    def create(cls, plane, radius, angle):
+    @staticmethod
+    def create(plane, radius, angle):
         """
         For help, look up the Rhinoscript function: AddArc
         """
@@ -1931,8 +1931,8 @@ class Arc(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_3pt(cls, start, end, point):
+    @staticmethod
+    def create_by_3pt(start, end, point):
         """
         For help, look up the Rhinoscript function: AddArc3Pt
         """
@@ -1944,8 +1944,8 @@ class Arc(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_fillet(cls, curve_0, curve_1, radius=pythoncom.Empty, point_0=pythoncom.Empty, point_1=pythoncom.Empty):
+    @staticmethod
+    def create_by_fillet(curve_0, curve_1, radius=pythoncom.Empty, point_0=pythoncom.Empty, point_1=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddFilletCurve
         """
@@ -1980,8 +1980,8 @@ class Box(_SurfaceRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Box)
         self.util = _ObjectRootUtil(_rhino_id, Box)
 
-    @classmethod
-    def create(cls, corners):
+    @staticmethod
+    def create(corners):
         """
         For help, look up the Rhinoscript function: AddBox
         """
@@ -2015,8 +2015,8 @@ class Circle(_CurveRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Circle)
         self.util = _ObjectRootUtil(_rhino_id, Circle)
 
-    @classmethod
-    def create(cls, plane, radius):
+    @staticmethod
+    def create(plane, radius):
         """
         For help, look up the Rhinoscript function: AddCircle
         """
@@ -2028,8 +2028,8 @@ class Circle(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_3pt(cls, first, second, third):
+    @staticmethod
+    def create_by_3pt(first, second, third):
         """
         For help, look up the Rhinoscript function: AddCircle3Pt
         """
@@ -2064,8 +2064,8 @@ class Cone(_SurfaceRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Cone)
         self.util = _ObjectRootUtil(_rhino_id, Cone)
 
-    @classmethod
-    def create(cls, base, height, radius, cap=pythoncom.Empty):
+    @staticmethod
+    def create(base, height, radius, cap=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddCone
         """
@@ -2077,8 +2077,8 @@ class Cone(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_plane(cls, plane, height, radius, cap=pythoncom.Empty):
+    @staticmethod
+    def create_by_plane(plane, height, radius, cap=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddCone2
         """
@@ -2113,8 +2113,8 @@ class Cylinder(_SurfaceRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Cylinder)
         self.util = _ObjectRootUtil(_rhino_id, Cylinder)
 
-    @classmethod
-    def create(cls, base, height, radius, cap=pythoncom.Empty):
+    @staticmethod
+    def create(base, height, radius, cap=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddCylinder
         """
@@ -2126,8 +2126,8 @@ class Cylinder(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_plane(cls, plane, height, radius, cap=pythoncom.Empty):
+    @staticmethod
+    def create_by_plane(plane, height, radius, cap=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddCylinder2
         """
@@ -2161,8 +2161,8 @@ class Ellipse(_CurveRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Ellipse)
         self.util = _ObjectRootUtil(_rhino_id, Ellipse)
 
-    @classmethod
-    def create(cls, plane, x_radius, y_radius):
+    @staticmethod
+    def create(plane, x_radius, y_radius):
         """
         For help, look up the Rhinoscript function: AddEllipse
         """
@@ -2174,8 +2174,8 @@ class Ellipse(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_3pt(cls, center, second, third):
+    @staticmethod
+    def create_by_3pt(center, second, third):
         """
         For help, look up the Rhinoscript function: AddEllipse3Pt
         """
@@ -2253,8 +2253,8 @@ class Line(_CurveRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Line)
         self.util = _ObjectRootUtil(_rhino_id, Line)
 
-    @classmethod
-    def create(cls, start, end):
+    @staticmethod
+    def create(start, end):
         """
         For help, look up the Rhinoscript function: AddLine
         """
@@ -2288,8 +2288,8 @@ class NurbsCurve(_CurveRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, NurbsCurve)
         self.util = _ObjectRootUtil(_rhino_id, NurbsCurve)
 
-    @classmethod
-    def create_by_pnts(cls, points, degree=pythoncom.Empty):
+    @staticmethod
+    def create_by_pnts(points, degree=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddCurve
         """
@@ -2301,8 +2301,8 @@ class NurbsCurve(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_interp_crv_on_srf(cls, surface, points):
+    @staticmethod
+    def create_interp_crv_on_srf(surface, points):
         """
         For help, look up the Rhinoscript function: AddInterpCrvOnSrf
         """
@@ -2314,8 +2314,8 @@ class NurbsCurve(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_interp_crv_on_srf_uv(cls, surface, points):
+    @staticmethod
+    def create_interp_crv_on_srf_uv(surface, points):
         """
         For help, look up the Rhinoscript function: AddInterpCrvOnSrfUV
         """
@@ -2327,8 +2327,8 @@ class NurbsCurve(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_interp_crv(cls, points, degree=pythoncom.Empty, knot_style=pythoncom.Empty, start_tan=pythoncom.Empty, end_tan=pythoncom.Empty):
+    @staticmethod
+    def create_interp_crv(points, degree=pythoncom.Empty, knot_style=pythoncom.Empty, start_tan=pythoncom.Empty, end_tan=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddInterpCurve
         """
@@ -2340,8 +2340,8 @@ class NurbsCurve(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_interp_crv_ex(cls, points, degree=pythoncom.Empty, knot_style=pythoncom.Empty, sharp=pythoncom.Empty, start_tangent=pythoncom.Empty, end_tangent=pythoncom.Empty):
+    @staticmethod
+    def create_interp_crv_ex(points, degree=pythoncom.Empty, knot_style=pythoncom.Empty, sharp=pythoncom.Empty, start_tangent=pythoncom.Empty, end_tangent=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddInterpCurveEx
         """
@@ -2353,8 +2353,8 @@ class NurbsCurve(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create(cls, points, knots, degree, weights=pythoncom.Empty):
+    @staticmethod
+    def create(points, knots, degree, weights=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddNurbsCurve
         """
@@ -2366,8 +2366,8 @@ class NurbsCurve(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_srf_contour(cls, surface, start_point, end_point, interval=pythoncom.Empty):
+    @staticmethod
+    def create_by_srf_contour(surface, start_point, end_point, interval=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddSrfContourCrvs
         """
@@ -2378,8 +2378,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_srf_contour_cut_plane(cls, surface, plane, interval=pythoncom.Empty):
+    @staticmethod
+    def create_by_srf_contour_cut_plane(surface, plane, interval=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddSrfContourCrvs2
         """
@@ -2390,8 +2390,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_srf_section(cls, surface, plane):
+    @staticmethod
+    def create_by_srf_section(surface, plane):
         """
         For help, look up the Rhinoscript function: AddSrfSectionCrvs
         """
@@ -2402,8 +2402,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_srf_edge(cls, surface, select=pythoncom.Empty):
+    @staticmethod
+    def create_by_srf_edge(surface, select=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: DuplicateEdgeCurves
         """
@@ -2414,8 +2414,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_srf_border(cls, surface):
+    @staticmethod
+    def create_by_srf_border(surface):
         """
         For help, look up the Rhinoscript function: DuplicateSurfaceBorder
         """
@@ -2426,8 +2426,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_srf_iso_curve(cls, surface, parameter, dir):
+    @staticmethod
+    def create_by_srf_iso_curve(surface, parameter, dir):
         """
         For help, look up the Rhinoscript function: ExtractIsoCurve
         """
@@ -2438,8 +2438,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_projection_to_mesh(cls, curves, meshes, direction):
+    @staticmethod
+    def create_by_projection_to_mesh(curves, meshes, direction):
         """
         For help, look up the Rhinoscript function: ProjectCurveToMesh
         """
@@ -2450,8 +2450,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_projection_to_srf(cls, curve, surfaces, direction):
+    @staticmethod
+    def create_by_projection_to_srf(curve, surfaces, direction):
         """
         For help, look up the Rhinoscript function: ProjectCurveToSurface
         """
@@ -2462,8 +2462,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_srf_pull(cls, surface, curve, delete=pythoncom.Empty):
+    @staticmethod
+    def create_by_srf_pull(surface, curve, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: PullCurve
         """
@@ -2474,8 +2474,8 @@ class NurbsCurve(_CurveRoot):
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_srf_short_path(cls, surface, start, end):
+    @staticmethod
+    def create_by_srf_short_path(surface, start, end):
         """
         For help, look up the Rhinoscript function: ShortPath
         """
@@ -2487,8 +2487,8 @@ class NurbsCurve(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_srf_principal_curvature(cls, surface, point):
+    @staticmethod
+    def create_by_srf_principal_curvature(surface, point):
         """
         For help, look up the Rhinoscript function: SurfacePrincipalCurvature
         """
@@ -2522,8 +2522,8 @@ class NurbsSurface(_SurfaceRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, NurbsSurface)
         self.util = _ObjectRootUtil(_rhino_id, NurbsSurface)
 
-    @classmethod
-    def create_by_cut_plane(cls, objects, start_point, end_point, normal=pythoncom.Empty):
+    @staticmethod
+    def create_by_cut_plane(objects, start_point, end_point, normal=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddCutPlane
         """
@@ -2535,8 +2535,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_edge(cls, objects):
+    @staticmethod
+    def create_by_edge(objects):
         """
         For help, look up the Rhinoscript function: AddEdgeSrf
         """
@@ -2548,8 +2548,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_loft(cls, objects, start_pt=pythoncom.Empty, end_pt=pythoncom.Empty, type=pythoncom.Empty, style=pythoncom.Empty, value=pythoncom.Empty, closed=pythoncom.Empty):
+    @staticmethod
+    def create_by_loft(objects, start_pt=pythoncom.Empty, end_pt=pythoncom.Empty, type=pythoncom.Empty, style=pythoncom.Empty, value=pythoncom.Empty, closed=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddLoftSrf
         """
@@ -2561,8 +2561,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create(cls, point_count, points, knots_u, knots_v, degree, weights):
+    @staticmethod
+    def create(point_count, points, knots_u, knots_v, degree, weights):
         """
         For help, look up the Rhinoscript function: AddNurbsSurface
         """
@@ -2574,8 +2574,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_planar_crv(cls, objects):
+    @staticmethod
+    def create_by_planar_crv(objects):
         """
         For help, look up the Rhinoscript function: AddPlanarSrf
         """
@@ -2586,8 +2586,8 @@ class NurbsSurface(_SurfaceRoot):
         return map(lambda i: NurbsSurface(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_rail_rev(cls, profile, rail, axis):
+    @staticmethod
+    def create_by_rail_rev(profile, rail, axis):
         """
         For help, look up the Rhinoscript function: AddRailRevSrf
         """
@@ -2599,8 +2599,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_rev(cls, profile, axis, start_angle=pythoncom.Empty, end_angle=pythoncom.Empty):
+    @staticmethod
+    def create_by_rev(profile, axis, start_angle=pythoncom.Empty, end_angle=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddRevSrf
         """
@@ -2612,8 +2612,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_control_pt_grid(cls, count, points, degree=pythoncom.Empty):
+    @staticmethod
+    def create_by_control_pt_grid(count, points, degree=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddSrfControlPtGrid
         """
@@ -2625,8 +2625,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_corner_pts(cls, points):
+    @staticmethod
+    def create_by_corner_pts(points):
         """
         For help, look up the Rhinoscript function: AddSrfPt
         """
@@ -2638,8 +2638,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_pt_grid(cls, count, points, degree=pythoncom.Empty, closed=pythoncom.Empty):
+    @staticmethod
+    def create_by_pt_grid(count, points, degree=pythoncom.Empty, closed=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddSrfPtGrid
         """
@@ -2651,8 +2651,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_sweep_1(cls, rail, shapes, start_pt=pythoncom.Empty, end_pt=pythoncom.Empty, closed=pythoncom.Empty, style=pythoncom.Empty, style_arg=pythoncom.Empty, simplify=pythoncom.Empty, simplify_arg=pythoncom.Empty):
+    @staticmethod
+    def create_by_sweep_1(rail, shapes, start_pt=pythoncom.Empty, end_pt=pythoncom.Empty, closed=pythoncom.Empty, style=pythoncom.Empty, style_arg=pythoncom.Empty, simplify=pythoncom.Empty, simplify_arg=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddSweep1
         """
@@ -2663,8 +2663,8 @@ class NurbsSurface(_SurfaceRoot):
         return map(lambda i: NurbsSurface(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_sweep_2(cls, rails, shapes, start_pt=pythoncom.Empty, end_pt=pythoncom.Empty, closed=pythoncom.Empty, simple_sweep=pythoncom.Empty, maintain_height=pythoncom.Empty, simplify=pythoncom.Empty, simplify_arg=pythoncom.Empty):
+    @staticmethod
+    def create_by_sweep_2(rails, shapes, start_pt=pythoncom.Empty, end_pt=pythoncom.Empty, closed=pythoncom.Empty, simple_sweep=pythoncom.Empty, maintain_height=pythoncom.Empty, simplify=pythoncom.Empty, simplify_arg=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddSweep2
         """
@@ -2675,8 +2675,8 @@ class NurbsSurface(_SurfaceRoot):
         return map(lambda i: NurbsSurface(i), _rhino_id)
 
 
-    @classmethod
-    def create_by_extrude_crv(cls, curve, path):
+    @staticmethod
+    def create_by_extrude_crv(curve, path):
         """
         For help, look up the Rhinoscript function: ExtrudeCurve
         """
@@ -2688,8 +2688,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_extrude_crv_pnt(cls, curve, point):
+    @staticmethod
+    def create_by_extrude_crv_pnt(curve, point):
         """
         For help, look up the Rhinoscript function: ExtrudeCurvePoint
         """
@@ -2701,8 +2701,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_extrude_crv_straight(cls, curve, start_point, end_point):
+    @staticmethod
+    def create_by_extrude_crv_straight(curve, start_point, end_point):
         """
         For help, look up the Rhinoscript function: ExtrudeCurveStraight
         """
@@ -2714,8 +2714,8 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_extrude_crv_tapered(cls, curve, distance, direction, base_point, angle, corner_type=pythoncom.Empty):
+    @staticmethod
+    def create_by_extrude_crv_tapered(curve, distance, direction, base_point, angle, corner_type=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: ExtrudeCurveTapered
         """
@@ -2749,8 +2749,8 @@ class PlaneSurface(_SurfaceRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, PlaneSurface)
         self.util = _ObjectRootUtil(_rhino_id, PlaneSurface)
 
-    @classmethod
-    def create(cls, plane, d_u, d_v):
+    @staticmethod
+    def create(plane, d_u, d_v):
         """
         For help, look up the Rhinoscript function: AddPlaneSurface
         """
@@ -2784,8 +2784,8 @@ class PolySurface(_SurfaceRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, PolySurface)
         self.util = _ObjectRootUtil(_rhino_id, PolySurface)
 
-    @classmethod
-    def create_by_srf_extrude(cls, surface, curve, cap=pythoncom.Empty):
+    @staticmethod
+    def create_by_srf_extrude(surface, curve, cap=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: ExtrudeSurface
         """
@@ -2797,8 +2797,8 @@ class PolySurface(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_srf_join(cls, surfaces, delete=pythoncom.Empty):
+    @staticmethod
+    def create_by_srf_join(surfaces, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: JoinSurfaces
         """
@@ -2832,8 +2832,8 @@ class Polyline(_CurveRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Polyline)
         self.util = _ObjectRootUtil(_rhino_id, Polyline)
 
-    @classmethod
-    def create(cls, points):
+    @staticmethod
+    def create(points):
         """
         For help, look up the Rhinoscript function: AddPolyline
         """
@@ -2845,8 +2845,8 @@ class Polyline(_CurveRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_crv(cls, curve, angle_tolerance=pythoncom.Empty, tolerance=pythoncom.Empty, delete_input=pythoncom.Empty):
+    @staticmethod
+    def create_by_crv(curve, angle_tolerance=pythoncom.Empty, tolerance=pythoncom.Empty, delete_input=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: ConvertCurveToPolyline
         """
@@ -2881,8 +2881,8 @@ class Sphere(_SurfaceRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Sphere)
         self.util = _ObjectRootUtil(_rhino_id, Sphere)
 
-    @classmethod
-    def create(cls, center, radius):
+    @staticmethod
+    def create(center, radius):
         """
         For help, look up the Rhinoscript function: AddSphere
         """
@@ -2894,8 +2894,8 @@ class Sphere(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_plane(cls, center, radius):
+    @staticmethod
+    def create_by_plane(center, radius):
         """
         For help, look up the Rhinoscript function: AddSphere2
         """
@@ -2930,8 +2930,8 @@ class Torus(_SurfaceRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, Torus)
         self.util = _ObjectRootUtil(_rhino_id, Torus)
 
-    @classmethod
-    def create(cls, base, major_radius, minor_radius, direction=pythoncom.Empty):
+    @staticmethod
+    def create(base, major_radius, minor_radius, direction=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddTorus
         """
@@ -2943,8 +2943,8 @@ class Torus(_SurfaceRoot):
         else:
             return None
 
-    @classmethod
-    def create_by_plane(cls, plane, major_radius, minor_radius):
+    @staticmethod
+    def create_by_plane(plane, major_radius, minor_radius):
         """
         For help, look up the Rhinoscript function: AddTorus2
         """

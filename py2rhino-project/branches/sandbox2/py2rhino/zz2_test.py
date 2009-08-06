@@ -31,7 +31,8 @@ pl = ((30,0,0), (10,0,0), (0,10,0))
 c1 = p2r.Circle.create(pl, 10)
 c2 = p2r.Circle.create(pl, 10)
 c2.trfm.move_by_vec((5,0,0))
-c1.func.boolean_intersection([c2])
+
+#c1.func.boolean_intersection([c2])
 
 
 """
