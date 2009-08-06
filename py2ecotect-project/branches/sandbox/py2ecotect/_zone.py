@@ -1972,7 +1972,7 @@ class Zone(object):
             prev_id = object_id
             objects = []
             while (object_id != -1):
-                objects.append(p2e.model._objects[object_id])
+                objects.append(p2e._model._objects[object_id])
                 object_id = self.get_next_object(prev_id, -1, -1, -1)
                 prev_id = object_id
             return objects
