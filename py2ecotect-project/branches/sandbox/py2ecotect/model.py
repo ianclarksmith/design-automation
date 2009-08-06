@@ -434,7 +434,7 @@ class Model(object):
         val = p2e.conversation.Request("get.model.date")
         return p2e._util._convert_str_to_list(val, int)  
     
-    def set_date(self, day, month, time=None):
+    def set_date(self, day, month, time = None):
         """
         
         Sets the date in the ECOTECT model. 
@@ -544,7 +544,7 @@ class Model(object):
         val = p2e.conversation.Request("get.model.dayoftheyear")
         return p2e._util._convert_str_to_type(val, int)  
     
-    def set_day_of_the_year(self, day, time=None):
+    def set_day_of_the_year(self, day, time = None):
         """
         
         Sets the current date using the julian date format. 
@@ -1016,45 +1016,48 @@ class Model(object):
         val = p2e.conversation.Request(args)
         return p2e._util._convert_str_to_type(val, float)        
     
-    def get_origin(self):
-        """
+    @apply
+    def origin():
+        def fget(self):
+            """
+            
+            Retrieves the location of the Transformation Origin. This is a dynamic 
+            point about which objects are rotated, scaled or mirrored. 
+            
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            Represents the absolute position in the X, Y and Z axis of a point in 3 
+            dimensional model space.
+             
+            """
+            val = p2e.conversation.Request("get.model.origin")
+            return p2e.p2e._util._convert_str_to_list(val, float)
         
-        Retrieves the location of the Transformation Origin. This is a dynamic 
-        point about which objects are rotated, scaled or mirrored. 
+        def fset(self, absolute_position):
+            """
+            
+            Sets the location of the Transformation Origin. This is a dynamic point 
+            about which objects are rotated, scaled or mirrored. 
+            
+            Parameter(s)
+            This property takes the following parameters.
+            
+            absolute_position 
+            A list of three values that represent the absolute position in the 
+            X, Y and Z axis of a point in 3 dimensional model space. 
         
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a point in 3 
-        dimensional model space.
-         
-        """
-        val = p2e.conversation.Request("get.model.origin")
-        return p2e.p2e._util._convert_str_to_list(val, float)
-    
-    def set_origin(self, absolute_position):
-        """
-        
-        Sets the location of the Transformation Origin. This is a dynamic point 
-        about which objects are rotated, scaled or mirrored. 
-        
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position 
-        A list of three values that represent the absolute position in the 
-        X, Y and Z axis of a point in 3 dimensional model space. 
-    
-        """
-        args = p2e._util._convert_args_to_string("set.model.origin", 
-                                                           absolute_position[0],
-                                                           absolute_position[1],
-                                                           absolute_position[2])
-        p2e.conversation.Exec(args)     
+            """
+            args = p2e._util._convert_args_to_string("set.model.origin", 
+                                                               absolute_position[0],
+                                                               absolute_position[1],
+                                                               absolute_position[2])
+            p2e.conversation.Exec(args)
+        return property(**locals())     
     
     @apply
     def path_name():

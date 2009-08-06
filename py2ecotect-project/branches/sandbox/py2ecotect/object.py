@@ -14,12 +14,12 @@ class _Object(object):
         #add the functions
         self.child = p2e.object._ObjectRootFncChild(object_eco_id)
         self.mnpl = p2e.object._ObjectRootFncMnpl(object_eco_id)
-        self.modf = p2e.object._ObjectRootFncModf(object_eco_id)
+        self.mdfy = p2e.object._ObjectRootFncMdfy(object_eco_id)
         self.mtrl = p2e.object._ObjectRootFncMtrl(object_eco_id)
         self.node = p2e.object._ObjectRootFncNode(object_eco_id)
         self.prop = p2e.object._ObjectRootFncProp(object_eco_id)
         self.stat = p2e.object._ObjectRootFncStat(object_eco_id)
-        self.trns = p2e.object._ObjectRootFncTrns(object_eco_id)
+        self.trfm = p2e.object._ObjectRootFncTrfm(object_eco_id)
         
         if points == None:
             #add exisiting nodes
@@ -38,13 +38,11 @@ class _Object(object):
                     #raise Exception
             self.done() 
 
-        
-
-        
     #===========================================================================
     # Methods that affect relationships between objects
     #===========================================================================
-    @classmethod
+    #@classmethod
+    """
     def _create_object_from_id(cls, object_eco_id):
         
         #create the object
@@ -54,8 +52,6 @@ class _Object(object):
         p2e.model._objects.append(obj)
         #assert obj.eco_id == object_eco_id
         
-
-        
         #update model nodes lists
         for node_num in range(obj.node.first_node, obj.node.last_node):
             p2e.Node._create_node_from_id(obj, node_num)
@@ -64,8 +60,8 @@ class _Object(object):
         return obj
     
         #update object properties and lists
+    """
 
- 
     @classmethod
     def _gen_object(cls, elemType, objType, selected = True, link = 0):  
         """
@@ -158,15 +154,18 @@ class _Object(object):
         There are no parameters for this command.
         
         """
+        #Delete nodes of this object
+        nodes = self.node.nodes
+        
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delete", self.eco_id)
         p2e.conversation.Exec(arg_str)
         
         #Delete nodes of this object
-        nodes = self.nodes
+        nodes = self.node.nodes
         for i in nodes:
-            i.delete()
-            
+            pass
+        
         #Update model lists
         p2e.model._objects.remove(self)
         
@@ -385,7 +384,7 @@ class _Object(object):
             
         return property(**locals())
 
-class _ObjectRootFncTrns(object):
+class _ObjectRootFncTrfm(object):
     
     def __init__(self, id):
         self._eco_id = id
@@ -640,7 +639,7 @@ class _ObjectRootFncTrns(object):
                                                           function_values[2])
         p2e.conversation.Exec(arg_str)
     
-class _ObjectRootFncModf(object):
+class _ObjectRootFncMdfy(object):
     
     def __init__(self, id):
         self._eco_id = id
@@ -661,7 +660,7 @@ class _ObjectRootFncModf(object):
     # Commands
     #===========================================================================
     
-    def link(self, parent):
+    def link(self, child):
         """
         
         This command link two objects together to create a parent-child 
@@ -670,13 +669,13 @@ class _ObjectRootFncModf(object):
         Parameter(s)
         This command takes the following parameters.
         
-        parent 
-        Specifies the object the child object is linked with.
+        child 
+        Specifies the object the parent object is linked with.
         
         """
         arg_str = p2e._util._convert_args_to_string("object.link", 
                                                           self.eco_id, 
-                                                          parent.eco_id)
+                                                          child.eco_id)
         p2e.conversation.Exec(arg_str)
         
     def normal_move(self, type):
@@ -3090,7 +3089,7 @@ class  Appliance(_Vector):
         failed. 
         
         """        
-        eco_id = Appliance._gen_object("appliance", "")
+        eco_id = Appliance._gen_object("appliance", "zone")
         if id == -1: return None
         return Appliance(eco_id, points)
 
@@ -3116,7 +3115,7 @@ class  SolarCollector(_Vector):
         failed. 
         
         """        
-        eco_id = SolarCollector._gen_object("solarcollector", "")
+        eco_id = SolarCollector._gen_object("solarcollector", "zone")
         if id == -1: return None
         return SolarCollector(eco_id, points)
 
@@ -3142,7 +3141,7 @@ class  Camera(_Vector):
         failed. 
         
         """        
-        eco_id = Camera._gen_object("camera", "")
+        eco_id = Camera._gen_object("camera", "zone")
         if id == -1: return None
         return Camera(eco_id, points)
 

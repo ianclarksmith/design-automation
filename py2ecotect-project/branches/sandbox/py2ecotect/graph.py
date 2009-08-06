@@ -910,16 +910,3 @@ class Graph(object):
         
         return property(**locals())
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

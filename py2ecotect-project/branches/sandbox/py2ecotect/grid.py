@@ -793,7 +793,7 @@ class Grid(object):
         val = p2e.conversation.Request("get.grid.scale")
         return p2e._util._convert_str_to_list(val, float, float, float)
 
-    def set_scale(self,min, max, inc):
+    def set_scale(self, min, max, inc):
         """
         
         Sets the scale range values used to colour the grid and define the 
@@ -816,48 +816,51 @@ class Grid(object):
                                                       min, max, inc)
         p2e.conversation.Exec(arg_str)
 
-    def get_size(self):
-        """
-        
-        Retrieves the number of cells within the current analysis grid, for each 
-        of its axes. Three integer values are returned, being the x, y and z 
-        grid cell values. If the z value returns as 0, this means that the 
-        current analysis grid is not configured as a 3D analysis grid. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        ix, jy, kz 
-        The number of grid cells in each of the X, Y and Z axis directions. 
-
-        """
-        val = p2e.conversation.Request("get.grid.size")
-        return p2e._util._convert_str_to_list(val, int, int, int)
-
-    def set_size(self, grid_cells):
-        """
-        
-        Sets the number of cells to use with the current analysis grid, for each 
-        of its axes. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        grid_cells 
-        A list of three values that represent that define the number of grid 
-        cells to create in each of the X, Y and Z axis directions of the 
-        analysis grid. If Z axis is not specified, the analysis grid becomes a 
-        2D analysis grid.
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.grid.size", 
-                                                      grid_cells[0],
-                                                      grid_cells[1],
-                                                      grid_cells[2])
-        p2e.conversation.Exec(arg_str)
+    @apply
+    def size():
+        def fget(self):
+            """
+            
+            Retrieves the number of cells within the current analysis grid, for each 
+            of its axes. Three integer values are returned, being the x, y and z 
+            grid cell values. If the z value returns as 0, this means that the 
+            current analysis grid is not configured as a 3D analysis grid. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            ix, jy, kz 
+            The number of grid cells in each of the X, Y and Z axis directions. 
+    
+            """
+            val = p2e.conversation.Request("get.grid.size")
+            return p2e._util._convert_str_to_list(val, int, int, int)
+    
+        def fset(self, grid_cells):
+            """
+            
+            Sets the number of cells to use with the current analysis grid, for each 
+            of its axes. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            grid_cells 
+            A list of three values that represent that define the number of grid 
+            cells to create in each of the X, Y and Z axis directions of the 
+            analysis grid. If Z axis is not specified, the analysis grid becomes a 
+            2D analysis grid.
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.grid.size", 
+                                                          grid_cells[0],
+                                                          grid_cells[1],
+                                                          grid_cells[2])
+            p2e.conversation.Exec(arg_str)
+        return property(**locals())
 
     def get_state(self, position):
         """
@@ -1127,10 +1130,3 @@ class Grid(object):
                                                       axis, draw)
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
-
-    
-    
-    
-    
-    
-    

@@ -13,8 +13,7 @@ class Node(object):
         #update model nodes lists
         p2e.model._nodes.append(self)
         assert self.eco_id == node_eco_id
-        
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+          
     @classmethod
     def _gen_node(cls, object, index, point, nodeType = 0, link = 0):
         """
@@ -77,7 +76,7 @@ class Node(object):
         eco_id = p2e._util._convert_str_to_type(val, int)
         
         return eco_id
-    #---------------------------------------------------------------------------
+    
     def delete(self, node_index = 0):
         
         """
@@ -92,7 +91,6 @@ class Node(object):
         node. Default value is 0.
         
         """
-        
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delnode", 
                                             self._object.eco_id, node_index)
@@ -102,7 +100,8 @@ class Node(object):
         p2e.model._nodes.remove(self)
         
         #set object to none
-        _object = None
+        self._object.done()
+        self._object = None
     
     #===========================================================================
     # Properties that affect relationships between things
