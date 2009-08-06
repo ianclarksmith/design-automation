@@ -5,26 +5,23 @@ import py2ecotect as p2e
 #point_1 = Point.create(points)
 
 points = [(0,0,0),(10000,0,0),(10000,0,10000),(0,0,10000)]
-wl = p2e.Wall.create(points)
+wall = p2e.Wall.create(points)
 
-points = [(1000,5000,1000),(10000,0,1000),(10000,0,10000),(1000,-5000,10000)]
-wn = p2e.Window.create(points)
-wn.trfm.scale([0.5,0.5,0.5])
-#wl.modf.link(wn)
+#points = [(1000,5000,1000),(10000,0,1000),(10000,0,10000),(1000,-5000,10000)]
+#wn = p2e.Window.create(points)
+#wn.trfm.scale([0.5,0.5,0.5])
+#wl.mdfy.link(wn)
 #wn.child.set_child_extents(1000,1000,0.5,0.8)
 
-"""
-nds = floor.node.nodes
+v = p2e.View()
+v.redraw()
 
-nds[0].delete()
-nds[1].delete()
-nds[2].delete()
-nds[3].delete()
-print nds
+print wall.node.nodes
+time.sleep(2)
 
-"""
-
-#floor.delete()
+wall.delete()
+v.redraw()
+print wall.node.nodes
 
 #points = [(13600,5300,450)]
 #point_2 = Point.create(points)

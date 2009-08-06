@@ -154,17 +154,15 @@ class _Object(object):
         There are no parameters for this command.
         
         """
-        #Delete nodes of this object
         nodes = self.node.nodes
         
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delete", self.eco_id)
         p2e.conversation.Exec(arg_str)
         
-        #Delete nodes of this object
-        nodes = self.node.nodes
+         #Delete nodes of this object
         for i in nodes:
-            pass
+            p2e.model._nodes.remove(i)
         
         #Update model lists
         p2e.model._objects.remove(self)
