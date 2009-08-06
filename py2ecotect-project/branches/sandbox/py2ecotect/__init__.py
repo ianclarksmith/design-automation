@@ -26,55 +26,55 @@ print "Connection with Ecotect successful..."
 # Import classes
 #===============================================================================
 
-from object import _Object
-from object import Point
-from object import Line
-from object import Roof
-from object import Floor
-from object import Ceiling
-from object import Wall
-from object import Partition
-from object import Void
-from object import Window
-from object import Panel
-from object import Door
-from object import Speaker
-from object import Light
-from object import Appliance
-from object import SolarCollector
-from object import Camera
+from _object import _Object
+from _object import Point
+from _object import Line
+from _object import Roof
+from _object import Floor
+from _object import Ceiling
+from _object import Wall
+from _object import Partition
+from _object import Void
+from _object import Window
+from _object import Panel
+from _object import Door
+from _object import Speaker
+from _object import Light
+from _object import Appliance
+from _object import SolarCollector
+from _object import Camera
 
-from application import Application
-from attribute import Attribute
-from calculation import Calculation
-from graph import Graph
-from grid import Grid
-from grid3d import Grid3D
-from masks import Masks
-from material import Material
-from model import Model
-from movie import Movie
-from node import Node
-from project_data import Project_Data
-from project import Project
-from radiance import Radiance
-from ray import Ray
-from rays import Rays
-from results import Results
-from schedule import Schedule
-from select import Select 
-from selection import Selection
-from shading import Shading
-from sunpath import Sunpath
-from timer import Timer
-from view import View 
-from weather import Weather
-from zone import Zone 
+from _application import Application
+from _attribute import Attribute
+from _calculation import Calculation
+from _graph import Graph
+from _grid import Grid
+from _grid3d import Grid3D
+from _masks import Masks
+from _material import Material
+from _model import Model
+from _movie import Movie
+from _node import Node
+from _project_data import Project_Data
+from _project import Project
+from _radiance import Radiance
+from _ray import Ray
+from _rays import Rays
+from _results import Results
+from _schedule import Schedule
+from _select import Select 
+from _selection import Selection
+from _shading import Shading
+from _sunpath import Sunpath
+from _timer import Timer
+from _view import View 
+from _weather import Weather
+from _zone import Zone 
 
 import _util
 
 #===============================================================================
 # Populate the lists in the Model object
 #===============================================================================
-import model
-model._populate() 
+import _model
+_model._populate() 

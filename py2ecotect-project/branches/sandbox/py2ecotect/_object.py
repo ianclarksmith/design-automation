@@ -9,17 +9,17 @@ class _Object(object):
             raise Exception
         
         #update model lists
-        p2e.model._objects.append(self)  
+        p2e._model._objects.append(self)  
         
         #add the functions
-        self.child = p2e.object._ObjectRootFncChild(object_eco_id)
-        self.mnpl = p2e.object._ObjectRootFncMnpl(object_eco_id)
-        self.mdfy = p2e.object._ObjectRootFncMdfy(object_eco_id)
-        self.mtrl = p2e.object._ObjectRootFncMtrl(object_eco_id)
-        self.node = p2e.object._ObjectRootFncNode(object_eco_id)
-        self.prop = p2e.object._ObjectRootFncProp(object_eco_id)
-        self.stat = p2e.object._ObjectRootFncStat(object_eco_id)
-        self.trfm = p2e.object._ObjectRootFncTrfm(object_eco_id)
+        self.child = p2e._object._ObjectRootFncChild(object_eco_id)
+        self.mnpl = p2e._object._ObjectRootFncMnpl(object_eco_id)
+        self.mdfy = p2e._object._ObjectRootFncMdfy(object_eco_id)
+        self.mtrl = p2e._object._ObjectRootFncMtrl(object_eco_id)
+        self.node = p2e._object._ObjectRootFncNode(object_eco_id)
+        self.prop = p2e._object._ObjectRootFncProp(object_eco_id)
+        self.stat = p2e._object._ObjectRootFncStat(object_eco_id)
+        self.trfm = p2e._object._ObjectRootFncTrfm(object_eco_id)
         
         if points == None:
             #add exisiting nodes
@@ -142,10 +142,10 @@ class _Object(object):
         
          #Delete nodes of this object
         for i in nodes:
-            p2e.model._nodes.remove(i)
+            p2e._model._nodes.remove(i)
         
         #Update model lists
-        p2e.model._objects.remove(self)
+        p2e._model._objects.remove(self)
         
     #===========================================================================
     # Properties that affect relationships between objects
@@ -182,7 +182,7 @@ class _Object(object):
         object in each of the major axes.
         
         """
-        before_extrude_len = p2e.model.Model().number_of_objects
+        before_extrude_len = p2e._model.Model().number_of_objects
         
         arg_str = p2e._util._convert_args_to_string("object.extrude", 
                                                           self.eco_id, 
@@ -191,7 +191,7 @@ class _Object(object):
                                                           extrude_distance[2])
         p2e._app.Exec(arg_str)
         
-        after_extrude_len = p2e.model.Model().number_of_objects
+        after_extrude_len = p2e._model.Model().number_of_objects
         
         for eco_id in range(before_extrude_len, after_extrude_len):
             p2e._Object(eco_id, None)
@@ -226,13 +226,13 @@ class _Object(object):
         2 Around the Y axis. 
         
         """
-        before_extrude_len = p2e.model.Model().number_of_objects
+        before_extrude_len = p2e._model.Model().number_of_objects
         
         arg_str = p2e._util._convert_args_to_string("object.revolve", self.eco_id, 
                                                      axis, angle, segs)
         p2e._app.Exec(arg_str)
         
-        after_extrude_len = p2e.model.Model().number_of_objects
+        after_extrude_len = p2e._model.Model().number_of_objects
         
         for eco_id in range(before_extrude_len, after_extrude_len):
             p2e._Object(eco_id, None)
@@ -249,7 +249,7 @@ class _Object(object):
             Id of the object
         
             """
-            return p2e.model._objects.index(self)
+            return p2e._model._objects.index(self)
 
         return property(**locals())
 
@@ -2292,7 +2292,9 @@ class _ObjectRootFncNode(object):
     
     def add_node(self, point):
         #execute ecotect instruction
-        node = p2e.Node._create_node(self, self.number_of_nodes -1, point)
+        node_eco_id = p2e.Node._gen_node(self, self.number_of_nodes -1, point)
+        if node_eco_id != -1:
+            p2e.Node(self, node_eco_id)
         self.done()
         
     def del_node(self, node, node_index = 0):
@@ -2317,7 +2319,7 @@ class _ObjectRootFncNode(object):
         p2e._app.Exec(arg_str)
         
         #Update model lists
-        p2e.model._nodes.remove(node)
+        p2e._model._nodes.remove(node)
         
     #===========================================================================
     # Properties
@@ -2442,7 +2444,7 @@ class _ObjectRootFncNode(object):
             """
             nodes = []
             for node_num in range(self.first_node, self.last_node):
-                nodes.append(p2e.model._nodes[node_num])
+                nodes.append(p2e._model._nodes[node_num])
             return nodes
         
         return property(**locals())

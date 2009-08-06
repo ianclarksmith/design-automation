@@ -176,14 +176,12 @@ class Model(object):
         p2e._app.Exec(arg_str)
         
         #Clear model lists
-        self.zones = []
-        self.objects = []
-        self.nodes = []
+        self._zones = []
+        self._objects = []
+        self._nodes = []
         
         #Update the lists
-        self._populate_zones() 
-        self._populate_objects()
-        self._populate_nodes()
+        _populate() 
     
     def load_new(self):
         """   
@@ -200,12 +198,12 @@ class Model(object):
         model.new
         
         """
-        #p2e._app.Exec("model.new")
+        p2e._app.Exec("model.new")
         
         #Clear model lists
-        #self.zones = []
-        #self.objects = []
-        #self.nodes = []
+        self._zones = []
+        self._objects = []
+        self._nodes = []
          
     
     def revert(self):
