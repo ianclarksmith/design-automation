@@ -18,7 +18,7 @@ class Graph(object):
     
         """
         arg_str = p2e._util._convert_args_to_string("graph.copy", format)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def dock(self, docked = True):
         """
@@ -37,7 +37,7 @@ class Graph(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("graph.dock", docked)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw(self):
         """
@@ -66,7 +66,7 @@ class Graph(object):
         There are no parameters for this command.
     
         """
-        p2e.conversation.Exec("graph.draw")
+        p2e._app.Exec("graph.draw")
     
     def draw_arrow2d(self, offset, size = 0):
         """
@@ -88,7 +88,7 @@ class Graph(object):
         """
         arg_str = p2e._util._convert_args_to_string("graph.draw.arrow2d", 
                                                       x, y, size)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_arrowto(self, absolute_position, size = 0):
         """
@@ -113,7 +113,7 @@ class Graph(object):
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2], size)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_cross(self, absolute_position):
         """
@@ -134,7 +134,7 @@ class Graph(object):
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_line2d(self, offset):
         """
@@ -154,7 +154,7 @@ class Graph(object):
         arg_str = p2e._util._convert_args_to_string("graph.draw.line2d", 
                                                       offset[0],
                                                       offset[1])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_lineto(self, absolute_position):
         """
@@ -176,7 +176,7 @@ class Graph(object):
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_move2d(self, offset):
         """
@@ -196,7 +196,7 @@ class Graph(object):
         """
         arg_str = p2e._util._convert_args_to_string("graph.draw.move2d", 
                                                       offset[0], offset[1])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def draw_moveto(self, absolute_position):    
         """
@@ -218,7 +218,7 @@ class Graph(object):
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_pixel(self, absolute_position):
         """
@@ -238,7 +238,7 @@ class Graph(object):
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_point(self, absolute_position):
         """
@@ -259,7 +259,7 @@ class Graph(object):
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_sphere(self, absolute_position, radius):
         """
@@ -284,7 +284,7 @@ class Graph(object):
                                                       absolute_position[1], 
                                                       absolute_position[2], 
                                                       radius)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_text(self, absolute_position, text):
         """
@@ -328,7 +328,7 @@ class Graph(object):
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2], text)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def draw_text2d(self, offset, string):
         """
@@ -372,7 +372,7 @@ class Graph(object):
                                                       offset[0], 
                                                       offset[1], 
                                                       string)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def mouse_event(self, action, location):
         """
@@ -413,7 +413,7 @@ class Graph(object):
         arg_str = p2e._util._convert_args_to_string("graph.mouseevent", 
                                                       action, location[0], 
                                                       location[1])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def pan_down(self, shift = True):
         """
@@ -430,7 +430,7 @@ class Graph(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("graph.pandown", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def pan_left(self, shift = True):
         """
@@ -447,7 +447,7 @@ class Graph(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("graph.panleft", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def pan_right(self, shift = True):
         """
@@ -464,7 +464,7 @@ class Graph(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("graph.panright", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def pan_up(self, shift = True):
         """
@@ -481,7 +481,7 @@ class Graph(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("graph.panup", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def redraw(self):
         """
@@ -494,7 +494,7 @@ class Graph(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("graph.redraw")
+        p2e._app.Exec("graph.redraw")
     
     def save(self, filename):
         """
@@ -516,7 +516,7 @@ class Graph(object):
     
         """
         arg_str = p2e._util._convert_args_to_string("graph.save", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def save_bmp(self, filename):
         """
@@ -537,7 +537,7 @@ class Graph(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("graph.save.bmp", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
         
     def save_results(self, filename):
@@ -562,7 +562,7 @@ class Graph(object):
         """
         arg_str = p2e._util._convert_args_to_string("graph.save.results", 
                                                       filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def save_wmf(self, filename):
         """
@@ -583,7 +583,7 @@ class Graph(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("graph.save.wmf", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def show(self):
         """
@@ -595,7 +595,7 @@ class Graph(object):
         There are no parameters for this command.
     
         """
-        p2e.conversation.Exec("graph.show")
+        p2e._app.Exec("graph.show")
     
     def zoom_in(self, shift = True):
         """
@@ -611,7 +611,7 @@ class Graph(object):
     
         """
         arg_str = p2e._util._convert_args_to_string("graph.zoomin", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def zoom_out(self, shift = True):
         """
@@ -627,7 +627,7 @@ class Graph(object):
     
         """
         arg_str = p2e._util._convert_args_to_string("graph.zoomout", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -652,7 +652,7 @@ class Graph(object):
         The full name of the font type being used.
     
         """
-        val = p2e.conversation.Request("get.graph.font")
+        val = p2e._app.Request("get.graph.font")
         return p2e._util._convert_str_to_list(val, int, str)
     
     def set_font(self, size, name):
@@ -677,7 +677,7 @@ class Graph(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.graph.font", size, 
                                                       name)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_pen(self):
         """
@@ -698,7 +698,7 @@ class Graph(object):
         The thickness of the pen line in pixels. 
     
         """
-        val = p2e.conversation.Request("get.graph.pen")
+        val = p2e._app.Request("get.graph.pen")
         return p2e._util._convert_str_to_list(val, str, int)
     
     def set_pen(self, colour, width):
@@ -719,7 +719,7 @@ class Graph(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.graph.pen", colour, 
                                                       width)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_point(self, absolute_position):
         """
@@ -748,7 +748,7 @@ class Graph(object):
                                                       absolute_position[0], 
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, int, int)
     
     def get_pos(self):
@@ -776,7 +776,7 @@ class Graph(object):
         pixels.
         
         """
-        val = p2e.conversation.Request("get.graph.pos")
+        val = p2e._app.Request("get.graph.pos")
         return p2e._util._convert_str_to_list(val, int, int)
     
     def set_pos(self, left, top):
@@ -802,7 +802,7 @@ class Graph(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("set.graph.pos", left, top)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_size(self):
         """
@@ -824,7 +824,7 @@ class Graph(object):
         The height of the graph in pixels.
         
         """
-        val = p2e.conversation.Request("get.graph.size")
+        val = p2e._app.Request("get.graph.size")
         return p2e._util._convert_str_to_list(val, int, int)
     
     def set_size(self, width, height):
@@ -846,7 +846,7 @@ class Graph(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.graph.size", width, 
                                                       height)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def tab():
@@ -879,7 +879,7 @@ class Graph(object):
             5 Acoustic Response 
         
             """
-            val = p2e.conversation.Request("get.graph.tab")
+            val = p2e._app.Request("get.graph.tab")
             return p2e._util._convert_str_to_type(val, int)
         
         def fset(self, index):
@@ -906,7 +906,7 @@ class Graph(object):
         
             """
             arg_str = p2e._util._convert_args_to_string("set.graph.tab", index)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 

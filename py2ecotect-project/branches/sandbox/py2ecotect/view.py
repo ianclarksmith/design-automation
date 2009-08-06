@@ -20,7 +20,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.axonometric", azi)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def copy(self, format = ""):
         """
@@ -38,7 +38,7 @@ class View(object):
         """
         if len(format) != 0:
             format = "." + format
-        p2e.conversation.Exec("view.copy" + format)
+        p2e._app.Exec("view.copy" + format)
 
     def draw_arrow2d(self, offset, size = ""):
         """
@@ -62,7 +62,7 @@ class View(object):
                                                       offset[0],
                                                       offset[1], 
                                                       size)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_arrowto(self, absolute_position, size = ""):
         """
@@ -86,7 +86,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2], size)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_cross(self, absolute_position):
         """
@@ -106,7 +106,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_line2d(self, offset):
         """
@@ -126,7 +126,7 @@ class View(object):
         arg_str = p2e._util._convert_args_to_string("view.draw.line2d", 
                                                       offset[0],
                                                       offset[1])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_lineto(self, absolute_position):
         """
@@ -146,7 +146,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_move2d(self, offset):
         """
@@ -166,7 +166,7 @@ class View(object):
         arg_str = p2e._util._convert_args_to_string("view.draw.move2d", 
                                                       offset[0],
                                                       offset[1])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_moveto(self, absolute_position):
         """
@@ -186,7 +186,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_pixel(self, absolute_position):
         """
@@ -205,7 +205,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_point(self, absolute_position):
         """
@@ -225,7 +225,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_sphere(self, absolute_position, radius):
         """
@@ -248,7 +248,7 @@ class View(object):
                                                       absolute_position[1],
                                                       absolute_position[2], 
                                                       radius)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_text(self, absolute_position, text):
         """
@@ -271,7 +271,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2], text)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def draw_text2d(self, offset, string):
         """
@@ -295,7 +295,7 @@ class View(object):
                                                       offset[0],
                                                       offset[1], 
                                                       string)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def fit(self):
         """
@@ -307,7 +307,7 @@ class View(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("view.fit")
+        p2e._app.Exec("view.fit")
     
     def fit_grid(self):
         """
@@ -320,7 +320,7 @@ class View(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("view.fitgrid")
+        p2e._app.Exec("view.fitgrid")
 
     def front(self):
         """
@@ -331,7 +331,7 @@ class View(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("view.front")
+        p2e._app.Exec("view.front")
 
     def maximise(self):
         """
@@ -347,7 +347,7 @@ class View(object):
         if now specified.
         
         """
-        p2e.conversation.Exec("view.maximise")
+        p2e._app.Exec("view.maximise")
 
     def minimise(self):
         """
@@ -361,7 +361,7 @@ class View(object):
         This optional parameter determines whether the application is minimised (true), or restored to its previous state (false). Defaulting to true if now specified.
         
         """
-        p2e.conversation.Exec("view.minimise")
+        p2e._app.Exec("view.minimise")
 
     def mouse_event(self, action, position):
         """
@@ -402,7 +402,7 @@ class View(object):
         arg_str = p2e._util._convert_args_to_string("view.mouseevent", 
                                                       action, 
                                                       position[0], position[1])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def move_in(self, shift = False):
         """
@@ -418,7 +418,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.movein", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def move_out(self, shift = False):
         """
@@ -434,7 +434,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.moveout", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def pan_down(self, shift = False):
         """
@@ -450,7 +450,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.pandown", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def pan_left(self, shift = False):
         """
@@ -466,7 +466,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.panleft", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def pan_right(self, shift = False):
         """
@@ -482,7 +482,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.panright", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def pan_up(self, shift = False):
         """
@@ -498,7 +498,7 @@ class View(object):
   
         """
         arg_str = p2e._util._convert_args_to_string("view.panup", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def perspective(self):
         """
@@ -509,7 +509,7 @@ class View(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("view.perspective")
+        p2e._app.Exec("view.perspective")
 
     def plan(self):
         """
@@ -520,7 +520,7 @@ class View(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("view.plan")
+        p2e._app.Exec("view.plan")
 
     def redraw(self):
         """
@@ -531,7 +531,7 @@ class View(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("view.redraw")
+        p2e._app.Exec("view.redraw")
 
     def reset(self):
         """
@@ -542,7 +542,7 @@ class View(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("view.reset")
+        p2e._app.Exec("view.reset")
 
     def restore(self, index):
         """
@@ -557,7 +557,7 @@ class View(object):
         
         """ 
         arg_str = p2e._util._convert_args_to_string("view.restore", index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def rotate_down(self, shift = False):
         """
@@ -573,7 +573,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.rotatedown", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def rotate_left(self, shift = False):
         """
@@ -589,7 +589,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.rotateleft", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def rotate_right(self, shift = False):
         """
@@ -605,7 +605,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.rotateright", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def rotate_up(self, shift = False):
         """
@@ -620,7 +620,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.rotateup", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def save(self, filename, format = ""):
         """
@@ -645,7 +645,7 @@ class View(object):
             format = "." + format
         arg_str = p2e._util._convert_args_to_string("view.save" + format, 
                                                       filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def side(self):
         """
@@ -658,7 +658,7 @@ class View(object):
         LUA Script Example(s)
 
         """
-        p2e.conversation.Exec("view.side")
+        p2e._app.Exec("view.side")
         
     def store(self, index):
         """
@@ -674,7 +674,7 @@ class View(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("view.store", index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def zoom(self, factor):
         """
@@ -689,7 +689,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.store", factor)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def zoom_in(self, shift = False):
         """
@@ -705,7 +705,7 @@ class View(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("view.zoomin", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def zoom_out(self, shift = False):
         """
@@ -721,7 +721,7 @@ class View(object):
                 
         """
         arg_str = p2e._util._convert_args_to_string("view.zoomout", shift)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     #===========================================================================
     # Properties
@@ -754,7 +754,7 @@ class View(object):
             24 BASELINE 
             
             """
-            val = p2e.conversation.Request("get.view.align")
+            val = p2e._app.Request("get.view.align")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, alignment):
@@ -784,7 +784,7 @@ class View(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.view.align", 
                                                           alignment)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
 
@@ -807,7 +807,7 @@ class View(object):
         The full name of the font type being used.
         
         """
-        val = p2e.conversation.Request("get.view.font")
+        val = p2e._app.Request("get.view.font")
         return p2e._util._convert_str_to_list(val, int, str)
 
     def set_font(self, size, name):
@@ -832,7 +832,7 @@ class View(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.view.font", 
                                                       size, name)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_grid_max(self):
         """
@@ -850,7 +850,7 @@ class View(object):
         point in 3 dimensional model space. 
         
         """
-        val = p2e.conversation.Request("get.view.grid.max")
+        val = p2e._app.Request("get.view.grid.max")
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_grid_max(self, absolute_position):
@@ -870,7 +870,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_grid_min(self):
         """
@@ -888,7 +888,7 @@ class View(object):
         point in 3 dimensional model space. 
 
         """
-        val = p2e.conversation.Request("get.view.grid.min")
+        val = p2e._app.Request("get.view.grid.min")
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_grid_min(self, absolute_position):
@@ -908,7 +908,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_pen(self):
         """
@@ -928,7 +928,7 @@ class View(object):
         The thickness of the pen line in pixels. 
         
         """
-        val = p2e.conversation.Request("get.view.pen")
+        val = p2e._app.Request("get.view.pen")
         return p2e._util._convert_str_to_list(val, str, float)
 
     def set_pen(self, color, width = 0, alpha = 0.0):
@@ -954,7 +954,7 @@ class View(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.view.pen", color, 
                                                       width, alpha)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def get_point(self, absolute_position):
         """
@@ -981,7 +981,7 @@ class View(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float)
 
     def get_size(self):
@@ -1002,7 +1002,7 @@ class View(object):
         The height of the view canvas.
         
         """
-        val = p2e.conversation.Request("get.view.size")
+        val = p2e._app.Request("get.view.size")
         return p2e._util._convert_str_to_list(val, float, float)
         
     def set_size(self, width, height):
@@ -1022,7 +1022,7 @@ class View(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.view.size", width, 
                                                       height)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_visible(self):
         """
@@ -1039,7 +1039,7 @@ class View(object):
         This is a boolean value where 1 means true and 0 means false.
         
         """
-        val = p2e.conversation.Request("get.view.visible")
+        val = p2e._app.Request("get.view.visible")
         return p2e._util._convert_str_to_type(val, int)
     
         

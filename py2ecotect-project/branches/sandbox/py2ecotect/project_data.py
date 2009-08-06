@@ -29,7 +29,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.project.data", 
                                                      nodeName)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def set_data(self, nodeName, notes):
@@ -63,7 +63,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.project.data", 
                                                      nodeName, notes)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def add_data(self, nodeName, notes):
         """
@@ -97,7 +97,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("add.project.data", 
                                                       nodeName, notes)
-        p2e.conversation.Request(arg_str)
+        p2e._app.Request(arg_str)
 
     def get_format(self, nodeName):
         """
@@ -133,7 +133,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.project.data.format", 
                                                      nodeName)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def set_format(self, nodeName, format):
@@ -168,7 +168,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.project.data.format", 
                                                      nodeName, format)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_notes(self, nodeName):
         """
@@ -193,7 +193,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.project.data.notes", 
                                                      nodeName)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
         
     def set_notes(self, nodeName, notes):
@@ -227,7 +227,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.project.data.notes", 
                                                      nodeName, notes)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def add_notes(self, nodeName, notes):
         """
@@ -260,7 +260,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("add.project.data.notes", 
                                                       nodeName, notes)
-        p2e.conversation.Request(arg_str)
+        p2e._app.Request(arg_str)
     
     def get_param(self, nodeName, parameter):
         """
@@ -300,7 +300,7 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.project.data.param", 
                                                      nodeName, parameter)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def set_param(self, nodeName, key_value):
@@ -337,6 +337,6 @@ class Project_Data(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.project.data.param", 
                                                      nodeName, key_value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
 

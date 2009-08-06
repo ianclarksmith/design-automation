@@ -41,26 +41,6 @@ class _Object(object):
     #===========================================================================
     # Methods that affect relationships between objects
     #===========================================================================
-    #@classmethod
-    """
-    def _create_object_from_id(cls, object_eco_id):
-        
-        #create the object
-        obj = cls()
-
-        #update model objects lists
-        p2e.model._objects.append(obj)
-        #assert obj.eco_id == object_eco_id
-        
-        #update model nodes lists
-        for node_num in range(obj.node.first_node, obj.node.last_node):
-            p2e.Node._create_node_from_id(obj, node_num)
-        
-        #return the object to the duplicate method
-        return obj
-    
-        #update object properties and lists
-    """
 
     @classmethod
     def _gen_object(cls, elemType, objType, selected = True, link = 0):  
@@ -136,7 +116,7 @@ class _Object(object):
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("add.object", elemType, 
                                                      objType, selected, link)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         eco_id = p2e._util._convert_str_to_type(val, int)
 
         return eco_id
@@ -158,7 +138,7 @@ class _Object(object):
         
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delete", self.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
          #Delete nodes of this object
         for i in nodes:
@@ -187,7 +167,7 @@ class _Object(object):
         There are no parameters for this command.
   
         """
-        p2e.conversation.Exec("object.done")
+        p2e._app.Exec("object.done")
     
     def extrude(self, extrude_distance):
         """
@@ -209,7 +189,7 @@ class _Object(object):
                                                           extrude_distance[0], 
                                                           extrude_distance[1], 
                                                           extrude_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
         after_extrude_len = p2e.model.Model().number_of_objects
         
@@ -250,7 +230,7 @@ class _Object(object):
         
         arg_str = p2e._util._convert_args_to_string("object.revolve", self.eco_id, 
                                                      axis, angle, segs)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
         after_extrude_len = p2e.model.Model().number_of_objects
         
@@ -301,7 +281,7 @@ class _Object(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.object.activation", 
                                                      self.eco_id, day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def get_coplanar(self, absolute_position):
@@ -330,7 +310,7 @@ class _Object(object):
                                                      absolute_position[0], 
                                                      absolute_position[1], 
                                                      absolute_position[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
  
     @apply
@@ -356,7 +336,7 @@ class _Object(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.zone", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e.model._zones[p2e._util._convert_str_to_type(val, int)]
         
         def fset(self, index):
@@ -378,7 +358,7 @@ class _Object(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.zone", 
                                                          self.eco_id, index)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
 
@@ -422,7 +402,7 @@ class _ObjectRootFncTrfm(object):
                                                       move_distance[0], 
                                                       move_distance[1], 
                                                       move_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
         #get the id of the new object
         eco_id = p2e.model.Model().number_of_objects - 1
@@ -448,7 +428,7 @@ class _ObjectRootFncTrfm(object):
                                                           move_distance[0], 
                                                           move_distance[1], 
                                                           move_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def nudge(self, dir):
         """
@@ -475,7 +455,7 @@ class _ObjectRootFncTrfm(object):
         """
         arg_str = p2e._util._convert_args_to_string("object.nudge", 
                                                       self.eco_id, dir)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def orient(self, azi, alt):
         """
@@ -495,7 +475,7 @@ class _ObjectRootFncTrfm(object):
         """
         arg_str = p2e._util._convert_args_to_string("object.orient", self.eco_id, 
                                                      azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def rotate(self, azi, alt):
         """
@@ -516,7 +496,7 @@ class _ObjectRootFncTrfm(object):
         """
         arg_str = p2e._util._convert_args_to_string("object.rotate", self.eco_id, 
                                                      azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def rotate_axis(self, rotation_value):
         """
@@ -538,7 +518,7 @@ class _ObjectRootFncTrfm(object):
                                                       rotation_value[0], 
                                                       rotation_value[1], 
                                                       rotation_value[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def rotate_reverse(self, azi, alt):
         """
@@ -559,7 +539,7 @@ class _ObjectRootFncTrfm(object):
         """
         arg_str = p2e._util._convert_args_to_string("object.rotatereverse", 
                                                       self.eco_id, azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def scale(self, scale_factor):
         """
@@ -578,7 +558,7 @@ class _ObjectRootFncTrfm(object):
                                                           scale_factor[0], 
                                                           scale_factor[1], 
                                                           scale_factor[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def spin(self, spin):
         """
@@ -594,7 +574,7 @@ class _ObjectRootFncTrfm(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("object.spin", self.eco_id, spin)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def xform(self, trans, function_values):
         """
@@ -635,7 +615,7 @@ class _ObjectRootFncTrfm(object):
                                                           function_values[0], 
                                                           function_values[1], 
                                                           function_values[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
 class _ObjectRootFncMdfy(object):
     
@@ -674,7 +654,7 @@ class _ObjectRootFncMdfy(object):
         arg_str = p2e._util._convert_args_to_string("object.link", 
                                                           self.eco_id, 
                                                           child.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def normal_move(self, type):
         """
@@ -701,7 +681,7 @@ class _ObjectRootFncMdfy(object):
         """
         arg_str = p2e._util._convert_args_to_string("object.normal", self.eco_id, 
                                                      type)
-        p2e.conversation.Exec(arg_str)   
+        p2e._app.Exec(arg_str)   
         
     def normal_reverse(self):
         #Check to see which objects are selected
@@ -758,7 +738,7 @@ class _ObjectRootFncStat(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("object.select", self.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def update(self):
         """
@@ -774,7 +754,7 @@ class _ObjectRootFncStat(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("object.update", self.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -795,7 +775,7 @@ class _ObjectRootFncStat(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.current", 
                                                          self.eco_id)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -821,7 +801,7 @@ class _ObjectRootFncStat(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.selected", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
         def fset(self, state = True):
@@ -845,7 +825,7 @@ class _ObjectRootFncStat(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.selected", 
                                                          self.eco_id, state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
             p2e.selection.Selection().update()
             
@@ -895,7 +875,7 @@ class _ObjectRootFncMtrl(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.alternate", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(sel, material):
@@ -919,7 +899,7 @@ class _ObjectRootFncMtrl(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.alternate", 
                                                          self.eco_id, material)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -946,7 +926,7 @@ class _ObjectRootFncMtrl(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.material", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, material):
@@ -970,7 +950,7 @@ class _ObjectRootFncMtrl(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.material", 
                                                          self.eco_id, material)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
 
@@ -1015,7 +995,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.area", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -1040,7 +1020,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.attr1", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -1058,7 +1038,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.attr1", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
  
         return property(**locals())
     
@@ -1082,7 +1062,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.attr2", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -1100,7 +1080,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.attr2", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)   
+            p2e._app.Exec(arg_str)   
         
             return property(**locals())    
     
@@ -1124,7 +1104,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.attr3", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -1142,7 +1122,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.attr3", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1168,7 +1148,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.center", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float)
     
         def fset(self, absolute_position):
@@ -1190,7 +1170,7 @@ class _ObjectRootFncProp(object):
                                                               absolute_position[0], 
                                                               absolute_position[1], 
                                                               absolute_position[2])
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -1236,7 +1216,7 @@ class _ObjectRootFncProp(object):
             arg_str = p2e._util._convert_args_to_string("get.object.type", 
                                                          self.eco_id)
             print "ECO_ID:", self.eco_id
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
         def fset(self, type):
@@ -1274,7 +1254,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.type", 
                                                          self.eco_id, type)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -1300,7 +1280,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.equation", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float, float)
  
         def fset(self):
@@ -1315,7 +1295,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.equation", 
                                                          self.eco_id)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1350,7 +1330,7 @@ class _ObjectRootFncProp(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.object.angle", 
                                                      self.eco_id, type)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def get_flag(self, flag):
@@ -1402,7 +1382,7 @@ class _ObjectRootFncProp(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.object.flag", 
                                                      self.eco_id, flag)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_flag(self, flag, state = True):
@@ -1457,7 +1437,7 @@ class _ObjectRootFncProp(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.object.flag", 
                                                      self.eco_id, flag, state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     @apply
     def length():
@@ -1479,7 +1459,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.length", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -1505,7 +1485,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.link", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -1532,7 +1512,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.mask", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, index):
@@ -1552,7 +1532,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.mask", 
                                                          self.eco_id, index)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -1579,7 +1559,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.normal", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float)
         
         return property(**locals())
@@ -1604,7 +1584,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.panelarea", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -1629,7 +1609,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.resolution", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -1647,7 +1627,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.node.position", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1677,7 +1657,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.schedule", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(self, schedule):
@@ -1704,7 +1684,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.schedule", 
                                                          self.eco_id, schedule)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -1751,7 +1731,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.tag", 
                                                          self.eco_id, tag)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(self, tag, state = True):
@@ -1796,7 +1776,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.object.tag", 
                                                          self.eco_id, tag, state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -1820,7 +1800,7 @@ class _ObjectRootFncProp(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.vector", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float)
     
         def fset(self, vector):
@@ -1841,7 +1821,7 @@ class _ObjectRootFncProp(object):
                                                          vector[0], 
                                                          vector[1], 
                                                          vector[2])
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         return property(**locals())
 
 class _ObjectRootFncMnpl(object):
@@ -1885,7 +1865,7 @@ class _ObjectRootFncMnpl(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.exposure", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -1918,7 +1898,7 @@ class _ObjectRootFncMnpl(object):
                                                      absolute_position[0], 
                                                      absolute_position[1], 
                                                      absolute_position[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
         
     
@@ -1950,7 +1930,7 @@ class _ObjectRootFncMnpl(object):
                                                      coordinates[0], 
                                                      coordinates[1], 
                                                      coordinates[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
         
     def get_inside(self, coordinates, checkChildren = True):
@@ -1992,7 +1972,7 @@ class _ObjectRootFncMnpl(object):
                                                      coordinates[1],
                                                      coordinates[2], 
                                                      checkChildren)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
         
     def get_intersect(self, coordinates_start, coordinates_end):
@@ -2032,7 +2012,7 @@ class _ObjectRootFncMnpl(object):
                                                      coordinates_end[0],
                                                      coordinates_end[1], 
                                                      coordinates_end[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
     
     @apply
@@ -2078,7 +2058,7 @@ class _ObjectRootFncMnpl(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.pt.even", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float, int)
         
         return property(**locals())
@@ -2112,7 +2092,7 @@ class _ObjectRootFncMnpl(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.object.pt.initialise", 
                                                      self.eco_id, fraction)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     @apply
@@ -2159,7 +2139,7 @@ class _ObjectRootFncMnpl(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.pt.random", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float, int)
         
         return property(**locals())
@@ -2191,7 +2171,7 @@ class _ObjectRootFncMnpl(object):
                                                      absolute_position[0], 
                                                      absolute_position[1],
                                                      absolute_position[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def get_same_side(self, coordinates_start, coordinates_end):
@@ -2229,7 +2209,7 @@ class _ObjectRootFncMnpl(object):
                                                      coordinates_end[0], 
                                                      coordinates_end[1], 
                                                      coordinates_end[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     @apply
@@ -2260,7 +2240,7 @@ class _ObjectRootFncMnpl(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.sunangles", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float)
         
         return property(**locals())
@@ -2284,7 +2264,7 @@ class _ObjectRootFncMnpl(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.underground", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -2334,7 +2314,7 @@ class _ObjectRootFncNode(object):
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("object.delnode", self.eco_id, 
                                                      node_index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
         #Update model lists
         p2e.model._nodes.remove(node)
@@ -2362,7 +2342,7 @@ class _ObjectRootFncNode(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.firstnode", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -2386,7 +2366,7 @@ class _ObjectRootFncNode(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.lastnode", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())    
@@ -2415,7 +2395,7 @@ class _ObjectRootFncNode(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.object.node.position", 
                                                      self.eco_id, node.eco_id)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_node_position(self, node, absolute_position):
@@ -2441,7 +2421,7 @@ class _ObjectRootFncNode(object):
                                                      absolute_position[0],
                                                      absolute_position[1],
                                                      absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def nodes():
@@ -2486,7 +2466,7 @@ class _ObjectRootFncNode(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.node", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -2532,7 +2512,7 @@ class _ObjectRootFncChild(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.extents", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float)
         
         return property(**locals())
@@ -2571,7 +2551,7 @@ class _ObjectRootFncChild(object):
                                                          self.eco_id, 
                                                          proportional_values[0],
                                                          proportional_values[1])
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float)
         
         return property(**locals())
@@ -2597,7 +2577,7 @@ class _ObjectRootFncChild(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.extents.max", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float)
         
         return property(**locals())
@@ -2622,7 +2602,7 @@ class _ObjectRootFncChild(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.object.extents.min", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float)
         
         return property(**locals())
@@ -2664,7 +2644,7 @@ class _ObjectRootFncChild(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.object.child.extents", 
                                                      self.eco_id, absolute)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float, float)
 
     def set_child_extents(self, u, v, wu, hv):
@@ -2710,7 +2690,7 @@ class _ObjectRootFncChild(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.object.child.extents", 
                                                      self.eco_id, u, v, wu, hv)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
 
 

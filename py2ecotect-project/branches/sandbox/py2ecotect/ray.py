@@ -20,7 +20,7 @@ class Ray(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("ray.draw", depth)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def shoot(self, type, azi, alt):
         """
@@ -52,7 +52,7 @@ class Ray(object):
         """
         arg_str = p2e._util._convert_args_to_string("ray.shoot", type, azi, 
                                                       alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def trace(self, type, offset_distance):
         """
@@ -85,7 +85,7 @@ class Ray(object):
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     #===========================================================================
     # Properties
@@ -109,7 +109,7 @@ class Ray(object):
             An integer value giving the number of reflections.
             
             """
-            val = p2e.conversation.Request("get.ray.depth")
+            val = p2e._app.Request("get.ray.depth")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, depth):
@@ -128,7 +128,7 @@ class Ray(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.ray.depth", depth)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -150,7 +150,7 @@ class Ray(object):
             An integer value giving the maximum number of reflections.
             
             """
-            val = p2e.conversation.Request("get.ray.maxdepth")
+            val = p2e._app.Request("get.ray.maxdepth")
             return p2e._util._convert_str_to_type(val, int)
         
         def fset(self, depth):
@@ -166,7 +166,7 @@ class Ray(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.ray.maxdepth", depth)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -191,7 +191,7 @@ class Ray(object):
         #Return value is different. It returns 4 values. So a list 
         #of 4 values is returned
         arg_str = p2e._util._convert_args_to_string("get.ray.object", depth)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float, float)
         
     def set_object(self, depth, object):
@@ -211,7 +211,7 @@ class Ray(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.ray.object", depth, 
                                                       object.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def get_position(self, depth):
         """
@@ -236,7 +236,7 @@ class Ray(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.ray.position", depth)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float, int)
     
     def set_position(self, depth, absolute_position, object = ""):
@@ -273,7 +273,7 @@ class Ray(object):
                                                         absolute_position[1], 
                                                         absolute_position[2], 
                                                         object.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_source(self):
         """
@@ -291,7 +291,7 @@ class Ray(object):
         dimensional model space. 
                 
         """
-        val = p2e.conversation.Request("get.ray.source")
+        val = p2e._app.Request("get.ray.source")
         return p2e._util._convert_str_to_list(val, float, float, float)
         
     def set_source(self, absolute_position):
@@ -311,5 +311,5 @@ class Ray(object):
                                                       absolute_position[0],
                                                       absolute_position[1],
                                                       absolute_position[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     

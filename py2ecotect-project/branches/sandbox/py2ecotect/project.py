@@ -23,7 +23,7 @@ class Project(object):
             The altitude as height above sea level.
             
             """
-            val = p2e.conversation.Request("get.project.altitude")
+            val = p2e._app.Request("get.project.altitude")
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, alt):
@@ -40,7 +40,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.altitude", 
                                                          alt)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -62,7 +62,7 @@ class Project(object):
             A text string containing the result. 
             
             """
-            val = p2e.conversation.Request("get.project.client")
+            val = p2e._app.Request("get.project.client")
             return p2e._util._convert_str_to_type(val, str)
     
         def fset(self, client):
@@ -80,7 +80,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.client", 
                                                          client)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -101,7 +101,7 @@ class Project(object):
             A text string containing the result. 
             
             """
-            val = p2e.conversation.Request("get.project.description")
+            val = p2e._app.Request("get.project.description")
             return p2e._util._convert_str_to_type(val, str)
             
         def fset(self, description):
@@ -118,7 +118,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.description", 
                                                          description)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -139,7 +139,7 @@ class Project(object):
             The latitude in decimal degrees.
             
             """
-            val = p2e.conversation.Request("get.project.latitude")
+            val = p2e._app.Request("get.project.latitude")
             return p2e._util._convert_str_to_type(val, float)
      
         def fset(self, lat):
@@ -156,7 +156,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.latitude", 
                                                          lat)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
         
@@ -182,7 +182,7 @@ class Project(object):
         The timezone as a GMT offset in decimal hours.
         
         """ 
-        val = p2e.conversation.Request("get.project.location")
+        val = p2e._app.Request("get.project.location")
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_location(self, latitude, longitude, timezone, update = True):
@@ -211,7 +211,7 @@ class Project(object):
         arg_str = p2e._util._convert_args_to_string("set.project.location", 
                                                      latitude, longitude, 
                                                      timezone, update)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def loc_name():
@@ -230,7 +230,7 @@ class Project(object):
             A text string representing the name of the location.
             
             """
-            val = p2e.conversation.Request("get.project.locname")
+            val = p2e._app.Request("get.project.locname")
             return p2e._util._convert_str_to_type(val, str)
     
         def fset(self, name):
@@ -247,7 +247,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.locname", 
                                                          name)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -268,7 +268,7 @@ class Project(object):
             The longitude in decimal degrees.
             
             """
-            val = p2e.conversation.Request("get.project.longitude")
+            val = p2e._app.Request("get.project.longitude")
             return p2e._util._convert_str_to_type(val, float)
               
         def fset(self, lng):
@@ -285,7 +285,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.longitude", 
                                                          lng)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -306,7 +306,7 @@ class Project(object):
             The angle in degrees between true north and the positive Y axis.
             
             """
-            val = p2e.conversation.Request("get.project.north")
+            val = p2e._app.Request("get.project.north")
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, north):
@@ -323,7 +323,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.north", 
                                                          north)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -344,7 +344,7 @@ class Project(object):
             A text string containing the result.
             
             """
-            val = p2e.conversation.Request("get.project.reference")
+            val = p2e._app.Request("get.project.reference")
             return p2e._util._convert_str_to_type(val, str)
     
         def fset(self, description):
@@ -361,7 +361,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.reference", 
                                                          description)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -391,7 +391,7 @@ class Project(object):
             urban 3 In a dense urban setting (very protected)  
     
             """
-            val = p2e.conversation.Request("get.project.terrain")
+            val = p2e._app.Request("get.project.terrain")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, terrain):
@@ -418,7 +418,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.terrain", 
                                                          terrain)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -439,7 +439,7 @@ class Project(object):
             The time zone as an offset from GMT in decimal hours. 
             
             """
-            val = p2e.conversation.Request("get.project.timezone")
+            val = p2e._app.Request("get.project.timezone")
             return p2e._util._convert_str_to_type(val, float)
             
         def fset(self, tz):
@@ -456,7 +456,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.timezone", 
                                                           tz)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -477,7 +477,7 @@ class Project(object):
             A text string containing the result. 
             
             """
-            val = p2e.conversation.Request("get.project.title")
+            val = p2e._app.Request("get.project.title")
             return p2e._util._convert_str_to_type(val, str)
     
         def fset(self, description):
@@ -494,7 +494,7 @@ class Project(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.project.title", 
                                                          description)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -525,7 +525,7 @@ class Project(object):
             5 Other 
             
             """
-            val = p2e.conversation.Request("get.project.type")
+            val = p2e._app.Request("get.project.type")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, type):
@@ -551,7 +551,7 @@ class Project(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.project.type", type)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 

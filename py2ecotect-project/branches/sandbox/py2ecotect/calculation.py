@@ -43,7 +43,7 @@ class Calculation(object):
         """
         arg_str = p2e._util._convert_args_to_string("calc.acousticresponse", 
                                                       type, frequency)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def adjacencies(self, sampleSize, shading, ignore = ""):
         """
@@ -79,7 +79,7 @@ class Calculation(object):
         else:
             arg_str = p2e._util._convert_args_to_string("calc.adjacencies" , 
                                                         sampleSize, shading)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def comfort(self):
         """
@@ -92,7 +92,7 @@ class Calculation(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("calc.comfort")
+        p2e._app.Exec("calc.comfort")
     
     def insolation_1(self, target, type, select3D, accumulation, metric = None):
         """
@@ -168,7 +168,7 @@ class Calculation(object):
             arg_str = p2e._util._convert_args_to_string("calc.insolation", 
                                                           target, type, select3D, 
                                                          accumulation, metric)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
 
     def insolation_2(self, period, shading, ground, direct):
         """
@@ -219,7 +219,7 @@ class Calculation(object):
             arg_str = p2e._util._convert_args_to_string("calc.insolation", 
                                                           period, shading, 
                                                           ground, direct)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         except:
             print "exception occured"
             
@@ -277,7 +277,7 @@ class Calculation(object):
         arg_str = p2e._util._convert_args_to_string("calc.lighting", target, 
                                                       type, select3D, 
                                                       comparison)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def resources(self, type):
         """
@@ -309,7 +309,7 @@ class Calculation(object):
     
         """
         arg_str = p2e._util._convert_args_to_string("calc.resources", type)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def shading_percentage(self, cumulative, startDay, stopDay, startTime, 
                            stopTime, shadingType = "percentage"):
@@ -372,7 +372,7 @@ class Calculation(object):
                                                       shadingType,cumulative, 
                                                       startDay, stopDay, 
                                                       startTime, stopTime)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def thermal_temperatures(self, calculationType, zone = 0):
         """
@@ -419,7 +419,7 @@ class Calculation(object):
         """
         arg_str = p2e._util._convert_args_to_string("calc.thermal." + 
                                                       selector, zone)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def volumes(self):
         """
@@ -430,7 +430,7 @@ class Calculation(object):
         There are no parameters for this command.
     
         """
-        p2e.conversation.Exec("calc.volumes")
+        p2e._app.Exec("calc.volumes")
         
     #===========================================================================
     # Properties
@@ -463,7 +463,7 @@ class Calculation(object):
         inclusive within the date range. 
         
         """
-        val = p2e.conversation.Request("get.calc.dates")
+        val = p2e._app.Request("get.calc.dates")
         return p2e._util._convert_str_to_list(val, int, int, bool)
     
     def set_dates(self, startDay, stopDay, incDay = 1):
@@ -489,7 +489,7 @@ class Calculation(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.calc.dates", 
                                                       startDay, stopDay, incDay)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def precision():
@@ -520,7 +520,7 @@ class Calculation(object):
             low 4 Low Precision 
         
             """
-            val = p2e.conversation.Request("get.calc.precision")
+            val = p2e._app.Request("get.calc.precision")
             return p2e._util._convert_str_to_type(val, int)
         
         def fset(self, precision):
@@ -549,7 +549,7 @@ class Calculation(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.calc.precision", 
                                                           precision)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -578,7 +578,7 @@ class Calculation(object):
         uniform 1 CIE Uniform Sky 
     
         """
-        val = p2e.conversation.Request("get.calc.sky")
+        val = p2e._app.Request("get.calc.sky")
         return p2e._util._convert_str_to_list(val, int)
     
     def set_material_default(self, sky, level):
@@ -605,7 +605,7 @@ class Calculation(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.default", 
                                                       sky, level)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_times(self):
         """
@@ -635,7 +635,7 @@ class Calculation(object):
         
         
         """
-        val = p2e.conversation.Request("get.calc.times")
+        val = p2e._app.Request("get.calc.times")
         return p2e._util._convert_str_to_list(val, float, float, bool)
     
     def set_times(self, startDay, stopDay, incDay = 1):
@@ -661,7 +661,7 @@ class Calculation(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.calc.times", 
                                                       startDay, stopDay, incDay)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def windows():
@@ -690,7 +690,7 @@ class Calculation(object):
             2 Dirty Windows (x 0.75) 
         
             """
-            val = p2e.conversation.Request("get.calc.windows")
+            val = p2e._app.Request("get.calc.windows")
             return p2e._util._convert_str_to_type(val, str)
     
         def fset(self, cleanliness):
@@ -717,7 +717,7 @@ class Calculation(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.calc.windows", 
                                                           cleanliness)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
  

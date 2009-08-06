@@ -36,7 +36,7 @@ class Attribute(object):
     
         """
         arg_str = p2e._util._convert_args_to_string("get.attribute.flag", flag)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def set_flag(self, flag, state = True):
@@ -70,7 +70,7 @@ class Attribute(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.attribute.flag", 
                                                       flag, state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def flags():
@@ -99,7 +99,7 @@ class Attribute(object):
             colours 4 Display object attribute as a fill colous. 
         
             """
-            val = p2e.conversation.Request("get.attribute.flags")
+            val = p2e._app.Request("get.attribute.flags")
             return p2e._util._convert_str_to_type(val, int)
         return property(**locals())
     
@@ -124,7 +124,7 @@ class Attribute(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.attribute.name", 
                                                       index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
     
     def set_name(self, index, name):
@@ -144,7 +144,7 @@ class Attribute(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.attribute.name", 
                                                       index, name)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_scale(self):
         """
@@ -165,7 +165,7 @@ class Attribute(object):
         The maximum scale value.
         
         """
-        val = p2e.conversation.Request("get.attribute.scale")
+        val = p2e._app.Request("get.attribute.scale")
         return p2e._util._convert_str_to_list(val, float)
     
     def set_scale(self, min, max):
@@ -186,7 +186,7 @@ class Attribute(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.attribute.scale", 
                                                       min, max)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def set_type(self, index, type):
         """
@@ -227,7 +227,7 @@ class Attribute(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.attribute.type", 
                                                       index, type)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_units(self, type):
         """
@@ -251,7 +251,7 @@ class Attribute(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.attribute.units", 
                                                       type)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
     
     def set_units(self, type, units):
@@ -274,5 +274,5 @@ class Attribute(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.attribute.units", 
                                                       type, units)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         

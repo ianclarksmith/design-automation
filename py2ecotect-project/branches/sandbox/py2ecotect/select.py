@@ -15,7 +15,7 @@ class Select(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("select.all")
+        p2e._app.Exec("select.all")
 
     def alternate(self, index):
         """
@@ -33,7 +33,7 @@ class Select(object):
         """
         arg_str = p2e._util._convert_args_to_string("select.alternate", 
                                                       index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def child(self):
         """
@@ -44,7 +44,7 @@ class Select(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("select.child")
+        p2e._app.Exec("select.child")
 
     def element(self, index):
         """
@@ -61,7 +61,7 @@ class Select(object):
         """
         arg_str = p2e._util._convert_args_to_string("select.element", 
                                                       index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def index(self, objects):
         """
@@ -80,7 +80,7 @@ class Select(object):
             eco_ids += str(i.eco_id) + ", "
             
         arg_str = p2e._util._convert_args_to_string("select.index", eco_ids)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def invert(self):
         """
@@ -91,7 +91,7 @@ class Select(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("select.invert")
+        p2e._app.Exec("select.invert")
 
     def none(self):
         """
@@ -102,7 +102,7 @@ class Select(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("select.none")
+        p2e._app.Exec("select.none")
         
     def normals(self, index):
         """
@@ -129,7 +129,7 @@ class Select(object):
         """
         arg_str = p2e._util._convert_args_to_string("select.normals", 
                                                       index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def object(self, object):
         """
@@ -145,7 +145,7 @@ class Select(object):
         """
         arg_str = p2e._util._convert_args_to_string("select.object", 
                                                       object.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def parent(self):
         """
@@ -156,7 +156,7 @@ class Select(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("select.parent")
+        p2e._app.Exec("select.parent")
 
     def previous(self):
         """
@@ -167,7 +167,7 @@ class Select(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("select.previous")
+        p2e._app.Exec("select.previous")
 
     def primary(self, index):
         """
@@ -185,7 +185,7 @@ class Select(object):
         """
         arg_str = p2e._util._convert_args_to_string("select.primary", 
                                                       index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def schedule(self, index):
         """
@@ -202,7 +202,7 @@ class Select(object):
         """
         arg_str = p2e._util._convert_args_to_string("select.schedule", 
                                                       index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def tag(self, index):
         """
@@ -236,7 +236,7 @@ class Select(object):
         """
         arg_str = p2e._util._convert_args_to_string("select.tag", 
                                                       index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def zone(self, zone):
         """
@@ -252,25 +252,5 @@ class Select(object):
         """
         arg_str = p2e._util._convert_args_to_string("select.zone", 
                                                       zone.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    x = Select()
-    
-    x.all()
-    
-
-    print "Tests completed"

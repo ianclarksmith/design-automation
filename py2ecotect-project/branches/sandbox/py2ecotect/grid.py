@@ -23,7 +23,7 @@ class Grid(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("grid.export", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def fit_selection(self, fit_form = True):
         """
@@ -44,7 +44,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("grid.fit.selection", 
                                                       fit_form)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def fit_values(self):
         """
@@ -56,7 +56,7 @@ class Grid(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("grid.fit.values")
+        p2e._app.Exec("grid.fit.values")
 
     def import_data(self, filename, importOperation = ""):
         """
@@ -92,7 +92,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("grid.import." + operation, 
                                                      filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def load(self, filename):
         """
@@ -111,7 +111,7 @@ class Grid(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("grid.import", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def reset(self):
         """
@@ -122,7 +122,7 @@ class Grid(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("grid.reset")
+        p2e._app.Exec("grid.reset")
 
     def save(self, filename):
         """
@@ -141,7 +141,7 @@ class Grid(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("grid.save", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def show(self, show = True):
         """
@@ -159,7 +159,7 @@ class Grid(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("grid.show", show)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -202,7 +202,7 @@ class Grid(object):
             currently displayed grid. 
             
             """
-            val = p2e.conversation.Request("get.grid.average")
+            val = p2e._app.Request("get.grid.average")
             return p2e._util._convert_str_to_list(val, float, int, float)
         
         return property(**locals())
@@ -234,7 +234,7 @@ class Grid(object):
             2 XZ Axis 
     
             """
-            val = p2e.conversation.Request("get.grid.axis")
+            val = p2e._app.Request("get.grid.axis")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, axis):
@@ -258,7 +258,7 @@ class Grid(object):
     
             """
             arg_str = p2e._util._convert_args_to_string("set.grid.axis", axis)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -294,7 +294,7 @@ class Grid(object):
         arg_str = p2e._util._convert_args_to_string("get.grid.cell", 
                                                       position[0], position[1], 
                                                       index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, int)
 
     def set_cell(self, position, value, index = 0):
@@ -324,7 +324,7 @@ class Grid(object):
         arg_str = p2e._util._convert_args_to_string("set.grid.cell", 
                                                       position[0], position[1], 
                                                      value, index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def data():
@@ -347,7 +347,7 @@ class Grid(object):
             integer value in the range 0 to 4. 
     
             """
-            val = p2e.conversation.Request("get.grid.data")
+            val = p2e._app.Request("get.grid.data")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, index):
@@ -365,7 +365,7 @@ class Grid(object):
     
             """
             arg_str = p2e._util._convert_args_to_string("set.grid.data", index)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -393,7 +393,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.grid.description", 
                                                      index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def set_description(self, index, description):
@@ -417,7 +417,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.grid.description", 
                                                      index, description)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_flag(self, flag):
         """
@@ -470,7 +470,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.grid.flag", 
                                                      flag)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, bool)
 
     def set_flag(self, flag, state = True):
@@ -522,7 +522,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.grid.flag", 
                                                      flag, state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def fraction():
@@ -546,7 +546,7 @@ class Grid(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.grid.fraction", 
                                                          fraction)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -569,7 +569,7 @@ class Grid(object):
             the analysis grid in 3 dimensional model space.
     
             """
-            val = p2e.conversation.Request("get.grid.max")
+            val = p2e._app.Request("get.grid.max")
             return p2e._util._convert_str_to_list(val, float, float, float)
     
         def fset(self, absolute_position):
@@ -591,7 +591,7 @@ class Grid(object):
                                                           absolute_position[0],
                                                           absolute_position[1],
                                                           absolute_position[2])
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         return property(**locals())
 
     @apply
@@ -613,7 +613,7 @@ class Grid(object):
             the analysis grid in 3 dimensional model space.
             
             """
-            val = p2e.conversation.Request("get.grid.min")
+            val = p2e._app.Request("get.grid.min")
             return p2e._util._convert_str_to_list(val, float, float, float)
     
         def fset(self, absolute_position):
@@ -634,7 +634,7 @@ class Grid(object):
                                                           absolute_position[0],
                                                           absolute_position[1],
                                                           absolute_position[2])
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         return property(**locals())
     
     @apply
@@ -657,7 +657,7 @@ class Grid(object):
             for the currently selected axis.
             
             """
-            val = p2e.conversation.Request("get.grid.offset")
+            val = p2e._app.Request("get.grid.offset")
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, offset):
@@ -676,7 +676,7 @@ class Grid(object):
     
             """
             arg_str = p2e._util._convert_args_to_string("set.grid.offset", offset)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -706,7 +706,7 @@ class Grid(object):
         arg_str = p2e._util._convert_args_to_string("get.grid.position", 
                                                       position[0],
                                                       position[1])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_position(self, position, pos):
@@ -736,7 +736,7 @@ class Grid(object):
                                                       position[0],
                                                       position[1],
                                                       pos)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     @apply
     def range():
@@ -762,7 +762,7 @@ class Grid(object):
             The maximum value in the current grid axis. 
                     
             """
-            val = p2e.conversation.Request("get.grid.range")
+            val = p2e._app.Request("get.grid.range")
             return p2e._util._convert_str_to_list(val, float, float)
     
         return property(**locals())
@@ -790,7 +790,7 @@ class Grid(object):
         The increment size used to draw contours. 
         
         """
-        val = p2e.conversation.Request("get.grid.scale")
+        val = p2e._app.Request("get.grid.scale")
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_scale(self, min, max, inc):
@@ -814,7 +814,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.grid.scale", 
                                                       min, max, inc)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     @apply
     def size():
@@ -836,7 +836,7 @@ class Grid(object):
             The number of grid cells in each of the X, Y and Z axis directions. 
     
             """
-            val = p2e.conversation.Request("get.grid.size")
+            val = p2e._app.Request("get.grid.size")
             return p2e._util._convert_str_to_list(val, int, int, int)
     
         def fset(self, grid_cells):
@@ -859,7 +859,7 @@ class Grid(object):
                                                           grid_cells[0],
                                                           grid_cells[1],
                                                           grid_cells[2])
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         return property(**locals())
 
     def get_state(self, position):
@@ -897,7 +897,7 @@ class Grid(object):
         arg_str = p2e._util._convert_args_to_string("get.grid.state", 
                                                       position[0],
                                                       position[1])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_state(self, position, state):
@@ -934,7 +934,7 @@ class Grid(object):
                                                       position[0],
                                                       position[1], 
                                                       state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def title():
@@ -953,7 +953,7 @@ class Grid(object):
             A text string up to 64 characters in length. 
             
             """
-            val = p2e.conversation.Request("get.grid.title")
+            val = p2e._app.Request("get.grid.title")
             return p2e._util._convert_str_to_type(val, str)
     
         def fset(self, title):
@@ -969,7 +969,7 @@ class Grid(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.grid.title", title)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
 
@@ -996,7 +996,7 @@ class Grid(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.grid.units", index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def set_units(self, units, index = 0):
@@ -1022,7 +1022,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.grid.units", index, 
                                                      units)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_vector(self, position):
         """
@@ -1049,7 +1049,7 @@ class Grid(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.grid.vector", 
                                                       position[0], position[1])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_vector(self, position, offset_distance):
@@ -1077,7 +1077,7 @@ class Grid(object):
                                                      offset_distance[0],
                                                      offset_distance[1],
                                                      offset_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_zone(self, position, axis = 0, draw = False):
         """
@@ -1128,5 +1128,5 @@ class Grid(object):
         arg_str = p2e._util._convert_args_to_string("get.grid.zone", 
                                                       position[0], position[1], 
                                                       axis, draw)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
