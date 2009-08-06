@@ -450,4 +450,3 @@ class Grid3D(object):
                                                       offset_distance[1], 
                                                       offset_distance[2])
         p2e.conversation.Exec(arg_str)
-

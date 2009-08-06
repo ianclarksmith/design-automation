@@ -1279,7 +1279,7 @@ class Application(object):
         val = p2e.conversation.Request("get.app.slider.scale")
         return p2e._util._convert_str_to_list(val, float, str)
         
-    def set_slider_scale(self, scale, hint=None):
+    def set_slider_scale(self, scale, hint = None):
         """
         
         Sets the scale factor for the main slider and, optionally, the 
@@ -1599,19 +1599,4 @@ class Application(object):
                                                      width, 
                                                      height)
         p2e.conversation.Exec(arg_str)
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         

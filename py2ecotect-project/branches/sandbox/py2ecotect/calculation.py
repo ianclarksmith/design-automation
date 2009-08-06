@@ -45,7 +45,7 @@ class Calculation(object):
                                                       type, frequency)
         p2e.conversation.Exec(arg_str)
     
-    def adjacencies(self):
+    def adjacencies(self, sampleSize, shading, ignore = ""):
         """
         
         Calculates inter-zonal adjacencies for all currently visible zones.
@@ -73,8 +73,12 @@ class Calculation(object):
         are calculated and shading is ignored.
         
         """
-        arg_str = p2e._util._convert_args_to_string("calc.adjacencies" , 100, 
-                                                     True)
+        if ignore.lower() == "ignore":
+            arg_str = p2e._util._convert_args_to_string("calc.adjacencies" , 
+                                                        ignore)
+        else:
+            arg_str = p2e._util._convert_args_to_string("calc.adjacencies" , 
+                                                        sampleSize, shading)
         p2e.conversation.Exec(arg_str)
     
     def comfort(self):
@@ -716,44 +720,4 @@ class Calculation(object):
             p2e.conversation.Exec(arg_str)
         
         return property(**locals())
-
-if __name__ == "__main__":
-    x = Calculation()
-    
-    #acousticresponse(0, 5)
-    """ PROBLEM
-    #adjacencies()
-    """
-    #comfort()
-    #x.insolation_1("grid", "incidence", True, 0, "photosynthetic")
-    #insolation_2("day", 2,True,False)
-    #lighting("grid", "daylight", True)
-    #resources("load")
-    #shading_percentage("degreedays",  False, 0, 365, 0, 24)
-    #thermal_temperatures("comparison", 15)
-    #volumes()
-    #print get_dates()
-    #set_dates(1, 346)
-    #print get_precision()
-    #set_precision(2)
-    #print get_sky()
-    #set_sky(12,18)
-    #print get_times()
-    #set_times(2.5, 3.5)
-    """ PROBLEM - Return 2 values. should be a int
-    """
-    #print x.get_windows() 
-    #print x.windows
-    #x.windows = 2
-    
-    #import time
-    #time.sleep(15)
-    #print x.get_dates()
-    
-    
-    
-    
-    print "Tests completed"
-    
-    
-    
+ 

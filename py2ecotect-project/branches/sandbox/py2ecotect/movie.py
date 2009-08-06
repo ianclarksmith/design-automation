@@ -298,68 +298,64 @@ class Movie(object):
         
         return property(**locals())    
     
-    @apply
-    def size():   
-        def fget(self):
-            """
-            
-            Retrieves the size of the screen currently being used to record the 
-            animation. When retrieving this property, an additional resize parameter 
-            is returned before the width and height. This parameter is 1 when the 
-            Specific Size: option is selected, and 0 when the Same as Source option 
-            is selected, under the Create New Animation dialog box. 
-    
-            Parameter(s)
-            There are no parameters for this property.
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            resize 
-            A boolean value that indicates whether the movie resizes to fit the 
-            current window size. It is 1 when the Specific Size: option is selected, 
-            and 0 when the Same as Source option is selected, under the Create New 
-            Animation dialog box. 
-            
-            width 
-            The width used for the animation recording, given in pixels. 
-            
-            height 
-            The height used for the animation recording, given in pixels.
-            
-            """
-            val = p2e.conversation.Request("get.movie.size")
-            return p2e._util._convert_str_to_list(val, int, float, float)
-    
-        def fset(self, width, height):
-            """
-            
-            Sets the size of the ECOTECT application window to use for the animation 
-            recording. If the movie.source property is set to Main Window, the width 
-            and height parameters refer to the overall dimensions of the main 
-            application window. Otherwise, the main window is adjusted so that only 
-            the drawing canvas is set to the specified size.
-    
-            Note that the ECOTECT application window does not adjust until the 
-            movie.record command is called. If you wish to resize the application 
-            window without creating an animation recording, this can be achieved 
-            using the set.view.size, set.opengl.size, set.graph.size or 
-            set.app.window commands. 
-            
-            Parameter(s)
-            This property takes the following parameters.
-            
-            width 
-            Sets the width to use for the animation recording, measured in pixels. 
-            height 
-            Sets the height to use for the animation recording, measured in pixels.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("set.movie.size", 
-                                                         width, height)
-            p2e.conversation.Exec(arg_str)
+    def get_size(self):
+        """
         
-        return property(**locals())    
+        Retrieves the size of the screen currently being used to record the 
+        animation. When retrieving this property, an additional resize parameter 
+        is returned before the width and height. This parameter is 1 when the 
+        Specific Size: option is selected, and 0 when the Same as Source option 
+        is selected, under the Create New Animation dialog box. 
+
+        Parameter(s)
+        There are no parameters for this property.
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        resize 
+        A boolean value that indicates whether the movie resizes to fit the 
+        current window size. It is 1 when the Specific Size: option is selected, 
+        and 0 when the Same as Source option is selected, under the Create New 
+        Animation dialog box. 
+        
+        width 
+        The width used for the animation recording, given in pixels. 
+        
+        height 
+        The height used for the animation recording, given in pixels.
+        
+        """
+        val = p2e.conversation.Request("get.movie.size")
+        return p2e._util._convert_str_to_list(val, int, float, float)
+
+    def set_size(self, width, height):
+        """
+        
+        Sets the size of the ECOTECT application window to use for the animation 
+        recording. If the movie.source property is set to Main Window, the width 
+        and height parameters refer to the overall dimensions of the main 
+        application window. Otherwise, the main window is adjusted so that only 
+        the drawing canvas is set to the specified size.
+
+        Note that the ECOTECT application window does not adjust until the 
+        movie.record command is called. If you wish to resize the application 
+        window without creating an animation recording, this can be achieved 
+        using the set.view.size, set.opengl.size, set.graph.size or 
+        set.app.window commands. 
+        
+        Parameter(s)
+        This property takes the following parameters.
+        
+        width 
+        Sets the width to use for the animation recording, measured in pixels. 
+        height 
+        Sets the height to use for the animation recording, measured in pixels.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("set.movie.size", 
+                                                     width, height)
+        p2e.conversation.Exec(arg_str)  
     
     @apply
     def source():   
@@ -502,4 +498,3 @@ class Movie(object):
             p2e.conversation.Exec(arg_str)
             
         return property(**locals())    
-

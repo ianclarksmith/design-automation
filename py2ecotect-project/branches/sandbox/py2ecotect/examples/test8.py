@@ -1,42 +1,54 @@
-from py2ecotect.zone import Zone
-from py2ecotect.object import _Object
-from py2ecotect.object import *
-from py2ecotect.view import View
-from py2ecotect import model
-from py2ecotect.model import Model
-from py2ecotect.results import Results
-from py2ecotect.select import Select
-from py2ecotect.selection import Selection
-from py2ecotect.ray import Ray
 import time
+import py2ecotect as p2e
 
-points = [(0,0,0),(10000,0,0),(10000,10000,0),(0,10000,0)]
-floor = Floor.create(points)
+#points = [(13600,5300,0)]
+#point_1 = Point.create(points)
 
-points = [(13600,5300,0)]
-point_1 = Point.create(points)
+points = [(0,0,0),(10000,0,0),(10000,0,10000),(0,0,10000)]
+wl = p2e.Wall.create(points)
 
-points = [(13600,5300,450)]
-point_2 = Point.create(points)
+points = [(1000,5000,1000),(10000,0,1000),(10000,0,10000),(1000,-5000,10000)]
+wn = p2e.Window.create(points)
+wn.trfm.scale([0.5,0.5,0.5])
+#wl.modf.link(wn)
+#wn.child.set_child_extents(1000,1000,0.5,0.8)
+
+"""
+nds = floor.node.nodes
+
+nds[0].delete()
+nds[1].delete()
+nds[2].delete()
+nds[3].delete()
+print nds
+
+"""
+
+#floor.delete()
+
+#points = [(13600,5300,450)]
+#point_2 = Point.create(points)
 
 #print floor.modf.link(point_1)
 
-floor.extrude([0, 0, 2400])
+#floor.extrude([0, 0, 2400])
 #floor.revolve(0, 180, 10)
 
-point_1.stat.selected = False
+#point_1.stat.selected = False
 
 #point_1.stat.selected = True
 
-selection = Selection()
-print selection.underground
+#selection = Selection()
+#print selection.underground
 
-ray = Ray()
-print ray.get_object(1)
+#ray = Ray()
+#print ray.get_object(1)
 
 
 #for i in model._objects:
 #    print i.prop.element_type, i.eco_id
 
-v = View()
-v.redraw()
+#v = View()
+#v.redraw()
+
+#time.sleep(2)

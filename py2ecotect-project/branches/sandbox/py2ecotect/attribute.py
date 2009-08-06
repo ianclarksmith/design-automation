@@ -6,7 +6,7 @@ class Attribute(object):
     # Properties
     #===========================================================================
     
-    def get_flag(flag):
+    def get_flag(self, flag):
         """
         
         Gets the state of individual flags that control the display of attribute 
@@ -39,7 +39,7 @@ class Attribute(object):
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
-    def set_flag(flag, state = True):
+    def set_flag(self, flag, state = True):
         """
         
         Sets individual flags that control the display of attribute values. 
@@ -74,7 +74,7 @@ class Attribute(object):
     
     @apply
     def flags():
-        def fget():
+        def fget(self):
             """
             
             Retrieves a value representing the total of all the attribute flags that 
@@ -103,7 +103,7 @@ class Attribute(object):
             return p2e._util._convert_str_to_type(val, int)
         return property(**locals())
     
-    def get_name(index):
+    def get_name(self, index):
         """
         
         Gets the name of the specified object attribute as a string value. 
@@ -127,7 +127,7 @@ class Attribute(object):
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
     
-    def set_name(index, name):
+    def set_name(self, index, name):
         """
         
         Sets the name of the specified object attribute as a string value. The 
@@ -146,7 +146,7 @@ class Attribute(object):
                                                       index, name)
         p2e.conversation.Exec(arg_str)
     
-    def get_scale():
+    def get_scale(self):
         """
         
         Gets the minimum and maximum extents of the colour scale used to display 
@@ -168,7 +168,7 @@ class Attribute(object):
         val = p2e.conversation.Request("get.attribute.scale")
         return p2e._util._convert_str_to_list(val, float)
     
-    def set_scale(min, max):
+    def set_scale(self, min, max):
         """
         
         Sets the minimum and maximum extents of the colour scale used to display 
@@ -188,7 +188,7 @@ class Attribute(object):
                                                       min, max)
         p2e.conversation.Exec(arg_str)
     
-    def set_type(index, type):
+    def set_type(self, index, type):
         """
         
         Sets the type of the specified object attribute. The index parameter is 
@@ -229,7 +229,7 @@ class Attribute(object):
                                                       index, type)
         p2e.conversation.Exec(arg_str)
     
-    def get_units(type):
+    def get_units(self, type):
         """
         
         Gets the name of the specified object attribute as a string value. The 
@@ -254,7 +254,7 @@ class Attribute(object):
         val = p2e.conversation.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
     
-    def set_units(type, units):
+    def set_units(self, type, units):
         """
         
         Sets the name of the specified object attribute as a string value. The 
@@ -275,13 +275,4 @@ class Attribute(object):
         arg_str = p2e._util._convert_args_to_string("set.attribute.units", 
                                                       type, units)
         p2e.conversation.Exec(arg_str)
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
