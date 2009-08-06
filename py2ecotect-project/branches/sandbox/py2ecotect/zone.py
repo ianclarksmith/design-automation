@@ -47,7 +47,7 @@ class Zone(object):
 
         #execute ecotect instruction        
         arg_str = p2e._util._convert_args_to_string("add.zone", name)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         eco_id = p2e._util._convert_str_to_type(val, int)
         
         #return the zone
@@ -65,7 +65,7 @@ class Zone(object):
         """
         #execute ecotect instruction
         arg_str = p2e._util._convert_args_to_string("zone.delete", self.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
         #Delete objects of this zone
         objects = self.objects
@@ -103,7 +103,7 @@ class Zone(object):
                                                       offset_distance[0], 
                                                       offset_distance[1], 
                                                       offset_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def isolate(self):
         """
@@ -116,7 +116,7 @@ class Zone(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("zone.isolate", self.eco_id)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def move(self, offset_distance):
         """
@@ -136,7 +136,7 @@ class Zone(object):
                                                       offset_distance[0], 
                                                       offset_distance[1], 
                                                       offset_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def nudge(self, dir):
         """
@@ -159,7 +159,7 @@ class Zone(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("zone.nudge", self.eco_id, dir)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def rotate(self, azi, alt):
         """
@@ -180,7 +180,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("zone.rotate", self.eco_id, 
                                                       azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def rotate_axis(self, rotation_degree):
         """
@@ -201,7 +201,7 @@ class Zone(object):
                                                       rotation_degree[0], 
                                                       rotation_degree[1], 
                                                       rotation_degree[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def rotate_reverse(self, azi, alt):
         """
@@ -222,7 +222,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("zone.rotatereverse", 
                                                       self.eco_id, azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def scale(self, scale_factor):
         """
@@ -242,7 +242,7 @@ class Zone(object):
                                                      scale_factor[0], 
                                                      scale_factor[1], 
                                                      scale_factor[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def xform(self, trans, function_values):
         """
@@ -280,7 +280,7 @@ class Zone(object):
                                                       function_values[0], 
                                                       function_values[1], 
                                                       function_values[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -340,7 +340,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.activity", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, type):
@@ -381,7 +381,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.activity", 
                                                          self.eco_id, type)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -405,7 +405,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.admittance", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -428,7 +428,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.admittance", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -452,7 +452,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.airspeed", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -469,7 +469,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.airspeed", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)  
+            p2e._app.Exec(arg_str)  
         
         return property(**locals())      
     
@@ -493,7 +493,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.applianceenergy", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, value):
@@ -511,7 +511,7 @@ class Zone(object):
            """
            arg_str = p2e._util._convert_args_to_string("set.zone.applianceenergy", 
                                                          self.eco_id, value)
-           p2e.conversation.Exec(arg_str)
+           p2e._app.Exec(arg_str)
            
         return property(**locals()) 
     
@@ -535,7 +535,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.clothing", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, value):
@@ -553,7 +553,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.clothing", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())    
     
@@ -580,7 +580,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.colour", 
                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, str, str, str)
     
     def set_colour(self, display, shadow = "0x000000", reflection = "000000"):
@@ -606,7 +606,7 @@ class Zone(object):
         arg_str = p2e._util._convert_args_to_string("set.zone.colour", 
                                                      self.eco_id, display, shadow, 
                                                      reflection)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
  
     def get_comfort(self, day, hour):
@@ -638,7 +638,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.comfort", 
                                                      self.eco_id, day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float)
     
     def get_cooling(self, month):
@@ -663,7 +663,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.cooling", 
                                                      self.eco_id, month)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
     
     @apply
@@ -686,7 +686,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.current", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(self):
@@ -703,7 +703,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.current", 
                                                          self.eco_id)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -729,7 +729,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.distribution", 
                                                      self.eco_id, temperature)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     @apply
@@ -752,7 +752,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.efficiency", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, value):
@@ -770,7 +770,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.efficiency", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -794,7 +794,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.equatorarea", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, value):
@@ -813,7 +813,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.equatorarea", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -837,7 +837,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.exposedarea", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -856,7 +856,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.exposedarea", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -911,7 +911,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.flag", 
                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_flag(self, flag, state = True):
@@ -970,7 +970,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.zone.flag", 
                                                      self.eco_id, flag, state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply    
     def floor_area():
@@ -995,7 +995,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.floorarea", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
             
         def fset(self, value):
@@ -1013,7 +1013,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.floorarea", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1039,7 +1039,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.group.hidden", 
                                                      group)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
          
     def set_group_hidden(self, group, hidden):
@@ -1062,7 +1062,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.zone.group.hidden", 
                                                      group, hidden)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_group_index(self, name):
         """
@@ -1085,7 +1085,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.group.index", 
                                                      name)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def get_group_locked(self, group):
@@ -1110,7 +1110,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.group.locked", 
                                                      group)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
         
     def set_group_locked(self, group, locked):
@@ -1133,7 +1133,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.zone.group.locked", 
                                                      group, locked)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_group_name(self, group, nospaces = False):
         """
@@ -1160,7 +1160,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.group.name", 
                                                      group, nospaces)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
         
     def set_group_name(self, group, name):
@@ -1180,7 +1180,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.zone.group.name", 
                                                      group, name)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def  get_group_off(self, group):
         """
@@ -1204,7 +1204,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.group.off", 
                                                      group)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def set_group_off(self, group, off):
@@ -1227,7 +1227,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.zone.group.off", 
                                                      group, off)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def get_group_thermal(self, group):
         """
@@ -1251,7 +1251,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.group.thermal", 
                                                      group)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def set_group_thermal(self, group, thermal):
@@ -1274,7 +1274,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.zone.group.thermal", 
                                                      group, thermal)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def get_heating(self, month):
         """
@@ -1301,7 +1301,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.heating", 
                                                      self.eco_id, month)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
     
     @apply
@@ -1328,7 +1328,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.hidden", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(self, state = True):
@@ -1351,7 +1351,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.hidden", 
                                                          self.eco_id, state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1377,7 +1377,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.index", 
                                                      name)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     @apply
@@ -1403,7 +1403,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.infiltrationrate", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -1424,7 +1424,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.infiltrationrate", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -1451,7 +1451,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.ingroup", 
                                                      self.eco_id, group)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     @apply
@@ -1477,7 +1477,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.internalgains", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, value):
@@ -1498,7 +1498,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.internalgains", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1519,7 +1519,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.interzonalgains", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         return property(**locals()) 
@@ -1547,7 +1547,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.latentgains", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float) 
         
         def fset(self, value):
@@ -1568,7 +1568,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.latentgains", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1595,7 +1595,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.lightingenergy", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float) 
         
         def fset(self, value):
@@ -1616,7 +1616,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.latentgains", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1644,7 +1644,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.locked", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int) 
         
         def fset(self, state = True):
@@ -1667,7 +1667,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.locked", 
                                                          self.eco_id, state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1694,7 +1694,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.lowerband", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float) 
         
         def fset(self, value):
@@ -1715,7 +1715,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.lowerband", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1742,7 +1742,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.lux", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float) 
     
         def fset(self, value):
@@ -1763,7 +1763,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.lux", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1790,7 +1790,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.methodreverb", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float) 
     
         def fset(self, value):
@@ -1811,7 +1811,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.methodreverb", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1834,7 +1834,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.name", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, str) 
     
         def fset(self, name):
@@ -1851,7 +1851,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.name", 
                                                          self.eco_id, name)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
         
@@ -1948,7 +1948,7 @@ class Zone(object):
         arg_str = p2e._util._convert_args_to_string("get.zone.nextobject", 
                                                      self.eco_id, 
                                                      startat, type, flag, tag)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int) 
     
     @apply
@@ -2011,7 +2011,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.occupancy", 
                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, int, float, int)
 
     def set_occupancy(self, people, percentagefull = 0.0, seatingtype = 0):
@@ -2046,7 +2046,7 @@ class Zone(object):
         arg_str = p2e._util._convert_args_to_string("set.zone.occupancy", 
                                                      self.eco_id, people, 
                                                      percentagefull, seatingtype)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def off():
@@ -2069,7 +2069,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.off", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, state = True):
@@ -2089,7 +2089,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.off", 
                                                          self.eco_id, state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2120,7 +2120,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.operation", 
                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, int, int, int, int)
 
     def set_operation(self, wkdayon, wkdayoff, wkendon, wkendoff):
@@ -2148,7 +2148,7 @@ class Zone(object):
         arg_str = p2e._util._convert_args_to_string("set.zone.operation", 
                                                      self.eco_id, wkdayon, wkdayoff, 
                                                      wkendon, wkendoff)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def peak_cooling():
@@ -2170,7 +2170,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.peakcooling", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2187,7 +2187,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.peakcooling", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2211,7 +2211,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.peakheating", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2228,7 +2228,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.peakheating", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2246,7 +2246,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.randomcolour", 
                                                          self.eco_id)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2276,7 +2276,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.range", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, float, float, float)
         
         return property(**locals())
@@ -2301,7 +2301,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.relhumidity", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2319,7 +2319,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.relhumidity", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2343,7 +2343,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.responsefactor", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2361,7 +2361,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.responsefactor", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -2403,7 +2403,7 @@ class Zone(object):
         """
         arg_str = StringUtil._convert_args_to_string("get.zone.reverbtime", 
                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return StringUtil._convert_str_to_type(val, float)
 
     def get_schedules(self):
@@ -2430,7 +2430,7 @@ class Zone(object):
         """
         arg_str = StringUtil._convert_args_to_string("get.zone.schedules", 
                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return StringUtil._convert_str_to_list(val, int, int, int)
 
     def set_schedules(self, occIndex, ventIndex, gainsIndex):
@@ -2460,7 +2460,7 @@ class Zone(object):
         arg_str = p2e._util._convert_args_to_string("set.zone.sensiblegains", 
                                                      self.eco_id, occIndex, 
                                                      ventIndex, gainsIndex)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def selected():
@@ -2485,7 +2485,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.selected", 
                                                          self.eco_id, state)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -2510,7 +2510,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.sensiblegains", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2528,7 +2528,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.sensiblegains", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2552,7 +2552,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.solargains", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
             
         def fset(self, value):
@@ -2571,7 +2571,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.solargains", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2595,7 +2595,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.surfacearea", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2613,7 +2613,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.surfacearea", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2648,7 +2648,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.system", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, type):
@@ -2677,7 +2677,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.system", 
                                                          self.eco_id, type)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -2701,7 +2701,7 @@ class Zone(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.zone.temperature", 
                                                      self.eco_id)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
     
     @apply
@@ -2725,7 +2725,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.thermal", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, state = True):
@@ -2745,7 +2745,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.thermal", 
                                                          self.eco_id, state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2769,7 +2769,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.upperband", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2787,7 +2787,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.upperband", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2811,7 +2811,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.uvalue", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2830,7 +2830,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.uvalue", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2854,7 +2854,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.ventilationrate", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, value):
@@ -2872,7 +2872,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.ventilationrate", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2896,7 +2896,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.volume", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
             
         def fset(self, value):
@@ -2914,7 +2914,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.volume", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -2938,7 +2938,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.zone.windowarea", 
                                                          self.eco_id)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
      
         def fset(self, value):
@@ -2956,7 +2956,7 @@ class Zone(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.windowarea", 
                                                          self.eco_id, value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     

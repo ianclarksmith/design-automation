@@ -16,7 +16,7 @@ class Application(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("app.activate")
+        p2e._app.Exec("app.activate")
         
         
     def alert(self, msg, type = ""):
@@ -38,7 +38,7 @@ class Application(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("app.alert." + type, msg)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def busy(self, action, message):
         """
@@ -68,7 +68,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("app.busy" + action, 
                                                       message)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def center(self):
         """
@@ -81,7 +81,7 @@ class Application(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("app.center")
+        p2e._app.Exec("app.center")
         
     def character(self, text):
         """   
@@ -101,7 +101,7 @@ class Application(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("app.character", text)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def exit(self):
         """
@@ -116,7 +116,7 @@ class Application(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("app.exit")
+        p2e._app.Exec("app.exit")
     
     def key(self, keyCode):
         """
@@ -194,7 +194,7 @@ class Application(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("app.key", keyCode)
-        py2p2e.conversation.Exec(arg_str)
+        py2p2e._app.Exec(arg_str)
     
     
     def maximise(self, state = 1):
@@ -220,7 +220,7 @@ class Application(object):
         """
     
         arg_str = p2e._util._convert_args_to_string("app.maximise", state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def menu(self, command, tag = 0):
         """
@@ -589,7 +589,7 @@ class Application(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("app.menu", command,tag)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def minimise(self, state = 1):
         """
@@ -615,7 +615,7 @@ class Application(object):
         """
     
         arg_str = p2e._util._convert_args_to_string("app.minimise", state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def mouse_event(self, action, x, y):
         """
@@ -679,7 +679,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("app.mouseevent", action, 
                                                       x, y)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
      
     def progress(self, percent):
         """
@@ -701,7 +701,7 @@ class Application(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("app.progress", percent)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def run(self, script):
         """
@@ -731,7 +731,7 @@ class Application(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("app.run", script)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def status(self, msg):
         """
@@ -757,7 +757,7 @@ class Application(object):
         """ 
     
         arg_str = p2e._util._convert_args_to_string("app.status", msg)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -781,7 +781,7 @@ class Application(object):
             
             """
         
-            val = p2e.conversation.Request("get.app.computer")
+            val = p2e._app.Request("get.app.computer")
             return p2e._util._convert_str_to_type(val, str)
         
         return property(**locals())
@@ -829,7 +829,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.app.image", type, 
                                                       name)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
     
     def get_menu_tool(self, index):
@@ -856,7 +856,7 @@ class Application(object):
     
         """
         arg_str = p2e._util._convert_args_to_string("get.app.menu.tool", index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         print val
         return p2e._util._convert_str_to_list(val, str)  
     
@@ -882,7 +882,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.app.menu.tool", 
                                                       index, name_path)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_menu_wizard(self, index):
         """
@@ -910,7 +910,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.app.menu.wizard", 
                                                       index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, str)  
     
     def set_menu_wizard(self, index, name_path):
@@ -938,7 +938,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.app.menu.wizard", 
                                                       index, name_path)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     @apply
     def page ():    
@@ -969,7 +969,7 @@ class Application(object):
             4 REPORT Page 
         
             """
-            val = p2e.conversation.Request("get.app.page")
+            val = p2e._app.Request("get.app.page")
             return p2e._util._convert_str_to_type(val, int)
         
         def fset(self, page):
@@ -998,7 +998,7 @@ class Application(object):
         
             """
             arg_str = p2e._util._convert_args_to_string("set.app.page", page)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -1037,7 +1037,7 @@ class Application(object):
             10 Export Manager 
         
             """
-            val = p2e.conversation.Request("get.app.panel")
+            val = p2e._app.Request("get.app.panel")
             return p2e._util._convert_str_to_type(val, int)
         
         def fset(self, panel):
@@ -1071,7 +1071,7 @@ class Application(object):
         
             """
             arg_str = p2e._util._convert_args_to_string("set.app.panel", panel)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1096,7 +1096,7 @@ class Application(object):
             A text string containing the full home directory path.
             
             """
-            val = p2e.conversation.Request("get.app.path")
+            val = p2e._app.Request("get.app.path")
             return p2e._util._convert_str_to_type(val, str)
         
         return property(**locals())
@@ -1126,7 +1126,7 @@ class Application(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.app.registry", key)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
     
     def set_registry(self, keyvalue):
@@ -1148,7 +1148,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.app.registry", 
                                                       keyvalue)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def screen():    
@@ -1176,7 +1176,7 @@ class Application(object):
             The vertical height of the screen in pixels.
             
             """
-            val = p2e.conversation.Request("get.app.screen")
+            val = p2e._app.Request("get.app.screen")
             return p2e._util._convert_str_to_list(val, int) 
         
         return property(**locals()) 
@@ -1211,7 +1211,7 @@ class Application(object):
         The increment/decrement value when using the PageUp/PageDown keys. 
         
         """
-        val = p2e.conversation.Request("get.app.slider.range")
+        val = p2e._app.Request("get.app.slider.range")
         return p2e._util._convert_str_to_list(val, int)  
     
     def set_slider_range(self, min, max, freq, lineSize, pageSize):
@@ -1252,7 +1252,7 @@ class Application(object):
         arg_str = p2e._util._convert_args_to_string("set.app.slider.range", 
                                                      min, max, freq, lineSize, 
                                                      pageSize)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def get_slider_scale(self):
         """
@@ -1276,7 +1276,7 @@ class Application(object):
         the slider.
         
         """    
-        val = p2e.conversation.Request("get.app.slider.scale")
+        val = p2e._app.Request("get.app.slider.scale")
         return p2e._util._convert_str_to_list(val, float, str)
         
     def set_slider_scale(self, scale, hint = None):
@@ -1302,7 +1302,7 @@ class Application(object):
         """    
         arg_str = p2e._util._convert_args_to_string("set.app.slider.scale", 
                                                       scale, hint)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def slider_title():
@@ -1321,7 +1321,7 @@ class Application(object):
             This is a string value containing the full title.
             
             """
-            val = p2e.conversation.Request("get.app.slider.title")
+            val = p2e._app.Request("get.app.slider.title")
             return p2e._util._convert_str_to_type(val, str)
         
         def fset(self, title):
@@ -1339,7 +1339,7 @@ class Application(object):
             
             arg_str = p2e._util._convert_args_to_string("set.app.slider.title", 
                                                           title)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -1361,7 +1361,7 @@ class Application(object):
             A string value containing the user's login name.
             
             """
-            val = p2e.conversation.Request("get.app.username")
+            val = p2e._app.Request("get.app.username")
             return p2e._util._convert_str_to_type(val, str)
         
         return property(**locals())
@@ -1391,7 +1391,7 @@ class Application(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.app.web.file", url)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
     
     def get_web_line(self, lineNumber):
@@ -1420,7 +1420,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.app.web.line", 
                                                       lineNumber)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
     
     def set_web_login(self, username = None, password = None):
@@ -1446,7 +1446,7 @@ class Application(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.app.web.login", 
                                                       username, password)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_web_page(self, url, text = False):
         """
@@ -1481,7 +1481,7 @@ class Application(object):
         else:
             arg_str = p2e._util._convert_args_to_string("get.app.web.page", 
                                                           url)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def get_web_param(self, name = None, index = None):
@@ -1529,12 +1529,12 @@ class Application(object):
         if name:
             arg_str = p2e._util._convert_args_to_string("get.app.web.param", 
                                                           name)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, str)
         elif index:
             arg_str = p2e._util._convert_args_to_string("get.app.web.param.index", 
                                                          index)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_list(val, str)
     
     def get_window(self):
@@ -1562,7 +1562,7 @@ class Application(object):
         The vertical height of the window in screen pixels.
         
         """
-        val = p2e.conversation.Request("get.app.window")
+        val = p2e._app.Request("get.app.window")
         return p2e._util._convert_str_to_list(val, int)
     
     def set_window(self, left, top, width, height):
@@ -1598,5 +1598,5 @@ class Application(object):
                                                      top, 
                                                      width, 
                                                      height)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         

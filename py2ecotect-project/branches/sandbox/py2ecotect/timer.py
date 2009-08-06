@@ -15,7 +15,7 @@ class Timer(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("timer.restart")
+        p2e._app.Exec("timer.restart")
     
     def start(self):
         """
@@ -26,7 +26,7 @@ class Timer(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("timer.start")
+        p2e._app.Exec("timer.start")
         
     def stop(self):
         """
@@ -37,7 +37,7 @@ class Timer(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("timer.stop")
+        p2e._app.Exec("timer.stop")
     
     #===========================================================================
     # Properties
@@ -61,7 +61,7 @@ class Timer(object):
             The number of times the timer has triggered since it was started. 
             
             """
-            val = p2e.conversation.Request("get.timer.count")
+            val = p2e._app.Request("get.timer.count")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, count):
@@ -78,7 +78,7 @@ class Timer(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.timer.count", count)
-            p2e.conversation.Exec(arg_str)     
+            p2e._app.Exec(arg_str)     
         
         return property(**locals())
     
@@ -102,7 +102,7 @@ class Timer(object):
             every second.
             
             """
-            val = p2e.conversation.Request("get.timer.interval")
+            val = p2e._app.Request("get.timer.interval")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, msec):
@@ -122,7 +122,7 @@ class Timer(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.timer.interval", msec)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -144,7 +144,7 @@ class Timer(object):
             This is a boolean value where 1 means running and 0 means stopped. 
     
             """
-            val = p2e.conversation.Request("get.timer.running")
+            val = p2e._app.Request("get.timer.running")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, running):
@@ -164,7 +164,7 @@ class Timer(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.timer.running", 
                                                           running)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 

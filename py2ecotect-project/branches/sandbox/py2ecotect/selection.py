@@ -15,7 +15,7 @@ class Selection(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("selection.delete")
+        p2e._app.Exec("selection.delete")
     
     def duplicate(self, offset_distance):
         """
@@ -35,7 +35,7 @@ class Selection(object):
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def equation(self):
         """
@@ -47,7 +47,7 @@ class Selection(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("selection.equation")
+        p2e._app.Exec("selection.equation")
     
     def extrude(self, offset_distance):
         """
@@ -67,7 +67,7 @@ class Selection(object):
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def group(self):
         """
@@ -78,7 +78,7 @@ class Selection(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("selection.group")
+        p2e._app.Exec("selection.group")
     
     def link(self):
         """
@@ -91,7 +91,7 @@ class Selection(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("selection.link")
+        p2e._app.Exec("selection.link")
     
     def move(self, offset_distance):
         """
@@ -111,7 +111,7 @@ class Selection(object):
                                                       offset_distance[0],
                                                       offset_distance[1],
                                                       offset_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def normal(self, type):
         """
@@ -132,7 +132,7 @@ class Selection(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("selection.normal", type)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def nudge(self, dir):
         """
@@ -152,7 +152,7 @@ class Selection(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("selection.nudge", dir)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def orient(self, azi, alt):
         """
@@ -172,7 +172,7 @@ class Selection(object):
         """
         arg_str = p2e._util._convert_args_to_string("selection.nudge", 
                                                       azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def reverse(self):
         """
@@ -183,7 +183,7 @@ class Selection(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("selection.reverse")
+        p2e._app.Exec("selection.reverse")
         
     def revolve(self, axis, angle, segs):
         """
@@ -208,7 +208,7 @@ class Selection(object):
         """
         arg_str = p2e._util._convert_args_to_string("selection.revolve", 
                                                       axis, angle, segs)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def rotate(self, azi, alt):
         """
@@ -231,7 +231,7 @@ class Selection(object):
         """
         arg_str = p2e._util._convert_args_to_string("selection.rotate", 
                                                       azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def rotate_axis(self, rotate_angle):
         """
@@ -250,7 +250,7 @@ class Selection(object):
                                                       rotate_angle[0],
                                                       rotate_angle[1],
                                                       rotate_angle[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def rotate_reverse(self, azi, alt):
         """
@@ -271,7 +271,7 @@ class Selection(object):
         """
         arg_str = p2e._util._convert_args_to_string("selection.rotatereverse", 
                                                       azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def scale(self, scale_factor):
         """
@@ -292,7 +292,7 @@ class Selection(object):
                                                       scale_factor[0],
                                                       scale_factor[1],
                                                       scale_factor[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def spin(self, angle):
         """
@@ -308,7 +308,7 @@ class Selection(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("selection.spin", angle)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def ungroup(self):
         """
@@ -319,7 +319,7 @@ class Selection(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("selection.ungroup")
+        p2e._app.Exec("selection.ungroup")
     
     def unlink(self):
         """
@@ -330,7 +330,7 @@ class Selection(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("selection.unlink")
+        p2e._app.Exec("selection.unlink")
     
     def update(self):
         """
@@ -353,7 +353,7 @@ class Selection(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("selection.update")
+        p2e._app.Exec("selection.update")
     
     def xform(self, trans, function_values):
         """
@@ -391,7 +391,7 @@ class Selection(object):
                                                       function_values[0], 
                                                       function_values[1], 
                                                       function_values[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -416,7 +416,7 @@ class Selection(object):
             The zero-based index of the alternate material assigned
             
             """
-            val = p2e.conversation.Request("get.selection.alternate")
+            val = p2e._app.Request("get.selection.alternate")
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(self, index):
@@ -436,7 +436,7 @@ class Selection(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.selection.alternate", 
                                                          index)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -458,7 +458,7 @@ class Selection(object):
             A decimal value containing the specified data. 
     
             """
-            val = p2e.conversation.Request("get.selection.area")
+            val = p2e._app.Request("get.selection.area")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -480,7 +480,7 @@ class Selection(object):
             A decimal value containing the specified data. 
             
             """
-            val = p2e.conversation.Request("get.selection.attr1")
+            val = p2e._app.Request("get.selection.attr1")
             return p2e._util._convert_str_to_type(val, float)
      
         def fset(self, value):
@@ -497,7 +497,7 @@ class Selection(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.selection.attr1", 
                                                          value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -518,7 +518,7 @@ class Selection(object):
             A decimal value containing the specified data. 
             
             """
-            val = p2e.conversation.Request("get.selection.attr2")
+            val = p2e._app.Request("get.selection.attr2")
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, value):
@@ -535,7 +535,7 @@ class Selection(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.selection.attr2", 
                                                          value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -556,7 +556,7 @@ class Selection(object):
             A decimal value containing the specified data. 
             
             """
-            val = p2e.conversation.Request("get.selection.attr3")
+            val = p2e._app.Request("get.selection.attr3")
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, value):
@@ -573,7 +573,7 @@ class Selection(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.selection.attr3", 
                                                          value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -594,7 +594,7 @@ class Selection(object):
             The number of objects in current selection set. 
     
             """
-            val = p2e.conversation.Request("get.selection.count")
+            val = p2e._app.Request("get.selection.count")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -617,7 +617,7 @@ class Selection(object):
             A decimal value containing the specified data. 
             
             """
-            val = p2e.conversation.Request("get.selection.exposure")
+            val = p2e._app.Request("get.selection.exposure")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -639,7 +639,7 @@ class Selection(object):
             A decimal value containing the specified data.
             
             """
-            val = p2e.conversation.Request("get.selection.length")
+            val = p2e._app.Request("get.selection.length")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -661,7 +661,7 @@ class Selection(object):
         The zero-based index of the primary material assigned.
         
         """
-        val = p2e.conversation.Request("get.selection.material")
+        val = p2e._app.Request("get.selection.material")
         return p2e._util._convert_str_to_type(val, int)
     
     def set_material(self, index, both):
@@ -686,7 +686,7 @@ class Selection(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.selection.material", 
                                                      index, both)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def next():
@@ -706,7 +706,7 @@ class Selection(object):
             The zero-based index of the next selected object. 
     
             """
-            val = p2e.conversation.Request("get.selection.next")
+            val = p2e._app.Request("get.selection.next")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -728,7 +728,7 @@ class Selection(object):
             A decimal value containing the specified data.
             
             """
-            val = p2e.conversation.Request("get.selection.panelarea")
+            val = p2e._app.Request("get.selection.panelarea")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -751,7 +751,7 @@ class Selection(object):
             The zero-based index of the next previous object. 
     
             """
-            val = p2e.conversation.Request("get.selection.prev")
+            val = p2e._app.Request("get.selection.prev")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -773,7 +773,7 @@ class Selection(object):
             A decimal value containing the specified data.
             
             """
-            val = p2e.conversation.Request("get.selection.resolution")
+            val = p2e._app.Request("get.selection.resolution")
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, value):
@@ -790,7 +790,7 @@ class Selection(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.selection.resolution", 
                                                          value)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -830,7 +830,7 @@ class Selection(object):
         camera 15 
 
         """
-        val = p2e.conversation.Request("get.selection.type")
+        val = p2e._app.Request("get.selection.type")
         return p2e._util._convert_str_to_type(val, int)
     
     def set_type(self, type, state = True):
@@ -872,7 +872,7 @@ class Selection(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.selection.type", 
                                                      type, state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def underground():
@@ -893,7 +893,7 @@ class Selection(object):
             """
             #Return value is different. It returns 2 values. So a list 
             #of 2 values is returned
-            val = p2e.conversation.Request("get.selection.underground")
+            val = p2e._app.Request("get.selection.underground")
             return p2e._util._convert_str_to_list(val, float, float)
         
         return property(**locals())

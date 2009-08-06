@@ -5,7 +5,7 @@ _objects = []
 _nodes = []
 
 def _populate():
-    val = p2e.conversation.Request("get.model.zones")
+    val = p2e._app.Request("get.model.zones")
     num_zones = p2e._util._convert_str_to_type(val, int)    
     for eco_id in range(num_zones):
             p2e.Zone(eco_id)
@@ -43,7 +43,7 @@ class Model(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("model.dump", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def export_file(self, filename, fileformat):
         """
@@ -103,7 +103,7 @@ class Model(object):
         """
         #TODO: add error checking
         arg_str = p2e._util._convert_args_to_string("model.export" + fileformat, filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def import_file(self, filename):
         """
@@ -154,7 +154,7 @@ class Model(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("model.import", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def load(self, filename):
         """
@@ -172,8 +172,8 @@ class Model(object):
         filename =  C:\Temp\Test.eco
         
         """
-        arg_str = p2e.p2e._util._convert_args_to_string("model.load", filename)
-        p2e.conversation.Exec(arg_str)
+        arg_str = p2e._util._convert_args_to_string("model.load", filename)
+        p2e._app.Exec(arg_str)
         
         #Clear model lists
         self.zones = []
@@ -200,7 +200,7 @@ class Model(object):
         model.new
         
         """
-        #p2e.conversation.Exec("model.new")
+        #p2e._app.Exec("model.new")
         
         #Clear model lists
         #self.zones = []
@@ -221,7 +221,7 @@ class Model(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("model.revert")
+        p2e._app.Exec("model.revert")
     
     def save(self):
         """
@@ -233,7 +233,7 @@ class Model(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("model.save")
+        p2e._app.Exec("model.save")
     
     def save_as(self, filename):
         """
@@ -250,7 +250,7 @@ class Model(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("model.saveas", filename)        
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def update(self):
         """
@@ -265,7 +265,7 @@ class Model(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("model.update")
+        p2e._app.Exec("model.update")
         
     #===========================================================================
     # Properties
@@ -304,7 +304,7 @@ class Model(object):
                                                           absolute_position_end[0],
                                                           absolute_position_end[1],
                                                           absolute_position_end[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)        
         
     def get_azimuth(self, absolute_position_start, absolute_position_end):
@@ -340,7 +340,7 @@ class Model(object):
                                                           absolute_position_end[0],
                                                           absolute_position_end[1],
                                                           absolute_position_end[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)           
     
     @apply
@@ -361,7 +361,7 @@ class Model(object):
             The zero-based index of the current node. 
             
             """
-            val = p2e.conversation.Request("get.model.currentnode")
+            val = p2e._app.Request("get.model.currentnode")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())  
@@ -384,7 +384,7 @@ class Model(object):
             The zero-based index of the current object in the model.
              
             """
-            val = p2e.conversation.Request("get.model.currentobject")
+            val = p2e._app.Request("get.model.currentobject")
             return p2e._util._convert_str_to_type(val, int)   
         
         return property(**locals())  
@@ -407,7 +407,7 @@ class Model(object):
             The zero-based index of the current zone. 
             
             """
-            val = p2e.conversation.Request("get.model.currentzone")
+            val = p2e._app.Request("get.model.currentzone")
             return p2e._util._convert_str_to_type(val, int)   
         
         return property(**locals())  
@@ -431,7 +431,7 @@ class Model(object):
         An integer value between 0 and 11. 
         
         """
-        val = p2e.conversation.Request("get.model.date")
+        val = p2e._app.Request("get.model.date")
         return p2e._util._convert_str_to_list(val, int)  
     
     def set_date(self, day, month, time = None):
@@ -456,7 +456,7 @@ class Model(object):
             arg_str = p2e._util._convert_args_to_string("set.model.date", day, month, time)
         else:
             arg_str = p2e._util._convert_args_to_string("set.model.date", day, month)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def date_string():    
@@ -475,7 +475,7 @@ class Model(object):
             A formated date string. 
             
             """
-            val = p2e.conversation.Request("get.model.datestring")
+            val = p2e._app.Request("get.model.datestring")
             return p2e._util._convert_str_to_type(val, str)
         
         return property(**locals())
@@ -499,7 +499,7 @@ class Model(object):
             current time is offset by one hour. 
             
             """
-            val = p2e.conversation.Request("get.model.daylightsavings")
+            val = p2e._app.Request("get.model.daylightsavings")
             return p2e._util._convert_str_to_type(val, bool)          
         
         def fset(self, state):
@@ -518,7 +518,7 @@ class Model(object):
             """
             args = p2e._util._convert_args_to_string("set.model.daylightsavings", 
                                                        state)
-            p2e.conversation.Exec(args)
+            p2e._app.Exec(args)
             
         return property(**locals())
         
@@ -541,7 +541,7 @@ class Model(object):
         year. 
         
         """
-        val = p2e.conversation.Request("get.model.dayoftheyear")
+        val = p2e._app.Request("get.model.dayoftheyear")
         return p2e._util._convert_str_to_type(val, int)  
     
     def set_day_of_the_year(self, day, time = None):
@@ -565,7 +565,7 @@ class Model(object):
         else:
             arg_str = p2e._util._convert_args_to_string("set.model.dayoftheyear", 
                                                           day)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def directory():
@@ -586,7 +586,7 @@ class Model(object):
             A text string containing the current directory path. 
         
             """
-            val = p2e.conversation.Request("get.model.directory")
+            val = p2e._app.Request("get.model.directory")
             return p2e._util._convert_str_to_type(val, str)
         
         def fset(self, path):
@@ -607,7 +607,7 @@ class Model(object):
             """
             args = p2e._util._convert_args_to_string("set.model.directory", path)
             arg_str = p2e._util._convert_args_to_string(args)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -642,7 +642,7 @@ class Model(object):
             rays 10 Acoustic rays and particles. 
             
             """
-            val = p2e.conversation.Request("get.model.display")
+            val = p2e._app.Request("get.model.display")
             return p2e._util._convert_str_to_type(val, int)        
         
         def fset(self, display):
@@ -671,7 +671,7 @@ class Model(object):
             
             """
             args = p2e._util._convert_args_to_string("set.model.display", display)
-            p2e.conversation.Exec(args)
+            p2e._app.Exec(args)
         
         return property(**locals())
     
@@ -708,7 +708,7 @@ class Model(object):
                                                        absolute_position_end[0],
                                                        absolute_position_end[1],
                                                        absolute_position_end[2])
-        val = p2e.conversation.Request(args)
+        val = p2e._app.Request(args)
         return p2e._util._convert_str_to_type(val, float)          
     
     @apply
@@ -729,7 +729,7 @@ class Model(object):
             A text string containing the filename. 
             
             """
-            val = p2e.conversation.Request("get.model.filename")
+            val = p2e._app.Request("get.model.filename")
             return p2e._util._convert_str_to_type(val, str)
         
         return property(**locals())
@@ -753,7 +753,7 @@ class Model(object):
             such node exists, a value of -1 is returned. 
             
             """
-            val = p2e.conversation.Request("get.model.lastnode")
+            val = p2e._app.Request("get.model.lastnode")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -777,7 +777,7 @@ class Model(object):
             element library. 
             
             """
-            val = p2e.conversation.Request("get.model.materials")
+            val = p2e._app.Request("get.model.materials")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())      
@@ -799,7 +799,7 @@ class Model(object):
             The current model month given as an integer index between 0 and 11.
              
             """
-            val = p2e.conversation.Request("get.model.month")
+            val = p2e._app.Request("get.model.month")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -829,7 +829,7 @@ class Model(object):
         """
         args = p2e._util._convert_args_to_string("get.model.nextnode", 
                                                  object.eco_id, node.eco_id)
-        val = p2e.conversation.Request(args)
+        val = p2e._app.Request(args)
         return p2e._util._convert_str_to_type(val, int)       
     
     def get_next_object(self, startat, type, flag, tag, zone):
@@ -929,7 +929,7 @@ class Model(object):
             args = p2e._util._convert_args_to_string("get.model.nextobject", 
                                                      startat, type, flag, tag, 
                                                      zone.eco_id)
-        val = p2e.conversation.Request(args)
+        val = p2e._app.Request(args)
         return p2e._util._convert_str_to_type(val, int)          
     
     @apply
@@ -950,7 +950,7 @@ class Model(object):
             The total number of nodes within the current model. 
             
             """
-            val = p2e.conversation.Request("get.model.nodes")
+            val = p2e._app.Request("get.model.nodes")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())          
@@ -975,7 +975,7 @@ class Model(object):
             The total number of objects in the current model.
              
             """
-            val = p2e.conversation.Request("get.model.objects")
+            val = p2e._app.Request("get.model.objects")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -1013,7 +1013,7 @@ class Model(object):
                                                            absolute_position_end[0],
                                                            absolute_position_end[1],
                                                            absolute_position_end[2])
-        val = p2e.conversation.Request(args)
+        val = p2e._app.Request(args)
         return p2e._util._convert_str_to_type(val, float)        
     
     @apply
@@ -1035,7 +1035,7 @@ class Model(object):
             dimensional model space.
              
             """
-            val = p2e.conversation.Request("get.model.origin")
+            val = p2e._app.Request("get.model.origin")
             return p2e.p2e._util._convert_str_to_list(val, float)
         
         def fset(self, absolute_position):
@@ -1056,7 +1056,7 @@ class Model(object):
                                                                absolute_position[0],
                                                                absolute_position[1],
                                                                absolute_position[2])
-            p2e.conversation.Exec(args)
+            p2e._app.Exec(args)
         return property(**locals())     
     
     @apply
@@ -1077,7 +1077,7 @@ class Model(object):
             A text string containing the full pathname.
             
             """
-            return p2e.conversation.Request("get.model.pathname")
+            return p2e._app.Request("get.model.pathname")
         
         return property(**locals())
     
@@ -1106,7 +1106,7 @@ class Model(object):
         """
         args = p2e._util._convert_args_to_string("get.model.prevnode", 
                                                  object.eco_id, node.eco_id)
-        val = p2e.conversation.Request(args)
+        val = p2e._app.Request(args)
         return p2e._util._convert_str_to_type(val, int)        
     
     def get_prev_object(self, startat, type, flag, tag, zone):
@@ -1206,7 +1206,7 @@ class Model(object):
             args = p2e._util._convert_args_to_string("get.model.prevobject", 
                                                      startat, type, flag, tag, 
                                                      zone.eco_id)
-        val = p2e.conversation.Request(args)
+        val = p2e._app.Request(args)
         return p2e._util._convert_str_to_type(val, int)         
     
     @apply
@@ -1241,7 +1241,7 @@ class Model(object):
             rays 10 Acoustic rays and particles 
     
             """
-            val = p2e.conversation.Request("get.model.snap")
+            val = p2e._app.Request("get.model.snap")
             return p2e._util._convert_str_to_type(val, bool)         
         
         def fset(self, snap):
@@ -1273,7 +1273,7 @@ class Model(object):
     
             """
             args = p2e._util._convert_args_to_string("set.model.snap", snap)
-            p2e.conversation.Exec(args)
+            p2e._app.Exec(args)
         
         return property(**locals())
     
@@ -1298,7 +1298,7 @@ class Model(object):
             The current solar altitude given in degrees. 
             
             """
-            val = p2e.conversation.Request("get.model.sunangles")
+            val = p2e._app.Request("get.model.sunangles")
             return p2e._util._convert_str_to_list(val, float)
         
         return property(**locals())          
@@ -1334,7 +1334,7 @@ class Model(object):
         arg_str = p2e._util._convert_args_to_string("get.model.sunposition", 
                                                               dist, xyz[0], 
                                                               xyz[1], xyz[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float) 
     
     @apply
@@ -1355,7 +1355,7 @@ class Model(object):
             The time of sunrise given as a decimal hour. 
             
             """
-            val = p2e.conversation.Request("get.model.sunrise")
+            val = p2e._app.Request("get.model.sunrise")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())   
@@ -1378,7 +1378,7 @@ class Model(object):
             The time of sunset given as a decimal hour. 
             
             """
-            val = p2e.conversation.Request("get.model.sunset")
+            val = p2e._app.Request("get.model.sunset")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())        
@@ -1401,7 +1401,7 @@ class Model(object):
             A decimal value between 0.0 and 23.99. 
             
             """
-            val = p2e.conversation.Request("get.model.time")
+            val = p2e._app.Request("get.model.time")
             return p2e._util._convert_str_to_type(val, float)          
         
         def fset(self, time):
@@ -1417,7 +1417,7 @@ class Model(object):
             
             """
             args = p2e._util._convert_args_to_string("set.model.time", time)
-            p2e.conversation.Exec(args)
+            p2e._app.Exec(args)
         
         return property(**locals())
     
@@ -1438,7 +1438,7 @@ class Model(object):
             A formated time string. 
             
             """
-            val = p2e.conversation.Request("get.model.timestring")
+            val = p2e._app.Request("get.model.timestring")
             return p2e._util._convert_str_to_type(val, str)
     
         return property(**locals())
@@ -1462,7 +1462,7 @@ class Model(object):
             A boolean value where 1 represents the affirmative and 0 the negative.
              
             """
-            val = p2e.conversation.Request("get.model.xform.capextrusions")
+            val = p2e._app.Request("get.model.xform.capextrusions")
             return p2e._util._convert_str_to_type(val, bool)          
         
         def fset(self, state = True):
@@ -1479,7 +1479,7 @@ class Model(object):
             
             """
             args = p2e._util._convert_args_to_string("set.model.xform.capextrusions", state)
-            p2e.conversation.Exec(args)
+            p2e._app.Exec(args)
         
         return property(**locals())
     
@@ -1503,7 +1503,7 @@ class Model(object):
             A boolean value where 1 represents the affirmative and 0 the negative.
              
             """
-            val = p2e.conversation.Request("get.model.xform.vectors")
+            val = p2e._app.Request("get.model.xform.vectors")
             return p2e._util._convert_str_to_type(val, bool)
         
         def fset(self, state = True):
@@ -1523,7 +1523,7 @@ class Model(object):
             
             """
             args = p2e._util._convert_args_to_string("set.model.xform.vectors", state)
-            p2e.conversation.Exec(args)
+            p2e._app.Exec(args)
         
         return property(**locals())
     
@@ -1545,7 +1545,7 @@ class Model(object):
             The total number of zones in the current model.
             
             """
-            val = p2e.conversation.Request("get.model.zones")
+            val = p2e._app.Request("get.model.zones")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())

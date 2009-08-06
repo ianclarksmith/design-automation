@@ -16,7 +16,7 @@ class Grid3D(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("grid3d.reset")
+        p2e._app.Exec("grid3d.reset")
 
     def getframe(self, index):
         """
@@ -39,7 +39,7 @@ class Grid3D(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("grid3d.getframe", index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def initialise(self):
         """
@@ -52,7 +52,7 @@ class Grid3D(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("grid3d.initialise")
+        p2e._app.Exec("grid3d.initialise")
 
     def reset(self):
         """
@@ -63,7 +63,7 @@ class Grid3D(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("grid3d.reset")
+        p2e._app.Exec("grid3d.reset")
 
     def setframe(self):
         """
@@ -86,7 +86,7 @@ class Grid3D(object):
         
         """
         arg_str = p2e.p2e._util._convert_args_to_string("grid3d.setframe", index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -133,7 +133,7 @@ class Grid3D(object):
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2], state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_cell(self, cell_index, index = 0):
         """
@@ -181,7 +181,7 @@ class Grid3D(object):
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2], index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, int)
 
     def set_cell(self, cell_index, value, index = 0):
@@ -212,7 +212,7 @@ class Grid3D(object):
                                                       cell_index[1], 
                                                       cell_index[2], value, 
                                                       index)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_index(self, absolute_position):
         """
@@ -248,7 +248,7 @@ class Grid3D(object):
                                                       absolute_position[0],
                                                       absolute_position[1], 
                                                       absolute_position[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float, bool)
 
     def get_position(self, cell_index):
@@ -278,7 +278,7 @@ class Grid3D(object):
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def get_state(self, cell_index):
@@ -317,7 +317,7 @@ class Grid3D(object):
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_state(self, cell_index, state):
@@ -353,7 +353,7 @@ class Grid3D(object):
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2], state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_value(self, absolute_position, index = 0):
         """
@@ -394,7 +394,7 @@ class Grid3D(object):
                                                       absolute_position[1], 
                                                       absolute_position[2], 
                                                       index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, int, bool)
 
     def get_vector(self, cell_index):
@@ -422,7 +422,7 @@ class Grid3D(object):
                                                       cell_index[0], 
                                                       cell_index[1], 
                                                       cell_index[2])
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     def set_vector(self, i, j, k, offset_distance):
@@ -449,4 +449,4 @@ class Grid3D(object):
                                                       offset_distance[0], 
                                                       offset_distance[1], 
                                                       offset_distance[2])
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)

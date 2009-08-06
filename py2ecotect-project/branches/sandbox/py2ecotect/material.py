@@ -20,7 +20,7 @@ class Material(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("material.edit", material)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -45,7 +45,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.absorption", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_absorption(self, material, value):
@@ -67,7 +67,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.absorption", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_admittance(self, material):
         """
@@ -90,7 +90,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.admittance", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_admittance(self, material, value):
@@ -112,7 +112,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.admittance", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_colour(self, material):
         """
@@ -140,7 +140,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.colour", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)        
+        val = p2e._app.Request(arg_str)        
         return p2e._util._convert_str_to_list(val, str, str)
 
     def set_colour(self, material, internal, external):
@@ -166,7 +166,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.colour", 
                                                      material, internal, external)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_cost_per_unit(self, material):
         """
@@ -189,7 +189,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.costperunit", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_cost_per_unit(self, material, value):
@@ -212,7 +212,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.costperunit", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_cost_type(self, material):
         """
@@ -247,7 +247,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.costtype", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_cost_type(self, material, costType):
@@ -278,7 +278,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.costtypr", 
                                                      material, costType)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_data(self, material, index):
         """
@@ -319,7 +319,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.data", 
                                                      material, index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_data(self, material, index, value):
@@ -357,7 +357,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.data", 
                                                      material, index, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_decrement(self, material):
         """
@@ -380,7 +380,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.decrement", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_decrement(self, material, value):
@@ -402,7 +402,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.decrement", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def myattr():
@@ -421,7 +421,7 @@ class Material(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.material.default", 
                                                          material)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -446,7 +446,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.description", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def set_description(self, material, description):
@@ -468,7 +468,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.description", 
                                                      material, description)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_element(self, material):
         """
@@ -513,7 +513,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.element", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def get_embodied_energy(self, material):
@@ -537,7 +537,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.embodiedenergy", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_embodied_energy(self, material, value):
@@ -559,7 +559,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.embodiedenergy", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_energy_maintenance(self, material):
         """
@@ -582,7 +582,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.energymaintenance", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_energy_maintenance(self, material, value):
@@ -604,7 +604,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.energymaintenance", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_ext_emissivity(self, material):
         """
@@ -628,7 +628,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.extemissivity", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_ext_emissivity(self, material, value):
@@ -650,7 +650,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.extemissivity", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_ext_roughness(self, material):
         """
@@ -673,7 +673,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.extroughness", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_ext_roughness(self, material, value):
@@ -695,7 +695,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.extroughness", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_ext_specularity(self, material):
         """
@@ -718,7 +718,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.extspecularity", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_ext_specularity(self, material, value):
@@ -740,7 +740,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.extspecularity", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_greenhouse_gas(self, material):
         """
@@ -763,7 +763,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.greenhousegas", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_greenhouse_gas(self, material, value):
@@ -782,7 +782,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.greenhousegas", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_index(self, name):
         """
@@ -808,7 +808,7 @@ class Material(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.material.index", name)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def get_int_emissivity(self, material):
@@ -832,7 +832,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.intemissivity", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_int_emissivity(self, material, value):
@@ -854,7 +854,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.intemissivity", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_int_roughness(self, material):
         """
@@ -877,7 +877,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.introughness", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_int_roughness(self, material, value):
@@ -899,7 +899,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.introughness", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_int_specularity(self, material):
         """
@@ -922,7 +922,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.intspecularity", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_int_specularity(self, material, value):
@@ -944,7 +944,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.intspecularity", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_lag(self, material):
         """
@@ -967,7 +967,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.lag", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_lag(self, material, value):
@@ -989,7 +989,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.lag", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_layer_conductivity(self, material, layer):
         """
@@ -1017,7 +1017,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.layer.conductivity", 
                                                      material, layer)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_layer_conductivity(self, material, layer, conductivity):
@@ -1043,7 +1043,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.layer.conductivity", 
                                                      material, layer, conductivity)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_layer_density(self, material, layer):
         """
@@ -1070,7 +1070,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.layer.density", 
                                                      material, layer)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_layer_density(self, material, layer, density):
@@ -1095,7 +1095,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.layer.density", 
                                                      material, layer, density)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_layer_hatch(self, material, layer):
         """
@@ -1124,7 +1124,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.layer.hatch", 
                                                      material, layer)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_layer_hatch(self, material, layer, hatch):
@@ -1149,7 +1149,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.layer.hatch", 
                                                      material, layer, hatch)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_layer_name(self, material, layer):
         """
@@ -1176,7 +1176,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.layer.name", 
                                                      material, layer)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def set_layer_name(self, material, layer, name):
@@ -1201,7 +1201,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.layer.name", 
                                                      material, layer, name)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_layer_specific_heat(self, material, layer):
         """
@@ -1228,7 +1228,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.layer.specific_heat", 
                                                      material, layer)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_layer_specific_heat(self, material, layer, specific_heat):
@@ -1254,7 +1254,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.layer.specific_heat", 
                                                      material, layer, specific_heat)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_layer_type(self, material, layer):
         """
@@ -1281,7 +1281,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.layer.type", 
                                                      material, layer)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_layer_type(self, material, layer, type):
@@ -1306,7 +1306,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.layer.type", 
                                                      material, layer, type)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_layer_width(self, material, layer):
         """
@@ -1333,7 +1333,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.layer.width", 
                                                      material, layer)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_layer_width(self, material, layer, width):
@@ -1359,7 +1359,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.layer.width", 
                                                      material, layer, width)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_lca(self, material):
         """
@@ -1382,7 +1382,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.lca", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
         
     def set_lca(self, material, value):
@@ -1403,7 +1403,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.lca", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_life_span(self, material):
         """
@@ -1426,7 +1426,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.lifespan", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_life_span(self, material, value):
@@ -1448,7 +1448,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.lifespan", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_maintenance_cost(self, material):
         """
@@ -1471,7 +1471,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.get_maintenancecost", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_maintenance_cost(self, material, value):
@@ -1493,7 +1493,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.maintenancecost", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_name(self, material):
         """
@@ -1516,7 +1516,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.name", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def set_name(self, material, value):
@@ -1537,7 +1537,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.name", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_ref1(self, material):
         """
@@ -1560,7 +1560,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.ref1", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_ref1(self, material, value):
@@ -1581,7 +1581,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.ref1", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_ref2(self, material):
         """
@@ -1604,7 +1604,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.ref2", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_ref2(self, material, value):
@@ -1625,7 +1625,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.ref2", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_reflectance(self, material):
         """
@@ -1656,7 +1656,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.reflectance", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_list(val, float, float)
 
     def set_reflectance(self, material, internal, external):
@@ -1686,7 +1686,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.reflectance", 
                                                      material, internal, external)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_thickness(self, material):
         """
@@ -1709,7 +1709,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.thickness", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_thickness(self, material, value):
@@ -1741,7 +1741,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.thickness", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_transparency(self, material):
         """
@@ -1765,7 +1765,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.transparency", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_transparency(self, material, value):
@@ -1787,7 +1787,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.transparency", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_type(self, material):
         """
@@ -1831,7 +1831,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.type", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_type(self, material, type):
@@ -1874,7 +1874,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.type", 
                                                      material, type)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_used(self, material):
         """
@@ -1900,7 +1900,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.materialused.used", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def get_uvalue(self, material):
@@ -1925,7 +1925,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.uvalue", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_uvalue(self, material, value):
@@ -1946,7 +1946,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.uvalue", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_weight(self, material):
         """
@@ -1970,7 +1970,7 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.material.weight", 
                                                      material)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_weight(self, material, value):
@@ -1989,4 +1989,4 @@ class Material(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.material.weight", 
                                                      material, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)

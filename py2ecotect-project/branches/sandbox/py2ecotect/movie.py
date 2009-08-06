@@ -17,7 +17,7 @@ class Movie(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("movie.addframe")
+        p2e._app.Exec("movie.addframe")
 
     def finish(self):
         """
@@ -30,7 +30,7 @@ class Movie(object):
         There are no parameters for this command.
  
         """
-        p2e.conversation.Exec("movie.finish")
+        p2e._app.Exec("movie.finish")
 
     def play(self, filename):
         """
@@ -50,7 +50,7 @@ class Movie(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("movie.play", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def record(self, filename):
         """
@@ -71,7 +71,7 @@ class Movie(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("movie.record", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def show(self, state = True):
         """
@@ -89,7 +89,7 @@ class Movie(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("movie.show", state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     #===========================================================================
     # Properties
@@ -119,7 +119,7 @@ class Movie(object):
             0 or false is negative.
             
             """
-            val = p2e.conversation.Request("get.movie.aero3d")
+            val = p2e._app.Request("get.movie.aero3d")
             return p2e._util._convert_str_to_type(val, int)
 
         def fset(self, state):
@@ -145,7 +145,7 @@ class Movie(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.movie.aero3d", 
                                                          state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())
     
@@ -180,7 +180,7 @@ class Movie(object):
             timer 2 On Timer  
     
             """
-            val = p2e.conversation.Request("get.movie.capture")
+            val = p2e._app.Request("get.movie.capture")
             return p2e._util._convert_str_to_type(val, int)
 
         def fset(self, type):
@@ -207,7 +207,7 @@ class Movie(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.movie.capture", 
                                                          type)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -230,7 +230,7 @@ class Movie(object):
             currently recorded.
             
             """
-            val = p2e.conversation.Request("get.movie.filename")
+            val = p2e._app.Request("get.movie.filename")
             return p2e._util._convert_str_to_type(val, str)
     
         def fset(self, filename):
@@ -252,7 +252,7 @@ class Movie(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.movie.filename", 
                                                          filename)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -274,7 +274,7 @@ class Movie(object):
             The number of frames per second. 
     
             """
-            val = p2e.conversation.Request("get.movie.framerate")
+            val = p2e._app.Request("get.movie.framerate")
             return p2e._util._convert_str_to_type(val, str)
         
         def fset(self, parameter):
@@ -294,7 +294,7 @@ class Movie(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.movie.framerate", 
                                                          parameter)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())    
     
@@ -326,7 +326,7 @@ class Movie(object):
         The height used for the animation recording, given in pixels.
         
         """
-        val = p2e.conversation.Request("get.movie.size")
+        val = p2e._app.Request("get.movie.size")
         return p2e._util._convert_str_to_list(val, int, float, float)
 
     def set_size(self, width, height):
@@ -355,7 +355,7 @@ class Movie(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.movie.size", 
                                                      width, height)
-        p2e.conversation.Exec(arg_str)  
+        p2e._app.Exec(arg_str)  
     
     @apply
     def source():   
@@ -384,7 +384,7 @@ class Movie(object):
             window 1 Main Window  
             
             """
-            val = p2e.conversation.Request("get.movie.source")
+            val = p2e._app.Request("get.movie.source")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, src):
@@ -425,7 +425,7 @@ class Movie(object):
        
             """
             arg_str = p2e._util._convert_args_to_string("set.movie.source", src)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())    
     
@@ -463,7 +463,7 @@ class Movie(object):
             jpg 2 JPEG Files 
     
             """
-            val = p2e.conversation.Request("get.movie.source")
+            val = p2e._app.Request("get.movie.source")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, type):
@@ -495,6 +495,6 @@ class Movie(object):
     
             """
             arg_str = p2e._util._convert_args_to_string("set.movie.type", type)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
             
         return property(**locals())    

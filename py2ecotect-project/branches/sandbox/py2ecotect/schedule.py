@@ -20,7 +20,7 @@ class Schedule(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("schedule.add", name)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def delete(self, schedule):
         """
@@ -37,7 +37,7 @@ class Schedule(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("schedule.delete", schedule)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def load(self, filename):
         """
@@ -54,7 +54,7 @@ class Schedule(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("schedule.load", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def profile_read(self, schedule, profile, filename):
         """
@@ -77,7 +77,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("schedule.profile.read", 
                                                       schedule, profile, filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def profile_write(self, schedule, profile, filename):
         """
@@ -100,7 +100,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("schedule.profile.write", 
                                                       schedule, profile, filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def read(self, schedule, filename):
         """
@@ -119,7 +119,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("schedule.read", 
                                                       schedule, filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def save(self, filename):
         """
@@ -135,7 +135,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("schedule.save", 
                                                       filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def write(self, schedule, filename):
         """
@@ -153,7 +153,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("schedule.write", 
                                                       schedule, filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -187,7 +187,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.schedule.activation", 
                                                      schedule, profile, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
     
     def set_activation(self, schedule, profile, hour, value):
@@ -216,7 +216,7 @@ class Schedule(object):
         arg_str = p2e._util._convert_args_to_string("set.schedule.activation", 
                                                      schedule, profile, hour, 
                                                      value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_day(self, schedule, day):
         """
@@ -239,7 +239,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.schedule.day", 
                                                      schedule, day)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def set_day(self, schedule, day, profile):
@@ -262,7 +262,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.schedule.day", 
                                                      schedule, day, profile)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def get_index(self, name):
         """
@@ -284,7 +284,7 @@ class Schedule(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("get.schedule.index", name)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def get_magnitude(self, schedule):
@@ -307,7 +307,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.schedule.magnitude", 
                                                       schedule)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
     
     def set_magnitude(self, schedule, value):
@@ -330,7 +330,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.schedule.magnitude", 
                                                      schedule, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_name(self, schedule):
         """
@@ -352,7 +352,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.schedule.name", 
                                                       schedule)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, str)
 
     def set_name(self, schedule, name):
@@ -372,7 +372,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.schedule.name", 
                                                      schedule, name)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_profile_index(self, schedule, name):
         """
@@ -397,7 +397,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.schedule.profile.index", 
                                                       schedule, name)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
         
     def get_profile_name(self,schedule, index):
@@ -424,7 +424,7 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.schedule.profile.name", 
                                                       schedule, index)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
         
     def set_profile_name(self,schedule, index, name):
@@ -448,5 +448,5 @@ class Schedule(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.schedule.profile.name", 
                                                      schedule, index, name)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 

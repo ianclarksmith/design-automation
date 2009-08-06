@@ -3,22 +3,22 @@
 #===============================================================================
 # Make a connection to ecotect
 #===============================================================================
-import win32ui
-import win32api
-import dde
+import win32ui as _win32ui
+import win32api as _win32api
+import dde as _dde
 
 #Create a conversation with Ecotect
-server = dde.CreateServer()
-server.Create("Ecotect-Server") 
-conversation = dde.CreateConversation(server)
+_srv = _dde.CreateServer()
+_srv.Create("Ecotect-Server") 
+_app = _dde.CreateConversation(_srv)
 
 #Create the connection
 #Start Ecotect if necessary
 try:
-    conversation.ConnectTo("Ecotect", "request")
+    _app.ConnectTo("Ecotect", "request")
 except:
-    win32api.WinExec("C:\\Program Files\\Autodesk\\Ecotect 2009\\ecotect.exe")
-    conversation.ConnectTo("Ecotect", "request")
+    _win32api.WinExec("C:\\Program Files\\Autodesk\\Ecotect 2009\\ecotect.exe")
+    _app.ConnectTo("Ecotect", "request")
     
 #print "conv = ", conversation
 print "Connection with Ecotect successful..."
@@ -53,6 +53,7 @@ from grid3d import Grid3D
 from masks import Masks
 from material import Material
 from model import Model
+from movie import Movie
 from node import Node
 from project_data import Project_Data
 from project import Project

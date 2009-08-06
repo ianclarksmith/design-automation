@@ -25,7 +25,7 @@ class Weather(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("weather.load", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     #===========================================================================
     # Properties
@@ -55,7 +55,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.weather.beamsolar", 
                                                      day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_beam_solar(self, day, hour, value):
@@ -80,7 +80,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.weather.beamsolar", 
                                                      day, hour, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     def get_cloudiness(self, day, hour):
         """
@@ -106,7 +106,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.weather.cloudiness", 
                                                      day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_cloudiness(self, day, hour, value):
@@ -130,7 +130,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.weather.cloudiness", 
                                                      day, hour, value)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
 
     @apply
     def country():
@@ -151,7 +151,7 @@ class Weather(object):
             data set.
             
             """
-            val = p2e.conversation.Request("get.weather.country")
+            val = p2e._app.Request("get.weather.country")
             return p2e._util._convert_str_to_type(val, str)
             
         def fset(self, name):
@@ -170,7 +170,7 @@ class Weather(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.weather.country", 
                                                          name)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -198,7 +198,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.weather.diffusesolar", 
                                                      day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_diffuse_solar(self, day, hour, value):
@@ -222,7 +222,7 @@ class Weather(object):
        """
        arg_str = p2e._util._convert_args_to_string("set.weather.diffusesolar", 
                                                      day, hour, value)
-       p2e.conversation.Exec(arg_str)     
+       p2e._app.Exec(arg_str)     
 
     def get_direction(self, day, hour):
         """
@@ -249,7 +249,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.weather.direction", 
                                                      day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
     
     def set_direction(self, day, hour, value):
@@ -274,7 +274,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.weather.direction", 
                                                      day, hour, value)
-        p2e.conversation.Exec(arg_str)     
+        p2e._app.Exec(arg_str)     
     
     @apply
     def file():
@@ -293,7 +293,7 @@ class Weather(object):
             A text string containing the full path to the current weather data file.
             
             """
-            val = p2e.conversation.Request("get.weather.file")
+            val = p2e._app.Request("get.weather.file")
             return p2e._util._convert_str_to_type(val, str)
         
         return property(**locals())
@@ -316,7 +316,7 @@ class Weather(object):
             A text string representing the name of the current weather data set.
             
             """
-            val = p2e.conversation.Request("get.weather.name")
+            val = p2e._app.Request("get.weather.name")
             return p2e._util._convert_str_to_type(val, str)
             
         def fset(self, name):
@@ -332,7 +332,7 @@ class Weather(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.weather.name", name)
-            p2e.conversation.Exec(arg_str)    
+            p2e._app.Exec(arg_str)    
         
         return property(**locals()) 
         
@@ -354,7 +354,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.weather.rainfall", 
                                                      day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_rainfall(self, day, hour, value):
@@ -378,7 +378,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.weather.rainfall", 
                                                      day, hour, value)
-        p2e.conversation.Exec(arg_str)     
+        p2e._app.Exec(arg_str)     
 
     def get_rel_humidity(self, day, hour):
         """
@@ -404,7 +404,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.weather.relhumidity", 
                                                      day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
         
     def set_rel_humidity(self, day, hour, value):
@@ -428,7 +428,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.weather.relhumidity", 
                                                      day, hour, value)
-        p2e.conversation.Exec(arg_str)     
+        p2e._app.Exec(arg_str)     
 
     def get_speed(self, day, hour):
         """
@@ -454,7 +454,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.weather.speed", 
                                                      day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_speed(self, day, hour, value):
@@ -478,7 +478,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.weather.speed", 
                                                      day, hour, value)
-        p2e.conversation.Exec(arg_str)     
+        p2e._app.Exec(arg_str)     
 
     def get_temperature(self, day, hour):
         """
@@ -504,7 +504,7 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.weather.temperature", 
                                                      day, hour)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def set_temperature(self, day, hour, value):
@@ -528,6 +528,6 @@ class Weather(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.weather.temperature", 
                                                      day, hour, value)
-        p2e.conversation.Exec(arg_str)     
+        p2e._app.Exec(arg_str)     
 
 

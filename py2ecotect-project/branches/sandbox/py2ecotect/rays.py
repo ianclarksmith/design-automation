@@ -16,7 +16,7 @@ class Rays(object):
         There are no parameters for this command.
         
         """
-        p2e.conversation.Exec("rays.animate")
+        p2e._app.Exec("rays.animate")
     
     def free(self):
         """
@@ -28,7 +28,7 @@ class Rays(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("rays.free")
+        p2e._app.Exec("rays.free")
     
     def generate(self, method):
         """
@@ -53,7 +53,7 @@ class Rays(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("rays.generate", method)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
         
     def rewind(self):
         """
@@ -64,7 +64,7 @@ class Rays(object):
         There are no parameters for this command.
 
         """
-        p2e.conversation.Exec("rays.rewind")
+        p2e._app.Exec("rays.rewind")
     
     def save(self, filename):
         """
@@ -80,7 +80,7 @@ class Rays(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("rays.save", filename)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def step(self, steps):
         """
@@ -96,7 +96,7 @@ class Rays(object):
         
         """
         arg_str = p2e._util._convert_args_to_string("rays.step", step)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     def update(self):
         """
@@ -108,7 +108,7 @@ class Rays(object):
         There are no parameters for this command.
  
         """
-        p2e.conversation.Exec("rays.update")
+        p2e._app.Exec("rays.update")
     
     #===========================================================================
     # Properties
@@ -132,7 +132,7 @@ class Rays(object):
             The altitude in degrees. 
             
             """
-            val = p2e.conversation.Request("get.rays.altitude")
+            val = p2e._app.Request("get.rays.altitude")
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, angle):
@@ -149,7 +149,7 @@ class Rays(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.altitude", angle)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -171,7 +171,7 @@ class Rays(object):
             The angular increment in degrees.
             
             """
-            val = p2e.conversation.Request("get.rays.angle")
+            val = p2e._app.Request("get.rays.angle")
             return p2e._util._convert_str_to_type(val, float)
         
         def fset(self, angle):
@@ -188,7 +188,7 @@ class Rays(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.angle", angle)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -230,7 +230,7 @@ class Rays(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.rays.avgabsorption", 
                                                           band)
-            val = p2e.conversation.Request(arg_str)
+            val = p2e._app.Request(arg_str)
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -253,7 +253,7 @@ class Rays(object):
             The azimuth in degrees. 
             
             """
-            val = p2e.conversation.Request("get.rays.azimuth")
+            val = p2e._app.Request("get.rays.azimuth")
             return p2e._util._convert_str_to_type(val, float)
             
         def fset(self, angle):
@@ -270,7 +270,7 @@ class Rays(object):
     
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.azimuth", angle)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
         
@@ -291,7 +291,7 @@ class Rays(object):
             The number of rays in the ray list. 
     
             """
-            val = p2e.conversation.Request("get.rays.count")
+            val = p2e._app.Request("get.rays.count")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -314,7 +314,7 @@ class Rays(object):
             A decimal value containing the distance. 
     
             """
-            val = p2e.conversation.Request("get.rays.distance")
+            val = p2e._app.Request("get.rays.distance")
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, dist):
@@ -331,7 +331,7 @@ class Rays(object):
                     
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.distance", dist)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -355,7 +355,7 @@ class Rays(object):
             A decimal value containing the early decay time in seconds.
             
             """
-            val = p2e.conversation.Request("get.rays.edt10")
+            val = p2e._app.Request("get.rays.edt10")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -398,7 +398,7 @@ class Rays(object):
 
         """
         arg_str = p2e._util._convert_args_to_string("get.rays.flag", flag)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
 
     def set_flag(self, flag, state = True):
@@ -437,7 +437,7 @@ class Rays(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.rays.flag", flag, 
                                                       state)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def increment():
@@ -456,7 +456,7 @@ class Rays(object):
             The current increment in milliseconds.
             
             """
-            val = p2e.conversation.Request("get.rays.increment")
+            val = p2e._app.Request("get.rays.increment")
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, inc):
@@ -472,7 +472,7 @@ class Rays(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.increment", inc)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -494,7 +494,7 @@ class Rays(object):
             The maximum distance travelled. 
     
             """
-            val = p2e.conversation.Request("get.rays.maxdistance")
+            val = p2e._app.Request("get.rays.maxdistance")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -518,7 +518,7 @@ class Rays(object):
             A decimal value containing the mean free path length. 
     
             """
-            val = p2e.conversation.Request("get.rays.meanfreepathlength")
+            val = p2e._app.Request("get.rays.meanfreepathlength")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -540,7 +540,7 @@ class Rays(object):
             The number of ray nodes in the ray list.
             
             """
-            val = p2e.conversation.Request("get.rays.nodes")
+            val = p2e._app.Request("get.rays.nodes")
             return p2e._util._convert_str_to_type(val, int)
         
         return property(**locals())
@@ -564,7 +564,7 @@ class Rays(object):
             A decimal value containing the distance. 
             
             """
-            val = p2e.conversation.Request("get.rays.precision")
+            val = p2e._app.Request("get.rays.precision")
             return p2e._util._convert_str_to_type(val, float)
     
         def fset(self, precision):
@@ -583,7 +583,7 @@ class Rays(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.precision", 
                                                           precision)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -605,7 +605,7 @@ class Rays(object):
             An integer value respresenting the number of rays generated. 
     
             """
-            val = p2e.conversation.Request("get.rays.random")
+            val = p2e._app.Request("get.rays.random")
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(self, rays):
@@ -623,7 +623,7 @@ class Rays(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.random", 
                                                           rays)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -645,7 +645,7 @@ class Rays(object):
             The maximum number of reflections.
             
             """
-            val = p2e.conversation.Request("get.rays.reflections")
+            val = p2e._app.Request("get.rays.reflections")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self):
@@ -663,7 +663,7 @@ class Rays(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.reflections", 
                                                           bounces)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -687,7 +687,7 @@ class Rays(object):
             A decimal value containing the reverberation time in seconds. 
             
             """
-            val = p2e.conversation.Request("get.rays.rt60")
+            val = p2e._app.Request("get.rays.rt60")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -717,7 +717,7 @@ class Rays(object):
         A decimal value containing the scale increment 
         
         """
-        val = p2e.conversation.Request("get.rays.scale")
+        val = p2e._app.Request("get.rays.scale")
         return p2e._util._convert_str_to_list(val, float, float, float)
         
     def set_scale(self, min, max, inc):
@@ -744,7 +744,7 @@ class Rays(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.rays.scale", min, 
                                                       max, inc)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def source():
@@ -764,7 +764,7 @@ class Rays(object):
             The zero-based index number of the SPEAKER object to be used.
             
             """
-            val = p2e.conversation.Request("get.rays.source")
+            val = p2e._app.Request("get.rays.source")
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(self, speaker_object):
@@ -786,7 +786,7 @@ class Rays(object):
             else:
                 arg_str = p2e._util._convert_args_to_string("set.rays.source")
             
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -808,7 +808,7 @@ class Rays(object):
             An text string representing the units to use. 
             
             """
-            val = p2e.conversation.Request("get.rays.units")
+            val = p2e._app.Request("get.rays.units")
             return p2e._util._convert_str_to_type(val, str)
     
         def fset(self, units):
@@ -825,7 +825,7 @@ class Rays(object):
             
             """
             arg_str = p2e._util._convert_args_to_string("set.rays.units", units)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 

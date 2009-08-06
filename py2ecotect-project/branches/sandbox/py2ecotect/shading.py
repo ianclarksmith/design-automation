@@ -35,7 +35,7 @@ class Shading(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.shading.accuracy", 
                                                          accuracy)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
 
@@ -59,7 +59,7 @@ class Shading(object):
         The altitude angle in degrees. 
         
         """
-        val = p2e.conversation.Request("get.shading.angles")
+        val = p2e._app.Request("get.shading.angles")
         return p2e._util._convert_str_to_list(val, float, float)
 
     def set_angles(self, azi, alt):
@@ -81,7 +81,7 @@ class Shading(object):
         """
         arg_str = p2e._util._convert_args_to_string("set.shading.angles", 
                                                      azi, alt)
-        p2e.conversation.Exec(arg_str)
+        p2e._app.Exec(arg_str)
     
     @apply
     def both_sides():
@@ -104,7 +104,7 @@ class Shading(object):
             unset.
             
             """
-            val = p2e.conversation.Request("get.shading.bothsides")
+            val = p2e._app.Request("get.shading.bothsides")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, state):
@@ -124,7 +124,7 @@ class Shading(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.shading.bothsides", 
                                                          state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -162,7 +162,7 @@ class Shading(object):
             A decimal value containing the vertical sky component.
             
             """
-            val = p2e.conversation.Request("get.shading.components")
+            val = p2e._app.Request("get.shading.components")
             return p2e._util._convert_str_to_list(val, float, float, float)
         
         return property(**locals())
@@ -187,7 +187,7 @@ class Shading(object):
             A decimal value containing the current diffuse solar component.
             
             """
-            val = p2e.conversation.Request("get.shading.diffuse")
+            val = p2e._app.Request("get.shading.diffuse")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -212,7 +212,7 @@ class Shading(object):
             A decimal value containing the current direct solar component.
             
             """
-            val = p2e.conversation.Request("get.shading.direct")
+            val = p2e._app.Request("get.shading.direct")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -236,7 +236,7 @@ class Shading(object):
             This is a boolean value where 1 is set and 0 means unset. 
     
             """
-            val = p2e.conversation.Request("get.shading.directonly")
+            val = p2e._app.Request("get.shading.directonly")
             return p2e._util._convert_str_to_type(val, int)
             
         def fset(self, state):
@@ -255,7 +255,7 @@ class Shading(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.shading.directonly", 
                                                          state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
@@ -284,7 +284,7 @@ class Shading(object):
             A decimal value containing the shading value. 
             
             """
-            val = p2e.conversation.Request("get.shading.percentage")
+            val = p2e._app.Request("get.shading.percentage")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -326,7 +326,7 @@ class Shading(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.shading.percentage.angle", 
                                                       azi, alt)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
     
     def get_percentage_date_time(self, day, time):
@@ -358,7 +358,7 @@ class Shading(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.shading.percentage.datetime", 
                                                       day, time)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
     
     def get_percentage_index(self, x, y):
@@ -392,7 +392,7 @@ class Shading(object):
         """
         arg_str = p2e._util._convert_args_to_string("get.shading.percentage.index", 
                                                       x, y)
-        val = p2e.conversation.Request(arg_str)
+        val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, float)
 
     def get_range(self, fromDay, toDay):
@@ -428,7 +428,7 @@ class Shading(object):
         A decimal value containing the total sunlight hours. 
 
         """
-        val = p2e.conversation.Request("get.shading.range")
+        val = p2e._app.Request("get.shading.range")
         return p2e._util._convert_str_to_list(val, float, float, float)
 
     @apply
@@ -450,7 +450,7 @@ class Shading(object):
             value where 1 is set and 0 means unset. 
             
             """
-            val = p2e.conversation.Request("get.shading.rays")
+            val = p2e._app.Request("get.shading.rays")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, state):
@@ -468,7 +468,7 @@ class Shading(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.shading.rays", 
                                                          state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
         
@@ -492,7 +492,7 @@ class Shading(object):
             A decimal value containing the sky component.
             
             """
-            val = p2e.conversation.Request("get.shading.skycomponent")
+            val = p2e._app.Request("get.shading.skycomponent")
             return p2e._util._convert_str_to_type(val, float)
         
         return property(**locals())
@@ -518,7 +518,7 @@ class Shading(object):
             where 1 means a detailed mask and 0 it's own mask.
             
             """
-            val = p2e.conversation.Request("get.shading.update")
+            val = p2e._app.Request("get.shading.update")
             return p2e._util._convert_str_to_type(val, int)
     
         def fset(self, state):
@@ -539,7 +539,7 @@ class Shading(object):
             """
             arg_str = p2e._util._convert_args_to_string("set.shading.state", 
                                                          state)
-            p2e.conversation.Exec(arg_str)
+            p2e._app.Exec(arg_str)
         
         return property(**locals())
     
