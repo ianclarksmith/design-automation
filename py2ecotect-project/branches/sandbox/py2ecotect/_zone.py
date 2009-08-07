@@ -8,7 +8,7 @@ class Zone(object):
     def __init__(self, zone_eco_id):
         
         #update model zones list
-        p2e._model._zones.append(self)
+        p2e.doc._zones.append(self)
         assert self.eco_id == zone_eco_id
         
         #update model objects list
@@ -16,7 +16,7 @@ class Zone(object):
         object_id = self.get_next_object(-1, -1, -1, -1)
         prev_id = object_id
         while (object_id != -1):
-            p2e._Object(object_id, None)
+            p2e.obj._Object(object_id, None)
             object_id = self.get_next_object(prev_id, -1, -1, -1)
             prev_id = object_id
             
@@ -73,7 +73,7 @@ class Zone(object):
             i.delete()
             
         #Update model lists
-        p2e._model._zones.remove(self)
+        p2e.doc._zones.remove(self)
     
     #===========================================================================
     # Properties that affect relationships between objects
@@ -293,7 +293,7 @@ class Zone(object):
             Id of the zone object
             
             """
-            return p2e._model._zones.index(self)
+            return p2e.doc._zones.index(self)
         
         return property(**locals())
     
@@ -1969,7 +1969,7 @@ class Zone(object):
             prev_id = object_id
             objects = []
             while (object_id != -1):
-                objects.append(p2e._model._objects[object_id])
+                objects.append(p2e.doc._objects[object_id])
                 object_id = self.get_next_object(prev_id, -1, -1, -1)
                 prev_id = object_id
             return objects

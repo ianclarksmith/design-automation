@@ -11,7 +11,7 @@ class Node(object):
         self._object = obj
         
         #update model nodes lists
-        p2e._model._nodes.append(self)
+        p2e.doc._nodes.append(self)
         assert self.eco_id == node_eco_id
           
     @classmethod
@@ -90,7 +90,7 @@ class Node(object):
         p2e._app.Exec(arg_str)
         
         #Update node lists
-        p2e._model._nodes.remove(self)
+        p2e.doc._nodes.remove(self)
         
         #set object to none
         self._object.done()
@@ -284,7 +284,7 @@ class Node(object):
             Id of the node object
             
             """
-            return p2e._model._nodes.index(self)
+            return p2e.doc._nodes.index(self)
         
         return property(**locals())
     

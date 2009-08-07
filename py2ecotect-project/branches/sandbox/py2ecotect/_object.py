@@ -9,7 +9,7 @@ class _Object(object):
             raise Exception
         
         #update model lists
-        p2e._model._objects.append(self)  
+        p2e.doc._objects.append(self)  
         
         #add the functions
         self.child = p2e._object._ObjectRootFncChild(object_eco_id)
@@ -24,15 +24,15 @@ class _Object(object):
         if points == None:
             #add exisiting nodes
             for node_num in range(self.node.first_node, self.node.last_node):
-                p2e.Node(self, node_num)
+                p2e.obj.Node(self, node_num)
                 
         else:
             #add new nodes
             for node_num in range(len(points)):
                 #execute ecotect instruction
-                node_eco_id = p2e.Node._gen_node(self, node_num, points[node_num])
+                node_eco_id = p2e.obj.Node._gen_node(self, node_num, points[node_num])
                 if node_eco_id != -1:
-                    p2e.Node(self, node_eco_id)
+                    p2e.obj.Node(self, node_eco_id)
                 else:
                     pass
                     #raise Exception
@@ -142,10 +142,10 @@ class _Object(object):
         
          #Delete nodes of this object
         for i in nodes:
-            p2e._model._nodes.remove(i)
+            p2e.doc._nodes.remove(i)
         
         #Update model lists
-        p2e._model._objects.remove(self)
+        p2e.doc._objects.remove(self)
         
     #===========================================================================
     # Properties that affect relationships between objects
@@ -194,7 +194,7 @@ class _Object(object):
         after_extrude_len = p2e._model.Model().number_of_objects
         
         for eco_id in range(before_extrude_len, after_extrude_len):
-            p2e._Object(eco_id, None)
+            p2e.obj._Object(eco_id, None)
         
     def revolve(self, axis, angle, segs):
         """
@@ -235,7 +235,7 @@ class _Object(object):
         after_extrude_len = p2e._model.Model().number_of_objects
         
         for eco_id in range(before_extrude_len, after_extrude_len):
-            p2e._Object(eco_id, None)
+            p2e.obj._Object(eco_id, None)
 
     #===========================================================================
     # Properties
@@ -249,7 +249,7 @@ class _Object(object):
             Id of the object
         
             """
-            return p2e._model._objects.index(self)
+            return p2e.doc._objects.index(self)
 
         return property(**locals())
 
@@ -337,7 +337,7 @@ class _Object(object):
             arg_str = p2e._util._convert_args_to_string("get.object.zone", 
                                                          self.eco_id)
             val = p2e._app.Request(arg_str)
-            return p2e._model._zones[p2e._util._convert_str_to_type(val, int)]
+            return p2e.doc._zones[p2e._util._convert_str_to_type(val, int)]
         
         def fset(self, index):
             """
@@ -692,13 +692,13 @@ class _ObjectRootFncMdfy(object):
         selected_objects = []
         if (first_index == -1): 
             #Only one object is selected. So selection.next() returns -1
-            selected_objects.append(m._objects[m.Model().current_object])
+            selected_objects.append(p2e.doc._objects[m.Model().current_object])
         else:
-            selected_objects.append(m._objects[first_index])
+            selected_objects.append(p2e.doc._objects[first_index])
             while(True):
                 index = selection.next
                 if (first_index == index): break
-                selected_objects.append(m._objects[index])
+                selected_objects.append(p2e.doc._objects[index])
                 
         #Select this object and reverse normal
         self.select()
@@ -2288,9 +2288,9 @@ class _ObjectRootFncNode(object):
     
     def add_node(self, point):
         #execute ecotect instruction
-        node_eco_id = p2e.Node._gen_node(self, self.number_of_nodes -1, point)
+        node_eco_id = p2e.obj.Node._gen_node(self, self.number_of_nodes -1, point)
         if node_eco_id != -1:
-            p2e.Node(self, node_eco_id)
+            p2e.obj.Node(self, node_eco_id)
         self.done()
         
     def del_node(self, node, node_index = 0):
@@ -2315,7 +2315,7 @@ class _ObjectRootFncNode(object):
         p2e._app.Exec(arg_str)
         
         #Update model lists
-        p2e._model._nodes.remove(node)
+        p2e.doc._nodes.remove(node)
         
     #===========================================================================
     # Properties
@@ -2440,7 +2440,7 @@ class _ObjectRootFncNode(object):
             """
             nodes = []
             for node_num in range(self.first_node, self.last_node):
-                nodes.append(p2e._model._nodes[node_num])
+                nodes.append(p2e.doc._nodes[node_num])
             return nodes
         
         return property(**locals())
