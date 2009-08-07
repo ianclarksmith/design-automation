@@ -1949,11 +1949,6 @@ class _SurfaceRootProp(_ObjectRootProp):
         """
         For help, look up the Rhinoscript function: SurfaceDomain
         """
-        
-        print "I am here"
-        print self._rhino_id
-        print direction
-        
         return _rsf.surface_domain(self._rhino_id, direction)
 
     def edit_pnts(self, return_parameters=pythoncom.Empty, return_all=pythoncom.Empty):
@@ -3317,10 +3312,9 @@ class NurbsSurface(_SurfaceRoot):
 
         _rhino_id = _rsf.add_loft_srf(map(lambda i: i._rhino_id, objects), start_pt, end_pt, srf_type, style, value, closed)
 
-        if _rhino_id:
-            return NurbsSurface(_rhino_id)
-        else:
-            return None
+
+        return map(lambda i: NurbsSurface(i), _rhino_id)
+
 
     @staticmethod
     def create(point_count, points, knots_u, knots_v, degree, weights):
