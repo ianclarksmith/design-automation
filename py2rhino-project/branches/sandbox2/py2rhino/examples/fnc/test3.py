@@ -8,6 +8,9 @@ def draw_fillet_curve():
     arc2 = p2r.curve.add_arc((10,0,0), 15, 95)
     print arc1
     print arc2
+    print p2r.object.object_top_group(arc1)
+    print p2r.curve.curve_seam(arc2,2)
+    print p2r.object.box_morph_object(arc2, (0,0,0))
     curve1 = p2r.curve.add_fillet_curve(arc1, arc2,1, p2r.curve.curve_start_point(arc1), p2r.curve.curve_start_point(arc2))
     print curve1
     print p2r.curve.curve_start_point(arc1)
@@ -60,7 +63,7 @@ def ns1():
     #print p2r.surface_and_polysurface.rebuild_surface(ns)
     #print p2r.surface_and_polysurface.insert_surface_knot(ns, (0,0,0), 0)
     print p2r.surface_and_polysurface.is_poly_surface(sphere1[0])
-ns1()
+#ns1()
 
 def knot():
     sphere1 = p2r.surface_and_polysurface.add_sphere((0,0,0), 5)
@@ -79,3 +82,18 @@ def interp_curv_on_srf():
     print nurve_curve2
 
 #interp_curv_on_srf()
+
+def rm():
+    arc1 = p2r.curve.add_arc((0,0,0), 10, 40)
+    str = p2r.selection.get_objects("select")
+    arr1 = p2r.view.view_c_plane("Top")
+    arr2 = p2r.view.view_c_plane("Right")
+    print arr1
+    print arr2
+#rm()
+
+def sh():
+    arc1 = p2r.curve.add_arc_3_pt((0,0,0), (20,0,0), (10,10,0))
+    print p2r.object.shear_object(arc1, (0.0,0.0,0.0), (10.0,0.0,0.0), 20.0, True)
+    
+sh()
