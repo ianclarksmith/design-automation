@@ -2,6 +2,19 @@
 import py2rhino as p2r
 
 
+#######u'Type mismatch in parameter. String required.'############
+#arc2 = p2r.Arc.create((0,0,0), 5, 45)
+#print arc2.rndr.enable()
+#density onwards.. all none.
+##################################################################
+
+
+
+######################u'Type mismatch in parameter. One-dimensional array required.############
+#arc2 = p2r.Arc.create((0,0,0), 5, 45)
+#arc2.defm.trfm((1,0,0))
+###############################################################################################
+
 
 ###############should only ask for 1 curve, not 2#############
 #arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
@@ -21,6 +34,14 @@ import py2rhino as p2r
 #print sphere1.modf.rebuild()
 #print nurve_surface1.test.is_poly_srf_planar()
 #print nurve_surface1.test.is_poly_surface_closed()
+
+#arc2 = p2r.Arc.create((0,0,0), 5, 45)
+#print arc2.defm.box_morph((1,0,0))
+#print arc2.grps.top_group()
+#print arc2.grps.groups()
+#arc2 = p2r.Arc.create((0,0,0), 5, 45)
+#print arc2.modf.seam(1)
+#
 ##########################################################################################
 
 
@@ -48,17 +69,6 @@ import py2rhino as p2r
 #arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
 #arc1.defm.shear((0,0,0), (10,0,0),45.0)
 #############################################################################
-####name should be sphere_definition, not cyclinder_definition###############
-#sphere1 = p2r.Sphere.create((0,0,0), 10)
-#print sphere1.prop.cylinder_definition()
-#########################################################################
-
-################### split func: arg problem again###################################
-#plane_surface = p2r.PlaneSurface.create(((0,0,0),(1,0,0),(0,1,0)),5,3)
-#arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-#nurve_curve1 = p2r.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(0,1,0)))
-#print nurve_curve1.func.offset_on_srf(arc1,plane_surface, 2,(0,0,1))
-#####################################################################################
 
 #############################same problem in function###############################
 #plane_surface1 = p2r.PlaneSurface.create(((0,0,0),(1,0,0),(0,1,0)),5,3)
@@ -76,7 +86,7 @@ import py2rhino as p2r
 
 
 ######################PROBLEM:argument 2 to map() must support iteration################################
-#nurve_surface6 = p2r.NurbsSurface.create_by_planar_crv(arc1)
+#nurve_surface6 = p2r.NurbsSurface.create_by_planar_crv(arc1) #fixed this only
 #nurve_curve3 = p2r.NurbsCurve.create_by_srf_contour_cut_plane(plane_surface,((0,0,0),(1,0,0),(0,1,0)))
 #nurve_curve3 = p2r.NurbsCurve.create_by_srf_iso_curve(plane_surface,((1,0,0),(0,1,0)),2)
 #circle1 = p2r.Circle.create(((0,0,0),(1,0,0),(0,1,0)), 5)
