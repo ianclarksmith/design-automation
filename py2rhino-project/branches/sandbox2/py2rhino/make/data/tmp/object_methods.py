@@ -1,194 +1,5 @@
 #The data below will be used to generate the Rhinoscript function wrappers
-#===============================================================================
-# DocumentObjectFunctions
-#===============================================================================
-"""
-class _DocumentObjectFunc(object):
-    inherits = None
-    class ClassMethods(object):
-        #material
-        object_material_source = {
-            "method_name": "material_source",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
-            "method_returns": ("number","null")
-            }
-        #render mesh
-        enable_object_mesh = {                  
-            "method_name": "enable_render_mesh",#renamed
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("enable","bln","OPT")),
-            "method_returns": ("bln","null")
-            }
-        #state
-        select_objects = {
-            "method_name": "select",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("number","null")
-            }
-        show_objects = {
-            "method_name": "show",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("number","null")
-            }
-        unlock_objects = {
-            "method_name": "unlock",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("number","null")
-            }
-        unselect_objects = {
-            "method_name": "unselect",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("number","null")
-            }
-        match_object_attributes = {#Note that this one is different from the others
-            "method_name": "reset_attributes",
-            "method_parameters": (("targets","array_of _ObjectRoot","REQ"),("source","_ObjectRoot","OPT", "EMPTY", "HIDE")),
-            "method_returns": ("number","null")
-            }
-        flash_object = {
-            "method_name": "flash",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("style","bln","OPT")),
-            "method_returns": ()
-            }
-        hide_objects = {
-            "method_name": "hide",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("number","null")
-            }
-        lock_objects = {
-            "method_name": "lock",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("number","null")
-            }      
-        #transforms
-        copy_objects = {
-            "method_name": "copy",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        copy_objects_2 = {
-            "method_name": "copy_and_xform",#renamed
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        mirror_objects = {
-            "method_name": "mirror",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        move_objects = {
-            "method_name": "move",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        move_objects_2 = {
-            "method_name": "move_and_xform",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("translation","array_of dbl","REQ"),),#first param was missing here
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        rotate_objects = {
-            "method_name": "rotate",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("point","array_of dbl","REQ"),("angle","dbl","REQ"),("axis","array_of dbl","OPT"),("copy","bln","OPT")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        scale_objects = {
-            "method_name": "scale",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("origin","array_of dbl","REQ"),("scale","array_of dbl","REQ"),("copy","bln","OPT")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        orient_objects = {
-            "method_name": "orient",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("reference","array_of dbl","REQ"),("target","array_of dbl","REQ"),("flags","int","OPT")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        shear_objects = {
-            "method_name": "shear",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","dbl","REQ"),("copy","bln","OPT")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        transform_objects = {
-            "method_name": "trfm",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        box_morph_object = {
-            "method_name": "box_morph",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        remap_objects = {
-            "method_name": "remap",
-            "method_parameters": (("_ObjectRoot","array_of _ObjectRoot","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
-            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
-            }
-        #properties
-        object_color = {
-            "method_name": "color",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("color","lng","OPT")),
-            "method_returns": ("number","null")
-            }
-        object_color_source = {
-            "method_name": "color_source",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
-            "method_returns": ("number","null")
-            }
-        object_layer = {
-            "method_name": "layer",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("layer","_Entity.Layer","OPT")),
-            "method_returns": ("number","null")
-            }
-        object_linetype = {
-            "method_name": "linetype",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("layer","_Entity.Layer","OPT")),
-            "method_returns": ("number","null")
-            }
-        object_linetype_source = {
-            "method_name": "linetype_source",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
-            "method_returns": ("number","null")
-            }
-        object_names = {
-            "method_name": "name",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("names","array_of str","OPT")),
-            "method_returns": ("array_of str","null")
-            }
-        object_print_color = {
-            "method_name": "print_color",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("color","lng","OPT")),
-            "method_returns": ("number","null")
-            }
-        object_print_color_source = {
-            "method_name": "print_color_source",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
-            "method_returns": ("number","null")
-            }
-        object_print_width = {
-            "method_name": "print_width",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("width","dbl","OPT")),
-            "method_returns": ("number","null")
-            }
-        object_print_width_source = {
-            "method_name": "print_width_source",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
-            "method_returns": ("number","null")
-            }
-        '''
-        object_u_r_l = {#this one has some other possibilities
-            "method_name": "set_url",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("url","str","REQ")),
-            "method_returns": ("number","null")
-            }
-        '''
-        #object
-        delete_objects = {
-            "method_name": "delete",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("number","null")
-            }
-        is_object = {
-            "method_name": "is_object",
-            "method_parameters": (("rhino_id","str","REQ"),),
-            "method_returns": ("bln", )
-            }   """
+
 #===============================================================================
 # Object
 #===============================================================================
@@ -213,8 +24,7 @@ class GenericObject(object):
 #===============================================================================
 class _ObjectRoot(object):
     inherits = None
-    
-    pass
+       
 #===============================================================================
 # ObjectGroups
 #===============================================================================
@@ -522,16 +332,6 @@ class _ObjectRootTest(object):
 class _ObjectRootTrfm(object):
     inherits = None
     class Methods(object):
-        copy_object = {
-            "method_name": "copy",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
-            }
-        copy_object_2 = {
-            "method_name": "copy_by_vec",#renamed
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }       
         mirror_object = {
             "method_name": "mirror",
             "method_parameters": (("","SELF","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
@@ -616,4 +416,195 @@ class _ObjectRootUtil(object):
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("str","null")
             }
-   
+
+
+#===============================================================================
+# DocumentObjectFunctions
+#===============================================================================
+"""
+class _DocumentObjectFunc(object):
+    inherits = None
+    class ClassMethods(object):
+        #material
+        object_material_source = {
+            "method_name": "material_source",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
+            "method_returns": ("number","null")
+            }
+        #render mesh
+        enable_object_mesh = {                  
+            "method_name": "enable_render_mesh",#renamed
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("enable","bln","OPT")),
+            "method_returns": ("bln","null")
+            }
+        #state
+        select_objects = {
+            "method_name": "select",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("number","null")
+            }
+        show_objects = {
+            "method_name": "show",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("number","null")
+            }
+        unlock_objects = {
+            "method_name": "unlock",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("number","null")
+            }
+        unselect_objects = {
+            "method_name": "unselect",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("number","null")
+            }
+        match_object_attributes = {#Note that this one is different from the others
+            "method_name": "reset_attributes",
+            "method_parameters": (("targets","array_of _ObjectRoot","REQ"),("source","_ObjectRoot","OPT", "EMPTY", "HIDE")),
+            "method_returns": ("number","null")
+            }
+        flash_object = {
+            "method_name": "flash",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("style","bln","OPT")),
+            "method_returns": ()
+            }
+        hide_objects = {
+            "method_name": "hide",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("number","null")
+            }
+        lock_objects = {
+            "method_name": "lock",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("number","null")
+            }      
+        #transforms
+        copy_objects = {
+            "method_name": "copy",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        copy_objects_2 = {
+            "method_name": "copy_and_xform",#renamed
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        mirror_objects = {
+            "method_name": "mirror",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        move_objects = {
+            "method_name": "move",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        move_objects_2 = {
+            "method_name": "move_and_xform",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("translation","array_of dbl","REQ"),),#first param was missing here
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        rotate_objects = {
+            "method_name": "rotate",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("point","array_of dbl","REQ"),("angle","dbl","REQ"),("axis","array_of dbl","OPT"),("copy","bln","OPT")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        scale_objects = {
+            "method_name": "scale",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("origin","array_of dbl","REQ"),("scale","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        orient_objects = {
+            "method_name": "orient",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("reference","array_of dbl","REQ"),("target","array_of dbl","REQ"),("flags","int","OPT")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        shear_objects = {
+            "method_name": "shear",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        transform_objects = {
+            "method_name": "trfm",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        box_morph_object = {
+            "method_name": "box_morph",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        remap_objects = {
+            "method_name": "remap",
+            "method_parameters": (("_ObjectRoot","array_of _ObjectRoot","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
+            }
+        #properties
+        object_color = {
+            "method_name": "color",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("color","lng","OPT")),
+            "method_returns": ("number","null")
+            }
+        object_color_source = {
+            "method_name": "color_source",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
+            "method_returns": ("number","null")
+            }
+        object_layer = {
+            "method_name": "layer",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("layer","_Entity.Layer","OPT")),
+            "method_returns": ("number","null")
+            }
+        object_linetype = {
+            "method_name": "linetype",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("layer","_Entity.Layer","OPT")),
+            "method_returns": ("number","null")
+            }
+        object_linetype_source = {
+            "method_name": "linetype_source",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
+            "method_returns": ("number","null")
+            }
+        object_names = {
+            "method_name": "name",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("names","array_of str","OPT")),
+            "method_returns": ("array_of str","null")
+            }
+        object_print_color = {
+            "method_name": "print_color",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("color","lng","OPT")),
+            "method_returns": ("number","null")
+            }
+        object_print_color_source = {
+            "method_name": "print_color_source",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
+            "method_returns": ("number","null")
+            }
+        object_print_width = {
+            "method_name": "print_width",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("width","dbl","OPT")),
+            "method_returns": ("number","null")
+            }
+        object_print_width_source = {
+            "method_name": "print_width_source",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("source","int","OPT")),
+            "method_returns": ("number","null")
+            }
+        '''
+        object_u_r_l = {#this one has some other possibilities
+            "method_name": "set_url",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("url","str","REQ")),
+            "method_returns": ("number","null")
+            }
+        '''
+        #object
+        delete_objects = {
+            "method_name": "delete",
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("number","null")
+            }
+        is_object = {
+            "method_name": "is_object",
+            "method_parameters": (("rhino_id","str","REQ"),),
+            "method_returns": ("bln", )
+            }   """

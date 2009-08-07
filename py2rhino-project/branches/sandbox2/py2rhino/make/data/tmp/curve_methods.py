@@ -17,41 +17,6 @@ class _DocumentObjectFunc(object):
             "method_returns": ("array_of _ObjectRoot._CurveRoot.GenericCurve","null")#GenericCirve
             }
 """
-#===============================================================================
-# _CurveRoot
-#===============================================================================
-class _CurveRoot(object):
-    inherits = ("_ObjectRoot", )
-
-    pass
-
-#===============================================================================
-# GenericCurve
-#===============================================================================
-class GenericCurve(object):
-    inherits = ("_CurveRoot", )
-    holds = {
-                   
-        #general object holds
-        "defm": "_ObjectRootDefm",                 
-        "grps": "_ObjectRootGrps",
-        "mtrl": "_ObjectRootMtrl",
-        "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
-        "trfm": "_ObjectRootTrfm",
-        "util": "_ObjectRootUtil",        
-  
-        #general curve holds
-        "mdfy": "_CurveRootMdfy",
-        "eval": "_CurveRootEval",
-        "func": "_CurveRootFuncOorc",
-        "test": "_CurveRootTest",#inherits from object tests
-        "func": "_CurveRootType",#exposed only here
-        
-        #properties
-        "prop": "_ObjectRootProp",
-    }
-    
    
 #===============================================================================
 # NurbsCurve
@@ -120,7 +85,38 @@ class NurbsCurve(object):
             "method_parameters": (("curves","array_of _ObjectRoot","REQ"),("meshes","array_of str","REQ"),("direction","array_of dbl","REQ"),),
             "method_returns": ("array_of SELF","null")
         }
+        offset_curve_on_surface = {#ed
+            "method_name": "create_by_offset_on_srf",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("SELF","null")
+        }
+        offset_curve_on_surface_2 = {#ed
+            "method_name": "create_by_offset_on_srf_param",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("surface","_ObjectRoot._SurfaceRoot","REQ"),("parameter","array_of dbl","REQ"),),
+            "method_returns": ("SELF","null")
+        }        
+        fit_curve = {
+            "method_name": "create_by_fit",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("degree","int","OPT"),("tolerance","dbl","OPT"),("angle_tolerance","dbl","OPT"),),
+            "method_returns": ("SELF","null")
+        }
         
+        offset_curve = {
+            "method_name": "create_by_offset",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
+            "method_returns": ("SELF","null")
+        }        
+        
+        copy_object = {
+            "method_name": "create_copy_move",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("SELF","null")        
+            }
+        copy_object_2 = {
+            "method_name": "create_copy_move_by_vec",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("SELF","null")         
+            }         
 #===============================================================================
 # _NurbsCurveFunc
 #===============================================================================
@@ -133,11 +129,6 @@ class _NurbsCurveFunc(object):
             "method_parameters": (("","SELF","REQ"),("parameters","array_of dbl","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot.NurbsCurve","null")
         }
-        offset_curve = {
-            "method_name": "offset",
-            "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot.NurbsCurve","null")
-        } 
         add_sub_crv = {#ed
             "method_name": "crv_sub",
             "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
@@ -146,11 +137,6 @@ class _NurbsCurveFunc(object):
         trim_curve = {#ed
             "method_name": "trim",
             "method_parameters": (("","SELF","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
-        }
-        offset_curve_on_surface = {#ed
-            "method_name": "offset_on_srf",
-            "method_parameters": (("","SELF","REQ"),("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),("parameter","array_of dbl","REQ"),),
             "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
         }
 #===============================================================================
@@ -196,6 +182,22 @@ class Arc(object):
             "method_returns": ("SELF","null")
         }
         
+        offset_curve = {
+            "method_name": "create_by_offset",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
+            "method_returns": ("SELF","null")
+        }        
+        
+        copy_object = {
+            "method_name": "create_copy_move",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("SELF","null")        
+            }
+        copy_object_2 = {
+            "method_name": "create_copy_move_by_vec",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("SELF","null")         
+            }         
 #===============================================================================
 # _ArcFunc
 #===============================================================================
@@ -211,11 +213,6 @@ class _ArcFunc(object):
             "method_name": "sub",
             "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._CurveRoot.Arc","null")
-        }
-        offset_curve = {
-            "method_name": "offset",
-            "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot.Arc","null")
         } 
         trim_curve = {#ed
             "method_name": "trim",
@@ -274,8 +271,24 @@ class EllipticalArc(object):
         "prop": "_ObjectRootProp",
         "func": "_EllipticalArcFunc",        
     }    
-
-    #no constructors
+    class Constructors(object):
+        
+        offset_curve = {
+            "method_name": "create_by_offset",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
+            "method_returns": ("SELF","null")
+        }        
+        
+        copy_object = {
+            "method_name": "create_copy_move",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("SELF","null")        
+            }
+        copy_object_2 = {
+            "method_name": "create_copy_move_by_vec",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("SELF","null")         
+            } 
         
 #===============================================================================
 # _EllipticalArcFunc
@@ -292,17 +305,14 @@ class _EllipticalArcFunc(object):
             "method_name": "sub",
             "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._CurveRoot.EllipticalArc","null")
-        }
-        offset_curve = {
-            "method_name": "offset",
-            "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot.EllipticalArc","null")
         } 
         trim_curve = {#ed
             "method_name": "trim",
             "method_parameters": (("","SELF","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT"),),
             "method_returns": ("_ObjectRoot._CurveRoot.EllipticalArc","null")
         }   
+        
+        
 #===============================================================================
 # Circle
 #===============================================================================
@@ -340,6 +350,23 @@ class Circle():
             "method_parameters": (("first","array_of dbl","REQ"),("second","array_of dbl","REQ"),("third","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
         }
+        
+        offset_curve = {
+            "method_name": "create_by_offset",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
+            "method_returns": ("SELF","null")
+        }        
+        
+        copy_object = {
+            "method_name": "create_copy_move",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("SELF","null")        
+            }
+        copy_object_2 = {
+            "method_name": "create_copy_move_by_vec",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("SELF","null")         
+            }          
 #===============================================================================
 # _CircleFunc
 #===============================================================================
@@ -356,11 +383,6 @@ class _CircleFunc(object):
             "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._CurveRoot.Arc","null")
         }
-        offset_curve = {
-            "method_name": "offset",
-            "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot.Circle","null")
-        } 
         trim_curve = {#ed
             "method_name": "trim",
             "method_parameters": (("","SELF","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT"),),
@@ -387,6 +409,8 @@ class _CircleProp():
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("number","null")
         }
+        
+       
 #===============================================================================
 # Ellipse
 #===============================================================================
@@ -424,6 +448,23 @@ class Ellipse(object):
             "method_parameters": (("center","array_of dbl","REQ"),("second","array_of dbl","REQ"),("third","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
         }
+        
+        offset_curve = {
+            "method_name": "create_by_offset",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
+            "method_returns": ("SELF","null")
+        }        
+        
+        copy_object = {
+            "method_name": "create_copy_move",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("SELF","null")        
+            }
+        copy_object_2 = {
+            "method_name": "create_copy_move_by_vec",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("SELF","null")         
+            }          
 #===============================================================================
 # _EllipseFunc
 #===============================================================================
@@ -440,11 +481,6 @@ class _EllipseFunc(object):
             "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._CurveRoot.EllipticalArc","null")
         }
-        offset_curve = {
-            "method_name": "offset",
-            "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot.EllipticalArc","null")
-        } 
         trim_curve = {#ed
             "method_name": "trim",
             "method_parameters": (("","SELF","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT"),),
@@ -498,6 +534,24 @@ class Line(object):
             "method_parameters": (("start","array_of dbl","REQ"),("end","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
         }
+        
+        offset_curve = {
+            "method_name": "create_by_offset",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
+            "method_returns": ("SELF","null")
+        }        
+        
+        copy_object = {
+            "method_name": "create_copy_move",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("SELF","null")        
+            }
+        copy_object_2 = {
+            "method_name": "create_copy_move_by_vec",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("SELF","null")         
+            }         
+        
 #===============================================================================
 # _LineFunc
 #===============================================================================
@@ -514,16 +568,12 @@ class _LineFunc(object):
             "method_parameters": (("","SELF","REQ"),("param_0","dbl","REQ"),("param_1","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._CurveRoot.Line","null")
         }
-        offset_curve = {
-            "method_name": "offset",
-            "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot.Line","null")
-        } 
         trim_curve = {#ed
             "method_name": "trim",
             "method_parameters": (("","SELF","REQ"),("interval","array_of int","REQ"),("delete","bln","OPT"),),
             "method_returns": ("_ObjectRoot._CurveRoot.Line","null")
         }
+               
 #===============================================================================
 # Polyline
 #===============================================================================
@@ -561,6 +611,23 @@ class Polyline(object):
             "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("angle_tolerance","dbl","OPT"),("tolerance","dbl","OPT"),("delete_input","bln","OPT"),),
             "method_returns": ("SELF","null")
         } 
+        
+        offset_curve = {
+            "method_name": "create_by_offset",
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
+            "method_returns": ("SELF","null")
+        }        
+        
+        copy_object = {
+            "method_name": "create_copy_move",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("SELF","null")        
+            }
+        copy_object_2 = {
+            "method_name": "create_copy_move_by_vec",
+            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("SELF","null")         
+            }          
 #===============================================================================
 # _PolylineFunc
 #===============================================================================
@@ -571,11 +638,6 @@ class _PolylineFunc(object):
         split_curve = {#this has the delete parameter
             "method_name": "split",
             "method_parameters": (("","SELF","REQ"),("parameters","array_of dbl","REQ"),("delete","bln","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot.Polyline","null")#this could return a line
-        }
-        offset_curve = {
-            "method_name": "offset",
-            "method_parameters": (("","SELF","REQ"),("direction","array_of dbl","REQ"),("distance","dbl","REQ"),("normal","array_of dbl","OPT"),("style","int","OPT"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot.Polyline","null")#this could return a line
         }
         trim_curve = {#ed
@@ -647,6 +709,183 @@ class PolyCurve(object):
             "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
         }        
 """
+
+
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+#===============================================================================
+# _CurveRootType
+#===============================================================================
+class _CurveRootType(object):
+    inherits = ("_ObjectRootType",)
+    class Methods(object):     
+        is_arc = {#ed
+            "method_name": "is_arc",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_circle = {#ed
+            "method_name": "is_circle",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_curve = {#ed
+            "method_name": "is_crv",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_ellipse = {#ed
+            "method_name": "is_ellipse",
+            "method_parameters": (("","SELF","REQ"),),#this is inconsistent - may be an error (cf is_circle)
+            "method_returns": ("bln","null")
+        }
+        is_line = {#ed
+            "method_name": "is_line",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_poly_curve = {#ed
+            "method_name": "is_poly_crv",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_polyline = {#ed
+            "method_name": "is_polyline",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+#===============================================================================
+# _CurveRootTest
+#===============================================================================
+class _CurveRootTest(object):
+    inherits = ("_ObjectRootTest", )
+    class Methods(object):
+        is_curve_in_plane = {#ed
+            "method_name": "in_plane",
+            "method_parameters": (("","SELF","REQ"),("plane","array_of dbl","OPT"),),
+            "method_returns": ("bln","null")
+        }
+        is_curve_closable = {#ed
+            "method_name": "is_closable",
+            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("bln","null")
+        }
+        is_curve_closed = {#ed
+            "method_name": "is_closed",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_curve_linear = {#ed
+            "method_name": "is_linear",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_curve_periodic = {#ed
+            "method_name": "is_periodic",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_curve_planar = {#ed
+            "method_name": "is_planar",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_curve_rational = {#ed
+            "method_name": "is_rational",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+        is_point_on_curve = {#ed
+            "method_name": "is_on_crv",
+            "method_parameters": (("","SELF","REQ"),("point","array_of int","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("bln","null")
+        }
+
+#===============================================================================
+# _CurveRootMdfy
+#===============================================================================
+class _CurveRootMdfy(object):
+    inherits = ('_ObjectRootMdfy', )
+    class Methods(object):
+        curve_seam = {#ed
+            "method_name": "seam",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
+            "method_returns": ("bln","null")
+        }
+        fair_curve = {#ed
+            "method_name": "fair",
+            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("bln","null")
+        }
+        insert_curve_knot = {#ed
+            "method_name": "insert_knot",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("symmetrical","bln","OPT"),),
+            "method_returns": ("bln","null")
+        }
+        rebuild_curve = {#ed
+            "method_name": "rebuild",
+            "method_parameters": (("","SELF","REQ"),("degree","int","OPT"),("point_count","int","OPT"),),
+            "method_returns": ("bln","null")
+        }
+        remove_curve_knot = {#ed
+            "method_name": "remove_knot",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
+            "method_returns": ("bln","null")
+        }
+        reverse_curve = {#ed
+            "method_name": "reverse",
+            "method_parameters": (("","SELF","REQ"),),
+            "method_returns": ("bln","null")
+        }
+        simplify_curve = {#ed
+            "method_name": "simplify",
+            "method_parameters": (("","SELF","REQ"),("flags","int","OPT"),),
+            "method_returns": ("bln","null")
+        }
+
+    
+    
+#===============================================================================
+# _CurveRootEval
+#===============================================================================
+class _CurveRootEval(object):
+    inherits = None
+    class Methods(object):
+        curve_evaluate = {#ed
+            "method_name": "evaluate_derivatives",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("derivative","int","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        evaluate_curve = {#ed
+            "method_name": "evaluate",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        curve_frame = {#ed
+            "method_name": "frame",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        curve_curvature = {#ed
+            "method_name": "curvature",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        curve_perp_frame = {#ed
+            "method_name": "perp_frame",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        curve_tangent = {#ed
+            "method_name": "tangent",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("array_of dbl","null")
+        }
 
 #===============================================================================
 # _CurveRootProp
@@ -743,159 +982,30 @@ class _CurveRootProp(object):
             "method_parameters": (("","SELF","REQ"),("return_parameters","bln","OPT"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl", "null")
         } 
-
 #===============================================================================
-# _CurveRootType
+# _CurveRootPropOpen
 #===============================================================================
-class _CurveRootType(object):
-    inherits = ("_ObjectRootType",)
-    class Methods(object):     
-        is_arc = {#ed
-            "method_name": "is_arc",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_circle = {#ed
-            "method_name": "is_circle",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_curve = {#ed
-            "method_name": "is_crv",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_ellipse = {#ed
-            "method_name": "is_ellipse",
-            "method_parameters": (("","SELF","REQ"),),#this is inconsistent - may be an error (cf is_circle)
-            "method_returns": ("bln","null")
-        }
-        is_line = {#ed
-            "method_name": "is_line",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_poly_curve = {#ed
-            "method_name": "is_poly_crv",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_polyline = {#ed
-            "method_name": "is_polyline",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-#===============================================================================
-# _CurveRootTest
-#===============================================================================
-class _CurveRootTest(object):
-    inherits = ("_ObjectRootTest", )
+class _CurveRootPropOpen(object):
+    inherits = ('_CurveRootProp',)
     class Methods(object):
-        is_curve_in_plane = {#ed
-            "method_name": "in_plane",
-            "method_parameters": (("","SELF","REQ"),("plane","array_of dbl","OPT"),),
-            "method_returns": ("bln","null")
-        }
-        is_curve_closable = {#ed
-            "method_name": "is_closable",
-            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
-            "method_returns": ("bln","null")
-        }
-        is_curve_closed = {#ed
-            "method_name": "is_closed",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_curve_linear = {#ed
-            "method_name": "is_linear",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_curve_periodic = {#ed
-            "method_name": "is_periodic",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_curve_planar = {#ed
-            "method_name": "is_planar",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_curve_rational = {#ed
-            "method_name": "is_rational",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
-        is_point_on_curve = {#ed
-            "method_name": "is_on_crv",
-            "method_parameters": (("","SELF","REQ"),("point","array_of int","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("bln","null")
-        }
+        pass
+    
 #===============================================================================
-# _CurveRootGenr
+# _CurveRootPropClsd
 #===============================================================================
-class _CurveRootGenr(object):
-    inherits = None
+class _CurveRootPropClsd(object):
+    inherits = ('_CurveRootProp',)
     class Methods(object):
-        
-        #TODO: test this methods
-        fit_curve = {
-            "method_name": "fit",
-            "method_parameters": (("","SELF","REQ"),("degree","int","OPT"),("tolerance","dbl","OPT"),("angle_tolerance","dbl","OPT"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
-        }
-        make_curve_non_periodic = {
-            "method_name": "make_non_periodic",
-            "method_parameters": (("","SELF","REQ"),("delete","bln","OPT","FALSE","HIDE"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
-        }
-        make_curve_periodic = {
-            "method_name": "make_periodic",
-            "method_parameters": (("","SELF","REQ"),("delete","bln","OPT","FALSE","HIDE"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
-        }
+        pass
+    
 #===============================================================================
-# _CurveRootMdfy
+# _CurveRootPropOorc
 #===============================================================================
-class _CurveRootMdfy(object):
-    inherits = ('_ObjectRootMdfy', )
+class _CurveRootOorc(object):
+    inherits = ('_CurveRootPropOpen', '_CurveRootPropClsd',)
     class Methods(object):
-        curve_seam = {#ed
-            "method_name": "seam",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
-            "method_returns": ("bln","null")
-        }
-        fair_curve = {#ed
-            "method_name": "fair",
-            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
-            "method_returns": ("bln","null")
-        }
-        insert_curve_knot = {#ed
-            "method_name": "insert_knot",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("symmetrical","bln","OPT"),),
-            "method_returns": ("bln","null")
-        }
-        rebuild_curve = {#ed
-            "method_name": "rebuild",
-            "method_parameters": (("","SELF","REQ"),("degree","int","OPT"),("point_count","int","OPT"),),
-            "method_returns": ("bln","null")
-        }
-        remove_curve_knot = {#ed
-            "method_name": "remove_knot",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
-            "method_returns": ("bln","null")
-        }
-        reverse_curve = {#ed
-            "method_name": "reverse",
-            "method_parameters": (("","SELF","REQ"),),
-            "method_returns": ("bln","null")
-        }
-        simplify_curve = {#ed
-            "method_name": "simplify",
-            "method_parameters": (("","SELF","REQ"),("flags","int","OPT"),),
-            "method_returns": ("bln","null")
-        }
-        
+        pass
+    
 #===============================================================================
 # _CurveRootFunc
 #===============================================================================
@@ -923,14 +1033,6 @@ class _CurveRootFunc(object):
             "method_parameters": (("","SELF","REQ"),("length","dbl","REQ"),("create","bln","OPT"),("points","bln","OPT"),),
             "method_returns": ("array_of dbl","null")
         }
-        #TODO: fix these mixed return values
-        """ 
-        curve_closest_object = {#ed
-            "method_name": "closest_ObjectRoot",
-            "method_parameters": (("","SELF","REQ"),("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("array_of (_ObjectRoot._CurveRoot, array_of dbl, array_of dbl)","null")
-        }
-        """
         curve_arc_length_point = {#ed
             "method_name": "crv_arc_length_pnt",
             "method_parameters": (("","SELF","REQ"),("length","dbl","REQ"),("from_start","bln","OPT"),),
@@ -956,14 +1058,6 @@ class _CurveRootFunc(object):
             "method_parameters": (("","SELF","REQ"),("curve_1","str","REQ"),),
             "method_returns": ("bln","null")
         }
-        #TODO: fix these mixed return values
-        """
-        curve_fillet_points = {#TODO:documentation is not clear
-            "method_name": "fillet_pnts",
-            "method_parameters": (("","SELF","REQ"),("curve_0","str","REQ"),("radius","dbl","OPT"),("base_point_0","array_of dbl","OPT"),("base_point__1","array_of dbl","OPT"),),
-            "method_returns": ("array_of (array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl)","_ObjectRoot._CurveRoot","null")
-        }
-        """
         curve_closest_pnt = {#ed
             "method_name": "closest_pnt",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
@@ -974,17 +1068,6 @@ class _CurveRootFunc(object):
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("number","null")
         }
-        
-        
-        #TODO: fix these mixed return values
-        """
-        curve_brep_intersect = {#TODO:can return either curve objects or point objects
-            "method_name": "brep_intersection",
-            "method_parameters": (("","SELF","REQ"),("brep","str","REQ"),("tolerance","dbl","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
-        }
-        """
-        
         curve_curve_intersection = {#TODO: figure this one out
             "method_name": "crv_intersection",
             "method_parameters": (("","SELF","REQ"),("curve","str","OPT"),("tolerance","dbl","OPT"),),
@@ -995,7 +1078,41 @@ class _CurveRootFunc(object):
             "method_parameters": (("","SELF","REQ"),("surface","str","REQ"),("tolerance","dbl","OPT"),("angle_tolerance","dbl","OPT"),),
             "method_returns": ("array_of number","null")#check return values...
         } 
+        make_curve_non_periodic = {
+            "method_name": "make_non_periodic",
+            "method_parameters": (("","SELF","REQ"),("delete","bln","OPT","FALSE","HIDE"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
+        }
+        make_curve_periodic = {
+            "method_name": "make_periodic",
+            "method_parameters": (("","SELF","REQ"),("delete","bln","OPT","FALSE","HIDE"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
+        }
         
+        #TODO: fix these mixed return values
+        """ 
+        curve_closest_object = {#ed
+            "method_name": "closest_ObjectRoot",
+            "method_parameters": (("","SELF","REQ"),("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("array_of (_ObjectRoot._CurveRoot, array_of dbl, array_of dbl)","null")
+        }
+        """
+        #TODO: fix these mixed return values
+        """
+        curve_fillet_points = {#TODO:documentation is not clear
+            "method_name": "fillet_pnts",
+            "method_parameters": (("","SELF","REQ"),("curve_0","str","REQ"),("radius","dbl","OPT"),("base_point_0","array_of dbl","OPT"),("base_point__1","array_of dbl","OPT"),),
+            "method_returns": ("array_of (array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl)","_ObjectRoot._CurveRoot","null")
+        }
+        """        
+        #TODO: fix these mixed return values
+        """
+        curve_brep_intersect = {#TODO:can return either curve objects or point objects
+            "method_name": "brep_intersection",
+            "method_parameters": (("","SELF","REQ"),("brep","str","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
+        }
+        """
 #===============================================================================
 # _CurveRootClosedFuncOpen - exclude circles and ellipses
 #===============================================================================
@@ -1010,12 +1127,12 @@ class _CurveRootFuncOpen(object):
         }
         extend_curve = {# open curves only
             "method_name": "open_crv_extend",
-            "method_parameters": (("","SELF","REQ"),("type","int","REQ"),("side","int","REQ"),("objects","array_of str","REQ"),),
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("objects","array_of _ObjectRoot","REQ"),),
             "method_returns": ("str","null")
         }
         extend_curve_length = {
             "method_name": "open_crv_extend_length",
-            "method_parameters": (("","SELF","REQ"),("type","int","REQ"),("side","int","REQ"),("length","dbl","REQ"),),
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("length","dbl","REQ"),),
             "method_returns": ("str","null")
         }
         extend_curve_point = {
@@ -1077,53 +1194,23 @@ class _CurveRootFuncOorc(object):
     
     
 #===============================================================================
-# _CurveRootEval
+# _CurveRoot
 #===============================================================================
-class _CurveRootEval(object):
-    inherits = None
-    class Methods(object):
-        curve_evaluate = {#ed
-            "method_name": "evaluate_derivatives",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("derivative","int","REQ"),),
-            "method_returns": ("array_of dbl","null")
-        }
-        evaluate_curve = {#ed
-            "method_name": "evaluate",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("array_of dbl","null")
-        }
-        curve_frame = {#ed
-            "method_name": "frame",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
-            "method_returns": ("array_of dbl","null")
-        }
-        curve_curvature = {#ed
-            "method_name": "curvature",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
-            "method_returns": ("array_of dbl","null")
-        }
-        curve_perp_frame = {#ed
-            "method_name": "perp_frame",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),),
-            "method_returns": ("array_of dbl","null")
-        }
-        curve_tangent = {#ed
-            "method_name": "tangent",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
-            "method_returns": ("array_of dbl","null")
-        }        
+class _CurveRoot(object):
+    inherits = ("_ObjectRoot", )
+    #empty
+
 #===============================================================================
 # Mesh
 #===============================================================================
 """
-class PolygonMesh(object):
-    inherits = ("_ObjectRoot._PolygonMeshRoot", )
-    #TODO: move method
-    class Methods(object):
+class Mesh(object):
+    inherits = ("_ObjectRoot._MeshRoot", )
+    class Constructors(object):
         mesh_polyline = {#ed
-            "method_name": "create_mesh_from_closed_polyline",
+            "method_name": "create_by_polyline",
             "method_parameters": (("polyline","_ObjectRoot._CurveRoot.Polyline","REQ"),),
-            "method_returns": ("_ObjectRoot._MeshRoot.PolygonMesh","null")
+            "method_returns": ("SELF","null")
         }
-        
 """
+

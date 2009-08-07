@@ -140,6 +140,7 @@ def write_rhinoscript_classes(data_dict):
         simple_types = ('bln', 'int', 'lng', 'dbl', 'str', 'n', 'va')
         
         #a list of class types
+        """
         class_types = (
                        'GenericObject',
                        
@@ -158,7 +159,7 @@ def write_rhinoscript_classes(data_dict):
                        'Torus',
                        'NurbsSurface',
                        
-                       )
+                       )"""
                         #'PolygonMesh',
 
         
@@ -260,6 +261,8 @@ def write_rhinoscript_classes(data_dict):
                     if params_type_tail in simple_types:
                         args.append(params_name[i])
                     elif params_type_tail.startswith('_Object') or params_type_tail.startswith('_Entity'):
+                        w(f, ('if type(',params_name[i],') != list and type(',params_name[i],') != tuple:'), tabs=2)
+                        w(f, (params_name[i],' = (',params_name[i],',)'), tabs=3)
                         args.append('map(lambda i: i._rhino_id, '+params_name[i] + ')')
                     else:
                         #this will highlight anything I have forgotten
@@ -283,11 +286,13 @@ def write_rhinoscript_classes(data_dict):
         if method_type == 'CONSTRUCTOR':
             w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
             if return_type == 'SELF':
+                assert not class_name.startswith('_')
                 w(f, ('if _rhino_id:'), tabs=2)
                 w(f, ('return '+class_name+'(_rhino_id)'), tabs=3)
                 w(f, ('else:'), tabs=2)
                 w(f, ('return None'), tabs=3)
             elif return_type == 'array_of SELF':
+                assert not class_name.startswith('_')
                 w(f, ('return map(lambda i: '+class_name+'(i), _rhino_id)'), tabs=2, nls=1, nle=2)
             else:
                 raise Exception('Cannot understand return type for constructor')
@@ -320,26 +325,35 @@ def write_rhinoscript_classes(data_dict):
                     w(f, ('return None'), tabs=3)  
             elif return_type.startswith('_Object') or return_type.startswith('_Entity'):
                 return_class_name = return_type.split('.')[-1]
-                if return_class_name in class_types:
+                if return_class_name.startswith('_') and return_class_name.endswith('Root'):
                     w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_id:'), tabs=2)
-                    w(f, ('return p2r.', return_class_name, '(_rhino_id)'), tabs=3)
+                    w(f, ('return self.__class__(_rhino_id)'), tabs=3)
                     w(f, ('else:'), tabs=2)
-                    w(f, ('return None'), tabs=3)  
-                else:
+                    w(f, ('return None'), tabs=3) 
+                elif return_class_name.startswith('_'):
                     w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_id:'), tabs=2)
                     w(f, ('return p2r._util.wrap(_rhino_id)'), tabs=3)
                     w(f, ('else:'), tabs=2)
                     w(f, ('return None'), tabs=3)
-            elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity'):
-                return_class_name = return_type.split('.')[-1]
-                if return_class_name in class_types:
-                    w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                    w(f, ('return map(lambda i: p2r.'+return_class_name+'(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
                 else:
+                    w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('if _rhino_id:'), tabs=2)
+                    w(f, ('return p2r.', return_class_name, '(_rhino_id)'), tabs=3)
+                    w(f, ('else:'), tabs=2)
+                    w(f, ('return None'), tabs=3) 
+            elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity'):
+                return_class_name = return_type[9:].split('.')[-1]
+                if return_class_name.startswith('_') and return_class_name.endswith('Root'):
+                    w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('return map(lambda i: self.__class__(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
+                elif return_class_name.startswith('_'):
                     w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('return map(lambda i: p2r._util.wrap(i), _rhino_ids)'), tabs=2, nle=1)
+                else:
+                    w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('return map(lambda i: p2r.'+return_class_name+'(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
             else:
                 raise Exception('The method returns something very strange')
             
@@ -423,27 +437,20 @@ def write_rhinoscript_classes(data_dict):
         if inherits == None:
             sorted_list.append(class_name)
             
-    for class_name_num in range(len(list_of_class_name)):
-        class_name = list_of_class_name[class_name_num]
-        class_dict = data_dict[class_name]
-        inherits = class_dict['inherits']
-        if not class_name in sorted_list and inherits[0] in sorted_list:
-            sorted_list.append(class_name)
-
-    for class_name_num in range(len(list_of_class_name)):
-        class_name = list_of_class_name[class_name_num]
-        class_dict = data_dict[class_name]
-        inherits = class_dict['inherits']
-        if not class_name in sorted_list and inherits[0] in sorted_list:
-            sorted_list.append(class_name)
-            
-    for class_name_num in range(len(list_of_class_name)):
-        class_name = list_of_class_name[class_name_num]
-        class_dict = data_dict[class_name]
-        inherits = class_dict['inherits']
-        if not class_name in sorted_list and inherits[0] in sorted_list:
-            sorted_list.append(class_name)
-            
+    for i in range(3):
+        for class_name_num in range(len(list_of_class_name)):
+            class_name = list_of_class_name[class_name_num]
+            class_dict = data_dict[class_name]
+            inherits = class_dict['inherits']
+            if inherits != None:
+                if len(inherits) == 1:
+                    if not class_name in sorted_list and inherits[0] in sorted_list:
+                        sorted_list.append(class_name)
+                elif len(inherits) == 2:
+                    if not class_name in sorted_list and inherits[0] in sorted_list and inherits[1] in sorted_list:
+                        sorted_list.append(class_name)
+                
+                
     for i in list_of_class_name:
         if not i in sorted_list:
             print "Class has been lost", i    
