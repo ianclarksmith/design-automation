@@ -23,8 +23,8 @@ wall.delete()
 v.redraw()
 print wall.node.nodes
 
-#points = [(13600,5300,450)]
-#point_2 = Point.create(points)
+points = [(13600,5300,450)]
+point_2 = p2e.Point.create(points)
 
 #print floor.modf.link(point_1)
 
