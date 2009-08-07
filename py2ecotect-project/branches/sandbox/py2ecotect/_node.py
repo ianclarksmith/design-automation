@@ -45,13 +45,6 @@ class Node(object):
         The zero-based index of the object or node to which the specified node 
         is to be linked. 
         
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        zoneIndex 
-        The zero-based index of the node just added. A value of -1 indicates 
-        that the operation failed. 
-        
         Relevant Data Table(s)
         
         Node Types 
