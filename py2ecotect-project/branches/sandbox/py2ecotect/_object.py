@@ -1686,98 +1686,95 @@ class _ObjectRootFncProp(object):
             p2e._app.Exec(arg_str)
             
         return property(**locals())
-    
-    @apply
-    def tag():  
-        def fget(self, tag):
-            """
+      
+    def get_tag(self, tag):
+        """
+        
+        Retrieves information about tags that have been assigned to the 
+        specified object. Tags are simply indicators to ECOTECT that the object 
+        performs additional functions or is specifically marked for certain 
+        calculations. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        tag 
+        An integer value representing a binary bit, as shown in the Object Tags 
+        table. The value returned for the nominated tag will be a boolean 
+        integer value - 0 for off, or 1 for on. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        state 
+        A value representing whether the particular tag is set or not. This is a 
+        boolean value where 1 represents the affirmative and 0 the negative. 
+        
+        Relevant Data Table(s)
+        
+        Object Tag Codes Value Description Notes 
+        1 TAGGED_PICKED* User clicked near one of it's lines. 
+        2 TAGGED_PREVIOUS* Part of the previous selection set. 
+        16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
+        32 TAGGED_SHADED Shadows are cast onto this object. 
+        64 TAGGED_ERROR Object has violated an inter-object relationship. 
+        128 TAGGED_UPDATE Object has changed and needs an update. 
+        256 TAGGED_MIRROR Object produces solar reflections. 
+        512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
+        4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
+        16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
+        32768 TAGGED_MARKER* Generic calculation marker. 
+
+        """
+        arg_str = p2e._util._convert_args_to_string("get.object.tag", 
+                                                     self.eco_id, tag)
+        val = p2e._app.Request(arg_str)
+        return p2e._util._convert_str_to_type(val, int)
+        
+    def set_tag(self, tag, state = True):
+        """
+        
+        Sets tags for the specified object. Tags are simply indicators to 
+        ECOTECT that the object performs additional functions or is specifically 
+        marked for certain calculations. To test multiple tags at once, simply 
+        add their values together. The optional [true|false] parameter 
+        determines whether set or reset the tag(s), defaulting to true. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        tag 
+        An integer value representing a binary bit, as shown in the Object Tags 
+        table. To test multiple tags at once, simply add their values together. 
+        
+        [state] 
+        An optional parameter determining whether to set or reset the tag(s). 
+        This is a boolean value where 1 or true represents the affirmative and 0 
+        or false the negative. If not given, it defaults to true. 
+        
+        Relevant Data Table(s)
+        
+        Object Tag Codes 
+        Value Description Notes 
+        1 TAGGED_PICKED* User clicked near one of it's lines. 
+        2 TAGGED_PREVIOUS* Part of the previous selection set. 
+        16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
+        32 TAGGED_SHADED Shadows are cast onto this object. 
+        64 TAGGED_ERROR Object has violated an inter-object relationship. 
+        128 TAGGED_UPDATE Object has changed and needs an update. 
+        256 TAGGED_MIRROR Object produces solar reflections. 
+        512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
+        4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
+        16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
+        32768 TAGGED_MARKER* Generic calculation marker. 
+
+
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("set.object.tag", 
+                                                     self.eco_id, tag, state)
+        p2e._app.Exec(arg_str)
             
-            Retrieves information about tags that have been assigned to the 
-            specified object. Tags are simply indicators to ECOTECT that the object 
-            performs additional functions or is specifically marked for certain 
-            calculations. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            tag 
-            An integer value representing a binary bit, as shown in the Object Tags 
-            table. The value returned for the nominated tag will be a boolean 
-            integer value - 0 for off, or 1 for on. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            state 
-            A value representing whether the particular tag is set or not. This is a 
-            boolean value where 1 represents the affirmative and 0 the negative. 
-            
-            Relevant Data Table(s)
-            
-            Object Tag Codes Value Description Notes 
-            1 TAGGED_PICKED* User clicked near one of it's lines. 
-            2 TAGGED_PREVIOUS* Part of the previous selection set. 
-            16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
-            32 TAGGED_SHADED Shadows are cast onto this object. 
-            64 TAGGED_ERROR Object has violated an inter-object relationship. 
-            128 TAGGED_UPDATE Object has changed and needs an update. 
-            256 TAGGED_MIRROR Object produces solar reflections. 
-            512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
-            4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
-            16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
-            32768 TAGGED_MARKER* Generic calculation marker. 
-    
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.tag", 
-                                                         self.eco_id, tag)
-            val = p2e._app.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, int)
-            
-        def fset(self, tag, state = True):
-            """
-            
-            Sets tags for the specified object. Tags are simply indicators to 
-            ECOTECT that the object performs additional functions or is specifically 
-            marked for certain calculations. To test multiple tags at once, simply 
-            add their values together. The optional [true|false] parameter 
-            determines whether set or reset the tag(s), defaulting to true. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            tag 
-            An integer value representing a binary bit, as shown in the Object Tags 
-            table. To test multiple tags at once, simply add their values together. 
-            
-            [state] 
-            An optional parameter determining whether to set or reset the tag(s). 
-            This is a boolean value where 1 or true represents the affirmative and 0 
-            or false the negative. If not given, it defaults to true. 
-            
-            Relevant Data Table(s)
-            
-            Object Tag Codes 
-            Value Description Notes 
-            1 TAGGED_PICKED* User clicked near one of it's lines. 
-            2 TAGGED_PREVIOUS* Part of the previous selection set. 
-            16 TAGGED_SHOWVALUE Object has valid assigned attribute values. 
-            32 TAGGED_SHADED Shadows are cast onto this object. 
-            64 TAGGED_ERROR Object has violated an inter-object relationship. 
-            128 TAGGED_UPDATE Object has changed and needs an update. 
-            256 TAGGED_MIRROR Object produces solar reflections. 
-            512 TAGGED_ACOUSTIC Object is tagged as an acoustic reflector. 
-            4096 TAGGED_3PTS_CONCAVE First 3 nodes are concave. 
-            16384 TAGGED_INCOMPLETE Object being created - nodes still being added. 
-            32768 TAGGED_MARKER* Generic calculation marker. 
-    
-    
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("set.object.tag", 
-                                                         self.eco_id, tag, state)
-            p2e._app.Exec(arg_str)
-            
-        return property(**locals())
     
     @apply
     def vector():  
