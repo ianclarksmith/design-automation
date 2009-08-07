@@ -9,9 +9,9 @@ zn1 = p2e.ent.Zone.create_zone("TEST")
 points = [(0,0,0),(10000,0,0),(10000,0,10000),(0,0,10000)]
 wall = p2e.obj.Wall.create(points)
 
-#points = [(1000,5000,1000),(10000,0,1000),(10000,0,10000),(1000,-5000,10000)]
-#wn = p2e.Window.create(points)
-#wn.trfm.scale([0.5,0.5,0.5])
+points = [(1000,5000,1000),(10000,0,1000),(10000,0,10000),(1000,-5000,10000)]
+wn = p2e.obj.Window.create(points)
+wn.trfm.scale([0.5,0.5,0.5])
 #wl.mdfy.link(wn)
 #wn.child.set_child_extents(1000,1000,0.5,0.8)
 
@@ -37,7 +37,7 @@ v.redraw()
 points = [(0,0,0),(10000,0,0),(10000,0,5000),(0,0,5000)]
 floor = p2e.obj.Floor.create(points)
 #floor.extrude([0, 0, 2400])
-floor.revolve(0, 180, 10)
+#floor.revolve(0, 180, 10)
 
 #point_1.stat.selected = False
 
