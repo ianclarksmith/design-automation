@@ -697,9 +697,6 @@ class Zone(object):
             Parameter(s)
             There are no parameters for this command.
             
-            zone 
-            The zero-based index value of the zone.
-            
             """
             arg_str = p2e._util._convert_args_to_string("set.zone.current", 
                                                          self.eco_id)
