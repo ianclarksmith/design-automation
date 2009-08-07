@@ -4505,8 +4505,8 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def add_cone(self, base, height, radius, cap):
 
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
-        flattened = (flatten_params(base), height, radius, cap)
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
+        flattened = (flatten_params(base), flatten_params(height), radius, cap)
 
         return self._ApplyTypes_(75, 1, (VT_VARIANT, 0), magic, u"AddCone", None, *flattened)
 
@@ -4526,8 +4526,8 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def add_cylinder(self, base, height, radius, cap):
 
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
-        flattened = (flatten_params(base), height, radius, cap)
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
+        flattened = (flatten_params(base), flatten_params(height), radius, cap)
 
         return self._ApplyTypes_(73, 1, (VT_VARIANT, 0), magic, u"AddCylinder", None, *flattened)
 
@@ -5096,8 +5096,13 @@ class _RhinoscriptFunctions(IRhinoScript):
         magic = ((VT_BSTR, 1), (VT_I2, 1))
         flattened = (object, direction)
 
-        return self._ApplyTypes_(217, 1, (VT_VARIANT, 0), magic, u"SurfaceDomain", None, *flattened)
+        print "now I am here"
+        print flattened
 
+        x =  self._ApplyTypes_(217, 1, (VT_VARIANT, 0), magic, u"SurfaceDomain", None, *flattened)
+        print x
+        return x
+    
     def surface_edit_points(self, object, return_parameters, return_all):
 
         magic = ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1))
