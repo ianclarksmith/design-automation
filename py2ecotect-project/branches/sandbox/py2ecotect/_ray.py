@@ -274,42 +274,46 @@ class Ray(object):
                                                         absolute_position[2], 
                                                         object.eco_id)
         p2e._app.Exec(arg_str)
-
-    def get_source(self):
-        """
+    
+    @apply
+    def source():
+        def fget(self):
+            """
+            
+            Retrieves the position of the ray source. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            The absolute position in the X, Y and Z axis of the source point in 3 
+            dimensional model space. 
+                    
+            """
+            val = p2e._app.Request("get.ray.source")
+            return p2e._util._convert_str_to_list(val, float, float, float)
+            
+        def fset(self, absolute_position):
+            """
+            
+            Sets the position of the ray source. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            absolute_position 
+            A list of three values that represent the absolute position in the 
+            X, Y and Z axis of the ray point in 3 dimensional model space. 
+    
+            """
+            arg_str = p2e._util._convert_args_to_string("set.ray.source", 
+                                                          absolute_position[0],
+                                                          absolute_position[1],
+                                                          absolute_position[2])
+            p2e._app.Exec(arg_str)
         
-        Retrieves the position of the ray source. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        The absolute position in the X, Y and Z axis of the source point in 3 
-        dimensional model space. 
-                
-        """
-        val = p2e._app.Request("get.ray.source")
-        return p2e._util._convert_str_to_list(val, float, float, float)
-        
-    def set_source(self, absolute_position):
-        """
-        
-        Sets the position of the ray source. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position 
-        A list of three values that represent the absolute position in the 
-        X, Y and Z axis of the ray point in 3 dimensional model space. 
-
-        """
-        arg_str = p2e._util._convert_args_to_string("set.ray.source", 
-                                                      absolute_position[0],
-                                                      absolute_position[1],
-                                                      absolute_position[2])
-        p2e._app.Exec(arg_str)
+        return property(**locals())
     

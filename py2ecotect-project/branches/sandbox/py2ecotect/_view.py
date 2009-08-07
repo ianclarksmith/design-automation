@@ -872,43 +872,47 @@ class View(object):
                                                       absolute_position[2])
         p2e._app.Exec(arg_str)
 
-    def get_grid_min(self):
-        """
-        
-        Retrieves the minimum starting position of the current display grid. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        x, y, z 
-        Represents the absolute position in the X, Y and Z axis of a minimum 
-        point in 3 dimensional model space. 
-
-        """
-        val = p2e._app.Request("get.view.grid.min")
-        return p2e._util._convert_str_to_list(val, float, float, float)
-
-    def set_grid_min(self, absolute_position):
-        """
-        
-        Sets the minimum starting position of the current display grid. 
-
-        Parameter(s)
-        This property takes the following parameters.
-        
-        absolute_position 
-        A list of three values that represent the absolute position in the 
-        X, Y and Z axis of a minimum point in 3 dimensional model space. 
-        
-        """
-        arg_str = p2e._util._convert_args_to_string("set.view.grid.min", 
-                                                      absolute_position[0],
-                                                      absolute_position[1],
-                                                      absolute_position[2])
-        p2e._app.Exec(arg_str)
+    @apply
+    def grid_min():
+        def fget(self):
+            """
+            
+            Retrieves the minimum starting position of the current display grid. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            x, y, z 
+            Represents the absolute position in the X, Y and Z axis of a minimum 
+            point in 3 dimensional model space. 
+    
+            """
+            val = p2e._app.Request("get.view.grid.min")
+            return p2e._util._convert_str_to_list(val, float, float, float)
+    
+        def fset(self, absolute_position):
+            """
+            
+            Sets the minimum starting position of the current display grid. 
+    
+            Parameter(s)
+            This property takes the following parameters.
+            
+            absolute_position 
+            A list of three values that represent the absolute position in the 
+            X, Y and Z axis of a minimum point in 3 dimensional model space. 
+            
+            """
+            arg_str = p2e._util._convert_args_to_string("set.view.grid.min", 
+                                                          absolute_position[0],
+                                                          absolute_position[1],
+                                                          absolute_position[2])
+            p2e._app.Exec(arg_str)
+            
+        return property(**locals())
 
     def get_pen(self):
         """
@@ -1024,22 +1028,26 @@ class View(object):
                                                       height)
         p2e._app.Exec(arg_str)
 
-    def get_visible(self):
-        """
-        
-        Returns whether or not the 3D EDITOR view is currently displayed or not. 
-
-        Parameter(s)
-        There are no parameters for this property.
-        
-        Return Value(s)
-        Getting this property returns the following value(s).
-        
-        visible 
-        This is a boolean value where 1 means true and 0 means false.
-        
-        """
-        val = p2e._app.Request("get.view.visible")
-        return p2e._util._convert_str_to_type(val, int)
+    @apply
+    def visible():
+        def fget(self):
+            """
+            
+            Returns whether or not the 3D EDITOR view is currently displayed or not. 
+    
+            Parameter(s)
+            There are no parameters for this property.
+            
+            Return Value(s)
+            Getting this property returns the following value(s).
+            
+            visible 
+            This is a boolean value where 1 means true and 0 means false.
+            
+            """
+            val = p2e._app.Request("get.view.visible")
+            return p2e._util._convert_str_to_type(val, int)
+    
+        return property(**locals())
     
         

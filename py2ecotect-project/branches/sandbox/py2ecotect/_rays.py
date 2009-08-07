@@ -192,48 +192,44 @@ class Rays(object):
         
         return property(**locals())
     
-    @apply
-    def avg_absorption():
-        def fget(self, band):
-            """
-            
-            Retrieves the average absorption co-efficient of all incident rays at 
-            the given frequency band. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            band 
-            An index of the frequency corresponding to the following Centre 
-            Frequencies table. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            avgabs 
-            A decimal value containing the average absorption co-efficient. 
-            
-            Relevant Data Table(s)
-            
-            Octave Frequencies 
-            Value Frequency 
-            0 63 Hz 
-            1 125 Hz 
-            2 250 Hz 
-            3 500 Hz 
-            4 1000 Hz 
-            5 2000 Hz 
-            6 4000 Hz 
-            7 8000 Hz 
-            8 16000 Hz 
-    
-            """
-            arg_str = p2e._util._convert_args_to_string("get.rays.avgabsorption", 
-                                                          band)
-            val = p2e._app.Request(arg_str)
-            return p2e._util._convert_str_to_type(val, float)
+    def get_avg_absorption(self, band):
+        """
         
-        return property(**locals())
+        Retrieves the average absorption co-efficient of all incident rays at 
+        the given frequency band. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        band 
+        An index of the frequency corresponding to the following Centre 
+        Frequencies table. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        avgabs 
+        A decimal value containing the average absorption co-efficient. 
+        
+        Relevant Data Table(s)
+        
+        Octave Frequencies 
+        Value Frequency 
+        0 63 Hz 
+        1 125 Hz 
+        2 250 Hz 
+        3 500 Hz 
+        4 1000 Hz 
+        5 2000 Hz 
+        6 4000 Hz 
+        7 8000 Hz 
+        8 16000 Hz 
+
+        """
+        arg_str = p2e._util._convert_args_to_string("get.rays.avgabsorption", 
+                                                      band)
+        val = p2e._app.Request(arg_str)
+        return p2e._util._convert_str_to_type(val, float)
     
     @apply
     def azimuth():
@@ -828,6 +824,3 @@ class Rays(object):
             p2e._app.Exec(arg_str)
         
         return property(**locals())
-
-
-
