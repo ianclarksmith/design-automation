@@ -2787,8 +2787,8 @@ class  Roof(_Plane):
         return Roof(eco_id, points)
 
 class  Floor(_Plane):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new fllor objects in the model. It returns 
