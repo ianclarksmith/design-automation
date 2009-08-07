@@ -1,15 +1,5 @@
 import py2ecotect as p2e
 
-_zones = []
-_objects = []
-_nodes = []
-
-def _populate():
-    val = p2e._app.Request("get.model.zones")
-    num_zones = p2e._util._convert_str_to_type(val, int)    
-    for eco_id in range(num_zones):
-            p2e.Zone(eco_id)
-
 class Model(object):         
 
     #===========================================================================
@@ -176,12 +166,12 @@ class Model(object):
         p2e._app.Exec(arg_str)
         
         #Clear model lists
-        self._zones = []
-        self._objects = []
-        self._nodes = []
+        p2e.doc._zones = []
+        p2e.doc._objects = []
+        p2e.doc._nodes = []
         
         #Update the lists
-        _populate() 
+        p2e.doc_populate() 
     
     def load_new(self):
         """   
@@ -201,9 +191,9 @@ class Model(object):
         p2e._app.Exec("model.new")
         
         #Clear model lists
-        self._zones = []
-        self._objects = []
-        self._nodes = []
+        p2e.doc._zones = []
+        p2e.doc._objects = []
+        p2e.doc._nodes = []
          
     
     def revert(self):
