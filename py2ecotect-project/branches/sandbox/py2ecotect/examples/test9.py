@@ -1,30 +1,30 @@
+import  _winreg
+import os
+"""
+app = p2e.Application()
 
-#=======================
-class _Object(object):
-    def __init__(self, id, points):
-        print id
-        self.func = PointFunc()
-        
-        #add nodes
-        
-    @classmethod
-    def _create_empty_object(cls, type):
-        return 5
-    
-class Point(_Object):
-    
-    @classmethod
-    def create(cls, points):
-        id = Point._create_empty_object(Point, "wall")
-        return Point(id, points)
-    
+print app.get_registry("ECOTECT")
+#"HKEY_CURRENT_USER\Software\Autodesk\Ecotect\2009"
+"""
+"""
+#explorer = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, "Software\\Autodesk\\Ecotect\\2009")
+explorer = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\\Autodesk\\Ecotect\\2010\\AdLM")
 
-class PointFunc(object):
-    def func2(self):
-        print "hello"
-#=======================
+try:
+    i = 0
+    while 1:
+        name, value, type = _winreg.EnumValue(explorer, i)
+        print repr(name),
+        i += 1
+except WindowsError:
+    print
 
-c = Point.create()
-print c.__dict__
-c.func.func2()
-c.func.func2()
+    
+value, type = _winreg.QueryValueEx(explorer, "Type")
+print value
+"""
+#suffix = "Ecotect 2009"
+#print value.endswith(suffix)
+
+print os.path.exists("C:\\Program Files\\Autodesk\\Ecotect 2009\\ecotect.exe")
+
