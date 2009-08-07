@@ -1,14 +1,11 @@
 #from py2rhino.nurbs_curve import NurbsCurve
 import py2rhino as p2r
 
-
 #######u'Type mismatch in parameter. String required.'############
 #arc2 = p2r.Arc.create((0,0,0), 5, 45)
 #print arc2.rndr.enable()
 #density onwards.. all none.
 ##################################################################
-
-
 
 ######################u'Type mismatch in parameter. One-dimensional array required.############
 #arc2 = p2r.Arc.create((0,0,0), 5, 45)
@@ -19,7 +16,7 @@ import py2rhino as p2r
 ###############should only ask for 1 curve, not 2#############
 #arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
 #arc2 = p2r.Arc.create((0,0,0), 5, 45)
-#arc2.create_by_fillet(arc1)
+#arc2.create_by_fillet(arc1)c 
 ###############################################################
 
 #####################not used#########################
@@ -41,7 +38,6 @@ import py2rhino as p2r
 #print arc2.grps.groups()
 #arc2 = p2r.Arc.create((0,0,0), 5, 45)
 #print arc2.modf.seam(1)
-#
 ##########################################################################################
 
 
@@ -52,23 +48,14 @@ import py2rhino as p2r
 #print plane_surface.modf.remove_knot((0,0,1),1)
 ################################################################################################
 
+################return none, same as func.##################################
+#arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
+#print arc1.defm.shear((0.0,0.0,0.0), (10.0,0.0,0.0), 20.0, True) 
+#############################################################################
 
-
-
-
-
-
-
-
-#####################################################################
-#portion below, informed boss on 6 aug~~
-#####################################################################
 
 '''
-########error: u'Type mismatch in parameter. Float required.#################
-#arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-#arc1.defm.shear((0,0,0), (10,0,0),45.0)
-#############################################################################
+
 
 #############################same problem in function###############################
 #plane_surface1 = p2r.PlaneSurface.create(((0,0,0),(1,0,0),(0,1,0)),5,3)
