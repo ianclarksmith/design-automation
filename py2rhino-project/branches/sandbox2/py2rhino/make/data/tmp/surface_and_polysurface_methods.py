@@ -213,7 +213,7 @@ class NurbsSurface(object):
         add_loft_srf = {#ed
             "method_name": "create_by_loft",
             "method_parameters": (("objects","array_of _ObjectRoot._CurveRoot","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("srf_type","int","OPT"),("style","int","OPT"),("value","n","OPT"),("closed","bln","OPT"),),
-            "method_returns": ("SELF","null")
+            "method_returns": ("array_of SELF","null")
             }
         add_nurbs_surface = {#ed
             "method_name": "create",

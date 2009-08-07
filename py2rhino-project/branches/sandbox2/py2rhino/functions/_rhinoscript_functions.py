@@ -5096,12 +5096,7 @@ class _RhinoscriptFunctions(IRhinoScript):
         magic = ((VT_BSTR, 1), (VT_I2, 1))
         flattened = (object, direction)
 
-        print "now I am here"
-        print flattened
-
-        x =  self._ApplyTypes_(217, 1, (VT_VARIANT, 0), magic, u"SurfaceDomain", None, *flattened)
-        print x
-        return x
+        return  self._ApplyTypes_(217, 1, (VT_VARIANT, 0), magic, u"SurfaceDomain", None, *flattened)
     
     def surface_edit_points(self, object, return_parameters, return_all):
 
