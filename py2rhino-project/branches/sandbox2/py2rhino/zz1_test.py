@@ -1,26 +1,35 @@
 #from py2rhino.nurbs_curve import NurbsCurve
 import py2rhino as p2r
-arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-sphere1 = p2r.Sphere.create((0,0,0), 10)
-arc2 = p2r.Arc.create_by_3pt((2,0,0), (20,0,0), (12,10,0))
-print sphere1.modf.flip()
 
 
 
+###############should only ask for 1 curve, not 2#############
+#arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
+#arc2 = p2r.Arc.create((0,0,0), 5, 45)
+#arc2.create_by_fillet(arc1)
+###############################################################
 
+#####################not used#########################
+#_SurfaceRootType is not specified in the surface 
+######################################################
 
 #####################Return none in functional and obj####################################
 #nurve_surface1  = p2r.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
 #print nurve_surface1.genr.fit()
 #sphere1 = p2r.Sphere.create((0,0,0), 10)
 #print sphere1.genr.make_non_periodic(1)
+#print sphere1.modf.rebuild()
+#print nurve_surface1.test.is_poly_srf_planar()
+#print nurve_surface1.test.is_poly_surface_closed()
 ##########################################################################################
 
 
 
-
-
-
+###############return float() argument must be a string or a number, same in func###############
+#plane_surface = p2r.PlaneSurface.create(((0,0,0),(1,0,0),(0,1,0)),5,3)
+#print plane_surface.modf.insert_knot((0,0,1),1)
+#print plane_surface.modf.remove_knot((0,0,1),1)
+################################################################################################
 
 
 
