@@ -1,6 +1,8 @@
 import time
 import py2ecotect as p2e
 
+zn1 = p2e.Zone.create_zone("TEST")
+
 #points = [(13600,5300,0)]
 #point_1 = Point.create(points)
 
@@ -25,6 +27,10 @@ print wall.node.nodes
 
 points = [(13600,5300,450)]
 point_2 = p2e.Point.create(points)
+
+points = [(3500,4500,0), (5000,2200, 0)]
+camera = p2e.Camera.create(points)
+v.redraw()
 
 #print floor.modf.link(point_1)
 

@@ -40,7 +40,7 @@ class Zone(object):
         Getting this property returns the following value(s).
         
         zoneIndex 
-        The zero-based index of the zone just added. A value of -1 indicates 
+        The zone object just added. A value of -1 indicates 
         that the operation failed. 
         
         """
