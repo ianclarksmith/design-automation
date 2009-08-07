@@ -51,46 +51,6 @@ class _CurveRootEval(object):
         return _rsf.evaluate_curve(self._rhino_id, parameter, pythoncom.Empty)
 
 
-class _CurveRootGenr(object):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-    def fit(self, degree=pythoncom.Empty, tolerance=pythoncom.Empty, angle_tolerance=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: FitCurve
-        """
-        _rhino_id = _rsf.fit_curve(self._rhino_id, degree, tolerance, angle_tolerance)
-        if _rhino_id:
-            return p2r.NurbsCurve(_rhino_id)
-        else:
-            return None
-
-    def make_non_periodic(self):
-        """
-        For help, look up the Rhinoscript function: MakeCurveNonPeriodic
-        """
-        _rhino_id = _rsf.make_curve_non_periodic(self._rhino_id, False)
-        if _rhino_id:
-            return p2r.NurbsCurve(_rhino_id)
-        else:
-            return None
-
-    def make_periodic(self):
-        """
-        For help, look up the Rhinoscript function: MakeCurvePeriodic
-        """
-        _rhino_id = _rsf.make_curve_periodic(self._rhino_id, False)
-        if _rhino_id:
-            return p2r.NurbsCurve(_rhino_id)
-        else:
-            return None
-
-
 class _CurveRootProp(object):
 
     # Class constructor
@@ -228,7 +188,7 @@ class _ObjectRootDefm(object):
         """
         _rhino_id = _rsf.box_morph_object(self._rhino_id, box_points, copy)
         if _rhino_id:
-            return p2r._util.wrap(_rhino_id)
+            return self.__class__(_rhino_id)
         else:
             return None
 
@@ -238,7 +198,7 @@ class _ObjectRootDefm(object):
         """
         _rhino_id = _rsf.shear_object(self._rhino_id, origin, ref_pt, angle, copy)
         if _rhino_id:
-            return p2r._util.wrap(_rhino_id)
+            return self.__class__(_rhino_id)
         else:
             return None
 
@@ -248,7 +208,7 @@ class _ObjectRootDefm(object):
         """
         _rhino_id = _rsf.transform_object(self._rhino_id, matrix, copy)
         if _rhino_id:
-            return p2r._util.wrap(_rhino_id)
+            return self.__class__(_rhino_id)
         else:
             return None
 
@@ -506,6 +466,8 @@ class _ObjectRootStat(object):
         """
         For help, look up the Rhinoscript function: MatchObjectAttributes
         """
+        if type(targets) != list and type(targets) != tuple:
+            targets = (targets,)
         return _rsf.match_object_attributes(map(lambda i: i._rhino_id, targets), self._rhino_id)
 
     def reset_object_attributes(self, source):
@@ -635,26 +597,6 @@ class _ObjectRootTrfm(object):
             raise Exception("_rhino_id is required.")
         self._rhino_id = _rhino_id
         self._class = _class
-
-    def copy(self, start=pythoncom.Empty, end=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: CopyObject
-        """
-        _rhino_id = _rsf.copy_object(self._rhino_id, start, end)
-        if _rhino_id:
-            return self._class(_rhino_id)
-        else:
-            return None
-
-    def copy_by_vec(self, translation=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: CopyObject2
-        """
-        _rhino_id = _rsf.copy_object_2(self._rhino_id, translation)
-        if _rhino_id:
-            return self._class(_rhino_id)
-        else:
-            return None
 
     def mirror(self, start_pt, end_pt, copy=pythoncom.Empty):
         """
@@ -791,56 +733,6 @@ class _SurfaceRootEval(object):
         For help, look up the Rhinoscript function: SurfaceFrame
         """
         return _rsf.surface_frame(self._rhino_id, parameter)
-
-
-class _SurfaceRootGenr(object):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-    def fit(self, degree=pythoncom.Empty, tolerance=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: FitSurface
-        """
-        _rhino_id = _rsf.fit_surface(self._rhino_id, degree, tolerance)
-        if _rhino_id:
-            return p2r.NurbsSurface(_rhino_id)
-        else:
-            return None
-
-    def make_non_periodic(self, direction, delete=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: MakeSurfaceNonPeriodic
-        """
-        _rhino_id = _rsf.make_surface_non_periodic(self._rhino_id, direction, delete)
-        if _rhino_id:
-            return p2r.NurbsSurface(_rhino_id)
-        else:
-            return None
-
-    def make_periodic(self, direction, delete=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: MakeSurfacePeriodic
-        """
-        _rhino_id = _rsf.make_surface_periodic(self._rhino_id, direction, delete)
-        if _rhino_id:
-            return p2r.NurbsSurface(_rhino_id)
-        else:
-            return None
-
-    def offset(self, distance):
-        """
-        For help, look up the Rhinoscript function: OffsetSurface
-        """
-        _rhino_id = _rsf.offset_surface(self._rhino_id, distance)
-        if _rhino_id:
-            return p2r.NurbsSurface(_rhino_id)
-        else:
-            return None
 
 
 class GenericObject(_ObjectRoot):
@@ -1016,6 +908,26 @@ class _CurveRootFunc(_ObjectRootFunc):
         """
         return _rsf.line_fit_from_points(self._rhino_id)
 
+    def make_non_periodic(self):
+        """
+        For help, look up the Rhinoscript function: MakeCurveNonPeriodic
+        """
+        _rhino_id = _rsf.make_curve_non_periodic(self._rhino_id, False)
+        if _rhino_id:
+            return p2r.NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    def make_periodic(self):
+        """
+        For help, look up the Rhinoscript function: MakeCurvePeriodic
+        """
+        _rhino_id = _rsf.make_curve_periodic(self._rhino_id, False)
+        if _rhino_id:
+            return p2r.NurbsCurve(_rhino_id)
+        else:
+            return None
+
     def planar_crv_collision(self, curve, plane=pythoncom.Empty, tolerance=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: PlanarCurveCollision
@@ -1036,12 +948,16 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         """
         For help, look up the Rhinoscript function: CurveArea
         """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
         return _rsf.curve_area(map(lambda i: i._rhino_id, objects))
 
     def pclosed_crv_area_centroid(self, objects):
         """
         For help, look up the Rhinoscript function: CurveAreaCentroid
         """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
         return _rsf.curve_area_centroid(map(lambda i: i._rhino_id, objects))
 
     def boolean_difference(self, curve):
@@ -1049,21 +965,23 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         For help, look up the Rhinoscript function: CurveBooleanDifference
         """
         _rhino_ids = _rsf.curve_boolean_difference(self._rhino_id, curve)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
+        return map(lambda i: self.__class__(i), _rhino_ids)
 
     def boolean_intersection(self, curve_a):
         """
         For help, look up the Rhinoscript function: CurveBooleanIntersection
         """
         _rhino_ids = _rsf.curve_boolean_intersection(self._rhino_id, curve_a)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
+        return map(lambda i: self.__class__(i), _rhino_ids)
 
     def boolean_union(self, curves):
         """
         For help, look up the Rhinoscript function: CurveBooleanUnion
         """
+        if type(curves) != list and type(curves) != tuple:
+            curves = (curves,)
         _rhino_ids = _rsf.curve_boolean_union(map(lambda i: i._rhino_id, curves))
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
+        return map(lambda i: self.__class__(i), _rhino_ids)
 
     def closed_crv_containment(self, curve__1, plane=pythoncom.Empty, tolerance=pythoncom.Empty):
         """
@@ -1093,17 +1011,19 @@ class _CurveRootFuncOpen(_CurveRootFunc):
         """
         return _rsf.close_curve(self._rhino_id, tolerance)
 
-    def open_crv_extend(self, type, side, objects):
+    def open_crv_extend(self, crv_type, side, objects):
         """
         For help, look up the Rhinoscript function: ExtendCurve
         """
-        return _rsf.extend_curve(self._rhino_id, type, side, objects)
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
+        return _rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
 
-    def open_crv_extend_length(self, type, side, length):
+    def open_crv_extend_length(self, crv_type, side, length):
         """
         For help, look up the Rhinoscript function: ExtendCurveLength
         """
-        return _rsf.extend_curve_length(self._rhino_id, type, side, length)
+        return _rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
 
     def open_crv_extend_pnt(self, side, point):
         """
@@ -1176,6 +1096,26 @@ class _CurveRootMdfy(_ObjectRootMdfy):
 
         return _rsf.simplify_curve(self._rhino_id, flags)
 
+
+
+class _CurveRootPropClsd(_CurveRootProp):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _CurveRootPropOpen(_CurveRootProp):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
 
 
 class _CurveRootTest(_ObjectRootTest):
@@ -1307,13 +1247,6 @@ class _EllipseFunc(_CurveRootFuncClsd):
         else:
             return None
 
-    def offset(self, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: OffsetCurve
-        """
-        _rhino_ids = _rsf.offset_curve(self._rhino_id, direction, distance, normal, style)
-        return map(lambda i: p2r.EllipticalArc(i), _rhino_ids)
-
     def split(self, parameters, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: SplitCurve
@@ -1373,13 +1306,6 @@ class _EllipticalArcFunc(_CurveRootFuncOpen):
         else:
             return None
 
-    def offset(self, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: OffsetCurve
-        """
-        _rhino_ids = _rsf.offset_curve(self._rhino_id, direction, distance, normal, style)
-        return map(lambda i: p2r.EllipticalArc(i), _rhino_ids)
-
     def split(self, parameters, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: SplitCurve
@@ -1413,23 +1339,16 @@ class _LineFunc(_CurveRootFuncOpen):
         """
         _rhino_id = _rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
-            return p2r._util.wrap(_rhino_id)
+            return p2r.Line(_rhino_id)
         else:
             return None
-
-    def offset(self, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: OffsetCurve
-        """
-        _rhino_ids = _rsf.offset_curve(self._rhino_id, direction, distance, normal, style)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
 
     def split(self, parameters, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: SplitCurve
         """
         _rhino_ids = _rsf.split_curve(self._rhino_id, parameters, delete)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
+        return map(lambda i: p2r.Line(i), _rhino_ids)
 
     def trim(self, interval, delete=pythoncom.Empty):
         """
@@ -1437,9 +1356,341 @@ class _LineFunc(_CurveRootFuncOpen):
         """
         _rhino_id = _rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
-            return p2r._util.wrap(_rhino_id)
+            return p2r.Line(_rhino_id)
         else:
             return None
+
+
+class _MeshRoot(_ObjectRoot):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _MeshRootFunc(_ObjectRootFunc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def curve_intersection(self, mesh, return_faces=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CurveMeshIntersection
+        """
+        return _rsf.curve_mesh_intersection(self._rhino_id, mesh, return_faces)
+
+    def explode(self, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: ExplodeMeshes
+        """
+        _rhino_ids = _rsf.explode_meshes(self._rhino_id, delete)
+        return map(lambda i: self.__class__(i), _rhino_ids)
+
+    def closest_point(self, point, tolerance=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshClosestPoint
+        """
+        return _rsf.mesh_closest_point(self._rhino_id, point, tolerance)
+
+    def contour_points(self, start_point, end_point, interval=pythoncom.Empty, remove_coincident_points=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshContourPoints
+        """
+        return _rsf.mesh_contour_points(self._rhino_id, start_point, end_point, interval, remove_coincident_points)
+
+    def mesh_intersection(self, mesh_1, tolerance=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshMeshIntersection
+        """
+        return _rsf.mesh_mesh_intersection(self._rhino_id, mesh_1, tolerance)
+
+    def naked_edge_points(self):
+        """
+        For help, look up the Rhinoscript function: MeshNakedEdgePoints
+        """
+        return _rsf.mesh_naked_edge_points(self._rhino_id)
+
+    def split_disjoint_mesh(self, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: SplitDisjointMesh
+        """
+        _rhino_ids = _rsf.split_disjoint_mesh(self._rhino_id, delete)
+        return map(lambda i: p2r.Mesh(i), _rhino_ids)
+
+    def unify_normals(self):
+        """
+        For help, look up the Rhinoscript function: UnifyMeshNormals
+        """
+        return _rsf.unify_mesh_normals(self._rhino_id)
+
+
+class _MeshRootFuncClsd(_MeshRootFunc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def boolean_difference(self, meshes, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshBooleanDifference
+        """
+        _rhino_ids = _rsf.mesh_boolean_difference(self._rhino_id, meshes, delete)
+        return map(lambda i: p2r.Mesh(i), _rhino_ids)
+
+    def boolean_intersection(self, meshes, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshBooleanIntersection
+        """
+        _rhino_ids = _rsf.mesh_boolean_intersection(self._rhino_id, meshes, delete)
+        return map(lambda i: p2r.Mesh(i), _rhino_ids)
+
+    def boolean_split(self, input_1, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshBooleanSplit
+        """
+        _rhino_ids = _rsf.mesh_boolean_split(self._rhino_id, input_1, delete)
+        return map(lambda i: p2r.Mesh(i), _rhino_ids)
+
+    def boolean_union(self, meshes, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshBooleanUnion
+        """
+        if type(meshes) != list and type(meshes) != tuple:
+            meshes = (meshes,)
+        _rhino_ids = _rsf.mesh_boolean_union(map(lambda i: i._rhino_id, meshes), delete)
+        return map(lambda i: p2r.Mesh(i), _rhino_ids)
+
+
+class _MeshRootFuncOpen(_MeshRootFunc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _MeshRootMdfy(_ObjectRootMdfy):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def quads_to_triangles(self):
+        """
+        For help, look up the Rhinoscript function: MeshQuadsToTriangles
+        """
+
+        return _rsf.mesh_quads_to_triangles(self._rhino_id)
+
+
+
+class _MeshRootProp(_MeshRootFunc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def disjoint_mesh_count(self):
+        """
+        For help, look up the Rhinoscript function: DisjointMeshCount
+        """
+        return _rsf.disjoint_mesh_count(self._rhino_id)
+
+    def area(self):
+        """
+        For help, look up the Rhinoscript function: MeshArea
+        """
+        return _rsf.mesh_area(self._rhino_id)
+
+    def area_centroid(self):
+        """
+        For help, look up the Rhinoscript function: MeshAreaCentroid
+        """
+        return _rsf.mesh_area_centroid(self._rhino_id)
+
+    def face_centers(self):
+        """
+        For help, look up the Rhinoscript function: MeshFaceCenters
+        """
+        return _rsf.mesh_face_centers(self._rhino_id)
+
+    def face_count(self):
+        """
+        For help, look up the Rhinoscript function: MeshFaceCount
+        """
+        return _rsf.mesh_face_count(self._rhino_id)
+
+    def face_normals(self):
+        """
+        For help, look up the Rhinoscript function: MeshFaceNormals
+        """
+        return _rsf.mesh_face_normals(self._rhino_id)
+
+    def face_vertices(self):
+        """
+        For help, look up the Rhinoscript function: MeshFaceVertices
+        """
+        return _rsf.mesh_face_vertices(self._rhino_id)
+
+    def faces(self, face_type=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshFaces
+        """
+        return _rsf.mesh_faces(self._rhino_id, face_type)
+
+    def quad_count(self):
+        """
+        For help, look up the Rhinoscript function: MeshQuadCount
+        """
+        return _rsf.mesh_quad_count(self._rhino_id)
+
+    def texture_coordinates(self):
+        """
+        For help, look up the Rhinoscript function: MeshTextureCoordinates
+        """
+        return _rsf.mesh_texture_coordinates(self._rhino_id)
+
+    def triangle_count(self):
+        """
+        For help, look up the Rhinoscript function: MeshTriangleCount
+        """
+        return _rsf.mesh_triangle_count(self._rhino_id)
+
+    def vertex_colors(self, vertex_colors=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MeshVertexColors
+        """
+        return _rsf.mesh_vertex_colors(self._rhino_id, vertex_colors)
+
+    def vertex_count(self):
+        """
+        For help, look up the Rhinoscript function: MeshVertexCount
+        """
+        return _rsf.mesh_vertex_count(self._rhino_id)
+
+    def vertex_normals(self):
+        """
+        For help, look up the Rhinoscript function: MeshVertexNormals
+        """
+        return _rsf.mesh_vertex_normals(self._rhino_id)
+
+    def vertices(self):
+        """
+        For help, look up the Rhinoscript function: MeshVertices
+        """
+        return _rsf.mesh_vertices(self._rhino_id)
+
+
+class _MeshRootPropClsd(_MeshRootProp):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def mesh_volume(self, objects):
+        """
+        For help, look up the Rhinoscript function: MeshVolume
+        """
+        return _rsf.mesh_volume(objects)
+
+    def mesh_volume_centroid(self):
+        """
+        For help, look up the Rhinoscript function: MeshVolumeCentroid
+        """
+        return _rsf.mesh_volume_centroid(self._rhino_id)
+
+
+class _MeshRootPropOpen(_MeshRootProp):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _MeshRootTest(_ObjectRootTest):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def is_closed(self):
+        """
+        For help, look up the Rhinoscript function: IsMeshClosed
+        """
+        return _rsf.is_mesh_closed(self._rhino_id)
+
+    def is_manifold(self):
+        """
+        For help, look up the Rhinoscript function: IsMeshManifold
+        """
+        return _rsf.is_mesh_manifold(self._rhino_id)
+
+    def has_face_normals(self):
+        """
+        For help, look up the Rhinoscript function: MeshHasFaceNormals
+        """
+        return _rsf.mesh_has_face_normals(self._rhino_id)
+
+    def has_texture_coordinates(self):
+        """
+        For help, look up the Rhinoscript function: MeshHasTextureCoordinates
+        """
+        return _rsf.mesh_has_texture_coordinates(self._rhino_id)
+
+    def has_vertex_colors(self):
+        """
+        For help, look up the Rhinoscript function: MeshHasVertexColors
+        """
+        return _rsf.mesh_has_vertex_colors(self._rhino_id)
+
+    def has_vertex_normals(self):
+        """
+        For help, look up the Rhinoscript function: MeshHasVertexNormals
+        """
+        return _rsf.mesh_has_vertex_normals(self._rhino_id)
+
+
+class _MeshRootType(_ObjectRootTest):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def is_mesh(self):
+        """
+        For help, look up the Rhinoscript function: IsMesh
+        """
+        return _rsf.is_mesh(self._rhino_id)
 
 
 class _PolylineProp(_CurveRootProp):
@@ -1477,11 +1728,25 @@ class _SurfaceRootFunc(_ObjectRootFunc):
         self._rhino_id = _rhino_id
         self._class = _class
 
-    def cap_planar_holes(self):
+    def make_non_periodic(self, direction, delete=pythoncom.Empty):
         """
-        For help, look up the Rhinoscript function: CapPlanarHoles
+        For help, look up the Rhinoscript function: MakeSurfaceNonPeriodic
         """
-        return _rsf.cap_planar_holes(self._rhino_id)
+        _rhino_id = _rsf.make_surface_non_periodic(self._rhino_id, direction, delete)
+        if _rhino_id:
+            return p2r.NurbsSurface(_rhino_id)
+        else:
+            return None
+
+    def make_periodic(self, direction, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: MakeSurfacePeriodic
+        """
+        _rhino_id = _rsf.make_surface_periodic(self._rhino_id, direction, delete)
+        if _rhino_id:
+            return p2r.NurbsSurface(_rhino_id)
+        else:
+            return None
 
     def closest_pnt(self, point):
         """
@@ -1503,22 +1768,28 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         """
         For help, look up the Rhinoscript function: BooleanDifference
         """
+        if type(breps) != list and type(breps) != tuple:
+            breps = (breps,)
         _rhino_ids = _rsf.boolean_difference(self._rhino_id, map(lambda i: i._rhino_id, breps), delete)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
+        return map(lambda i: p2r.PolySurface(i), _rhino_ids)
 
     def boolean_intersection(self, breps, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: BooleanIntersection
         """
+        if type(breps) != list and type(breps) != tuple:
+            breps = (breps,)
         _rhino_ids = _rsf.boolean_intersection(self._rhino_id, map(lambda i: i._rhino_id, breps), delete)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
+        return map(lambda i: p2r.PolySurface(i), _rhino_ids)
 
     def boolean_union(self, breps, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: BooleanUnion
         """
+        if type(breps) != list and type(breps) != tuple:
+            breps = (breps,)
         _rhino_ids = _rsf.boolean_union(map(lambda i: i._rhino_id, breps), delete)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
+        return map(lambda i: p2r.PolySurface(i), _rhino_ids)
 
     def brep_closest_pnt(self, point):
         """
@@ -1531,32 +1802,14 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         For help, look up the Rhinoscript function: IntersectBreps
         """
         _rhino_ids = _rsf.intersect_breps(self._rhino_id, brep_1, tolerance)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
+        return map(lambda i: self.__class__(i), _rhino_ids)
 
-    def split_brep(self, cutter, delete=pythoncom.Empty):
+    def boolean_split(self, cutter, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: SplitBrep
         """
         _rhino_ids = _rsf.split_brep(self._rhino_id, cutter, delete)
-        return map(lambda i: p2r._util.wrap(i), _rhino_ids)
-
-    def volume(self):
-        """
-        For help, look up the Rhinoscript function: SurfaceVolume
-        """
-        return _rsf.surface_volume(self._rhino_id)
-
-    def volume_centroid(self):
-        """
-        For help, look up the Rhinoscript function: SurfaceVolumeCentroid
-        """
-        return _rsf.surface_volume_centroid(self._rhino_id)
-
-    def volume_moments(self):
-        """
-        For help, look up the Rhinoscript function: SurfaceVolumeMoments
-        """
-        return _rsf.surface_volume_moments(self._rhino_id)
+        return map(lambda i: p2r.PolySurface(i), _rhino_ids)
 
 
 class _SurfaceRootFuncOpen(_SurfaceRootFunc):
@@ -1567,6 +1820,12 @@ class _SurfaceRootFuncOpen(_SurfaceRootFunc):
             raise Exception("_rhino_id is required.")
         self._rhino_id = _rhino_id
         self._class = _class
+
+    def cap_planar_holes(self):
+        """
+        For help, look up the Rhinoscript function: CapPlanarHoles
+        """
+        return _rsf.cap_planar_holes(self._rhino_id)
 
 
 class _SurfaceRootMdfy(_ObjectRootMdfy):
@@ -1690,6 +1949,11 @@ class _SurfaceRootProp(_ObjectRootProp):
         """
         For help, look up the Rhinoscript function: SurfaceDomain
         """
+        
+        print "I am here"
+        print self._rhino_id
+        print direction
+        
         return _rsf.surface_domain(self._rhino_id, direction)
 
     def edit_pnts(self, return_parameters=pythoncom.Empty, return_all=pythoncom.Empty):
@@ -1739,6 +2003,44 @@ class _SurfaceRootProp(_ObjectRootProp):
         For help, look up the Rhinoscript function: SurfaceWeights
         """
         return _rsf.surface_weights(self._rhino_id)
+
+
+class _SurfaceRootPropClsd(_SurfaceRootProp):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def volume(self):
+        """
+        For help, look up the Rhinoscript function: SurfaceVolume
+        """
+        return _rsf.surface_volume(self._rhino_id)
+
+    def volume_centroid(self):
+        """
+        For help, look up the Rhinoscript function: SurfaceVolumeCentroid
+        """
+        return _rsf.surface_volume_centroid(self._rhino_id)
+
+    def volume_moments(self):
+        """
+        For help, look up the Rhinoscript function: SurfaceVolumeMoments
+        """
+        return _rsf.surface_volume_moments(self._rhino_id)
+
+
+class _SurfaceRootPropOpen(_SurfaceRootProp):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
 
 
 class _SurfaceRootTest(_ObjectRootTest):
@@ -1881,7 +2183,7 @@ class _SurfaceRootType(_ObjectRootTest):
         return _rsf.is_torus(self._rhino_id)
 
 
-class _TorusProp(_SurfaceRootProp):
+class _TorusProp(_SurfaceRootPropClsd):
 
     # Class constructor
     def __init__(self, _rhino_id, _class):
@@ -1957,6 +2259,45 @@ class Arc(_CurveRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Arc(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Arc(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(curve, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: OffsetCurve
+        """
+
+        _rhino_id = _rsf.offset_curve(curve._rhino_id, direction, distance, normal, style)
+
+        if _rhino_id:
+            return Arc(_rhino_id)
+        else:
+            return None
+
 
 class Box(_SurfaceRoot):
 
@@ -1969,11 +2310,10 @@ class Box(_SurfaceRoot):
         self.defm = _ObjectRootDefm(_rhino_id, Box)
         self.eval = _SurfaceRootEval(_rhino_id, Box)
         self.func = _SurfaceRootFuncOorc(_rhino_id, Box)
-        self.genr = _SurfaceRootGenr(_rhino_id, Box)
         self.grps = _ObjectRootGrps(_rhino_id, Box)
         self.modf = _SurfaceRootMdfy(_rhino_id, Box)
         self.mtrl = _ObjectRootMtrl(_rhino_id, Box)
-        self.prop = _ObjectRootProp(_rhino_id, Box)
+        self.prop = _SurfaceRootPropClsd(_rhino_id, Box)
         self.rndr = _ObjectRootRndr(_rhino_id, Box)
         self.stat = _ObjectRootStat(_rhino_id, Box)
         self.test = _SurfaceRootTest(_rhino_id, Box)
@@ -1987,6 +2327,45 @@ class Box(_SurfaceRoot):
         """
 
         _rhino_id = _rsf.add_box(corners)
+
+        if _rhino_id:
+            return Box(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Box(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Box(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetSurface
+        """
+
+        _rhino_id = _rsf.offset_surface(surface._rhino_id, distance)
 
         if _rhino_id:
             return Box(_rhino_id)
@@ -2041,6 +2420,45 @@ class Circle(_CurveRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Circle(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Circle(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(curve, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: OffsetCurve
+        """
+
+        _rhino_id = _rsf.offset_curve(curve._rhino_id, direction, distance, normal, style)
+
+        if _rhino_id:
+            return Circle(_rhino_id)
+        else:
+            return None
+
 
 class Cone(_SurfaceRoot):
 
@@ -2053,7 +2471,6 @@ class Cone(_SurfaceRoot):
         self.defm = _ObjectRootDefm(_rhino_id, Cone)
         self.eval = _SurfaceRootEval(_rhino_id, Cone)
         self.func = _SurfaceRootFuncOorc(_rhino_id, Cone)
-        self.genr = _SurfaceRootGenr(_rhino_id, Cone)
         self.grps = _ObjectRootGrps(_rhino_id, Cone)
         self.modf = _SurfaceRootMdfy(_rhino_id, Cone)
         self.mtrl = _ObjectRootMtrl(_rhino_id, Cone)
@@ -2090,6 +2507,45 @@ class Cone(_SurfaceRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Cone(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Cone(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetSurface
+        """
+
+        _rhino_id = _rsf.offset_surface(surface._rhino_id, distance)
+
+        if _rhino_id:
+            return Cone(_rhino_id)
+        else:
+            return None
+
 
 class Cylinder(_SurfaceRoot):
 
@@ -2102,7 +2558,6 @@ class Cylinder(_SurfaceRoot):
         self.defm = _ObjectRootDefm(_rhino_id, Cylinder)
         self.eval = _SurfaceRootEval(_rhino_id, Cylinder)
         self.func = _SurfaceRootFuncOorc(_rhino_id, Cylinder)
-        self.genr = _SurfaceRootGenr(_rhino_id, Cylinder)
         self.grps = _ObjectRootGrps(_rhino_id, Cylinder)
         self.modf = _SurfaceRootMdfy(_rhino_id, Cylinder)
         self.mtrl = _ObjectRootMtrl(_rhino_id, Cylinder)
@@ -2133,6 +2588,45 @@ class Cylinder(_SurfaceRoot):
         """
 
         _rhino_id = _rsf.add_cylinder_2(plane, height, radius, cap)
+
+        if _rhino_id:
+            return Cylinder(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Cylinder(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Cylinder(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetSurface
+        """
+
+        _rhino_id = _rsf.offset_surface(surface._rhino_id, distance)
 
         if _rhino_id:
             return Cylinder(_rhino_id)
@@ -2187,6 +2681,45 @@ class Ellipse(_CurveRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Ellipse(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Ellipse(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(curve, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: OffsetCurve
+        """
+
+        _rhino_id = _rsf.offset_curve(curve._rhino_id, direction, distance, normal, style)
+
+        if _rhino_id:
+            return Ellipse(_rhino_id)
+        else:
+            return None
+
 
 class EllipticalArc(_CurveRoot):
 
@@ -2209,27 +2742,44 @@ class EllipticalArc(_CurveRoot):
         self.trfm = _ObjectRootTrfm(_rhino_id, EllipticalArc)
         self.util = _ObjectRootUtil(_rhino_id, EllipticalArc)
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
 
-class GenericCurve(_CurveRoot):
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
 
-    # Class constructor
-    def __init__(self, _rhino_id):
-        if _rhino_id==None:
-            raise Exception("Use the create... methods to create instances of this class.")
-        self._rhino_id = _rhino_id
+        if _rhino_id:
+            return EllipticalArc(_rhino_id)
+        else:
+            return None
 
-        self.defm = _ObjectRootDefm(_rhino_id, GenericCurve)
-        self.eval = _CurveRootEval(_rhino_id, GenericCurve)
-        self.func = _CurveRootType(_rhino_id, GenericCurve)
-        self.grps = _ObjectRootGrps(_rhino_id, GenericCurve)
-        self.mdfy = _CurveRootMdfy(_rhino_id, GenericCurve)
-        self.mtrl = _ObjectRootMtrl(_rhino_id, GenericCurve)
-        self.prop = _ObjectRootProp(_rhino_id, GenericCurve)
-        self.rndr = _ObjectRootRndr(_rhino_id, GenericCurve)
-        self.stat = _ObjectRootStat(_rhino_id, GenericCurve)
-        self.test = _CurveRootTest(_rhino_id, GenericCurve)
-        self.trfm = _ObjectRootTrfm(_rhino_id, GenericCurve)
-        self.util = _ObjectRootUtil(_rhino_id, GenericCurve)
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return EllipticalArc(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(curve, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: OffsetCurve
+        """
+
+        _rhino_id = _rsf.offset_curve(curve._rhino_id, direction, distance, normal, style)
+
+        if _rhino_id:
+            return EllipticalArc(_rhino_id)
+        else:
+            return None
 
 
 class Line(_CurveRoot):
@@ -2266,8 +2816,47 @@ class Line(_CurveRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
 
-class NurbsCurve(_CurveRoot):
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Line(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Line(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(curve, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: OffsetCurve
+        """
+
+        _rhino_id = _rsf.offset_curve(curve._rhino_id, direction, distance, normal, style)
+
+        if _rhino_id:
+            return Line(_rhino_id)
+        else:
+            return None
+
+
+class Mesh(_MeshRoot):
 
     # Class constructor
     def __init__(self, _rhino_id):
@@ -2275,18 +2864,79 @@ class NurbsCurve(_CurveRoot):
             raise Exception("Use the create... methods to create instances of this class.")
         self._rhino_id = _rhino_id
 
-        self.defm = _ObjectRootDefm(_rhino_id, NurbsCurve)
-        self.eval = _CurveRootEval(_rhino_id, NurbsCurve)
-        self.func = _NurbsCurveFunc(_rhino_id, NurbsCurve)
-        self.grps = _ObjectRootGrps(_rhino_id, NurbsCurve)
-        self.modf = _CurveRootMdfy(_rhino_id, NurbsCurve)
-        self.mtrl = _ObjectRootMtrl(_rhino_id, NurbsCurve)
-        self.prop = _ObjectRootProp(_rhino_id, NurbsCurve)
-        self.rndr = _ObjectRootRndr(_rhino_id, NurbsCurve)
-        self.stat = _ObjectRootStat(_rhino_id, NurbsCurve)
-        self.test = _CurveRootTest(_rhino_id, NurbsCurve)
-        self.trfm = _ObjectRootTrfm(_rhino_id, NurbsCurve)
-        self.util = _ObjectRootUtil(_rhino_id, NurbsCurve)
+        self.defm = _ObjectRootDefm(_rhino_id, Mesh)
+        self.func = _MeshRootFuncOorc(_rhino_id, Mesh)
+        self.grps = _ObjectRootGrps(_rhino_id, Mesh)
+        self.modf = _MeshRootMdfy(_rhino_id, Mesh)
+        self.mtrl = _ObjectRootMtrl(_rhino_id, Mesh)
+        self.prop = _MeshRootPropOorc(_rhino_id, Mesh)
+        self.rndr = _ObjectRootRndr(_rhino_id, Mesh)
+        self.stat = _ObjectRootStat(_rhino_id, Mesh)
+        self.test = _MeshRootTest(_rhino_id, Mesh)
+        self.trfm = _ObjectRootTrfm(_rhino_id, Mesh)
+        self.util = _ObjectRootUtil(_rhino_id, Mesh)
+
+    @staticmethod
+    def create(vertices, face_vertices, vertex_normals=pythoncom.Empty, texture_coordinates=pythoncom.Empty, vertex_colors=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: AddMesh
+        """
+
+        _rhino_id = _rsf.add_mesh(vertices, face_vertices, vertex_normals, texture_coordinates, vertex_colors)
+
+        if _rhino_id:
+            return Mesh(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Mesh(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Mesh(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(mesh, distance):
+        """
+        For help, look up the Rhinoscript function: MeshOffset
+        """
+
+        _rhino_id = _rsf.mesh_offset(mesh._rhino_id, distance)
+
+        if _rhino_id:
+            return Mesh(_rhino_id)
+        else:
+            return None
+
+
+class NurbsCurve(_SurfaceRoot):
+
+    # Class constructor
+    def __init__(self, _rhino_id):
+        if _rhino_id==None:
+            raise Exception("Use the create... methods to create instances of this class.")
+        self._rhino_id = _rhino_id
+
 
     @staticmethod
     def create_by_pnts(points, degree=pythoncom.Empty):
@@ -2403,6 +3053,32 @@ class NurbsCurve(_CurveRoot):
 
 
     @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
     def create_by_srf_edge(surface, select=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: DuplicateEdgeCurves
@@ -2413,6 +3089,19 @@ class NurbsCurve(_CurveRoot):
 
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
+
+    @staticmethod
+    def create_by_mesh_border(mesh):
+        """
+        For help, look up the Rhinoscript function: DuplicateMeshBorder
+        """
+
+        _rhino_id = _rsf.duplicate_mesh_border(mesh._rhino_id)
+
+        if _rhino_id:
+            return NurbsCurve(_rhino_id)
+        else:
+            return None
 
     @staticmethod
     def create_by_srf_border(surface):
@@ -2439,10 +3128,64 @@ class NurbsCurve(_CurveRoot):
 
 
     @staticmethod
+    def create_by_fit(curve, degree=pythoncom.Empty, tolerance=pythoncom.Empty, angle_tolerance=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: FitCurve
+        """
+
+        _rhino_id = _rsf.fit_curve(curve._rhino_id, degree, tolerance, angle_tolerance)
+
+        if _rhino_id:
+            return NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(curve, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: OffsetCurve
+        """
+
+        _rhino_id = _rsf.offset_curve(curve._rhino_id, direction, distance, normal, style)
+
+        if _rhino_id:
+            return NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset_on_srf(curve, surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetCurveOnSurface
+        """
+
+        _rhino_id = _rsf.offset_curve_on_surface(curve._rhino_id, surface._rhino_id, distance)
+
+        if _rhino_id:
+            return NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset_on_srf_param(curve, surface, parameter):
+        """
+        For help, look up the Rhinoscript function: OffsetCurveOnSurface2
+        """
+
+        _rhino_id = _rsf.offset_curve_on_surface_2(curve._rhino_id, surface._rhino_id, parameter)
+
+        if _rhino_id:
+            return NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
     def create_by_projection_to_mesh(curves, meshes, direction):
         """
         For help, look up the Rhinoscript function: ProjectCurveToMesh
         """
+        if type(curves) != list and type(curves) != tuple:
+            curves = (curves,)
 
         _rhino_id = _rsf.project_curve_to_mesh(map(lambda i: i._rhino_id, curves), meshes, direction)
 
@@ -2473,6 +3216,19 @@ class NurbsCurve(_CurveRoot):
 
         return map(lambda i: NurbsCurve(i), _rhino_id)
 
+
+    @staticmethod
+    def create_by_mesh_pull(mesh, curve):
+        """
+        For help, look up the Rhinoscript function: PullCurveToMesh
+        """
+
+        _rhino_id = _rsf.pull_curve_to_mesh(mesh._rhino_id, curve._rhino_id)
+
+        if _rhino_id:
+            return NurbsCurve(_rhino_id)
+        else:
+            return None
 
     @staticmethod
     def create_by_srf_short_path(surface, start, end):
@@ -2511,11 +3267,10 @@ class NurbsSurface(_SurfaceRoot):
         self.defm = _ObjectRootDefm(_rhino_id, NurbsSurface)
         self.eval = _SurfaceRootEval(_rhino_id, NurbsSurface)
         self.func = _SurfaceRootFuncOorc(_rhino_id, NurbsSurface)
-        self.genr = _SurfaceRootGenr(_rhino_id, NurbsSurface)
         self.grps = _ObjectRootGrps(_rhino_id, NurbsSurface)
         self.modf = _SurfaceRootMdfy(_rhino_id, NurbsSurface)
         self.mtrl = _ObjectRootMtrl(_rhino_id, NurbsSurface)
-        self.prop = _ObjectRootProp(_rhino_id, NurbsSurface)
+        self.prop = _SurfaceRootPropOorc(_rhino_id, NurbsSurface)
         self.rndr = _ObjectRootRndr(_rhino_id, NurbsSurface)
         self.stat = _ObjectRootStat(_rhino_id, NurbsSurface)
         self.test = _SurfaceRootTest(_rhino_id, NurbsSurface)
@@ -2527,6 +3282,8 @@ class NurbsSurface(_SurfaceRoot):
         """
         For help, look up the Rhinoscript function: AddCutPlane
         """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
 
         _rhino_id = _rsf.add_cut_plane(map(lambda i: i._rhino_id, objects), start_point, end_point, normal)
 
@@ -2540,6 +3297,8 @@ class NurbsSurface(_SurfaceRoot):
         """
         For help, look up the Rhinoscript function: AddEdgeSrf
         """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
 
         _rhino_id = _rsf.add_edge_srf(map(lambda i: i._rhino_id, objects))
 
@@ -2549,12 +3308,14 @@ class NurbsSurface(_SurfaceRoot):
             return None
 
     @staticmethod
-    def create_by_loft(objects, start_pt=pythoncom.Empty, end_pt=pythoncom.Empty, type=pythoncom.Empty, style=pythoncom.Empty, value=pythoncom.Empty, closed=pythoncom.Empty):
+    def create_by_loft(objects, start_pt=pythoncom.Empty, end_pt=pythoncom.Empty, srf_type=pythoncom.Empty, style=pythoncom.Empty, value=pythoncom.Empty, closed=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddLoftSrf
         """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
 
-        _rhino_id = _rsf.add_loft_srf(map(lambda i: i._rhino_id, objects), start_pt, end_pt, type, style, value, closed)
+        _rhino_id = _rsf.add_loft_srf(map(lambda i: i._rhino_id, objects), start_pt, end_pt, srf_type, style, value, closed)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -2579,6 +3340,8 @@ class NurbsSurface(_SurfaceRoot):
         """
         For help, look up the Rhinoscript function: AddPlanarSrf
         """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
 
         _rhino_id = _rsf.add_planar_srf(map(lambda i: i._rhino_id, objects))
 
@@ -2656,6 +3419,8 @@ class NurbsSurface(_SurfaceRoot):
         """
         For help, look up the Rhinoscript function: AddSweep1
         """
+        if type(shapes) != list and type(shapes) != tuple:
+            shapes = (shapes,)
 
         _rhino_id = _rsf.add_sweep_1(rail._rhino_id, map(lambda i: i._rhino_id, shapes), start_pt, end_pt, closed, style, style_arg, simplify, simplify_arg)
 
@@ -2668,12 +3433,42 @@ class NurbsSurface(_SurfaceRoot):
         """
         For help, look up the Rhinoscript function: AddSweep2
         """
+        if type(rails) != list and type(rails) != tuple:
+            rails = (rails,)
+        if type(shapes) != list and type(shapes) != tuple:
+            shapes = (shapes,)
 
         _rhino_id = _rsf.add_sweep_2(map(lambda i: i._rhino_id, rails), map(lambda i: i._rhino_id, shapes), start_pt, end_pt, closed, simple_sweep, maintain_height, simplify, simplify_arg)
 
 
         return map(lambda i: NurbsSurface(i), _rhino_id)
 
+
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return NurbsSurface(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return NurbsSurface(_rhino_id)
+        else:
+            return None
 
     @staticmethod
     def create_by_extrude_crv(curve, path):
@@ -2726,6 +3521,105 @@ class NurbsSurface(_SurfaceRoot):
         return map(lambda i: NurbsSurface(i), _rhino_id)
 
 
+    @staticmethod
+    def create_by_fit(surface, degree=pythoncom.Empty, tolerance=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: FitSurface
+        """
+
+        _rhino_id = _rsf.fit_surface(surface._rhino_id, degree, tolerance)
+
+        if _rhino_id:
+            return NurbsSurface(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetSurface
+        """
+
+        _rhino_id = _rsf.offset_surface(surface._rhino_id, distance)
+
+        if _rhino_id:
+            return NurbsSurface(_rhino_id)
+        else:
+            return None
+
+
+class PlanarMesh(_MeshRoot):
+
+    # Class constructor
+    def __init__(self, _rhino_id):
+        if _rhino_id==None:
+            raise Exception("Use the create... methods to create instances of this class.")
+        self._rhino_id = _rhino_id
+
+        self.defm = _ObjectRootDefm(_rhino_id, PlanarMesh)
+        self.func = _MeshRootFuncOpen(_rhino_id, PlanarMesh)
+        self.grps = _ObjectRootGrps(_rhino_id, PlanarMesh)
+        self.modf = _MeshRootMdfy(_rhino_id, PlanarMesh)
+        self.mtrl = _ObjectRootMtrl(_rhino_id, PlanarMesh)
+        self.prop = _MeshRootPropOpen(_rhino_id, PlanarMesh)
+        self.rndr = _ObjectRootRndr(_rhino_id, PlanarMesh)
+        self.stat = _ObjectRootStat(_rhino_id, PlanarMesh)
+        self.test = _MeshRootTest(_rhino_id, PlanarMesh)
+        self.trfm = _ObjectRootTrfm(_rhino_id, PlanarMesh)
+        self.util = _ObjectRootUtil(_rhino_id, PlanarMesh)
+
+    @staticmethod
+    def create_by_crv(curve, delete):
+        """
+        For help, look up the Rhinoscript function: AddPlanarMesh
+        """
+
+        _rhino_id = _rsf.add_planar_mesh(curve._rhino_id, delete)
+
+        if _rhino_id:
+            return PlanarMesh(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return PlanarMesh(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return PlanarMesh(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(mesh, distance):
+        """
+        For help, look up the Rhinoscript function: MeshOffset
+        """
+
+        _rhino_id = _rsf.mesh_offset(mesh._rhino_id, distance)
+
+        if _rhino_id:
+            return PlanarMesh(_rhino_id)
+        else:
+            return None
+
 
 class PlaneSurface(_SurfaceRoot):
 
@@ -2738,11 +3632,10 @@ class PlaneSurface(_SurfaceRoot):
         self.defm = _ObjectRootDefm(_rhino_id, PlaneSurface)
         self.eval = _SurfaceRootEval(_rhino_id, PlaneSurface)
         self.func = _SurfaceRootFuncOorc(_rhino_id, PlaneSurface)
-        self.genr = _SurfaceRootGenr(_rhino_id, PlaneSurface)
         self.grps = _ObjectRootGrps(_rhino_id, PlaneSurface)
         self.modf = _SurfaceRootMdfy(_rhino_id, PlaneSurface)
         self.mtrl = _ObjectRootMtrl(_rhino_id, PlaneSurface)
-        self.prop = _ObjectRootProp(_rhino_id, PlaneSurface)
+        self.prop = _SurfaceRootPropOpen(_rhino_id, PlaneSurface)
         self.rndr = _ObjectRootRndr(_rhino_id, PlaneSurface)
         self.stat = _ObjectRootStat(_rhino_id, PlaneSurface)
         self.test = _SurfaceRootTest(_rhino_id, PlaneSurface)
@@ -2762,6 +3655,45 @@ class PlaneSurface(_SurfaceRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return PlaneSurface(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return PlaneSurface(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetSurface
+        """
+
+        _rhino_id = _rsf.offset_surface(surface._rhino_id, distance)
+
+        if _rhino_id:
+            return PlaneSurface(_rhino_id)
+        else:
+            return None
+
 
 class PolySurface(_SurfaceRoot):
 
@@ -2773,16 +3705,41 @@ class PolySurface(_SurfaceRoot):
 
         self.defm = _ObjectRootDefm(_rhino_id, PolySurface)
         self.eval = _SurfaceRootEval(_rhino_id, PolySurface)
-        self.func = _SurfaceRootFuncOorc(_rhino_id, PolySurface)
+        self.func = _PolySurfaceFunc(_rhino_id, PolySurface)
         self.grps = _ObjectRootGrps(_rhino_id, PolySurface)
         self.modf = _SurfaceRootMdfy(_rhino_id, PolySurface)
         self.mtrl = _ObjectRootMtrl(_rhino_id, PolySurface)
-        self.prop = _PolySurfaceProp(_rhino_id, PolySurface)
         self.rndr = _ObjectRootRndr(_rhino_id, PolySurface)
         self.stat = _ObjectRootStat(_rhino_id, PolySurface)
         self.test = _SurfaceRootTest(_rhino_id, PolySurface)
         self.trfm = _ObjectRootTrfm(_rhino_id, PolySurface)
         self.util = _ObjectRootUtil(_rhino_id, PolySurface)
+
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return PolySurface(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return PolySurface(_rhino_id)
+        else:
+            return None
 
     @staticmethod
     def create_by_srf_extrude(surface, curve, cap=pythoncom.Empty):
@@ -2802,8 +3759,23 @@ class PolySurface(_SurfaceRoot):
         """
         For help, look up the Rhinoscript function: JoinSurfaces
         """
+        if type(surfaces) != list and type(surfaces) != tuple:
+            surfaces = (surfaces,)
 
         _rhino_id = _rsf.join_surfaces(map(lambda i: i._rhino_id, surfaces), delete)
+
+        if _rhino_id:
+            return PolySurface(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetSurface
+        """
+
+        _rhino_id = _rsf.offset_surface(surface._rhino_id, distance)
 
         if _rhino_id:
             return PolySurface(_rhino_id)
@@ -2858,6 +3830,45 @@ class Polyline(_CurveRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Polyline(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Polyline(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(curve, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: OffsetCurve
+        """
+
+        _rhino_id = _rsf.offset_curve(curve._rhino_id, direction, distance, normal, style)
+
+        if _rhino_id:
+            return Polyline(_rhino_id)
+        else:
+            return None
+
 
 class Sphere(_SurfaceRoot):
 
@@ -2870,7 +3881,6 @@ class Sphere(_SurfaceRoot):
         self.defm = _ObjectRootDefm(_rhino_id, Sphere)
         self.eval = _SurfaceRootEval(_rhino_id, Sphere)
         self.func = _SurfaceRootFuncOorc(_rhino_id, Sphere)
-        self.genr = _SurfaceRootGenr(_rhino_id, Sphere)
         self.grps = _ObjectRootGrps(_rhino_id, Sphere)
         self.modf = _SurfaceRootMdfy(_rhino_id, Sphere)
         self.mtrl = _ObjectRootMtrl(_rhino_id, Sphere)
@@ -2907,6 +3917,45 @@ class Sphere(_SurfaceRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Sphere(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Sphere(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetSurface
+        """
+
+        _rhino_id = _rsf.offset_surface(surface._rhino_id, distance)
+
+        if _rhino_id:
+            return Sphere(_rhino_id)
+        else:
+            return None
+
 
 class Torus(_SurfaceRoot):
 
@@ -2919,7 +3968,6 @@ class Torus(_SurfaceRoot):
         self.defm = _ObjectRootDefm(_rhino_id, Torus)
         self.eval = _SurfaceRootEval(_rhino_id, Torus)
         self.func = _SurfaceRootFuncOorc(_rhino_id, Torus)
-        self.genr = _SurfaceRootGenr(_rhino_id, Torus)
         self.grps = _ObjectRootGrps(_rhino_id, Torus)
         self.modf = _SurfaceRootMdfy(_rhino_id, Torus)
         self.mtrl = _ObjectRootMtrl(_rhino_id, Torus)
@@ -2956,6 +4004,45 @@ class Torus(_SurfaceRoot):
         else:
             return None
 
+    @staticmethod
+    def create_copy_move(object, start=pythoncom.Empty, end=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject
+        """
+
+        _rhino_id = _rsf.copy_object(object._rhino_id, start, end)
+
+        if _rhino_id:
+            return Torus(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_copy_move_by_vec(object, translation=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: CopyObject2
+        """
+
+        _rhino_id = _rsf.copy_object_2(object._rhino_id, translation)
+
+        if _rhino_id:
+            return Torus(_rhino_id)
+        else:
+            return None
+
+    @staticmethod
+    def create_by_offset(surface, distance):
+        """
+        For help, look up the Rhinoscript function: OffsetSurface
+        """
+
+        _rhino_id = _rsf.offset_surface(surface._rhino_id, distance)
+
+        if _rhino_id:
+            return Torus(_rhino_id)
+        else:
+            return None
+
 
 class _ArcFunc(_CurveRootFuncOpen):
 
@@ -2975,13 +4062,6 @@ class _ArcFunc(_CurveRootFuncOpen):
             return p2r.Arc(_rhino_id)
         else:
             return None
-
-    def offset(self, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: OffsetCurve
-        """
-        _rhino_ids = _rsf.offset_curve(self._rhino_id, direction, distance, normal, style)
-        return map(lambda i: p2r.Arc(i), _rhino_ids)
 
     def split(self, parameters, delete=pythoncom.Empty):
         """
@@ -3020,13 +4100,6 @@ class _CircleFunc(_CurveRootFuncClsd):
         else:
             return None
 
-    def offset(self, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: OffsetCurve
-        """
-        _rhino_ids = _rsf.offset_curve(self._rhino_id, direction, distance, normal, style)
-        return map(lambda i: p2r.Circle(i), _rhino_ids)
-
     def split(self, parameters, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: SplitCurve
@@ -3045,22 +4118,6 @@ class _CircleFunc(_CurveRootFuncClsd):
             return None
 
 
-class _ConeProp(_SurfaceRootProp):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-    def cone_def(self):
-        """
-        For help, look up the Rhinoscript function: SurfaceCone
-        """
-        return _rsf.surface_cone(self._rhino_id)
-
-
 class _CurveRootFuncOorc(_CurveRootFuncOpen,_CurveRootFuncClsd):
 
     # Class constructor
@@ -3071,7 +4128,7 @@ class _CurveRootFuncOorc(_CurveRootFuncOpen,_CurveRootFuncClsd):
         self._class = _class
 
 
-class _CylinderProp(_SurfaceRootProp):
+class _CurveRootOorc(_CurveRootPropOpen,_CurveRootPropClsd):
 
     # Class constructor
     def __init__(self, _rhino_id, _class):
@@ -3080,11 +4137,25 @@ class _CylinderProp(_SurfaceRootProp):
         self._rhino_id = _rhino_id
         self._class = _class
 
-    def cylinder_def(self):
-        """
-        For help, look up the Rhinoscript function: SurfaceCylinder
-        """
-        return _rsf.surface_cylinder(self._rhino_id)
+
+class _MeshRootFuncOorc(_MeshRootFuncOpen,_MeshRootFuncClsd):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _MeshRootPropOorc(_MeshRootPropClsd,_MeshRootPropOpen):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
 
 
 class _NurbsCurveFunc(_CurveRootFuncOorc):
@@ -3106,23 +4177,6 @@ class _NurbsCurveFunc(_CurveRootFuncOorc):
         else:
             return None
 
-    def offset(self, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: OffsetCurve
-        """
-        _rhino_ids = _rsf.offset_curve(self._rhino_id, direction, distance, normal, style)
-        return map(lambda i: p2r.NurbsCurve(i), _rhino_ids)
-
-    def offset_on_srf(self, surface, distance, parameter):
-        """
-        For help, look up the Rhinoscript function: OffsetCurveOnSurface
-        """
-        _rhino_id = _rsf.offset_curve_on_surface(self._rhino_id, surface._rhino_id, distance, parameter)
-        if _rhino_id:
-            return p2r.NurbsCurve(_rhino_id)
-        else:
-            return None
-
     def split(self, parameters, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: SplitCurve
@@ -3139,23 +4193,6 @@ class _NurbsCurveFunc(_CurveRootFuncOorc):
             return p2r.NurbsCurve(_rhino_id)
         else:
             return None
-
-
-class _PolySurfaceProp(_SurfaceRootProp):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-    def explode(self, objects, delete=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: ExplodePolysurfaces
-        """
-        _rhino_ids = _rsf.explode_polysurfaces(map(lambda i: i._rhino_id, objects), delete)
-        return map(lambda i: p2r.NurbsSurface(i), _rhino_ids)
 
 
 class _PolylineFunc(_CurveRootFuncOorc):
@@ -3177,13 +4214,6 @@ class _PolylineFunc(_CurveRootFuncOorc):
         else:
             return None
 
-    def offset(self, direction, distance, normal=pythoncom.Empty, style=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: OffsetCurve
-        """
-        _rhino_ids = _rsf.offset_curve(self._rhino_id, direction, distance, normal, style)
-        return map(lambda i: p2r.Polyline(i), _rhino_ids)
-
     def split(self, parameters, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: SplitCurve
@@ -3202,7 +4232,7 @@ class _PolylineFunc(_CurveRootFuncOorc):
             return None
 
 
-class _SphereProp(_SurfaceRootProp):
+class _SphereProp(_SurfaceRootPropClsd):
 
     # Class constructor
     def __init__(self, _rhino_id, _class):
@@ -3211,7 +4241,7 @@ class _SphereProp(_SurfaceRootProp):
         self._rhino_id = _rhino_id
         self._class = _class
 
-    def cylinder_definition(self):
+    def sphere_definition(self):
         """
         For help, look up the Rhinoscript function: SurfaceSphere
         """
@@ -3226,3 +4256,64 @@ class _SurfaceRootFuncOorc(_SurfaceRootFuncOpen,_SurfaceRootFuncClsd):
             raise Exception("_rhino_id is required.")
         self._rhino_id = _rhino_id
         self._class = _class
+
+
+class _SurfaceRootPropOorc(_SurfaceRootPropOpen,_SurfaceRootPropClsd):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _ConeProp(_SurfaceRootPropOorc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def cone_def(self):
+        """
+        For help, look up the Rhinoscript function: SurfaceCone
+        """
+        return _rsf.surface_cone(self._rhino_id)
+
+
+class _CylinderProp(_SurfaceRootPropOorc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def cylinder_def(self):
+        """
+        For help, look up the Rhinoscript function: SurfaceCylinder
+        """
+        return _rsf.surface_cylinder(self._rhino_id)
+
+
+class _PolySurfaceFunc(_SurfaceRootFuncOorc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def explode(self, objects, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: ExplodePolysurfaces
+        """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
+        _rhino_ids = _rsf.explode_polysurfaces(map(lambda i: i._rhino_id, objects), delete)
+        return map(lambda i: p2r.NurbsSurface(i), _rhino_ids)
