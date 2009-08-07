@@ -2708,8 +2708,8 @@ class _Vector(_Object):
     pass
 
 class Point(_Geometry):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new point objects in the model. It returns 
@@ -2735,8 +2735,8 @@ class Point(_Geometry):
         return Point(eco_id, points)
         
 class Line(_Geometry):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new line objects in the model. It returns 
@@ -2761,8 +2761,8 @@ class Line(_Geometry):
         return Line(eco_id, points)
 
 class  Roof(_Plane):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new roof objects in the model. It returns 
@@ -2813,8 +2813,8 @@ class  Floor(_Plane):
         return Floor(eco_id, points)
 
 class  Ceiling(_Plane):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new ceiling objects in the model. It returns 
@@ -2839,8 +2839,8 @@ class  Ceiling(_Plane):
         return Ceiling(eco_id, points)
 
 class  Wall(_Plane):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new wall objects in the model. It returns the 
@@ -2865,8 +2865,8 @@ class  Wall(_Plane):
         return Wall(eco_id, points)
 
 class  Partition(_Plane):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new partition objects in the model. It 
@@ -2891,8 +2891,8 @@ class  Partition(_Plane):
         return Partition(eco_id, points)
 
 class  Void(_Hole):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new void objects in the model. It returns 
@@ -2917,8 +2917,8 @@ class  Void(_Hole):
         return Void(eco_id, points)
 
 class  Window(_Hole):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new window objects in the model. It returns 
@@ -2943,8 +2943,8 @@ class  Window(_Hole):
         return Window(eco_id, points)
 
 class  Panel(_Hole):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new panel objects in the model. It returns 
@@ -2969,8 +2969,8 @@ class  Panel(_Hole):
         return Panel(eco_id, points)
 
 class  Door(_Hole):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new door objects in the model. It returns 
@@ -2995,8 +2995,8 @@ class  Door(_Hole):
         return Door(eco_id, points)
 
 class  Speaker(_Vector):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new speaker objects in the model. It returns 
@@ -3021,8 +3021,8 @@ class  Speaker(_Vector):
         return Speaker(eco_id, points)
 
 class  Light(_Vector):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new light objects in the model. It returns 
@@ -3047,8 +3047,8 @@ class  Light(_Vector):
         return Light(eco_id, points)
 
 class  Appliance(_Vector):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new appliance objects in the model. It 
@@ -3073,8 +3073,8 @@ class  Appliance(_Vector):
         return Appliance(eco_id, points)
 
 class  SolarCollector(_Vector):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new solarcollector objects in the model. 
@@ -3099,8 +3099,8 @@ class  SolarCollector(_Vector):
         return SolarCollector(eco_id, points)
 
 class  Camera(_Vector):
-    @classmethod
-    def create(self, points):
+    @staticmethod
+    def create(points):
         """
         
         Use this function to create new camera objects in the model. It returns 

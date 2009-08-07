@@ -20,8 +20,8 @@ class Zone(object):
             object_id = self.get_next_object(prev_id, -1, -1, -1)
             prev_id = object_id
             
-    @classmethod
-    def create_zone(cls, name):
+    @staticmethod
+    def create_zone(name):
         """
         
         Use this command to create new zones in the model. It returns the 
