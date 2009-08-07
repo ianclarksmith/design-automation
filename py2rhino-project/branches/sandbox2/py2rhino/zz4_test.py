@@ -5,8 +5,8 @@ import py2rhino as p2r
 
 #FIXED!!!
 ########error: u'Type mismatch in parameter. Float required.#################
-#arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-#arc1.defm.shear((0.0,0.0,0.0), (10.0,0.0,0.0), 20.0, True)  
+arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
+print arc1.defm.shear((0.0,0.0,0.0), (10.0,0.0,0.0), 20.0, True)  
 #############################################################################
 
 #FIXED!!!
@@ -39,12 +39,14 @@ import py2rhino as p2r
 #print arc1.func.line_fit_from_pnts()   
 ####################################################################################
 
-#FIXED - still need to check them all again
+#FIXED - still need to check them all again (FIXED nurve_surface 6 only)
 ######################PROBLEM:argument 2 to map() must support iteration################################
 #cir = p2r.Circle.create_by_3pt((0,0,0), (2,0,0), (1,1,0))
-#nurve_surface6 = p2r.NurbsSurface.create_by_planar_crv(cir)
+#nurve_surface6 = p2r.NurbsSurface.create_by_planar_crv(cir) #FIXED
 #nurve_curve3 = p2r.NurbsCurve.create_by_srf_contour_cut_plane(plane_surface,((0,0,0),(1,0,0),(0,1,0)))
-#nurve_curve3 = p2r.NurbsCurve.create_by_srf_iso_curve(plane_surface,((1,0,0),(0,1,0)),2)
+
+#nurve_curve4 = p2r.NurbsCurve.create_by_srf_iso_curve(plane_surface,((1,0,0),(0,1,0)),2)
+
 #circle1 = p2r.Circle.create(((0,0,0),(1,0,0),(0,1,0)), 5)
 #line1 = p2r.Line.create((5,0,0), (10,0,10))
 
@@ -58,7 +60,6 @@ import py2rhino as p2r
 #arc1 = p2r.Arc.create((0,0,0), 5, 90)
 #arc2 = p2r.Arc.create((10,0,0), 5, 90)
 #print arc1.stat.match_object_attributes(arc2)
-
 #circle1 = p2r.Circle.create((0,0,0), 10)
 #circle2 = p2r.Circle.create((0,0,0), 10)
 #print circle1
