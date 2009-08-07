@@ -2515,44 +2515,41 @@ class _ObjectRootFncChild(object):
         
         return property(**locals())
     
-    @apply
-    def extents_2dpt():
-        def fget(self, proportional_values):
-            """
-            
-            This command retrieves coordinates for the nominated point on the face 
-            of the specified object. Note that this command only works for planar 
-            objects. 
-    
-            Parameter(s)
-            This property takes the following parameters.
-            
-            proportional_values 
-            A list of two proportional values that nominate the point to measure in 
-            relation to the extents of the specified object. For example, to 
-            nominate the centre of the object, the u and v values should be 0.5, 
-            whilst the minimum and maximum extents would be of 0.0 and 1.0 
-            respectively.
-            
-            This property always assumes you are looking towards the outside face of 
-            the object, where the minimum value is always the bottom-left. 
-            
-            Return Value(s)
-            Getting this property returns the following value(s).
-            
-            x, y, z 
-            Represents the absolute position in the X, Y and Z axis of a point in 3 
-            dimensional model space.
-            
-            """
-            arg_str = p2e._util._convert_args_to_string("get.object.extents.2dpt", 
-                                                         self.eco_id, 
-                                                         proportional_values[0],
-                                                         proportional_values[1])
-            val = p2e._app.Request(arg_str)
-            return p2e._util._convert_str_to_list(val, float, float, float)
+    def get_extents_2dpt(self, proportional_values):
+        """
         
-        return property(**locals())
+        This command retrieves coordinates for the nominated point on the face 
+        of the specified object. Note that this command only works for planar 
+        objects. 
+
+        Parameter(s)
+        This property takes the following parameters.
+        
+        proportional_values 
+        A list of two proportional values that nominate the point to measure in 
+        relation to the extents of the specified object. For example, to 
+        nominate the centre of the object, the u and v values should be 0.5, 
+        whilst the minimum and maximum extents would be of 0.0 and 1.0 
+        respectively.
+        
+        This property always assumes you are looking towards the outside face of 
+        the object, where the minimum value is always the bottom-left. 
+        
+        Return Value(s)
+        Getting this property returns the following value(s).
+        
+        x, y, z 
+        Represents the absolute position in the X, Y and Z axis of a point in 3 
+        dimensional model space.
+        
+        """
+        arg_str = p2e._util._convert_args_to_string("get.object.extents.2dpt", 
+                                                     self.eco_id, 
+                                                     proportional_values[0],
+                                                     proportional_values[1])
+        val = p2e._app.Request(arg_str)
+        return p2e._util._convert_str_to_list(val, float, float, float)
+
     
     @apply
     def extents_max():
