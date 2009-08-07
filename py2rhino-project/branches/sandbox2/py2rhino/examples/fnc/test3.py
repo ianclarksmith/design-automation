@@ -50,8 +50,26 @@ def line():
 def cone():
     print p2r.surface_and_polysurface.add_cone((0,0,0), 10, 5)  
     
-cone()
+#cone()
 
+def ns1():
+    #ns = p2r.surface_and_polysurface.add_srf_pt(((0,0,0),(0,0,5),(0,0,4)))
+    sphere1 = p2r.surface_and_polysurface.add_sphere((0,0,0), 5)
+    #print p2r.surface_and_polysurface.make_surface_non_periodic(sphere1,0)
+    #print p2r.surface_and_polysurface.fit_surface(ns)
+    #print p2r.surface_and_polysurface.rebuild_surface(ns)
+    #print p2r.surface_and_polysurface.insert_surface_knot(ns, (0,0,0), 0)
+    print p2r.surface_and_polysurface.is_poly_surface(sphere1[0])
+ns1()
+
+def knot():
+    sphere1 = p2r.surface_and_polysurface.add_sphere((0,0,0), 5)
+    str = p2r.selection.get_objects("Select surface:", 8)[0]
+    arr_pt = p2r.user_interface.get_point_on_surface(str, "Point on surface")
+    arr_para = p2r.surface_and_polysurface.surface_closest_point(str, arr_pt)
+    print arr_para
+    print p2r.surface_and_polysurface.insert_surface_knot(str, arr_para,0)
+#knot()
 def cylinder():
     print p2r.surface_and_polysurface.add_cylinder((0,0,1), 5, 2) 
 def interp_curv_on_srf():
