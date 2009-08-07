@@ -9,18 +9,18 @@ import py2rhino as p2r
 #arc1.defm.shear((0.0,0.0,0.0), (10.0,0.0,0.0), 20.0, True)  
 #############################################################################
 
-
+#FIXED!!!
 ####name should be sphere_definition, not cyclinder_definition###############
 #sphere1 = p2r.Sphere.create((0,0,0), 10)
 #print sphere1.prop.cylinder_definition()
 #########################################################################
 
-
+#FIXED!!!
 ################### split func: arg problem again###################################
-#plane_surface = p2r.PlaneSurface.create(((0,0,0),(1,0,0),(0,1,0)),5,3)
-#arc1 = p2r.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
+#plane_surface = p2r.PlaneSurface.create(((0,0,0),(10,0,0),(0,10,0)),5,3)
+#arc1 = p2r.Arc.create_by_3pt((0,0,0), (2,0,0), (1,1,0))
 #nurve_curve1 = p2r.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(0,1,0)))
-#print nurve_curve1.func.offset_on_srf(arc1,plane_surface, 2,(0,0,1))
+#print p2r.NurbsCurve.create_by_offset_on_srf(arc1,plane_surface, 2) 
 #####################################################################################
 
 
@@ -39,9 +39,10 @@ import py2rhino as p2r
 #print arc1.func.line_fit_from_pnts()   
 ####################################################################################
 
-
+#FIXED - still need to check them all again
 ######################PROBLEM:argument 2 to map() must support iteration################################
-#nurve_surface6 = p2r.NurbsSurface.create_by_planar_crv(arc1)
+#cir = p2r.Circle.create_by_3pt((0,0,0), (2,0,0), (1,1,0))
+#nurve_surface6 = p2r.NurbsSurface.create_by_planar_crv(cir)
 #nurve_curve3 = p2r.NurbsCurve.create_by_srf_contour_cut_plane(plane_surface,((0,0,0),(1,0,0),(0,1,0)))
 #nurve_curve3 = p2r.NurbsCurve.create_by_srf_iso_curve(plane_surface,((1,0,0),(0,1,0)),2)
 #circle1 = p2r.Circle.create(((0,0,0),(1,0,0),(0,1,0)), 5)
@@ -70,12 +71,12 @@ import py2rhino as p2r
 #nurve_surface11 = p2r.NurbsSurface.create_by_rev(line1,((0,0,0),(0,0,1)))
 ##########################################################################################
 
-
+#Half fixed
 #############PROBLEM:u'Type mismatch in parameter. Array required in both functional and obj.#######################
-#cylinder1 = p2r.Cylinder.create((0,0,0),2, 5)
+#cylinder1 = p2r.Cylinder.create((0,0,0),(0,0,5), 5)
 #cylinder2 = p2r.Cylinder.create_by_plane((0,0,0),2, 5)
 #print cylinder1
-#cone1 = p2r.Cone.create((0,0,0), 8, 5)
+#cone1 = p2r.Cone.create((0,0,0),(0,0,5), 5)
 #cone2 = p2r.Cone.create_by_plane((0,0,0), 8, 5)
 #print cone1
 ###########################################################################################
