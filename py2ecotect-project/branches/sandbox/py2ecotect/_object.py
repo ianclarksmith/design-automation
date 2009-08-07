@@ -3068,7 +3068,7 @@ class  Appliance(_Vector):
         failed. 
         
         """        
-        eco_id = Appliance._gen_object("appliance", "zone")
+        eco_id = Appliance._gen_object("appliance", "vector")
         if id == -1: return None
         return Appliance(eco_id, points)
 
@@ -3094,7 +3094,7 @@ class  SolarCollector(_Vector):
         failed. 
         
         """        
-        eco_id = SolarCollector._gen_object("solarcollector", "zone")
+        eco_id = SolarCollector._gen_object("solarcollector", "vector")
         if id == -1: return None
         return SolarCollector(eco_id, points)
 
@@ -3120,7 +3120,7 @@ class  Camera(_Vector):
         failed. 
         
         """        
-        eco_id = Camera._gen_object("camera", "zone")
+        eco_id = Camera._gen_object("camera", "vector")
         if id == -1: return None
         return Camera(eco_id, points)
 
