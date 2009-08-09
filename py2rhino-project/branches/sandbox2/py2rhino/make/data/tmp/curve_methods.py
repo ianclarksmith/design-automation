@@ -1058,7 +1058,7 @@ class _CurveRootFunc(object):
             "method_parameters": (("","SELF","REQ"),("curve_1","str","REQ"),),
             "method_returns": ("bln","null")
         }
-        curve_closest_pnt = {#ed
+        curve_closest_point = {#ed
             "method_name": "closest_pnt",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("number","null")
