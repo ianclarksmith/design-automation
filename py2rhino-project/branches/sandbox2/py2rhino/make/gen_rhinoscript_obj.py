@@ -8,7 +8,7 @@ out_folder = "..\\"
 #===============================================================================
 # Run some checks
 #===============================================================================
-def get_data_dictionary(debug=False):
+def get_data_dictionary():
     
     print des_obj.__dict__.keys()
     
@@ -20,7 +20,6 @@ def get_data_dictionary(debug=False):
             for class_name in function_list.__dict__.keys():
                 if not class_name.startswith('__'):
                     clas = function_list.__dict__[class_name]
-                    #print "\t", class_name
                     
                     #create an empty dict to store class methods
                     if not class_name in class_map.keys():
@@ -28,12 +27,14 @@ def get_data_dictionary(debug=False):
                     
                     #inherits
                     inherits_from = clas.__dict__["inherits"]
+                    class_map[class_name]["inherits"] = inherits_from
                     
                     #holds
-                    holds = {}
                     if "holds" in clas.__dict__.keys():
-                        holds = clas.__dict__["holds"]
-                        
+                        class_map[class_name]["holds"] = clas.__dict__["holds"]
+                       
+                       
+                    #==============================================================
                     #constructors
                     if "constructors" in class_map[class_name].keys():
                         constructors = class_map[class_name]["constructors"]
@@ -43,7 +44,10 @@ def get_data_dictionary(debug=False):
                         for function_name in clas.__dict__["Constructors"].__dict__.keys():
                             if not function_name.startswith("__"):
                                 constructors[function_name] = clas.__dict__["Constructors"].__dict__[function_name]
-                                
+                         
+                         
+                         
+                    #==============================================================          
                     #methods
                     if "methods" in class_map[class_name].keys():
                         methods = class_map[class_name]["methods"]
@@ -54,7 +58,11 @@ def get_data_dictionary(debug=False):
                             if not function_name.startswith("__"):
                                 methods[function_name] = clas.__dict__["Methods"].__dict__[function_name]
                         
-                    #class methods
+                    
+                        
+                        
+                    #==============================================================
+                    #class methods - I think this can be deleted
                     if "class_methods" in class_map[class_name].keys():
                         class_methods = class_map[class_name]["class_methods"]
                     else:                                     
@@ -64,17 +72,7 @@ def get_data_dictionary(debug=False):
                             if not function_name.startswith("__"):
                                 class_methods[function_name] = clas.__dict__["ClassMethods"].__dict__[function_name]
                     
-                    if debug:
-                        print "\t\tinherits_from" , inherits_from
-                        print "\t\tholds" , holds
-                        print "\t\tconstructors" , constructors
-                        print "\t\tmethods" , methods
-                        print "\t\tclass_methods" , class_methods
-                    
-                    #create an empty dict to store class data
-                    class_map[class_name] = {}
-                    class_map[class_name]["inherits"] = inherits_from
-                    class_map[class_name]["holds"] = holds
+                    #add the methods
                     class_map[class_name]["constructors"] = constructors
                     class_map[class_name]["methods"] = methods
                     class_map[class_name]["class_methods"] = class_methods                    
@@ -138,30 +136,6 @@ def write_rhinoscript_classes(data_dict):
         
         #a list of simple types
         simple_types = ('bln', 'int', 'lng', 'dbl', 'str', 'n', 'va')
-        
-        #a list of class types
-        """
-        class_types = (
-                       'GenericObject',
-                       
-                       'GenericCurve',
-                       'Arc', 
-                       'Circle', 
-                       'Ellipse', 
-                       'NurbsCurve',
-                       'Polyline',
-                       'EllipticalArc',
-                       
-                       'Box',
-                       'Sphere',
-                       'Cone',
-                       'Cylinder',
-                       'Torus',
-                       'NurbsSurface',
-                       
-                       )"""
-                        #'PolygonMesh',
-
         
         #get the param data into a set of lists for easy access
         params_name = []
@@ -282,7 +256,7 @@ def write_rhinoscript_classes(data_dict):
         else:
             raise Exception('Method does not have the right number of returns')
         
-        #the function call for constructors
+        #the function call for CONSTRUCTORS
         if method_type == 'CONSTRUCTOR':
             w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
             if return_type == 'SELF':
@@ -297,21 +271,10 @@ def write_rhinoscript_classes(data_dict):
             else:
                 raise Exception('Cannot understand return type for constructor')
         
-        #the function call for methods
+        #the function call for METHODS
         elif method_type == 'METHOD':
             assert class_name.startswith('_')
-            if class_name.endswith('Mdfy'):#TODO: I think this can be deleted
-                if return_type == 'str':
-                    w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
-                    w(f, ('if _rhino_id:'), tabs=2)
-                    w(f, ('return True'), tabs=3)
-                    w(f, ('else:'), tabs=2)
-                    w(f, ('return False'), tabs=3)                             
-                elif return_type == 'bln':
-                    w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)#TODO: deal with return types
-                else:
-                    raise Exception('The Modify method is returning something strange')
-            elif return_type == None:
+            if return_type == None:
                 w(f, ('return _rsf.',function_name,'()'), tabs=2)
             elif return_type in simple_types or return_type == 'number':
                 w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2)
@@ -328,7 +291,7 @@ def write_rhinoscript_classes(data_dict):
                 if return_class_name.startswith('_') and return_class_name.endswith('Root'):
                     w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_id:'), tabs=2)
-                    w(f, ('return self.__class__(_rhino_id)'), tabs=3)
+                    w(f, ('return self._class(_rhino_id)'), tabs=3)
                     w(f, ('else:'), tabs=2)
                     w(f, ('return None'), tabs=3) 
                 elif return_class_name.startswith('_'):
@@ -340,20 +303,20 @@ def write_rhinoscript_classes(data_dict):
                 else:
                     w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_id:'), tabs=2)
-                    w(f, ('return p2r.', return_class_name, '(_rhino_id)'), tabs=3)
+                    w(f, ('return p2r.obj.', return_class_name, '(_rhino_id)'), tabs=3)#TODO:this needs more work
                     w(f, ('else:'), tabs=2)
                     w(f, ('return None'), tabs=3) 
             elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity'):
                 return_class_name = return_type[9:].split('.')[-1]
                 if return_class_name.startswith('_') and return_class_name.endswith('Root'):
                     w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                    w(f, ('return map(lambda i: self.__class__(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
+                    w(f, ('return map(lambda i: self._class(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
                 elif return_class_name.startswith('_'):
                     w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('return map(lambda i: p2r._util.wrap(i), _rhino_ids)'), tabs=2, nle=1)
                 else:
                     w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                    w(f, ('return map(lambda i: p2r.'+return_class_name+'(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
+                    w(f, ('return map(lambda i: p2r.obj.'+return_class_name+'(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
             else:
                 raise Exception('The method returns something very strange')
             
@@ -373,13 +336,7 @@ def write_rhinoscript_classes(data_dict):
         if class_dict["inherits"] != None:
             parent_class_list = class_dict["inherits"]
             
-        #write the file header
-        """
-        if class_name.startswith('_'):
-            write_class_name(class_name, parent_class_list, f)
-        else:
-            write_class_header(class_name, parent_class_list, class_dict, f)
-        """
+        #write the class name
         write_class_name(class_name, parent_class_list, f)            
         
         #write init
@@ -449,6 +406,8 @@ def write_rhinoscript_classes(data_dict):
                 elif len(inherits) == 2:
                     if not class_name in sorted_list and inherits[0] in sorted_list and inherits[1] in sorted_list:
                         sorted_list.append(class_name)
+                else:
+                    raise Exception
                 
                 
     for i in list_of_class_name:
@@ -482,14 +441,13 @@ def write_init_file(data_dict):
     w(f, ('_rhinoscript_classes._rsf = _rsf'), nle=2)
     
     w(f, ('import _util'))
+    w(f, ('import obj'))
+    w(f, ('import ent'))
+    w(f, ('import doc'))
+    w(f, ('import app'))    
     
-    for class_name in sorted(data_dict.keys()):
-        if not class_name.startswith('_'):
-            #get the module name
-            #module_name = camel_to_underscore(class_name)
-            #w(f, ('import ', module_name))
-            #w(f, (module_name, '._rsf = _rsf'))        
-            w(f, ('from _rhinoscript_classes import ', class_name))
+            
+            
     #close the file
     f.close()
 #===============================================================================
