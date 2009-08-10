@@ -18,7 +18,8 @@ class PolySurface(object):
         #general curve holds
         "modf": "_SurfaceRootMdfy",
         "eval": "_SurfaceRootEval",
-        "test": "_SurfaceRootTest",#inherits from object tests
+        "test": "_SurfaceRootTest",#inherits from object level
+        "dupl": "_PolySurfaceDupl",#inherits from object level
         
         #holds
         "func": "_PolySurfaceFunc",
@@ -33,24 +34,28 @@ class PolySurface(object):
             "method_name": "create_by_srf_join",
             "method_parameters": (("surfaces","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
             "method_returns": ("SELF","null")
-            }
-        
-        offset_surface = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
             }        
-        
+#===============================================================================
+# _PolySurfaceDupl
+#===============================================================================
+class _PolySurfaceDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.PolySurface","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }        
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("_ObjectRoot._SurfaceRoot.PolySurface","null")         
+            }
+        offset_surface = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
+            }    
 #===============================================================================
 # _PolySurfaceProp
 #===============================================================================
@@ -81,9 +86,10 @@ class Box(object):
         #general curve holds
       
         "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc",
+        "func": "_SurfaceRootFuncOorc", #TODO: closed?
         "eval": "_SurfaceRootEval",
-        "test": "_SurfaceRootTest",#inherits from object tests
+        "test": "_SurfaceRootTest",#inherits from object level
+        "dupl": "_BoxDupl",#inherits from object level
         
         #holds
         "prop": "_SurfaceRootPropClsd",           
@@ -94,22 +100,26 @@ class Box(object):
             "method_parameters": (("corners","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
             }
-        
-        offset_surface = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }        
-        
+#===============================================================================
+# _BoxDupl
+#===============================================================================
+class _BoxDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Box","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Box","null")         
+            }
+        offset_surface = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
             }        
 #===============================================================================
 # Cone
@@ -129,9 +139,10 @@ class Cone(object):
   
         #general curve holds
         "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc",
+        "func": "_SurfaceRootFuncOorc",#TODO: closed?
         "eval": "_SurfaceRootEval",
-        "test": "_SurfaceRootTest",#inherits from object tests
+        "test": "_SurfaceRootTest",#inherits from object level
+        "dupl": "_ConeDupl",#inherits from object level
         
         #arc holds
         "prop": "_ConeProp",       
@@ -148,22 +159,28 @@ class Cone(object):
             "method_returns": ("SELF","null")
             }        
         
-        offset_surface = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }        
-        
+#===============================================================================
+# _ConeDupl
+#===============================================================================
+class _ConeDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Cone","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }        
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Cone","null")         
+            }
+        offset_surface = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
+            }    
+    
 #===============================================================================
 # _ConeProp
 #===============================================================================
@@ -195,7 +212,8 @@ class NurbsSurface(object):
         "modf": "_SurfaceRootMdfy",
         "func": "_SurfaceRootFuncOorc",
         "eval": "_SurfaceRootEval",
-        "test": "_SurfaceRootTest",#inherits from object tests
+        "test": "_SurfaceRootTest",#inherits from object level
+        "dupl": "_NurbsSurfaceDupl",#inherits from object level
         
         "prop": "_SurfaceRootPropOorc",        
     }    
@@ -303,23 +321,27 @@ class NurbsSurface(object):
             "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("SELF","null")         
             }
-       
-        offset_surface = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }       
-       
+#===============================================================================
+# _NurbsSurfaceDupl
+#===============================================================================
+class _NurbsSurfaceDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")         
             }
+        offset_surface = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")
+            }    
 #===============================================================================
 # Cylinder
 #===============================================================================
@@ -340,7 +362,8 @@ class Cylinder(object):
         "modf": "_SurfaceRootMdfy",
         "func": "_SurfaceRootFuncOorc",
         "eval": "_SurfaceRootEval",
-        "test": "_SurfaceRootTest",#inherits from object tests
+        "test": "_SurfaceRootTest",#inherits from object level
+        "dupl": "_CylinderDupl",#inherits from object level
         
         #arc holds
         "prop": "_CylinderProp",        
@@ -356,23 +379,27 @@ class Cylinder(object):
             "method_parameters": (("plane","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
             "method_returns": ("SELF","null")
             }        
-        
-        offset_surface = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }        
-        
+#===============================================================================
+# _CylinderDupl
+#===============================================================================
+class _CylinderDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Cylinder","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }        
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Cylinder","null")         
+            }
+        offset_surface = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
+            }    
 #===============================================================================
 # _CylinderProp
 #===============================================================================
@@ -404,7 +431,8 @@ class PlaneSurface(object):
         "modf": "_SurfaceRootMdfy",
         "func": "_SurfaceRootFuncOorc",
         "eval": "_SurfaceRootEval",
-        "test": "_SurfaceRootTest",#inherits from object tests
+        "test": "_SurfaceRootTest",#inherits from object level
+        "dupl": "_PlaneSurfaceDupl",#inherits from object level
 
         "prop": "_SurfaceRootPropOpen",
     }    
@@ -415,22 +443,27 @@ class PlaneSurface(object):
             "method_returns": ("SELF","null")
             }
         
-        offset_surface = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }        
-        
+#===============================================================================
+# _PlaneSurfaceDupl
+#===============================================================================
+class _PlaneSurfaceDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.PlaneSurface","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }        
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("_ObjectRoot._SurfaceRoot.PlaneSurface","null")         
+            }
+        offset_surface = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._SurfaceRoot._PlaneSurface","null")  #TODO: see what is returned
+            }    
 #===============================================================================
 # Sphere
 #===============================================================================
@@ -451,7 +484,8 @@ class Sphere(object):
         "modf": "_SurfaceRootMdfy",
         "func": "_SurfaceRootFuncOorc",
         "eval": "_SurfaceRootEval",
-        "test": "_SurfaceRootTest",#inherits from object tests
+        "test": "_SurfaceRootTest",#inherits from object level
+        "dupl": "_SphereDupl",#inherits from object level
         
         #arc holds
         "prop": "_SphereProp",        
@@ -467,23 +501,27 @@ class Sphere(object):
             "method_parameters": (("center","array_of dbl","REQ"),("radius","dbl","REQ"),),
             "method_returns": ("SELF","null")
             } 
-        
-        offset_surface = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }        
-        
+#===============================================================================
+# _SphereDupl
+#===============================================================================
+class _SphereDupl(object):
+    inherits = None 
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Sphere","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }               
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Sphere","null")         
+            }
+        offset_surface = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
+            }    
 #===============================================================================
 # _SphereProp
 #===============================================================================
@@ -515,7 +553,8 @@ class Torus(object):
         "modf": "_SurfaceRootMdfy",
         "func": "_SurfaceRootFuncOorc",
         "eval": "_SurfaceRootEval",
-        "test": "_SurfaceRootTest",#inherits from object tests
+        "test": "_SurfaceRootTest",#inherits from object level
+        "dupl": "_TorusDupl",#inherits from object level
         
         #arc holds
         "prop": "_TorusProp",      
@@ -531,23 +570,27 @@ class Torus(object):
             "method_parameters": (("plane","array_of dbl","REQ"),("major_radius","dbl","REQ"),("minor_radius","dbl","REQ")),
             "method_returns": ("SELF","null")
             }
-        
-        offset_surface = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }        
-        
+#===============================================================================
+# _TorusDupl
+#===============================================================================
+class _TorusDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Torus","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }        
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_returns": ("_ObjectRoot._SurfaceRoot.Torus","null")         
+            }
+        offset_surface = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
+            }    
 #===============================================================================
 # _TorusProp
 #===============================================================================
@@ -563,7 +606,9 @@ class _TorusProp(object):
 # NurbsCurve
 #===============================================================================
 class NurbsCurve(object):
-    inherits = ("_SurfaceRoot", )
+    inherits = ("_CurveRoot", )
+    
+    
     class Constructors(object):
         
         short_path = {#ed
@@ -615,7 +660,7 @@ class NurbsCurve(object):
             "method_returns": ("array_of SELF","null")
             } 
         
-        
+    
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -963,7 +1008,6 @@ class _SurfaceRootFuncOpen(object):
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("bln","null")
             }
-   
 
    
 #===============================================================================
@@ -1012,7 +1056,8 @@ class _SurfaceRootFuncClsd(object):
 #===============================================================================
 class _SurfaceRootFuncOorc(object):
     inherits = ('_SurfaceRootFuncOpen','_SurfaceRootFuncClsd',)
-    pass
+    pass  
+
 
 #===============================================================================
 # _SurfaceRoot

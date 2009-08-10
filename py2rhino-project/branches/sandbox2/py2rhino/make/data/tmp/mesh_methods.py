@@ -18,7 +18,8 @@ class Mesh(object):
         #mesh holds
         "modf": "_MeshRootMdfy",
         "func": "_MeshRootFuncOorc",
-        "test": "_MeshRootTest",#inherits from object tests
+        "test": "_MeshRootTest",#inherits from object level
+        "dupl": "_MeshDupl",
         "prop": "_MeshRootPropOorc",
 
     }
@@ -29,22 +30,28 @@ class Mesh(object):
             "method_returns": ("SELF","null")
             }
        
-        mesh_offset = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }        
-       
+#===============================================================================
+# _MeshDupl
+#===============================================================================
+class _MeshDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._MeshRoot.Mesh","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }       
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),
+            "method_returns": ("_ObjectRoot._MeshRoot.Mesh","null")         
+            }
+        mesh_offset = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._MeshRoot.Mesh","null")
+            } 
+             
 #===============================================================================
 # PlanarMesh
 #===============================================================================
@@ -64,7 +71,8 @@ class PlanarMesh(object):
         #mesh holds
         "modf": "_MeshRootMdfy",
         "func": "_MeshRootFuncOpen",
-        "test": "_MeshRootTest",#inherits from object tests
+        "test": "_MeshRootTest",#inherits from object level
+        "dupl": "_PlanarMeshDupl",#inherits from object level
         "prop": "_MeshRootPropOpen",
 
     }
@@ -74,28 +82,32 @@ class PlanarMesh(object):
             "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("delete","bln","REQ"),),#closed planar curve
             "method_returns": ("SELF","null")
             }
-        
-        mesh_offset = {#ed
-            "method_name": "create_by_offset",
-            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }         
-        
+#===============================================================================
+# _PlanarMeshDupl
+#===============================================================================
+class _PlanarMeshDupl(object):
+    inherits = None
+    class Methods(object):
         copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
+            "method_name": "copy_move",
+            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_returns": ("_ObjectRoot._MeshRoot.PlanarMesh","null")        
             }
         copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }        
+            "method_name": "copy_move_by_vec",
+            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),
+            "method_returns": ("_ObjectRoot._MeshRoot.PlanarMesh","null")         
+            }
+        mesh_offset = {#ed
+            "method_name": "copy_by_offset",
+            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),("distance","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._MeshRoot.PlanarMesh","null")
+            } 
 #===============================================================================
 # NurbsCurve
 #===============================================================================
 class NurbsCurve(object):
-    inherits = ("_SurfaceRoot", )
+    inherits = ("_CurveRoot", )
     class Constructors(object):
         duplicate_mesh_border = {#ed
             "method_name": "create_by_mesh_border",
@@ -366,7 +378,8 @@ class _MeshRootFuncClsd(object):
 #===============================================================================
 class _MeshRootFuncOorc(object):
     inherits = ('_MeshRootFuncOpen','_MeshRootFuncClsd',)
-    #empty
+    #empty    
+     
 #===============================================================================
 # _MeshRoot
 #===============================================================================
