@@ -37,7 +37,7 @@ except:
     
 print "Connection with Ecotect successful..."
 #===============================================================================
-# Import classes
+# Import modules
 #===============================================================================
 import app
 import doc
