@@ -1,3 +1,8 @@
+#version
+_version = "0.1.2"
+#===============================================================================
+# Make a connection to rhino
+#===============================================================================
 from win32com.client import Dispatch
 import time
 app = Dispatch("Rhino4.Interface")
@@ -11,6 +16,9 @@ _rsf = _RhinoscriptFunctions(_rso)
 import _rhinoscript_classes
 _rhinoscript_classes._rsf = _rsf
 
+#===============================================================================
+# Import modules
+#===============================================================================
 import _util
 import obj
 import ent
