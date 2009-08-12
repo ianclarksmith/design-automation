@@ -1019,7 +1019,7 @@ class _CurveRootPropClsd(object):
 #===============================================================================
 # _CurveRootPropOorc
 #===============================================================================
-class _CurveRootOorc(object):
+class _CurveRootPropOorc(object):
     inherits = ('_CurveRootPropOpen', '_CurveRootPropClsd',)
     class Methods(object):
         pass
