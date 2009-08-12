@@ -387,29 +387,46 @@ def write_rhinoscript_classes(data_dict):
     
     sorted_list = []
     
+    #add _classes that do not inherit anything
+    for class_name_num in range(len(list_of_class_name)):
+        class_name = list_of_class_name[class_name_num]
+        if class_name.startswith("_"):
+            class_dict = data_dict[class_name]
+            inherits = class_dict['inherits']
+            if inherits == None:
+                sorted_list.append(class_name)
+                
+    #add _classes that do inherit anything
+    for i in range(3):
+        for class_name_num in range(len(list_of_class_name)):
+            class_name = list_of_class_name[class_name_num]
+            if class_name.startswith("_"):
+                class_dict = data_dict[class_name]
+                inherits = class_dict['inherits']
+                if inherits != None:
+                    if len(inherits) == 1:
+                        if not class_name in sorted_list and inherits[0] in sorted_list:
+                            sorted_list.append(class_name)
+                    elif len(inherits) == 2:
+                        if not class_name in sorted_list and inherits[0] in sorted_list and inherits[1] in sorted_list:
+                            sorted_list.append(class_name)
+                    else:
+                        raise Exception
+    #add all other
     for class_name_num in range(len(list_of_class_name)):
         class_name = list_of_class_name[class_name_num]
         class_dict = data_dict[class_name]
         inherits = class_dict['inherits']
-        if inherits == None:
-            sorted_list.append(class_name)
-            
-    for i in range(3):
-        for class_name_num in range(len(list_of_class_name)):
-            class_name = list_of_class_name[class_name_num]
-            class_dict = data_dict[class_name]
-            inherits = class_dict['inherits']
-            if inherits != None:
-                if len(inherits) == 1:
-                    if not class_name in sorted_list and inherits[0] in sorted_list:
-                        sorted_list.append(class_name)
-                elif len(inherits) == 2:
-                    if not class_name in sorted_list and inherits[0] in sorted_list and inherits[1] in sorted_list:
-                        sorted_list.append(class_name)
-                else:
-                    raise Exception
-                
-                
+        if inherits != None:
+            if len(inherits) == 1:
+                if not class_name in sorted_list and inherits[0] in sorted_list:
+                    sorted_list.append(class_name)
+            elif len(inherits) == 2:
+                if not class_name in sorted_list and inherits[0] in sorted_list and inherits[1] in sorted_list:
+                    sorted_list.append(class_name)
+            else:
+                raise Exception
+                    
     for i in list_of_class_name:
         if not i in sorted_list:
             print "Class has been lost", i    
@@ -423,40 +440,11 @@ def write_rhinoscript_classes(data_dict):
     fb.close()
     #---------------------------------------------------------------------------
 #===============================================================================
-# Write the init file
-#===============================================================================
-def write_init_file(data_dict):
-    f = open(out_folder + '__init__.py', mode='w')
-    w(f, ('from win32com.client import Dispatch'))
-    w(f, ('import time'))
-    w(f, ('app = Dispatch("Rhino4.Interface")'))
-    w(f, ('time.sleep(1)'))
-    w(f, ('app.Visible = True'))
-    w(f, ('_rso = app.GetScriptObject'), nle=2)
-
-    w(f, ('from functions._rhinoscript_functions import _RhinoscriptFunctions'))
-    w(f, ('_rsf = _RhinoscriptFunctions(_rso)'), nle=2)
-    
-    w(f, ('import _rhinoscript_classes'))
-    w(f, ('_rhinoscript_classes._rsf = _rsf'), nle=2)
-    
-    w(f, ('import _util'))
-    w(f, ('import obj'))
-    w(f, ('import ent'))
-    w(f, ('import doc'))
-    w(f, ('import app'))    
-    
-            
-            
-    #close the file
-    f.close()
-#===============================================================================
 # Run
 #===============================================================================
 if __name__ == '__main__':
     data_dict = get_data_dictionary()
     write_rhinoscript_classes(data_dict)
-    write_init_file(data_dict)
 
     print "done generating classes"
     

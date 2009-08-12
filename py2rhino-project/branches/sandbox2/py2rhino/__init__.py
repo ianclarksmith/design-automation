@@ -1,7 +1,8 @@
+
 #version
-_version = "0.1.2"
+_version = "0.1.3"
 #===============================================================================
-# Make a connection to rhino
+# Make a connection to Rhino
 #===============================================================================
 from win32com.client import Dispatch
 import time
@@ -15,7 +16,6 @@ _rsf = _RhinoscriptFunctions(_rso)
 
 import _rhinoscript_classes
 _rhinoscript_classes._rsf = _rsf
-
 #===============================================================================
 # Import modules
 #===============================================================================

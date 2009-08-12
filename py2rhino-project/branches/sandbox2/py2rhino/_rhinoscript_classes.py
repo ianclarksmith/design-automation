@@ -1624,26 +1624,6 @@ class _TorusDupl(object):
             return None
 
 
-class GenericObject(_ObjectRoot):
-
-    # Class constructor
-    def __init__(self, _rhino_id):
-        if _rhino_id==None:
-            raise Exception("Use the create... methods to create instances of this class.")
-        self._rhino_id = _rhino_id
-
-        self.defm = _ObjectRootDefm(_rhino_id, GenericObject)
-        self.grps = _ObjectRootGrps(_rhino_id, GenericObject)
-        self.mtrl = _ObjectRootMtrl(_rhino_id, GenericObject)
-        self.prop = _ObjectRootProp(_rhino_id, GenericObject)
-        self.rndr = _ObjectRootRndr(_rhino_id, GenericObject)
-        self.stat = _ObjectRootStat(_rhino_id, GenericObject)
-        self.test = _ObjectRootTest(_rhino_id, GenericObject)
-        self.trfm = _ObjectRootTrfm(_rhino_id, GenericObject)
-        self.type = _ObjectRootType(_rhino_id, GenericObject)
-        self.util = _ObjectRootUtil(_rhino_id, GenericObject)
-
-
 class _ArcProp(_CurveRootProp):
 
     # Class constructor
@@ -2942,6 +2922,133 @@ class _TorusProp(_SurfaceRootPropClsd):
         return _rsf.surface_torus(self._rhino_id)
 
 
+class _CurveRootFuncOorc(_CurveRootFuncOpen,_CurveRootFuncClsd):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _CurveRootPropOorc(_CurveRootPropOpen,_CurveRootPropClsd):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _MeshRootFuncOorc(_MeshRootFuncOpen,_MeshRootFuncClsd):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _MeshRootPropOorc(_MeshRootPropClsd,_MeshRootPropOpen):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _SphereProp(_SurfaceRootPropClsd):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def sphere_definition(self):
+        """
+        For help, look up the Rhinoscript function: SurfaceSphere
+        """
+        return _rsf.surface_sphere(self._rhino_id)
+
+
+class _SurfaceRootFuncOorc(_SurfaceRootFuncOpen,_SurfaceRootFuncClsd):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _SurfaceRootPropOorc(_SurfaceRootPropOpen,_SurfaceRootPropClsd):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+
+class _ConeProp(_SurfaceRootPropOorc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def cone_def(self):
+        """
+        For help, look up the Rhinoscript function: SurfaceCone
+        """
+        return _rsf.surface_cone(self._rhino_id)
+
+
+class _CylinderProp(_SurfaceRootPropOorc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def cylinder_def(self):
+        """
+        For help, look up the Rhinoscript function: SurfaceCylinder
+        """
+        return _rsf.surface_cylinder(self._rhino_id)
+
+
+class _PolySurfaceFunc(_SurfaceRootFuncOorc):
+
+    # Class constructor
+    def __init__(self, _rhino_id, _class):
+        if _rhino_id==None:
+            raise Exception("_rhino_id is required.")
+        self._rhino_id = _rhino_id
+        self._class = _class
+
+    def explode(self, objects, delete=pythoncom.Empty):
+        """
+        For help, look up the Rhinoscript function: ExplodePolysurfaces
+        """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
+        _rhino_ids = _rsf.explode_polysurfaces(map(lambda i: i._rhino_id, objects), delete)
+        return map(lambda i: p2r.obj.NurbsSurface(i), _rhino_ids)
+
+
 class Arc(_CurveRoot):
 
     # Class constructor
@@ -3257,6 +3364,26 @@ class EllipticalArc(_CurveRoot):
         self.test = _CurveRootTest(_rhino_id, EllipticalArc)
         self.trfm = _ObjectRootTrfm(_rhino_id, EllipticalArc)
         self.util = _ObjectRootUtil(_rhino_id, EllipticalArc)
+
+
+class GenericObject(_ObjectRoot):
+
+    # Class constructor
+    def __init__(self, _rhino_id):
+        if _rhino_id==None:
+            raise Exception("Use the create... methods to create instances of this class.")
+        self._rhino_id = _rhino_id
+
+        self.defm = _ObjectRootDefm(_rhino_id, GenericObject)
+        self.grps = _ObjectRootGrps(_rhino_id, GenericObject)
+        self.mtrl = _ObjectRootMtrl(_rhino_id, GenericObject)
+        self.prop = _ObjectRootProp(_rhino_id, GenericObject)
+        self.rndr = _ObjectRootRndr(_rhino_id, GenericObject)
+        self.stat = _ObjectRootStat(_rhino_id, GenericObject)
+        self.test = _ObjectRootTest(_rhino_id, GenericObject)
+        self.trfm = _ObjectRootTrfm(_rhino_id, GenericObject)
+        self.type = _ObjectRootType(_rhino_id, GenericObject)
+        self.util = _ObjectRootUtil(_rhino_id, GenericObject)
 
 
 class Line(_CurveRoot):
@@ -4029,7 +4156,7 @@ class Polyline(_CurveRoot):
         self.defm = _ObjectRootDefm(_rhino_id, Polyline)
         self.dupl = _PolylineDupl(_rhino_id, Polyline)
         self.eval = _CurveRootEval(_rhino_id, Polyline)
-        self.func = _CurveRootFuncOorC(_rhino_id, Polyline)
+        self.func = _CurveRootFuncOorc(_rhino_id, Polyline)
         self.grps = _ObjectRootGrps(_rhino_id, Polyline)
         self.modf = _CurveRootMdfy(_rhino_id, Polyline)
         self.mtrl = _ObjectRootMtrl(_rhino_id, Polyline)
@@ -4163,130 +4290,3 @@ class Torus(_SurfaceRoot):
             return Torus(_rhino_id)
         else:
             return None
-
-
-class _CurveRootFuncOorc(_CurveRootFuncOpen,_CurveRootFuncClsd):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-
-class _CurveRootOorc(_CurveRootPropOpen,_CurveRootPropClsd):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-
-class _MeshRootFuncOorc(_MeshRootFuncOpen,_MeshRootFuncClsd):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-
-class _MeshRootPropOorc(_MeshRootPropClsd,_MeshRootPropOpen):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-
-class _SphereProp(_SurfaceRootPropClsd):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-    def sphere_definition(self):
-        """
-        For help, look up the Rhinoscript function: SurfaceSphere
-        """
-        return _rsf.surface_sphere(self._rhino_id)
-
-
-class _SurfaceRootFuncOorc(_SurfaceRootFuncOpen,_SurfaceRootFuncClsd):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-
-class _SurfaceRootPropOorc(_SurfaceRootPropOpen,_SurfaceRootPropClsd):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-
-class _ConeProp(_SurfaceRootPropOorc):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-    def cone_def(self):
-        """
-        For help, look up the Rhinoscript function: SurfaceCone
-        """
-        return _rsf.surface_cone(self._rhino_id)
-
-
-class _CylinderProp(_SurfaceRootPropOorc):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-    def cylinder_def(self):
-        """
-        For help, look up the Rhinoscript function: SurfaceCylinder
-        """
-        return _rsf.surface_cylinder(self._rhino_id)
-
-
-class _PolySurfaceFunc(_SurfaceRootFuncOorc):
-
-    # Class constructor
-    def __init__(self, _rhino_id, _class):
-        if _rhino_id==None:
-            raise Exception("_rhino_id is required.")
-        self._rhino_id = _rhino_id
-        self._class = _class
-
-    def explode(self, objects, delete=pythoncom.Empty):
-        """
-        For help, look up the Rhinoscript function: ExplodePolysurfaces
-        """
-        if type(objects) != list and type(objects) != tuple:
-            objects = (objects,)
-        _rhino_ids = _rsf.explode_polysurfaces(map(lambda i: i._rhino_id, objects), delete)
-        return map(lambda i: p2r.obj.NurbsSurface(i), _rhino_ids)
