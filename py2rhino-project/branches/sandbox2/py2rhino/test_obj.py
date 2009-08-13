@@ -97,7 +97,7 @@ class obj_test(unittest.TestCase):
     def testCreateNurbsCurveBySurfaceContour(self):
         nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_contour(nurvesurface1, (0,0,0), (5,0,0))
-        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        self.assertEqual(type(nurbscurve1[0]),p2r.obj.NurbsCurve)
         
     def testCreateNurbsCurveBySurfaceContourCutPlane(self):
         nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
@@ -105,13 +105,97 @@ class obj_test(unittest.TestCase):
         self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
         
     def testCreateNurbsCurveBySurfaceSection(self):
-        pass
-    
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_section(nurvesurface1, ((0,0,0),(1,0,0),(-0.7,0,0.7),(0.7,0,0.7)))
+        self.assertEqual(type(nurbscurve1[0]),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveBySurfaceEdge(self):
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_edge(nurvesurface1)
+        self.assertEqual(type(nurbscurve1[0]),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveByMeshBorder(self):
+        mesh1 = p2r.obj.Mesh.create(((0,0,0),(5,0,0),(10,0,0),(0,5,0),(5,5,0),(10,5,0),(0,10,0),(5,10,0),(10,10,0)), ((0,1,4,4),(2,4,1,1),(0,4,3,3),(2,5,4,4),(3,4,6,6),(5,8,4,4),(6,4,7,7),(8,7,4,4)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_mesh_border(mesh1)
+        self.assertEqual(type(nurbscurve1[0]),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveBySurfaceBorder(self):
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_border(nurvesurface1)
+        self.assertEqual(type(nurbscurve1[0]),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveBySurfaceISOCurve(self):
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_iso_curve(nurvesurface1,2,0)
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveByFit(self):
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_fit(nurvesurface1)
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveProjectionToMesh(self):
+        mesh1 = p2r.obj.Mesh.create(((0,0,0),(5,0,0),(10,0,0),(0,5,0),(5,5,0),(10,5,0),(0,10,0),(5,10,0),(10,10,0)), ((0,1,4,4),(2,4,1,1),(0,4,3,3),(2,5,4,4),(3,4,6,6),(5,8,4,4),(6,4,7,7),(8,7,4,4)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create(((5,0,0),(5,2,0),(3.5,3.5,0)),(0,0,4,4),2)
+        nurbscurve2 = p2r.obj.NurbsCurve.create_by_projection_to_mesh(nurbscurve1, mesh1, (0,0,1))
+        self.assertEqual(type(nurbscurve2[0]),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveProjectionToSurface(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        nurbscurve1 = p2r.obj.NurbsCurve.create(((5,0,0),(5,2,0),(3.5,3.5,0)),(0,0,4,4),2)
+        nurbscurve2 = p2r.obj.NurbsCurve.create_by_projection_to_srf(nurbscurve1, planesurface1, (0,0,1))
+        self.assertEqual(type(nurbscurve2[0]),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveBySurfacePull(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        nurbscurve1 = p2r.obj.NurbsCurve.create(((5,0,0),(5,2,0),(3.5,3.5,0)),(0,0,4,4),2)
+        nurbscurve2 = p2r.obj.NurbsCurve.create_by_srf_pull(planesurface1, nurbscurve1)
+        self.assertEqual(type(nurbscurve2[0]),p2r.obj.NurbsCurve)   
+        
+    def testCreateNurbsCurveByMeshPull(self):
+        mesh1 = p2r.obj.Mesh.create(((0,0,0),(5,0,0),(10,0,0),(0,5,0),(5,5,0),(10,5,0),(0,10,0),(5,10,0),(10,10,0)), ((0,1,4,4),(2,4,1,1),(0,4,3,3),(2,5,4,4),(3,4,6,6),(5,8,4,4),(6,4,7,7),(8,7,4,4)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create(((5,0,0),(5,2,0),(3.5,3.5,0)),(0,0,4,4),2)
+        nurbscurve2 = p2r.obj.NurbsCurve.create_by_mesh_pull(nurbscurve1, mesh1)
+        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveByShortPath(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_short_path(planesurface1, (0,0,0) (5,5,5))
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveBySurfacePrincipalCurvature(self):
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_principal_curvature(nurvesurface1, (0,0,0))
+        self.assertEqual(type(nurbscurve1[0]),p2r.obj.NurbsCurve)
+        
     def testCreatePlanarMeshByCrv(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         self.assertEqual(type(planarmesh1),p2r.obj.PlanarMesh)
+        
+    def testCreateNurbsSurfaceByCutPlane(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        nurbsurface1 = p2r.obj.NurbsSurface.create_by_cut_plane(circle1, (0,0,0), (1,0,0))
+        self.assertEqual(type(nurbsurface1),p2r.obj.NurbsSurface)
     
+    def testCreateNurbsSurfaceByEdge(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))        
+        circle2 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,5,0),(5,0,0))
+        nurbsurface1 = p2r.obj.NurbsSurface.create_by_edge((circle1,circle2))
+        self.assertEqual(type(nurbsurface1),p2r.obj.NurbsSurface)
+    
+    def testCreateNurbsSurfaceByLoft(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))        
+        circle2 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,5,0),(5,0,0))
+        nurbsurface1 = p2r.obj.NurbsSurface.create_by_loft((circle1,circle2))
+        self.assertEqual(type(nurbsurface1),p2r.obj.NurbsSurface)
+    
+    def testCreateNurbsSurfaceByPlanarCrv(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))        
+        circle2 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,5,0),(5,0,0))
+        nurbsurface1 = p2r.obj.NurbsSurface.create_by_planar_crv((circle1,circle2))
+        self.assertEqual(type(nurbsurface1),p2r.obj.NurbsSurface)
+        
     def testCreatePlaneSurface(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
         self.assertEqual(type(planesurface1),p2r.obj.PlaneSurface)
@@ -153,5 +237,6 @@ class obj_test(unittest.TestCase):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
         self.assertEqual(type(torus1),p2r.obj.Torus)
         
+    
 if __name__ == '__main__':
     unittest.main()
