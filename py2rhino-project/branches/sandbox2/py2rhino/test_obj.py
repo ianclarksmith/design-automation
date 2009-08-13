@@ -50,5 +50,21 @@ class obj_test(unittest.TestCase):
     def testCreateEllipse(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
         self.assertEqual(type(ellipse1),p2r.obj.Ellipse)
+        
+    def testCreateEllipseByPt(self):
+        ellipse1 = p2r.obj.Ellipse.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        self.assertEqual(type(ellipse1),p2r.obj.Ellipse)
+        
+    def testCreateLine(self):
+        line1 = p2r.obj.Line.create((0,0,0), (0,0,1))
+        self.assertEqual(type(line1),p2r.obj.Line)
+        
+    def testCreateMesh(self):
+        mesh1 = p2r.obj.Mesh.create(((0,0,0),(5,0,0),(10,0,0),(0,5,0),(5,5,0),(10,5,0),(0,10,0),(5,10,0),(10,10,0)), ((0,1,4,4),(2,4,1,1),(0,4,3,3),(2,5,4,4),(3,4,6,6),(5,8,4,4),(6,4,7,7),(8,7,4,4)))
+        self.assertEqual(type(mesh1),p2r.obj.Mesh)
+        
+    def testCreateMeshByPolyline(self):
+        
+        
 if __name__ == '__main__':
     unittest.main()
