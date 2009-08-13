@@ -4046,7 +4046,7 @@ class PlanarMesh(_MeshRoot):
         self.util = _ObjectRootUtil(_rhino_id, PlanarMesh)
 
     @staticmethod
-    def create_by_crv(curve, delete):
+    def create_by_crv(curve, delete=pythoncom.Empty):
         """
         For help, look up the Rhinoscript function: AddPlanarMesh
         """
@@ -4156,7 +4156,7 @@ class Polyline(_CurveRoot):
         self.defm = _ObjectRootDefm(_rhino_id, Polyline)
         self.dupl = _PolylineDupl(_rhino_id, Polyline)
         self.eval = _CurveRootEval(_rhino_id, Polyline)
-        self.func = _CurveRootFuncOorc(_rhino_id, Polyline)
+        self.func = _CurveRootFuncOorC(_rhino_id, Polyline)
         self.grps = _ObjectRootGrps(_rhino_id, Polyline)
         self.modf = _CurveRootMdfy(_rhino_id, Polyline)
         self.mtrl = _ObjectRootMtrl(_rhino_id, Polyline)
