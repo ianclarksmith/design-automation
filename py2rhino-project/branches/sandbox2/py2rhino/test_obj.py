@@ -64,7 +64,94 @@ class obj_test(unittest.TestCase):
         self.assertEqual(type(mesh1),p2r.obj.Mesh)
         
     def testCreateMeshByPolyline(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
+        self.assertEqual(type(mesh1),p2r.obj.Mesh)
         
+    def testCreateNurbsCurveByPt(self):
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateInterpCrvOnSrf(self):        
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_interp_crv_on_srf(nurvesurface1,((0,0,0),(5,0,0)))
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateInterpCrvOnSrfUV(self):        
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_interp_crv_on_srf_uv(nurvesurface1,((0,0,0),(5,0,0)))
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateInterpCrv(self):
+        nurbscurve1 = p2r.obj.NurbsCurve.create_interp_crv(((0,0,0),(1,0,0),(5,0,0)))
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateInterpCrvEx(self):
+        nurbscurve1 = p2r.obj.NurbsCurve.create_interp_crv_ex(((0,0,0),(1,0,0),(5,0,0)))
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurve(self):
+        nurbscurve1 = p2r.obj.NurbsCurve.create(((5,0,0),(5,2,0),(3.5,3.5,0)),(0,0,4,4),2)
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveBySurfaceContour(self):
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_contour(nurvesurface1, (0,0,0), (5,0,0))
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveBySurfaceContourCutPlane(self):
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_contour_cut_plane(nurvesurface1, ((0,0,0),(1,0,0),(5,0,0)))
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        
+    def testCreateNurbsCurveBySurfaceSection(self):
+        pass
+    
+    def testCreatePlanarMeshByCrv(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        self.assertEqual(type(planarmesh1),p2r.obj.PlanarMesh)
+    
+    def testCreatePlaneSurface(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        self.assertEqual(type(planesurface1),p2r.obj.PlaneSurface)
+        
+    def testCreatePolyline(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        self.assertEqual(type(polyline1),p2r.obj.Polyline)
+        
+    def testCreatePolylineByCrv(self):
+        arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
+        polyline1 = p2r.obj.Polyline.create_by_crv(arc1)
+        self.assertEqual(type(polyline1),p2r.obj.Polyline)
+        
+    def testCreatePolySurfaceCreateBySrfExtrude(self):
+        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        polysurface1 = p2r.obj.PolySurface.create_by_srf_extrude(nurvesurface1, line1)        
+        self.assertEqual(type(polysurface1),p2r.obj.PolySurface)
+        
+    def testCreatePolySurfaceCreateBySrfJoin(self):
+        plane_surface1 = p2r.obj.PlaneSurface.create(((0,0,0),(1,0,0),(0,1,0)),5,3)
+        plane_surface2 = p2r.obj.PlaneSurface.create(((0,1,0),(1,2,0),(0,1,3)),5,3)
+        polysurface1 = p2r.obj.PolySurface.create_by_srf_join((plane_surface1,plane_surface2))        
+        self.assertEqual(type(polysurface1),p2r.obj.PolySurface)
+        
+    def testCreateSphere(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        self.assertEqual(type(sphere1),p2r.obj.Sphere)
+        
+    def testCreateSphereByPlane(self):
+        sphere1 = p2r.obj.Sphere.create_by_plane((0,0,0), 3)
+        self.assertEqual(type(sphere1),p2r.obj.Sphere)
+        
+    def testCreateTorus(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
+        self.assertEqual(type(torus1),p2r.obj.Torus)    
+        
+    def testCreateTorusByPlane(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
+        self.assertEqual(type(torus1),p2r.obj.Torus)
         
 if __name__ == '__main__':
     unittest.main()
