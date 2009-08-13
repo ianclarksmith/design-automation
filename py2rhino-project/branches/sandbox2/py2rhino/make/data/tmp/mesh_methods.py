@@ -79,7 +79,7 @@ class PlanarMesh(object):
     class Constructors(object):  
         add_planar_mesh = {#ed
             "method_name": "create_by_crv",
-            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("delete","bln","REQ"),),#closed planar curve
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("delete","bln","OPT"),),#closed planar curve
             "method_returns": ("SELF","null")
             }
 #===============================================================================
