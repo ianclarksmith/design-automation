@@ -1,16 +1,16 @@
 import keyword
 from util import *
-from py2rhino.make.data.templates_fnc import descriptors as fnc
+from py2rhino.make.data.templates_wrp import descriptors as wrp
 
-out_folder = "..\\functions\\"
+out_folder = "..\\wrappers\\"
 #===============================================================================
 # Get the data
 #===============================================================================
 def get_data_dictionary():
     data_dict = {}
-    for function_list_name in fnc.__dict__.keys():
+    for function_list_name in wrp.__dict__.keys():
         if function_list_name.endswith('_functions'):
-            function_list = fnc.__dict__[function_list_name]
+            function_list = wrp.__dict__[function_list_name]
             data_dict[function_list_name] = {}
             for function_name in function_list.__dict__.keys():
                 if not function_name.startswith('__'):
