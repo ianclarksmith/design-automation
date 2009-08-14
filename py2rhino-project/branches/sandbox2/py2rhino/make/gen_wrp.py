@@ -1,6 +1,6 @@
 import keyword
 from util import *
-from py2rhino.make.data.templates_wrp import descriptors as wrp
+from py2rhino.make.data.gen_wrp_in import descriptors as wrp
 
 out_folder = "..\\wrappers\\"
 #===============================================================================
