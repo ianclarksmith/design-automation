@@ -1,7 +1,7 @@
 import keyword
 from exceptions import Exception
 from util import *
-from py2rhino.make.data import tmp as des_obj
+from py2rhino.make.data.gen_obj_in import descriptors as des_obj
 from py2rhino.make.data import parser_out as p2r
 out_folder = ".\\data\\gen_docs_out\\"
 #===============================================================================
@@ -168,11 +168,15 @@ def write_docs(data_dict, parser_dict):
         write_class_name(class_name, f)            
         
         #write init
-        module_name = camel_to_underscore(class_name)        
+        module_name = camel_to_underscore(class_name) 
+        
+        #counter
+        count = 0       
         
         #write each constructor to the class file
         for function_name in sorted(class_dict['constructors'].keys()):
             method_dict = class_dict['constructors'][function_name]
+            count += 1
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
                     write_method(function_name, class_name, 'CONSTRUCTOR', method_dict[i], parser_dict, f)
@@ -182,6 +186,7 @@ def write_docs(data_dict, parser_dict):
         #write each method to the class file
         for function_name in sorted(class_dict['methods'].keys()):
             method_dict = class_dict['methods'][function_name]
+            count += 1
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
                     write_method(function_name, class_name, 'METHOD', method_dict[i], parser_dict, f)
@@ -191,12 +196,15 @@ def write_docs(data_dict, parser_dict):
         #write each class method to the class file
         for function_name in sorted(class_dict['class_methods'].keys()):
             method_dict = class_dict['class_methods'][function_name]
+            count += 1
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
                     write_method(function_name, class_name, 'CLASS_METHOD', method_dict[i], parser_dict, f)
             else:
                 write_method(function_name, class_name, 'CLASS_METHOD', method_dict,  parser_dict,f)
             
+        if count == 0:
+            w(f,('pass'), tabs=1)
     #---------------------------------------------------------------------------
     #open the base file
     f = open(out_folder + 'docs_data.py', mode='w')

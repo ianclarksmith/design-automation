@@ -2,6 +2,7 @@ import keyword
 from exceptions import Exception
 from util import *
 from py2rhino.make.data.gen_obj_in import descriptors as des_obj
+from py2rhino.make.data.gen_docs_out import docs_data 
 
 out_folder = "..\\"
 
@@ -204,7 +205,8 @@ def write_rhinoscript_classes(data_dict):
         
         #TODO: write the documentation
         w(f, '"""', tabs=2)
-        w(f, ('For help, look up the Rhinoscript function: ', underscore_to_camel(function_name)), tabs=2)
+        w(f,(docs_data.__dict__[class_name].__dict__[method_name]), tabs=2)
+        w(f, ('This function calls the Rhinoscript function: ', underscore_to_camel(function_name)), tabs=2)
         w(f, '"""', tabs=2)
         
         print class_name, method_name
