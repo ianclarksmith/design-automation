@@ -10,4 +10,5 @@ nc2 = nc.dupl.copy_move((0,0,20))
 nc3 = nc.dupl.copy_move((0,0,40))
 
 sf = p2r.obj.NurbsSurface.create_by_loft( [nc, nc2, nc3] )
+
 print "done"

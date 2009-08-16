@@ -43,57 +43,6 @@ class Arc():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a curve by a distance. The offset curve will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The object's identifier.
-    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
-    C{distance}(dbl, REQ) - The distance of the offset.
-    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
-    Returns
-    =======
-    array - An array containing the identifiers of the new objects if successful.
-    null - If not successful, or on error.
-    """
 
 
 class Box():
@@ -104,43 +53,6 @@ class Box():
     Parameters
     ==========
     C{corners}(array_of dbl, REQ) - An array of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.
-    Returns
-    =======
-    string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a surface by a distance. The offset surface will be added to Rhino.
-    Parameters
-    ==========
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The object's identifier.
-    C{distance}(dbl, REQ) - The distance to offset.
     Returns
     =======
     string - The identifier of the new object if successful.
@@ -175,57 +87,6 @@ class Circle():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a curve by a distance. The offset curve will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The object's identifier.
-    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
-    C{distance}(dbl, REQ) - The distance of the offset.
-    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
-    Returns
-    =======
-    array - An array containing the identifiers of the new objects if successful.
-    null - If not successful, or on error.
-    """
 
 
 class Cone():
@@ -253,43 +114,6 @@ class Cone():
     C{height}(dbl, REQ) - The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
     C{radius}(dbl, REQ) - The 3-D height point of the cone.  The height point defines the height and direction of the cone.
     C{cap}(bln, OPT) - The height of the cone.  If arrPlane is specified, then the center of the arrPlane is height * the plane's z-axis.
-    Returns
-    =======
-    string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a surface by a distance. The offset surface will be added to Rhino.
-    Parameters
-    ==========
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The object's identifier.
-    C{distance}(dbl, REQ) - The distance to offset.
     Returns
     =======
     string - The identifier of the new object if successful.
@@ -327,43 +151,6 @@ class Cylinder():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a surface by a distance. The offset surface will be added to Rhino.
-    Parameters
-    ==========
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The object's identifier.
-    C{distance}(dbl, REQ) - The distance to offset.
-    Returns
-    =======
-    string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
 
 
 class Ellipse():
@@ -394,116 +181,16 @@ class Ellipse():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a curve by a distance. The offset curve will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The object's identifier.
-    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
-    C{distance}(dbl, REQ) - The distance of the offset.
-    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
-    Returns
-    =======
-    array - An array containing the identifiers of the new objects if successful.
-    null - If not successful, or on error.
-    """
 
 
 class EllipticalArc():
 
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a curve by a distance. The offset curve will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The object's identifier.
-    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
-    C{distance}(dbl, REQ) - The distance of the offset.
-    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
-    Returns
-    =======
-    array - An array containing the identifiers of the new objects if successful.
-    null - If not successful, or on error.
-    """
+    pass
 
 
 class GenericObject():
 
+    pass
 
 
 class Line():
@@ -518,57 +205,6 @@ class Line():
     Returns
     =======
     string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a curve by a distance. The offset curve will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The object's identifier.
-    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
-    C{distance}(dbl, REQ) - The distance of the offset.
-    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
-    Returns
-    =======
-    array - An array containing the identifiers of the new objects if successful.
     null - If not successful, or on error.
     """
 
@@ -590,41 +226,15 @@ class Mesh():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
+    create_by_polyline = """
     Factory method:
-    Copies a single object from one location to another, or in-place.
+    Creates a polygon mesh object based on a closed polyline curve object. The newly created polygon mesh object is added to the document.
     Parameters
     ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    C{polyline}(_ObjectRoot._CurveRoot.Polyline, REQ) - The identifier of the polyline curve object.
     Returns
     =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
-    Parameters
-    ==========
-    C{mesh}(_ObjectRoot._MeshRoot, REQ) - The identifier of a mesh object.
-    C{distance}(dbl, REQ) - The distance to offset.
-    Returns
-    =======
-    string - The identifier of the offset mesh object if successful.
+    string - The identifier of the new polygon mesh object if successful.
     null - If not successful, or on error.
     """
 
@@ -771,31 +381,6 @@ class NurbsCurve():
     array - An array of strings identifying the newly created section curves if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
     create_by_srf_edge = """
     Factory method:
     Duplicates the edge curves of a surface or polysurface. For more information, see the Rhino help file for information on the DupEdge command.
@@ -855,58 +440,6 @@ class NurbsCurve():
     Returns
     =======
     string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a curve by a distance. The offset curve will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The object's identifier.
-    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
-    C{distance}(dbl, REQ) - The distance of the offset.
-    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
-    Returns
-    =======
-    array - An array containing the identifiers of the new objects if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset_on_srf = """
-    Factory method:
-    Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The curve object's identifier. Note, the curve must lie on the surface.
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The surface object's identifier.
-    C{distance}(dbl, REQ) - The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
-    Returns
-    =======
-    array - An array containing the identifiers of the new curve objects if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset_on_srf_param = """
-    Factory method:
-    Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The curve object's identifier. Note, the curve must lie on the surface.
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The surface object's identifier.
-    C{parameter}(array_of dbl, REQ) - The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
-    Returns
-    =======
-    array - An array containing the identifiers of the new curve objects if successful.
     null - If not successful, or on error.
     """
     create_by_projection_to_mesh = """
@@ -1295,18 +828,6 @@ class NurbsSurface():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_by_offset = """
-    Factory method:
-    Offsets a surface by a distance. The offset surface will be added to Rhino.
-    Parameters
-    ==========
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The object's identifier.
-    C{distance}(dbl, REQ) - The distance to offset.
-    Returns
-    =======
-    string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
 
 
 class PlanarMesh():
@@ -1317,47 +838,10 @@ class PlanarMesh():
     Parameters
     ==========
     C{curve}(_ObjectRoot._CurveRoot, REQ) - The identifier of a closed, planar curve object.
-    C{delete}(bln, REQ) - If True, then the input curve will be deleted. If not specified or False (default), then the input curve will not be deleted.
+    C{delete}(bln, OPT) - If True, then the input curve will be deleted. If not specified or False (default), then the input curve will not be deleted.
     Returns
     =======
     string - An string identifying the new object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
-    Parameters
-    ==========
-    C{mesh}(_ObjectRoot._MeshRoot, REQ) - The identifier of a mesh object.
-    C{distance}(dbl, REQ) - The distance to offset.
-    Returns
-    =======
-    string - The identifier of the offset mesh object if successful.
     null - If not successful, or on error.
     """
 
@@ -1377,72 +861,10 @@ class PlaneSurface():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a surface by a distance. The offset surface will be added to Rhino.
-    Parameters
-    ==========
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The object's identifier.
-    C{distance}(dbl, REQ) - The distance to offset.
-    Returns
-    =======
-    string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
 
 
 class PolySurface():
 
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
     create_by_srf_extrude = """
     Factory method:
     Creates a surface or solid by extruding a straight along a path curve.
@@ -1466,18 +888,6 @@ class PolySurface():
     Returns
     =======
     string - The identifier of the newly created polysurface object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a surface by a distance. The offset surface will be added to Rhino.
-    Parameters
-    ==========
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The object's identifier.
-    C{distance}(dbl, REQ) - The distance to offset.
-    Returns
-    =======
-    string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
 
@@ -1509,57 +919,6 @@ class Polyline():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a curve by a distance. The offset curve will be added to Rhino.
-    Parameters
-    ==========
-    C{curve}(_ObjectRoot._CurveRoot, REQ) - The object's identifier.
-    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
-    C{distance}(dbl, REQ) - The distance of the offset.
-    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
-		Value
-		Description
-		0
-		None
-		1
-		Sharp (Default)
-		2
-		Round
-		3
-		Smooth
-		4
-    Returns
-    =======
-    array - An array containing the identifiers of the new objects if successful.
-    null - If not successful, or on error.
-    """
 
 
 class Sphere():
@@ -1583,43 +942,6 @@ class Sphere():
     ==========
     C{center}(array_of dbl, REQ) - The center point of the sphere.
     C{radius}(dbl, REQ) - An equatorial plane.  The origin of the plane will be the center point of the sphere.
-    Returns
-    =======
-    string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a surface by a distance. The offset surface will be added to Rhino.
-    Parameters
-    ==========
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The object's identifier.
-    C{distance}(dbl, REQ) - The distance to offset.
     Returns
     =======
     string - The identifier of the new object if successful.
@@ -1656,48 +978,11 @@ class Torus():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    create_copy_move = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_copy_move_by_vec = """
-    Factory method:
-    Copies a single object from one location to another, or in-place.
-    Parameters
-    ==========
-    C{object}(_ObjectRoot, REQ) - The identifier of the object to copy.
-    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-    Returns
-    =======
-    string - The identifier of the copied object if successful.
-    null - If not successful, or on error.
-    """
-    create_by_offset = """
-    Factory method:
-    Offsets a surface by a distance. The offset surface will be added to Rhino.
-    Parameters
-    ==========
-    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The object's identifier.
-    C{distance}(dbl, REQ) - The distance to offset.
-    Returns
-    =======
-    string - The identifier of the new object if successful.
-    null - If not successful, or on error.
-    """
 
 
-class _ArcFunc():
+class _ArcDupl():
 
-    sub = """
+    copy_by_sub = """
     Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
     Parameters
     ==========
@@ -1708,7 +993,52 @@ class _ArcFunc():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    split = """
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a curve by a distance. The offset curve will be added to Rhino.
+    Parameters
+    ==========
+    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
+    C{distance}(dbl, REQ) - The distance of the offset.
+    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+    Returns
+    =======
+    array - An array containing the identifiers of the new objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_split = """
     Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     Parameters
     ==========
@@ -1719,7 +1049,7 @@ class _ArcFunc():
     array - An array containing the identifiers of the two newly created curve objects, if successful.
     null - If not successful, or on error.
     """
-    trim = """
+    copy_by_trim = """
     Trims a curve by removing portions of the curve outside the specified interval.
     Parameters
     ==========
@@ -1770,9 +1100,44 @@ class _ArcProp():
     """
 
 
-class _CircleFunc():
+class _BoxDupl():
 
-    sub = """
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a surface by a distance. The offset surface will be added to Rhino.
+    Parameters
+    ==========
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the new object if successful.
+    null - If not successful, or on error.
+    """
+
+
+class _CircleDupl():
+
+    copy_by_sub = """
     Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
     Parameters
     ==========
@@ -1783,7 +1148,52 @@ class _CircleFunc():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    split = """
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a curve by a distance. The offset curve will be added to Rhino.
+    Parameters
+    ==========
+    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
+    C{distance}(dbl, REQ) - The distance of the offset.
+    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+    Returns
+    =======
+    array - An array containing the identifiers of the new objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_split = """
     Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     Parameters
     ==========
@@ -1794,7 +1204,7 @@ class _CircleFunc():
     array - An array containing the identifiers of the two newly created curve objects, if successful.
     null - If not successful, or on error.
     """
-    trim = """
+    copy_by_trim = """
     Trims a curve by removing portions of the curve outside the specified interval.
     Parameters
     ==========
@@ -1838,6 +1248,41 @@ class _CircleProp():
     """
 
 
+class _ConeDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a surface by a distance. The offset surface will be added to Rhino.
+    Parameters
+    ==========
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the new object if successful.
+    null - If not successful, or on error.
+    """
+
+
 class _ConeProp():
 
     cone_def = """
@@ -1856,6 +1301,7 @@ class _ConeProp():
 
 class _CurveRoot():
 
+    pass
 
 
 class _CurveRootEval():
@@ -2144,7 +1590,7 @@ class _CurveRootFuncClsd():
     number - The absolute (+/-) error bound for the area.
     null - If not successful, or on error.
     """
-    pclosed_crv_area_centroid = """
+    closed_crv_area_centroid = """
     Returns that area centroid of closed, planar curves. The results are based on the current drawing units.
     Parameters
     ==========
@@ -2240,6 +1686,7 @@ class _CurveRootFuncClsd():
 
 class _CurveRootFuncOorc():
 
+    pass
 
 
 class _CurveRootFuncOpen():
@@ -2416,10 +1863,6 @@ class _CurveRootMdfy():
     boolean - True or False indicating success or failure.
     null - On error.
     """
-
-
-class _CurveRootOorc():
-
 
 
 class _CurveRootProp():
@@ -2607,10 +2050,17 @@ class _CurveRootProp():
 
 class _CurveRootPropClsd():
 
+    pass
+
+
+class _CurveRootPropOorc():
+
+    pass
 
 
 class _CurveRootPropOpen():
 
+    pass
 
 
 class _CurveRootTest():
@@ -2773,6 +2223,41 @@ class _CurveRootType():
     """
 
 
+class _CylinderDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a surface by a distance. The offset surface will be added to Rhino.
+    Parameters
+    ==========
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the new object if successful.
+    null - If not successful, or on error.
+    """
+
+
 class _CylinderProp():
 
     cylinder_def = """
@@ -2789,9 +2274,9 @@ class _CylinderProp():
     """
 
 
-class _EllipseFunc():
+class _EllipseDupl():
 
-    sub = """
+    copy_by_sub = """
     Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
     Parameters
     ==========
@@ -2802,7 +2287,52 @@ class _EllipseFunc():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    split = """
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a curve by a distance. The offset curve will be added to Rhino.
+    Parameters
+    ==========
+    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
+    C{distance}(dbl, REQ) - The distance of the offset.
+    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+    Returns
+    =======
+    array - An array containing the identifiers of the new objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_split = """
     Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     Parameters
     ==========
@@ -2813,7 +2343,7 @@ class _EllipseFunc():
     array - An array containing the identifiers of the two newly created curve objects, if successful.
     null - If not successful, or on error.
     """
-    trim = """
+    copy_by_trim = """
     Trims a curve by removing portions of the curve outside the specified interval.
     Parameters
     ==========
@@ -2848,9 +2378,9 @@ class _EllipseProp():
     """
 
 
-class _EllipticalArcFunc():
+class _EllipticalArcDupl():
 
-    sub = """
+    copy_by_sub = """
     Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
     Parameters
     ==========
@@ -2861,7 +2391,52 @@ class _EllipticalArcFunc():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    split = """
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a curve by a distance. The offset curve will be added to Rhino.
+    Parameters
+    ==========
+    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
+    C{distance}(dbl, REQ) - The distance of the offset.
+    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+    Returns
+    =======
+    array - An array containing the identifiers of the new objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_split = """
     Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     Parameters
     ==========
@@ -2872,7 +2447,7 @@ class _EllipticalArcFunc():
     array - An array containing the identifiers of the two newly created curve objects, if successful.
     null - If not successful, or on error.
     """
-    trim = """
+    copy_by_trim = """
     Trims a curve by removing portions of the curve outside the specified interval.
     Parameters
     ==========
@@ -2885,9 +2460,9 @@ class _EllipticalArcFunc():
     """
 
 
-class _LineFunc():
+class _LineDupl():
 
-    sub = """
+    copy_by_sub = """
     Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
     Parameters
     ==========
@@ -2898,7 +2473,52 @@ class _LineFunc():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    split = """
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a curve by a distance. The offset curve will be added to Rhino.
+    Parameters
+    ==========
+    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
+    C{distance}(dbl, REQ) - The distance of the offset.
+    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+    Returns
+    =======
+    array - An array containing the identifiers of the new objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_split = """
     Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     Parameters
     ==========
@@ -2909,7 +2529,7 @@ class _LineFunc():
     array - An array containing the identifiers of the two newly created curve objects, if successful.
     null - If not successful, or on error.
     """
-    trim = """
+    copy_by_trim = """
     Trims a curve by removing portions of the curve outside the specified interval.
     Parameters
     ==========
@@ -2918,12 +2538,49 @@ class _LineFunc():
     Returns
     =======
     string - The identifier of the newly created curve object, if successful.
+    null - If not successful, or on error.
+    """
+
+
+class _MeshDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
+    Parameters
+    ==========
+    C{mesh}(_ObjectRoot._MeshRoot, REQ) - The identifier of a mesh object.
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the offset mesh object if successful.
     null - If not successful, or on error.
     """
 
 
 class _MeshRoot():
 
+    pass
 
 
 class _MeshRootFunc():
@@ -3069,10 +2726,12 @@ class _MeshRootFuncClsd():
 
 class _MeshRootFuncOorc():
 
+    pass
 
 
 class _MeshRootFuncOpen():
 
+    pass
 
 
 class _MeshRootMdfy():
@@ -3266,10 +2925,12 @@ class _MeshRootPropClsd():
 
 class _MeshRootPropOorc():
 
+    pass
 
 
 class _MeshRootPropOpen():
 
+    pass
 
 
 class _MeshRootTest():
@@ -3343,9 +3004,9 @@ class _MeshRootType():
     """
 
 
-class _NurbsCurveFunc():
+class _NurbsCurveDupl():
 
-    crv_sub = """
+    copy_by_sub = """
     Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
     Parameters
     ==========
@@ -3356,7 +3017,74 @@ class _NurbsCurveFunc():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    split = """
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a curve by a distance. The offset curve will be added to Rhino.
+    Parameters
+    ==========
+    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
+    C{distance}(dbl, REQ) - The distance of the offset.
+    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+    Returns
+    =======
+    array - An array containing the identifiers of the new objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset_on_srf = """
+    Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
+    Parameters
+    ==========
+    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The surface object's identifier.
+    C{distance}(dbl, REQ) - The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+    Returns
+    =======
+    array - An array containing the identifiers of the new curve objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset_on_srf_param = """
+    Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
+    Parameters
+    ==========
+    C{surface}(_ObjectRoot._SurfaceRoot, REQ) - The surface object's identifier.
+    C{parameter}(array_of dbl, REQ) - The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+    Returns
+    =======
+    array - An array containing the identifiers of the new curve objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_split = """
     Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     Parameters
     ==========
@@ -3367,7 +3095,7 @@ class _NurbsCurveFunc():
     array - An array containing the identifiers of the two newly created curve objects, if successful.
     null - If not successful, or on error.
     """
-    trim = """
+    copy_by_trim = """
     Trims a curve by removing portions of the curve outside the specified interval.
     Parameters
     ==========
@@ -3380,8 +3108,44 @@ class _NurbsCurveFunc():
     """
 
 
+class _NurbsSurfaceDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a surface by a distance. The offset surface will be added to Rhino.
+    Parameters
+    ==========
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the new object if successful.
+    null - If not successful, or on error.
+    """
+
+
 class _ObjectRoot():
 
+    pass
 
 
 class _ObjectRootDefm():
@@ -3477,6 +3241,7 @@ class _ObjectRootGrps():
 
 class _ObjectRootMdfy():
 
+    pass
 
 
 class _ObjectRootMtrl():
@@ -4206,6 +3971,112 @@ class _ObjectRootUtil():
     """
 
 
+class _PlanarMeshDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
+    Parameters
+    ==========
+    C{mesh}(_ObjectRoot._MeshRoot, REQ) - The identifier of a mesh object.
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the offset mesh object if successful.
+    null - If not successful, or on error.
+    """
+
+
+class _PlaneSurfaceDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a surface by a distance. The offset surface will be added to Rhino.
+    Parameters
+    ==========
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the new object if successful.
+    null - If not successful, or on error.
+    """
+
+
+class _PolySurfaceDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a surface by a distance. The offset surface will be added to Rhino.
+    Parameters
+    ==========
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the new object if successful.
+    null - If not successful, or on error.
+    """
+
+
 class _PolySurfaceFunc():
 
     explode = """
@@ -4221,9 +4092,9 @@ class _PolySurfaceFunc():
     """
 
 
-class _PolylineFunc():
+class _PolylineDupl():
 
-    sub = """
+    copy_by_sub = """
     Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
     Parameters
     ==========
@@ -4234,7 +4105,52 @@ class _PolylineFunc():
     string - The identifier of the new object if successful.
     null - If not successful, or on error.
     """
-    split = """
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a curve by a distance. The offset curve will be added to Rhino.
+    Parameters
+    ==========
+    C{direction}(array_of dbl, REQ) - The 3-D point that indicates the direction of the offset.
+    C{distance}(dbl, REQ) - The distance of the offset.
+    C{normal}(array_of dbl, OPT) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+    C{style}(int, OPT) - The corner style.  If omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+    Returns
+    =======
+    array - An array containing the identifiers of the new objects if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_split = """
     Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
     Parameters
     ==========
@@ -4245,7 +4161,7 @@ class _PolylineFunc():
     array - An array containing the identifiers of the two newly created curve objects, if successful.
     null - If not successful, or on error.
     """
-    trim = """
+    copy_by_trim = """
     Trims a curve by removing portions of the curve outside the specified interval.
     Parameters
     ==========
@@ -4271,6 +4187,41 @@ class _PolylineProp():
     """
 
 
+class _SphereDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a surface by a distance. The offset surface will be added to Rhino.
+    Parameters
+    ==========
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the new object if successful.
+    null - If not successful, or on error.
+    """
+
+
 class _SphereProp():
 
     sphere_definition = """
@@ -4288,6 +4239,7 @@ class _SphereProp():
 
 class _SurfaceRoot():
 
+    pass
 
 
 class _SurfaceRootEval():
@@ -4441,6 +4393,7 @@ class _SurfaceRootFuncClsd():
 
 class _SurfaceRootFuncOorc():
 
+    pass
 
 
 class _SurfaceRootFuncOpen():
@@ -4760,10 +4713,12 @@ class _SurfaceRootPropClsd():
 
 class _SurfaceRootPropOorc():
 
+    pass
 
 
 class _SurfaceRootPropOpen():
 
+    pass
 
 
 class _SurfaceRootTest():
@@ -4958,6 +4913,41 @@ class _SurfaceRootType():
     =======
     boolean - True if successful, otherwise False.
     null - On error.
+    """
+
+
+class _TorusDupl():
+
+    copy_move = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{start}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    C{end}(array_of dbl, OPT) - The 3-D ending point of the copy operation.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_move_by_vec = """
+    Copies a single object from one location to another, or in-place.
+    Parameters
+    ==========
+    C{translation}(array_of dbl, OPT) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+    Returns
+    =======
+    string - The identifier of the copied object if successful.
+    null - If not successful, or on error.
+    """
+    copy_by_offset = """
+    Offsets a surface by a distance. The offset surface will be added to Rhino.
+    Parameters
+    ==========
+    C{distance}(dbl, REQ) - The distance to offset.
+    Returns
+    =======
+    string - The identifier of the new object if successful.
+    null - If not successful, or on error.
     """
 
 
