@@ -12,9 +12,9 @@ srf = srfs[0]
 u_domain = srf.prop.domain(0)
 v_domain = srf.prop.domain(1)
 
-pline = p2r.obj.Polyline.create([(0,0,0), (20,0,0), (10,10,0)])
+#pline = p2r.obj.Polyline.create([(0,0,0), (20,0,0), (10,10,0)])
 
-
+print p2r.util.vector.cross_product( (23,65,867), (3,65,99))
 print "done", p2r._version
 
 

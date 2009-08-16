@@ -4,8 +4,8 @@
 #===============================================================================
 # Vector
 #===============================================================================
-class Vector(object):    
-    inherits = None
+class vector(object):    
+    folder = "util"
 
     class Functions(object):
 
@@ -105,8 +105,8 @@ class Vector(object):
 #===============================================================================
 # Point
 #===============================================================================
-class Point(object):    
-    inherits = None
+class point(object):    
+    folder = "util"
     class Functions(object):
         point_compare = {
             "method_name": "compare",

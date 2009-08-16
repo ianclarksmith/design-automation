@@ -1,7 +1,7 @@
 #some utility functions
 import py2rhino as p2r
-from py2rhino.functions import curve
-from py2rhino.functions import object
+from py2rhino.wrappers import curve
+from py2rhino.wrappers import object
 
 def wrap(rhino_id):
     #TODO: implement this function    
