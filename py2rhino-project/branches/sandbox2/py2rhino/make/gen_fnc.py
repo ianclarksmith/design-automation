@@ -1,7 +1,7 @@
 import keyword
 from exceptions import Exception
 from util import *
-from py2rhino.make.data.gen_fnc_in import descriptors as des_obj
+from py2rhino.make.data.gen_fnc_in import descriptors as des_fnc
 
 out_folder = "..\\"
 
@@ -10,13 +10,11 @@ out_folder = "..\\"
 #===============================================================================
 def get_data_dictionary():
     
-    print des_obj.__dict__.keys()
-    
     module_map = {}
-    for function_list_name in des_obj.__dict__.keys():
+    for function_list_name in des_fnc.__dict__.keys():
         if function_list_name.endswith('_methods'):
             #print function_list_name
-            function_list = des_obj.__dict__[function_list_name]
+            function_list = des_fnc.__dict__[function_list_name]
             for module_name in function_list.__dict__.keys():
                 if not module_name.startswith('__'):
                     module = function_list.__dict__[module_name]
@@ -25,6 +23,10 @@ def get_data_dictionary():
                     if not module_name in module_map.keys():
                         module_map[module_name] = {}
                     
+                    #folder
+                    sub_folder_name = module.__dict__["folder"]
+                    module_map[module_name]["folder"] = sub_folder_name
+                                        
                     #==============================================================
                     #functions
                     if "functions" in module_map[module_name].keys():
@@ -45,11 +47,8 @@ def get_data_dictionary():
 #===============================================================================
 # Write the module
 #===============================================================================
-def write_function_module(data_dict):
+def write_modules(data_dict):
     
-
-
-        
     #---------------------------------------------------------------------------
     def write_function(function_name, method_dict, f):
         
@@ -83,7 +82,7 @@ def write_function_module(data_dict):
             
         #create the function signature
         method_name = method_dict['method_name']
-        w(f, ('def ', method_name), tabs=1, nls=1, nle=0)
+        w(f, ('def ', method_name), tabs=0, nls=1, nle=0)
         if num_params > 0:
             params = []
             for i in range(num_params):
@@ -95,12 +94,18 @@ def write_function_module(data_dict):
                     if params_opt_or_req[i] == 'OPT':
                         param_str = param_str + '=pythoncom.Empty'
                     params.append(param_str)
-
+            if len(params) > 0:
+                params = ', '.join(params)
+                w(f, ('(', params, '):'), tabs=0, nle=1)
+            else:
+                w(f, '():', tabs=0, nle=1)
+        else:
+            w(f, '():', tabs=0, nle=1)
         
         #TODO: write the documentation
-        w(f, '"""', tabs=2)
-        w(f, ('For help, look up the Rhinoscript function: ', underscore_to_camel(function_name)), tabs=2)
-        w(f, '"""', tabs=2)
+        w(f, '"""', nls=1, tabs=1)
+        w(f, ('For help, look up the Rhinoscript function: ', underscore_to_camel(function_name)), tabs=1)
+        w(f, '"""', tabs=1)
 
         
         #create the arguments
@@ -127,8 +132,8 @@ def write_function_module(data_dict):
                     if params_type_tail in simple_types:
                         args.append(params_name[i])
                     elif params_type_tail.startswith('_Object') or params_type_tail.startswith('_Entity'):
-                        w(f, ('if type(',params_name[i],') != list and type(',params_name[i],') != tuple:'), tabs=2)
-                        w(f, (params_name[i],' = (',params_name[i],',)'), tabs=3)
+                        w(f, ('if type(',params_name[i],') != list and type(',params_name[i],') != tuple:'), tabs=1)
+                        w(f, (params_name[i],' = (',params_name[i],',)'), tabs=2)
                         args.append('map(lambda i: i._rhino_id, '+params_name[i] + ')')
                     else:
                         #this will highlight anything I have forgotten
@@ -149,40 +154,13 @@ def write_function_module(data_dict):
             raise Exception('Method does not have the right number of returns')
         
         if return_type == None:
-            w(f, ('return _rsf.',function_name,'()'), tabs=2)
+            w(f, ('return _rsf.',function_name,'()'), tabs=1)
         elif return_type in simple_types or return_type == 'number':
-            w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2)
-        elif return_type.startswith('array_of') and return_type[9:] in simple_types or return_type[9:] == 'number':
-            w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=2)
-        
-            return_class_name = return_type.split('.')[-1]
-            if return_class_name.startswith('_'):
-                w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
-                w(f, ('if _rhino_id:'), tabs=2)
-                w(f, ('return p2r._util.wrap(_rhino_id)'), tabs=3)
-                w(f, ('else:'), tabs=2)
-                w(f, ('return None'), tabs=3)
-            else:
-                w(f, ('_rhino_id = _rsf.',function_name,'(', args, ')'), tabs=2)
-                w(f, ('if _rhino_id:'), tabs=2)
-                w(f, ('return p2r.obj.', return_class_name, '(_rhino_id)'), tabs=3)#TODO:this needs more work
-                w(f, ('else:'), tabs=2)
-                w(f, ('return None'), tabs=3) 
-        elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity'):
-            return_class_name = return_type[9:].split('.')[-1]
-            if return_class_name.startswith('_') and return_class_name.endswith('Root'):
-                w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                w(f, ('return map(lambda i: self._class(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
-            elif return_class_name.startswith('_'):
-                w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                w(f, ('return map(lambda i: p2r._util.wrap(i), _rhino_ids)'), tabs=2, nle=1)
-            else:
-                w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                w(f, ('return map(lambda i: p2r.obj.'+return_class_name+'(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
+            w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=1)
+        elif return_type.startswith('array_of') and (return_type[9:] in simple_types or return_type[9:] == 'number'):
+            w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=1)
         else:
-            raise Exception('The method returns something very strange')
-
-            
+            raise Exception('The function returns something very strange')
 
     #---------------------------------------------------------------------------
     def write_module(module_dict, f):          
@@ -197,24 +175,22 @@ def write_function_module(data_dict):
                 write_function(function_name, method_dict, f)
 
     #---------------------------------------------------------------------------
-
-    list_of_modules = []
     for module_name in sorted(data_dict.keys()):
-        list_of_modules.append(module_name)
-    
-    for module_name in list_of_modules:
     #open the base file
-        f = open(out_folder + '_rhinoscript_classes.py', mode='w')
-
+        module_dict = data_dict[module_name]
+        sub_folder_name = module_dict['folder']
+        if sub_folder_name != None:
+            f = open(out_folder + sub_folder_name +'//'+ module_name + '.py', mode='w')
+        else:
+            f = open(out_folder + module_name + '.py', mode='w')
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
         w(f,'import pythoncom')
-        w(f,'from exceptions import Exception')
-        w(f,'from py2rhino import _util')   
+ 
         
         #write the global _rsf variable and set it to None    
         w(f,'_rsf = None', nls=2)           
         
-        module_dict = data_dict[module_name]
+        
         write_module(module_dict, f)
         f.close()
     #---------------------------------------------------------------------------
@@ -225,9 +201,9 @@ def write_function_module(data_dict):
 #===============================================================================
 if __name__ == '__main__':
     data_dict = get_data_dictionary()
-    write_rhinoscript_functions(data_dict)
+    write_modules(data_dict)
 
-    print "done generating classes"
+    print "done generating modules"
     
     
     

@@ -11,7 +11,7 @@ time.sleep(1)
 app.Visible = True
 _rso = app.GetScriptObject
 
-from functions._rhinoscript_functions import _RhinoscriptFunctions
+from wrappers._rhinoscript_functions import _RhinoscriptFunctions
 _rsf = _RhinoscriptFunctions(_rso)
 
 import _rhinoscript_classes
@@ -24,3 +24,6 @@ import obj
 import ent
 import doc
 import app
+
+import util.vector
+util.vector._rsf = _rsf

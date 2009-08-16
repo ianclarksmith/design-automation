@@ -4153,6 +4153,7 @@ class Polyline(_CurveRoot):
             raise Exception("Use the create... methods to create instances of this class.")
         self._rhino_id = _rhino_id
 
+
         self.defm = _ObjectRootDefm(_rhino_id, Polyline)
         self.dupl = _PolylineDupl(_rhino_id, Polyline)
         self.eval = _CurveRootEval(_rhino_id, Polyline)
@@ -4166,6 +4167,7 @@ class Polyline(_CurveRoot):
         self.test = _CurveRootTest(_rhino_id, Polyline)
         self.trfm = _ObjectRootTrfm(_rhino_id, Polyline)
         self.util = _ObjectRootUtil(_rhino_id, Polyline)
+
 
     @staticmethod
     def create(points):
