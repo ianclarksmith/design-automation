@@ -269,7 +269,16 @@ def write_rhinoscript_classes(data_dict):
                 w(f, ('return None'), tabs=3)
             elif return_type == 'array_of SELF':
                 assert not class_name.startswith('_')
-                w(f, ('return map(lambda i: '+class_name+'(i), _rhino_id)'), tabs=2, nls=1, nle=2)
+                w(f, ('if _rhino_id:'), tabs=2)
+                w(f, ('return map(lambda i: '+class_name+'(i), _rhino_id)'), tabs=3, nls=1, nle=2)
+                w(f, ('else:'), tabs=2)
+                w(f, ('return None'), tabs=3)                
+            elif return_type == 'first_in_array_of SELF':
+                assert not class_name.startswith('_')
+                w(f, ('if _rhino_id:'), tabs=2)
+                w(f, ('return '+class_name+'(_rhino_id[0])'), tabs=3)
+                w(f, ('else:'), tabs=2)
+                w(f, ('return None'), tabs=3)               
             else:
                 raise Exception('Cannot understand return type for constructor')
         
