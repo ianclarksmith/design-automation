@@ -64,7 +64,7 @@ class _PolySurfaceFunc(object):
     class Methods(object):
         explode_polysurfaces = {
             "method_name": "explode",
-            "method_parameters": (("objects","array_of _Object","REQ"),("delete","bln","OPT"),),#this was an array - hope it still works
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("delete","bln","OPT"),),#this was an array - hope it still works
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot.NurbsSurface","null")
             } 
 #===============================================================================
@@ -231,7 +231,7 @@ class NurbsSurface(object):
         add_loft_srf = {#ed
             "method_name": "create_by_loft",
             "method_parameters": (("objects","array_of _ObjectRoot._CurveRoot","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("srf_type","int","OPT"),("style","int","OPT"),("value","n","OPT"),("closed","bln","OPT"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("first_in_array_of SELF","null")#returns array
             }
         add_nurbs_surface = {#ed
             "method_name": "create",
@@ -289,7 +289,7 @@ class NurbsSurface(object):
         extrude_curve_tapered = {#ed
             "method_name": "create_by_extrude_crv_tapered",
             "method_parameters": (("curve","_ObjectRoot._CurveRoot","REQ"),("distance","dbl","REQ"),("direction","array_of dbl","REQ"),("base_point","array_of dbl","REQ"),("angle","dbl","REQ"),("corner_type","int","OPT"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null")#returns array
             }  
 
 
@@ -298,17 +298,17 @@ class NurbsSurface(object):
         add_planar_srf = {#ed
             "method_name": "create_by_planar_crv",
             "method_parameters": (("objects","array_of _ObjectRoot._CurveRoot","REQ"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("first_in_array_of SELF","null")#returns array
             }
         add_sweep_1 = {#ed
             "method_name": "create_by_sweep_1",
             "method_parameters": (("rail","_ObjectRoot._CurveRoot","REQ"),("shapes","array_of _ObjectRoot._CurveRoot","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("closed","bln","OPT"),("style","int","OPT"),("style_arg","va","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("first_in_array_of SELF","null")#returns array
             }
         add_sweep_2 = {#ed
             "method_name": "create_by_sweep_2",
             "method_parameters": (("rails","array_of _ObjectRoot._CurveRoot","REQ"),("shapes","array_of _ObjectRoot._CurveRoot","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("closed","bln","OPT"),("simple_sweep","bln","OPT"),("maintain_height","bln","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("first_in_array_of SELF","null")#returns array
             }
         
         copy_object = {
@@ -622,42 +622,42 @@ class NurbsCurve(object):
         add_srf_contour_crvs = {#surface or polysurface
             "method_name": "create_by_srf_contour",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("interval","dbl","OPT")),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null")#returns array
             }
         add_srf_contour_crvs_2 = {#surface or polysurface
             "method_name": "create_by_srf_contour_cut_plane",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("plane","array_of dbl","REQ"),("interval","dbl","OPT")),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null")#returns array
             }        
         add_srf_section_crvs = {#surface or polysurface
             "method_name": "create_by_srf_section",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("plane","array_of dbl","REQ"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null")#returns array
             }
         duplicate_edge_curves = {#surface or polysurface
             "method_name": "create_by_srf_edge",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("select","bln","OPT"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null")#returns array
             }
         duplicate_surface_border = {#surface or polysurface
             "method_name": "create_by_srf_border",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null")#returns array
             }
         extract_iso_curve = {#
             "method_name": "create_by_srf_iso_curve",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("parameter","array_of dbl","REQ"),("dir","int","REQ"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null")#returns array
             }
         surface_principal_curvature = {#ed
             "method_name": "create_by_srf_principal_curvature",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("point","array_of dbl","REQ"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null")#returns array
             }
         pull_curve = {#ed
             "method_name": "create_by_srf_pull",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),("delete","bln","OPT"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("array_of SELF","null") #returns array
             } 
         
     

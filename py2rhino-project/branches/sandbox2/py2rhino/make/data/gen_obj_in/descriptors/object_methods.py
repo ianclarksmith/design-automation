@@ -237,7 +237,7 @@ class _ObjectRootStat(object):
             },
             1: {
             "method_name": "reset_object_attributes",
-            "method_parameters": (("","SELF","OPT"),("source","_ObjectRoot","OMIT")),### Here is an OMIT statement 
+            "method_parameters": (("","SELF","OPT"),("source","_ObjectRoot","OPT", "EMPTY", "HIDE")),
             "method_returns": ("number","null")        
             }}
         flash_object = {

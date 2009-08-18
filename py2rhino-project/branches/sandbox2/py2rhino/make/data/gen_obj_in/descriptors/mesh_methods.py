@@ -275,7 +275,7 @@ class _MeshRootPropClsd(object):
     class Methods(object):
         mesh_volume = {#ed
             "method_name": "mesh_volume",
-            "method_parameters": (("objects","array_of str","REQ"),),
+            "method_parameters": (("objects","array_of _ObjectRoot._MeshRoot","REQ"),),
             "method_returns": ("array_of dbl","null")
             }
         mesh_volume_centroid = {#ed

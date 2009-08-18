@@ -84,13 +84,13 @@ class NurbsCurve(object):
         
         project_curve_to_surface = {
             "method_name": "create_by_projection_to_srf",
-            "method_parameters": (("curve","_ObjectRoot._CurveRoot.NurbsCurve","REQ"),("surfaces","array_of str","REQ"),("direction","array_of dbl","REQ"),),###
-            "method_returns": ("array_of SELF","null")
+            "method_parameters": (("curve","_ObjectRoot._CurveRoot.NurbsCurve","REQ"),("surfaces","array_of _ObjectRoot._SurfaceRoot","REQ"),("direction","array_of dbl","REQ"),),
+            "method_returns": ("array_of SELF","null")#returns array
         }
         project_curve_to_mesh = {
             "method_name": "create_by_projection_to_mesh",
-            "method_parameters": (("curves","array_of _ObjectRoot","REQ"),("meshes","array_of str","REQ"),("direction","array_of dbl","REQ"),),
-            "method_returns": ("array_of SELF","null")
+            "method_parameters": (("curves","array_of _ObjectRoot","REQ"),("meshes","array_of _ObjectRoot._SurfaceRoot","REQ"),("direction","array_of dbl","REQ"),),
+            "method_returns": ("array_of SELF","null")#returns array
         }
 #===============================================================================
 # _NurbsCurveDupl
@@ -615,7 +615,7 @@ class Polyline(object):
         
         #polyline holds
         "prop": "_PolylineProp",
-        "func": "_CurveRootFuncOorC",        
+        "func": "_CurveRootFuncOorC",
     }     
     class Constructors(object):
         add_polyline = {
