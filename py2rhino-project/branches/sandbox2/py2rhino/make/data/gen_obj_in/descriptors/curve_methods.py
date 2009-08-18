@@ -42,7 +42,7 @@ class NurbsCurve(object):
         "dupl": "_NurbsCurveDupl",#inherits from object level
         
         #properties
-        "prop": "_ObjectRootProp",
+        "prop": "_CurveRootProp",
         "func": "_CurveRootFuncOorc",
     }
     class Constructors(object):
@@ -278,7 +278,7 @@ class EllipticalArc(object):
         "dupl": "_EllipticalArcDupl",#inherits from object level
         
         #ell arc holds
-        "prop": "_ObjectRootProp",
+        "prop": "_CurveRootProp",
         "func": "_CurveRootFuncOpen",        
     }    
 
@@ -539,7 +539,7 @@ class Line(object):
         "dupl": "_LineDupl",#inherits from object level
         
         #properties
-        "prop": "_ObjectRootProp",
+        "prop": "_CurveRootProp",
         "func": "_CurveRootFuncOpen",        
     }     
     class Constructors(object):
