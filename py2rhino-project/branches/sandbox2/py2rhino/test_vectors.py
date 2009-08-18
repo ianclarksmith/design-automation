@@ -1,7 +1,7 @@
 import py2rhino as p2r
 import py2rhino.util.vector as v
 
-cv = p2r.obj.NurbsCurve("6a3976f1-81fa-4df8-9e0b-ede66af220a1")
+cv = p2r.obj.NurbsCurve("f8c69adc-c842-4fbc-b05b-56d4cc669eea")
 pl =  cv.eval.frame(0.2)
 
 start  = v.add(pl[0], v.scale(v.unitize(pl[2]), 10))
