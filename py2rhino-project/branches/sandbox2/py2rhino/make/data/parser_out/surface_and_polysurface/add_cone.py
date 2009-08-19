@@ -9,7 +9,7 @@ add_cone = {
     """,
 
     "syntax_html": {
-        0: ("arrBase", "arrHeight", "dblRadius", "blnCap"),
+        0: ("arrBase", "arrHeightPnt", "dblRadius", "blnCap"),
         1: ("arrPlane", "dblHeight", "dblRadius", "blnCap"),
     },
 
@@ -37,12 +37,12 @@ add_cone = {
             """
         },
         2: {
-            "name": "arrHeight",
-            "py_name": "height",
+            "name": "arrHeightPnt",
+            "py_name": "height_pnt",
             "opt_or_req": "Required",
             "type": "Array",
-            "name_prefix": "dbl",
-            "name_main": "Height",
+            "name_prefix": "arr_of_dbl",
+            "name_main": "HeightPnt",
             "doc": """
         The 3-D height point of the cone.  The height point defines the height and direction of the cone.
             """
