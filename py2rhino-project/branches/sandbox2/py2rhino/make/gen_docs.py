@@ -2,11 +2,24 @@ import keyword
 from exceptions import Exception
 from util import *
 from py2rhino.make.data.gen_obj_in import descriptors as des_obj
+from py2rhino.make.data.gen_wrp_in import descriptors as des_wrp
 from py2rhino.make.data import parser_out as p2r
 out_folder = ".\\data\\gen_docs_out\\"
 #===============================================================================
 # Get the data from the parser
 #===============================================================================
+def get_wrp_data_dictionary():
+    data_dict = {}
+    for function_list_name in des_wrp.__dict__.keys():
+        if function_list_name.endswith('_functions'):
+            function_list = des_wrp.__dict__[function_list_name]
+            data_dict[function_list_name] = {}
+            for function_name in function_list.__dict__.keys():
+                if not function_name.startswith('__'):
+                    function = function_list.__dict__[function_name]
+                    data_dict[function_list_name][function_name] = function
+    return data_dict
+
 def get_parser_data_dictionary():
     data = {}
     for i in sorted(p2r.__dict__.keys()):
@@ -125,10 +138,10 @@ def write_docs(data_dict, parser_dict):
 
     #---------------------------------------------------------------------------
     def write_method(function_name, class_name, method_type, method_dict, parser_dict, f):
-        #get the param data into a set of lists for easy access
-        
+
         #print function_name, class_name, method_type
         
+        #get the param data into a set of lists for easy access
         params_name = []
         params_opt_or_req = []
         params_type = []
@@ -202,8 +215,17 @@ def write_docs(data_dict, parser_dict):
                     #get the opt/req string
                     opt_req_str = opt_req_map[params_opt_or_req[i]]
                     
-                    #get the doc string
-                    doc_str = parser_data['params_html'][i]['doc'].strip()
+                    #get the doc string from the parser data
+                    doc_str = None
+                    print parser_data['output_package_name'], function_name, i
+                    original_param_name = wrp_dict[parser_data['output_package_name'] + '_functions'][function_name]['function_parameters'][i][0]
+                    for parser_param_num in parser_data['params_html'].keys():
+                        if parser_data['params_html'][parser_param_num]['py_name'] == original_param_name:
+                            doc_str = parser_data['params_html'][parser_param_num]['doc'].strip()
+                    if doc_str == None:
+                        print params_name[i], parser_data['params_html']
+                        print "ERROR: doc string not found for parameter"
+                    
                     if is_object:
                         doc_str = doc_str.replace("An array of strings identifying the ", "A list of ")
                         doc_str = doc_str.replace("A string identifying the ", "The ")
@@ -213,7 +235,7 @@ def write_docs(data_dict, parser_dict):
                     doc_str = doc_str.replace("array","list")
                     doc_str = doc_str.replace("null","None")                    
                     
-                    w(f,(params_name[i], '(', type_str,', ', opt_req_str, ') - ', doc_str), tabs = 2)
+                    w(f,(params_name[i], '  (', type_str,', ', opt_req_str, ') - ', doc_str), tabs = 2)
                     
         if param_counter == 0:
             w(f,'No parameters', tabs = 2)
@@ -335,6 +357,8 @@ def write_docs(data_dict, parser_dict):
 #===============================================================================
 if __name__ == '__main__':
     parser_dict = get_parser_data_dictionary()
+    wrp_dict = get_wrp_data_dictionary()
+    print wrp_dict.keys()
     descriptors_dict = get_descriptors_data_dictionary()
     
     write_docs(descriptors_dict, parser_dict)

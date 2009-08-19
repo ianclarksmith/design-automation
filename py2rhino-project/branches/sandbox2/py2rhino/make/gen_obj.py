@@ -321,13 +321,22 @@ def write_rhinoscript_classes(data_dict):
                 return_class_name = return_type[9:].split('.')[-1]
                 if return_class_name.startswith('_') and return_class_name.endswith('Root'):
                     w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                    w(f, ('return map(lambda i: self._class(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
+                    w(f, ('if _rhino_ids:'), tabs=2)                    
+                    w(f, ('return map(lambda i: self._class(i), _rhino_ids)'), tabs=3, nle=1)#TODO:this needs more work
+                    w(f, ('else:'), tabs=2)
+                    w(f, ('return None'), tabs=3)                     
                 elif return_class_name.startswith('_'):
                     w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                    w(f, ('return map(lambda i: p2r._util.wrap(i), _rhino_ids)'), tabs=2, nle=1)
+                    w(f, ('if _rhino_ids:'), tabs=2)                    
+                    w(f, ('return map(lambda i: p2r._util.wrap(i), _rhino_ids)'), tabs=3, nle=1)
+                    w(f, ('else:'), tabs=2)
+                    w(f, ('return None'), tabs=3)                     
                 else:
                     w(f, ('_rhino_ids = _rsf.',function_name,'(', args, ')'), tabs=2)
-                    w(f, ('return map(lambda i: p2r.obj.'+return_class_name+'(i), _rhino_ids)'), tabs=2, nle=1)#TODO:this needs more work
+                    w(f, ('if _rhino_ids:'), tabs=2)                    
+                    w(f, ('return map(lambda i: p2r.obj.'+return_class_name+'(i), _rhino_ids)'), tabs=3, nle=1)#TODO:this needs more work
+                    w(f, ('else:'), tabs=2)
+                    w(f, ('return None'), tabs=3)                     
             else:
                 raise Exception('The method returns something very strange')
             
@@ -436,6 +445,7 @@ def write_rhinoscript_classes(data_dict):
                 if not class_name in sorted_list and inherits[0] in sorted_list and inherits[1] in sorted_list:
                     sorted_list.append(class_name)
             else:
+                print class_name
                 raise Exception
                     
     for i in list_of_class_name:

@@ -1,18 +1,17 @@
 from util import *
-from py2rhino.make.data import parser_out as p2r
+from py2rhino.make.data import parser_out
 import keyword
-in_folder =  ".\\data\\parser_out\\"
 out_folder = ".\\data\\gen_templates\\"
 #===============================================================================
 # Get the data from the parser
 #===============================================================================
 def get_data_dictionary():
     data = {}
-    for i in sorted(p2r.__dict__.keys()):
+    for i in sorted(parser_out.__dict__.keys()):
         if not i.startswith("__"):
-            if not isinstance(p2r.__dict__[i], dict):
+            if not isinstance(parser_out.__dict__[i], dict):
                 data[i] = {}
-                mod = p2r.__dict__[i]
+                mod = parser_out.__dict__[i]
                 for j in sorted(mod.__dict__.keys()):
                     if not j.startswith("__"):
                         data[i][j] = mod.__dict__[j]
@@ -81,7 +80,7 @@ def write_methods(data_dict):
 
 #------------------------------------------------------------------------------ 
 def get_params_data(method_dict, method_num):
-    
+       
     #get the method name in py format
     py_method_name = method_dict['output_module_name']
     if method_num > 0:
@@ -106,12 +105,14 @@ def get_params_data(method_dict, method_num):
                 param_py_name = param_dict['py_name']
                 if keyword.iskeyword(param_py_name):
                     param_py_name += "_"
-
+                               
                 #add data to the lists
                 params_name.append(param_py_name)
                 params_type.append(param_dict['name_prefix'])
                 params_opt_or_req.append( param_dict['opt_or_req'])
                 params_doc.append(param_dict['doc'])
+            else:
+                pass #this must be a parameter that is not used
     
     return (py_method_name, params_name, params_type, params_opt_or_req, params_doc)
 #------------------------------------------------------------------------------ 
