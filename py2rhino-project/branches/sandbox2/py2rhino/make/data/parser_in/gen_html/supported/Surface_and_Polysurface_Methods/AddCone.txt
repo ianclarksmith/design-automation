@@ -11,7 +11,7 @@ Adds a cone-shaped polysurface to the document.
 Syntax
 
 
-Rhino.AddCone (arrBase, arrHeight, dblRadius [, blnCap])
+Rhino.AddCone (arrBase, arrHeightPnt, dblRadius [, blnCap])
 
 Rhino.AddCone (arrPlane, dblHeight, dblRadius [, blnCap]))
 
@@ -28,7 +28,7 @@ arrPlane
 
 Required.  Array.  The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
 
-arrHeight 
+arrHeightPnt 
 
 Required.  Array.  The 3-D height point of the cone.  The height point defines the height and direction of the cone.
 
@@ -61,7 +61,7 @@ If not successful, or on error.
 Example
 
 
-Dim arrBase, arrHeight, dblRadius
+Dim arrBase, arrHeightPnt, dblRadius
 
 dblRadius = 5.0
 
@@ -69,11 +69,11 @@ arrBase = Rhino.GetPoint("Base of cone")
 
 If IsArray(arrBase) Then
 
-arrHeight = Rhino.GetPoint("Height of cone", arrBase)
+arrHeightPnt = Rhino.GetPoint("Height of cone", arrBase)
 
-If IsArray(arrHeight) Then
+If IsArray(arrHeightPnt) Then
 
-Rhino.AddCone arrBase, arrHeight, dblRadius
+Rhino.AddCone arrBase, arrHeightPnt, dblRadius
 
 End If
 

@@ -11,7 +11,7 @@ Adds a cylinder-shaped polysurface to the document.
 Syntax
 
 
-Rhino.AddCylinder (arrBase, arrHeight, dblRadius [, blnCap])
+Rhino.AddCylinder (arrBase, arrHeightPnt, dblRadius [, blnCap])
 
 Rhino.AddCylinder (arrPlane, dblHeight, dblRadius [, blnCap])
 
@@ -28,7 +28,7 @@ arrPlane
 
 Required.  Array.  The base plane of the cylinder.
 
-arrHeight 
+arrHeightPnt 
 
 Required.  Array.  The 3-D height point of the cylinder.  The height point defines the height and direction of the cylinder.
 
@@ -61,7 +61,7 @@ If not successful, or on error.
 Example
 
 
-Dim arrBase, arrHeight, dblRadius
+Dim arrBase, arrHeightPnt, dblRadius
 
 dblRadius = 5.0
 
@@ -69,11 +69,11 @@ arrBase = Rhino.GetPoint("Base of cylinder")
 
 If IsArray(arrBase) Then
 
-arrHeight = Rhino.GetPoint("Height of cylinder", arrBase)
+arrHeightPnt = Rhino.GetPoint("Height of cylinder", arrBase)
 
-If IsArray(arrHeight) Then
+If IsArray(arrHeightPnt) Then
 
-Rhino.AddCylinder arrBase, arrHeight, dblRadius
+Rhino.AddCylinder arrBase, arrHeightPnt, dblRadius
 
 End If
 

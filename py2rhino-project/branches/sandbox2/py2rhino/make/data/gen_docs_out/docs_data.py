@@ -8,9 +8,9 @@ class Arc():
 
         Parameters
         ==========
-        plane(List of float, Required) - The plane on which the arc will lie. The origin of the plane will be the center point of the arc. The X-axis of the plane will define the 0 angle direction.
-        radius(float, Required) - The radius arc.
-        angle(float, Required) - A angle or interval, in degrees, of the arc.
+        plane  (List of float, Required) - The plane on which the arc will lie. The origin of the plane will be the center point of the arc. The X-axis of the plane will define the 0 angle direction.
+        radius  (float, Required) - The radius arc.
+        angle  (float, Required) - A angle or interval, in degrees, of the arc.
 
         Returns
         =======
@@ -25,9 +25,9 @@ class Arc():
 
         Parameters
         ==========
-        start(List of float, Required) - The starting point of the arc.
-        end(List of float, Required) - The ending point of the arc.
-        point(List of float, Required) - A point on the arc.
+        start_point  (List of float, Required) - The starting point of the arc.
+        end_point  (List of float, Required) - The ending point of the arc.
+        point  (List of float, Required) - A point on the arc.
 
         Returns
         =======
@@ -42,11 +42,11 @@ class Arc():
 
         Parameters
         ==========
-        curve_0(NurbsCurve, Required) - The identifier of the first curve object.
-        curve_1(NurbsCurve, Required) - The identifier of the second curve object.
-        radius(float, Optional) - The fillet radius. If omitted, a radius of 1.0 is specified.
-        point_0(List of float, Optional) - The base point on the first curve. If omitted, the starting point of the curve is used.
-        point_1(List of float, Optional) - The base point on the second curve. If omitted, the starting point of the curve is used.
+        curve_0  (NurbsCurve, Required) - The identifier of the first curve object.
+        curve_1  (NurbsCurve, Required) - The identifier of the second curve object.
+        radius  (float, Optional) - The fillet radius. If omitted, a radius of 1.0 is specified.
+        point_0  (List of float, Optional) - The base point on the first curve. If omitted, the starting point of the curve is used.
+        point_1  (List of float, Optional) - The base point on the second curve. If omitted, the starting point of the curve is used.
 
         Returns
         =======
@@ -65,7 +65,7 @@ class Box():
 
         Parameters
         ==========
-        corners(List of float, Required) - An list of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.
+        corner_points  (List of float, Required) - An list of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.
 
         Returns
         =======
@@ -84,8 +84,8 @@ class Circle():
 
         Parameters
         ==========
-        plane(List of float, Required) - The plane on which the circle will lie. The origin of the plane will be the center point of the circle.
-        radius(float, Required) - The radius of the circle.
+        plane  (List of float, Required) - The plane on which the circle will lie. The origin of the plane will be the center point of the circle.
+        radius  (float, Required) - The radius of the circle.
 
         Returns
         =======
@@ -100,9 +100,9 @@ class Circle():
 
         Parameters
         ==========
-        first(List of float, Required) - The first point of the circle.
-        second(List of float, Required) - The second point of the circle.
-        third(List of float, Required) - The third point of the circle.
+        first_point  (List of float, Required) - The first point of the circle.
+        second_point  (List of float, Required) - The second point of the circle.
+        third_point  (List of float, Required) - The third point of the circle.
 
         Returns
         =======
@@ -121,10 +121,10 @@ class Cone():
 
         Parameters
         ==========
-        base(List of float, Required) - The 3-D origin point of the cone.
-        height(List of float, Required) - The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
-        radius(float, Required) - The 3-D height point of the cone.  The height point defines the height and direction of the cone.
-        cap(boolean, Optional) - The height of the cone.  If arrPlane is specified, then the center of the arrPlane is height * the plane's z-axis.
+        base_point  (List of float, Required) - The 3-D origin point of the cone.
+        height_point  (List of float, Required) - The 3-D height point of the cone.  The height point defines the height and direction of the cone.
+        radius  (float, Required) - The radius at the base of the cone.  Note, tan(cone_angle) = dblRadius/ dblHeight.
+        cap  (boolean, Optional) - Cap the base of the cone.  The default is to cap the cone (True).
 
         Returns
         =======
@@ -139,10 +139,10 @@ class Cone():
 
         Parameters
         ==========
-        plane(List of float, Required) - The 3-D origin point of the cone.
-        height(float, Required) - The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
-        radius(float, Required) - The 3-D height point of the cone.  The height point defines the height and direction of the cone.
-        cap(boolean, Optional) - The height of the cone.  If arrPlane is specified, then the center of the arrPlane is height * the plane's z-axis.
+        base_plane  (List of float, Required) - The cone's base plane.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
+        height  (float, Required) - The height of the cone.  If arrPlane is specified, then the center of the arrPlane is height * the plane's z-axis.
+        radius  (float, Required) - The radius at the base of the cone.  Note, tan(cone_angle) = dblRadius/ dblHeight.
+        cap  (boolean, Optional) - Cap the base of the cone.  The default is to cap the cone (True).
 
         Returns
         =======
@@ -161,10 +161,10 @@ class Cylinder():
 
         Parameters
         ==========
-        base(List of float, Required) - The 3-D base point of the cylinder.
-        height(List of float, Required) - The base plane of the cylinder.
-        radius(float, Required) - The 3-D height point of the cylinder.  The height point defines the height and direction of the cylinder.
-        cap(boolean, Optional) - The height of the cylinder.
+        base_point  (List of float, Required) - The 3-D base point of the cylinder.
+        height_point  (List of float, Required) - The 3-D height point of the cylinder.  The height point defines the height and direction of the cylinder.
+        radius  (float, Required) - The radius of the cylinder.
+        cap  (boolean, Optional) - Cap the ends of the cylinder.  If omitted, the ends of the cylinder will be capped (True).
 
         Returns
         =======
@@ -179,10 +179,10 @@ class Cylinder():
 
         Parameters
         ==========
-        plane(List of float, Required) - The 3-D base point of the cylinder.
-        height(float, Required) - The base plane of the cylinder.
-        radius(float, Required) - The 3-D height point of the cylinder.  The height point defines the height and direction of the cylinder.
-        cap(boolean, Optional) - The height of the cylinder.
+        base_plane  (List of float, Required) - The base plane of the cylinder.
+        height  (float, Required) - The height of the cylinder.
+        radius  (float, Required) - The radius of the cylinder.
+        cap  (boolean, Optional) - Cap the ends of the cylinder.  If omitted, the ends of the cylinder will be capped (True).
 
         Returns
         =======
@@ -201,9 +201,9 @@ class Ellipse():
 
         Parameters
         ==========
-        plane(List of float, Required) - The plane on which the ellipse will lie. The origin of the plane will be the center point of the ellipse.
-        x_radius(float, Required) - The radius in the X-axis direction.
-        y_radius(float, Required) - The radius in the Y-axis direction.
+        plane  (List of float, Required) - The plane on which the ellipse will lie. The origin of the plane will be the center point of the ellipse.
+        x_radius  (float, Required) - The radius in the X-axis direction.
+        y_radius  (float, Required) - The radius in the Y-axis direction.
 
         Returns
         =======
@@ -218,9 +218,9 @@ class Ellipse():
 
         Parameters
         ==========
-        center(List of float, Required) - The center point of the ellipse.
-        second(List of float, Required) - The end point of the X-axis.
-        third(List of float, Required) - The end point of the Y-axis.
+        center  (List of float, Required) - The center point of the ellipse.
+        second  (List of float, Required) - The end point of the X-axis.
+        third  (List of float, Required) - The end point of the Y-axis.
 
         Returns
         =======
@@ -249,8 +249,8 @@ class Line():
 
         Parameters
         ==========
-        start(List of float, Required) - The starting point of the line.
-        end(List of float, Required) - The ending point of the line.
+        start_point  (List of float, Required) - The starting point of the line.
+        end_point  (List of float, Required) - The ending point of the line.
 
         Returns
         =======
@@ -269,11 +269,11 @@ class Mesh():
 
         Parameters
         ==========
-        vertices(List of float, Required) - An list of 3-D points defining the vertices of the mesh.
-        face_vertices(List of integer, Required) - An list containing lists of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
-        vertex_normals(List of float, Optional) - An list of 3-D vectors defining the vertex normals of the mesh. Note, for every vertex, the must be a corresponding vertex normal.
-        texture_coordinates(List of float, Optional) - An list of 2-D texture coordinates. Note, for every vertex, there must be a corresponding texture coordinate.
-        vertex_colors(List of integer, Optional) - An list of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
+        vertices  (List of float, Required) - An list of 3-D points defining the vertices of the mesh.
+        face_vertices  (List of integer, Required) - An list containing lists of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
+        vertex_normals  (List of float, Optional) - An list of 3-D vectors defining the vertex normals of the mesh. Note, for every vertex, the must be a corresponding vertex normal.
+        texture_coordinates  (List of float, Optional) - An list of 2-D texture coordinates. Note, for every vertex, there must be a corresponding texture coordinate.
+        vertex_colors  (List of integer, Optional) - An list of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
 
         Returns
         =======
@@ -288,7 +288,7 @@ class Mesh():
 
         Parameters
         ==========
-        polyline(Polyline, Required) - The identifier of the polyline curve object.
+        polyline  (Polyline, Required) - The identifier of the polyline curve object.
 
         Returns
         =======
@@ -307,8 +307,8 @@ class NurbsCurve():
 
         Parameters
         ==========
-        points(List of float, Required) - An list of 3-D points.
-        degree(integer, Optional) - The degree of the curve.  If omitted, a degree 3 curve is created.
+        points  (List of float, Required) - An list of 3-D points.
+        degree  (integer, Optional) - The degree of the curve.  If omitted, a degree 3 curve is created.
 
         Returns
         =======
@@ -323,8 +323,8 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(NurbsCurve, Required) - The surface object's identifier.
-        points(List of float, Required) - An list of 3-D points that lie on the specified surface. The list must contain at least two points.
+        surface  (NurbsCurve, Required) - The surface object's identifier.
+        points  (List of float, Required) - An list of 3-D points that lie on the specified surface. The list must contain at least two points.
 
         Returns
         =======
@@ -339,8 +339,8 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(NurbsCurve, Required) - The surface object's identifier.
-        points(List of float, Required) - An list of 2-D surface parameters. The list must contain at least two sets of surface parameters.
+        surface  (NurbsCurve, Required) - The surface object's identifier.
+        points  (List of float, Required) - An list of 2-D surface parameters. The list must contain at least two sets of surface parameters.
 
         Returns
         =======
@@ -355,9 +355,9 @@ class NurbsCurve():
 
         Parameters
         ==========
-        points(List of float, Required) - An list containing 3-D points to interpolate.  For periodic curves, if the final point is a duplicate of the initial point, it is ignored. Note, the number of control points must be >= (intDegree+1).
-        degree(integer, Optional) - The degree of the curve.  If omitted, degree = 3 is used.  The degree of the curve must be >=1.  Periodic curves must have a degree >= 2.  For intKnotStyle = 1 or 2, the degree must be 3.  For intKnotStyle = 4 or 5, the degree must be odd.
-        knot_style(integer, Optional) - The knot style to use, and whether the curve should be periodic.  If omitted, uniform knots (0) are created.
+        points  (List of float, Required) - An list containing 3-D points to interpolate.  For periodic curves, if the final point is a duplicate of the initial point, it is ignored. Note, the number of control points must be >= (intDegree+1).
+        degree  (integer, Optional) - The degree of the curve.  If omitted, degree = 3 is used.  The degree of the curve must be >=1.  Periodic curves must have a degree >= 2.  For intKnotStyle = 1 or 2, the degree must be 3.  For intKnotStyle = 4 or 5, the degree must be odd.
+        knot_style  (integer, Optional) - The knot style to use, and whether the curve should be periodic.  If omitted, uniform knots (0) are created.
 		Value
 		Description
 		0
@@ -371,8 +371,8 @@ class NurbsCurve():
 		4
 		Periodic with chord length spacing.  Requires an odd degree value.
 		5
-        start_tan(List of float, Optional) - A 3-D vector that specifies a tangency condition at the beginning of the curve. If the curve is to periodic, this argument must be omitted.
-        end_tan(List of float, Optional) - A 3-D vector that specifies a tangency condition at the end of the curve. If the curve is to periodic, this argument must be omitted.
+        start_tan  (List of float, Optional) - A 3-D vector that specifies a tangency condition at the beginning of the curve. If the curve is to periodic, this argument must be omitted.
+        end_tan  (List of float, Optional) - A 3-D vector that specifies a tangency condition at the end of the curve. If the curve is to periodic, this argument must be omitted.
 
         Returns
         =======
@@ -387,9 +387,9 @@ class NurbsCurve():
 
         Parameters
         ==========
-        points(List of float, Required) - An list containing 3-D points to interpolate. Note, the number of control points must be >= (intDegree+1).
-        degree(integer, Optional) - The degree of the curve.  If omitted, degree = 3 is used.  The degree of the curve must be >=1.  Periodic curves must have a degree >= 2.  For intKnotStyle = 1 or 2, the degree must be 3.
-        knot_style(integer, Optional) - The knot style to use. If omitted, a knot style = 0 is used. The knot style determines how an interpolated curve will be parameterized.
+        points  (List of float, Required) - An list containing 3-D points to interpolate. Note, the number of control points must be >= (intDegree+1).
+        degree  (integer, Optional) - The degree of the curve.  If omitted, degree = 3 is used.  The degree of the curve must be >=1.  Periodic curves must have a degree >= 2.  For intKnotStyle = 1 or 2, the degree must be 3.
+        knot_style  (integer, Optional) - The knot style to use. If omitted, a knot style = 0 is used. The knot style determines how an interpolated curve will be parameterized.
 		Value
 		Description
 		0
@@ -397,9 +397,9 @@ class NurbsCurve():
 		1
 		Chord. The spacing between the points is used for the knot spacing
 		2
-        sharp(boolean, Optional) - If True, when you create a closed curve, it will have a kink at the start/end point. If False (default), a smooth closure will be created.
-        start_tangent(List of float, Optional) - A 3-D vector that specifies a tangency condition at the beginning of the curve.
-        end_tangent(List of float, Optional) - A 3-D vector that specifies a tangency condition at the end of the curve.
+        sharp  (boolean, Optional) - If True, when you create a closed curve, it will have a kink at the start/end point. If False (default), a smooth closure will be created.
+        start_tangent  (List of float, Optional) - A 3-D vector that specifies a tangency condition at the beginning of the curve.
+        end_tangent  (List of float, Optional) - A 3-D vector that specifies a tangency condition at the end of the curve.
 
         Returns
         =======
@@ -414,10 +414,10 @@ class NurbsCurve():
 
         Parameters
         ==========
-        points(List of float, Required) - An list of 3-D control points.
-        knots(List of integer, Required) - The knot values for the curve.  The number of elements in arrKnots must equal the number of elements in arrPoints plus intDegree minus one (1).
-        degree(integer, Required) - The degree of the curve.  The degree must be greater than or equal to one (1).
-        weights(List of integer, Optional) - The weight values for the curve.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
+        points  (List of float, Required) - An list of 3-D control points.
+        knots  (List of integer, Required) - The knot values for the curve.  The number of elements in arrKnots must equal the number of elements in arrPoints plus intDegree minus one (1).
+        degree  (integer, Required) - The degree of the curve.  The degree must be greater than or equal to one (1).
+        weights  (List of integer, Optional) - The weight values for the curve.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
 
         Returns
         =======
@@ -432,10 +432,10 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The identifier of a surface or polysurface object.
-        start_point(List of float, Required) - The 3-D starting point of a center line.
-        end_point(List of float, Required) - The 3-D ending point of a center line.
-        interval(float, Optional) - A plane that defines the cutting plane.
+        surface  (surface object, Required) - The identifier of a surface or polysurface object.
+        start_point  (List of float, Required) - The 3-D starting point of a center line.
+        end_point  (List of float, Required) - The 3-D ending point of a center line.
+        interval  (float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
 
         Returns
         =======
@@ -450,9 +450,9 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The identifier of a surface or polysurface object.
-        plane(List of float, Required) - The 3-D starting point of a center line.
-        interval(float, Optional) - The 3-D ending point of a center line.
+        surface  (surface object, Required) - The identifier of a surface or polysurface object.
+        cut_plane  (List of float, Required) - A plane that defines the cutting plane.
+        interval  (float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
 
         Returns
         =======
@@ -467,8 +467,8 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The identifier of a surface or polysurface object.
-        plane(List of float, Required) - A plane that defines the cutting plane.
+        surface  (surface object, Required) - The identifier of a surface or polysurface object.
+        cut_plane  (List of float, Required) - A plane that defines the cutting plane.
 
         Returns
         =======
@@ -483,27 +483,12 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The identifier of the surface or polysurface object.
-        select(boolean, Optional) - Select the duplicated edge curves.  The default is not to select (False).
+        surface  (surface object, Required) - The identifier of the surface or polysurface object.
+        select  (boolean, Optional) - Select the duplicated edge curves.  The default is not to select (False).
 
         Returns
         =======
         list of objects - The new objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        create_by_mesh_border = """
-        Factory method:
-        Creates a curve that duplicates a mesh border.
-
-        Parameters
-        ==========
-        mesh(mesh object, Required) - The identifier of the mesh object.
-
-        Returns
-        =======
-        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -514,7 +499,7 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The identifier of the surface or polysurface object.
+        surface  (surface object, Required) - The identifier of the surface or polysurface object.
 
         Returns
         =======
@@ -529,9 +514,9 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The object's identifier.
-        parameter(List of float, Required) - An list containing the U,V parameter of the surface to evaluate.
-        dir(integer, Required) - The direction, either 0 = U, 1 = V, or 2 = Both.
+        surface  (surface object, Required) - The object's identifier.
+        parameter  (List of float, Required) - An list containing the U,V parameter of the surface to evaluate.
+        dir  (integer, Required) - The direction, either 0 = U, 1 = V, or 2 = Both.
 
         Returns
         =======
@@ -546,10 +531,10 @@ class NurbsCurve():
 
         Parameters
         ==========
-        curve(curve object, Required) - The object's identifier.
-        degree(integer, Optional) - The curve degree, which must be greater than 1. The default is 3.
-        tolerance(float, Optional) - The fitting tolerance.  If dblTolerance is not specified or <= 0.0, the document absolute tolerance is used.
-        angle_tolerance(float, Optional) - The kink smoothing tolerance in degrees.  If dblAngleTolerance is 0.0, all kinks are smoothed.  If dblAngleTolerance is > 0.0, kinks smaller than dblAngleTolerance are smoothed.  If dblAngleTolerance is not specified or < 0.0, the document angle tolerance is used for the kink smoothing.
+        curve  (curve object, Required) - The object's identifier.
+        degree  (integer, Optional) - The curve degree, which must be greater than 1. The default is 3.
+        tolerance  (float, Optional) - The fitting tolerance.  If dblTolerance is not specified or <= 0.0, the document absolute tolerance is used.
+        angle_tolerance  (float, Optional) - The kink smoothing tolerance in degrees.  If dblAngleTolerance is 0.0, all kinks are smoothed.  If dblAngleTolerance is > 0.0, kinks smaller than dblAngleTolerance are smoothed.  If dblAngleTolerance is not specified or < 0.0, the document angle tolerance is used for the kink smoothing.
 
         Returns
         =======
@@ -564,9 +549,9 @@ class NurbsCurve():
 
         Parameters
         ==========
-        curves(list of array_of _ObjectRoot, Required) - The identifiers of one or more curve objects to project.
-        meshes(list of surface object, Required) - The identifiers of the mesh objects to project onto.
-        direction(List of float, Required) - The direction (3-D vector) to project the points.
+        curves  (list of array_of _ObjectRoot, Required) - The identifiers of one or more curve objects to project.
+        meshes  (list of surface object, Required) - The identifiers of the mesh objects to project onto.
+        direction_vector  (List of float, Required) - The direction (3-D vector) to project the points.
 
         Returns
         =======
@@ -581,9 +566,9 @@ class NurbsCurve():
 
         Parameters
         ==========
-        curve(NurbsCurve, Required) - The identifiers of one or more curve objects to project.
-        surfaces(list of surface object, Required) - The identifiers of the surface or polysurface objects to project onto.
-        direction(List of float, Required) - The direction (3-D vector) to project the points.
+        curve  (NurbsCurve, Required) - The identifiers of one or more curve objects to project.
+        surfaces  (list of surface object, Required) - The identifiers of the surface or polysurface objects to project onto.
+        direction_vector  (List of float, Required) - The direction (3-D vector) to project the points.
 
         Returns
         =======
@@ -598,29 +583,13 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The identifier of the surface object that pulls.
-        curve(curve object, Required) - The identifier of the curve object to pull.
-        delete(boolean, Optional) - Delete input curve.  If omitted, the input curve will not be deleted (False).
+        surface  (surface object, Required) - The identifier of the surface object that pulls.
+        curve  (curve object, Required) - The identifier of the curve object to pull.
+        delete  (boolean, Optional) - Delete input curve.  If omitted, the input curve will not be deleted (False).
 
         Returns
         =======
         list of objects - The new objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        create_by_mesh_pull = """
-        Factory method:
-        Pulls a curve object to a mesh object. The function makes a polyline approximation of the input curve and gets the closest point on the mesh for each point on the mesh.  Then it "connects the points" so  that you have a polyline on the mesh.
-
-        Parameters
-        ==========
-        mesh(mesh object, Required) - The identifier of the mesh object that pulls.
-        curve(curve object, Required) - The identifier of the curve object to pull.
-
-        Returns
-        =======
-        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -631,9 +600,9 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The identifier of the surface object that pulls.
-        start(List of float, Required) - A 3-D surface point identifying the starting point of the short curve.
-        end(List of float, Required) - A 3-D surface point identifying the ending point of the short curve.
+        surface  (surface object, Required) - The identifier of the surface object that pulls.
+        start_point  (List of float, Required) - A 3-D surface point identifying the starting point of the short curve.
+        end_point  (List of float, Required) - A 3-D surface point identifying the ending point of the short curve.
 
         Returns
         =======
@@ -648,8 +617,8 @@ class NurbsCurve():
 
         Parameters
         ==========
-        surface(surface object, Required) - The curve's identifier.
-        point(List of float, Required) - A point on the curve to evaluate.
+        surface  (surface object, Required) - The curve's identifier.
+        point  (List of float, Required) - A point on the curve to evaluate.
 
         Returns
         =======
@@ -668,10 +637,10 @@ class NurbsSurface():
 
         Parameters
         ==========
-        objects(list of array_of _ObjectRoot, Required) - The identifiers of objects that the cutting planes will pass through.
-        start_point(List of float, Required) - The start of the line that defines the cutting plane.
-        end_point(List of float, Required) - The end of the line that defines the cutting plane.
-        normal(List of float, Optional) - In the case of Rhino's CutPlane command, this is the normal to, or Z axis of, the active view's construction plane.  If omitted, the world Z axis is used.
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of objects that the cutting planes will pass through.
+        start_point  (List of float, Required) - The start of the line that defines the cutting plane.
+        end_point  (List of float, Required) - The end of the line that defines the cutting plane.
+        normal_vector  (List of float, Optional) - In the case of Rhino's CutPlane command, this is the normal to, or Z axis of, the active view's construction plane.  If omitted, the world Z axis is used.
 
         Returns
         =======
@@ -686,7 +655,7 @@ class NurbsSurface():
 
         Parameters
         ==========
-        objects(list of curve object, Required) - An list of 2, 3, or 4 curve object identifiers.
+        edge_curves  (list of curve object, Required) - An list of 2, 3, or 4 curve object identifiers.
 
         Returns
         =======
@@ -704,10 +673,10 @@ class NurbsSurface():
 
         Parameters
         ==========
-        objects(list of curve object, Required) - An ordered list of strings identifying the curve objects to loft.
-        start_pt(List of float, Optional) - The starting point of the loft.
-        end_pt(List of float, Optional) - The ending point of the loft.
-        srf_type(integer, Optional) - The type of loft. The default loft type is Normal (0). The possible loft types are as follows:
+        section_curves  (list of curve object, Required) - An ordered list of strings identifying the curve objects to loft.
+        start_point  (List of float, Optional) - The starting point of the loft.
+        end_point  (List of float, Optional) - The ending point of the loft.
+        srf_type  (integer, Optional) - The type of loft. The default loft type is Normal (0). The possible loft types are as follows:
 		Value
 		Description
 		0
@@ -719,7 +688,7 @@ class NurbsSurface():
 		3
 		Tight. The surface sticks closely to the original curves. Uses square root of chord-length parameterization in the loft direction.
 		4
-        style(integer, Optional) - The simplify method of the loft. The default value is None (0). The possible loft simplify methods are as follows:
+        style  (integer, Optional) - The simplify method of the loft. The default value is None (0). The possible loft simplify methods are as follows:
 		Value
 		Description
 		0
@@ -727,8 +696,8 @@ class NurbsSurface():
 		1
 		Rebuild. Rebuilds the shape curves before lofting.
 		2
-        value(integer, Optional) - A value based on the specified intStyle. If intStyle=1 (Rebuild), then nValue is the number of control point used to rebuild. If intstyle=1 is specified and this argument is omitted, then curves will be rebuilt using 10 control points. If intStyle=2 (Refit), then nValue is the tolerance used to rebuild. If intstyle=2 is specified and this argument is omitted, then the document's absolute tolerance us used for refitting.
-        closed(boolean, Optional) - Creates a closed surface, continuing the surface past the last curve around to the first curve. Available when you have selected three shape curves. The default value is not to create a closed surface (False).
+        value  (integer, Optional) - A value based on the specified intStyle. If intStyle=1 (Rebuild), then nValue is the number of control point used to rebuild. If intstyle=1 is specified and this argument is omitted, then curves will be rebuilt using 10 control points. If intStyle=2 (Refit), then nValue is the tolerance used to rebuild. If intstyle=2 is specified and this argument is omitted, then the document's absolute tolerance us used for refitting.
+        closed  (boolean, Optional) - Creates a closed surface, continuing the surface past the last curve around to the first curve. Available when you have selected three shape curves. The default value is not to create a closed surface (False).
 
         Returns
         =======
@@ -743,12 +712,12 @@ class NurbsSurface():
 
         Parameters
         ==========
-        point_count(List of integer, Required) - The number of control points in the U and V directions.
-        points(List of float, Required) - An list of 3-D control points.
-        knots_u(List of integer, Required) - The knot values for the surface in the U direction.  The list must contain arrPointCount(0) + arrDegree(0) - 1 elements.
-        knots_v(List of integer, Required) - The knot values for the surface in the V direction.  The list must contain arrPointCount(1) + arrDegree(1) - 1 elements.
-        degree(List of integer, Required) - The degree of the surface in the U and V directions.  The degree in each direction must be greater than or equal to one (1).
-        weights(List of integer, Required) - The weight values for the surface.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
+        point_count  (List of integer, Required) - The number of control points in the U and V directions.
+        points  (List of float, Required) - An list of 3-D control points.
+        knots_u  (List of integer, Required) - The knot values for the surface in the U direction.  The list must contain arrPointCount(0) + arrDegree(0) - 1 elements.
+        knots_v  (List of integer, Required) - The knot values for the surface in the V direction.  The list must contain arrPointCount(1) + arrDegree(1) - 1 elements.
+        degree  (List of integer, Required) - The degree of the surface in the U and V directions.  The degree in each direction must be greater than or equal to one (1).
+        weights  (List of integer, Required) - The weight values for the surface.  The number of elements in arrWeights equal the number of elements in arrPoints.  Weight values must be greater than zero (0).
 
         Returns
         =======
@@ -763,7 +732,7 @@ class NurbsSurface():
 
         Parameters
         ==========
-        objects(list of curve object, Required) - An list of curve object identifiers.
+        planar_curves  (list of curve object, Required) - An list of curve object identifiers.
 
         Returns
         =======
@@ -778,9 +747,9 @@ class NurbsSurface():
 
         Parameters
         ==========
-        profile(curve object, Required) - The identifier of the profile curve.
-        rail(curve object, Required) - The identifier of the rail curve.
-        axis(List of float, Required) - An list of two 3-D points identifying the start point and end point of the rail revolve axis.
+        profile  (curve object, Required) - The identifier of the profile curve.
+        rail  (curve object, Required) - The identifier of the rail curve.
+        axis  (List of float, Required) - An list of two 3-D points identifying the start point and end point of the rail revolve axis.
 
         Returns
         =======
@@ -795,10 +764,10 @@ class NurbsSurface():
 
         Parameters
         ==========
-        profile(curve object, Required) - The identifier of the curve to revolve.
-        axis(List of float, Required) - An list of two 3-D points identifying the start point and end point of the rail revolve axis.
-        start_angle(float, Optional) - The starting angle. If omitted, an angle of 0.0 is used.
-        end_angle(float, Optional) - The ending angle. If omitted, an angle of 360.0 is used.
+        profile  (curve object, Required) - The identifier of the curve to revolve.
+        axis  (List of float, Required) - An list of two 3-D points identifying the start point and end point of the rail revolve axis.
+        start_angle  (float, Optional) - The starting angle. If omitted, an angle of 0.0 is used.
+        end_angle  (float, Optional) - The ending angle. If omitted, an angle of 360.0 is used.
 
         Returns
         =======
@@ -807,15 +776,15 @@ class NurbsSurface():
 
         Rhinoscript
         ==========="""
-        create_by_control_pt_grid = """
+        create_by_control_pnt_grid = """
         Factory method:
         Creates a surface from a grid of control points.
 
         Parameters
         ==========
-        count(List of integer, Required) - The number of control points in the U and V directions.
-        points(List of float, Required) - An list of 3-D control points.
-        degree(List of float, Optional) - The degree of the surface in the U and V directions.  If omitted, the degree of the new surface in the U and V directions will be 3.
+        count  (List of integer, Required) - The number of control points in the U and V directions.
+        points  (List of float, Required) - An list of 3-D control points.
+        degree  (List of float, Optional) - The degree of the surface in the U and V directions.  If omitted, the degree of the new surface in the U and V directions will be 3.
 
         Returns
         =======
@@ -824,13 +793,13 @@ class NurbsSurface():
 
         Rhinoscript
         ==========="""
-        create_by_corner_pts = """
+        create_by_corner_pnts = """
         Factory method:
         Creates a new surface from either 3 or 4 corner points.
 
         Parameters
         ==========
-        points(List of float, Required) - An list of either 3 or 4 corner points.
+        points  (List of float, Required) - An list of either 3 or 4 corner points.
 
         Returns
         =======
@@ -839,16 +808,16 @@ class NurbsSurface():
 
         Rhinoscript
         ==========="""
-        create_by_pt_grid = """
+        create_by_pnt_grid = """
         Factory method:
         Creates a surface from a grid of points.
 
         Parameters
         ==========
-        count(List of integer, Required) - The number of points in the U and V directions.
-        points(List of float, Required) - An list of 3-D points.
-        degree(List of integer, Optional) - The degree of the surface in the U and V directions.  If omitted, the degree of the new surface in the U and V directions will be 3.
-        closed(List of boolean, Optional) - Whether or not the surface is closed in the U and V directions.  If omitted, the new surface will not be closed in either the U or V directions.
+        count  (List of integer, Required) - The number of points in the U and V directions.
+        points  (List of float, Required) - An list of 3-D points.
+        degree  (List of integer, Optional) - The degree of the surface in the U and V directions.  If omitted, the degree of the new surface in the U and V directions will be 3.
+        closed  (List of boolean, Optional) - Whether or not the surface is closed in the U and V directions.  If omitted, the new surface will not be closed in either the U or V directions.
 
         Returns
         =======
@@ -868,15 +837,15 @@ class NurbsSurface():
 
         Parameters
         ==========
-        rail(curve object, Required) - The identifier of the rail curve.
-        shapes(list of curve object, Required) - An list of strings identifying one or more shape, or cross section, curves.
-        start_pt(List of float, Optional) - The 3-D starting point of the surface.
-        end_pt(List of float, Optional) - The 3-D ending point of the surface.
-        closed(boolean, Optional) - If True, then create a closed surface, continuing the surface past the last curve around to the first curve. This option is only available after you select two cross-section curves.  The default value is False.
-        style(integer, Optional) - The sweep style, where 0 = Freeform and 1 = Roadlike. The default value is 0 = Freeform.
-        style_arg(list, Optional) - If intStyle = 1 (Roadlike), then this argument is a 3-D vector identifying the planar up direction for the sweep.
-        simplify(integer, Optional) - Cross section curve options, where 0 = Do Not Simplify, 1 = Refit, and 2 = Rebuild. The default value is 0 = Do Not Simplify.
-        simplify_arg(list, Optional) - If intSimplify = 1 (Refit), then this argument is a number specifying the refit tolerance.  If intSimplify = 2 (Rebuild), then this argument is a number specifying the number of control points to rebuild the shape curves.
+        rail  (curve object, Required) - The identifier of the rail curve.
+        shapes  (list of curve object, Required) - An list of strings identifying one or more shape, or cross section, curves.
+        start_point  (List of float, Optional) - The 3-D starting point of the surface.
+        end_point  (List of float, Optional) - The 3-D ending point of the surface.
+        closed  (boolean, Optional) - If True, then create a closed surface, continuing the surface past the last curve around to the first curve. This option is only available after you select two cross-section curves.  The default value is False.
+        style  (integer, Optional) - The sweep style, where 0 = Freeform and 1 = Roadlike. The default value is 0 = Freeform.
+        style_arg  (list, Optional) - If intStyle = 1 (Roadlike), then this argument is a 3-D vector identifying the planar up direction for the sweep.
+        simplify  (integer, Optional) - Cross section curve options, where 0 = Do Not Simplify, 1 = Refit, and 2 = Rebuild. The default value is 0 = Do Not Simplify.
+        simplify_arg  (list, Optional) - If intSimplify = 1 (Refit), then this argument is a number specifying the refit tolerance.  If intSimplify = 2 (Rebuild), then this argument is a number specifying the number of control points to rebuild the shape curves.
 
         Returns
         =======
@@ -897,48 +866,15 @@ class NurbsSurface():
 
         Parameters
         ==========
-        rails(list of curve object, Required) - An list of strings identifying two rail curves.
-        shapes(list of curve object, Required) - An list of strings identifying one or more shape, or cross section, curves.
-        start_pt(List of float, Optional) - The 3-D starting point of the surface.
-        end_pt(List of float, Optional) - The 3-D ending point of the surface.
-        closed(boolean, Optional) - If True, then create a closed surface, continuing the surface past the last curve around to the first curve. This option is only available after you select two cross-section curves.  The default value is False.
-        simple_sweep(boolean, Optional) - If True, then create surfaces using exact input. This option generates simpler surfaces in cases when the curves are perfectly set up.  The default value is False.
-        maintain_height(boolean, Optional) - By default, shape curves normally scale in both the height and width dimensions. To remove the association between the height scaling from the width scaling, set this value to True.  The default value is False.
-        simplify(integer, Optional) - Cross section curve options, where 0 = Do Not Simplify, 1 = Refit, and 2 = Rebuild. The default value is 0 = Do Not Simplify.
-        simplify_arg(list, Optional) - If intSimplify = 1 (Refit), then this argument is a number specifying the refit tolerance.  If intSimplify = 2 (Rebuild), then this argument is a number specifying the number of control points to rebuild the shape curves.
-
-        Returns
-        =======
-        object - The new object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        create_copy_move = """
-        Factory method:
-        Copies a single object from one location to another, or in-place.
-
-        Parameters
-        ==========
-        object(object, Required) - The identifier of the object to copy.
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
-
-        Returns
-        =======
-        object - The new object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        create_copy_move_by_vec = """
-        Factory method:
-        Copies a single object from one location to another, or in-place.
-
-        Parameters
-        ==========
-        object(object, Required) - The identifier of the object to copy.
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        rails  (list of curve object, Required) - An list of strings identifying two rail curves.
+        shapes  (list of curve object, Required) - An list of strings identifying one or more shape, or cross section, curves.
+        start_point  (List of float, Optional) - The 3-D starting point of the surface.
+        end_point  (List of float, Optional) - The 3-D ending point of the surface.
+        closed  (boolean, Optional) - If True, then create a closed surface, continuing the surface past the last curve around to the first curve. This option is only available after you select two cross-section curves.  The default value is False.
+        simple_sweep  (boolean, Optional) - If True, then create surfaces using exact input. This option generates simpler surfaces in cases when the curves are perfectly set up.  The default value is False.
+        maintain_height  (boolean, Optional) - By default, shape curves normally scale in both the height and width dimensions. To remove the association between the height scaling from the width scaling, set this value to True.  The default value is False.
+        simplify  (integer, Optional) - Cross section curve options, where 0 = Do Not Simplify, 1 = Refit, and 2 = Rebuild. The default value is 0 = Do Not Simplify.
+        simplify_arg  (list, Optional) - If intSimplify = 1 (Refit), then this argument is a number specifying the refit tolerance.  If intSimplify = 2 (Rebuild), then this argument is a number specifying the number of control points to rebuild the shape curves.
 
         Returns
         =======
@@ -953,8 +889,8 @@ class NurbsSurface():
 
         Parameters
         ==========
-        curve(curve object, Required) - The identifier of the curve object to extrude.
-        path(string, Required) - The identifier of the path curve.
+        curve  (curve object, Required) - The identifier of the curve object to extrude.
+        path  (string, Required) - The identifier of the path curve.
 
         Returns
         =======
@@ -969,8 +905,8 @@ class NurbsSurface():
 
         Parameters
         ==========
-        curve(curve object, Required) - The identifier of the curve object to extrude.
-        point(List of float, Required) - A 3-D point.
+        curve  (curve object, Required) - The identifier of the curve object to extrude.
+        point  (List of float, Required) - A 3-D point.
 
         Returns
         =======
@@ -985,9 +921,9 @@ class NurbsSurface():
 
         Parameters
         ==========
-        curve(curve object, Required) - The identifier of the curve object to extrude.
-        start_point(List of float, Required) - A starting point.
-        end_point(List of float, Required) - A ending point.
+        curve  (curve object, Required) - The identifier of the curve object to extrude.
+        start_point  (List of float, Required) - A starting point.
+        end_point  (List of float, Required) - A ending point.
 
         Returns
         =======
@@ -1002,12 +938,12 @@ class NurbsSurface():
 
         Parameters
         ==========
-        curve(curve object, Required) - The identifier of the curve object to extrude.
-        distance(float, Required) - The extrusion distance.
-        direction(List of float, Required) - A 3-D vector that specifies the extrusion direction.
-        base_point(List of float, Required) - A 3-D point that specifies the base point of the extrusion.
-        angle(float, Required) - The angle of the extrusion.
-        corner_type(integer, Optional) - The corner type of the extrusion, where:
+        curve  (curve object, Required) - The identifier of the curve object to extrude.
+        distance  (float, Required) - The extrusion distance.
+        direction  (List of float, Required) - A 3-D vector that specifies the extrusion direction.
+        base_point  (List of float, Required) - A 3-D point that specifies the base point of the extrusion.
+        angle  (float, Required) - The angle of the extrusion.
+        corner_type  (integer, Optional) - The corner type of the extrusion, where:
 		Value
 		Description
 		0 (Default)
@@ -1033,9 +969,9 @@ class NurbsSurface():
 
         Parameters
         ==========
-        surface(surface object, Required) - The object's identifier.
-        degree(List of integer, Optional) - An list of two numbers that identify the surface curve degree in both the U and the V directions. Each degree value must be greater than 1. The default is 3.
-        tolerance(float, Optional) - The fitting tolerance.  If dblTolerance is not specified or <= 0.0, the document absolute tolerance is used.
+        surface  (surface object, Required) - The object's identifier.
+        degree  (List of integer, Optional) - An list of two numbers that identify the surface curve degree in both the U and the V directions. Each degree value must be greater than 1. The default is 3.
+        tolerance  (float, Optional) - The fitting tolerance.  If dblTolerance is not specified or <= 0.0, the document absolute tolerance is used.
 
         Returns
         =======
@@ -1054,8 +990,8 @@ class PlanarMesh():
 
         Parameters
         ==========
-        curve(curve object, Required) - The identifier of a closed, planar curve object.
-        delete(boolean, Optional) - If True, then the input curve will be deleted. If not specified or False (default), then the input curve will not be deleted.
+        curve  (curve object, Required) - The identifier of a closed, planar curve object.
+        delete  (boolean, Optional) - If True, then the input curve will be deleted. If not specified or False (default), then the input curve will not be deleted.
 
         Returns
         =======
@@ -1074,13 +1010,33 @@ class PlaneSurface():
 
         Parameters
         ==========
-        plane(List of float, Required) - The plane.
-        d_u(float, Required) - The magnitude in the U direction.
-        d_v(float, Required) - The magnitude in the V direction.
+        base_plane  (List of float, Required) - The plane.
+        d_u  (float, Required) - The magnitude in the U direction.
+        d_v  (float, Required) - The magnitude in the V direction.
 
         Returns
         =======
         object - The new object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+
+
+class PolyCurve():
+
+        create = """
+        Factory method:
+        Joins two or more curve object together to form one or more curves or polycurves.
+
+        Parameters
+        ==========
+        curves  (list of curve object, Required) - A list of curve objects to join.
+        delete  (boolean, Optional) - Delete input objects after joining.  The default is not to delete objects (False).
+
+        Returns
+        =======
+        list of objects - The new objects if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -1095,9 +1051,9 @@ class PolySurface():
 
         Parameters
         ==========
-        surface(surface object, Required) - The identifier of the surface object to extrude.
-        curve(string, Required) - The identifier of the path curve.
-        cap(boolean, Optional) - Extrusion is capped at both ends to make a closed polysurface. The default value is True.
+        surface  (surface object, Required) - The identifier of the surface object to extrude.
+        curve  (string, Required) - The identifier of the path curve.
+        cap  (boolean, Optional) - Extrusion is capped at both ends to make a closed polysurface. The default value is True.
 
         Returns
         =======
@@ -1112,8 +1068,8 @@ class PolySurface():
 
         Parameters
         ==========
-        surfaces(list of surface object, Required) - An ordered list of strings identifying the surfaces or polysurfaces objects to join.
-        delete(boolean, Optional) - Delete input objects after joining.  The default is not to delete objects (False).
+        surfaces  (list of surface object, Required) - An ordered list of strings identifying the surfaces or polysurfaces objects to join.
+        delete  (boolean, Optional) - Delete input objects after joining.  The default is not to delete objects (False).
 
         Returns
         =======
@@ -1132,7 +1088,7 @@ class Polyline():
 
         Parameters
         ==========
-        points(List of float, Required) - An list of 3-D points.  Duplicate, consecutive points found in the list will be removed.  The list must contain at least two 3-D points.  If the list contains less than four points, then the first point and the last point must be different.
+        points  (List of float, Required) - An list of 3-D points.  Duplicate, consecutive points found in the list will be removed.  The list must contain at least two 3-D points.  If the list contains less than four points, then the first point and the last point must be different.
 
         Returns
         =======
@@ -1147,10 +1103,41 @@ class Polyline():
 
         Parameters
         ==========
-        curve(curve object, Required) - The object's identifier.
-        angle_tolerance(float, Optional) - The maximum angle between curve tangents at line endpoints.  If omitted, the angle tolerance is set to 5.0.
-        tolerance(float, Optional) - The distance tolerance at segment midpoints.  If omitted, the tolerance is set to 0.01.
-        delete_input(boolean, Optional) - Delete the curve object specified by strObject.  If omitted, strObject will not be deleted.
+        curve  (curve object, Required) - The object's identifier.
+        angle_tolerance  (float, Optional) - The maximum angle between curve tangents at line endpoints.  If omitted, the angle tolerance is set to 5.0.
+        tolerance  (float, Optional) - The distance tolerance at segment midpoints.  If omitted, the tolerance is set to 0.01.
+        delete_input  (boolean, Optional) - Delete the curve object specified by strObject.  If omitted, strObject will not be deleted.
+
+        Returns
+        =======
+        object - The new object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+        create_by_mesh_border = """
+        Factory method:
+        Creates a curve that duplicates a mesh border.
+
+        Parameters
+        ==========
+        mesh  (mesh object, Required) - The identifier of the mesh object.
+
+        Returns
+        =======
+        object - The new object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+        create_by_mesh_pull = """
+        Factory method:
+        Pulls a curve object to a mesh object. The function makes a polyline approximation of the input curve and gets the closest point on the mesh for each point on the mesh.  Then it "connects the points" so  that you have a polyline on the mesh.
+
+        Parameters
+        ==========
+        mesh  (mesh object, Required) - The identifier of the mesh object that pulls.
+        curve  (curve object, Required) - The identifier of the curve object to pull.
 
         Returns
         =======
@@ -1169,8 +1156,8 @@ class Sphere():
 
         Parameters
         ==========
-        center(List of float, Required) - The center point of the sphere.
-        radius(float, Required) - An equatorial plane.  The origin of the plane will be the center point of the sphere.
+        center  (List of float, Required) - The center point of the sphere.
+        radius  (float, Required) - The radius of the sphere in current model units.
 
         Returns
         =======
@@ -1185,8 +1172,8 @@ class Sphere():
 
         Parameters
         ==========
-        center(List of float, Required) - The center point of the sphere.
-        radius(float, Required) - An equatorial plane.  The origin of the plane will be the center point of the sphere.
+        center  (List of float, Required) - An equatorial plane.  The origin of the plane will be the center point of the sphere.
+        radius  (float, Required) - The radius of the sphere in current model units.
 
         Returns
         =======
@@ -1205,10 +1192,10 @@ class Torus():
 
         Parameters
         ==========
-        base(List of float, Required) - The 3-D origin point of the torus.
-        major_radius(float, Required) - The base plane of the torus.
-        minor_radius(float, Required) - The major radius of the torus.  The major radius must be larger than the minor radius.
-        direction(List of float, Optional) - The minor radius of the torus.  The minor radius must be greater than zero.
+        base_point  (List of float, Required) - The 3-D origin point of the torus.
+        major_radius  (float, Required) - The major radius of the torus.  The major radius must be larger than the minor radius.
+        minor_radius  (float, Required) - The minor radius of the torus.  The minor radius must be greater than zero.
+        direction  (List of float, Optional) - A point that defines the direction of the torus.  If omitted, a torus that is parallel to the world XY plane is created.
 
         Returns
         =======
@@ -1223,9 +1210,9 @@ class Torus():
 
         Parameters
         ==========
-        plane(List of float, Required) - The 3-D origin point of the torus.
-        major_radius(float, Required) - The base plane of the torus.
-        minor_radius(float, Required) - The major radius of the torus.  The major radius must be larger than the minor radius.
+        base_plane  (List of float, Required) - The base plane of the torus.
+        major_radius  (float, Required) - The major radius of the torus.  The major radius must be larger than the minor radius.
+        minor_radius  (float, Required) - The minor radius of the torus.  The minor radius must be greater than zero.
 
         Returns
         =======
@@ -1243,8 +1230,8 @@ class _ArcDupl():
 
         Parameters
         ==========
-        param_0(float, Required) - The first parameter on the source curve.
-        param_1(float, Required) - The second parameter on the source curve.
+        param_0  (float, Required) - The first parameter on the source curve.
+        param_1  (float, Required) - The second parameter on the source curve.
 
         Returns
         =======
@@ -1258,8 +1245,8 @@ class _ArcDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -1273,7 +1260,7 @@ class _ArcDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -1287,10 +1274,10 @@ class _ArcDupl():
 
         Parameters
         ==========
-        direction(List of float, Required) - The 3-D point that indicates the direction of the offset.
-        distance(float, Required) - The distance of the offset.
-        normal(List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style(integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
+        direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
+        distance  (float, Required) - The distance of the offset.
+        normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
 		Value
 		Description
 		0
@@ -1315,8 +1302,8 @@ class _ArcDupl():
 
         Parameters
         ==========
-        parameters(List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        parameters  (List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -1330,8 +1317,8 @@ class _ArcDupl():
 
         Parameters
         ==========
-        interval(List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -1407,8 +1394,8 @@ class _BoxDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -1422,25 +1409,11 @@ class _BoxDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
         object - The copied object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        copy_by_offset = """
-        Offsets a surface by a distance. The offset surface will be added to Rhino.
-
-        Parameters
-        ==========
-        distance(float, Required) - The distance to offset.
-
-        Returns
-        =======
-        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -1454,8 +1427,8 @@ class _CircleDupl():
 
         Parameters
         ==========
-        param_0(float, Required) - The first parameter on the source curve.
-        param_1(float, Required) - The second parameter on the source curve.
+        param_0  (float, Required) - The first parameter on the source curve.
+        param_1  (float, Required) - The second parameter on the source curve.
 
         Returns
         =======
@@ -1469,8 +1442,8 @@ class _CircleDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -1484,7 +1457,7 @@ class _CircleDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -1498,10 +1471,10 @@ class _CircleDupl():
 
         Parameters
         ==========
-        direction(List of float, Required) - The 3-D point that indicates the direction of the offset.
-        distance(float, Required) - The distance of the offset.
-        normal(List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style(integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
+        direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
+        distance  (float, Required) - The distance of the offset.
+        normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
 		Value
 		Description
 		0
@@ -1526,8 +1499,8 @@ class _CircleDupl():
 
         Parameters
         ==========
-        parameters(List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        parameters  (List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -1541,8 +1514,8 @@ class _CircleDupl():
 
         Parameters
         ==========
-        interval(List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -1606,8 +1579,8 @@ class _ConeDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -1621,25 +1594,11 @@ class _ConeDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
         object - The copied object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        copy_by_offset = """
-        Offsets a surface by a distance. The offset surface will be added to Rhino.
-
-        Parameters
-        ==========
-        distance(float, Required) - The distance to offset.
-
-        Returns
-        =======
-        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -1679,7 +1638,7 @@ class _CurveRootEval():
 
         Parameters
         ==========
-        parameter(float, Required) - The parameter to evaluate.
+        parameter  (float, Required) - The parameter to evaluate.
 
         Returns
         =======
@@ -1694,8 +1653,8 @@ class _CurveRootEval():
 
         Parameters
         ==========
-        parameter(float, Required) - The evaluation parameter.
-        derivative(integer, Required) - The number of derivatives to evaluate.
+        parameter  (float, Required) - The evaluation parameter.
+        derivative  (integer, Required) - The number of derivatives to evaluate.
 
         Returns
         =======
@@ -1713,7 +1672,7 @@ class _CurveRootEval():
 
         Parameters
         ==========
-        parameter(float, Required) - The parameter to evaluate.
+        parameter  (float, Required) - The parameter to evaluate.
 
         Returns
         =======
@@ -1727,7 +1686,7 @@ class _CurveRootEval():
 
         Parameters
         ==========
-        parameter(float, Required) - The parameter to evaluate.
+        parameter  (float, Required) - The parameter to evaluate.
 
         Returns
         =======
@@ -1741,7 +1700,7 @@ class _CurveRootEval():
 
         Parameters
         ==========
-        parameter(float, Required) - The parameter to evaluate.
+        parameter  (float, Required) - The parameter to evaluate.
 
         Returns
         =======
@@ -1755,7 +1714,7 @@ class _CurveRootEval():
 
         Parameters
         ==========
-        parameter(float, Required) - The parameter to evaluate.
+        parameter  (float, Required) - The parameter to evaluate.
 
         Returns
         =======
@@ -1773,8 +1732,8 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        length(float, Required) - The arc length from the start of the curve to evaluate.
-        from_start(boolean, Optional) - If not specified or True, then the arc length point is calculated from the start of the curve. If False, the arc length point is calculated from the end of the curve.
+        length  (float, Required) - The arc length from the start of the curve to evaluate.
+        from_start  (boolean, Optional) - If not specified or True, then the arc length point is calculated from the start of the curve. If False, the arc length point is calculated from the end of the curve.
 
         Returns
         =======
@@ -1788,7 +1747,7 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        point(List of float, Required) - The test, or sampling, point.
+        point  (List of float, Required) - The test, or sampling, point.
 
         Returns
         =======
@@ -1802,9 +1761,9 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        start_point(List of float, Required) - The 3-D starting point of a center line.
-        end_point(List of float, Required) - The 3-D ending point of a center line.
-        interval(float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
+        start_point  (List of float, Required) - The 3-D starting point of a center line.
+        end_point  (List of float, Required) - The 3-D ending point of a center line.
+        interval  (float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
 
         Returns
         =======
@@ -1818,8 +1777,8 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        curve(string, Optional) - The identifier of the second curve object.  If omitted, the a self-intersection test will be performed on strObject1.
-        tolerance(float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+        curve  (string, Optional) - The identifier of the second curve object.  If omitted, the a self-intersection test will be performed on strObject1.
+        tolerance  (float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
 
         Returns
         =======
@@ -1838,7 +1797,7 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        curve_a(string, Required) - The identifier of the second curve object.
+        curve_a  (string, Required) - The identifier of the second curve object.
 
         Returns
         =======
@@ -1858,7 +1817,7 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        curve_1(string, Required) - The identifier of the second curve to compare.
+        curve_1  (string, Required) - The identifier of the second curve to compare.
 
         Returns
         =======
@@ -1872,7 +1831,7 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        point(List of float, Required) - The test, or sampling, point.
+        point  (List of float, Required) - The test, or sampling, point.
 
         Returns
         =======
@@ -1886,9 +1845,9 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        surface(string, Required) - The identifier of a surface object.
-        tolerance(float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
-        angle_tolerance(float, Optional) - The angle tolerance in degrees.  The angle tolerance is used to determine when the curve is tangent to the surface.  If omitted, the document's current angle tolerance is used.
+        surface  (string, Required) - The identifier of a surface object.
+        tolerance  (float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+        angle_tolerance  (float, Optional) - The angle tolerance in degrees.  The angle tolerance is used to determine when the curve is tangent to the surface.  If omitted, the document's current angle tolerance is used.
 
         Returns
         =======
@@ -1909,9 +1868,9 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        segments(integer, Required) - The number of segments.
-        create(boolean, Optional) - Create the division points. If omitted or False, points are not created.
-        points(boolean, Optional) - Return an list of 3-D points. If omitted or True, points are returned. If False, then an list of curve parameters are returned.
+        segments  (integer, Required) - The number of segments.
+        create  (boolean, Optional) - Create the division points. If omitted or False, points are not created.
+        points  (boolean, Optional) - Return an list of 3-D points. If omitted or True, points are returned. If False, then an list of curve parameters are returned.
 
         Returns
         =======
@@ -1927,9 +1886,9 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        distance(float, Required) - The linear distance between division points.
-        create(boolean, Optional) - Create the division points. If omitted or False, points are not created.
-        points(boolean, Optional) - Return an list of 3-D points. If omitted or True, points are returned. If False, then an list of curve parameters are returned.
+        distance  (float, Required) - The linear distance between division points.
+        create  (boolean, Optional) - Create the division points. If omitted or False, points are not created.
+        points  (boolean, Optional) - Return an list of 3-D points. If omitted or True, points are returned. If False, then an list of curve parameters are returned.
 
         Returns
         =======
@@ -1944,9 +1903,9 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        length(float, Required) - The length of each segment.
-        create(boolean, Optional) - Create the division points. If omitted or False, points are not created.
-        points(boolean, Optional) - Return an list of 3-D points. If omitted or True, points are returned. If False, then an list of curve parameters are returned.
+        length  (float, Required) - The length of each segment.
+        create  (boolean, Optional) - Create the division points. If omitted or False, points are not created.
+        points  (boolean, Optional) - Return an list of 3-D points. If omitted or True, points are returned. If False, then an list of curve parameters are returned.
 
         Returns
         =======
@@ -2005,8 +1964,8 @@ class _CurveRootFunc():
 
         Parameters
         ==========
-        curve(string, Required) - The object identifier of the second planar curve.
-        plane(List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
+        curve  (string, Required) - The object identifier of the second planar curve.
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
 		Element
 		Type
 		Description
@@ -2021,7 +1980,7 @@ class _CurveRootFunc():
 		Required.  The construction plane's Y axis direction (3-D vector).
 		3
 		Array
-        tolerance(float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+        tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
 
         Returns
         =======
@@ -2033,12 +1992,12 @@ class _CurveRootFunc():
 
 class _CurveRootFuncClsd():
 
-        closed_crv_area = """
+        area = """
         Returns that area of closed planar curves. The results are based on the current drawing units.
 
         Parameters
         ==========
-        objects(list of array_of _ObjectRoot, Required) - An list of strings containing the identifiers of one or more closed, planar curve objects.
+        objects  (list of array_of _ObjectRoot, Required) - An list of strings containing the identifiers of one or more closed, planar curve objects.
 
         Returns
         =======
@@ -2049,12 +2008,12 @@ class _CurveRootFuncClsd():
 
         Rhinoscript
         ==========="""
-        closed_crv_area_centroid = """
+        area_centroid = """
         Returns that area centroid of closed, planar curves. The results are based on the current drawing units.
 
         Parameters
         ==========
-        objects(list of array_of _ObjectRoot, Required) - An list of strings containing the identifiers of one or more closed, planar curve objects.
+        objects  (list of array_of _ObjectRoot, Required) - An list of strings containing the identifiers of one or more closed, planar curve objects.
 
         Returns
         =======
@@ -2068,7 +2027,7 @@ class _CurveRootFuncClsd():
 
         Parameters
         ==========
-        curve(string, Required) - The identifier of the second curve object.
+        curve  (string, Required) - The identifier of the second curve object.
 
         Returns
         =======
@@ -2082,7 +2041,7 @@ class _CurveRootFuncClsd():
 
         Parameters
         ==========
-        curve_a(string, Required) - The identifier of the second curve object.
+        curve_a  (string, Required) - The identifier of the second curve object.
 
         Returns
         =======
@@ -2096,7 +2055,7 @@ class _CurveRootFuncClsd():
 
         Parameters
         ==========
-        curves(list of array_of _ObjectRoot, Required) - The identifiers of two or more curve objects.
+        curves  (list of array_of _ObjectRoot, Required) - The identifiers of two or more curve objects.
 
         Returns
         =======
@@ -2105,13 +2064,13 @@ class _CurveRootFuncClsd():
 
         Rhinoscript
         ==========="""
-        closed_crv_containment = """
+        containment = """
         Determines the relationship between the regions bounded by two coplanar simple closed curves.
 
         Parameters
         ==========
-        curve__1(string, Required) - The object identifier of the second planar, closed curve.
-        plane(List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
+        curve__1  (string, Required) - The object identifier of the second planar, closed curve.
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
 		Element
 		Type
 		Description
@@ -2126,7 +2085,7 @@ class _CurveRootFuncClsd():
 		Required.  The construction plane's Y axis direction (3-D vector).
 		3
 		Array
-        tolerance(float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+        tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
 
         Returns
         =======
@@ -2135,13 +2094,13 @@ class _CurveRootFuncClsd():
 
         Rhinoscript
         ==========="""
-        closed_crv_pnt_inside = """
+        pnt_inside = """
         Determines if a point is inside of a closed curve, on  a closed curve, or outside of a closed curve.
 
         Parameters
         ==========
-        point(List of float, Required) - A 3-D point to test.
-        plane(List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
+        point  (List of float, Required) - A 3-D point to test.
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
 		Element
 		Type
 		Description
@@ -2156,7 +2115,7 @@ class _CurveRootFuncClsd():
 		Required.  The construction plane's Y axis direction (3-D vector).
 		3
 		Array
-        tolerance(float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+        tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
 
         Returns
         =======
@@ -2167,19 +2126,19 @@ class _CurveRootFuncClsd():
         ==========="""
 
 
-class _CurveRootFuncOorc():
+class _CurveRootFuncOorC():
 
     pass
 
 
 class _CurveRootFuncOpen():
 
-        open_crv_close = """
+        close = """
         Closes an open curve object by making adjustments to the end points so that they meet at a point.
 
         Parameters
         ==========
-        tolerance(float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
 
         Returns
         =======
@@ -2188,12 +2147,12 @@ class _CurveRootFuncOpen():
 
         Rhinoscript
         ==========="""
-        open_crv_extend = """
+        extend = """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
         Parameters
         ==========
-        crv_type(integer, Required) - Type of extension.
+        crv_type  (integer, Required) - Type of extension.
 		Value
 		Description
 		0
@@ -2201,13 +2160,13 @@ class _CurveRootFuncOpen():
 		1
 		Arc - Creates an arc extension tangent to the original curve.
 		2
-        side(integer, Required) - The size to  extent.
+        side  (integer, Required) - The size to  extent.
 		Value
 		Description
 		0
 		Extend from the start of the curve.
 		1
-        objects(list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
 
         Returns
         =======
@@ -2216,12 +2175,12 @@ class _CurveRootFuncOpen():
 
         Rhinoscript
         ==========="""
-        open_crv_extend_length = """
+        extend_length = """
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
         Parameters
         ==========
-        crv_type(integer, Required) - Type of extension.
+        crv_type  (integer, Required) - Type of extension.
 		Value
 		Description
 		0
@@ -2229,7 +2188,7 @@ class _CurveRootFuncOpen():
 		1
 		Arc - Creates an arc extension tangent to the original curve.
 		2
-        side(integer, Required) - The size to  extent.
+        side  (integer, Required) - The size to  extent.
 		Value
 		Description
 		0
@@ -2237,7 +2196,7 @@ class _CurveRootFuncOpen():
 		1
 		Extend from the end of the curve.
 		2
-        length(float, Required) - The distance to extend the curve.
+        length  (float, Required) - The distance to extend the curve.
 
         Returns
         =======
@@ -2246,18 +2205,18 @@ class _CurveRootFuncOpen():
 
         Rhinoscript
         ==========="""
-        open_crv_extend_pnt = """
+        extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
         Parameters
         ==========
-        side(integer, Required) - The size to  extent.
+        side  (integer, Required) - The size to  extent.
 		Value
 		Description
 		0
 		Extend from the start of the curve.
 		1
-        point(List of float, Required) - The 3-D point.
+        point  (List of float, Required) - The 3-D point.
 
         Returns
         =======
@@ -2275,7 +2234,7 @@ class _CurveRootMdfy():
 
         Parameters
         ==========
-        parameter(float, Required) - The parameter of the new start/end point. Note, if successful, the resulting curve's domain will start at dblParameter.
+        parameter  (float, Required) - The parameter of the new start/end point. Note, if successful, the resulting curve's domain will start at dblParameter.
 
         Returns
         =======
@@ -2289,7 +2248,7 @@ class _CurveRootMdfy():
 
         Parameters
         ==========
-        tolerance(float, Optional) - The fairing tolerance. Of omitted, a default value of 1.0 is used.
+        tolerance  (float, Optional) - The fairing tolerance. Of omitted, a default value of 1.0 is used.
 
         Returns
         =======
@@ -2303,8 +2262,8 @@ class _CurveRootMdfy():
 
         Parameters
         ==========
-        parameter(float, Required) - The parameter on the curve.
-        symmetrical(boolean, Optional) - If blnSymmetrical = True, then knots are added on both sides of the center of the curve. The default value is False.
+        parameter  (float, Required) - The parameter on the curve.
+        symmetrical  (boolean, Optional) - If blnSymmetrical = True, then knots are added on both sides of the center of the curve. The default value is False.
 
         Returns
         =======
@@ -2318,8 +2277,8 @@ class _CurveRootMdfy():
 
         Parameters
         ==========
-        degree(integer, Optional) - The new degree, which must be greater than 1. The default is 3.
-        point_count(integer, Optional) - The new point count, which must be bigger than the intDegree.  With closed curves, the minimum point count is 3.
+        degree  (integer, Optional) - The new degree, which must be greater than 1. The default is 3.
+        point_count  (integer, Optional) - The new point count, which must be bigger than the intDegree.  With closed curves, the minimum point count is 3.
 
         Returns
         =======
@@ -2333,7 +2292,7 @@ class _CurveRootMdfy():
 
         Parameters
         ==========
-        parameter(float, Required) - The parameter on the curve.  Note, if the parameter is not equal to one of the existing knots, then the knot closest to the specified parameter will be removed.
+        parameter  (float, Required) - The parameter on the curve.  Note, if the parameter is not equal to one of the existing knots, then the knot closest to the specified parameter will be removed.
 
         Returns
         =======
@@ -2367,7 +2326,7 @@ class _CurveRootMdfy():
 
         Parameters
         ==========
-        flags(integer, Optional) - The simplification methods to use. By default, all methods are used (intFlags = 0). The possible options are as follows:
+        flags  (integer, Optional) - The simplification methods to use. By default, all methods are used (intFlags = 0). The possible options are as follows:
 		Value
 		Description
 		0
@@ -2400,7 +2359,7 @@ class _CurveRootProp():
 
         Parameters
         ==========
-        style(integer, Optional) - The style of annotation arrows to be displayed.  The styles are as follows:
+        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are as follows:
 		Value
 		Description
 		0
@@ -2452,7 +2411,7 @@ class _CurveRootProp():
 
         Parameters
         ==========
-        style(integer, Required) - The type of continuity to test for.  The types of continuity are as follows:
+        style  (integer, Required) - The type of continuity to test for.  The types of continuity are as follows:
 		Value
 		Description
 		1
@@ -2491,7 +2450,7 @@ class _CurveRootProp():
 
         Parameters
         ==========
-        return_parameters(boolean, Optional) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
+        return_parameters  (boolean, Optional) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
 
         Returns
         =======
@@ -2548,7 +2507,7 @@ class _CurveRootProp():
 
         Parameters
         ==========
-        sub_domain(List of integer, Optional) - An list of two numbers identifying the sub-domain of the curve on which the calculation will be performed.  The two parameters (sub-domain) must be non-decreasing.  If omitted, the length of the entire curve is returned.
+        sub_domain  (List of integer, Optional) - An list of two numbers identifying the sub-domain of the curve on which the calculation will be performed.  The two parameters (sub-domain) must be non-decreasing.  If omitted, the length of the entire curve is returned.
 
         Returns
         =======
@@ -2662,7 +2621,7 @@ class _CurveRootPropClsd():
     pass
 
 
-class _CurveRootPropOorc():
+class _CurveRootPropOorC():
 
     pass
 
@@ -2679,7 +2638,7 @@ class _CurveRootTest():
 
         Parameters
         ==========
-        tolerance(float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
 
         Returns
         =======
@@ -2707,7 +2666,7 @@ class _CurveRootTest():
 
         Parameters
         ==========
-        plane(List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
 		Element
 		Type
 		Description
@@ -2786,12 +2745,12 @@ class _CurveRootTest():
 
         Rhinoscript
         ==========="""
-        is_on_crv = """
+        is_pnt_on_crv = """
         Verifies that a point is on a curve.
 
         Parameters
         ==========
-        point(List of integer, Required) - The test, or sampling, point.
+        point  (List of integer, Required) - The test, or sampling, point.
 
         Returns
         =======
@@ -2911,8 +2870,8 @@ class _CylinderDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -2926,25 +2885,11 @@ class _CylinderDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
         object - The copied object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        copy_by_offset = """
-        Offsets a surface by a distance. The offset surface will be added to Rhino.
-
-        Parameters
-        ==========
-        distance(float, Required) - The distance to offset.
-
-        Returns
-        =======
-        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -2979,8 +2924,8 @@ class _EllipseDupl():
 
         Parameters
         ==========
-        param_0(float, Required) - The first parameter on the source curve.
-        param_1(float, Required) - The second parameter on the source curve.
+        param_0  (float, Required) - The first parameter on the source curve.
+        param_1  (float, Required) - The second parameter on the source curve.
 
         Returns
         =======
@@ -2994,8 +2939,8 @@ class _EllipseDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -3009,7 +2954,7 @@ class _EllipseDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -3023,10 +2968,10 @@ class _EllipseDupl():
 
         Parameters
         ==========
-        direction(List of float, Required) - The 3-D point that indicates the direction of the offset.
-        distance(float, Required) - The distance of the offset.
-        normal(List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style(integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
+        direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
+        distance  (float, Required) - The distance of the offset.
+        normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
 		Value
 		Description
 		0
@@ -3051,8 +2996,8 @@ class _EllipseDupl():
 
         Parameters
         ==========
-        parameters(List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        parameters  (List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -3066,8 +3011,8 @@ class _EllipseDupl():
 
         Parameters
         ==========
-        interval(List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -3117,8 +3062,8 @@ class _EllipticalArcDupl():
 
         Parameters
         ==========
-        param_0(float, Required) - The first parameter on the source curve.
-        param_1(float, Required) - The second parameter on the source curve.
+        param_0  (float, Required) - The first parameter on the source curve.
+        param_1  (float, Required) - The second parameter on the source curve.
 
         Returns
         =======
@@ -3132,8 +3077,8 @@ class _EllipticalArcDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -3147,7 +3092,7 @@ class _EllipticalArcDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -3161,10 +3106,10 @@ class _EllipticalArcDupl():
 
         Parameters
         ==========
-        direction(List of float, Required) - The 3-D point that indicates the direction of the offset.
-        distance(float, Required) - The distance of the offset.
-        normal(List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style(integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
+        direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
+        distance  (float, Required) - The distance of the offset.
+        normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
 		Value
 		Description
 		0
@@ -3189,8 +3134,8 @@ class _EllipticalArcDupl():
 
         Parameters
         ==========
-        parameters(List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        parameters  (List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -3204,8 +3149,8 @@ class _EllipticalArcDupl():
 
         Parameters
         ==========
-        interval(List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -3223,8 +3168,8 @@ class _LineDupl():
 
         Parameters
         ==========
-        param_0(float, Required) - The first parameter on the source curve.
-        param_1(float, Required) - The second parameter on the source curve.
+        param_0  (float, Required) - The first parameter on the source curve.
+        param_1  (float, Required) - The second parameter on the source curve.
 
         Returns
         =======
@@ -3238,8 +3183,8 @@ class _LineDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -3253,7 +3198,7 @@ class _LineDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -3267,10 +3212,10 @@ class _LineDupl():
 
         Parameters
         ==========
-        direction(List of float, Required) - The 3-D point that indicates the direction of the offset.
-        distance(float, Required) - The distance of the offset.
-        normal(List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style(integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
+        direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
+        distance  (float, Required) - The distance of the offset.
+        normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
 		Value
 		Description
 		0
@@ -3295,8 +3240,8 @@ class _LineDupl():
 
         Parameters
         ==========
-        parameters(List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        parameters  (List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -3310,8 +3255,8 @@ class _LineDupl():
 
         Parameters
         ==========
-        interval(List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -3329,8 +3274,8 @@ class _MeshDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -3344,7 +3289,7 @@ class _MeshDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -3358,8 +3303,8 @@ class _MeshDupl():
 
         Parameters
         ==========
-        mesh(mesh object, Required) - The identifier of a mesh object.
-        distance(float, Required) - The distance to offset.
+        mesh  (mesh object, Required) - The identifier of a mesh object.
+        distance  (float, Required) - The distance to offset.
 
         Returns
         =======
@@ -3382,8 +3327,8 @@ class _MeshRootFunc():
 
         Parameters
         ==========
-        mesh(string, Required) - The identifier of the mesh to intersect.
-        return_faces(boolean, Optional) - Return both intersection points and face indices.  If omitted or False, then just the intersection points are returned.
+        mesh  (mesh object, Required) - The identifier of the mesh to intersect.
+        return_faces  (boolean, Optional) - Return both intersection points and face indices.  If omitted or False, then just the intersection points are returned.
 
         Returns
         =======
@@ -3400,7 +3345,7 @@ class _MeshRootFunc():
 
         Parameters
         ==========
-        delete(boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
+        delete  (boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
 
         Returns
         =======
@@ -3414,8 +3359,8 @@ class _MeshRootFunc():
 
         Parameters
         ==========
-        point(List of float, Required) - A 3-D point to test.
-        tolerance(float, Optional) - The tolerance. Of omitted, a default tolerance of 0.0 is used.
+        point  (List of float, Required) - A 3-D point to test.
+        tolerance  (float, Optional) - The tolerance. Of omitted, a default tolerance of 0.0 is used.
 
         Returns
         =======
@@ -3431,10 +3376,10 @@ class _MeshRootFunc():
 
         Parameters
         ==========
-        start_point(List of float, Required) - The 3-D starting point of a center line.
-        end_point(List of float, Required) - The 3-D ending point of a center line.
-        interval(float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
-        remove_coincident_points(boolean, Optional) - Remove coincident points.  If True, and the polyline curves from which the contour point are taken are closed, then duplicate starting and ending points of the polyline curve will not be returned. The default is to return duplicate starting and ending points (False).
+        start_point  (List of float, Required) - The 3-D starting point of a center line.
+        end_point  (List of float, Required) - The 3-D ending point of a center line.
+        interval  (float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
+        remove_coincident_points  (boolean, Optional) - Remove coincident points.  If True, and the polyline curves from which the contour point are taken are closed, then duplicate starting and ending points of the polyline curve will not be returned. The default is to return duplicate starting and ending points (False).
 
         Returns
         =======
@@ -3448,8 +3393,8 @@ class _MeshRootFunc():
 
         Parameters
         ==========
-        mesh_1(string, Required) - The identifier of the second mesh object.
-        tolerance(float, Optional) - The intersection tolerance. Of omitted, Rhino's internal zero tolerance is used.
+        mesh  (mesh object, Required) - The identifier of the second mesh object.
+        tolerance  (float, Optional) - The intersection tolerance. Of omitted, Rhino's internal zero tolerance is used.
 
         Returns
         =======
@@ -3477,7 +3422,7 @@ class _MeshRootFunc():
 
         Parameters
         ==========
-        delete(boolean, Optional) - Delete the input object. The default is not to delete the input object (False).
+        delete  (boolean, Optional) - Delete the input object. The default is not to delete the input object (False).
 
         Returns
         =======
@@ -3509,8 +3454,8 @@ class _MeshRootFuncClsd():
 
         Parameters
         ==========
-        meshes(List of string, Required) - The identifiers of the meshes.
-        delete(boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+        meshes  (list of Mesh, Required) - The identifiers of the meshes.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
 
         Returns
         =======
@@ -3524,8 +3469,8 @@ class _MeshRootFuncClsd():
 
         Parameters
         ==========
-        meshes(List of string, Required) - The identifiers of the meshes.
-        delete(boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+        meshes  (list of Mesh, Required) - The identifiers of the meshes.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
 
         Returns
         =======
@@ -3539,8 +3484,8 @@ class _MeshRootFuncClsd():
 
         Parameters
         ==========
-        input_1(List of string, Required) - The identifiers of the meshes.
-        delete(boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+        input_1  (list of Mesh, Required) - The identifiers of the meshes.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
 
         Returns
         =======
@@ -3554,8 +3499,8 @@ class _MeshRootFuncClsd():
 
         Parameters
         ==========
-        meshes(list of array_of _ObjectRoot, Required) - The identifiers of the meshes to union.
-        delete(boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+        meshes  (list of array_of _ObjectRoot, Required) - The identifiers of the meshes to union.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
 
         Returns
         =======
@@ -3566,7 +3511,7 @@ class _MeshRootFuncClsd():
         ==========="""
 
 
-class _MeshRootFuncOorc():
+class _MeshRootFuncOorC():
 
     pass
 
@@ -3702,7 +3647,7 @@ class _MeshRootProp():
 
         Parameters
         ==========
-        face_type(boolean, Optional) - The face type to be returned.  If omitted, both triangles and quads are returned (True)
+        face_type  (boolean, Optional) - The face type to be returned.  If omitted, both triangles and quads are returned (True)
 		Value
 		Description
 		True
@@ -3763,7 +3708,7 @@ class _MeshRootProp():
 
         Parameters
         ==========
-        vertex_colors(List of integer, Optional) - An list of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
+        vertex_colors  (List of integer, Optional) - An list of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
 
         Returns
         =======
@@ -3824,7 +3769,7 @@ class _MeshRootPropClsd():
 
         Parameters
         ==========
-        objects(list of mesh object, Required) - A list of objects.
+        meshes  (list of mesh object, Required) - A list of objects.
 
         Returns
         =======
@@ -3975,8 +3920,8 @@ class _NurbsCurveDupl():
 
         Parameters
         ==========
-        param_0(float, Required) - The first parameter on the source curve.
-        param_1(float, Required) - The second parameter on the source curve.
+        param_0  (float, Required) - The first parameter on the source curve.
+        param_1  (float, Required) - The second parameter on the source curve.
 
         Returns
         =======
@@ -3990,8 +3935,8 @@ class _NurbsCurveDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -4005,7 +3950,7 @@ class _NurbsCurveDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -4019,10 +3964,10 @@ class _NurbsCurveDupl():
 
         Parameters
         ==========
-        direction(List of float, Required) - The 3-D point that indicates the direction of the offset.
-        distance(float, Required) - The distance of the offset.
-        normal(List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style(integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
+        direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
+        distance  (float, Required) - The distance of the offset.
+        normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
 		Value
 		Description
 		0
@@ -4047,8 +3992,8 @@ class _NurbsCurveDupl():
 
         Parameters
         ==========
-        surface(surface object, Required) - The surface object's identifier.
-        distance(float, Required) - The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+        surface  (surface object, Required) - The surface object's identifier.
+        distance  (float, Required) - The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
 
         Returns
         =======
@@ -4057,13 +4002,13 @@ class _NurbsCurveDupl():
 
         Rhinoscript
         ==========="""
-        copy_by_offset_on_srf_param = """
+        copy_by_offset_on_srf_by_param = """
         Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
 
         Parameters
         ==========
-        surface(surface object, Required) - The surface object's identifier.
-        parameter(List of float, Required) - The distance of the offset.  Based on the curve's direction, a possitive value will offset to the left and a negative value will offset to the right.
+        surface  (surface object, Required) - The surface object's identifier.
+        parameter  (List of float, Required) - An list containing the surface U,V parameter that the curve will be offset through.
 
         Returns
         =======
@@ -4077,8 +4022,8 @@ class _NurbsCurveDupl():
 
         Parameters
         ==========
-        parameters(List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        parameters  (List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -4092,8 +4037,8 @@ class _NurbsCurveDupl():
 
         Parameters
         ==========
-        interval(List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -4111,8 +4056,8 @@ class _NurbsSurfaceDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -4126,7 +4071,7 @@ class _NurbsSurfaceDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -4140,7 +4085,7 @@ class _NurbsSurfaceDupl():
 
         Parameters
         ==========
-        distance(float, Required) - The distance to offset.
+        distance  (float, Required) - The distance to offset.
 
         Returns
         =======
@@ -4163,8 +4108,8 @@ class _ObjectRootDefm():
 
         Parameters
         ==========
-        box_points(List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
-        copy(boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
 
         Returns
         =======
@@ -4179,10 +4124,10 @@ class _ObjectRootDefm():
 
         Parameters
         ==========
-        origin(List of float, Required) - The origin of the shear transformation.
-        ref_pt(List of float, Required) - The reference point of the shear transformation.
-        angle(float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
-        copy(boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+        origin  (List of float, Required) - The origin of the shear transformation.
+        ref_point  (List of float, Required) - The reference point of the shear transformation.
+        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
 
         Returns
         =======
@@ -4212,8 +4157,8 @@ class _ObjectRootDefm():
 
         Parameters
         ==========
-        matrix(List of string, Required) - The transformation matrix (4x4 list of numbers).
-        copy(boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
 
         Returns
         =======
@@ -4308,7 +4253,7 @@ class _ObjectRootMtrl():
 
         Parameters
         ==========
-        source(integer, Optional) - The new rendering material source.  If omitted, the current material source is returned.  Note, if arrObjects is specified, intSource is required.
+        source  (integer, Optional) - The new rendering material source.  If omitted, the current material source is returned.  Note, if arrObjects is specified, intSource is required.
 		Value
 		Description
 		0
@@ -4337,7 +4282,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        color(integer, Optional) - The new color value.  If omitted, the current object color is returned.  Note, if arrObjects is specified, lngColor is required.
+        color  (integer, Optional) - The new color value.  If omitted, the current object color is returned.  Note, if arrObjects is specified, lngColor is required.
 
         Returns
         =======
@@ -4357,7 +4302,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        source(integer, Optional) - The new color source.  If omitted, the current color source is returned.  Note, if arrObjects is specified, intSource is required.
+        source  (integer, Optional) - The new color source.  If omitted, the current color source is returned.  Note, if arrObjects is specified, intSource is required.
 		Value
 		Description
 		0
@@ -4382,7 +4327,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        layer(Layer, Optional) - The name of an existing layer.  If omitted, the current object layer is returned.  Note, if arrObjects is specified, strLayer is required.
+        layer  (Layer, Optional) - The name of an existing layer.  If omitted, the current object layer is returned.  Note, if arrObjects is specified, strLayer is required.
 
         Returns
         =======
@@ -4398,7 +4343,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        layer(Layer, Optional) - The name of an existing linetype.  If omitted, the current object linetype is returned.  Note, if arrObjects is specified, strLinetype is required.
+        layer  (Layer, Optional) - The name of an existing linetype.  If omitted, the current object linetype is returned.  Note, if arrObjects is specified, strLinetype is required.
 
         Returns
         =======
@@ -4417,7 +4362,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        source(integer, Optional) - The new linetype source.  If omitted, the current linetype source is returned.  Note, if arrObjects is specified, intSource is required.
+        source  (integer, Optional) - The new linetype source.  If omitted, the current linetype source is returned.  Note, if arrObjects is specified, intSource is required.
 		Value
 		Description
 		0
@@ -4442,7 +4387,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        names(List of string, Optional) - An list of strings identifying the new user-definable names. This list must have the same upper bounds as arrObjects.  Each element in arrNames will correspond with each element in arrObjects.
+        names  (List of string, Optional) - An list of strings identifying the new user-definable names. This list must have the same upper bounds as arrObjects.  Each element in arrNames will correspond with each element in arrObjects.
 
         Returns
         =======
@@ -4457,7 +4402,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        color(integer, Optional) - The new print color value.  If omitted, the current object color is returned.  Note, if arrObjects is specified, lngColor is required.
+        color  (integer, Optional) - The new print color value.  If omitted, the current object color is returned.  Note, if arrObjects is specified, lngColor is required.
 
         Returns
         =======
@@ -4477,7 +4422,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        source(integer, Optional) - The new print color source.  If omitted, the current print color source is returned.  Note, if arrObjects is specified, intSource is required.
+        source  (integer, Optional) - The new print color source.  If omitted, the current print color source is returned.  Note, if arrObjects is specified, intSource is required.
 		Value
 		Description
 		0
@@ -4502,7 +4447,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        width(float, Optional) - The new print width value in millimeters, where dblWidth = 0.0 means use the default width, and dblWidth < 0.0 means do not print (visible for screen display, but does not show on print).  If omitted, the current object print width is returned.  Note, if arrObjects is specified, dblWidth is required.
+        width  (float, Optional) - The new print width value in millimeters, where dblWidth = 0.0 means use the default width, and dblWidth < 0.0 means do not print (visible for screen display, but does not show on print).  If omitted, the current object print width is returned.  Note, if arrObjects is specified, dblWidth is required.
 
         Returns
         =======
@@ -4521,7 +4466,7 @@ class _ObjectRootProp():
 
         Parameters
         ==========
-        source(integer, Optional) - The new print width source.  If omitted, the current print width source is returned.  Note, if arrObjects is specified, intSource is required.
+        source  (integer, Optional) - The new print width source.  If omitted, the current print width source is returned.  Note, if arrObjects is specified, intSource is required.
 		Value
 		Description
 		0
@@ -4551,7 +4496,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        quality(integer, Optional) - The initial settings of the new custom render mesh parameters. The available options are as follows:
+        quality  (integer, Optional) - The initial settings of the new custom render mesh parameters. The available options are as follows:
 		Value
 		Description
 		0
@@ -4559,7 +4504,7 @@ class _ObjectRootRndr():
 		1
 		Smooth and slower.  Objects should look smooth, but they may take a very long time to shade and render.
 		2 (Default)
-        enable(boolean, Optional) - Enable the custom render mesh parameters.  If omitted, the newly added parameters will be enabled (True).
+        enable  (boolean, Optional) - Enable the custom render mesh parameters.  If omitted, the newly added parameters will be enabled (True).
 
         Returns
         =======
@@ -4575,7 +4520,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        enable(boolean, Optional) - Enable the custom render mesh settings.
+        enable  (boolean, Optional) - Enable the custom render mesh settings.
 
         Returns
         =======
@@ -4605,7 +4550,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        density(float, Optional) - The render mesh density, which is a number between 0.0 and 1.0.
+        density  (float, Optional) - The render mesh density, which is a number between 0.0 and 1.0.
 
         Returns
         =======
@@ -4621,7 +4566,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        angle(float, Optional) - The render mesh maximum angle in degrees.
+        angle  (float, Optional) - The render mesh maximum angle in degrees.
 
         Returns
         =======
@@ -4637,7 +4582,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        ratio(float, Optional) - The render mesh maximum aspect ratio.  The suggested range, when not zero, is from 1 to 100.
+        ratio  (float, Optional) - The render mesh maximum aspect ratio.  The suggested range, when not zero, is from 1 to 100.
 
         Returns
         =======
@@ -4653,7 +4598,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        distance(float, Optional) - The render mesh maximum distance, edge to surface.
+        distance  (float, Optional) - The render mesh maximum distance, edge to surface.
 
         Returns
         =======
@@ -4669,7 +4614,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        length(float, Optional) - The render mesh maximum edge length.
+        length  (float, Optional) - The render mesh maximum edge length.
 
         Returns
         =======
@@ -4685,7 +4630,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        length(float, Optional) - The render mesh minimum edge length.
+        length  (float, Optional) - The render mesh minimum edge length.
 
         Returns
         =======
@@ -4701,7 +4646,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        quads(integer, Optional) - The render mesh minimum initial grid quads.  The suggested range is from 0 to 10000.
+        quads  (integer, Optional) - The render mesh minimum initial grid quads.  The suggested range is from 0 to 10000.
 
         Returns
         =======
@@ -4716,7 +4661,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        quality(integer, Optional) - The render mesh quality, either:
+        quality  (integer, Optional) - The render mesh quality, either:
 		Value
 		Description
 		0
@@ -4738,7 +4683,7 @@ class _ObjectRootRndr():
 
         Parameters
         ==========
-        settings(integer, Optional) - The render mesh settings, which is a bit-coded number that allows or disallows certain features.  The bits can be added together in any combination to form a value between 0 and 15.  The bit values are as follows:
+        settings  (integer, Optional) - The render mesh settings, which is a bit-coded number that allows or disallows certain features.  The bits can be added together in any combination to form a value between 0 and 15.  The bit values are as follows:
 		Value
 		Description
 		0
@@ -4768,7 +4713,7 @@ class _ObjectRootStat():
 
         Parameters
         ==========
-        style(boolean, Optional) - The flash style.  If True (default), then the objects will flash between their object color and Rhino's selected object color.  If false, then the objects will flash between invisible and visible.
+        style  (boolean, Optional) - The flash style.  If True (default), then the objects will flash between their object color and Rhino's selected object color.  If false, then the objects will flash between invisible and visible.
 
         Returns
         =======
@@ -4809,7 +4754,7 @@ class _ObjectRootStat():
 
         Parameters
         ==========
-        targets(list of array_of _ObjectRoot, Required) - A list of target objects.
+        targets  (list of array_of _ObjectRoot, Required) - A list of target objects.
 
         Returns
         =======
@@ -4837,8 +4782,8 @@ class _ObjectRootStat():
 
         Parameters
         ==========
-        layout(string, Optional) - To change, or move, an object from model space to page layout space, or from one page layout to another, then specify the title or identifier of an existing page layout view. To move an object from page layout space to model space, just specify Null.
-        return_name(boolean, Optional) - If True (default), then the name, or title, of the page layout view is returned. If False, then the identifier of the page layout view is returned.
+        layout  (string, Optional) - To change, or move, an object from model space to page layout space, or from one page layout to another, then specify the title or identifier of an existing page layout view. To move an object from page layout space to model space, just specify Null.
+        return_name  (boolean, Optional) - If True (default), then the name, or title, of the page layout view is returned. If False, then the identifier of the page layout view is returned.
 
         Returns
         =======
@@ -4939,8 +4884,8 @@ class _ObjectRootTest():
 
         Parameters
         ==========
-        box(List of float, Required) - The bounding box to test against. A bounding box is an list of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.
-        mode(boolean, Optional) - The test mode.
+        box  (List of float, Required) - The bounding box to test against. A bounding box is an list of eight 3-D points that define the corners of the box.  Points need to be  in counter-clockwise order starting with the bottom rectangle of the box.
+        mode  (boolean, Optional) - The test mode.
 		Value
 		Description
 		True (Default)
@@ -4958,7 +4903,7 @@ class _ObjectRootTest():
 
         Parameters
         ==========
-        group(string, Optional) - The name of a group.  If omitted, the function verifies that the object is a member of any group.
+        group  (string, Optional) - The name of a group.  If omitted, the function verifies that the object is a member of any group.
 
         Returns
         =======
@@ -5062,7 +5007,7 @@ class _ObjectRootTest():
 
         Parameters
         ==========
-        view(string, Optional) - The title of the view.  If omitted, the current active view is used.
+        view  (string, Optional) - The title of the view.  If omitted, the current active view is used.
 
         Returns
         =======
@@ -5079,9 +5024,9 @@ class _ObjectRootTrfm():
 
         Parameters
         ==========
-        start_pt(List of float, Required) - The start of the mirror plane.
-        end_pt(List of float, Required) - The end of the mirror plane.
-        copy(boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+        start_point  (List of float, Required) - The start of the mirror plane.
+        end_point  (List of float, Required) - The end of the mirror plane.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
 
         Returns
         =======
@@ -5095,8 +5040,8 @@ class _ObjectRootTrfm():
 
         Parameters
         ==========
-        start(List of float, Required) - The 3-D starting, or base, point of the move operation.
-        end(List of float, Required) - The 3-D ending point of the move operation.
+        start_point  (List of float, Required) - The 3-D starting, or base, point of the move operation.
+        end_point  (List of float, Required) - The 3-D ending point of the move operation.
 
         Returns
         =======
@@ -5110,7 +5055,7 @@ class _ObjectRootTrfm():
 
         Parameters
         ==========
-        translation(List of float, Required) - The 3-D starting, or base, point of the move operation.
+        translation_vector  (List of float, Required) - The 3-D translation vector.
 
         Returns
         =======
@@ -5124,9 +5069,9 @@ class _ObjectRootTrfm():
 
         Parameters
         ==========
-        reference(List of float, Required) - An list of 3-D reference points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
-        target(List of float, Required) - An list of 3-D target points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
-        flags(integer, Optional) - The orient flags.  Values can be added together to specify multiple options.
+        reference  (List of float, Required) - An list of 3-D reference points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
+        target  (List of float, Required) - An list of 3-D target points.  If two 3-D points are specified, then this method will function similar to Rhino's Orient command.  If more than two 3-D points are specified, then the function will orient similar to Rhino's Orient3Pt command.
+        flags  (integer, Optional) - The orient flags.  Values can be added together to specify multiple options.
 		Value
 		Description
 		1
@@ -5145,9 +5090,9 @@ class _ObjectRootTrfm():
 
         Parameters
         ==========
-        src_plane(List of float, Required) - The source plane to transform from.
-        dst_plane(List of float, Required) - The destination plane to transform to.
-        copy(boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+        src_plane  (List of float, Required) - The source plane to transform from.
+        dst_plane  (List of float, Required) - The destination plane to transform to.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
 
         Returns
         =======
@@ -5161,10 +5106,10 @@ class _ObjectRootTrfm():
 
         Parameters
         ==========
-        point(List of float, Required) - The 3-D center point of the rotation.
-        angle(float, Required) - The rotation angle in degrees.
-        axis(List of float, Optional) - A 3-D vector that identifies the axis of rotation. If omitted, the Z axis of the active construction plane is used as the rotation axis.
-        copy(boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+        point  (List of float, Required) - The 3-D center point of the rotation.
+        angle  (float, Required) - The rotation angle in degrees.
+        axis  (List of float, Optional) - A 3-D vector that identifies the axis of rotation. If omitted, the Z axis of the active construction plane is used as the rotation axis.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
 
         Returns
         =======
@@ -5178,9 +5123,9 @@ class _ObjectRootTrfm():
 
         Parameters
         ==========
-        origin(List of float, Required) - The origin of the scale transformation.
-        scale(List of float, Required) - An list of three numbers that identify the X axis, Y axis, and Z axis scale factors to apply. Scaling is based on the active construction plane.
-        copy(boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+        origin  (List of float, Required) - The origin of the scale transformation.
+        scale  (List of float, Required) - An list of three numbers that identify the X axis, Y axis, and Z axis scale factors to apply. Scaling is based on the active construction plane.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
 
         Returns
         =======
@@ -5230,7 +5175,7 @@ class _ObjectRootUtil():
 
         Parameters
         ==========
-        type(integer, Optional) - The acceptable values are as follows:
+        type  (integer, Optional) - The acceptable values are as follows:
 		Value
 		Description
 		0 (Default)
@@ -5257,8 +5202,8 @@ class _PlanarMeshDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -5272,7 +5217,7 @@ class _PlanarMeshDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -5286,8 +5231,8 @@ class _PlanarMeshDupl():
 
         Parameters
         ==========
-        mesh(mesh object, Required) - The identifier of a mesh object.
-        distance(float, Required) - The distance to offset.
+        mesh  (mesh object, Required) - The identifier of a mesh object.
+        distance  (float, Required) - The distance to offset.
 
         Returns
         =======
@@ -5305,8 +5250,8 @@ class _PlaneSurfaceDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -5320,7 +5265,7 @@ class _PlaneSurfaceDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -5334,7 +5279,7 @@ class _PlaneSurfaceDupl():
 
         Parameters
         ==========
-        distance(float, Required) - The distance to offset.
+        distance  (float, Required) - The distance to offset.
 
         Returns
         =======
@@ -5345,81 +5290,15 @@ class _PlaneSurfaceDupl():
         ==========="""
 
 
-class _PolySurfaceDupl():
-
-        copy_move = """
-        Copies a single object from one location to another, or in-place.
-
-        Parameters
-        ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
-
-        Returns
-        =======
-        object - The copied object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        copy_move_by_vec = """
-        Copies a single object from one location to another, or in-place.
-
-        Parameters
-        ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-
-        Returns
-        =======
-        object - The copied object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        copy_by_offset = """
-        Offsets a surface by a distance. The offset surface will be added to Rhino.
-
-        Parameters
-        ==========
-        distance(float, Required) - The distance to offset.
-
-        Returns
-        =======
-        object - The new object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-
-
-class _PolySurfaceFunc():
-
-        explode = """
-        Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.
-
-        Parameters
-        ==========
-        objects(list of array_of _ObjectRoot, Required) - A list of polysurface objects to explode.
-        delete(boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
-
-        Returns
-        =======
-        list of objects - A list of strings identifying the newly created surface objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-
-
-class _PolylineDupl():
+class _PolyCurveDupl():
 
         copy_by_sub = """
         Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
 
         Parameters
         ==========
-        param_0(float, Required) - The first parameter on the source curve.
-        param_1(float, Required) - The second parameter on the source curve.
+        param_0  (float, Required) - The first parameter on the source curve.
+        param_1  (float, Required) - The second parameter on the source curve.
 
         Returns
         =======
@@ -5433,8 +5312,8 @@ class _PolylineDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -5448,7 +5327,7 @@ class _PolylineDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
@@ -5462,10 +5341,10 @@ class _PolylineDupl():
 
         Parameters
         ==========
-        direction(List of float, Required) - The 3-D point that indicates the direction of the offset.
-        distance(float, Required) - The distance of the offset.
-        normal(List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
-        style(integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
+        direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
+        distance  (float, Required) - The distance of the offset.
+        normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
 		Value
 		Description
 		0
@@ -5490,8 +5369,8 @@ class _PolylineDupl():
 
         Parameters
         ==========
-        parameters(List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        parameters  (List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -5505,8 +5384,185 @@ class _PolylineDupl():
 
         Parameters
         ==========
-        interval(List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
-        delete(boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+
+        Returns
+        =======
+        object - The newly created curve object, if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+
+
+class _PolyCurveFunc():
+
+        explode = """
+        Explodes, or un-joins,  one more curve objects.  Polycurves will be exploded into curve segments.  Polylines will be exploded into line segments.  ExplodeCurves will return the curves in
+		topological order.
+
+        Parameters
+        ==========
+        delete  (boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
+
+        Returns
+        =======
+        list of objects - A list of strings identifying the newly created curve objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+
+
+class _PolySurfaceDupl():
+
+        copy_move = """
+        Copies a single object from one location to another, or in-place.
+
+        Parameters
+        ==========
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
+
+        Returns
+        =======
+        object - The copied object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+        copy_move_by_vec = """
+        Copies a single object from one location to another, or in-place.
+
+        Parameters
+        ==========
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
+
+        Returns
+        =======
+        object - The copied object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+
+
+class _PolySurfaceFunc():
+
+        explode = """
+        Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.
+
+        Parameters
+        ==========
+        objects  (list of array_of _ObjectRoot, Required) - A list of polysurface objects to explode.
+        delete  (boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
+
+        Returns
+        =======
+        list of objects - A list of strings identifying the newly created surface objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+
+
+class _PolylineDupl():
+
+        copy_by_sub = """
+        Adds a new curve object based on a portion, or interval, of an existing curve object. This function is similar in operation to Rhino's SubCrv command.
+
+        Parameters
+        ==========
+        param_0  (float, Required) - The first parameter on the source curve.
+        param_1  (float, Required) - The second parameter on the source curve.
+
+        Returns
+        =======
+        object - The new object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+        copy_move = """
+        Copies a single object from one location to another, or in-place.
+
+        Parameters
+        ==========
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
+
+        Returns
+        =======
+        object - The copied object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+        copy_move_by_vec = """
+        Copies a single object from one location to another, or in-place.
+
+        Parameters
+        ==========
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
+
+        Returns
+        =======
+        object - The copied object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+        copy_by_offset = """
+        Offsets a curve by a distance. The offset curve will be added to Rhino.
+
+        Parameters
+        ==========
+        direction_point  (List of float, Required) - The 3-D point that indicates the direction of the offset.
+        distance  (float, Required) - The distance of the offset.
+        normal  (List of float, Optional) - A 3-D vector identifying the normal of the plane in which the offset will occur. If omitted, the normal of the active construction plane will be used.
+        style  (integer, Optional) - The corner style.  If omitted, a sharp corner style is used.
+		Value
+		Description
+		0
+		None
+		1
+		Sharp (Default)
+		2
+		Round
+		3
+		Smooth
+		4
+
+        Returns
+        =======
+        list - A list containing the identifiers of the new objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+        copy_by_split = """
+        Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
+
+        Parameters
+        ==========
+        parameters  (List of float, Required) - An list of one or more parameters, to split the curve at, that are in the interval returned by CurveDomain.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
+
+        Returns
+        =======
+        list of objects - A list containing the identifiers of the two newly created curve objects, if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ==========="""
+        copy_by_trim = """
+        Trims a curve by removing portions of the curve outside the specified interval.
+
+        Parameters
+        ==========
+        interval  (List of integer, Required) - An list of two number identifying the interval to keep. Portions of the curve before domain(0) and after domain(1) will be removed. If the input curve is open, the interval must be increasing. If the input curve is closed and the interval is decreasing, then the portion of the curve across the start and end of the curve is returned.
+        delete  (boolean, Optional) - Delete the input curve. The default is to delete the input curve (True).
 
         Returns
         =======
@@ -5542,8 +5598,8 @@ class _SphereDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -5557,25 +5613,11 @@ class _SphereDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
         object - The copied object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        copy_by_offset = """
-        Offsets a surface by a distance. The offset surface will be added to Rhino.
-
-        Parameters
-        ==========
-        distance(float, Required) - The distance to offset.
-
-        Returns
-        =======
-        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -5614,7 +5656,7 @@ class _SurfaceRootEval():
 
         Parameters
         ==========
-        parameter(List of float, Required) - An list containing the U,V parameter to evaluate.
+        parameter  (List of float, Required) - An list containing the U,V parameter to evaluate.
 
         Returns
         =======
@@ -5628,8 +5670,8 @@ class _SurfaceRootEval():
 
         Parameters
         ==========
-        parameter(List of float, Required) - An list containing the U,V parameter to evaluate.
-        derivative(integer, Required) - The number of derivatives to evaluate.
+        parameter  (List of float, Required) - An list containing the U,V parameter to evaluate.
+        derivative  (integer, Required) - The number of derivatives to evaluate.
 
         Returns
         =======
@@ -5650,7 +5692,7 @@ class _SurfaceRootEval():
 
         Parameters
         ==========
-        parameter(List of float, Required) - An list containing the U,V parameter to evaluate.
+        parameter  (List of float, Required) - An list containing the U,V parameter to evaluate.
 
         Returns
         =======
@@ -5668,8 +5710,8 @@ class _SurfaceRootFunc():
 
         Parameters
         ==========
-        direction(integer, Required) - The direction to make non-periodic, either 0 = U, or 1 = V.
-        delete(boolean, Optional) - Delete input surface.  If omitted, the input surface will not be deleted (False).
+        direction  (integer, Required) - The direction to make non-periodic, either 0 = U, or 1 = V.
+        delete  (boolean, Optional) - Delete input surface.  If omitted, the input surface will not be deleted (False).
 
         Returns
         =======
@@ -5684,8 +5726,8 @@ class _SurfaceRootFunc():
 
         Parameters
         ==========
-        direction(integer, Required) - The direction to make periodic, either 0 = U, or 1 = V.
-        delete(boolean, Optional) - Delete input surface.  If omitted, the input surface will not be deleted (False).
+        direction  (integer, Required) - The direction to make periodic, either 0 = U, or 1 = V.
+        delete  (boolean, Optional) - Delete input surface.  If omitted, the input surface will not be deleted (False).
 
         Returns
         =======
@@ -5700,7 +5742,7 @@ class _SurfaceRootFunc():
 
         Parameters
         ==========
-        point(List of float, Required) - The test, or sampling, point.
+        point  (List of float, Required) - The test, or sampling, point.
 
         Returns
         =======
@@ -5718,8 +5760,8 @@ class _SurfaceRootFuncClsd():
 
         Parameters
         ==========
-        breps(list of surface object, Required) - The identifiers of the surfaces or polysurfaces to be subtracted.
-        delete(boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+        breps  (list of surface object, Required) - The identifiers of the surfaces or polysurfaces to be subtracted.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
 
         Returns
         =======
@@ -5733,8 +5775,8 @@ class _SurfaceRootFuncClsd():
 
         Parameters
         ==========
-        breps(list of surface object, Required) - The identifiers of the surfaces or polysurfaces.
-        delete(boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+        breps  (list of surface object, Required) - The identifiers of the surfaces or polysurfaces.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
 
         Returns
         =======
@@ -5748,8 +5790,8 @@ class _SurfaceRootFuncClsd():
 
         Parameters
         ==========
-        breps(list of surface object, Required) - The identifiers of the surfaces or polysurfaces to union.
-        delete(boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+        breps  (list of surface object, Required) - The identifiers of the surfaces or polysurfaces to union.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
 
         Returns
         =======
@@ -5763,7 +5805,7 @@ class _SurfaceRootFuncClsd():
 
         Parameters
         ==========
-        point(List of float, Required) - The test, or sampling, point.
+        point  (List of float, Required) - The test, or sampling, point.
 
         Returns
         =======
@@ -5777,8 +5819,8 @@ class _SurfaceRootFuncClsd():
 
         Parameters
         ==========
-        brep_1(string, Required) - The second  brep object's identifier.
-        tolerance(float, Optional) - The distance tolerance at segment midpoints.  If omitted, the current absolute tolerance is used..
+        brep_1  (string, Required) - The second  brep object's identifier.
+        tolerance  (float, Optional) - The distance tolerance at segment midpoints.  If omitted, the current absolute tolerance is used..
 
         Returns
         =======
@@ -5792,8 +5834,8 @@ class _SurfaceRootFuncClsd():
 
         Parameters
         ==========
-        cutter(string, Required) - The identifier of the brep object to split with.
-        delete(boolean, Optional) - Delete input brep.  If omitted, the input brep will not be deleted (False).
+        cutter  (string, Required) - The identifier of the brep object to split with.
+        delete  (boolean, Optional) - Delete input brep.  If omitted, the input brep will not be deleted (False).
 
         Returns
         =======
@@ -5834,7 +5876,7 @@ class _SurfaceRootMdfy():
 
         Parameters
         ==========
-        flip(boolean, Optional) - The new normal orientation, either flipped (True) or not flipped (False).  If omitted, the current normal orientation is returned.
+        flip  (boolean, Optional) - The new normal orientation, either flipped (True) or not flipped (False).  If omitted, the current normal orientation is returned.
 
         Returns
         =======
@@ -5849,9 +5891,9 @@ class _SurfaceRootMdfy():
 
         Parameters
         ==========
-        parameter(float, Required) - An list containing a U,V parameter on the surface.
-        direction(integer, Required) - The direction for knot insertion, either 0 = U, 1 = V, or 2 = both.
-        symmetrical(boolean, Optional) - If blnSymmetrical = True, then knots are added on both sides of the center of the surface.  The default value is False.
+        parameter  (float, Required) - An list containing a U,V parameter on the surface.
+        direction  (integer, Required) - The direction for knot insertion, either 0 = U, 1 = V, or 2 = both.
+        symmetrical  (boolean, Optional) - If blnSymmetrical = True, then knots are added on both sides of the center of the surface.  The default value is False.
 
         Returns
         =======
@@ -5865,8 +5907,8 @@ class _SurfaceRootMdfy():
 
         Parameters
         ==========
-        degree(List of integer, Optional) - An list of two numbers that identify the surface curve degree in both the U and the V directions. Each degree value must be greater than 1. The default is 3 in each direction.
-        point_count(List of integer, Optional) - An list of two numbers that identify the surface point count in both the U and the V directions.  The point count must be greater than the degree.  The default value is 10 in each direction.
+        degree  (List of integer, Optional) - An list of two numbers that identify the surface curve degree in both the U and the V directions. Each degree value must be greater than 1. The default is 3 in each direction.
+        point_count  (List of integer, Optional) - An list of two numbers that identify the surface point count in both the U and the V directions.  The point count must be greater than the degree.  The default value is 10 in each direction.
 
         Returns
         =======
@@ -5880,8 +5922,8 @@ class _SurfaceRootMdfy():
 
         Parameters
         ==========
-        parameter(float, Required) - An list containing a U,V parameter on the surface.  Note, if the parameter is not equal to one of the existing knots, then the knot closest to the specified parameter will be removed.
-        direction(integer, Required) - The direction for knot insertion, either 0 = U, or 1 = V.
+        parameter  (float, Required) - An list containing a U,V parameter on the surface.  Note, if the parameter is not equal to one of the existing knots, then the knot closest to the specified parameter will be removed.
+        direction  (integer, Required) - The direction for knot insertion, either 0 = U, or 1 = V.
 
         Returns
         =======
@@ -5896,7 +5938,7 @@ class _SurfaceRootMdfy():
 
         Parameters
         ==========
-        direction(integer, Required) - The direction to reverse. Values can be added together so as to reverse more than one direction.
+        direction  (integer, Required) - The direction to reverse. Values can be added together so as to reverse more than one direction.
 		Value
 		Description
 		1
@@ -5931,8 +5973,8 @@ class _SurfaceRootMdfy():
 
         Parameters
         ==========
-        direction(integer, Required) - The parameter direction, where 0 = U and 1 = V.
-        parameter(float, Required) - The parameter at which to place the seam.
+        direction  (integer, Required) - The parameter direction, where 0 = U and 1 = V.
+        parameter  (float, Required) - The parameter at which to place the seam.
 
         Returns
         =======
@@ -5994,10 +6036,10 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        start_point(List of float, Required) - The 3-D starting point of a center line.
-        end_point(List of float, Required) - The 3-D ending point of a center line.
-        interval(float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
-        angle(float, Optional) - The maximum angle in degrees between unit tangents at adjacent vertices.  If omitted, the maximum angle will be set to 5.0 degrees.
+        start_point  (List of float, Required) - The 3-D starting point of a center line.
+        end_point  (List of float, Required) - The 3-D ending point of a center line.
+        interval  (float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
+        angle  (float, Optional) - The maximum angle in degrees between unit tangents at adjacent vertices.  If omitted, the maximum angle will be set to 5.0 degrees.
 
         Returns
         =======
@@ -6011,7 +6053,7 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        parameter(List of float, Required) - An list containing the U,V parameter to evaluate.
+        parameter  (List of float, Required) - An list containing the U,V parameter to evaluate.
 
         Returns
         =======
@@ -6047,7 +6089,7 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        direction(integer, Optional) - The direction, either 0 = U, or 1 = V, or 2 = Both.  Of omitted, both the degrees in the U and V directions are returned (2 = Both).
+        direction  (integer, Optional) - The direction, either 0 = U, or 1 = V, or 2 = Both.  Of omitted, both the degrees in the U and V directions are returned (2 = Both).
 
         Returns
         =======
@@ -6062,7 +6104,7 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        direction(integer, Required) - The direction, either 0 = U, or 1 = V.
+        direction  (integer, Required) - The direction, either 0 = U, or 1 = V.
 
         Returns
         =======
@@ -6076,8 +6118,8 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        return_parameters(boolean, Optional) - If False (default), edit points are returned as an list of 3-D points. If True, edit points are returned as an list U,V surface parameters.
-        return_all(boolean, Optional) - If True (default) all surface edit points are returned. If False, the function will returned surface edit points based on whether or not the surface is closed or periodic.
+        return_parameters  (boolean, Optional) - If False (default), edit points are returned as an list of 3-D points. If True, edit points are returned as an list U,V surface parameters.
+        return_all  (boolean, Optional) - If True (default) all surface edit points are returned. If False, the function will returned surface edit points based on whether or not the surface is closed or periodic.
 
         Returns
         =======
@@ -6092,7 +6134,7 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        density(integer, Optional) - The isocurve wireframe density.  The possible values are as follows:
+        density  (integer, Optional) - The isocurve wireframe density.  The possible values are as follows:
 		Value
 		Description
 		-1
@@ -6144,7 +6186,7 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        parameter(List of float, Required) - An list containing the UV parameter to evaluate.
+        parameter  (List of float, Required) - An list containing the UV parameter to evaluate.
 
         Returns
         =======
@@ -6172,7 +6214,7 @@ class _SurfaceRootProp():
 
         Parameters
         ==========
-        return_all(boolean, Optional) - If True (default) all surface edit points are returned. If False, the function will returned surface edit points based on whether or not the surface is closed or periodic.
+        return_all  (boolean, Optional) - If True (default) all surface edit points are returned. If False, the function will returned surface edit points based on whether or not the surface is closed or periodic.
 
         Returns
         =======
@@ -6290,7 +6332,7 @@ class _SurfaceRootTest():
 
         Parameters
         ==========
-        parameter(List of float, Required) - An list containing the U,V parameter to evaluate.
+        parameter  (List of float, Required) - An list containing the U,V parameter to evaluate.
 
         Returns
         =======
@@ -6318,7 +6360,7 @@ class _SurfaceRootTest():
 
         Parameters
         ==========
-        point(List of float, Required) - The test, or sampling, point.
+        point  (List of float, Required) - The test, or sampling, point.
 
         Returns
         =======
@@ -6332,7 +6374,7 @@ class _SurfaceRootTest():
 
         Parameters
         ==========
-        point(List of float, Required) - The test, or sampling, point.
+        point  (List of float, Required) - The test, or sampling, point.
 
         Returns
         =======
@@ -6388,7 +6430,7 @@ class _SurfaceRootTest():
 
         Parameters
         ==========
-        direction(integer, Required) - The direction, either 0 = U, or 1 = V.
+        direction  (integer, Required) - The direction, either 0 = U, or 1 = V.
 
         Returns
         =======
@@ -6402,7 +6444,7 @@ class _SurfaceRootTest():
 
         Parameters
         ==========
-        direction(integer, Required) - The direction, either 0 = U, or 1 = V.
+        direction  (integer, Required) - The direction, either 0 = U, or 1 = V.
 
         Returns
         =======
@@ -6416,7 +6458,7 @@ class _SurfaceRootTest():
 
         Parameters
         ==========
-        tolerance(float, Optional) - A tolerance to use when checking. The default is to use Rhino's current absolute tolerance.
+        tolerance  (float, Optional) - A tolerance to use when checking. The default is to use Rhino's current absolute tolerance.
 
         Returns
         =======
@@ -6444,7 +6486,7 @@ class _SurfaceRootTest():
 
         Parameters
         ==========
-        direction(integer, Required) - The direction, either 0 = south, 1 = east, 2 = north, or 3 = west.
+        direction  (integer, Required) - The direction, either 0 = south, 1 = east, 2 = north, or 3 = west.
 
         Returns
         =======
@@ -6550,8 +6592,8 @@ class _TorusDupl():
 
         Parameters
         ==========
-        start(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
-        end(List of float, Optional) - The 3-D ending point of the copy operation.
+        start_point  (List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        end_point  (List of float, Optional) - The 3-D ending point of the copy operation.
 
         Returns
         =======
@@ -6565,25 +6607,11 @@ class _TorusDupl():
 
         Parameters
         ==========
-        translation(List of float, Optional) - The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place.
+        translation_vector  (List of float, Optional) - The 3-D translation vector.
 
         Returns
         =======
         object - The copied object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ==========="""
-        copy_by_offset = """
-        Offsets a surface by a distance. The offset surface will be added to Rhino.
-
-        Parameters
-        ==========
-        distance(float, Required) - The distance to offset.
-
-        Returns
-        =======
-        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript

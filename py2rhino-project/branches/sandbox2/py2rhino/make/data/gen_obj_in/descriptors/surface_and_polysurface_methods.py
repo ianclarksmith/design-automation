@@ -43,19 +43,20 @@ class _PolySurfaceDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._SurfaceRoot.PolySurface","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("_ObjectRoot._SurfaceRoot.PolySurface","null")         
             }
+        """
         offset_surface = {#ed
             "method_name": "copy_by_offset",
             "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
-            "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
-            }    
+            "method_returns": ("_ObjectRoot._SurfaceRoot.PolySurface","null")  #TODO: see what is returned
+            }   """ 
 #===============================================================================
 # _PolySurfaceProp
 #===============================================================================
@@ -97,7 +98,7 @@ class Box(object):
     class Constructors(object):
         add_box = {#ed
             "method_name": "create",
-            "method_parameters": (("corners","array_of dbl","REQ"),),
+            "method_parameters": (("corner_points","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
             }
 #===============================================================================
@@ -108,19 +109,20 @@ class _BoxDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._SurfaceRoot.Box","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("_ObjectRoot._SurfaceRoot.Box","null")         
             }
+        """
         offset_surface = {#ed
             "method_name": "copy_by_offset",
             "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
-            }        
+            }      """  
 #===============================================================================
 # Cone
 #===============================================================================
@@ -150,12 +152,12 @@ class Cone(object):
     class Constructors(object):
         add_cone = {#ed
             "method_name": "create",
-            "method_parameters": (("base","array_of dbl","REQ"),("height","array_of dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT"),),
+            "method_parameters": (("base_point","array_of dbl","REQ"),("height_point","array_of dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT"),),
             "method_returns": ("SELF","null")
             }
         add_cone_2 = {#ed
             "method_name": "create_by_plane",
-            "method_parameters": (("plane","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT"),),
+            "method_parameters": (("base_plane","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT"),),
             "method_returns": ("SELF","null")
             }        
         
@@ -167,19 +169,20 @@ class _ConeDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._SurfaceRoot.Cone","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("_ObjectRoot._SurfaceRoot.Cone","null")         
             }
+        """
         offset_surface = {#ed
             "method_name": "copy_by_offset",
             "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
-            }    
+            }    """
     
 #===============================================================================
 # _ConeProp
@@ -220,17 +223,17 @@ class NurbsSurface(object):
     class Constructors(object):
         add_cut_plane = {#ed
             "method_name": "create_by_cut_plane",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("normal","array_of dbl","OPT"),),
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("normal_vector","array_of dbl","OPT"),),
             "method_returns": ("SELF","null")
             }
         add_edge_srf = {#ed
             "method_name": "create_by_edge",
-            "method_parameters": (("objects","array_of _ObjectRoot._CurveRoot","REQ"),),
+            "method_parameters": (("edge_curves","array_of _ObjectRoot._CurveRoot","REQ"),),
             "method_returns": ("SELF","null")
             }
         add_loft_srf = {#ed
             "method_name": "create_by_loft",
-            "method_parameters": (("objects","array_of _ObjectRoot._CurveRoot","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("srf_type","int","OPT"),("style","int","OPT"),("value","n","OPT"),("closed","bln","OPT"),),
+            "method_parameters": (("section_curves","array_of _ObjectRoot._CurveRoot","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT"),("srf_type","int","OPT"),("style","int","OPT"),("value","n","OPT"),("closed","bln","OPT"),),
             "method_returns": ("first_in_array_of SELF","null")#returns array
             }
         add_nurbs_surface = {#ed
@@ -249,17 +252,17 @@ class NurbsSurface(object):
             "method_returns": ("SELF","null")
             }
         add_srf_control_pt_grid = {#ed
-            "method_name": "create_by_control_pt_grid",
+            "method_name": "create_by_control_pnt_grid",
             "method_parameters": (("count","array_of int","REQ"),("points","array_of dbl","REQ"),("degree","array_of dbl","OPT"),),
             "method_returns": ("SELF","null")
             }
         add_srf_pt = {#ed
-            "method_name": "create_by_corner_pts",
+            "method_name": "create_by_corner_pnts",
             "method_parameters": (("points","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
             }
         add_srf_pt_grid = {#ed
-            "method_name": "create_by_pt_grid",
+            "method_name": "create_by_pnt_grid",
             "method_parameters": (("count","array_of int","REQ"),("points","array_of dbl","REQ"),("degree","array_of int","OPT"),("closed","array_of bln","OPT"),),
             "method_returns": ("SELF","null")
             }
@@ -297,30 +300,20 @@ class NurbsSurface(object):
         
         add_planar_srf = {#ed
             "method_name": "create_by_planar_crv",
-            "method_parameters": (("objects","array_of _ObjectRoot._CurveRoot","REQ"),),
+            "method_parameters": (("planar_curves","array_of _ObjectRoot._CurveRoot","REQ"),),
             "method_returns": ("first_in_array_of SELF","null")#returns array
             }
         add_sweep_1 = {#ed
             "method_name": "create_by_sweep_1",
-            "method_parameters": (("rail","_ObjectRoot._CurveRoot","REQ"),("shapes","array_of _ObjectRoot._CurveRoot","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("closed","bln","OPT"),("style","int","OPT"),("style_arg","va","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT"),),
+            "method_parameters": (("rail","_ObjectRoot._CurveRoot","REQ"),("shapes","array_of _ObjectRoot._CurveRoot","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT"),("closed","bln","OPT"),("style","int","OPT"),("style_arg","va","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT"),),
             "method_returns": ("first_in_array_of SELF","null")#returns array
             }
         add_sweep_2 = {#ed
             "method_name": "create_by_sweep_2",
-            "method_parameters": (("rails","array_of _ObjectRoot._CurveRoot","REQ"),("shapes","array_of _ObjectRoot._CurveRoot","REQ"),("start_pt","array_of dbl","OPT"),("end_pt","array_of dbl","OPT"),("closed","bln","OPT"),("simple_sweep","bln","OPT"),("maintain_height","bln","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT"),),
+            "method_parameters": (("rails","array_of _ObjectRoot._CurveRoot","REQ"),("shapes","array_of _ObjectRoot._CurveRoot","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT"),("closed","bln","OPT"),("simple_sweep","bln","OPT"),("maintain_height","bln","OPT"),("simplify","int","OPT"),("simplify_arg","va","OPT"),),
             "method_returns": ("first_in_array_of SELF","null")#returns array
             }
-        
-        copy_object = {
-            "method_name": "create_copy_move",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
-            "method_returns": ("SELF","null")        
-            }
-        copy_object_2 = {
-            "method_name": "create_copy_move_by_vec",
-            "method_parameters": (("object","_ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
-            "method_returns": ("SELF","null")         
-            }
+
 #===============================================================================
 # _NurbsSurfaceDupl
 #===============================================================================
@@ -329,12 +322,12 @@ class _NurbsSurfaceDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")         
             }
         offset_surface = {#ed
@@ -371,12 +364,12 @@ class Cylinder(object):
     class Constructors(object):
         add_cylinder = {#ed
             "method_name": "create",
-            "method_parameters": (("base","array_of dbl","REQ"),("height","array_of dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
+            "method_parameters": (("base_point","array_of dbl","REQ"),("height_point","array_of dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
             "method_returns": ("SELF","null")
             }
         add_cylinder_2 = {#ed
             "method_name": "create_by_plane",
-            "method_parameters": (("plane","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
+            "method_parameters": (("base_plane","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
             "method_returns": ("SELF","null")
             }        
 #===============================================================================
@@ -387,19 +380,20 @@ class _CylinderDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._SurfaceRoot.Cylinder","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("_ObjectRoot._SurfaceRoot.Cylinder","null")         
             }
+        """
         offset_surface = {#ed
             "method_name": "copy_by_offset",
             "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
-            }    
+            }    """
 #===============================================================================
 # _CylinderProp
 #===============================================================================
@@ -439,7 +433,7 @@ class PlaneSurface(object):
     class Constructors(object):
         add_plane_surface = {#ed
             "method_name": "create",
-            "method_parameters": (("plane","array_of dbl","REQ"),("d_u","dbl","REQ"),("d_v","dbl","REQ"),),
+            "method_parameters": (("base_plane","array_of dbl","REQ"),("d_u","dbl","REQ"),("d_v","dbl","REQ"),),
             "method_returns": ("SELF","null")
             }
         
@@ -451,12 +445,12 @@ class _PlaneSurfaceDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._SurfaceRoot.PlaneSurface","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("_ObjectRoot._SurfaceRoot.PlaneSurface","null")         
             }
         offset_surface = {#ed
@@ -509,19 +503,20 @@ class _SphereDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._SurfaceRoot.Sphere","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("_ObjectRoot._SurfaceRoot.Sphere","null")         
             }
+        """
         offset_surface = {#ed
             "method_name": "copy_by_offset",
             "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
-            }    
+            }    """
 #===============================================================================
 # _SphereProp
 #===============================================================================
@@ -562,12 +557,12 @@ class Torus(object):
     class Constructors(object):
         add_torus = {#ed
             "method_name": "create",
-            "method_parameters": (("base","array_of dbl","REQ"),("major_radius","dbl","REQ"),("minor_radius","dbl","REQ"),("direction","array_of dbl","OPT")),
+            "method_parameters": (("base_point","array_of dbl","REQ"),("major_radius","dbl","REQ"),("minor_radius","dbl","REQ"),("direction","array_of dbl","OPT")),
             "method_returns": ("SELF","null")
             }
         add_torus_2 = {#ed
             "method_name": "create_by_plane",
-            "method_parameters": (("plane","array_of dbl","REQ"),("major_radius","dbl","REQ"),("minor_radius","dbl","REQ")),
+            "method_parameters": (("base_plane","array_of dbl","REQ"),("major_radius","dbl","REQ"),("minor_radius","dbl","REQ")),
             "method_returns": ("SELF","null")
             }
 #===============================================================================
@@ -578,19 +573,20 @@ class _TorusDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._SurfaceRoot.Torus","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("_ObjectRoot._SurfaceRoot.Torus","null")         
             }
+        """
         offset_surface = {#ed
             "method_name": "copy_by_offset",
             "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._SurfaceRoot","null")  #TODO: see what is returned
-            }    
+            }    """
 #===============================================================================
 # _TorusProp
 #===============================================================================
@@ -613,7 +609,7 @@ class NurbsCurve(object):
         
         short_path = {#ed
             "method_name": "create_by_srf_short_path",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ"),),
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
             }
         
@@ -626,12 +622,12 @@ class NurbsCurve(object):
             }
         add_srf_contour_crvs_2 = {#surface or polysurface
             "method_name": "create_by_srf_contour_cut_plane",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("plane","array_of dbl","REQ"),("interval","dbl","OPT")),
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),("interval","dbl","OPT")),
             "method_returns": ("array_of SELF","null")#returns array
             }        
         add_srf_section_crvs = {#surface or polysurface
             "method_name": "create_by_srf_section",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("plane","array_of dbl","REQ"),),
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),),
             "method_returns": ("array_of SELF","null")#returns array
             }
         duplicate_edge_curves = {#surface or polysurface
@@ -644,7 +640,7 @@ class NurbsCurve(object):
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),),
             "method_returns": ("array_of SELF","null")#returns array
             }
-        extract_iso_curve = {#
+        extract_iso_curve = {
             "method_name": "create_by_srf_iso_curve",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("parameter","array_of dbl","REQ"),("dir","int","REQ"),),
             "method_returns": ("array_of SELF","null")#returns array
@@ -1045,6 +1041,9 @@ class _SurfaceRootFuncClsd(object):
             "method_parameters": (("","SELF","REQ"),("cutter","str","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot.PolySurface","null")
             }
+        
+        #returns points and curves
+        
         intersect_breps = {#ed
             "method_name": "intersect_breps",
             "method_parameters": (("","SELF","REQ"),("brep_1","str","REQ"),("tolerance","dbl","OPT"),),

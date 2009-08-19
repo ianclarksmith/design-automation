@@ -908,7 +908,7 @@ surface_and_polysurface = {
     "add_cone": {
         "base": "arr_of_dbl",
         "plane": "arr_of_dbl",
-        "height": "arr_of_dbl",
+        "height_pnt": "arr_of_dbl",
         "height": "dbl",
         "radius": "dbl",
         "cap": "bln",
@@ -922,7 +922,7 @@ surface_and_polysurface = {
     "add_cylinder": {
         "base": "arr_of_dbl",
         "plane": "arr_of_dbl",
-        "height": "arr_of_dbl",
+        "height_pnt": "arr_of_dbl",
         "height": "dbl",
         "radius": "dbl",
         "cap": "bln",

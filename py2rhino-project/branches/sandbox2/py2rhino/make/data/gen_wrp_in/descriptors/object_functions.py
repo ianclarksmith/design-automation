@@ -599,7 +599,7 @@ shear_object = {
     "function_com_id": 587,
     "function_vb_name": "ShearObject",
     "function_name": "shear_object",
-    "function_parameters": (("object","str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
+    "function_parameters": (("object","str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("string","null")
     }
 shear_objects = {
@@ -607,7 +607,7 @@ shear_objects = {
     "function_com_id": 588,
     "function_vb_name": "ShearObjects",
     "function_name": "shear_objects",
-    "function_parameters": (("objects","array_of str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","array_of int","REQ"),("copy","bln","OPT")),
+    "function_parameters": (("objects","array_of str","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","dbl","REQ"),("copy","bln","OPT")),
     "function_returns": ("array","null")
     }
 show_object = {
