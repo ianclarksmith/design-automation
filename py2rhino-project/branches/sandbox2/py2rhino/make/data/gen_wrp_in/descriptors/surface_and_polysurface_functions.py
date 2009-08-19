@@ -15,7 +15,7 @@ add_cone = {
     "function_com_id": 75,
     "function_vb_name": "AddCone",
     "function_name": "add_cone",
-    "function_parameters": (("base","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
+    "function_parameters": (("base","array_of dbl","REQ"),("height_pnt","array_of dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
     "function_returns": ("string","null")
     }
 add_cone_2 = {
@@ -39,7 +39,7 @@ add_cylinder = {
     "function_com_id": 73,
     "function_vb_name": "AddCylinder",
     "function_name": "add_cylinder",
-    "function_parameters": (("base","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
+    "function_parameters": (("base","array_of dbl","REQ"),("height_pnt","array_of dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
     "function_returns": ("string","null")
     }
 add_cylinder_2 = {

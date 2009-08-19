@@ -334,17 +334,17 @@ class _ObjectRootTrfm(object):
     class Methods(object):
         mirror_object = {
             "method_name": "mirror",
-            "method_parameters": (("","SELF","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("copy","bln","OPT")),
             "method_returns": ("SELF","null")   
             }
         move_object = {
             "method_name": "move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ")),
             "method_returns": ("SELF","null")   
             }
         move_object_2 = {
             "method_name": "move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","REQ"),),#first param was missing here
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","REQ"),),#first param was missing here
             "method_returns": ("SELF","null")       
             }
         rotate_object = {
@@ -380,7 +380,7 @@ class _ObjectRootDefm(object):
             }          
         shear_object = {
             "method_name": "shear",
-            "method_parameters": (("","SELF","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("angle","dbl","REQ"),("copy","bln","OPT")),
+            "method_parameters": (("","SELF","REQ"),("origin","array_of dbl","REQ"),("ref_point","array_of dbl","REQ"),("angle","dbl","REQ"),("copy","bln","OPT")),
             "method_returns": ("_ObjectRoot","null")#GenericObject
             }
         transform_object = {
@@ -481,27 +481,27 @@ class _DocumentObjectFunc(object):
         #transforms
         copy_objects = {
             "method_name": "copy",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
         copy_objects_2 = {
             "method_name": "copy_and_xform",#renamed
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("translation","array_of dbl","OPT"),),#first was param is missing here
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("translation_vector","array_of dbl","OPT"),),#first was param is missing here
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
         mirror_objects = {
             "method_name": "mirror",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start_pt","array_of dbl","REQ"),("end_pt","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("copy","bln","OPT")),
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
         move_objects = {
             "method_name": "move",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start","array_of dbl","REQ"),("end","array_of dbl","REQ")),
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ")),
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
         move_objects_2 = {
             "method_name": "move_and_xform",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("translation","array_of dbl","REQ"),),#first param was missing here
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("translation_vector","array_of dbl","REQ"),),#first param was missing here
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
         rotate_objects = {
@@ -521,7 +521,7 @@ class _DocumentObjectFunc(object):
             }
         shear_objects = {
             "method_name": "shear",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("origin","array_of dbl","REQ"),("ref_pt","array_of dbl","REQ"),("scale","dbl","REQ"),("copy","bln","OPT")),
+            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("origin","array_of dbl","REQ"),("ref_point","array_of dbl","REQ"),("scale","dbl","REQ"),("copy","bln","OPT")),
             "method_returns": ("array_of _ObjectRoot.GenericObject","null")#GenericObject
             }
         transform_objects = {

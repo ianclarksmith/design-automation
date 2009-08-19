@@ -17,7 +17,7 @@ class Mesh(object):
   
         #mesh holds
         "modf": "_MeshRootMdfy",
-        "func": "_MeshRootFuncOorc",
+        "func": "_MeshRootFuncOorC",
         "test": "_MeshRootTest",#inherits from object level
         "dupl": "_MeshDupl",
         "prop": "_MeshRootPropOorc",
@@ -38,12 +38,12 @@ class _MeshDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._MeshRoot.Mesh","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),
             "method_returns": ("_ObjectRoot._MeshRoot.Mesh","null")         
             }
         mesh_offset = {#ed
@@ -90,12 +90,12 @@ class _PlanarMeshDupl(object):
     class Methods(object):
         copy_object = {
             "method_name": "copy_move",
-            "method_parameters": (("","SELF","REQ"),("start","array_of dbl","OPT"),("end","array_of dbl","OPT")),
+            "method_parameters": (("","SELF","REQ"),("start_point","array_of dbl","OPT"),("end_point","array_of dbl","OPT")),
             "method_returns": ("_ObjectRoot._MeshRoot.PlanarMesh","null")        
             }
         copy_object_2 = {
             "method_name": "copy_move_by_vec",
-            "method_parameters": (("","SELF","REQ"),("translation","array_of dbl","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("translation_vector","array_of dbl","OPT"),),
             "method_returns": ("_ObjectRoot._MeshRoot.PlanarMesh","null")         
             }
         mesh_offset = {#ed
@@ -104,16 +104,16 @@ class _PlanarMeshDupl(object):
             "method_returns": ("_ObjectRoot._MeshRoot.PlanarMesh","null")
             } 
 #===============================================================================
-# NurbsCurve
+# Polyline
 #===============================================================================
-class NurbsCurve(object):
+class Polyline(object):
     inherits = ("_CurveRoot", )
     class Constructors(object):
         duplicate_mesh_border = {#ed
             "method_name": "create_by_mesh_border",
             "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),),
             "method_returns": ("SELF","null")
-            }
+            }  
         pull_curve_to_mesh = {#ed
             "method_name": "create_by_mesh_pull",
             "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),),
@@ -275,7 +275,7 @@ class _MeshRootPropClsd(object):
     class Methods(object):
         mesh_volume = {#ed
             "method_name": "mesh_volume",
-            "method_parameters": (("objects","array_of _ObjectRoot._MeshRoot","REQ"),),
+            "method_parameters": (("meshes","array_of _ObjectRoot._MeshRoot","REQ"),),#NO SELF
             "method_returns": ("array_of dbl","null")
             }
         mesh_volume_centroid = {#ed
@@ -313,12 +313,12 @@ class _MeshRootFunc(object):
             }
         curve_mesh_intersection = {#ed
             "method_name": "curve_intersection",
-            "method_parameters": (("","SELF","REQ"),("mesh","str","REQ"),("return_faces","bln","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("mesh","_ObjectRoot._MeshRoot","REQ"),("return_faces","bln","OPT"),),
             "method_returns": ("array_of number","null")
             }
         mesh_mesh_intersection = {#ed
             "method_name": "mesh_intersection",
-            "method_parameters": (("","SELF","REQ"),("mesh_1","str","REQ"),("tolerance","dbl","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("mesh","_ObjectRoot._MeshRoot","REQ"),("tolerance","dbl","OPT"),),
             "method_returns": ("array_of dbl","null")
             }        
         mesh_closest_point = {#ed
@@ -339,7 +339,7 @@ class _MeshRootFunc(object):
         explode_meshes = {#ed
             "method_name": "explode",
             "method_parameters": (("","SELF","REQ"),("delete","bln","OPT"),), #this was an array - hope it still works
-            "method_returns": ("array_of _ObjectRoot._MeshRoot","null")
+            "method_returns": ("array_of _ObjectRoot._MeshRoot.Mesh","null")
             }
 #===============================================================================
 # _MeshRootFuncOpen
@@ -355,28 +355,28 @@ class _MeshRootFuncClsd(object):
     class Methods(object):
         mesh_boolean_difference = {
             "method_name": "boolean_difference",
-            "method_parameters": (("","SELF","REQ"),("meshes","array_of str","REQ"),("delete","bln","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("meshes","array_of _ObjectRoot._MeshRoot.Mesh","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._MeshRoot.Mesh","null")
             }
         mesh_boolean_intersection = {
             "method_name": "boolean_intersection",
-            "method_parameters": (("","SELF","REQ"),("meshes","array_of str","REQ"),("delete","bln","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("meshes","array_of _ObjectRoot._MeshRoot.Mesh","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._MeshRoot.Mesh","null")
             }
         mesh_boolean_union = {#TODO: this has no SELF
             "method_name": "boolean_union",
-            "method_parameters": (("meshes","array_of _ObjectRoot","REQ"),("delete","bln","OPT"),),
+            "method_parameters": (("meshes","array_of _ObjectRoot","REQ"),("delete","bln","OPT"),),#NO SELF<<<<<<<<<<<<<<<<<<<
             "method_returns": ("array_of _ObjectRoot._MeshRoot.Mesh","null")
             }
         mesh_boolean_split = {#ed
             "method_name": "boolean_split",
-            "method_parameters": (("","SELF","REQ"),("input_1","array_of str","REQ"),("delete","bln","OPT"),),
+            "method_parameters": (("","SELF","REQ"),("input_1","array_of _ObjectRoot._MeshRoot.Mesh","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._MeshRoot.Mesh","null")
             }
 #===============================================================================
-# _MeshRootFuncOorc
+# _MeshRootFuncOorC
 #===============================================================================
-class _MeshRootFuncOorc(object):
+class _MeshRootFuncOorC(object):
     inherits = ('_MeshRootFuncOpen','_MeshRootFuncClsd',)
     #empty    
      
