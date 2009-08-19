@@ -51,7 +51,7 @@ shear_object = {
             "py_name": "scale",
             "opt_or_req": "Required",
             "type": "Number",
-            "name_prefix": "arr_of_int",
+            "name_prefix": "dbl",
             "name_main": "Scale",
             "doc": """
         An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
