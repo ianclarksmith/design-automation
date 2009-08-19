@@ -8,9 +8,9 @@ def add_box(corners):
 
     return _rsf.add_box(corners)
 
-def add_cone(base, height, radius, cap=pythoncom.Empty):
+def add_cone(base, height_pnt, radius, cap=pythoncom.Empty):
 
-    return _rsf.add_cone(base, height, radius, cap)
+    return _rsf.add_cone(base, height_pnt, radius, cap)
 
 def add_cone_2(plane, height, radius, cap=pythoncom.Empty):
 
@@ -20,9 +20,9 @@ def add_cut_plane(objects, start_point, end_point, normal=pythoncom.Empty):
 
     return _rsf.add_cut_plane(objects, start_point, end_point, normal)
 
-def add_cylinder(base, height, radius, cap=pythoncom.Empty):
+def add_cylinder(base, height_pnt, radius, cap=pythoncom.Empty):
 
-    return _rsf.add_cylinder(base, height, radius, cap)
+    return _rsf.add_cylinder(base, height_pnt, radius, cap)
 
 def add_cylinder_2(plane, height, radius, cap=pythoncom.Empty):
 

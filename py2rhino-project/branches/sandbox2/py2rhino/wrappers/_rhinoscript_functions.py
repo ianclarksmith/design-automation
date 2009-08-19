@@ -3917,8 +3917,8 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def shear_objects(self, objects, origin, ref_pt, scale, copy):
 
-        magic = ((VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_I2, 1), (VT_BOOL, 1))
-        flattened = (flatten_params(objects), flatten_params(origin), flatten_params(ref_pt), flatten_params(scale), copy)
+        magic = ((VT_VARIANT, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
+        flattened = (flatten_params(objects), flatten_params(origin), flatten_params(ref_pt), scale, copy)
 
         return self._ApplyTypes_(588, 1, (VT_VARIANT, 0), magic, u"ShearObjects", None, *flattened)
 
@@ -4503,10 +4503,10 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(72, 1, (VT_VARIANT, 0), magic, u"AddBox", None, *flattened)
 
-    def add_cone(self, base, height, radius, cap):
+    def add_cone(self, base, height_pnt, radius, cap):
 
         magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
-        flattened = (flatten_params(base), flatten_params(height), radius, cap)
+        flattened = (flatten_params(base), flatten_params(height_pnt), radius, cap)
 
         return self._ApplyTypes_(75, 1, (VT_VARIANT, 0), magic, u"AddCone", None, *flattened)
 
@@ -4524,10 +4524,10 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(822, 1, (VT_VARIANT, 0), magic, u"AddCutPlane", None, *flattened)
 
-    def add_cylinder(self, base, height, radius, cap):
+    def add_cylinder(self, base, height_pnt, radius, cap):
 
         magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
-        flattened = (flatten_params(base), flatten_params(height), radius, cap)
+        flattened = (flatten_params(base), flatten_params(height_pnt), radius, cap)
 
         return self._ApplyTypes_(73, 1, (VT_VARIANT, 0), magic, u"AddCylinder", None, *flattened)
 
@@ -5096,8 +5096,8 @@ class _RhinoscriptFunctions(IRhinoScript):
         magic = ((VT_BSTR, 1), (VT_I2, 1))
         flattened = (object, direction)
 
-        return  self._ApplyTypes_(217, 1, (VT_VARIANT, 0), magic, u"SurfaceDomain", None, *flattened)
-    
+        return self._ApplyTypes_(217, 1, (VT_VARIANT, 0), magic, u"SurfaceDomain", None, *flattened)
+
     def surface_edit_points(self, object, return_parameters, return_all):
 
         magic = ((VT_BSTR, 1), (VT_BOOL, 1), (VT_BOOL, 1))
