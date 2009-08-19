@@ -16,3 +16,4 @@ from _rhinoscript_classes import PolySurface
 from _rhinoscript_classes import Polyline
 from _rhinoscript_classes import Sphere
 from _rhinoscript_classes import Torus
+from _rhinoscript_classes import PolyCurve
