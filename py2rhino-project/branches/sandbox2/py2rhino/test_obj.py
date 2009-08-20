@@ -1997,6 +1997,36 @@ class obj_test(unittest.TestCase):
         line2 = line1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
         self.assertEqual(type(line2),p2r.obj.Line) 
     
+    def testLineCopySub(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.dupl.copy_by_sub((0,0,0),(10,0,0))
+        self.assertEqual(type(line2),p2r.obj.Line)
+        
+    def testLineCopyMove(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.dupl.copy_move()
+        self.assertEqual(type(line2),p2r.obj.Line)
+        
+    def testLineCopyMoveByVec(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.dupl.copy_move_by_vec()
+        self.assertEqual(type(line2),p2r.obj.Line)
+        
+    def testLineCopyByOffset(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.dupl.copy_by_offset((0,0,0),1)
+        self.assertEqual(type(line2),p2r.obj.Line)
+        
+    def testLineCopyBySplit(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.dupl.copy_by_split((0,0,0),1)
+        self.assertEqual(type(line2[0]),p2r.obj.Line)
+        
+    def testLineCopyByTrim(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.dupl.copy_by_trim((0,1))
+        self.assertEqual(type(line2),p2r.obj.Line)  
+        
     def testLineCurvature(self):
         line1 = p2r.obj.Line.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
         line2 = line1.eval.curvature(1)
@@ -2068,7 +2098,11 @@ class obj_test(unittest.TestCase):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.mtrl.source(0)              #TODO: if 0 is not provided, none is returned.
         self.assertEqual(type(line2),int)   
- 
+        
+    def testLineArrows(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.arrows()
+        self.assertEqual(type(line2),int) 
     
         
     def testLineAddMesh(self):
