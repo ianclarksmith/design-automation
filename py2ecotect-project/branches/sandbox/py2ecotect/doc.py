@@ -1,22 +1,24 @@
 import py2ecotect as p2e
 
-from _select import Select 
-from _selection import Selection
-from _calculation import Calculation
-from _results import Results
-from _rays import Rays
-from _weather import Weather
+#from wrappers.doc_functions.select import Select 
+#from wrappers.doc_functions.selection import Selection
+#from wrappers.doc_functions.rays import Rays
 
-from _model import Model
-from _ray import Ray
-from _attribute import Attribute
-from _grid import Grid
-from _grid3d import Grid3D
-from _masks import Masks
-from _shading import Shading
-from _sunpath import Sunpath
-from _project_data import Project_Data
-from _project import Project
+from wrappers.doc_functions import calculation
+from wrappers.doc_functions import results
+from wrappers.doc_functions import weather
+
+from wrappers.doc_functions import model
+from wrappers.doc_functions import attribute
+from wrappers.doc_functions import grid
+from wrappers.doc_functions import project
+from wrappers.doc_functions import shading
+
+#from wrappers.doc_functions.ray import Ray
+#from wrappers.doc_functions.grid3d import Grid3D
+#from wrappers.doc_functions.masks import Masks
+#from wrappers.doc_functions.project_data import Project_Data
+
 
 _zones = []
 _objects = []

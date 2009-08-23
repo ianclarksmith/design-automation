@@ -106,7 +106,7 @@ class Node(object):
     # Commands
     #===========================================================================
    
-    def move(self, move_distance):
+    def move_by_vec(self, vector):
         """
         
         Moves the specified node in the last selected object. 
@@ -114,11 +114,13 @@ class Node(object):
         Parameter(s)
         This command takes the following parameters.
         
-        move_distance
+        vector
         A list of three values that specify the move distance and direction in 
         each of the major X, Y and Z axis.
         
         """
+        vector = p2e._util.scale_1000(vector)
+        
         arg_str = p2e._util._convert_args_to_string("node.move", self.eco_id, 
                                                       move_distance[0], 
                                                       move_distance[1], 
@@ -265,6 +267,8 @@ class Node(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
     
         """
+        #TODO: scale by 1000
+        
         arg_str = p2e._util._convert_args_to_string("node.xform", 
                                                       self.eco_id, trans,
                                                       function_values[0],
@@ -316,7 +320,7 @@ class Node(object):
         colours 4 Display object attribute as a fill colous. 
 
         """
-        arg_str = p2e.p2e._util._convert_args_to_string("get.node.flag", self.eco_id, 
+        arg_str = p2e._util._convert_args_to_string("get.node.flag", self.eco_id, 
                                                       flag)
         val = p2e._app.Request(arg_str)
         return p2e._util._convert_str_to_type(val, int)
@@ -463,9 +467,6 @@ class Node(object):
             p2e._app.Exec(arg_str)
         
         return property(**locals())
-        
-    def _get_object(self):
-        return _object
     
     @apply
     def position():
@@ -488,7 +489,9 @@ class Node(object):
             """
             arg_str = p2e._util._convert_args_to_string("get.node.position", self.eco_id)
             val = p2e._app.Request(arg_str)
-            return p2e._util._convert_str_to_list(val, float, float, float)
+            
+            absolute_position =  p2e._util._convert_str_to_list(val, float, float, float)
+            return p2e._util.scale_inverse_1000(absolute_position)
     
         def fset(self, absolute_position):
             """
@@ -504,6 +507,8 @@ class Node(object):
             X, Y and Z axis of the node in 3 dimensional model space.
             
             """
+            absolute_position = p2e._util.scale_1000(absolute_position)
+            
             arg_str = p2e._util._convert_args_to_string("set.node.position", 
                                                           self.eco_id, 
                                                           absolute_position[0], 
@@ -626,3 +631,6 @@ class Node(object):
                                                           self.eco_id, type, link)
             p2e._app.Exec(arg_str)
             
+            
+#    def _get_object(self):
+#        return _object

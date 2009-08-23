@@ -1,4 +1,5 @@
 import py2ecotect as p2e
+import py2ecotect.wrappers.obj_classes as p2e_wrap
 from exceptions import Exception
 
 class _Object(object):
@@ -12,14 +13,14 @@ class _Object(object):
         p2e.doc._objects.append(self)  
         
         #add the functions
-        self.child = p2e._object._ObjectRootFncChild(object_eco_id)
-        self.mnpl = p2e._object._ObjectRootFncMnpl(object_eco_id)
-        self.mdfy = p2e._object._ObjectRootFncMdfy(object_eco_id)
-        self.mtrl = p2e._object._ObjectRootFncMtrl(object_eco_id)
-        self.node = p2e._object._ObjectRootFncNode(object_eco_id)
-        self.prop = p2e._object._ObjectRootFncProp(object_eco_id)
-        self.stat = p2e._object._ObjectRootFncStat(object_eco_id)
-        self.trfm = p2e._object._ObjectRootFncTrfm(object_eco_id)
+        self.child = p2e_wrap._object._ObjectRootFncChild(object_eco_id)
+        self.mnpl = p2e_wrap._object._ObjectRootFncMnpl(object_eco_id)
+        self.mdfy = p2e_wrap._object._ObjectRootFncMdfy(object_eco_id)
+        self.mtrl = p2e_wrap._object._ObjectRootFncMtrl(object_eco_id)
+        self.node = p2e_wrap._object._ObjectRootFncNode(object_eco_id)
+        self.prop = p2e_wrap._object._ObjectRootFncProp(object_eco_id)
+        self.stat = p2e_wrap._object._ObjectRootFncStat(object_eco_id)
+        self.trfm = p2e_wrap._object._ObjectRootFncTrfm(object_eco_id)
         
         if points == None:
             #add exisiting nodes
@@ -140,7 +141,7 @@ class _Object(object):
         arg_str = p2e._util._convert_args_to_string("object.delete", self.eco_id)
         p2e._app.Exec(arg_str)
         
-         #Delete nodes of this object
+        #Delete nodes of this object
         for i in nodes:
             p2e.doc._nodes.remove(i)
         
@@ -182,16 +183,18 @@ class _Object(object):
         object in each of the major axes.
         
         """
-        before_extrude_len = p2e._model.Model().number_of_objects
+        extrude_distance = p2e._util.scale_1000(extrude_distance)
+        
+        before_extrude_len = p2e.doc.model.get_num_objects()
         
         arg_str = p2e._util._convert_args_to_string("object.extrude", 
                                                           self.eco_id, 
-                                                          extrude_distance[0], 
-                                                          extrude_distance[1], 
-                                                          extrude_distance[2])
+                                                          extrude_distance[0]*1000, 
+                                                          extrude_distance[1]*1000, 
+                                                          extrude_distance[2]*1000)
         p2e._app.Exec(arg_str)
         
-        after_extrude_len = p2e._model.Model().number_of_objects
+        after_extrude_len = p2e.doc.model.get_num_objects()
         
         for eco_id in range(before_extrude_len, after_extrude_len):
             p2e.obj._Object(eco_id, None)
@@ -226,13 +229,13 @@ class _Object(object):
         2 Around the Y axis. 
         
         """
-        before_extrude_len = p2e._model.Model().number_of_objects
+        before_extrude_len = p2e.doc.model.get_num_objects()
         
         arg_str = p2e._util._convert_args_to_string("object.revolve", self.eco_id, 
                                                      axis, angle, segs)
         p2e._app.Exec(arg_str)
         
-        after_extrude_len = p2e._model.Model().number_of_objects
+        after_extrude_len = p2e.doc.model.get_num_objects()
         
         for eco_id in range(before_extrude_len, after_extrude_len):
             p2e.obj._Object(eco_id, None)
@@ -383,7 +386,7 @@ class _ObjectRootFncTrfm(object):
     # Commands
     #===========================================================================
     
-    def copy(self, move_distance):
+    def copy_by_vec(self, vector):
         """
         
         Creates a duplicate copy of the specified object a distance of x, y and 
@@ -392,25 +395,27 @@ class _ObjectRootFncTrfm(object):
         Parameter(s)
         This command takes the following parameters.
         
-        move_distance
-        A list of three values that specifies a distance to move the duplicate 
+        vector
+        A list of three values that specifies a vector to move the duplicate 
         object in each of the major axes. 
         
         """
+        vector = p2e._util.scale_1000(vector)
+        
         arg_str = p2e._util._convert_args_to_string("object.duplicate", 
                                                       self.eco_id, 
-                                                      move_distance[0], 
-                                                      move_distance[1], 
-                                                      move_distance[2])
+                                                      vector[0], 
+                                                      vector[1], 
+                                                      vector[2])
         p2e._app.Exec(arg_str)
         
         #get the id of the new object
-        eco_id = p2e._model.Model().number_of_objects - 1
+        eco_id = p2e.doc.model.get_num_objects() - 1
         
         #create the object
         return _Object(eco_id, None)
     
-    def move(self, move_distance):
+    def move_by_vec(self, vector):
         """
         
         This command moves the specified object. 
@@ -418,16 +423,18 @@ class _ObjectRootFncTrfm(object):
         Parameter(s)
         This command takes the following parameters.
 
-        move_distance
-        A list of three values that specifies a distance to move the specified 
+        vector
+        A list of three values that specifies a vector to move the specified 
         object in each of the major axes.
         
         """
+        vector = p2e._util.scale_1000(vector)
+        
         arg_str = p2e._util._convert_args_to_string("object.move",
                                                           self.eco_id, 
-                                                          move_distance[0], 
-                                                          move_distance[1], 
-                                                          move_distance[2])
+                                                          vector[0], 
+                                                          vector[1], 
+                                                          vector[2])
         p2e._app.Exec(arg_str)
         
     def nudge(self, dir):
@@ -609,6 +616,8 @@ class _ObjectRootFncTrfm(object):
         nudge Nudge objects a distance of x , y and z in the major axis. 
 
         """
+        #TODO: scale
+        
         arg_str = p2e._util._convert_args_to_string("object.xform", 
                                                           self.eco_id, 
                                                           trans, 
@@ -2723,6 +2732,7 @@ class Point(_Geometry):
         failed. 
         
         """        
+        points = p2e._util.scale_1000(points)
         
         eco_id = Point._gen_object("point", "point")
         if id == -1: return None
@@ -2749,7 +2759,9 @@ class Line(_Geometry):
         The line object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Line._gen_object("line", "plane")
         if id == -1: return None
         return Line(eco_id, points)
@@ -2775,7 +2787,9 @@ class  Roof(_Plane):
         The roof object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+            
         eco_id = Roof._gen_object("roof", "plane")
         if id == -1: return None
         return Roof(eco_id, points)
@@ -2801,7 +2815,9 @@ class  Floor(_Plane):
         The floor object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Floor._gen_object("floor", "plane")
         if id == -1: return None
         return Floor(eco_id, points)
@@ -2827,7 +2843,9 @@ class  Ceiling(_Plane):
         The ceiling object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Ceiling._gen_object("ceiling", "plane")
         if id == -1: return None
         return Ceiling(eco_id, points)
@@ -2853,7 +2871,9 @@ class  Wall(_Plane):
         The wall object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Wall._gen_object("wall", "plane")
         if id == -1: return None
         return Wall(eco_id, points)
@@ -2879,7 +2899,9 @@ class  Partition(_Plane):
         The partition object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Partition._gen_object("partition", "plane")
         if id == -1: return None
         return Partition(eco_id, points)
@@ -2905,7 +2927,9 @@ class  Void(_Hole):
         The void object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Void._gen_object("void", "plane")
         if id == -1: return None
         return Void(eco_id, points)
@@ -2931,7 +2955,9 @@ class  Window(_Hole):
         The window object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Window._gen_object("window", "plane")
         if id == -1: return None
         return Window(eco_id, points)
@@ -2957,7 +2983,9 @@ class  Panel(_Hole):
         The panel object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Panel._gen_object("panel", "plane")
         if id == -1: return None
         return Panel(eco_id, points)
@@ -2983,7 +3011,9 @@ class  Door(_Hole):
         The door object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Door._gen_object("door", "plane")
         if id == -1: return None
         return Door(eco_id, points)
@@ -3010,6 +3040,8 @@ class  Speaker(_Vector):
         failed. 
         
         """        
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Speaker._gen_object("speaker", "source")
         if id == -1: return None
         return Speaker(eco_id, points)
@@ -3035,7 +3067,9 @@ class  Light(_Vector):
         The light object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Light._gen_object("light", "source")
         if id == -1: return None
         return Light(eco_id, points)
@@ -3061,7 +3095,9 @@ class  Appliance(_Vector):
         The appliance object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Appliance._gen_object("appliance", "vector")
         if id == -1: return None
         return Appliance(eco_id, points)
@@ -3087,7 +3123,9 @@ class  SolarCollector(_Vector):
         The solarcollector object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = SolarCollector._gen_object("solarcollector", "vector")
         if id == -1: return None
         return SolarCollector(eco_id, points)
@@ -3113,7 +3151,9 @@ class  Camera(_Vector):
         The camera object just added. None is returned if the operation 
         failed. 
         
-        """        
+        """
+        points = p2e._util.scale_1000(points)
+        
         eco_id = Camera._gen_object("camera", "vector")
         if id == -1: return None
         return Camera(eco_id, points)

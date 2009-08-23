@@ -1,3 +1,3 @@
-from _schedule import Schedule
-from _material import Material
-from _zone import Zone 
+from wrappers.ent_classes.schedule import Schedule
+from wrappers.ent_classes.material import Material
+from wrappers.ent_classes.zone import Zone 
