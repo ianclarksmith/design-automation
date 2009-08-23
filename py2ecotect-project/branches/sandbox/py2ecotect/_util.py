@@ -41,3 +41,24 @@ def _convert_str_to_type(string, typeFunc):
     except:
         print "Error in type conversion: __toType()"            
         return None
+
+def scale_1000(input):
+    return scale_by_factor(input, 1000)
+
+def scale_inverse_1000(input):
+    return scale_by_factor(input, 0.001)
+
+def scale_by_factor(input, scale_factor):
+    if input == None:
+        return None
+    elif isinstance(input, int) or isinstance(input, float):
+        return input * scale_factor
+    elif isinstance(input, list) or isinstance(input, tuple):
+        if isinstance(input[0], int or float):
+            return map(lambda i: i*scale_factor, input)
+        elif isinstance(input[0], list) or isinstance(input[0], tuple):
+            return map(lambda i: map(lambda j: j*scale_factor, i), input)
+    raise Exception        
+
+    
+    
