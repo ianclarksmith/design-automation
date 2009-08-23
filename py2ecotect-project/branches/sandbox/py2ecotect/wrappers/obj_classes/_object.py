@@ -14,8 +14,8 @@ class _Object(object):
         
         #add the functions
         self.child = p2e_wrap._object._ObjectRootFncChild(object_eco_id)
-        self.mnpl = p2e_wrap._object._ObjectRootFncMnpl(object_eco_id)
-        self.mdfy = p2e_wrap._object._ObjectRootFncMdfy(object_eco_id)
+        self.func = p2e_wrap._object._ObjectRootFncMnpl(object_eco_id)
+        self.modf = p2e_wrap._object._ObjectRootFncMdfy(object_eco_id)
         self.mtrl = p2e_wrap._object._ObjectRootFncMtrl(object_eco_id)
         self.node = p2e_wrap._object._ObjectRootFncNode(object_eco_id)
         self.prop = p2e_wrap._object._ObjectRootFncProp(object_eco_id)
