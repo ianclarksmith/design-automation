@@ -2782,7 +2782,10 @@ class _Hole(_Object):
 class _Vector(_Object):
     pass
 
+class Point(_Geometry):pass
 class Point(_Geometry):
+    class wrap(p2e._util.WrapBase, Point):pass
+    
     @staticmethod
     def create(points):
         """
@@ -2809,8 +2812,10 @@ class Point(_Geometry):
         eco_id = Point._gen_object("point", "point")
         if id == -1: return None
         return Point(eco_id, points)
-        
+
+class Line(_Geometry):pass
 class Line(_Geometry):
+    class wrap(p2e._util.WrapBase, Line):pass
     @staticmethod
     def create(points):
         """
@@ -2838,7 +2843,9 @@ class Line(_Geometry):
         if id == -1: return None
         return Line(eco_id, points)
 
-class  Roof(_Plane):
+class Roof(_Plane):pass
+class Roof(_Plane):
+    class wrap(p2e._util.WrapBase, Roof):pass
     @staticmethod
     def create(points):
         """
@@ -2865,8 +2872,10 @@ class  Roof(_Plane):
         eco_id = Roof._gen_object("roof", "plane")
         if id == -1: return None
         return Roof(eco_id, points)
-
-class  Floor(_Plane):
+    
+class Floor(_Plane):pass
+class Floor(_Plane):
+    class wrap(p2e._util.WrapBase, Floor):pass
     @staticmethod
     def create(points):
         """
@@ -2894,7 +2903,9 @@ class  Floor(_Plane):
         if id == -1: return None
         return Floor(eco_id, points)
 
-class  Ceiling(_Plane):
+class Ceiling(_Plane):pass
+class Ceiling(_Plane):
+    class wrap(p2e._util.WrapBase, Ceiling):pass
     @staticmethod
     def create(points):
         """
@@ -2922,7 +2933,9 @@ class  Ceiling(_Plane):
         if id == -1: return None
         return Ceiling(eco_id, points)
 
-class  Wall(_Plane):
+class Wall(_Plane):pass
+class Wall(_Plane):
+    class wrap(p2e._util.WrapBase, Wall):pass
     @staticmethod
     def create(points):
         """
@@ -2950,7 +2963,9 @@ class  Wall(_Plane):
         if id == -1: return None
         return Wall(eco_id, points)
 
-class  Partition(_Plane):
+class Partition(_Plane):pass
+class Partition(_Plane):
+    class wrap(p2e._util.WrapBase, Partition):pass
     @staticmethod
     def create(points):
         """
@@ -2978,7 +2993,9 @@ class  Partition(_Plane):
         if id == -1: return None
         return Partition(eco_id, points)
 
-class  Void(_Hole):
+class Void(_Hole):pass
+class Void(_Hole):
+    class wrap(p2e._util.WrapBase, Void):pass
     @staticmethod
     def create(points):
         """
@@ -3006,7 +3023,9 @@ class  Void(_Hole):
         if id == -1: return None
         return Void(eco_id, points)
 
-class  Window(_Hole):
+class Window(_Hole):pass
+class Window(_Hole):
+    class wrap(p2e._util.WrapBase, Window):pass
     @staticmethod
     def create(points):
         """
@@ -3034,7 +3053,9 @@ class  Window(_Hole):
         if id == -1: return None
         return Window(eco_id, points)
 
-class  Panel(_Hole):
+class Panel(_Hole):pass
+class Panel(_Hole):
+    class wrap(p2e._util.WrapBase, Panel):pass
     @staticmethod
     def create(points):
         """
@@ -3062,7 +3083,9 @@ class  Panel(_Hole):
         if id == -1: return None
         return Panel(eco_id, points)
 
-class  Door(_Hole):
+class Door(_Hole):pass
+class Door(_Hole):
+    class wrap(p2e._util.WrapBase, Door):pass
     @staticmethod
     def create(points):
         """
@@ -3090,7 +3113,9 @@ class  Door(_Hole):
         if id == -1: return None
         return Door(eco_id, points)
 
-class  Speaker(_Vector):
+class Speaker(_Vector):pass
+class Speaker(_Vector):
+    class wrap(p2e._util.WrapBase, Speaker):pass
     @staticmethod
     def create(points):
         """
@@ -3118,7 +3143,9 @@ class  Speaker(_Vector):
         if id == -1: return None
         return Speaker(eco_id, points)
 
-class  Light(_Vector):
+class Light(_Vector):pass
+class Light(_Vector):
+    class wrap(p2e._util.WrapBase, Light):pass
     @staticmethod
     def create(points):
         """
@@ -3146,7 +3173,9 @@ class  Light(_Vector):
         if id == -1: return None
         return Light(eco_id, points)
 
-class  Appliance(_Vector):
+class Appliance(_Vector):pass
+class Appliance(_Vector):
+    class wrap(p2e._util.WrapBase, Appliance):pass
     @staticmethod
     def create(points):
         """
@@ -3174,7 +3203,9 @@ class  Appliance(_Vector):
         if id == -1: return None
         return Appliance(eco_id, points)
 
-class  SolarCollector(_Vector):
+class SolarCollector(_Vector):pass
+class SolarCollector(_Vector):
+    class wrap(p2e._util.WrapBase, SolarCollector):pass
     @staticmethod
     def create(points):
         """
@@ -3202,7 +3233,9 @@ class  SolarCollector(_Vector):
         if id == -1: return None
         return SolarCollector(eco_id, points)
 
-class  Camera(_Vector):
+class Camera(_Vector):pass
+class Camera(_Vector):
+    class wrap(p2e._util.WrapBase, Camera):pass
     @staticmethod
     def create(points):
         """
