@@ -364,8 +364,9 @@ class _Object(object):
             p2e._app.Exec(arg_str)
             
         return property(**locals())
-
-class _ObjectRootFncTrfm(object):
+    
+    
+class _ObjectRootFncDupl(object):
     
     def __init__(self, id):
         self._eco_id = id
@@ -382,11 +383,39 @@ class _ObjectRootFncTrfm(object):
 
         return property(**locals())
     
-    #===========================================================================
-    # Commands
-    #===========================================================================
+    def copy(self):
+        """
+        
+        Creates a duplicate copy of the specified object. 
+
+        Parameter(s)
+        None
+ 
+        """
+        self.copy_move_by_vec((0,0,0))
+        
+    def copy_move(self, start_point=None, end_point=None):
+        """
+        
+        Creates a duplicate copy of the specified object and from one location to another, or in-place.. 
+
+        Parameter(s)
+        This command takes the following parameters.
+        
+        start_point
+        The 3-D starting, or base, point of the copy operation.  If omitted, the object is copied in-place. 
+        
+        end_point
+        The 3-D end, or target, point of the copy operation.
+ 
+        """
+        if start_point and end_point:
+            vector = (end_point[0] - start_point[0], end_point[1] - start_point[1], end_point[2] - start_point[2])
+        else:
+            vector = (0,0,0)
+        self.copy_move_by_vec(vector)
     
-    def copy_by_vec(self, vector):
+    def copy_move_by_vec(self, vector):
         """
         
         Creates a duplicate copy of the specified object a distance of x, y and 
@@ -414,6 +443,48 @@ class _ObjectRootFncTrfm(object):
         
         #create the object
         return _Object(eco_id, None)
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+class _ObjectRootFncTrfm(object):
+    
+    def __init__(self, id):
+        self._eco_id = id
+        
+    @apply
+    def eco_id():
+        def fget(self):
+            """
+            
+            Id of the object
+        
+            """
+            return self._eco_id
+
+        return property(**locals())
+    
+    #===========================================================================
+    # Commands
+    #===========================================================================
+    
+    def move(self, start_point, end_point):
+        """
+        
+        This command moves the specified object. 
+
+        Parameter(s)
+        This command takes the following parameters.
+
+        start_point
+        The 3-D starting, or base, point of the move operation.
+        
+        end_point
+        The 3-D end, or target, point of the copy operation.
+        
+        """
+        vector = (end_point[0] - start_point[0], end_point[1] - start_point[1], end_point[2] - start_point[2])
+        self.move_by_vec(vector)
     
     def move_by_vec(self, vector):
         """
