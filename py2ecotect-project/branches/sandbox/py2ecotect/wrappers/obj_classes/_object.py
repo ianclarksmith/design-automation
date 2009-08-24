@@ -21,6 +21,7 @@ class _Object(object):
         self.prop = p2e_wrap._object._ObjectRootFncProp(object_eco_id)
         self.stat = p2e_wrap._object._ObjectRootFncStat(object_eco_id)
         self.trfm = p2e_wrap._object._ObjectRootFncTrfm(object_eco_id)
+        self.dupl = p2e_wrap._object._ObjectRootFncDupl(object_eco_id)        
         
         if points == None:
             #add exisiting nodes
