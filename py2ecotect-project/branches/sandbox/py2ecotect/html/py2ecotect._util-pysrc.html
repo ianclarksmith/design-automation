@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>py2ecotect._util</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="py2ecotect-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >py2ecotect</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="py2ecotect-module.html">Package&nbsp;py2ecotect</a> ::
+        Module&nbsp;_util
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="py2ecotect._util-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="py2ecotect._util-module.html" onclick="show_private();">Module py2ecotect._util</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="_convert_args_to_string"></a><div id="_convert_args_to_string-def"><a name="L3"></a><tt class="py-lineno"> 3</tt> <a class="py-toggle" href="#" id="_convert_args_to_string-toggle" onclick="return toggle('_convert_args_to_string');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util-module.html#_convert_args_to_string">_convert_args_to_string</a><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_convert_args_to_string-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_convert_args_to_string-expanded"><a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line">    <tt class="py-name">arg_str</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">args</tt><tt class="py-op">:</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">            <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">)</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">        <tt class="py-name">arg_str</tt> <tt class="py-op">+=</tt> <tt class="py-op">(</tt><tt class="py-name">i</tt> <tt class="py-op">+</tt> <tt class="py-string">" "</tt><tt class="py-op">)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">arg_str</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="_convert_str_to_list"></a><div id="_convert_str_to_list-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="_convert_str_to_list-toggle" onclick="return toggle('_convert_str_to_list');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util-module.html#_convert_str_to_list">_convert_str_to_list</a><tt class="py-op">(</tt><tt class="py-param">string</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">typeFunc</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_convert_str_to_list-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_convert_str_to_list-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt class="py-name">str_list</tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"[,\s]+"</tt><tt class="py-op">,</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt class="py-name">listElements</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">str_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">str_list</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-string">"nil"</tt> <tt class="py-keyword">and</tt> <tt class="py-name">listElements</tt> <tt class="py-op">!=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">            <tt class="py-name">new_list</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">listElements</tt> <tt class="py-op">==</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">typeFunc</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">                <tt class="py-name">typeFunc</tt> <tt class="py-op">=</tt> <tt class="py-name">tuple</tt><tt class="py-op">(</tt><tt class="py-name">typeFunc</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">                <tt class="py-name">str_list</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">str_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt id="link-0" class="py-name" targets="Variable py2ecotect.ent.zone.Zone.range=py2ecotect.ent.zone.Zone-class.html#range"><a title="py2ecotect.ent.zone.Zone.range" class="py-name" href="#" onclick="return doclink('link-0', 'range', 'link-0');">range</a></tt><tt class="py-op">(</tt><tt class="py-name">listElements</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">                    <tt class="py-name">new_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">typeFunc</tt><tt class="py-op">.</tt><tt class="py-name">__getitem__</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">)</tt><tt class="py-op">(</tt><tt class="py-name">str_list</tt><tt class="py-op">.</tt><tt class="py-name">__getitem__</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i_str</tt> <tt class="py-keyword">in</tt> <tt class="py-name">str_list</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">                    <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-name">typeFunc</tt><tt class="py-op">.</tt><tt class="py-name">__getitem__</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">(</tt><tt class="py-name">i_str</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">                    <tt class="py-name">new_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">             </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">new_list</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Error in type conversion: __toTypeList()"</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">     </tt>
+<a name="_convert_str_to_type"></a><div id="_convert_str_to_type-def"><a name="L34"></a><tt class="py-lineno">34</tt> <a class="py-toggle" href="#" id="_convert_str_to_type-toggle" onclick="return toggle('_convert_str_to_type');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util-module.html#_convert_str_to_type">_convert_str_to_type</a><tt class="py-op">(</tt><tt class="py-param">string</tt><tt class="py-op">,</tt> <tt class="py-param">typeFunc</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_convert_str_to_type-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_convert_str_to_type-expanded"><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-name">string</tt> <tt class="py-op">=</tt> <tt class="py-name">string</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">string</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-string">"nil"</tt> <tt class="py-keyword">and</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">typeFunc</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Error in type conversion: __toType()"</tt>             </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="scale_1000"></a><div id="scale_1000-def"><a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="scale_1000-toggle" onclick="return toggle('scale_1000');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util-module.html#scale_1000">scale_1000</a><tt class="py-op">(</tt><tt class="py-param">input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="scale_1000-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="scale_1000-expanded"><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-1" class="py-name" targets="Function py2ecotect._util.scale_by_factor()=py2ecotect._util-module.html#scale_by_factor"><a title="py2ecotect._util.scale_by_factor" class="py-name" href="#" onclick="return doclink('link-1', 'scale_by_factor', 'link-1');">scale_by_factor</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">,</tt> <tt class="py-number">1000</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt>
+<a name="scale_inverse_1000"></a><div id="scale_inverse_1000-def"><a name="L48"></a><tt class="py-lineno">48</tt> <a class="py-toggle" href="#" id="scale_inverse_1000-toggle" onclick="return toggle('scale_inverse_1000');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util-module.html#scale_inverse_1000">scale_inverse_1000</a><tt class="py-op">(</tt><tt class="py-param">input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="scale_inverse_1000-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="scale_inverse_1000-expanded"><a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-2" class="py-name"><a title="py2ecotect._util.scale_by_factor" class="py-name" href="#" onclick="return doclink('link-2', 'scale_by_factor', 'link-1');">scale_by_factor</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">,</tt> <tt class="py-number">0.001</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="scale_by_factor"></a><div id="scale_by_factor-def"><a name="L51"></a><tt class="py-lineno">51</tt> <a class="py-toggle" href="#" id="scale_by_factor-toggle" onclick="return toggle('scale_by_factor');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util-module.html#scale_by_factor">scale_by_factor</a><tt class="py-op">(</tt><tt class="py-param">input</tt><tt class="py-op">,</tt> <tt class="py-param">scale_factor</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="scale_by_factor-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="scale_by_factor-expanded"><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">input</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">,</tt> <tt class="py-name">int</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">,</tt> <tt class="py-name">float</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">input</tt> <tt class="py-op">*</tt> <tt class="py-name">scale_factor</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">,</tt> <tt class="py-name">list</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">,</tt> <tt class="py-name">tuple</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">int</tt> <tt class="py-keyword">or</tt> <tt class="py-name">float</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">i</tt><tt class="py-op">:</tt> <tt class="py-name">i</tt><tt class="py-op">*</tt><tt class="py-name">scale_factor</tt><tt class="py-op">,</tt> <tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">list</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">tuple</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">i</tt><tt class="py-op">:</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">j</tt><tt class="py-op">:</tt> <tt class="py-name">j</tt><tt class="py-op">*</tt><tt class="py-name">scale_factor</tt><tt class="py-op">,</tt> <tt class="py-name">i</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt>         </tt>
+</div><a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"> </tt>
+<a name="WrapBase"></a><div id="WrapBase-def"><a name="L63"></a><tt class="py-lineno">63</tt> <a class="py-toggle" href="#" id="WrapBase-toggle" onclick="return toggle('WrapBase');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="py2ecotect._util.WrapBase-class.html">WrapBase</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WrapBase-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="WrapBase-expanded"><a name="WrapBase.__init__"></a><div id="WrapBase.__init__-def"><a name="L64"></a><tt class="py-lineno">64</tt> <a class="py-toggle" href="#" id="WrapBase.__init__-toggle" onclick="return toggle('WrapBase.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util.WrapBase-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">obj</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WrapBase.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="WrapBase.__init__-expanded"><a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt id="link-3" class="py-name" targets="Method py2ecotect.doc.select.Select.object()=py2ecotect.doc.select.Select-class.html#object"><a title="py2ecotect.doc.select.Select.object" class="py-name" href="#" onclick="return doclink('link-3', 'object', 'link-3');">object</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method py2ecotect._util.WrapBase.__setattr__()=py2ecotect._util.WrapBase-class.html#__setattr__"><a title="py2ecotect._util.WrapBase.__setattr__" class="py-name" href="#" onclick="return doclink('link-4', '__setattr__', 'link-4');">__setattr__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-string">"obj"</tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Package py2ecotect.obj=py2ecotect.obj-module.html"><a title="py2ecotect.obj" class="py-name" href="#" onclick="return doclink('link-5', 'obj', 'link-5');">obj</a></tt><tt class="py-op">)</tt>  </tt>
+</div><a name="WrapBase.__getattribute__"></a><div id="WrapBase.__getattribute__-def"><a name="L66"></a><tt class="py-lineno">66</tt> <a class="py-toggle" href="#" id="WrapBase.__getattribute__-toggle" onclick="return toggle('WrapBase.__getattribute__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util.WrapBase-class.html#__getattribute__">__getattribute__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WrapBase.__getattribute__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="WrapBase.__getattribute__-expanded"><a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt id="link-6" class="py-name"><a title="py2ecotect.obj" class="py-name" href="#" onclick="return doclink('link-6', 'obj', 'link-5');">obj</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="py2ecotect.doc.select.Select.object" class="py-name" href="#" onclick="return doclink('link-7', 'object', 'link-3');">object</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method py2ecotect._util.WrapBase.__getattribute__()=py2ecotect._util.WrapBase-class.html#__getattribute__"><a title="py2ecotect._util.WrapBase.__getattribute__" class="py-name" href="#" onclick="return doclink('link-8', '__getattribute__', 'link-8');">__getattribute__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-string">"obj"</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="py2ecotect.obj" class="py-name" href="#" onclick="return doclink('link-9', 'obj', 'link-5');">obj</a></tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name" targets="Variable py2ecotect.ent.zone.Zone.name=py2ecotect.ent.zone.Zone-class.html#name"><a title="py2ecotect.ent.zone.Zone.name" class="py-name" href="#" onclick="return doclink('link-10', 'name', 'link-10');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="WrapBase.__setattr__"></a><div id="WrapBase.__setattr__-def"><a name="L69"></a><tt class="py-lineno">69</tt> <a class="py-toggle" href="#" id="WrapBase.__setattr__-toggle" onclick="return toggle('WrapBase.__setattr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="py2ecotect._util.WrapBase-class.html#__setattr__">__setattr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WrapBase.__setattr__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="WrapBase.__setattr__-expanded"><a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt id="link-11" class="py-name"><a title="py2ecotect.obj" class="py-name" href="#" onclick="return doclink('link-11', 'obj', 'link-5');">obj</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="py2ecotect.doc.select.Select.object" class="py-name" href="#" onclick="return doclink('link-12', 'object', 'link-3');">object</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="py2ecotect._util.WrapBase.__getattribute__" class="py-name" href="#" onclick="return doclink('link-13', '__getattribute__', 'link-8');">__getattribute__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-string">"obj"</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">setattr</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="py2ecotect.obj" class="py-name" href="#" onclick="return doclink('link-14', 'obj', 'link-5');">obj</a></tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name"><a title="py2ecotect.ent.zone.Zone.name" class="py-name" href="#" onclick="return doclink('link-15', 'name', 'link-10');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="py2ecotect-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >py2ecotect</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Aug 28 01:29:51 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
