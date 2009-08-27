@@ -380,7 +380,7 @@ class obj_test(unittest.TestCase):
 
     def testArcReverse(self):
         arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-        arc2 = arc1.modf.reverse()
+        arc2 = arc1.modf.reverse(1)
         self.assertEqual(type(arc2),bool)  
 
     def testArcSimplify(self):
@@ -626,7 +626,7 @@ class obj_test(unittest.TestCase):
 
     def testBoxReverse(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
-        box2 = box1.modf.reverse()
+        box2 = box1.modf.reverse(1)
         self.assertEqual(type(box2),bool)  
 
     def testBoxShrinkTrimmed(self):
@@ -989,7 +989,7 @@ class obj_test(unittest.TestCase):
 
     def testCircleReverse(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
-        circle2 = circle1.modf.reverse()
+        circle2 = circle1.modf.reverse(1)
         self.assertEqual(type(circle2),bool)  
 
     def testCircleSeam(self):
@@ -1241,7 +1241,7 @@ class obj_test(unittest.TestCase):
 
     def testConeReverse(self):
         cone1 = p2r.obj.Cone.create((0,0,0), (1,1,1), 5)
-        cone2 = cone1.modf.reverse()
+        cone2 = cone1.modf.reverse(1)
         self.assertEqual(type(cone2),bool)  
 
     def testConeShrinkTrimmed(self):
@@ -1517,7 +1517,7 @@ class obj_test(unittest.TestCase):
 
     def testCylinderReverse(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
-        cylinder2 = cylinder1.modf.reverse()
+        cylinder2 = cylinder1.modf.reverse(1)
         self.assertEqual(type(cylinder2),bool)  
 
     def testCylinderShrinkTrimmed(self):
@@ -1854,7 +1854,7 @@ class obj_test(unittest.TestCase):
 
     def testEllipseReverse(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
-        ellipse2 = ellipse1.modf.reverse()
+        ellipse2 = ellipse1.modf.reverse(1)
         self.assertEqual(type(ellipse2),bool)  
 
     def testEllipseSeam(self):
@@ -2167,7 +2167,7 @@ class obj_test(unittest.TestCase):
 
     def testLineReverse(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.modf.reverse()
+        line2 = line1.modf.reverse(1)
         self.assertEqual(type(line2),bool)  
 
     def testLineSimplify(self):
@@ -2637,7 +2637,7 @@ class obj_test(unittest.TestCase):
 
     def testNurbsCurveReverse(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
-        nurbscurve2 = nurbscurve1.modf.reverse()
+        nurbscurve2 = nurbscurve1.modf.reverse(1)
         self.assertEqual(type(nurbscurve2),bool)  
 
     def testNurbsCurveSimplify(self):
@@ -2858,7 +2858,7 @@ class obj_test(unittest.TestCase):
 
     def testNurbsSurfaceReverse(self):
         nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurbssurface2 = nurbssurface1.modf.reverse()
+        nurbssurface2 = nurbssurface1.modf.reverse(1)
         self.assertEqual(type(nurbssurface2),bool)  
 
     def testNurbsSurfaceShrinkTrimmed(self):
@@ -3350,7 +3350,7 @@ class obj_test(unittest.TestCase):
 
     def testPlaneSurfaceReverse(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
-        planesurface2 = planesurface1.modf.reverse()
+        planesurface2 = planesurface1.modf.reverse(1)
         self.assertEqual(type(planesurface2),bool)  
 
     def testPlaneSurfaceShrinkTrimmed(self):
