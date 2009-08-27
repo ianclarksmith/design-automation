@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>py2ecotect.doc.results</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="py2ecotect-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >py2ecotect</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="py2ecotect-module.html">Package&nbsp;py2ecotect</a> ::
+        <a href="py2ecotect.doc-module.html">Package&nbsp;doc</a> ::
+        Module&nbsp;results
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="py2ecotect.doc.results-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module results</h1><p class="nomargin-top"><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html">source&nbsp;code</a></span></p>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_array" class="summary-sig-name">get_array</a>(<span class="summary-sig-arg">i</span>,
+        <span class="summary-sig-arg">j</span>)</span><br />
+      The various solar and thermal analysis calculations store their 
+      results either directly within the zones they are working on, or in a
+      large 2D data array.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_array">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_conduction" class="summary-sig-name">get_gains_conduction</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for the total gains conducted through the building fabric.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_conduction">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_daily" class="summary-sig-name">get_gains_daily</a>(<span class="summary-sig-arg">zone</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for the total sum of all gains for the entire day.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_daily">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_fabric" class="summary-sig-name">get_gains_fabric</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for conduction through fabric, opaque and glazing objects.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_fabric">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_glazing_fabric" class="summary-sig-name">get_gains_glazing_fabric</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for the conduction gains through only glazing fabric.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_glazing_fabric">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_indirect" class="summary-sig-name">get_gains_indirect</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for the indirect solar and air temperature effect.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_indirect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_internal" class="summary-sig-name">get_gains_internal</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for internal gains from people and APPLIANCES.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_internal">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_opaque_fabric" class="summary-sig-name">get_gains_opaque_fabric</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for the conduction gains through only opaque fabric.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_opaque_fabric">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_solar" class="summary-sig-name">get_gains_solar</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for the direct solar radiation through glazing.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_solar">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_total" class="summary-sig-name">get_gains_total</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for the total sum of all gains for the given hour.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_total">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_ventilation" class="summary-sig-name">get_gains_ventilation</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for infiltration and ventilation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_ventilation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_gains_zonal" class="summary-sig-name">get_gains_zonal</a>(<span class="summary-sig-arg">zone</span>,
+        <span class="summary-sig-arg">hour</span>)</span><br />
+      Once an hourly thermal analysis has been performed for a single day 
+      (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+      calculation), this command will directly access the calculated 
+      results for inter-zonal gains.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_zonal">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_absorbed" class="summary-sig-name">get_solar_absorbed</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the radiation value after a calc.solar.day calculation for 
+      the amount of radiation absorbed by the surface (W).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_absorbed">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_angle" class="summary-sig-name">get_solar_angle</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the radiation value after a calc.solar.day calculation for 
+      the angle of incidence (degrees).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_angle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_area" class="summary-sig-name">get_solar_area</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the radiation value after a calc.solar.day calculation for 
+      the area of collector surface (m^2).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_area">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_available" class="summary-sig-name">get_solar_available</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the available radiation value after a calc.solar.day 
+      calculation for the amount of available solar radiation from the 
+      weather file, given in (W).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_available">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_diffuse" class="summary-sig-name">get_solar_diffuse</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns solar radiation value after a calc.solar.day calculation for 
+      the amount of diffuse radiation incident on surface (W).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_diffuse">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_direct" class="summary-sig-name">get_solar_direct</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns solar radiation value after a calc.solar.day calculation for 
+      the amount of direct radiation incident on surface (W).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_direct">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_global" class="summary-sig-name">get_solar_global</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the radiation value after a calc.solar.day calculation for 
+      the total global horizontal radiation from Sun (W).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_global">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_incident" class="summary-sig-name">get_solar_incident</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the radiation value after a calc.solar.day calculation for 
+      the amount of radiation incident on the surface (W).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_incident">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_reflected" class="summary-sig-name">get_solar_reflected</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the radiation value after a calc.solar.day calculation for 
+      the amount of reflected incident radiation (W).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_reflected">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_shading" class="summary-sig-name">get_solar_shading</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the radiation value after a calc.solar.day calculation for 
+      the percentage of surface shading (%).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_shading">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="py2ecotect.doc.results-module.html#get_solar_transmitted" class="summary-sig-name">get_solar_transmitted</a>(<span class="summary-sig-arg">hour</span>)</span><br />
+      Returns the radiation value after a calc.solar.day calculation for 
+      the amount of radiation transmitted through the surface (W).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_transmitted">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="get_array"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_array</span>(<span class="sig-arg">i</span>,
+        <span class="sig-arg">j</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_array">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The various solar and thermal analysis calculations store their 
+  results either directly within the zones they are working on, or in a 
+  large 2D data array. This method allows access to this array. The exact 
+  format of data within the array depends upon the type of calculation last
+  performed.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>i As defined below.</p>
+  <p>j As defined below.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified array value.</p>
+  <p>Relevant Data Table(s)</p>
+  <p>Thermal Analysis</p>
+  <p>Hourly Temperatures Internal temperature values are stored in each 
+  zone. Use the following command to access them:</p>
+  <p>get.zone.temperature zone hour</p>
+  <p>Hourly Gains The seven different gains are stored in the first seven 
+  elements of the array. Thus the i value refers to the table below whereas
+  the j value is the hour index of the day (0 to 23).</p>
+  <p>Data Type Value HVAC Load 0 Conduction Gain 1 Sol-Air Gains 2 Direct 
+  Solar Gains 3 Ventilation Gains 4 Internal Gains 5 Inter-Zonal Gains 
+  6</p>
+  <p>Heat / Cool Load Monthly heating and cooling loads are stored directly
+  in the heating and cooling load arrays for each zone. The 'Outside' zone 
+  (index = 0) stores the total loads of all zones visible at the time of 
+  the last calculation. Use the following commands to access them:</p>
+  <p>get.zone.heating zone month get.zone.cooling zone month</p>
+  <p>Temperature Distribution (0 - 48) This too is stored within the 
+  heating and cooling load arrays for each zone. As there are only 12 
+  indexes in each load array (1 for each month), each index represents a 
+  2-degree range with the heating array representing 0-24 deg Cel and the 
+  cooling array 24-48deg Cel.</p>
+  <p>Solar Exposure Single Day The data from a single day's solar radiation
+  analysis on a surface is not stored in the results array. Use the 
+  get.results.solar command described below.</p>
+  <p>Average Daily &amp; Total Monthly These values are stored in the array
+  by MONTHS and HOURS. The i value refers to the month (0-11) whereas the j
+  value is the hour index of the day (0 to 23). The array only stores the 
+  current radiation data value. Thus, if the Radiation Data: Item is set to
+  Absorbed, then only the absorbed value is stored and displayed.</p>
+  <p>An annual value is also stored for i=12, but not displayed. For Total 
+  Monthly calculations, these are the annual totals for each hour. For 
+  Average Daily calculations these are the annual average daily value for 
+  eah hour.</p>
+  <p>Full Hourly This calculation stores all 8760 hourly values in the 
+  array by DAY and HOUR. The i value refers to the day of the year (0-364) 
+  whereas the j value is the hour index of the day (0 to 23).</p>
+  <p>Resource Use The resource use values are stored in the array by day 
+  and type. The i value refers to the day of the year (0-364) whereas the j
+  value is 0 for the resource used or 1 for the resource collected.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_conduction"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_conduction</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_conduction">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for the total gains conducted through the building fabric.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_daily"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_daily</span>(<span class="sig-arg">zone</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_daily">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for the total sum of all gains for the entire day.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_fabric"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_fabric</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_fabric">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for conduction through fabric, opaque and glazing objects.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_glazing_fabric"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_glazing_fabric</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_glazing_fabric">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for the conduction gains through only glazing fabric.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23. Return Value(s) Getting
+  this property returns the following value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_indirect"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_indirect</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_indirect">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for the indirect solar and air temperature effect.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_internal"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_internal</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_internal">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for internal gains from people and APPLIANCES.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_opaque_fabric"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_opaque_fabric</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_opaque_fabric">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for the conduction gains through only opaque fabric.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_solar"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_solar</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_solar">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for the direct solar radiation through glazing.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_total"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_total</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_total">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for the total sum of all gains for the given hour.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_ventilation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_ventilation</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_ventilation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for infiltration and ventilation.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_gains_zonal"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_gains_zonal</span>(<span class="sig-arg">zone</span>,
+        <span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_gains_zonal">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Once an hourly thermal analysis has been performed for a single day 
+  (either the Hourly Temperature Profile or Hourly Heat Gains/Losses 
+  calculation), this command will directly access the calculated results 
+  for inter-zonal gains.</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>zone The zone object to use.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified gains value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_absorbed"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_absorbed</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_absorbed">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the radiation value after a calc.solar.day calculation for the
+  amount of radiation absorbed by the surface (W).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_angle"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_angle</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_angle">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the radiation value after a calc.solar.day calculation for the
+  angle of incidence (degrees).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_area"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_area</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_area">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the radiation value after a calc.solar.day calculation for the
+  area of collector surface (m^2).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_available"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_available</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_available">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the available radiation value after a calc.solar.day 
+  calculation for the amount of available solar radiation from the weather 
+  file, given in (W).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_diffuse"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_diffuse</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_diffuse">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns solar radiation value after a calc.solar.day calculation for 
+  the amount of diffuse radiation incident on surface (W).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_direct"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_direct</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_direct">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns solar radiation value after a calc.solar.day calculation for 
+  the amount of direct radiation incident on surface (W).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_global"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_global</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_global">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the radiation value after a calc.solar.day calculation for the
+  total global horizontal radiation from Sun (W).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_incident"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_incident</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_incident">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the radiation value after a calc.solar.day calculation for the
+  amount of radiation incident on the surface (W).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_reflected"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_reflected</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_reflected">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the radiation value after a calc.solar.day calculation for the
+  amount of reflected incident radiation (W).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_shading"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_shading</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_shading">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the radiation value after a calc.solar.day calculation for the
+  percentage of surface shading (%).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_solar_transmitted"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_solar_transmitted</span>(<span class="sig-arg">hour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="py2ecotect.doc.results-pysrc.html#get_solar_transmitted">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the radiation value after a calc.solar.day calculation for the
+  amount of radiation transmitted through the surface (W).</p>
+  <p>Parameter(s) This property takes the following parameters.</p>
+  <p>hour The hour to retrieve, being from 0 to 23.</p>
+  <p>Return Value(s) Getting this property returns the following 
+  value(s).</p>
+  <p>value A decimal value containing the specified solar value.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="py2ecotect-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >py2ecotect</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Aug 28 01:29:47 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
