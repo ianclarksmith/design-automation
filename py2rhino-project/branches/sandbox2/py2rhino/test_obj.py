@@ -1875,12 +1875,12 @@ class obj_test(unittest.TestCase):
     def testEllipseCenterPoint(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
         ellipse2 = ellipse1.prop.center_pnt()
-        self.assertEqual(type(ellipse2[0]),p2r.obj.Ellipse)
+        self.assertEqual(type(ellipse2[0]),float)
 
     def testEllipseQuadPoints(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
         ellipse2 = ellipse1.prop.quad_pnts()
-        self.assertEqual(type(ellipse2),p2r.obj.Ellipse)
+        self.assertEqual(type(ellipse2),tuple)
         
     def testEllipseAddMesh(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
@@ -3199,37 +3199,37 @@ class obj_test(unittest.TestCase):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.test.is_closed()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)     
+        self.assertEqual(type(planarmesh2),bool)     
 
     def testPlanarMeshIsManifold(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.test.is_manifold()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+        self.assertEqual(type(planarmesh2),bool)  
    
     def testPlanarMeshHasFaceNormals(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.test.has_face_normals()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)     
+        self.assertEqual(type(planarmesh2),bool)     
    
     def testPlanarMeshHasTextureCoordinates(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.test.has_texture_coordinates()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)    
+        self.assertEqual(type(planarmesh2),bool)    
    
     def testPlanarMeshHasVertexColors(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.test.has_vertex_colors()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)    
+        self.assertEqual(type(planarmesh2),bool)    
    
     def testPlanarMeshHasVertexNormals(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.test.has_vertex_normals()
-        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)    
+        self.assertEqual(type(planarmesh2),bool)    
     
     def testPlanarMeshMirror(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
@@ -3585,7 +3585,7 @@ class obj_test(unittest.TestCase):
 
     def testSphereReverse(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
-        sphere2 = sphere1.modf.reverse()
+        sphere2 = sphere1.modf.reverse(1)
         self.assertEqual(type(sphere2),bool)  
 
     def testSphereShrinkTrimmed(self):
@@ -3835,7 +3835,7 @@ class obj_test(unittest.TestCase):
 
     def testPolylineSeam(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.modf.seam(0,1)
+        polyline2 = polyline1.modf.seam((0,0,1))
         self.assertEqual(type(polyline2),bool) 
 
     def testPolylineFair(self):
@@ -3855,7 +3855,7 @@ class obj_test(unittest.TestCase):
         
     def testPolylineRemoveKnot(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.modf.remove_knot((0,1),0)
+        polyline2 = polyline1.modf.remove_knot((0,0,1));
         self.assertEqual(type(polyline2),bool)  
 
     def testPolylineReverse(self):
@@ -3875,7 +3875,7 @@ class obj_test(unittest.TestCase):
         
     def testPolylineSource(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.mtrl.source(0)              #TODO: if 0 is not provided, none is returned.
+        polyline2 = polyline1.mtrl.source(0);              #TODO: if 0 is not provided, none is returned.
         self.assertEqual(type(polyline2),int)   
         
     def testPolylineArrows(self):
@@ -3910,7 +3910,7 @@ class obj_test(unittest.TestCase):
         
     def testPolylineMatchObjectAttributes(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = p2r.obj.Polyline.create((0,0,0), (10,10,0))
+        polyline2 = p2r.obj.Polyline.create(((0,0,0),(10,10,0)))
         match = polyline1.stat.match_object_attributes(polyline2)
         self.assertEqual(type(match),int)  
         
@@ -4101,7 +4101,7 @@ class obj_test(unittest.TestCase):
 
     def testTorusReverse(self):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
-        torus2 = torus1.modf.reverse()
+        torus2 = torus1.modf.reverse(1)
         self.assertEqual(type(torus2),bool)  
 
     def testTorusShrinkTrimmed(self):
