@@ -187,6 +187,12 @@ class obj_test(unittest.TestCase):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
         self.assertEqual(type(planesurface1),p2r.obj.PlaneSurface)
         
+    def testCreatePolyCurve(self):
+        arc1 = p2r.obj.Arc.create((5,5,5), 5, 45)
+        arc2 = p2r.obj.Arc.create((0,0,0), 5, 45)
+        polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
+        self.assertEqual(type(polycurve1),p2r.obj.PolyCurve)
+        
     def testCreatePolyline(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
         self.assertEqual(type(polyline1),p2r.obj.Polyline)
@@ -2318,7 +2324,7 @@ class obj_test(unittest.TestCase):
         
     def testMeshSource(self):
         mesh1 = p2r.obj.Mesh.create(((0,0,0),(5,0,0),(10,0,0),(0,5,0),(5,5,0),(10,5,0),(0,10,0),(5,10,0),(10,10,0)), ((0,1,4,4),(2,4,1,1),(0,4,3,3),(2,5,4,4),(3,4,6,6),(5,8,4,4),(6,4,7,7),(8,7,4,4)))
-        mesh2 = mesh1.mtrl.source(0)              #TODO: if 0 is not provided, none is returned.
+        mesh2 = mesh1.mtrl.source(0)              
         self.assertEqual(type(mesh2),int)         
 
     def testMeshAddMesh(self):
@@ -2432,304 +2438,304 @@ class obj_test(unittest.TestCase):
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
         
     def testNurbsCurveTrfm(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve) 
         
     def testNurbsCurveCopySub(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.dupl.copy_by_sub((0,0,0),(10,0,0))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
         
     def testNurbsCurveCopyMove(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.dupl.copy_move()
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
         
     def testNurbsCurveCopyMoveByVec(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.dupl.copy_move_by_vec()
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
         
     def testNurbsCurveCopyByOffset(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.dupl.copy_by_offset(nurbscurve1,2)
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)    
             
     def testNurbsCurveCopyByOffsetOnSrf(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
         nurbscurve2 = nurbscurve1.dupl.copy_by_offset_on_srf(planesurface1,(1,2))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
             
     def testNurbsCurveCopyByOffsetOnSrfByParam(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
         nurbscurve2 = nurbscurve1.dupl.copy_by_offset_on_srf_by_param(planesurface1,(1,0))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
         
     def testNurbsCurveCopyBySplit(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.dupl.copy_by_split((0,0,0),1)
         self.assertEqual(type(nurbscurve2[0]),p2r.obj.NurbsCurve)
         
     def testNurbsCurveCopyByTrim(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.dupl.copy_by_trim((0,1))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
         
     def testNurbsCurveCurvature(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.eval.curvature(1)
         self.assertEqual(len(nurbscurve2),5)      
     
     def testNurbsCurveEvalDeriv(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.eval.evaluate_derivatives(1,1)
         self.assertEqual(len(nurbscurve2),2)   
     
     def testNurbsCurveFrame(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.eval.frame(1)
         self.assertEqual(len(nurbscurve2),4) 
     
     def testNurbsCurvePerpFrame(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.eval.frame(1)
         self.assertEqual(len(nurbscurve2),4) 
     
     def testNurbsCurveTangent(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.eval.tangent(1)
         self.assertEqual(len(nurbscurve2),3) 
     
     def testNurbsCurveEvaluate(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.eval.evaluate(1)
         self.assertEqual(len(nurbscurve2),3) 
         
     def testNurbsCurveClosed(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.func.close()
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
     
     def testNurbsCurveExtend(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = p2r.obj.NurbsCurve.create((0,0,0), 5, 45)
         nurbscurve3 = nurbscurve1.func.extend(1,1,nurbscurve2)
         self.assertEqual(type(nurbscurve3),p2r.obj.NurbsCurve)
     
     def testNurbsCurveExtendLength(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.func.extend_length(2,2,3)
         #print nurbscurve2
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve) #TODO: to check if it is suppose to return as a nurbscurve
         
     def testNurbsCurveExtendPnt(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.func.extend_pnt(1,(1,1,1))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve) #TODO: to check if it is suppose to return as a nurbscurve
         
     def testNurbsCurveGroups(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.grps.groups()
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
         
-    def testNurbscurveTopGroup(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+    def testNurbsCurveTopGroup(self):
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.grps.top_group()
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveIndex(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.mtrl.index()
         self.assertEqual(type(nurbscurve2),int)       
         
     def testNurbsCurveSource(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.mtrl.source(0)              #TODO: if 0 is not provided, none is returned.
         self.assertEqual(type(nurbscurve2),int)   
         
     def testNurbsCurveArrows(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.arrows()
         self.assertEqual(type(nurbscurve2),int)     
         
     def testNurbscurveAddMesh(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.rndr.add_mesh()
         self.assertEqual(type(nurbscurve2),bool)   
         
     def testNurbsCurveEnable(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.rndr.enable()
         self.assertEqual(type(nurbscurve2),bool)   
         
     def testNurbsCurveHasMesh(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.rndr.has_mesh()
         self.assertEqual(type(nurbscurve2),bool)   
             
     def testNurbsCurveHide(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.stat.hide()
         self.assertEqual(type(nurbscurve2),int)  
         
     def testNurbsCurveLock(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.stat.lock()
         self.assertEqual(type(nurbscurve2),int)  
         
     def testNurbsCurveMatchObjectAttributes(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = p2r.obj.NurbsCurve.create((0,0,0), (6,0,0), (10,10,0))
         match = nurbscurve1.stat.match_object_attributes(nurbscurve2)
         self.assertEqual(type(match),int)  
         
     def testNurbsCurveResetObjectAttributes(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         reset = nurbscurve1.stat.reset_object_attributes()
         self.assertEqual(type(reset),int)  
         
     def testNurbsCurveMoveToLayoutSpace(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         reset = nurbscurve1.stat.move_to_layout_space()
         self.assertEqual(type(reset),str)  
         
     def testNurbsCurveSelect(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         sel = nurbscurve1.stat.select()
         self.assertEqual(type(sel),int)  
         
     def testNurbsCurveShow(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         sel = nurbscurve1.stat.show()
         self.assertEqual(type(sel),int)  
         
     def testNurbsCurveUnlock(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.stat.unlock()
         self.assertEqual(type(nurbscurve2),int) 
         
     def testNurbsCurveUnselect(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         sel = nurbscurve1.stat.unselect()
         self.assertEqual(type(sel),int) 
         
     def testNurbsCurveIsClosable(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         closable = nurbscurve1.test.is_closable()
         self.assertEqual(type(closable),bool) 
         
     def testNurbsCurveIsClosed(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         closed = nurbscurve1.test.is_closed()
         self.assertEqual(type(closed),bool) 
         
     def testNurbsCurveInPlane(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         plane = nurbscurve1.test.in_plane()
         self.assertEqual(type(plane),bool) 
         
     def testNurbsCurveIsNurbscurvear(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve_linear = nurbscurve1.test.is_linear()
         self.assertEqual(type(nurbscurve_linear),bool)
         
     def testNurbsCurveIsPeriodic(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         periodic = nurbscurve1.test.is_periodic()
         self.assertEqual(type(periodic),bool)
         
     def testNurbsCurveIsPlanar(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         planar = nurbscurve1.test.is_planar()
         self.assertEqual(type(planar),bool)
         
     def testNurbsCurveIsRational(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         rational = nurbscurve1.test.is_rational()
         self.assertEqual(type(rational),bool)   
         
     def testNurbsCurveIsPntOnCrv(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         on_crv = nurbscurve1.test.is_pnt_on_crv((0,0,0))
         self.assertEqual(type(on_crv),bool)         
         
     def testNurbsCurveMirror(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.trfm.mirror((0,0,0),(1,1,1))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveMove(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.trfm.move((0,0,0),(1,1,1))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveMoveByVec(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.trfm.move_by_vec(((0,0,0),(1,1,1)))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveOrient(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.trfm.orient((0,0,0),(1,1,1))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveRemap(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.trfm.remap((0,0,0),(1,1,1))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveRotate(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.trfm.rotate((0,0,0),45)
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveScale(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.trfm.scale((0,0,0),(1,2,3))
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)     
         
     def testNurbsCurveDescription(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.util.description()
         self.assertEqual(type(nurbscurve2),unicode)   
         
     def testNurbsCurveDump(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create((0,0,0),(1,0,0),(5,0,0))
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.util.dump()
         self.assertEqual(type(nurbscurve2),unicode)  
         
-    def testNurveSurfaceBoxMorph(self):
-        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurvesurface2 = nurvesurface1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
-        self.assertEqual(type(nurvesurface2),p2r.obj.NurbsSurface)
+    def testNurbsSurfaceBoxMorph(self):
+        nurbssurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)
         
-    def testNurveSurfaceShear(self):
-        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurvesurface2 = nurvesurface1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(nurvesurface2),p2r.obj.NurbsSurface)
+    def testNurbsSurfaceShear(self):
+        nurbssurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.defm.shear((0,0,0),(10,10,10),45)
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)
         
-    def testNurveSurfaceTrfm(self):
-        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurvesurface2 = nurvesurface1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
-        self.assertEqual(type(nurvesurface2),p2r.obj.NurbsSurface) 
+    def testNurbsSurfaceTrfm(self):
+        nurbssurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface) 
         
-    def testNurveSurfaceCopyMove(self):
-        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurvesurface2 = nurvesurface1.dupl.copy_move()
-        self.assertEqual(type(nurvesurface2),p2r.obj.NurbsSurface)
+    def testNurbsSurfaceCopyMove(self):
+        nurbssurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.dupl.copy_move()
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)
         
-    def testNurveSurfaceCopyMoveByVec(self):
-        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurvesurface2 = nurvesurface1.dupl.copy_move_by_vec()
-        self.assertEqual(type(nurvesurface2),p2r.obj.NurbsSurface)
+    def testNurbsSurfaceCopyMoveByVec(self):
+        nurbssurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.dupl.copy_move_by_vec()
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)
         
-    def testNurveSurfaceCopyByOffset(self):
-        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurvesurface2 = nurvesurface1.dupl.copy_by_offset((0,0,0),1)
-        self.assertEqual(type(nurvesurface2),p2r.obj.NurbsSurface)     
+    def testNurbsSurfaceCopyByOffset(self):
+        nurbssurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.dupl.copy_by_offset((0,0,0),1)
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)     
         
     def testNurbsSurfaceGroups(self):
         nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
@@ -2770,6 +2776,1218 @@ class obj_test(unittest.TestCase):
         nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
         nurbssurface2 = nurbssurface1.modf.shrink_trimmed()
         self.assertEqual(type(nurbssurface2),bool) 
-                 
+    
+    def testNurbsSurfaceAddMesh(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.rndr.add_mesh()
+        self.assertEqual(type(nurbssurface2),bool)   
+        
+    def testNurbsSurfaceEnable(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.rndr.enable()
+        self.assertEqual(type(nurbssurface2),bool)   
+        
+    def testNurbsSurfaceHasMesh(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.rndr.has_mesh()
+        self.assertEqual(type(nurbssurface2),bool)   
+                
+    def testNurbsSurfaceHide(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.stat.hide()
+        self.assertEqual(type(nurbssurface2),int)  
+        
+    def testNurbsSurfaceLock(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.stat.lock()
+        self.assertEqual(type(nurbssurface2),int)  
+        
+    def testNurbsSurfaceMatchObjectAttributes(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = p2r.obj.NurbsSurface.create((0,0,0), (1,1,1), 5)
+        match = nurbssurface1.stat.match_object_attributes(nurbssurface2)
+        self.assertEqual(type(match),int)  
+        
+    def testNurbsSurfaceResetObjectAttributes(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        reset = nurbssurface1.stat.reset_object_attributes()
+        self.assertEqual(type(reset),int)  
+        
+    def testNurbsSurfaceMoveToLayoutSpace(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        reset = nurbssurface1.stat.move_to_layout_space()
+        self.assertEqual(type(reset),str)  
+        
+    def testNurbsSurfaceSelect(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        sel = nurbssurface1.stat.select()
+        self.assertEqual(type(sel),int)  
+        
+    def testNurbsSurfaceShow(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        sel = nurbssurface1.stat.show()
+        self.assertEqual(type(sel),int)  
+        
+    def testNurbsSurfaceUnlock(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.stat.unlock()
+        self.assertEqual(type(nurbssurface2),int) 
+        
+    def testNurbsSurfaceUnselect(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        sel = nurbssurface1.stat.unselect()
+        self.assertEqual(type(sel),int) 
+        
+    def testNurbsSurfaceIsBrep(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_brep()
+        self.assertEqual(type(nurbssurface2),bool) 
+        
+    def testNurbsSurfaceIsBrepManifold(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_brep_manifold()
+        self.assertEqual(type(nurbssurface2),bool) 
+        
+    def testNurbsSurfaceIsParameterOnSrf(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_parameter_on_srf((0,0))
+        self.assertEqual(type(nurbssurface2),bool) 
+        
+    def testNurbsSurfaceIsPointInSrf(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_pnt_in_srf((0,0,0))
+        self.assertEqual(type(nurbssurface2),bool) 
+        
+    def testNurbsSurfaceIsPointOnSrf(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_pnt_on_srf((0,0,0))
+        self.assertEqual(type(nurbssurface2),bool) 
+        
+    def testNurbsSurfaceIsPolySurfaceClosed(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_poly_surface_closed()
+        self.assertEqual(type(nurbssurface2),bool) 
+        
+    def testNurbsSurfaceIsPlaneSurface(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_plane_surface()
+        self.assertEqual(type(nurbssurface2),bool) 
+        
+    def testNurbsSurfaceIsPolySrf(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_poly_srf()
+        self.assertEqual(type(nurbssurface2),bool)     
+        
+    def testNurbsSurfaceIsPolySrfPlanar(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_poly_srf_planar()
+        self.assertEqual(type(nurbssurface2),bool)     
+        
+    def testNurbsSurfaceIsSrfClosed(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_srf_closed(0)
+        self.assertEqual(type(nurbssurface2),bool)   
+        
+    def testNurbsSurfaceIsSrfPeriodic(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_srf_periodic(0)
+        self.assertEqual(type(nurbssurface2),bool) 
+        
+    def testNurbsSurfaceIsSrfPlanar(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_srf_planar()
+        self.assertEqual(type(nurbssurface2),bool)  
+        
+    def testNurbsSurfaceIsSrfRational(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_srf_rational()
+        self.assertEqual(type(nurbssurface2),bool)  
+        
+    def testNurbsSurfaceIsSrfSingular(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_srf_singular(0)
+        self.assertEqual(type(nurbssurface2),bool)  
+        
+    def testNurbsSurfaceIsSrfTrimmed(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.test.is_srf_trimmed()
+        self.assertEqual(type(nurbssurface2),bool)
+
+    def testNurbsSurfaceMirror(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.trfm.mirror((0,0,0),(1,1,1))
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)  
+        
+    def testNurbsSurfaceMove(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.trfm.move((0,0,0),(1,1,1))
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)  
+        
+    def testNurbsSurfaceMoveByVec(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.trfm.move_by_vec(((0,0,0),(1,1,1)))
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)  
+        
+    def testNurbsSurfaceOrient(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.trfm.orient((0,0,0),(1,1,1))
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)  
+        
+    def testNurbsSurfaceRemap(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.trfm.remap((0,0,0),(1,1,1))
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)  
+        
+    def testNurbsSurfaceRotate(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.trfm.rotate((0,0,0),45)
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)  
+        
+    def testNurbsSurfaceScale(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.trfm.scale((0,0,0),(1,2,3))
+        self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)     
+        
+    def testNurbsSurfaceDescription(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.util.description()
+        self.assertEqual(type(nurbssurface2),unicode)   #TODO:double check if unicode is the correct return type
+        
+    def testNurbsSurfaceDump(self):
+        nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
+        nurbssurface2 = nurbssurface1.util.dump()  
+        self.assertEqual(type(nurbssurface2),unicode) #TODO:double check if unicode is the correct return type
+    
+    def testPlanarMeshBoxMorph(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)
+        
+    def testPlanarMeshShear(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.defm.shear((0,0,0),(10,10,10),45)
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)
+        
+    def testPlanarMeshTrfm(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh) 
+        
+    def testPlanarMeshCopyMove(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.dupl.copy_move()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)
+        
+    def testPlanarMeshCopyMoveByVec(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.dupl.copy_move_by_vec()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)    
+        
+    def testPlanarMeshCopyMoveByOffset(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        circle2 = p2r.obj.Circle.create_by_3pt((10,0,0),(0,10,0),(10,0,0))
+        planarmesh2 = p2r.obj.PlanarMesh.create_by_crv(circle2,False)
+        planarmesh3 = planarmesh1.dupl.copy_by_offset(planarmesh2)
+        self.assertEqual(type(planarmesh3),p2r.obj.PlanarMesh)    
+        
+    def testPlanarMeshGroups(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.grps.groups()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)
+        
+    def testPlanarMeshTopGroup(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.grps.top_group()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+    
+    def testPlanarMeshQuadToTriangles(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.modf.quads_to_triangles()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)   
+        
+    def testPlanarMeshIndex(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.mtrl.index()
+        self.assertEqual(type(planarmesh2),int)       
+        
+    def testPlanarMeshSource(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.mtrl.source(0)              #TODO: if 0 is not provided, none is returned.
+        self.assertEqual(type(planarmesh2),int)     
+    
+    def testPlanarMeshAddMesh(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.rndr.add_mesh()
+        self.assertEqual(type(planarmesh2),bool)   
+        
+    def testPlanarMeshEnable(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.rndr.enable()
+        self.assertEqual(type(planarmesh2),bool)   
+        
+    def testPlanarMeshHasMesh(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.rndr.has_mesh()
+        self.assertEqual(type(planarmesh2),bool)   
+                
+    def testPlanarMeshHide(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.stat.hide()
+        self.assertEqual(type(planarmesh2),int)  
+        
+    def testPlanarMeshLock(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.stat.lock()
+        self.assertEqual(type(planarmesh2),int)  
+        
+    def testPlanarMeshMatchObjectAttributes(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        circle2 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh2 = p2r.obj.PlanarMesh.create_by_crv(circle2,False)
+        match = planarmesh1.stat.match_object_attributes(planarmesh2)
+        self.assertEqual(type(match),int)  
+        
+    def testPlanarMeshResetObjectAttributes(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        reset = planarmesh1.stat.reset_object_attributes()
+        self.assertEqual(type(reset),int)  
+        
+    def testPlanarMeshMoveToLayoutSpace(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        reset = planarmesh1.stat.move_to_layout_space()
+        self.assertEqual(type(reset),str)  
+        
+    def testPlanarMeshSelect(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        sel = planarmesh1.stat.select()
+        self.assertEqual(type(sel),int)  
+        
+    def testPlanarMeshShow(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        sel = planarmesh1.stat.show()
+        self.assertEqual(type(sel),int)  
+        
+    def testPlanarMeshUnlock(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.stat.unlock()
+        self.assertEqual(type(planarmesh2),int) 
+        
+    def testPlanarMeshUnselect(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        sel = planarmesh1.stat.unselect()
+        self.assertEqual(type(sel),int) 
+        
+    def testPlanarMeshIsBrep(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.test.is_brep()
+        self.assertEqual(type(planarmesh2),bool) 
+        
+    def testPlanarMeshIsClosed(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.test.is_closed()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)     
+
+    def testPlanarMeshIsManifold(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.test.is_manifold()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+   
+    def testPlanarMeshHasFaceNormals(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.test.has_face_normals()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)     
+   
+    def testPlanarMeshHasTextureCoordinates(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.test.has_texture_coordinates()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)    
+   
+    def testPlanarMeshHasVertexColors(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.test.has_vertex_colors()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)    
+   
+    def testPlanarMeshHasVertexNormals(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.test.has_vertex_normals()
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)    
+    
+    def testPlanarMeshMirror(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.trfm.mirror((0,0,0),(1,1,1))
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+        
+    def testPlanarMeshMove(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.trfm.move((0,0,0),(1,1,1))
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+        
+    def testPlanarMeshMoveByVec(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.trfm.move_by_vec(((0,0,0),(1,1,1)))
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+        
+    def testPlanarMeshOrient(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.trfm.orient((0,0,0),(1,1,1))
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+        
+    def testPlanarMeshRemap(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.trfm.remap((0,0,0),(1,1,1))
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+        
+    def testPlanarMeshRotate(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.trfm.rotate((0,0,0),45)
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
+        
+    def testPlanarMeshScale(self):
+        circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
+        planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
+        planarmesh2 = planarmesh1.trfm.scale((0,0,0),(1,2,3))
+        self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)
+
+    def testPlaneSurfaceBoxMorph(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)
+        
+    def testPlaneSurfaceShear(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.defm.shear((0,0,0),(10,10,10),45)
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)
+        
+    def testPlaneSurfaceTrfm(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface) 
+        
+    def testPlaneSurfaceCopyMove(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.dupl.copy_move()
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)
+
+    def testPlaneSurfaceCopyMoveByVec(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.dupl.copy_move_by_vec()
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)
+
+    def testPlaneSurfaceCopyByOffset(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.dupl.copy_by_offset((0,0,0),1)
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
+        
+    def testPlaneSurfaceEvaluate(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.eval.evaluate(1)
+        self.assertEqual(len(planesurface2),3) 
+
+    def testPlaneSurfaceEvalDeriv(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.eval.evaluate_derivatives(1,1)
+        self.assertEqual(type(planesurface2),list)   
+
+    def testPlaneSurfaceEvalFrame(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.eval.evaluate_frame((0,1))
+        self.assertEqual(type(planesurface2),list)   
+    
+    def testPlaneSurfaceGroups(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.grps.groups()
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)
+        
+    def testPlaneSurfaceTopGroup(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.grps.top_group()
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)          
+
+    def testPlaneSurfaceFlip(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.modf.flip()
+        self.assertEqual(type(planesurface2),bool)  
+        
+    def testPlaneSurfaceInsertKnot(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.modf.insert_knot((0,1),0)
+        self.assertEqual(type(planesurface2),bool)  
+
+    def testPlaneSurfaceRebuild(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.modf.rebuild()
+        self.assertEqual(type(planesurface2),bool)  
+        
+    def testPlaneSurfaceRemoveKnot(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.modf.remove_knot((0,1),0)
+        self.assertEqual(type(planesurface2),bool)  
+
+    def testPlaneSurfaceReverse(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.modf.reverse()
+        self.assertEqual(type(planesurface2),bool)  
+
+    def testPlaneSurfaceShrinkTrimmed(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.modf.shrink_trimmed()
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIndex(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.mtrl.index()
+        self.assertEqual(type(planesurface2),int)       
+        
+    def testPlaneSurfaceSource(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.mtrl.source(0)              #TODO: if 0 is not provided, none is returned.
+        self.assertEqual(type(planesurface2),int)         
+        
+    def testPlaneSurfaceAddMesh(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.rndr.add_mesh()
+        self.assertEqual(type(planesurface2),bool)   
+        
+    def testPlaneSurfaceEnable(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.rndr.enable()
+        self.assertEqual(type(planesurface2),bool)   
+        
+    def testPlaneSurfaceHasMesh(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.rndr.has_mesh()
+        self.assertEqual(type(planesurface2),bool)   
+
+    def testPlaneSurfaceHide(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.stat.hide()
+        self.assertEqual(type(planesurface2),int)  
+        
+    def testPlaneSurfaceLock(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.stat.lock()
+        self.assertEqual(type(planesurface2),int)  
+        
+    def testPlaneSurfaceIsBrep(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_brep()
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIsBrepManifold(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_brep_manifold()
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIsParameterOnSrf(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_parameter_on_srf((0,0))
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIsPointInSrf(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_pnt_in_srf((0,0,0))
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIsPointOnSrf(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_pnt_on_srf((0,0,0))
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIsPolySurfaceClosed(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_poly_surface_closed()
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIsPlaneSurface(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_plane_surface()
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIsPolySrf(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_poly_srf()
+        self.assertEqual(type(planesurface2),bool)     
+        
+    def testPlaneSurfaceIsPolySrfPlanar(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_poly_srf_planar()
+        self.assertEqual(type(planesurface2),bool)     
+        
+    def testPlaneSurfaceIsSrfClosed(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_srf_closed(0)
+        self.assertEqual(type(planesurface2),bool)   
+        
+    def testPlaneSurfaceIsSrfPeriodic(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_srf_periodic(0)
+        self.assertEqual(type(planesurface2),bool) 
+        
+    def testPlaneSurfaceIsSrfPlanar(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_srf_planar()
+        self.assertEqual(type(planesurface2),bool)  
+        
+    def testPlaneSurfaceIsSrfRational(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_srf_rational()
+        self.assertEqual(type(planesurface2),bool)  
+        
+    def testPlaneSurfaceIsSrfSingular(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_srf_singular(0)
+        self.assertEqual(type(planesurface2),bool)  
+        
+    def testPlaneSurfaceIsSrfTrimmed(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.test.is_srf_trimmed()
+        self.assertEqual(type(planesurface2),bool)
+
+    def testPlaneSurfaceMirror(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.trfm.mirror((0,0,0),(1,1,1))
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
+        
+    def testPlaneSurfaceMove(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.trfm.move((0,0,0),(1,1,1))
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
+        
+    def testPlaneSurfaceMoveByVec(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.trfm.move_by_vec(((0,0,0),(1,1,1)))
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
+        
+    def testPlaneSurfaceOrient(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.trfm.orient((0,0,0),(1,1,1))
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
+        
+    def testPlaneSurfaceRemap(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.trfm.remap((0,0,0),(1,1,1))
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
+        
+    def testPlaneSurfaceRotate(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.trfm.rotate((0,0,0),45)
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
+        
+    def testPlaneSurfaceScale(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.trfm.scale((0,0,0),(1,2,3))
+        self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)     
+        
+    def testPlaneSurfaceDescription(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.util.description()
+        self.assertEqual(type(planesurface2),unicode)   #TODO:double check if unicode is the correct return type
+        
+    def testPlaneSurfaceDump(self):
+        planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
+        planesurface2 = planesurface1.util.dump()  
+        self.assertEqual(type(planesurface2),unicode) #TODO:double check if unicode is the correct return type
+    
+    def testSphereBoxMorph(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)
+        
+    def testSphereShear(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.defm.shear((0,0,0),(10,10,10),45)
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)
+        
+    def testSphereTrfm(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        self.assertEqual(type(sphere2),p2r.obj.Sphere) 
+        
+    def testSphereCopyMove(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.dupl.copy_move()
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)
+
+    def testSphereCopyMoveByVec(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.dupl.copy_move_by_vec()
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)
+    
+    def testSphereEvaluate(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.eval.evaluate(1)
+        self.assertEqual(len(sphere2),3) 
+
+    def testSphereEvalDeriv(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.eval.evaluate_derivatives(1,1)
+        self.assertEqual(type(sphere2),list)   
+
+    def testSphereEvalFrame(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.eval.evaluate_frame((0,1))
+        self.assertEqual(type(sphere2),list)   
+    
+    def testSphereGroups(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.grps.groups()
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)
+        
+    def testSphereTopGroup(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.grps.top_group()
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)   
+        
+    def testSphereFlip(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.modf.flip()
+        self.assertEqual(type(sphere2),bool)  
+        
+    def testSphereInsertKnot(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.modf.insert_knot((0,1),0)
+        self.assertEqual(type(sphere2),bool)  
+
+    def testSphereRebuild(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.modf.rebuild()
+        self.assertEqual(type(sphere2),bool)  
+        
+    def testSphereRemoveKnot(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.modf.remove_knot((0,1),0)
+        self.assertEqual(type(sphere2),bool)  
+
+    def testSphereReverse(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.modf.reverse()
+        self.assertEqual(type(sphere2),bool)  
+
+    def testSphereShrinkTrimmed(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.modf.shrink_trimmed()
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIndex(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.mtrl.index()
+        self.assertEqual(type(sphere2),int)       
+        
+    def testSphereSource(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.mtrl.source(0)              #TODO: if 0 is not provided, none is returned.
+        self.assertEqual(type(sphere2),int)    
+        
+    def testSphereDefinition(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.prop.sphere_definition()
+        self.assertEqual(len(sphere2),3) 
+
+    def testSphereAddMesh(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.rndr.add_mesh()
+        self.assertEqual(type(sphere2),bool)   
+        
+    def testSphereEnable(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.rndr.enable()
+        self.assertEqual(type(sphere2),bool)   
+        
+    def testSphereHasMesh(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.rndr.has_mesh()
+        self.assertEqual(type(sphere2),bool)   
+
+    def testSphereHide(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.stat.hide()
+        self.assertEqual(type(sphere2),int)  
+        
+    def testSphereLock(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.stat.lock()
+        self.assertEqual(type(sphere2),int)  
+        
+    def testSphereIsBrep(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_brep()
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIsBrepManifold(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_brep_manifold()
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIsParameterOnSrf(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_parameter_on_srf((0,0))
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIsPointInSrf(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_pnt_in_srf((0,0,0))
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIsPointOnSrf(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_pnt_on_srf((0,0,0))
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIsPolySurfaceClosed(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_poly_surface_closed()
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIsSphere(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_plane_surface()
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIsPolySrf(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_poly_srf()
+        self.assertEqual(type(sphere2),bool)     
+        
+    def testSphereIsPolySrfPlanar(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_poly_srf_planar()
+        self.assertEqual(type(sphere2),bool)     
+        
+    def testSphereIsSrfClosed(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_srf_closed(0)
+        self.assertEqual(type(sphere2),bool)   
+        
+    def testSphereIsSrfPeriodic(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_srf_periodic(0)
+        self.assertEqual(type(sphere2),bool) 
+        
+    def testSphereIsSrfPlanar(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_srf_planar()
+        self.assertEqual(type(sphere2),bool)  
+        
+    def testSphereIsSrfRational(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_srf_rational()
+        self.assertEqual(type(sphere2),bool)  
+        
+    def testSphereIsSrfSingular(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_srf_singular(0)
+        self.assertEqual(type(sphere2),bool)  
+        
+    def testSphereIsSrfTrimmed(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.test.is_srf_trimmed()
+        self.assertEqual(type(sphere2),bool)
+
+    def testSphereMirror(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.trfm.mirror((0,0,0),(1,1,1))
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)  
+        
+    def testSphereMove(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.trfm.move((0,0,0),(1,1,1))
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)  
+        
+    def testSphereMoveByVec(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.trfm.move_by_vec(((0,0,0),(1,1,1)))
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)  
+        
+    def testSphereOrient(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.trfm.orient((0,0,0),(1,1,1))
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)  
+        
+    def testSphereRemap(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.trfm.remap((0,0,0),(1,1,1))
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)  
+        
+    def testSphereRotate(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.trfm.rotate((0,0,0),45)
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)  
+        
+    def testSphereScale(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.trfm.scale((0,0,0),(1,2,3))
+        self.assertEqual(type(sphere2),p2r.obj.Sphere)     
+        
+    def testSphereDescription(self):
+        sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
+        sphere2 = sphere1.util.description()
+        self.assertEqual(type(sphere2),unicode)      
+        
+    def testPolylineBoxMorph(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        
+    def testPolylineShear(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.defm.shear((0,0,0),(10,10,10),45)
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        
+    def testPolylineTrfm(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline) 
+        
+    def testPolylineCopySub(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.dupl.copy_by_sub((0,0,0),(10,0,0))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        
+    def testPolylineCopyMove(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.dupl.copy_move()
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        
+    def testPolylineCopyMoveByVec(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.dupl.copy_move_by_vec()
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        
+    def testPolylineCopyByOffset(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.dupl.copy_by_offset(polyline1,2)
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)    
+
+    def testPolylineCopyBySplit(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.dupl.copy_by_split((0,0,0),1)
+        self.assertEqual(type(polyline2[0]),p2r.obj.Polyline)
+        
+    def testPolylineCopyByTrim(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.dupl.copy_by_trim((0,1))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        
+    def testPolylineCurvature(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.eval.curvature(1)
+        self.assertEqual(len(polyline2),5)      
+    
+    def testPolylineEvalDeriv(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.eval.evaluate_derivatives(1,1)
+        self.assertEqual(len(polyline2),2)   
+    
+    def testPolylineFrame(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.eval.frame(1)
+        self.assertEqual(len(polyline2),4) 
+    
+    def testPolylinePerpFrame(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.eval.frame(1)
+        self.assertEqual(len(polyline2),4) 
+    
+    def testPolylineTangent(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.eval.tangent(1)
+        self.assertEqual(len(polyline2),3) 
+    
+    def testPolylineEvaluate(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.eval.evaluate(1)
+        self.assertEqual(len(polyline2),3) 
+        
+    def testPolylineGroups(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.grps.groups()
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)
+        
+    def testPolylineTopGroup(self):
+        polyline1 = p2r.obj.Polyline.create((0,0,0), 3)
+        polyline2 = polyline1.grps.top_group()
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)  
+
+    def testPolylineSeam(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.modf.seam(0,1)
+        self.assertEqual(type(polyline2),bool) 
+
+    def testPolylineFair(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.modf.fair()
+        self.assertEqual(type(polyline2),bool)  
+        
+    def testPolylineInsertKnot(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.modf.insert_knot((0,1),0)
+        self.assertEqual(type(polyline2),bool)  
+
+    def testPolylineRebuild(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.modf.rebuild()
+        self.assertEqual(type(polyline2),bool)  
+        
+    def testPolylineRemoveKnot(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.modf.remove_knot((0,1),0)
+        self.assertEqual(type(polyline2),bool)  
+
+    def testPolylineReverse(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.modf.reverse()
+        self.assertEqual(type(polyline2),bool)  
+
+    def testPolylineSimplify(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.modf.simplify()
+        self.assertEqual(type(polyline2),bool)  
+
+    def testPolylineIndex(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.mtrl.index()
+        self.assertEqual(type(polyline2),int)       
+        
+    def testPolylineSource(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.mtrl.source(0)              #TODO: if 0 is not provided, none is returned.
+        self.assertEqual(type(polyline2),int)   
+        
+    def testPolylineArrows(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.prop.arrows()
+        self.assertEqual(type(polyline2),int)     
+        
+    def testPolylineAddMesh(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.rndr.add_mesh()
+        self.assertEqual(type(polyline2),bool)   
+        
+    def testPolylineEnable(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.rndr.enable()
+        self.assertEqual(type(polyline2),bool)   
+        
+    def testPolylineHasMesh(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.rndr.has_mesh()
+        self.assertEqual(type(polyline2),bool)   
+            
+    def testPolylineHide(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.stat.hide()
+        self.assertEqual(type(polyline2),int)  
+        
+    def testPolylineLock(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.stat.lock()
+        self.assertEqual(type(polyline2),int)  
+        
+    def testPolylineMatchObjectAttributes(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = p2r.obj.Polyline.create((0,0,0), (10,10,0))
+        match = polyline1.stat.match_object_attributes(polyline2)
+        self.assertEqual(type(match),int)  
+        
+    def testPolylineResetObjectAttributes(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        reset = polyline1.stat.reset_object_attributes()
+        self.assertEqual(type(reset),int)  
+        
+    def testPolylineMoveToLayoutSpace(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        reset = polyline1.stat.move_to_layout_space()
+        self.assertEqual(type(reset),str)  
+        
+    def testPolylineSelect(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        sel = polyline1.stat.select()
+        self.assertEqual(type(sel),int)  
+        
+    def testPolylineShow(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        sel = polyline1.stat.show()
+        self.assertEqual(type(sel),int)  
+        
+    def testPolylineUnlock(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.stat.unlock()
+        self.assertEqual(type(polyline2),int) 
+        
+    def testPolylineUnselect(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        sel = polyline1.stat.unselect()
+        self.assertEqual(type(sel),int) 
+        
+    def testPolylineIsClosable(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        closable = polyline1.test.is_closable()
+        self.assertEqual(type(closable),bool) 
+        
+    def testPolylineIsClosed(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        closed = polyline1.test.is_closed()
+        self.assertEqual(type(closed),bool) 
+        
+    def testPolylineInPlane(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        plane = polyline1.test.in_plane()
+        self.assertEqual(type(plane),bool) 
+        
+    def testPolylineIsPolylinear(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        linear = polyline1.test.is_linear()
+        self.assertEqual(type(linear),bool)
+        
+    def testPolylineIsPeriodic(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        periodic = polyline1.test.is_periodic()
+        self.assertEqual(type(periodic),bool)
+        
+    def testPolylineIsPlanar(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        planar = polyline1.test.is_planar()
+        self.assertEqual(type(planar),bool)
+        
+    def testPolylineIsRational(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        rational = polyline1.test.is_rational()
+        self.assertEqual(type(rational),bool)   
+        
+    def testPolylineIsPntOnCrv(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        on_crv = polyline1.test.is_pnt_on_crv((0,0,0))
+        self.assertEqual(type(on_crv),bool)         
+        
+    def testPolylineMirror(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.trfm.mirror((0,0,0),(1,1,1))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)  
+        
+    def testPolylineMove(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.trfm.move((0,0,0),(1,1,1))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)  
+        
+    def testPolylineMoveByVec(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.trfm.move_by_vec(((0,0,0),(1,1,1)))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)  
+        
+    def testPolylineOrient(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.trfm.orient((0,0,0),(1,1,1))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)  
+        
+    def testPolylineRemap(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.trfm.remap((0,0,0),(1,1,1))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)  
+        
+    def testPolylineRotate(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.trfm.rotate((0,0,0),45)
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)  
+        
+    def testPolylineScale(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.trfm.scale((0,0,0),(1,2,3))
+        self.assertEqual(type(polyline2),p2r.obj.Polyline)     
+        
+    def testPolylineDescription(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.util.description()
+        self.assertEqual(type(polyline2),unicode)   
+        
+    def testPolylineDump(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
+        polyline2 = polyline1.util.dump()
+        self.assertEqual(type(polyline2),unicode) 
+        
+    def testTorusBoxMorph(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
+        torus2 = torus1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
+        self.assertEqual(type(torus2),p2r.obj.Torus)
+        
+    def testTorusShear(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
+        torus2 = torus1.defm.shear((0,0,0),(10,10,10),45)
+        self.assertEqual(type(torus2),p2r.obj.Torus)
+        
+    def testTorusTrfm(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
+        torus2 = torus1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        self.assertEqual(type(torus2),p2r.obj.Torus)
+    
+    def testTorusCopyMove(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 3)
+        torus2 = torus1.dupl.copy_move()
+        self.assertEqual(type(torus2),p2r.obj.Torus)
+        
+    def testTorusCopyMoveByVec(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 3)
+        torus2 = torus1.dupl.copy_move_by_vec()
+        self.assertEqual(type(torus2),p2r.obj.Torus)
+        
+    def testTorusEvaluate(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 3)
+        torus2 = torus1.eval.evaluate(1)
+        self.assertEqual(len(torus2),3) 
+
+    def testTorusEvalDeriv(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 3)
+        torus2 = torus1.eval.evaluate_derivatives(1,1)
+        self.assertEqual(type(torus2),list)   
+
+    def testTorusEvalFrame(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 3)
+        torus2 = torus1.eval.evaluate_frame((0,1))
+        self.assertEqual(type(torus2),list)   
+        
+    def testTorusGroups(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 3)
+        torus2 = torus1.grps.groups()
+        self.assertEqual(type(torus2),p2r.obj.Torus)
+        
+    def testTorusTopGroup(self):
+        torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
+        torus2 = torus1.grps.top_group()
+        self.assertEqual(type(torus2),p2r.obj.Torus) 
 if __name__ == '__main__':
         unittest.main()
