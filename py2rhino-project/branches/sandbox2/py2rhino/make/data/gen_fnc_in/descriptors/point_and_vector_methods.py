@@ -1,6 +1,5 @@
 #The data below will be used to generate the Rhinoscript function wrappers
 
-#Errors can be fixed by hand here
 #===============================================================================
 # Vector
 #===============================================================================

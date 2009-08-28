@@ -4,27 +4,16 @@ _version = "0.1.5"
 #===============================================================================
 # Make a connection to Rhino
 #===============================================================================
-from win32com.client import Dispatch
-import time
-app = Dispatch("Rhino4.Interface")
-time.sleep(1)
-app.Visible = True
-_rso = app.GetScriptObject
 
-from wrappers._rhinoscript_functions import _RhinoscriptFunctions
-_rsf = _RhinoscriptFunctions(_rso)
+from wrappers import base
 
-import _rhinoscript_classes
-_rhinoscript_classes._rsf = _rsf
 #===============================================================================
-# Import modules
+# Import main modules
 #===============================================================================
 
-import _util
 import obj
 import ent
 import doc
 import app
+import util
 
-import util.vector
-util.vector._rsf = _rsf

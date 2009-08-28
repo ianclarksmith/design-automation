@@ -3,7 +3,7 @@ from exceptions import Exception
 from util import *
 from py2rhino.make.data.gen_fnc_in import descriptors as des_fnc
 
-out_folder = "..\\"
+out_folder = "..\\wrappers\\"
 
 #===============================================================================
 # Get the data
@@ -154,12 +154,13 @@ def write_modules(data_dict):
             raise Exception('Method does not have the right number of returns')
         
         if return_type == None:
-            w(f, ('return _rsf.',function_name,'()'), tabs=1)
+            w(f, ('return base._rsf.',function_name,'()'), tabs=1)
         elif return_type in simple_types or return_type == 'number':
-            w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=1)
+            w(f, ('return base._rsf.',function_name,'(', args, ')'), tabs=1)
         elif return_type.startswith('array_of') and (return_type[9:] in simple_types or return_type[9:] == 'number'):
-            w(f, ('return _rsf.',function_name,'(', args, ')'), tabs=1)
+            w(f, ('return base._rsf.',function_name,'(', args, ')'), tabs=1)
         else:
+            print return_type
             raise Exception('The function returns something very strange')
 
     #---------------------------------------------------------------------------
@@ -180,16 +181,12 @@ def write_modules(data_dict):
         module_dict = data_dict[module_name]
         sub_folder_name = module_dict['folder']
         if sub_folder_name != None:
-            f = open(out_folder + sub_folder_name +'//'+ module_name + '.py', mode='w')
+            f = open(out_folder + sub_folder_name +'\\'+ module_name + '.py', mode='w')
         else:
             f = open(out_folder + module_name + '.py', mode='w')
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
         w(f,'import pythoncom')
- 
-        
-        #write the global _rsf variable and set it to None    
-        w(f,'_rsf = None', nls=2)           
-        
+        w(f,'from py2rhino.wrappers import base') 
         
         write_module(module_dict, f)
         f.close()
