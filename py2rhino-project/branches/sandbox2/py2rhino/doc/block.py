@@ -1,7 +1,7 @@
 # Auto-generated wrapper for Rhino4 RhinoScript functions
 
 import pythoncom
-from py2rhino.wrappers import base
+from py2rhino import _base
 
 def container_count(block_name):
 
@@ -38,26 +38,26 @@ def instance_count(block_name):
     """
     return base._rsf.block_instance_count(block_name)
 
-def instance_insert_point(object):
+def instance_insert_point(block_id):
 
     """
     For help, look up the Rhinoscript function: BlockInstanceInsertPoint
     """
-    return base._rsf.block_instance_insert_point(object)
+    return base._rsf.block_instance_insert_point(block_id)
 
-def instance_name(object):
+def instance_name(block_id):
 
     """
     For help, look up the Rhinoscript function: BlockInstanceName
     """
-    return base._rsf.block_instance_name(object)
+    return base._rsf.block_instance_name(block_id)
 
-def instance_xform(object):
+def instance_xform(block_id):
 
     """
     For help, look up the Rhinoscript function: BlockInstanceXform
     """
-    return base._rsf.block_instance_xform(object)
+    return base._rsf.block_instance_xform(block_id)
 
 def instances(block_name):
 
@@ -94,19 +94,19 @@ def path(block_name):
     """
     return base._rsf.block_path(block_name)
 
-def url(block_name, u_r_l=pythoncom.Empty):
+def url(block_name, url=pythoncom.Empty):
 
     """
     For help, look up the Rhinoscript function: BlockURL
     """
-    return base._rsf.block_u_r_l(block_name, u_r_l)
+    return base._rsf.block_u_r_l(block_name, url)
 
-def url_tag(block_name, u_r_l=pythoncom.Empty):
+def url_tag(block_name, url=pythoncom.Empty):
 
     """
     For help, look up the Rhinoscript function: BlockURLTag
     """
-    return base._rsf.block_u_r_l_tag(block_name, u_r_l)
+    return base._rsf.block_u_r_l_tag(block_name, url)
 
 def delete(block_name):
 
@@ -115,19 +115,19 @@ def delete(block_name):
     """
     return base._rsf.delete_block(block_name)
 
-def explode_instance(object):
+def explode_instance(block_id):
 
     """
     For help, look up the Rhinoscript function: ExplodeBlockInstance
     """
-    return base._rsf.explode_block_instance(object)
+    return base._rsf.explode_block_instance(block_id)
 
-def insert(block_name, point, scale=pythoncom.Empty, angle=pythoncom.Empty, normal=pythoncom.Empty):
+def insert(block_name, insertion_point, scale=pythoncom.Empty, angle=pythoncom.Empty, normal=pythoncom.Empty):
 
     """
     For help, look up the Rhinoscript function: InsertBlock
     """
-    return base._rsf.insert_block(block_name, point, scale, angle, normal)
+    return base._rsf.insert_block(block_name, insertion_point, scale, angle, normal)
 
 def insert_by_xform(block_name, xform):
 
@@ -157,12 +157,12 @@ def is_in_use(block_name, where=pythoncom.Empty):
     """
     return base._rsf.is_block_in_use(block_name, where)
 
-def is_instance(object):
+def is_instance(block_id):
 
     """
     For help, look up the Rhinoscript function: IsBlockInstance
     """
-    return base._rsf.is_block_instance(object)
+    return base._rsf.is_block_instance(block_id)
 
 def is_reference(block_name):
 

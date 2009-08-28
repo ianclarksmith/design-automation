@@ -1,7 +1,7 @@
 #some utility functions
 import py2rhino as p2r
-from py2rhino.wrappers.base import curve
-from py2rhino.wrappers.base import object
+from py2rhino._base import curve
+from py2rhino._base import object
 
 def cast(rhino_id):
     #TODO: implement this function    
@@ -39,13 +39,3 @@ def cast(rhino_id):
     print "conversion of type not yet implemented"#TODO: add surfaces
     return None 
 
-"""
-class WrapBase(object):
-    def __init__(self, obj):
-        object.__setattr__(self, "obj", obj) 
-    def __getattribute__(self, name):
-        obj = object.__getattribute__(self, "obj")
-        return getattr(obj, name)
-    def __setattr__(self, name, value):
-        obj = object.__getattribute__(self, "obj")
-        return setattr(obj, name, value)  """
