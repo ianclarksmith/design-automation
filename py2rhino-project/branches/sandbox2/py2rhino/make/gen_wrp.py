@@ -2,7 +2,7 @@ import keyword
 from util import *
 from py2rhino.make.data.gen_wrp_in import descriptors as wrp
 
-out_folder = "..\\wrappers\\"
+out_folder = "..\\wrappers\\base\\"
 #===============================================================================
 # Get the data
 #===============================================================================
