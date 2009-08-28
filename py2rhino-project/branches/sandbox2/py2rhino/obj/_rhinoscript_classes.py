@@ -7558,6 +7558,7 @@ class _PolySurfaceFunc(_SurfaceRootFuncOorc):
             return map(lambda i: p2r.obj.NurbsSurface(i), _rhino_ids)
         else:
             return None
+
 class Arc(_CurveRoot):pass
 class Arc(_CurveRoot):
     class wrap(_wrap.WrapBase, Arc):pass
