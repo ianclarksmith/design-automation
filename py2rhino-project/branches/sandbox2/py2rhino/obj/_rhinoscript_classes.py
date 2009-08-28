@@ -1,9 +1,10 @@
 # Auto-generated wrapper for Rhino4 RhinoScript classes
 import pythoncom
 from exceptions import Exception
-import py2rhino.wrappers.obj._util as _util
+import _util
+import _wrap
 import py2rhino as p2r
-from py2rhino.wrappers import base
+from py2rhino import _base
 class _ArcDupl(object):
 
     def copy_by_sub(self, param_0, param_1):
@@ -25,7 +26,7 @@ class _ArcDupl(object):
         ===========
         This function calls the Rhinoscript function: AddSubCrv
         """
-        _rhino_id = base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
+        _rhino_id = _base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
             return p2r.obj.Arc(_rhino_id)
         else:
@@ -50,7 +51,7 @@ class _ArcDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Arc(_rhino_id)
         else:
@@ -74,7 +75,7 @@ class _ArcDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Arc(_rhino_id)
         else:
@@ -112,7 +113,7 @@ class _ArcDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurve
         """
-        _rhino_id = base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
+        _rhino_id = _base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
         if _rhino_id:
             return p2r.obj.Arc(_rhino_id)
         else:
@@ -137,7 +138,7 @@ class _ArcDupl(object):
         ===========
         This function calls the Rhinoscript function: SplitCurve
         """
-        _rhino_ids = base._rsf.split_curve(self._rhino_id, parameters, delete)
+        _rhino_ids = _base._rsf.split_curve(self._rhino_id, parameters, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Arc(i), _rhino_ids)
         else:
@@ -162,7 +163,7 @@ class _ArcDupl(object):
         ===========
         This function calls the Rhinoscript function: TrimCurve
         """
-        _rhino_id = base._rsf.trim_curve(self._rhino_id, interval, delete)
+        _rhino_id = _base._rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
             return p2r.obj.Arc(_rhino_id)
         else:
@@ -188,7 +189,7 @@ class _BoxDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Box(_rhino_id)
         else:
@@ -212,7 +213,7 @@ class _BoxDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Box(_rhino_id)
         else:
@@ -238,7 +239,7 @@ class _CircleDupl(object):
         ===========
         This function calls the Rhinoscript function: AddSubCrv
         """
-        _rhino_id = base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
+        _rhino_id = _base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
             return p2r.obj.Arc(_rhino_id)
         else:
@@ -263,7 +264,7 @@ class _CircleDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Circle(_rhino_id)
         else:
@@ -287,7 +288,7 @@ class _CircleDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Circle(_rhino_id)
         else:
@@ -325,7 +326,7 @@ class _CircleDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurve
         """
-        _rhino_id = base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
+        _rhino_id = _base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
         if _rhino_id:
             return p2r.obj.Circle(_rhino_id)
         else:
@@ -350,7 +351,7 @@ class _CircleDupl(object):
         ===========
         This function calls the Rhinoscript function: SplitCurve
         """
-        _rhino_ids = base._rsf.split_curve(self._rhino_id, parameters, delete)
+        _rhino_ids = _base._rsf.split_curve(self._rhino_id, parameters, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Arc(i), _rhino_ids)
         else:
@@ -375,7 +376,7 @@ class _CircleDupl(object):
         ===========
         This function calls the Rhinoscript function: TrimCurve
         """
-        _rhino_id = base._rsf.trim_curve(self._rhino_id, interval, delete)
+        _rhino_id = _base._rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
             return p2r.obj.Arc(_rhino_id)
         else:
@@ -401,7 +402,7 @@ class _ConeDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Cone(_rhino_id)
         else:
@@ -425,7 +426,7 @@ class _ConeDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Cone(_rhino_id)
         else:
@@ -451,7 +452,7 @@ class _CurveRootEval(object):
         ===========
         This function calls the Rhinoscript function: CurveCurvature
         """
-        return base._rsf.curve_curvature(self._rhino_id, parameter)
+        return _base._rsf.curve_curvature(self._rhino_id, parameter)
 
     def evaluate_derivatives(self, parameter, derivative):
         """
@@ -476,7 +477,7 @@ class _CurveRootEval(object):
         ===========
         This function calls the Rhinoscript function: CurveEvaluate
         """
-        return base._rsf.curve_evaluate(self._rhino_id, parameter, derivative)
+        return _base._rsf.curve_evaluate(self._rhino_id, parameter, derivative)
 
     def frame(self, parameter):
         """
@@ -496,7 +497,7 @@ class _CurveRootEval(object):
         ===========
         This function calls the Rhinoscript function: CurveFrame
         """
-        return base._rsf.curve_frame(self._rhino_id, parameter)
+        return _base._rsf.curve_frame(self._rhino_id, parameter)
 
     def perp_frame(self, parameter):
         """
@@ -516,7 +517,7 @@ class _CurveRootEval(object):
         ===========
         This function calls the Rhinoscript function: CurvePerpFrame
         """
-        return base._rsf.curve_perp_frame(self._rhino_id, parameter)
+        return _base._rsf.curve_perp_frame(self._rhino_id, parameter)
 
     def tangent(self, parameter):
         """
@@ -536,7 +537,7 @@ class _CurveRootEval(object):
         ===========
         This function calls the Rhinoscript function: CurveTangent
         """
-        return base._rsf.curve_tangent(self._rhino_id, parameter, pythoncom.Empty)
+        return _base._rsf.curve_tangent(self._rhino_id, parameter, pythoncom.Empty)
 
     def evaluate(self, parameter):
         """
@@ -556,7 +557,7 @@ class _CurveRootEval(object):
         ===========
         This function calls the Rhinoscript function: EvaluateCurve
         """
-        return base._rsf.evaluate_curve(self._rhino_id, parameter, pythoncom.Empty)
+        return _base._rsf.evaluate_curve(self._rhino_id, parameter, pythoncom.Empty)
 class _CurveRootProp(object):
 
     def arrows(self, style=pythoncom.Empty):
@@ -587,7 +588,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveArrows
         """
-        return base._rsf.curve_arrows(self._rhino_id, style)
+        return _base._rsf.curve_arrows(self._rhino_id, style)
 
     def degree(self):
         """
@@ -607,7 +608,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveDegree
         """
-        return base._rsf.curve_degree(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_degree(self._rhino_id, pythoncom.Empty)
 
     def dim(self):
         """
@@ -627,7 +628,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveDim
         """
-        return base._rsf.curve_dim(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_dim(self._rhino_id, pythoncom.Empty)
 
     def discontinuity(self, style):
         """
@@ -658,7 +659,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveDiscontinuity
         """
-        return base._rsf.curve_discontinuity(self._rhino_id, style)
+        return _base._rsf.curve_discontinuity(self._rhino_id, style)
 
     def domain(self):
         """
@@ -678,7 +679,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveDomain
         """
-        return base._rsf.curve_domain(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_domain(self._rhino_id, pythoncom.Empty)
 
     def edit_pnts(self, return_parameters=pythoncom.Empty):
         """
@@ -699,7 +700,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveEditPoints
         """
-        return base._rsf.curve_edit_points(self._rhino_id, return_parameters, pythoncom.Empty)
+        return _base._rsf.curve_edit_points(self._rhino_id, return_parameters, pythoncom.Empty)
 
     def end_pnt(self):
         """
@@ -719,7 +720,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveEndPoint
         """
-        return base._rsf.curve_end_point(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_end_point(self._rhino_id, pythoncom.Empty)
 
     def knot_count(self):
         """
@@ -739,7 +740,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveKnotCount
         """
-        return base._rsf.curve_knot_count(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_knot_count(self._rhino_id, pythoncom.Empty)
 
     def knots(self):
         """
@@ -759,7 +760,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveKnots
         """
-        return base._rsf.curve_knots(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_knots(self._rhino_id, pythoncom.Empty)
 
     def length(self, sub_domain=pythoncom.Empty):
         """
@@ -779,7 +780,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveLength
         """
-        return base._rsf.curve_length(self._rhino_id, pythoncom.Empty, sub_domain)
+        return _base._rsf.curve_length(self._rhino_id, pythoncom.Empty, sub_domain)
 
     def mid_pnt(self):
         """
@@ -799,7 +800,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveMidPoint
         """
-        return base._rsf.curve_mid_point(self._rhino_id)
+        return _base._rsf.curve_mid_point(self._rhino_id)
 
     def normal(self):
         """
@@ -819,7 +820,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveNormal
         """
-        return base._rsf.curve_normal(self._rhino_id)
+        return _base._rsf.curve_normal(self._rhino_id)
 
     def plane(self):
         """
@@ -839,7 +840,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurvePlane
         """
-        return base._rsf.curve_plane(self._rhino_id)
+        return _base._rsf.curve_plane(self._rhino_id)
 
     def control_pnt_count(self):
         """
@@ -859,7 +860,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurvePointCount
         """
-        return base._rsf.curve_point_count(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_point_count(self._rhino_id, pythoncom.Empty)
 
     def control_pnts(self):
         """
@@ -879,7 +880,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurvePoints
         """
-        return base._rsf.curve_points(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_points(self._rhino_id, pythoncom.Empty)
 
     def start_pnt(self):
         """
@@ -899,7 +900,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveStartPoint
         """
-        return base._rsf.curve_start_point(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_start_point(self._rhino_id, pythoncom.Empty)
 
     def weights(self):
         """
@@ -919,7 +920,7 @@ class _CurveRootProp(object):
         ===========
         This function calls the Rhinoscript function: CurveWeights
         """
-        return base._rsf.curve_weights(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.curve_weights(self._rhino_id, pythoncom.Empty)
 class _CylinderDupl(object):
 
     def copy_move(self, start_point=pythoncom.Empty, end_point=pythoncom.Empty):
@@ -941,7 +942,7 @@ class _CylinderDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Cylinder(_rhino_id)
         else:
@@ -965,7 +966,7 @@ class _CylinderDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Cylinder(_rhino_id)
         else:
@@ -991,7 +992,7 @@ class _EllipseDupl(object):
         ===========
         This function calls the Rhinoscript function: AddSubCrv
         """
-        _rhino_id = base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
+        _rhino_id = _base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
             return p2r.obj.EllipticalArc(_rhino_id)
         else:
@@ -1016,7 +1017,7 @@ class _EllipseDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Ellipse(_rhino_id)
         else:
@@ -1040,7 +1041,7 @@ class _EllipseDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Ellipse(_rhino_id)
         else:
@@ -1078,7 +1079,7 @@ class _EllipseDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurve
         """
-        _rhino_id = base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
+        _rhino_id = _base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
         if _rhino_id:
             return p2r.obj.Ellipse(_rhino_id)
         else:
@@ -1103,7 +1104,7 @@ class _EllipseDupl(object):
         ===========
         This function calls the Rhinoscript function: SplitCurve
         """
-        _rhino_ids = base._rsf.split_curve(self._rhino_id, parameters, delete)
+        _rhino_ids = _base._rsf.split_curve(self._rhino_id, parameters, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.EllipticalArc(i), _rhino_ids)
         else:
@@ -1128,7 +1129,7 @@ class _EllipseDupl(object):
         ===========
         This function calls the Rhinoscript function: TrimCurve
         """
-        _rhino_id = base._rsf.trim_curve(self._rhino_id, interval, delete)
+        _rhino_id = _base._rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
             return p2r.obj.EllipticalArc(_rhino_id)
         else:
@@ -1154,7 +1155,7 @@ class _EllipticalArcDupl(object):
         ===========
         This function calls the Rhinoscript function: AddSubCrv
         """
-        _rhino_id = base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
+        _rhino_id = _base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
             return p2r.obj.EllipticalArc(_rhino_id)
         else:
@@ -1179,7 +1180,7 @@ class _EllipticalArcDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.EllipticalArc(_rhino_id)
         else:
@@ -1203,7 +1204,7 @@ class _EllipticalArcDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.EllipticalArc(_rhino_id)
         else:
@@ -1241,7 +1242,7 @@ class _EllipticalArcDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurve
         """
-        _rhino_id = base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
+        _rhino_id = _base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
         if _rhino_id:
             return p2r.obj.EllipticalArc(_rhino_id)
         else:
@@ -1266,7 +1267,7 @@ class _EllipticalArcDupl(object):
         ===========
         This function calls the Rhinoscript function: SplitCurve
         """
-        _rhino_ids = base._rsf.split_curve(self._rhino_id, parameters, delete)
+        _rhino_ids = _base._rsf.split_curve(self._rhino_id, parameters, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.EllipticalArc(i), _rhino_ids)
         else:
@@ -1291,7 +1292,7 @@ class _EllipticalArcDupl(object):
         ===========
         This function calls the Rhinoscript function: TrimCurve
         """
-        _rhino_id = base._rsf.trim_curve(self._rhino_id, interval, delete)
+        _rhino_id = _base._rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
             return p2r.obj.EllipticalArc(_rhino_id)
         else:
@@ -1317,7 +1318,7 @@ class _LineDupl(object):
         ===========
         This function calls the Rhinoscript function: AddSubCrv
         """
-        _rhino_id = base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
+        _rhino_id = _base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
             return p2r.obj.Line(_rhino_id)
         else:
@@ -1342,7 +1343,7 @@ class _LineDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Line(_rhino_id)
         else:
@@ -1366,7 +1367,7 @@ class _LineDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Line(_rhino_id)
         else:
@@ -1404,7 +1405,7 @@ class _LineDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurve
         """
-        _rhino_id = base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
+        _rhino_id = _base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
         if _rhino_id:
             return p2r.obj.Line(_rhino_id)
         else:
@@ -1429,7 +1430,7 @@ class _LineDupl(object):
         ===========
         This function calls the Rhinoscript function: SplitCurve
         """
-        _rhino_ids = base._rsf.split_curve(self._rhino_id, parameters, delete)
+        _rhino_ids = _base._rsf.split_curve(self._rhino_id, parameters, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Line(i), _rhino_ids)
         else:
@@ -1454,7 +1455,7 @@ class _LineDupl(object):
         ===========
         This function calls the Rhinoscript function: TrimCurve
         """
-        _rhino_id = base._rsf.trim_curve(self._rhino_id, interval, delete)
+        _rhino_id = _base._rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
             return p2r.obj.Line(_rhino_id)
         else:
@@ -1480,7 +1481,7 @@ class _MeshDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Mesh(_rhino_id)
         else:
@@ -1504,7 +1505,7 @@ class _MeshDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Mesh(_rhino_id)
         else:
@@ -1529,7 +1530,7 @@ class _MeshDupl(object):
         ===========
         This function calls the Rhinoscript function: MeshOffset
         """
-        _rhino_id = base._rsf.mesh_offset(mesh._rhino_id, distance)
+        _rhino_id = _base._rsf.mesh_offset(mesh._rhino_id, distance)
         if _rhino_id:
             return p2r.obj.Mesh(_rhino_id)
         else:
@@ -1555,7 +1556,7 @@ class _NurbsCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: AddSubCrv
         """
-        _rhino_id = base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
+        _rhino_id = _base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -1580,7 +1581,7 @@ class _NurbsCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -1604,7 +1605,7 @@ class _NurbsCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -1642,7 +1643,7 @@ class _NurbsCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurve
         """
-        _rhino_id = base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
+        _rhino_id = _base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -1667,7 +1668,7 @@ class _NurbsCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurveOnSurface
         """
-        _rhino_id = base._rsf.offset_curve_on_surface(self._rhino_id, surface._rhino_id, distance)
+        _rhino_id = _base._rsf.offset_curve_on_surface(self._rhino_id, surface._rhino_id, distance)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -1692,7 +1693,7 @@ class _NurbsCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurveOnSurface2
         """
-        _rhino_id = base._rsf.offset_curve_on_surface_2(self._rhino_id, surface._rhino_id, parameter)
+        _rhino_id = _base._rsf.offset_curve_on_surface_2(self._rhino_id, surface._rhino_id, parameter)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -1717,7 +1718,7 @@ class _NurbsCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: SplitCurve
         """
-        _rhino_ids = base._rsf.split_curve(self._rhino_id, parameters, delete)
+        _rhino_ids = _base._rsf.split_curve(self._rhino_id, parameters, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.NurbsCurve(i), _rhino_ids)
         else:
@@ -1742,7 +1743,7 @@ class _NurbsCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: TrimCurve
         """
-        _rhino_id = base._rsf.trim_curve(self._rhino_id, interval, delete)
+        _rhino_id = _base._rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -1768,7 +1769,7 @@ class _NurbsSurfaceDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.NurbsSurface(_rhino_id)
         else:
@@ -1792,7 +1793,7 @@ class _NurbsSurfaceDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.NurbsSurface(_rhino_id)
         else:
@@ -1816,7 +1817,7 @@ class _NurbsSurfaceDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetSurface
         """
-        _rhino_id = base._rsf.offset_surface(self._rhino_id, distance)
+        _rhino_id = _base._rsf.offset_surface(self._rhino_id, distance)
         if _rhino_id:
             return p2r.obj.NurbsSurface(_rhino_id)
         else:
@@ -1845,7 +1846,7 @@ class _ObjectRootDefm(object):
         ===========
         This function calls the Rhinoscript function: BoxMorphObject
         """
-        _rhino_id = base._rsf.box_morph_object(self._rhino_id, box_points, copy)
+        _rhino_id = _base._rsf.box_morph_object(self._rhino_id, box_points, copy)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -1872,7 +1873,7 @@ class _ObjectRootDefm(object):
         ===========
         This function calls the Rhinoscript function: ShearObject
         """
-        _rhino_id = base._rsf.shear_object(self._rhino_id, origin, ref_point, angle, copy)
+        _rhino_id = _base._rsf.shear_object(self._rhino_id, origin, ref_point, angle, copy)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -1913,7 +1914,7 @@ class _ObjectRootDefm(object):
         ===========
         This function calls the Rhinoscript function: TransformObject
         """
-        _rhino_id = base._rsf.transform_object(self._rhino_id, matrix, copy)
+        _rhino_id = _base._rsf.transform_object(self._rhino_id, matrix, copy)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -1938,7 +1939,7 @@ class _ObjectRootFunc(object):
         ===========
         This function calls the Rhinoscript function: DeleteObjects
         """
-        return base._rsf.delete_objects(self._rhino_id)
+        return _base._rsf.delete_objects(self._rhino_id)
 class _ObjectRootGrps(object):
 
     def groups(self):
@@ -1959,7 +1960,7 @@ class _ObjectRootGrps(object):
         ===========
         This function calls the Rhinoscript function: ObjectGroups
         """
-        return base._rsf.object_groups(self._rhino_id)
+        return _base._rsf.object_groups(self._rhino_id)
 
     def top_group(self):
         """
@@ -1979,7 +1980,7 @@ class _ObjectRootGrps(object):
         ===========
         This function calls the Rhinoscript function: ObjectTopGroup
         """
-        return base._rsf.object_top_group(self._rhino_id)
+        return _base._rsf.object_top_group(self._rhino_id)
 class _ObjectRootMdfy(object):
     pass
 class _ObjectRootMtrl(object):
@@ -2004,7 +2005,7 @@ class _ObjectRootMtrl(object):
         ===========
         This function calls the Rhinoscript function: ObjectMaterialIndex
         """
-        return base._rsf.object_material_index(self._rhino_id)
+        return _base._rsf.object_material_index(self._rhino_id)
 
     def source(self, source=pythoncom.Empty):
         """
@@ -2041,7 +2042,7 @@ class _ObjectRootMtrl(object):
         ===========
         This function calls the Rhinoscript function: ObjectMaterialSource
         """
-        return base._rsf.object_material_source(self._rhino_id, source)
+        return _base._rsf.object_material_source(self._rhino_id, source)
 class _ObjectRootProp(object):
 
     def color(self, color=pythoncom.Empty):
@@ -2064,7 +2065,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectColor
         """
-        return base._rsf.object_color(self._rhino_id, color)
+        return _base._rsf.object_color(self._rhino_id, color)
 
     def color_source(self, source=pythoncom.Empty):
         """
@@ -2099,7 +2100,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectColorSource
         """
-        return base._rsf.object_color_source(self._rhino_id, source)
+        return _base._rsf.object_color_source(self._rhino_id, source)
 
     def layer(self, layer=pythoncom.Empty):
         """
@@ -2121,7 +2122,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectLayer
         """
-        return base._rsf.object_layer(self._rhino_id, layer._rhino_id)
+        return _base._rsf.object_layer(self._rhino_id, layer._rhino_id)
 
     def linetype(self, layer=pythoncom.Empty):
         """
@@ -2143,7 +2144,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectLinetype
         """
-        return base._rsf.object_linetype(self._rhino_id, layer._rhino_id)
+        return _base._rsf.object_linetype(self._rhino_id, layer._rhino_id)
 
     def linetype_source(self, source=pythoncom.Empty):
         """
@@ -2177,7 +2178,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectLinetypeSource
         """
-        return base._rsf.object_linetype_source(self._rhino_id, source)
+        return _base._rsf.object_linetype_source(self._rhino_id, source)
 
     def name(self, names=pythoncom.Empty):
         """
@@ -2198,7 +2199,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectNames
         """
-        return base._rsf.object_names(self._rhino_id, names)
+        return _base._rsf.object_names(self._rhino_id, names)
 
     def print_color(self, color=pythoncom.Empty):
         """
@@ -2220,7 +2221,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectPrintColor
         """
-        return base._rsf.object_print_color(self._rhino_id, color)
+        return _base._rsf.object_print_color(self._rhino_id, color)
 
     def print_color_source(self, source=pythoncom.Empty):
         """
@@ -2255,7 +2256,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectPrintColorSource
         """
-        return base._rsf.object_print_color_source(self._rhino_id, source)
+        return _base._rsf.object_print_color_source(self._rhino_id, source)
 
     def print_width(self, width=pythoncom.Empty):
         """
@@ -2277,7 +2278,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectPrintWidth
         """
-        return base._rsf.object_print_width(self._rhino_id, width)
+        return _base._rsf.object_print_width(self._rhino_id, width)
 
     def print_width_source(self, source=pythoncom.Empty):
         """
@@ -2311,7 +2312,7 @@ class _ObjectRootProp(object):
         ===========
         This function calls the Rhinoscript function: ObjectPrintWidthSource
         """
-        return base._rsf.object_print_width_source(self._rhino_id, source)
+        return _base._rsf.object_print_width_source(self._rhino_id, source)
 class _ObjectRootRndr(object):
 
     def add_mesh(self, quality=pythoncom.Empty, enable=pythoncom.Empty):
@@ -2342,7 +2343,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: AddObjectMesh
         """
-        return base._rsf.add_object_mesh(self._rhino_id, quality, enable)
+        return _base._rsf.add_object_mesh(self._rhino_id, quality, enable)
 
     def enable(self, enable=pythoncom.Empty):
         """
@@ -2364,7 +2365,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: EnableObjectMesh
         """
-        return base._rsf.enable_object_mesh(self._rhino_id, enable)
+        return _base._rsf.enable_object_mesh(self._rhino_id, enable)
 
     def has_mesh(self):
         """
@@ -2384,7 +2385,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectHasMesh
         """
-        return base._rsf.object_has_mesh(self._rhino_id)
+        return _base._rsf.object_has_mesh(self._rhino_id)
 
     def density(self, density=pythoncom.Empty):
         """
@@ -2406,7 +2407,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshDensity
         """
-        return base._rsf.object_mesh_density(self._rhino_id, density)
+        return _base._rsf.object_mesh_density(self._rhino_id, density)
 
     def max_angle(self, angle=pythoncom.Empty):
         """
@@ -2428,7 +2429,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshMaxAngle
         """
-        return base._rsf.object_mesh_max_angle(self._rhino_id, angle)
+        return _base._rsf.object_mesh_max_angle(self._rhino_id, angle)
 
     def max_aspect_ratio(self, ratio=pythoncom.Empty):
         """
@@ -2450,7 +2451,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshMaxAspectRatio
         """
-        return base._rsf.object_mesh_max_aspect_ratio(self._rhino_id, ratio)
+        return _base._rsf.object_mesh_max_aspect_ratio(self._rhino_id, ratio)
 
     def max_dist_edge_to_srf(self, distance=pythoncom.Empty):
         """
@@ -2472,7 +2473,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshMaxDistEdgeToSrf
         """
-        return base._rsf.object_mesh_max_dist_edge_to_srf(self._rhino_id, distance)
+        return _base._rsf.object_mesh_max_dist_edge_to_srf(self._rhino_id, distance)
 
     def max_edge_length(self, length=pythoncom.Empty):
         """
@@ -2494,7 +2495,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshMaxEdgeLength
         """
-        return base._rsf.object_mesh_max_edge_length(self._rhino_id, length)
+        return _base._rsf.object_mesh_max_edge_length(self._rhino_id, length)
 
     def min_edge_length(self, length=pythoncom.Empty):
         """
@@ -2516,7 +2517,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshMinEdgeLength
         """
-        return base._rsf.object_mesh_min_edge_length(self._rhino_id, length)
+        return _base._rsf.object_mesh_min_edge_length(self._rhino_id, length)
 
     def min_initial_grid_quads(self, quads=pythoncom.Empty):
         """
@@ -2538,7 +2539,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshMinInitialGridQuads
         """
-        return base._rsf.object_mesh_min_initial_grid_quads(self._rhino_id, quads)
+        return _base._rsf.object_mesh_min_initial_grid_quads(self._rhino_id, quads)
 
     def quality(self, quality=pythoncom.Empty):
         """
@@ -2566,7 +2567,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshQuality
         """
-        return base._rsf.object_mesh_quality(self._rhino_id, quality)
+        return _base._rsf.object_mesh_quality(self._rhino_id, quality)
 
     def settings(self, settings=pythoncom.Empty):
         """
@@ -2598,7 +2599,7 @@ class _ObjectRootRndr(object):
         ===========
         This function calls the Rhinoscript function: ObjectMeshSettings
         """
-        return base._rsf.object_mesh_settings(self._rhino_id, settings)
+        return _base._rsf.object_mesh_settings(self._rhino_id, settings)
 class _ObjectRootStat(object):
 
     def flash(self, style=pythoncom.Empty):
@@ -2618,7 +2619,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: FlashObject
         """
-        return base._rsf.flash_object()
+        return _base._rsf.flash_object()
 
     def hide(self):
         """
@@ -2638,7 +2639,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: HideObjects
         """
-        return base._rsf.hide_objects(self._rhino_id)
+        return _base._rsf.hide_objects(self._rhino_id)
 
     def lock(self):
         """
@@ -2658,7 +2659,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: LockObjects
         """
-        return base._rsf.lock_objects(self._rhino_id)
+        return _base._rsf.lock_objects(self._rhino_id)
 
     def match_object_attributes(self, targets):
         """
@@ -2680,7 +2681,7 @@ class _ObjectRootStat(object):
         """
         if type(targets) != list and type(targets) != tuple:
             targets = (targets,)
-        return base._rsf.match_object_attributes(map(lambda i: i._rhino_id, targets), self._rhino_id)
+        return _base._rsf.match_object_attributes(map(lambda i: i._rhino_id, targets), self._rhino_id)
 
     def reset_object_attributes(self):
         """
@@ -2700,7 +2701,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: MatchObjectAttributes
         """
-        return base._rsf.match_object_attributes(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.match_object_attributes(self._rhino_id, pythoncom.Empty)
 
     def move_to_layout_space(self, layout=pythoncom.Empty, return_name=pythoncom.Empty):
         """
@@ -2722,7 +2723,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: ObjectLayout
         """
-        return base._rsf.object_layout(self._rhino_id, layout, return_name)
+        return _base._rsf.object_layout(self._rhino_id, layout, return_name)
 
     def select(self):
         """
@@ -2742,7 +2743,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: SelectObjects
         """
-        return base._rsf.select_objects(self._rhino_id)
+        return _base._rsf.select_objects(self._rhino_id)
 
     def show(self):
         """
@@ -2762,7 +2763,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: ShowObjects
         """
-        return base._rsf.show_objects(self._rhino_id)
+        return _base._rsf.show_objects(self._rhino_id)
 
     def unlock(self):
         """
@@ -2782,7 +2783,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: UnlockObjects
         """
-        return base._rsf.unlock_objects(self._rhino_id)
+        return _base._rsf.unlock_objects(self._rhino_id)
 
     def unselect(self):
         """
@@ -2802,7 +2803,7 @@ class _ObjectRootStat(object):
         ===========
         This function calls the Rhinoscript function: UnselectObjects
         """
-        return base._rsf.unselect_objects(self._rhino_id)
+        return _base._rsf.unselect_objects(self._rhino_id)
 class _ObjectRootTest(object):
 
     def is_in_layout_space(self):
@@ -2822,7 +2823,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsLayoutObject
         """
-        return base._rsf.is_layout_object(self._rhino_id)
+        return _base._rsf.is_layout_object(self._rhino_id)
 
     def is_hidden(self):
         """
@@ -2841,7 +2842,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectHidden
         """
-        return base._rsf.is_object_hidden(self._rhino_id)
+        return _base._rsf.is_object_hidden(self._rhino_id)
 
     def is_in_box(self, box, mode=pythoncom.Empty):
         """
@@ -2866,7 +2867,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectInBox
         """
-        return base._rsf.is_object_in_box(self._rhino_id, box, mode)
+        return _base._rsf.is_object_in_box(self._rhino_id, box, mode)
 
     def is_in_group(self, group=pythoncom.Empty):
         """
@@ -2885,7 +2886,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectInGroup
         """
-        return base._rsf.is_object_in_group(self._rhino_id, group)
+        return _base._rsf.is_object_in_group(self._rhino_id, group)
 
     def is_locked(self):
         """
@@ -2904,7 +2905,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectLocked
         """
-        return base._rsf.is_object_locked(self._rhino_id)
+        return _base._rsf.is_object_locked(self._rhino_id)
 
     def is_normal(self):
         """
@@ -2923,7 +2924,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectNormal
         """
-        return base._rsf.is_object_normal(self._rhino_id)
+        return _base._rsf.is_object_normal(self._rhino_id)
 
     def is_reference(self):
         """
@@ -2942,7 +2943,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectReference
         """
-        return base._rsf.is_object_reference(self._rhino_id)
+        return _base._rsf.is_object_reference(self._rhino_id)
 
     def is_selectable(self):
         """
@@ -2961,7 +2962,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectSelectable
         """
-        return base._rsf.is_object_selectable(self._rhino_id)
+        return _base._rsf.is_object_selectable(self._rhino_id)
 
     def is_selected(self):
         """
@@ -2980,7 +2981,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectSelected
         """
-        return base._rsf.is_object_selected(self._rhino_id)
+        return _base._rsf.is_object_selected(self._rhino_id)
 
     def is_solid(self):
         """
@@ -2999,7 +3000,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectSolid
         """
-        return base._rsf.is_object_solid(self._rhino_id)
+        return _base._rsf.is_object_solid(self._rhino_id)
 
     def is_valid(self):
         """
@@ -3018,7 +3019,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsObjectValid
         """
-        return base._rsf.is_object_valid(self._rhino_id)
+        return _base._rsf.is_object_valid(self._rhino_id)
 
     def is_visible_in_view(self, view=pythoncom.Empty):
         """
@@ -3037,7 +3038,7 @@ class _ObjectRootTest(object):
         ===========
         This function calls the Rhinoscript function: IsVisibleInView
         """
-        return base._rsf.is_visible_in_view(self._rhino_id, view)
+        return _base._rsf.is_visible_in_view(self._rhino_id, view)
 class _ObjectRootTrfm(object):
 
     def mirror(self, start_point, end_point, copy=pythoncom.Empty):
@@ -3060,7 +3061,7 @@ class _ObjectRootTrfm(object):
         ===========
         This function calls the Rhinoscript function: MirrorObject
         """
-        _rhino_id = base._rsf.mirror_object(self._rhino_id, start_point, end_point, copy)
+        _rhino_id = _base._rsf.mirror_object(self._rhino_id, start_point, end_point, copy)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -3085,7 +3086,7 @@ class _ObjectRootTrfm(object):
         ===========
         This function calls the Rhinoscript function: MoveObject
         """
-        _rhino_id = base._rsf.move_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.move_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -3109,7 +3110,7 @@ class _ObjectRootTrfm(object):
         ===========
         This function calls the Rhinoscript function: MoveObject2
         """
-        _rhino_id = base._rsf.move_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.move_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -3140,7 +3141,7 @@ class _ObjectRootTrfm(object):
         ===========
         This function calls the Rhinoscript function: OrientObject
         """
-        _rhino_id = base._rsf.orient_object(self._rhino_id, reference, target, flags)
+        _rhino_id = _base._rsf.orient_object(self._rhino_id, reference, target, flags)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -3166,7 +3167,7 @@ class _ObjectRootTrfm(object):
         ===========
         This function calls the Rhinoscript function: RemapObject
         """
-        _rhino_id = base._rsf.remap_object(self._rhino_id, src_plane, dst_plane, copy)
+        _rhino_id = _base._rsf.remap_object(self._rhino_id, src_plane, dst_plane, copy)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -3193,7 +3194,7 @@ class _ObjectRootTrfm(object):
         ===========
         This function calls the Rhinoscript function: RotateObject
         """
-        _rhino_id = base._rsf.rotate_object(self._rhino_id, point, angle, axis, copy)
+        _rhino_id = _base._rsf.rotate_object(self._rhino_id, point, angle, axis, copy)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -3219,7 +3220,7 @@ class _ObjectRootTrfm(object):
         ===========
         This function calls the Rhinoscript function: ScaleObject
         """
-        _rhino_id = base._rsf.scale_object(self._rhino_id, origin, scale, copy)
+        _rhino_id = _base._rsf.scale_object(self._rhino_id, origin, scale, copy)
         if _rhino_id:
             return self._class(_rhino_id)
         else:
@@ -3244,7 +3245,7 @@ class _ObjectRootType(object):
         ===========
         This function calls the Rhinoscript function: ObjectType
         """
-        return base._rsf.object_type(self._rhino_id)
+        return _base._rsf.object_type(self._rhino_id)
 class _ObjectRootUtil(object):
 
     def description(self):
@@ -3265,7 +3266,7 @@ class _ObjectRootUtil(object):
         ===========
         This function calls the Rhinoscript function: ObjectDescription
         """
-        return base._rsf.object_description(self._rhino_id)
+        return _base._rsf.object_description(self._rhino_id)
 
     def dump(self, type=pythoncom.Empty):
         """
@@ -3294,7 +3295,7 @@ class _ObjectRootUtil(object):
         ===========
         This function calls the Rhinoscript function: ObjectDump
         """
-        return base._rsf.object_dump(self._rhino_id, type)
+        return _base._rsf.object_dump(self._rhino_id, type)
 class _PlanarMeshDupl(object):
 
     def copy_move(self, start_point=pythoncom.Empty, end_point=pythoncom.Empty):
@@ -3316,7 +3317,7 @@ class _PlanarMeshDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.PlanarMesh(_rhino_id)
         else:
@@ -3340,7 +3341,7 @@ class _PlanarMeshDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.PlanarMesh(_rhino_id)
         else:
@@ -3365,7 +3366,7 @@ class _PlanarMeshDupl(object):
         ===========
         This function calls the Rhinoscript function: MeshOffset
         """
-        _rhino_id = base._rsf.mesh_offset(mesh._rhino_id, distance)
+        _rhino_id = _base._rsf.mesh_offset(mesh._rhino_id, distance)
         if _rhino_id:
             return p2r.obj.PlanarMesh(_rhino_id)
         else:
@@ -3391,7 +3392,7 @@ class _PlaneSurfaceDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.PlaneSurface(_rhino_id)
         else:
@@ -3415,7 +3416,7 @@ class _PlaneSurfaceDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.PlaneSurface(_rhino_id)
         else:
@@ -3439,7 +3440,7 @@ class _PlaneSurfaceDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetSurface
         """
-        _rhino_id = base._rsf.offset_surface(self._rhino_id, distance)
+        _rhino_id = _base._rsf.offset_surface(self._rhino_id, distance)
         if _rhino_id:
             return _util.cast(_rhino_id)
         else:
@@ -3465,7 +3466,7 @@ class _PolyCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: AddSubCrv
         """
-        _rhino_id = base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
+        _rhino_id = _base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
             return p2r.obj.PolyCurve(_rhino_id)
         else:
@@ -3490,7 +3491,7 @@ class _PolyCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.PolyCurve(_rhino_id)
         else:
@@ -3514,7 +3515,7 @@ class _PolyCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.PolyCurve(_rhino_id)
         else:
@@ -3552,7 +3553,7 @@ class _PolyCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurve
         """
-        _rhino_id = base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
+        _rhino_id = _base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
         if _rhino_id:
             return p2r.obj.PolyCurve(_rhino_id)
         else:
@@ -3577,7 +3578,7 @@ class _PolyCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: SplitCurve
         """
-        _rhino_ids = base._rsf.split_curve(self._rhino_id, parameters, delete)
+        _rhino_ids = _base._rsf.split_curve(self._rhino_id, parameters, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolyCurve(i), _rhino_ids)
         else:
@@ -3602,7 +3603,7 @@ class _PolyCurveDupl(object):
         ===========
         This function calls the Rhinoscript function: TrimCurve
         """
-        _rhino_id = base._rsf.trim_curve(self._rhino_id, interval, delete)
+        _rhino_id = _base._rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
             return p2r.obj.PolyCurve(_rhino_id)
         else:
@@ -3628,7 +3629,7 @@ class _PolySurfaceDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.PolySurface(_rhino_id)
         else:
@@ -3652,7 +3653,7 @@ class _PolySurfaceDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.PolySurface(_rhino_id)
         else:
@@ -3678,7 +3679,7 @@ class _PolylineDupl(object):
         ===========
         This function calls the Rhinoscript function: AddSubCrv
         """
-        _rhino_id = base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
+        _rhino_id = _base._rsf.add_sub_crv(self._rhino_id, param_0, param_1)
         if _rhino_id:
             return p2r.obj.Polyline(_rhino_id)
         else:
@@ -3703,7 +3704,7 @@ class _PolylineDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Polyline(_rhino_id)
         else:
@@ -3727,7 +3728,7 @@ class _PolylineDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Polyline(_rhino_id)
         else:
@@ -3765,7 +3766,7 @@ class _PolylineDupl(object):
         ===========
         This function calls the Rhinoscript function: OffsetCurve
         """
-        _rhino_id = base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
+        _rhino_id = _base._rsf.offset_curve(self._rhino_id, direction_point, distance, normal, style)
         if _rhino_id:
             return p2r.obj.Polyline(_rhino_id)
         else:
@@ -3790,7 +3791,7 @@ class _PolylineDupl(object):
         ===========
         This function calls the Rhinoscript function: SplitCurve
         """
-        _rhino_ids = base._rsf.split_curve(self._rhino_id, parameters, delete)
+        _rhino_ids = _base._rsf.split_curve(self._rhino_id, parameters, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Polyline(i), _rhino_ids)
         else:
@@ -3815,7 +3816,7 @@ class _PolylineDupl(object):
         ===========
         This function calls the Rhinoscript function: TrimCurve
         """
-        _rhino_id = base._rsf.trim_curve(self._rhino_id, interval, delete)
+        _rhino_id = _base._rsf.trim_curve(self._rhino_id, interval, delete)
         if _rhino_id:
             return p2r.obj.Polyline(_rhino_id)
         else:
@@ -3841,7 +3842,7 @@ class _SphereDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Sphere(_rhino_id)
         else:
@@ -3865,7 +3866,7 @@ class _SphereDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Sphere(_rhino_id)
         else:
@@ -3890,7 +3891,7 @@ class _SurfaceRootEval(object):
         ===========
         This function calls the Rhinoscript function: EvaluateSurface
         """
-        return base._rsf.evaluate_surface(self._rhino_id, parameter)
+        return _base._rsf.evaluate_surface(self._rhino_id, parameter)
 
     def evaluate_derivatives(self, parameter, derivative):
         """
@@ -3918,7 +3919,7 @@ class _SurfaceRootEval(object):
         ===========
         This function calls the Rhinoscript function: SurfaceEvaluate
         """
-        return base._rsf.surface_evaluate(self._rhino_id, parameter, derivative)
+        return _base._rsf.surface_evaluate(self._rhino_id, parameter, derivative)
 
     def evaluate_frame(self, parameter):
         """
@@ -3938,7 +3939,7 @@ class _SurfaceRootEval(object):
         ===========
         This function calls the Rhinoscript function: SurfaceFrame
         """
-        return base._rsf.surface_frame(self._rhino_id, parameter)
+        return _base._rsf.surface_frame(self._rhino_id, parameter)
 class _TorusDupl(object):
 
     def copy_move(self, start_point=pythoncom.Empty, end_point=pythoncom.Empty):
@@ -3960,7 +3961,7 @@ class _TorusDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject
         """
-        _rhino_id = base._rsf.copy_object(self._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.copy_object(self._rhino_id, start_point, end_point)
         if _rhino_id:
             return p2r.obj.Torus(_rhino_id)
         else:
@@ -3984,7 +3985,7 @@ class _TorusDupl(object):
         ===========
         This function calls the Rhinoscript function: CopyObject2
         """
-        _rhino_id = base._rsf.copy_object_2(self._rhino_id, translation_vector)
+        _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Torus(_rhino_id)
         else:
@@ -4009,7 +4010,7 @@ class _ArcProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: ArcAngle
         """
-        return base._rsf.arc_angle(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.arc_angle(self._rhino_id, pythoncom.Empty)
 
     def center_pnt(self):
         """
@@ -4028,7 +4029,7 @@ class _ArcProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: ArcCenterPoint
         """
-        return base._rsf.arc_center_point(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.arc_center_point(self._rhino_id, pythoncom.Empty)
 
     def mid_pnt(self):
         """
@@ -4047,7 +4048,7 @@ class _ArcProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: ArcMidPoint
         """
-        return base._rsf.arc_mid_point(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.arc_mid_point(self._rhino_id, pythoncom.Empty)
 
     def radius(self):
         """
@@ -4067,7 +4068,7 @@ class _ArcProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: ArcRadius
         """
-        return base._rsf.arc_radius(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.arc_radius(self._rhino_id, pythoncom.Empty)
 class _CircleProp(_CurveRootProp):
 
     def center_pnt(self):
@@ -4088,7 +4089,7 @@ class _CircleProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: CircleCenterPoint
         """
-        return base._rsf.circle_center_point(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.circle_center_point(self._rhino_id, pythoncom.Empty)
 
     def circumference(self):
         """
@@ -4108,7 +4109,7 @@ class _CircleProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: CircleCircumference
         """
-        return base._rsf.circle_circumference(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.circle_circumference(self._rhino_id, pythoncom.Empty)
 
     def radius(self):
         """
@@ -4128,7 +4129,7 @@ class _CircleProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: CircleRadius
         """
-        return base._rsf.circle_radius(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.circle_radius(self._rhino_id, pythoncom.Empty)
 class _CurveRoot(_ObjectRoot):
     pass
 class _CurveRootFunc(_ObjectRootFunc):
@@ -4152,7 +4153,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveArcLengthPoint
         """
-        return base._rsf.curve_arc_length_point(self._rhino_id, length, from_start)
+        return _base._rsf.curve_arc_length_point(self._rhino_id, length, from_start)
 
     def closest_pnt(self, point):
         """
@@ -4172,7 +4173,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveClosestPoint
         """
-        return base._rsf.curve_closest_point(self._rhino_id, point, pythoncom.Empty)
+        return _base._rsf.curve_closest_point(self._rhino_id, point, pythoncom.Empty)
 
     def contour_pnts(self, start_point, end_point, interval=pythoncom.Empty):
         """
@@ -4194,7 +4195,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveContourPoints
         """
-        return base._rsf.curve_contour_points(self._rhino_id, start_point, end_point, interval)
+        return _base._rsf.curve_contour_points(self._rhino_id, start_point, end_point, interval)
 
     def crv_intersection(self, curve=pythoncom.Empty, tolerance=pythoncom.Empty):
         """
@@ -4220,7 +4221,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveCurveIntersection
         """
-        return base._rsf.curve_curve_intersection(self._rhino_id, curve._rhino_id, tolerance)
+        return _base._rsf.curve_curve_intersection(self._rhino_id, curve._rhino_id, tolerance)
 
     def deviation(self, curve):
         """
@@ -4246,7 +4247,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveDeviation
         """
-        return base._rsf.curve_deviation(self._rhino_id, curve._rhino_id)
+        return _base._rsf.curve_deviation(self._rhino_id, curve._rhino_id)
 
     def directions_match(self, curve):
         """
@@ -4266,7 +4267,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveDirectionsMatch
         """
-        return base._rsf.curve_directions_match(self._rhino_id, curve._rhino_id)
+        return _base._rsf.curve_directions_match(self._rhino_id, curve._rhino_id)
 
     def radius(self, point):
         """
@@ -4286,7 +4287,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveRadius
         """
-        return base._rsf.curve_radius(self._rhino_id, point, pythoncom.Empty)
+        return _base._rsf.curve_radius(self._rhino_id, point, pythoncom.Empty)
 
     def srf_intersection(self, surface, tolerance=pythoncom.Empty, angle_tolerance=pythoncom.Empty):
         """
@@ -4315,7 +4316,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveSurfaceIntersection
         """
-        return base._rsf.curve_surface_intersection(self._rhino_id, surface._rhino_id, tolerance, angle_tolerance)
+        return _base._rsf.curve_surface_intersection(self._rhino_id, surface._rhino_id, tolerance, angle_tolerance)
 
     def divide_crv(self, segments, create=pythoncom.Empty, points=pythoncom.Empty):
         """
@@ -4338,7 +4339,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: DivideCurve
         """
-        return base._rsf.divide_curve(self._rhino_id, segments, create, points)
+        return _base._rsf.divide_curve(self._rhino_id, segments, create, points)
 
     def divide_crv_equidistant(self, distance, create=pythoncom.Empty, points=pythoncom.Empty):
         """
@@ -4362,7 +4363,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: DivideCurveEquidistant
         """
-        return base._rsf.divide_curve_equidistant(self._rhino_id, distance, create, points)
+        return _base._rsf.divide_curve_equidistant(self._rhino_id, distance, create, points)
 
     def divide_crv_length(self, length, create=pythoncom.Empty, points=pythoncom.Empty):
         """
@@ -4385,7 +4386,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: DivideCurveLength
         """
-        return base._rsf.divide_curve_length(self._rhino_id, length, create, points)
+        return _base._rsf.divide_curve_length(self._rhino_id, length, create, points)
 
     def line_fit_from_pnts(self):
         """
@@ -4405,7 +4406,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: LineFitFromPoints
         """
-        return base._rsf.line_fit_from_points(self._rhino_id)
+        return _base._rsf.line_fit_from_points(self._rhino_id)
 
     def make_non_periodic(self):
         """
@@ -4426,7 +4427,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: MakeCurveNonPeriodic
         """
-        _rhino_id = base._rsf.make_curve_non_periodic(self._rhino_id, False)
+        _rhino_id = _base._rsf.make_curve_non_periodic(self._rhino_id, False)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -4451,7 +4452,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: MakeCurvePeriodic
         """
-        _rhino_id = base._rsf.make_curve_periodic(self._rhino_id, False)
+        _rhino_id = _base._rsf.make_curve_periodic(self._rhino_id, False)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -4490,7 +4491,7 @@ class _CurveRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: PlanarCurveCollision
         """
-        return base._rsf.planar_curve_collision(self._rhino_id, curve._rhino_id, plane, tolerance)
+        return _base._rsf.planar_curve_collision(self._rhino_id, curve._rhino_id, plane, tolerance)
 class _CurveRootFuncClsd(_CurveRootFunc):
 
     def area(self, objects):
@@ -4515,7 +4516,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         """
         if type(objects) != list and type(objects) != tuple:
             objects = (objects,)
-        return base._rsf.curve_area(map(lambda i: i._rhino_id, objects))
+        return _base._rsf.curve_area(map(lambda i: i._rhino_id, objects))
 
     def area_centroid(self, objects):
         """
@@ -4537,7 +4538,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         """
         if type(objects) != list and type(objects) != tuple:
             objects = (objects,)
-        return base._rsf.curve_area_centroid(map(lambda i: i._rhino_id, objects))
+        return _base._rsf.curve_area_centroid(map(lambda i: i._rhino_id, objects))
 
     def boolean_difference(self, curve):
         """
@@ -4557,7 +4558,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveBooleanDifference
         """
-        _rhino_ids = base._rsf.curve_boolean_difference(self._rhino_id, curve._rhino_id)
+        _rhino_ids = _base._rsf.curve_boolean_difference(self._rhino_id, curve._rhino_id)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolyCurve(i), _rhino_ids)
         else:
@@ -4581,7 +4582,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveBooleanIntersection
         """
-        _rhino_ids = base._rsf.curve_boolean_intersection(self._rhino_id, curve._rhino_id)
+        _rhino_ids = _base._rsf.curve_boolean_intersection(self._rhino_id, curve._rhino_id)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolyCurve(i), _rhino_ids)
         else:
@@ -4607,7 +4608,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         """
         if type(curves) != list and type(curves) != tuple:
             curves = (curves,)
-        _rhino_ids = base._rsf.curve_boolean_union(map(lambda i: i._rhino_id, curves))
+        _rhino_ids = _base._rsf.curve_boolean_union(map(lambda i: i._rhino_id, curves))
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolyCurve(i), _rhino_ids)
         else:
@@ -4647,7 +4648,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         ===========
         This function calls the Rhinoscript function: PlanarClosedCurveContainment
         """
-        return base._rsf.planar_closed_curve_containment(self._rhino_id, curve._rhino_id, plane, tolerance)
+        return _base._rsf.planar_closed_curve_containment(self._rhino_id, curve._rhino_id, plane, tolerance)
 
     def pnt_inside(self, point, plane=pythoncom.Empty, tolerance=pythoncom.Empty):
         """
@@ -4683,7 +4684,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         ===========
         This function calls the Rhinoscript function: PointInPlanarClosedCurve
         """
-        return base._rsf.point_in_planar_closed_curve(point, self._rhino_id, plane, tolerance)
+        return _base._rsf.point_in_planar_closed_curve(point, self._rhino_id, plane, tolerance)
 class _CurveRootFuncOpen(_CurveRootFunc):
 
     def close(self, tolerance=pythoncom.Empty):
@@ -4704,7 +4705,7 @@ class _CurveRootFuncOpen(_CurveRootFunc):
         ===========
         This function calls the Rhinoscript function: CloseCurve
         """
-        _rhino_id = base._rsf.close_curve(self._rhino_id, tolerance)
+        _rhino_id = _base._rsf.close_curve(self._rhino_id, tolerance)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -4744,7 +4745,7 @@ class _CurveRootFuncOpen(_CurveRootFunc):
         """
         if type(objects) != list and type(objects) != tuple:
             objects = (objects,)
-        _rhino_id = base._rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
+        _rhino_id = _base._rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -4784,7 +4785,7 @@ class _CurveRootFuncOpen(_CurveRootFunc):
         ===========
         This function calls the Rhinoscript function: ExtendCurveLength
         """
-        _rhino_id = base._rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
+        _rhino_id = _base._rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -4814,7 +4815,7 @@ class _CurveRootFuncOpen(_CurveRootFunc):
         ===========
         This function calls the Rhinoscript function: ExtendCurvePoint
         """
-        _rhino_id = base._rsf.extend_curve_point(self._rhino_id, side, point)
+        _rhino_id = _base._rsf.extend_curve_point(self._rhino_id, side, point)
         if _rhino_id:
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
@@ -4839,7 +4840,7 @@ class _CurveRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: CurveSeam
         """
-        return base._rsf.curve_seam(self._rhino_id, parameter)
+        return _base._rsf.curve_seam(self._rhino_id, parameter)
 
     def fair(self, tolerance=pythoncom.Empty):
         """
@@ -4859,7 +4860,7 @@ class _CurveRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: FairCurve
         """
-        return base._rsf.fair_curve(self._rhino_id, tolerance)
+        return _base._rsf.fair_curve(self._rhino_id, tolerance)
 
     def insert_knot(self, parameter, symmetrical=pythoncom.Empty):
         """
@@ -4880,7 +4881,7 @@ class _CurveRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: InsertCurveKnot
         """
-        return base._rsf.insert_curve_knot(self._rhino_id, parameter, symmetrical)
+        return _base._rsf.insert_curve_knot(self._rhino_id, parameter, symmetrical)
 
     def rebuild(self, degree=pythoncom.Empty, point_count=pythoncom.Empty):
         """
@@ -4901,7 +4902,7 @@ class _CurveRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: RebuildCurve
         """
-        return base._rsf.rebuild_curve(self._rhino_id, degree, point_count)
+        return _base._rsf.rebuild_curve(self._rhino_id, degree, point_count)
 
     def remove_knot(self, parameter):
         """
@@ -4921,7 +4922,7 @@ class _CurveRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: RemoveCurveKnot
         """
-        return base._rsf.remove_curve_knot(self._rhino_id, parameter)
+        return _base._rsf.remove_curve_knot(self._rhino_id, parameter)
 
     def reverse(self):
         """
@@ -4941,7 +4942,7 @@ class _CurveRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: ReverseCurve
         """
-        return base._rsf.reverse_curve(self._rhino_id)
+        return _base._rsf.reverse_curve(self._rhino_id)
 
     def simplify(self, flags=pythoncom.Empty):
         """
@@ -4982,7 +4983,7 @@ class _CurveRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: SimplifyCurve
         """
-        return base._rsf.simplify_curve(self._rhino_id, flags)
+        return _base._rsf.simplify_curve(self._rhino_id, flags)
 class _CurveRootPropClsd(_CurveRootProp):
     pass
 class _CurveRootPropOpen(_CurveRootProp):
@@ -5007,7 +5008,7 @@ class _CurveRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCurveClosable
         """
-        return base._rsf.is_curve_closable(self._rhino_id, tolerance)
+        return _base._rsf.is_curve_closable(self._rhino_id, tolerance)
 
     def is_closed(self):
         """
@@ -5027,7 +5028,7 @@ class _CurveRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCurveClosed
         """
-        return base._rsf.is_curve_closed(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_curve_closed(self._rhino_id, pythoncom.Empty)
 
     def in_plane(self, plane=pythoncom.Empty):
         """
@@ -5061,7 +5062,7 @@ class _CurveRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCurveInPlane
         """
-        return base._rsf.is_curve_in_plane(self._rhino_id, plane)
+        return _base._rsf.is_curve_in_plane(self._rhino_id, plane)
 
     def is_linear(self):
         """
@@ -5081,7 +5082,7 @@ class _CurveRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCurveLinear
         """
-        return base._rsf.is_curve_linear(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_curve_linear(self._rhino_id, pythoncom.Empty)
 
     def is_periodic(self):
         """
@@ -5101,7 +5102,7 @@ class _CurveRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCurvePeriodic
         """
-        return base._rsf.is_curve_periodic(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_curve_periodic(self._rhino_id, pythoncom.Empty)
 
     def is_planar(self):
         """
@@ -5121,7 +5122,7 @@ class _CurveRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCurvePlanar
         """
-        return base._rsf.is_curve_planar(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_curve_planar(self._rhino_id, pythoncom.Empty)
 
     def is_rational(self):
         """
@@ -5141,7 +5142,7 @@ class _CurveRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCurveRational
         """
-        return base._rsf.is_curve_rational(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_curve_rational(self._rhino_id, pythoncom.Empty)
 
     def is_pnt_on_crv(self, point):
         """
@@ -5161,7 +5162,7 @@ class _CurveRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsPointOnCurve
         """
-        return base._rsf.is_point_on_curve(self._rhino_id, point, pythoncom.Empty)
+        return _base._rsf.is_point_on_curve(self._rhino_id, point, pythoncom.Empty)
 class _CurveRootType(_ObjectRootType):
 
     def is_arc(self):
@@ -5182,7 +5183,7 @@ class _CurveRootType(_ObjectRootType):
         ===========
         This function calls the Rhinoscript function: IsArc
         """
-        return base._rsf.is_arc(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_arc(self._rhino_id, pythoncom.Empty)
 
     def is_circle(self):
         """
@@ -5202,7 +5203,7 @@ class _CurveRootType(_ObjectRootType):
         ===========
         This function calls the Rhinoscript function: IsCircle
         """
-        return base._rsf.is_circle(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_circle(self._rhino_id, pythoncom.Empty)
 
     def is_crv(self):
         """
@@ -5222,7 +5223,7 @@ class _CurveRootType(_ObjectRootType):
         ===========
         This function calls the Rhinoscript function: IsCurve
         """
-        return base._rsf.is_curve(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_curve(self._rhino_id, pythoncom.Empty)
 
     def is_ellipse(self):
         """
@@ -5242,7 +5243,7 @@ class _CurveRootType(_ObjectRootType):
         ===========
         This function calls the Rhinoscript function: IsEllipse
         """
-        return base._rsf.is_ellipse(self._rhino_id)
+        return _base._rsf.is_ellipse(self._rhino_id)
 
     def is_line(self):
         """
@@ -5262,7 +5263,7 @@ class _CurveRootType(_ObjectRootType):
         ===========
         This function calls the Rhinoscript function: IsLine
         """
-        return base._rsf.is_line(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_line(self._rhino_id, pythoncom.Empty)
 
     def is_poly_crv(self):
         """
@@ -5282,7 +5283,7 @@ class _CurveRootType(_ObjectRootType):
         ===========
         This function calls the Rhinoscript function: IsPolyCurve
         """
-        return base._rsf.is_poly_curve(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_poly_curve(self._rhino_id, pythoncom.Empty)
 
     def is_polyline(self):
         """
@@ -5302,7 +5303,7 @@ class _CurveRootType(_ObjectRootType):
         ===========
         This function calls the Rhinoscript function: IsPolyline
         """
-        return base._rsf.is_polyline(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.is_polyline(self._rhino_id, pythoncom.Empty)
 class _EllipseProp(_CurveRootProp):
 
     def center_pnt(self):
@@ -5323,7 +5324,7 @@ class _EllipseProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: EllipseCenterPoint
         """
-        return base._rsf.ellipse_center_point(self._rhino_id)
+        return _base._rsf.ellipse_center_point(self._rhino_id)
 
     def quad_pnts(self):
         """
@@ -5343,7 +5344,7 @@ class _EllipseProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: EllipseQuadPoints
         """
-        return base._rsf.ellipse_quad_points(self._rhino_id)
+        return _base._rsf.ellipse_quad_points(self._rhino_id)
 class _MeshRoot(_ObjectRoot):
     pass
 class _MeshRootFunc(_ObjectRootFunc):
@@ -5370,7 +5371,7 @@ class _MeshRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: CurveMeshIntersection
         """
-        return base._rsf.curve_mesh_intersection(self._rhino_id, mesh._rhino_id, return_faces)
+        return _base._rsf.curve_mesh_intersection(self._rhino_id, mesh._rhino_id, return_faces)
 
     def explode(self, delete=pythoncom.Empty):
         """
@@ -5390,7 +5391,7 @@ class _MeshRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: ExplodeMeshes
         """
-        _rhino_ids = base._rsf.explode_meshes(self._rhino_id, delete)
+        _rhino_ids = _base._rsf.explode_meshes(self._rhino_id, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Mesh(i), _rhino_ids)
         else:
@@ -5417,7 +5418,7 @@ class _MeshRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshClosestPoint
         """
-        return base._rsf.mesh_closest_point(self._rhino_id, point, tolerance)
+        return _base._rsf.mesh_closest_point(self._rhino_id, point, tolerance)
 
     def contour_points(self, start_point, end_point, interval=pythoncom.Empty, remove_coincident_points=pythoncom.Empty):
         """
@@ -5440,7 +5441,7 @@ class _MeshRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshContourPoints
         """
-        return base._rsf.mesh_contour_points(self._rhino_id, start_point, end_point, interval, remove_coincident_points)
+        return _base._rsf.mesh_contour_points(self._rhino_id, start_point, end_point, interval, remove_coincident_points)
 
     def mesh_intersection(self, mesh, tolerance=pythoncom.Empty):
         """
@@ -5461,7 +5462,7 @@ class _MeshRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshMeshIntersection
         """
-        return base._rsf.mesh_mesh_intersection(self._rhino_id, mesh._rhino_id, tolerance)
+        return _base._rsf.mesh_mesh_intersection(self._rhino_id, mesh._rhino_id, tolerance)
 
     def naked_edge_points(self):
         """
@@ -5481,7 +5482,7 @@ class _MeshRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshNakedEdgePoints
         """
-        return base._rsf.mesh_naked_edge_points(self._rhino_id)
+        return _base._rsf.mesh_naked_edge_points(self._rhino_id)
 
     def split_disjoint_mesh(self, delete=pythoncom.Empty):
         """
@@ -5501,7 +5502,7 @@ class _MeshRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: SplitDisjointMesh
         """
-        _rhino_ids = base._rsf.split_disjoint_mesh(self._rhino_id, delete)
+        _rhino_ids = _base._rsf.split_disjoint_mesh(self._rhino_id, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Mesh(i), _rhino_ids)
         else:
@@ -5525,7 +5526,7 @@ class _MeshRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: UnifyMeshNormals
         """
-        return base._rsf.unify_mesh_normals(self._rhino_id)
+        return _base._rsf.unify_mesh_normals(self._rhino_id)
 class _MeshRootFuncClsd(_MeshRootFunc):
 
     def boolean_difference(self, meshes, delete=pythoncom.Empty):
@@ -5549,7 +5550,7 @@ class _MeshRootFuncClsd(_MeshRootFunc):
         """
         if type(meshes) != list and type(meshes) != tuple:
             meshes = (meshes,)
-        _rhino_ids = base._rsf.mesh_boolean_difference(self._rhino_id, map(lambda i: i._rhino_id, meshes), delete)
+        _rhino_ids = _base._rsf.mesh_boolean_difference(self._rhino_id, map(lambda i: i._rhino_id, meshes), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Mesh(i), _rhino_ids)
         else:
@@ -5576,7 +5577,7 @@ class _MeshRootFuncClsd(_MeshRootFunc):
         """
         if type(meshes) != list and type(meshes) != tuple:
             meshes = (meshes,)
-        _rhino_ids = base._rsf.mesh_boolean_intersection(self._rhino_id, map(lambda i: i._rhino_id, meshes), delete)
+        _rhino_ids = _base._rsf.mesh_boolean_intersection(self._rhino_id, map(lambda i: i._rhino_id, meshes), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Mesh(i), _rhino_ids)
         else:
@@ -5603,7 +5604,7 @@ class _MeshRootFuncClsd(_MeshRootFunc):
         """
         if type(input_1) != list and type(input_1) != tuple:
             input_1 = (input_1,)
-        _rhino_ids = base._rsf.mesh_boolean_split(self._rhino_id, map(lambda i: i._rhino_id, input_1), delete)
+        _rhino_ids = _base._rsf.mesh_boolean_split(self._rhino_id, map(lambda i: i._rhino_id, input_1), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Mesh(i), _rhino_ids)
         else:
@@ -5630,7 +5631,7 @@ class _MeshRootFuncClsd(_MeshRootFunc):
         """
         if type(meshes) != list and type(meshes) != tuple:
             meshes = (meshes,)
-        _rhino_ids = base._rsf.mesh_boolean_union(map(lambda i: i._rhino_id, meshes), delete)
+        _rhino_ids = _base._rsf.mesh_boolean_union(map(lambda i: i._rhino_id, meshes), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.Mesh(i), _rhino_ids)
         else:
@@ -5657,7 +5658,7 @@ class _MeshRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: MeshQuadsToTriangles
         """
-        return base._rsf.mesh_quads_to_triangles(self._rhino_id)
+        return _base._rsf.mesh_quads_to_triangles(self._rhino_id)
 class _MeshRootProp(_MeshRootFunc):
 
     def disjoint_mesh_count(self):
@@ -5678,7 +5679,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: DisjointMeshCount
         """
-        return base._rsf.disjoint_mesh_count(self._rhino_id)
+        return _base._rsf.disjoint_mesh_count(self._rhino_id)
 
     def area(self):
         """
@@ -5701,7 +5702,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshArea
         """
-        return base._rsf.mesh_area(self._rhino_id)
+        return _base._rsf.mesh_area(self._rhino_id)
 
     def area_centroid(self):
         """
@@ -5721,7 +5722,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshAreaCentroid
         """
-        return base._rsf.mesh_area_centroid(self._rhino_id)
+        return _base._rsf.mesh_area_centroid(self._rhino_id)
 
     def face_centers(self):
         """
@@ -5741,7 +5742,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshFaceCenters
         """
-        return base._rsf.mesh_face_centers(self._rhino_id)
+        return _base._rsf.mesh_face_centers(self._rhino_id)
 
     def face_count(self):
         """
@@ -5761,7 +5762,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshFaceCount
         """
-        return base._rsf.mesh_face_count(self._rhino_id)
+        return _base._rsf.mesh_face_count(self._rhino_id)
 
     def face_normals(self):
         """
@@ -5781,7 +5782,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshFaceNormals
         """
-        return base._rsf.mesh_face_normals(self._rhino_id)
+        return _base._rsf.mesh_face_normals(self._rhino_id)
 
     def face_vertices(self):
         """
@@ -5801,7 +5802,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshFaceVertices
         """
-        return base._rsf.mesh_face_vertices(self._rhino_id)
+        return _base._rsf.mesh_face_vertices(self._rhino_id)
 
     def faces(self, face_type=pythoncom.Empty):
         """
@@ -5826,7 +5827,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshFaces
         """
-        return base._rsf.mesh_faces(self._rhino_id, face_type)
+        return _base._rsf.mesh_faces(self._rhino_id, face_type)
 
     def quad_count(self):
         """
@@ -5846,7 +5847,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshQuadCount
         """
-        return base._rsf.mesh_quad_count(self._rhino_id)
+        return _base._rsf.mesh_quad_count(self._rhino_id)
 
     def texture_coordinates(self):
         """
@@ -5866,7 +5867,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshTextureCoordinates
         """
-        return base._rsf.mesh_texture_coordinates(self._rhino_id)
+        return _base._rsf.mesh_texture_coordinates(self._rhino_id)
 
     def triangle_count(self):
         """
@@ -5886,7 +5887,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshTriangleCount
         """
-        return base._rsf.mesh_triangle_count(self._rhino_id)
+        return _base._rsf.mesh_triangle_count(self._rhino_id)
 
     def vertex_colors(self, vertex_colors=pythoncom.Empty):
         """
@@ -5907,7 +5908,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshVertexColors
         """
-        return base._rsf.mesh_vertex_colors(self._rhino_id, vertex_colors)
+        return _base._rsf.mesh_vertex_colors(self._rhino_id, vertex_colors)
 
     def vertex_count(self):
         """
@@ -5927,7 +5928,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshVertexCount
         """
-        return base._rsf.mesh_vertex_count(self._rhino_id)
+        return _base._rsf.mesh_vertex_count(self._rhino_id)
 
     def vertex_normals(self):
         """
@@ -5947,7 +5948,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshVertexNormals
         """
-        return base._rsf.mesh_vertex_normals(self._rhino_id)
+        return _base._rsf.mesh_vertex_normals(self._rhino_id)
 
     def vertices(self):
         """
@@ -5967,7 +5968,7 @@ class _MeshRootProp(_MeshRootFunc):
         ===========
         This function calls the Rhinoscript function: MeshVertices
         """
-        return base._rsf.mesh_vertices(self._rhino_id)
+        return _base._rsf.mesh_vertices(self._rhino_id)
 class _MeshRootPropClsd(_MeshRootProp):
 
     def mesh_volume(self, meshes):
@@ -5993,7 +5994,7 @@ class _MeshRootPropClsd(_MeshRootProp):
         """
         if type(meshes) != list and type(meshes) != tuple:
             meshes = (meshes,)
-        return base._rsf.mesh_volume(map(lambda i: i._rhino_id, meshes))
+        return _base._rsf.mesh_volume(map(lambda i: i._rhino_id, meshes))
 
     def mesh_volume_centroid(self):
         """
@@ -6013,7 +6014,7 @@ class _MeshRootPropClsd(_MeshRootProp):
         ===========
         This function calls the Rhinoscript function: MeshVolumeCentroid
         """
-        return base._rsf.mesh_volume_centroid(self._rhino_id)
+        return _base._rsf.mesh_volume_centroid(self._rhino_id)
 class _MeshRootPropOpen(_MeshRootProp):
     pass
 class _MeshRootTest(_ObjectRootTest):
@@ -6036,7 +6037,7 @@ class _MeshRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsMeshClosed
         """
-        return base._rsf.is_mesh_closed(self._rhino_id)
+        return _base._rsf.is_mesh_closed(self._rhino_id)
 
     def is_manifold(self):
         """
@@ -6056,7 +6057,7 @@ class _MeshRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsMeshManifold
         """
-        return base._rsf.is_mesh_manifold(self._rhino_id)
+        return _base._rsf.is_mesh_manifold(self._rhino_id)
 
     def has_face_normals(self):
         """
@@ -6076,7 +6077,7 @@ class _MeshRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: MeshHasFaceNormals
         """
-        return base._rsf.mesh_has_face_normals(self._rhino_id)
+        return _base._rsf.mesh_has_face_normals(self._rhino_id)
 
     def has_texture_coordinates(self):
         """
@@ -6096,7 +6097,7 @@ class _MeshRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: MeshHasTextureCoordinates
         """
-        return base._rsf.mesh_has_texture_coordinates(self._rhino_id)
+        return _base._rsf.mesh_has_texture_coordinates(self._rhino_id)
 
     def has_vertex_colors(self):
         """
@@ -6116,7 +6117,7 @@ class _MeshRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: MeshHasVertexColors
         """
-        return base._rsf.mesh_has_vertex_colors(self._rhino_id)
+        return _base._rsf.mesh_has_vertex_colors(self._rhino_id)
 
     def has_vertex_normals(self):
         """
@@ -6136,7 +6137,7 @@ class _MeshRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: MeshHasVertexNormals
         """
-        return base._rsf.mesh_has_vertex_normals(self._rhino_id)
+        return _base._rsf.mesh_has_vertex_normals(self._rhino_id)
 class _MeshRootType(_ObjectRootTest):
 
     def is_mesh(self):
@@ -6157,7 +6158,7 @@ class _MeshRootType(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsMesh
         """
-        return base._rsf.is_mesh(self._rhino_id)
+        return _base._rsf.is_mesh(self._rhino_id)
 class _PolylineProp(_CurveRootProp):
 
     def vertices(self):
@@ -6178,7 +6179,7 @@ class _PolylineProp(_CurveRootProp):
         ===========
         This function calls the Rhinoscript function: PolylineVertices
         """
-        return base._rsf.polyline_vertices(self._rhino_id, pythoncom.Empty)
+        return _base._rsf.polyline_vertices(self._rhino_id, pythoncom.Empty)
 class _SurfaceRoot(_ObjectRoot):
     pass
 class _SurfaceRootFunc(_ObjectRootFunc):
@@ -6203,7 +6204,7 @@ class _SurfaceRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: MakeSurfaceNonPeriodic
         """
-        _rhino_id = base._rsf.make_surface_non_periodic(self._rhino_id, direction, delete)
+        _rhino_id = _base._rsf.make_surface_non_periodic(self._rhino_id, direction, delete)
         if _rhino_id:
             return p2r.obj.NurbsSurface(_rhino_id)
         else:
@@ -6229,7 +6230,7 @@ class _SurfaceRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: MakeSurfacePeriodic
         """
-        _rhino_id = base._rsf.make_surface_periodic(self._rhino_id, direction, delete)
+        _rhino_id = _base._rsf.make_surface_periodic(self._rhino_id, direction, delete)
         if _rhino_id:
             return p2r.obj.NurbsSurface(_rhino_id)
         else:
@@ -6253,7 +6254,7 @@ class _SurfaceRootFunc(_ObjectRootFunc):
         ===========
         This function calls the Rhinoscript function: SurfaceClosestPoint
         """
-        return base._rsf.surface_closest_point(self._rhino_id, point)
+        return _base._rsf.surface_closest_point(self._rhino_id, point)
 class _SurfaceRootFuncClsd(_SurfaceRootFunc):
 
     def boolean_difference(self, breps, delete=pythoncom.Empty):
@@ -6277,7 +6278,7 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         """
         if type(breps) != list and type(breps) != tuple:
             breps = (breps,)
-        _rhino_ids = base._rsf.boolean_difference(self._rhino_id, map(lambda i: i._rhino_id, breps), delete)
+        _rhino_ids = _base._rsf.boolean_difference(self._rhino_id, map(lambda i: i._rhino_id, breps), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolySurface(i), _rhino_ids)
         else:
@@ -6304,7 +6305,7 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         """
         if type(breps) != list and type(breps) != tuple:
             breps = (breps,)
-        _rhino_ids = base._rsf.boolean_intersection(self._rhino_id, map(lambda i: i._rhino_id, breps), delete)
+        _rhino_ids = _base._rsf.boolean_intersection(self._rhino_id, map(lambda i: i._rhino_id, breps), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolySurface(i), _rhino_ids)
         else:
@@ -6331,7 +6332,7 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         """
         if type(breps) != list and type(breps) != tuple:
             breps = (breps,)
-        _rhino_ids = base._rsf.boolean_union(map(lambda i: i._rhino_id, breps), delete)
+        _rhino_ids = _base._rsf.boolean_union(map(lambda i: i._rhino_id, breps), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolySurface(i), _rhino_ids)
         else:
@@ -6355,7 +6356,7 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         ===========
         This function calls the Rhinoscript function: BrepClosestPoint
         """
-        return base._rsf.brep_closest_point(self._rhino_id, point)
+        return _base._rsf.brep_closest_point(self._rhino_id, point)
 
     def intersect_breps(self, brep_1, tolerance=pythoncom.Empty):
         """
@@ -6376,7 +6377,7 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         ===========
         This function calls the Rhinoscript function: IntersectBreps
         """
-        _rhino_ids = base._rsf.intersect_breps(self._rhino_id, brep_1, tolerance)
+        _rhino_ids = _base._rsf.intersect_breps(self._rhino_id, brep_1, tolerance)
         if _rhino_ids:
             return map(lambda i: self._class(i), _rhino_ids)
         else:
@@ -6401,7 +6402,7 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         ===========
         This function calls the Rhinoscript function: SplitBrep
         """
-        _rhino_ids = base._rsf.split_brep(self._rhino_id, cutter, delete)
+        _rhino_ids = _base._rsf.split_brep(self._rhino_id, cutter, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolySurface(i), _rhino_ids)
         else:
@@ -6426,7 +6427,7 @@ class _SurfaceRootFuncOpen(_SurfaceRootFunc):
         ===========
         This function calls the Rhinoscript function: CapPlanarHoles
         """
-        return base._rsf.cap_planar_holes(self._rhino_id)
+        return _base._rsf.cap_planar_holes(self._rhino_id)
 class _SurfaceRootMdfy(_ObjectRootMdfy):
 
     def flip(self, flip=pythoncom.Empty):
@@ -6448,7 +6449,7 @@ class _SurfaceRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: FlipSurface
         """
-        return base._rsf.flip_surface(self._rhino_id, flip)
+        return _base._rsf.flip_surface(self._rhino_id, flip)
 
     def insert_knot(self, parameter, direction, symmetrical=pythoncom.Empty):
         """
@@ -6470,7 +6471,7 @@ class _SurfaceRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: InsertSurfaceKnot
         """
-        return base._rsf.insert_surface_knot(self._rhino_id, parameter, direction, symmetrical)
+        return _base._rsf.insert_surface_knot(self._rhino_id, parameter, direction, symmetrical)
 
     def rebuild(self, degree=pythoncom.Empty, point_count=pythoncom.Empty):
         """
@@ -6491,7 +6492,7 @@ class _SurfaceRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: RebuildSurface
         """
-        return base._rsf.rebuild_surface(self._rhino_id, degree, point_count)
+        return _base._rsf.rebuild_surface(self._rhino_id, degree, point_count)
 
     def remove_knot(self, parameter, direction):
         """
@@ -6512,7 +6513,7 @@ class _SurfaceRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: RemoveSurfaceKnot
         """
-        return base._rsf.remove_surface_knot(self._rhino_id, parameter, direction)
+        return _base._rsf.remove_surface_knot(self._rhino_id, parameter, direction)
 
     def reverse(self, direction):
         """
@@ -6540,7 +6541,7 @@ class _SurfaceRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: ReverseSurface
         """
-        return base._rsf.reverse_surface(self._rhino_id, direction)
+        return _base._rsf.reverse_surface(self._rhino_id, direction)
 
     def shrink_trimmed(self):
         """
@@ -6560,7 +6561,7 @@ class _SurfaceRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: ShrinkTrimmedSurface
         """
-        return base._rsf.shrink_trimmed_surface(self._rhino_id)
+        return _base._rsf.shrink_trimmed_surface(self._rhino_id)
 
     def seam(self, direction, parameter):
         """
@@ -6581,7 +6582,7 @@ class _SurfaceRootMdfy(_ObjectRootMdfy):
         ===========
         This function calls the Rhinoscript function: SurfaceSeam
         """
-        return base._rsf.surface_seam(self._rhino_id, direction, parameter)
+        return _base._rsf.surface_seam(self._rhino_id, direction, parameter)
 class _SurfaceRootProp(_ObjectRootProp):
 
     def area(self):
@@ -6604,7 +6605,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceArea
         """
-        return base._rsf.surface_area(self._rhino_id)
+        return _base._rsf.surface_area(self._rhino_id)
 
     def area_centroid(self):
         """
@@ -6624,7 +6625,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceAreaCentroid
         """
-        return base._rsf.surface_area_centroid(self._rhino_id)
+        return _base._rsf.surface_area_centroid(self._rhino_id)
 
     def area_moments(self):
         """
@@ -6644,7 +6645,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceAreaMoments
         """
-        return base._rsf.surface_area_moments(self._rhino_id)
+        return _base._rsf.surface_area_moments(self._rhino_id)
 
     def contour_pnts(self, start_point, end_point, interval=pythoncom.Empty, angle=pythoncom.Empty):
         """
@@ -6667,7 +6668,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceContourPoints
         """
-        return base._rsf.surface_contour_points(self._rhino_id, start_point, end_point, interval, angle)
+        return _base._rsf.surface_contour_points(self._rhino_id, start_point, end_point, interval, angle)
 
     def curvature(self, parameter):
         """
@@ -6691,7 +6692,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceCurvature
         """
-        return base._rsf.surface_curvature(self._rhino_id, parameter)
+        return _base._rsf.surface_curvature(self._rhino_id, parameter)
 
     def curvature_analysis(self):
         """
@@ -6715,7 +6716,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceCurvatureAnalysis
         """
-        return base._rsf.surface_curvature_analysis(self._rhino_id)
+        return _base._rsf.surface_curvature_analysis(self._rhino_id)
 
     def degree(self, direction=pythoncom.Empty):
         """
@@ -6736,7 +6737,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceDegree
         """
-        return base._rsf.surface_degree(self._rhino_id, direction)
+        return _base._rsf.surface_degree(self._rhino_id, direction)
 
     def domain(self, direction):
         """
@@ -6756,7 +6757,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceDomain
         """
-        return base._rsf.surface_domain(self._rhino_id, direction)
+        return _base._rsf.surface_domain(self._rhino_id, direction)
 
     def edit_pnts(self, return_parameters=pythoncom.Empty, return_all=pythoncom.Empty):
         """
@@ -6778,7 +6779,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceEditPoints
         """
-        return base._rsf.surface_edit_points(self._rhino_id, return_parameters, return_all)
+        return _base._rsf.surface_edit_points(self._rhino_id, return_parameters, return_all)
 
     def isocurve_density(self, density=pythoncom.Empty):
         """
@@ -6808,7 +6809,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceIsocurveDensity
         """
-        return base._rsf.surface_isocurve_density(self._rhino_id, density)
+        return _base._rsf.surface_isocurve_density(self._rhino_id, density)
 
     def knot_count(self):
         """
@@ -6828,7 +6829,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceKnotCount
         """
-        return base._rsf.surface_knot_count(self._rhino_id)
+        return _base._rsf.surface_knot_count(self._rhino_id)
 
     def knots(self):
         """
@@ -6848,7 +6849,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceKnots
         """
-        return base._rsf.surface_knots(self._rhino_id)
+        return _base._rsf.surface_knots(self._rhino_id)
 
     def normal(self, parameter):
         """
@@ -6868,7 +6869,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceNormal
         """
-        return base._rsf.surface_normal(self._rhino_id, parameter)
+        return _base._rsf.surface_normal(self._rhino_id, parameter)
 
     def pnt_count(self):
         """
@@ -6888,7 +6889,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfacePointCount
         """
-        return base._rsf.surface_point_count(self._rhino_id)
+        return _base._rsf.surface_point_count(self._rhino_id)
 
     def pnts(self, return_all=pythoncom.Empty):
         """
@@ -6908,7 +6909,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfacePoints
         """
-        return base._rsf.surface_points(self._rhino_id, return_all)
+        return _base._rsf.surface_points(self._rhino_id, return_all)
 
     def weights(self):
         """
@@ -6928,7 +6929,7 @@ class _SurfaceRootProp(_ObjectRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceWeights
         """
-        return base._rsf.surface_weights(self._rhino_id)
+        return _base._rsf.surface_weights(self._rhino_id)
 class _SurfaceRootPropClsd(_SurfaceRootProp):
 
     def volume(self):
@@ -6951,7 +6952,7 @@ class _SurfaceRootPropClsd(_SurfaceRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceVolume
         """
-        return base._rsf.surface_volume(self._rhino_id)
+        return _base._rsf.surface_volume(self._rhino_id)
 
     def volume_centroid(self):
         """
@@ -6971,7 +6972,7 @@ class _SurfaceRootPropClsd(_SurfaceRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceVolumeCentroid
         """
-        return base._rsf.surface_volume_centroid(self._rhino_id)
+        return _base._rsf.surface_volume_centroid(self._rhino_id)
 
     def volume_moments(self):
         """
@@ -6991,7 +6992,7 @@ class _SurfaceRootPropClsd(_SurfaceRootProp):
         ===========
         This function calls the Rhinoscript function: SurfaceVolumeMoments
         """
-        return base._rsf.surface_volume_moments(self._rhino_id)
+        return _base._rsf.surface_volume_moments(self._rhino_id)
 class _SurfaceRootPropOpen(_SurfaceRootProp):
     pass
 class _SurfaceRootTest(_ObjectRootTest):
@@ -7014,7 +7015,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsBrep
         """
-        return base._rsf.is_brep(self._rhino_id)
+        return _base._rsf.is_brep(self._rhino_id)
 
     def is_brep_manifold(self):
         """
@@ -7034,7 +7035,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsBrepManifold
         """
-        return base._rsf.is_brep_manifold(self._rhino_id)
+        return _base._rsf.is_brep_manifold(self._rhino_id)
 
     def is_parameter_on_srf(self, parameter):
         """
@@ -7054,7 +7055,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsParameterOnSurface
         """
-        return base._rsf.is_parameter_on_surface(self._rhino_id, parameter)
+        return _base._rsf.is_parameter_on_surface(self._rhino_id, parameter)
 
     def is_plane_surface(self):
         """
@@ -7074,7 +7075,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsPlaneSurface
         """
-        return base._rsf.is_plane_surface(self._rhino_id)
+        return _base._rsf.is_plane_surface(self._rhino_id)
 
     def is_pnt_in_srf(self, point):
         """
@@ -7094,7 +7095,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsPointInSurface
         """
-        return base._rsf.is_point_in_surface(self._rhino_id, point)
+        return _base._rsf.is_point_in_surface(self._rhino_id, point)
 
     def is_pnt_on_srf(self, point):
         """
@@ -7114,7 +7115,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsPointOnSurface
         """
-        return base._rsf.is_point_on_surface(self._rhino_id, point)
+        return _base._rsf.is_point_on_surface(self._rhino_id, point)
 
     def is_poly_srf(self):
         """
@@ -7134,7 +7135,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsPolySurface
         """
-        return base._rsf.is_poly_surface(self._rhino_id)
+        return _base._rsf.is_poly_surface(self._rhino_id)
 
     def is_poly_surface_closed(self):
         """
@@ -7154,7 +7155,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsPolySurfaceClosed
         """
-        return base._rsf.is_poly_surface_closed(self._rhino_id)
+        return _base._rsf.is_poly_surface_closed(self._rhino_id)
 
     def is_poly_srf_planar(self):
         """
@@ -7174,7 +7175,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsPolySurfacePlanar
         """
-        return base._rsf.is_poly_surface_planar(self._rhino_id)
+        return _base._rsf.is_poly_surface_planar(self._rhino_id)
 
     def is_srf_closed(self, direction):
         """
@@ -7194,7 +7195,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsSurfaceClosed
         """
-        return base._rsf.is_surface_closed(self._rhino_id, direction)
+        return _base._rsf.is_surface_closed(self._rhino_id, direction)
 
     def is_srf_periodic(self, direction):
         """
@@ -7214,7 +7215,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsSurfacePeriodic
         """
-        return base._rsf.is_surface_periodic(self._rhino_id, direction)
+        return _base._rsf.is_surface_periodic(self._rhino_id, direction)
 
     def is_srf_planar(self, tolerance=pythoncom.Empty):
         """
@@ -7234,7 +7235,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsSurfacePlanar
         """
-        return base._rsf.is_surface_planar(self._rhino_id, tolerance)
+        return _base._rsf.is_surface_planar(self._rhino_id, tolerance)
 
     def is_srf_rational(self):
         """
@@ -7254,7 +7255,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsSurfaceRational
         """
-        return base._rsf.is_surface_rational(self._rhino_id)
+        return _base._rsf.is_surface_rational(self._rhino_id)
 
     def is_srf_singular(self, direction):
         """
@@ -7274,7 +7275,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsSurfaceSingular
         """
-        return base._rsf.is_surface_singular(self._rhino_id, direction)
+        return _base._rsf.is_surface_singular(self._rhino_id, direction)
 
     def is_srf_trimmed(self):
         """
@@ -7294,7 +7295,7 @@ class _SurfaceRootTest(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsSurfaceTrimmed
         """
-        return base._rsf.is_surface_trimmed(self._rhino_id)
+        return _base._rsf.is_surface_trimmed(self._rhino_id)
 class _SurfaceRootType(_ObjectRootTest):
 
     def is_cone(self):
@@ -7315,7 +7316,7 @@ class _SurfaceRootType(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCone
         """
-        return base._rsf.is_cone(self._rhino_id)
+        return _base._rsf.is_cone(self._rhino_id)
 
     def is_cylinder(self):
         """
@@ -7335,7 +7336,7 @@ class _SurfaceRootType(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsCylinder
         """
-        return base._rsf.is_cylinder(self._rhino_id)
+        return _base._rsf.is_cylinder(self._rhino_id)
 
     def is_sphere(self):
         """
@@ -7355,7 +7356,7 @@ class _SurfaceRootType(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsSphere
         """
-        return base._rsf.is_sphere(self._rhino_id)
+        return _base._rsf.is_sphere(self._rhino_id)
 
     def is_surface(self):
         """
@@ -7375,7 +7376,7 @@ class _SurfaceRootType(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsSurface
         """
-        return base._rsf.is_surface(self._rhino_id)
+        return _base._rsf.is_surface(self._rhino_id)
 
     def is_torus(self):
         """
@@ -7395,7 +7396,7 @@ class _SurfaceRootType(_ObjectRootTest):
         ===========
         This function calls the Rhinoscript function: IsTorus
         """
-        return base._rsf.is_torus(self._rhino_id)
+        return _base._rsf.is_torus(self._rhino_id)
 class _TorusProp(_SurfaceRootPropClsd):
 
     def torus_definition(self):
@@ -7419,7 +7420,7 @@ class _TorusProp(_SurfaceRootPropClsd):
         ===========
         This function calls the Rhinoscript function: SurfaceTorus
         """
-        return base._rsf.surface_torus(self._rhino_id)
+        return _base._rsf.surface_torus(self._rhino_id)
 class _CurveRootFuncOorC(_CurveRootFuncOpen,_CurveRootFuncClsd):
     pass
 class _CurveRootPropOorC(_CurveRootPropOpen,_CurveRootPropClsd):
@@ -7449,7 +7450,7 @@ class _PolyCurveFunc(_CurveRootFuncOorC):
         ===========
         This function calls the Rhinoscript function: ExplodeCurves
         """
-        _rhino_ids = base._rsf.explode_curves(self._rhino_id, delete)
+        _rhino_ids = _base._rsf.explode_curves(self._rhino_id, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.NurbsCurve(i), _rhino_ids)
         else:
@@ -7476,7 +7477,7 @@ class _SphereProp(_SurfaceRootPropClsd):
         ===========
         This function calls the Rhinoscript function: SurfaceSphere
         """
-        return base._rsf.surface_sphere(self._rhino_id)
+        return _base._rsf.surface_sphere(self._rhino_id)
 class _SurfaceRootFuncOorc(_SurfaceRootFuncOpen,_SurfaceRootFuncClsd):
     pass
 class _SurfaceRootPropOorc(_SurfaceRootPropOpen,_SurfaceRootPropClsd):
@@ -7504,7 +7505,7 @@ class _ConeProp(_SurfaceRootPropOorc):
         ===========
         This function calls the Rhinoscript function: SurfaceCone
         """
-        return base._rsf.surface_cone(self._rhino_id)
+        return _base._rsf.surface_cone(self._rhino_id)
 class _CylinderProp(_SurfaceRootPropOorc):
 
     def cylinder_def(self):
@@ -7528,7 +7529,7 @@ class _CylinderProp(_SurfaceRootPropOorc):
         ===========
         This function calls the Rhinoscript function: SurfaceCylinder
         """
-        return base._rsf.surface_cylinder(self._rhino_id)
+        return _base._rsf.surface_cylinder(self._rhino_id)
 class _PolySurfaceFunc(_SurfaceRootFuncOorc):
 
     def explode(self, objects, delete=pythoncom.Empty):
@@ -7552,12 +7553,14 @@ class _PolySurfaceFunc(_SurfaceRootFuncOorc):
         """
         if type(objects) != list and type(objects) != tuple:
             objects = (objects,)
-        _rhino_ids = base._rsf.explode_polysurfaces(map(lambda i: i._rhino_id, objects), delete)
+        _rhino_ids = _base._rsf.explode_polysurfaces(map(lambda i: i._rhino_id, objects), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.NurbsSurface(i), _rhino_ids)
         else:
             return None
+class Arc(_CurveRoot):pass
 class Arc(_CurveRoot):
+    class wrap(_wrap.WrapBase, Arc):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -7653,7 +7656,7 @@ class Arc(_CurveRoot):
         This function calls the Rhinoscript function: AddArc
         """
 
-        _rhino_id = base._rsf.add_arc(plane, radius, angle)
+        _rhino_id = _base._rsf.add_arc(plane, radius, angle)
 
         if _rhino_id:
             return Arc(_rhino_id)
@@ -7683,7 +7686,7 @@ class Arc(_CurveRoot):
         This function calls the Rhinoscript function: AddArc3Pt
         """
 
-        _rhino_id = base._rsf.add_arc_3_pt(start_point, end_point, point)
+        _rhino_id = _base._rsf.add_arc_3_pt(start_point, end_point, point)
 
         if _rhino_id:
             return Arc(_rhino_id)
@@ -7715,13 +7718,15 @@ class Arc(_CurveRoot):
         This function calls the Rhinoscript function: AddFilletCurve
         """
 
-        _rhino_id = base._rsf.add_fillet_curve(curve_0._rhino_id, curve_1._rhino_id, radius, point_0, point_1)
+        _rhino_id = _base._rsf.add_fillet_curve(curve_0._rhino_id, curve_1._rhino_id, radius, point_0, point_1)
 
         if _rhino_id:
             return Arc(_rhino_id)
         else:
             return None
+class Box(_SurfaceRoot):pass
 class Box(_SurfaceRoot):
+    class wrap(_wrap.WrapBase, Box):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -7815,13 +7820,15 @@ class Box(_SurfaceRoot):
         This function calls the Rhinoscript function: AddBox
         """
 
-        _rhino_id = base._rsf.add_box(corner_points)
+        _rhino_id = _base._rsf.add_box(corner_points)
 
         if _rhino_id:
             return Box(_rhino_id)
         else:
             return None
+class Circle(_CurveRoot):pass
 class Circle(_CurveRoot):
+    class wrap(_wrap.WrapBase, Circle):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -7916,7 +7923,7 @@ class Circle(_CurveRoot):
         This function calls the Rhinoscript function: AddCircle
         """
 
-        _rhino_id = base._rsf.add_circle(plane, radius)
+        _rhino_id = _base._rsf.add_circle(plane, radius)
 
         if _rhino_id:
             return Circle(_rhino_id)
@@ -7946,13 +7953,15 @@ class Circle(_CurveRoot):
         This function calls the Rhinoscript function: AddCircle3Pt
         """
 
-        _rhino_id = base._rsf.add_circle_3_pt(first_point, second_point, third_point)
+        _rhino_id = _base._rsf.add_circle_3_pt(first_point, second_point, third_point)
 
         if _rhino_id:
             return Circle(_rhino_id)
         else:
             return None
+class Cone(_SurfaceRoot):pass
 class Cone(_SurfaceRoot):
+    class wrap(_wrap.WrapBase, Cone):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -8049,7 +8058,7 @@ class Cone(_SurfaceRoot):
         This function calls the Rhinoscript function: AddCone
         """
 
-        _rhino_id = base._rsf.add_cone(base_point, height_point, radius, cap)
+        _rhino_id = _base._rsf.add_cone(base_point, height_point, radius, cap)
 
         if _rhino_id:
             return Cone(_rhino_id)
@@ -8080,13 +8089,15 @@ class Cone(_SurfaceRoot):
         This function calls the Rhinoscript function: AddCone2
         """
 
-        _rhino_id = base._rsf.add_cone_2(base_plane, height, radius, cap)
+        _rhino_id = _base._rsf.add_cone_2(base_plane, height, radius, cap)
 
         if _rhino_id:
             return Cone(_rhino_id)
         else:
             return None
+class Cylinder(_SurfaceRoot):pass
 class Cylinder(_SurfaceRoot):
+    class wrap(_wrap.WrapBase, Cylinder):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -8183,7 +8194,7 @@ class Cylinder(_SurfaceRoot):
         This function calls the Rhinoscript function: AddCylinder
         """
 
-        _rhino_id = base._rsf.add_cylinder(base_point, height_point, radius, cap)
+        _rhino_id = _base._rsf.add_cylinder(base_point, height_point, radius, cap)
 
         if _rhino_id:
             return Cylinder(_rhino_id)
@@ -8214,13 +8225,15 @@ class Cylinder(_SurfaceRoot):
         This function calls the Rhinoscript function: AddCylinder2
         """
 
-        _rhino_id = base._rsf.add_cylinder_2(base_plane, height, radius, cap)
+        _rhino_id = _base._rsf.add_cylinder_2(base_plane, height, radius, cap)
 
         if _rhino_id:
             return Cylinder(_rhino_id)
         else:
             return None
+class Ellipse(_CurveRoot):pass
 class Ellipse(_CurveRoot):
+    class wrap(_wrap.WrapBase, Ellipse):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -8316,7 +8329,7 @@ class Ellipse(_CurveRoot):
         This function calls the Rhinoscript function: AddEllipse
         """
 
-        _rhino_id = base._rsf.add_ellipse(plane, x_radius, y_radius)
+        _rhino_id = _base._rsf.add_ellipse(plane, x_radius, y_radius)
 
         if _rhino_id:
             return Ellipse(_rhino_id)
@@ -8346,13 +8359,15 @@ class Ellipse(_CurveRoot):
         This function calls the Rhinoscript function: AddEllipse3Pt
         """
 
-        _rhino_id = base._rsf.add_ellipse_3_pt(center, second, third)
+        _rhino_id = _base._rsf.add_ellipse_3_pt(center, second, third)
 
         if _rhino_id:
             return Ellipse(_rhino_id)
         else:
             return None
+class EllipticalArc(_CurveRoot):pass
 class EllipticalArc(_CurveRoot):
+    class wrap(_wrap.WrapBase, EllipticalArc):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -8424,7 +8439,9 @@ class EllipticalArc(_CurveRoot):
         self.test = EllipticalArc.test(_rhino_id)
         self.trfm = EllipticalArc.trfm(_rhino_id)
         self.util = EllipticalArc.util(_rhino_id)
+class GenericObject(_ObjectRoot):pass
 class GenericObject(_ObjectRoot):
+    class wrap(_wrap.WrapBase, GenericObject):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -8481,7 +8498,9 @@ class GenericObject(_ObjectRoot):
         self.trfm = GenericObject.trfm(_rhino_id)
         self.type = GenericObject.type(_rhino_id)
         self.util = GenericObject.util(_rhino_id)
+class Line(_CurveRoot):pass
 class Line(_CurveRoot):
+    class wrap(_wrap.WrapBase, Line):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -8576,13 +8595,15 @@ class Line(_CurveRoot):
         This function calls the Rhinoscript function: AddLine
         """
 
-        _rhino_id = base._rsf.add_line(start_point, end_point)
+        _rhino_id = _base._rsf.add_line(start_point, end_point)
 
         if _rhino_id:
             return Line(_rhino_id)
         else:
             return None
+class Mesh(_MeshRoot):pass
 class Mesh(_MeshRoot):
+    class wrap(_wrap.WrapBase, Mesh):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -8675,7 +8696,7 @@ class Mesh(_MeshRoot):
         This function calls the Rhinoscript function: AddMesh
         """
 
-        _rhino_id = base._rsf.add_mesh(vertices, face_vertices, vertex_normals, texture_coordinates, vertex_colors)
+        _rhino_id = _base._rsf.add_mesh(vertices, face_vertices, vertex_normals, texture_coordinates, vertex_colors)
 
         if _rhino_id:
             return Mesh(_rhino_id)
@@ -8703,13 +8724,15 @@ class Mesh(_MeshRoot):
         This function calls the Rhinoscript function: MeshPolyline
         """
 
-        _rhino_id = base._rsf.mesh_polyline(polyline._rhino_id)
+        _rhino_id = _base._rsf.mesh_polyline(polyline._rhino_id)
 
         if _rhino_id:
             return Mesh(_rhino_id)
         else:
             return None
+class NurbsCurve(_CurveRoot):pass
 class NurbsCurve(_CurveRoot):
+    class wrap(_wrap.WrapBase, NurbsCurve):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -8804,7 +8827,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddCurve
         """
 
-        _rhino_id = base._rsf.add_curve(points, degree)
+        _rhino_id = _base._rsf.add_curve(points, degree)
 
         if _rhino_id:
             return NurbsCurve(_rhino_id)
@@ -8833,7 +8856,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddInterpCrvOnSrf
         """
 
-        _rhino_id = base._rsf.add_interp_crv_on_srf(surface._rhino_id, points)
+        _rhino_id = _base._rsf.add_interp_crv_on_srf(surface._rhino_id, points)
 
         if _rhino_id:
             return NurbsCurve(_rhino_id)
@@ -8862,7 +8885,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddInterpCrvOnSrfUV
         """
 
-        _rhino_id = base._rsf.add_interp_crv_on_srf_u_v(surface._rhino_id, points)
+        _rhino_id = _base._rsf.add_interp_crv_on_srf_u_v(surface._rhino_id, points)
 
         if _rhino_id:
             return NurbsCurve(_rhino_id)
@@ -8907,7 +8930,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddInterpCurve
         """
 
-        _rhino_id = base._rsf.add_interp_curve(points, degree, knot_style, start_tan, end_tan)
+        _rhino_id = _base._rsf.add_interp_curve(points, degree, knot_style, start_tan, end_tan)
 
         if _rhino_id:
             return NurbsCurve(_rhino_id)
@@ -8947,7 +8970,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddInterpCurveEx
         """
 
-        _rhino_id = base._rsf.add_interp_curve_ex(points, degree, knot_style, sharp, start_tangent, end_tangent)
+        _rhino_id = _base._rsf.add_interp_curve_ex(points, degree, knot_style, sharp, start_tangent, end_tangent)
 
         if _rhino_id:
             return NurbsCurve(_rhino_id)
@@ -8978,7 +9001,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddNurbsCurve
         """
 
-        _rhino_id = base._rsf.add_nurbs_curve(points, knots, degree, weights)
+        _rhino_id = _base._rsf.add_nurbs_curve(points, knots, degree, weights)
 
         if _rhino_id:
             return NurbsCurve(_rhino_id)
@@ -9009,7 +9032,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddSrfContourCrvs
         """
 
-        _rhino_id = base._rsf.add_srf_contour_crvs(surface._rhino_id, start_point, end_point, interval)
+        _rhino_id = _base._rsf.add_srf_contour_crvs(surface._rhino_id, start_point, end_point, interval)
 
         if _rhino_id:
 
@@ -9041,7 +9064,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddSrfContourCrvs2
         """
 
-        _rhino_id = base._rsf.add_srf_contour_crvs_2(surface._rhino_id, cut_plane, interval)
+        _rhino_id = _base._rsf.add_srf_contour_crvs_2(surface._rhino_id, cut_plane, interval)
 
         if _rhino_id:
 
@@ -9072,7 +9095,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: AddSrfSectionCrvs
         """
 
-        _rhino_id = base._rsf.add_srf_section_crvs(surface._rhino_id, cut_plane)
+        _rhino_id = _base._rsf.add_srf_section_crvs(surface._rhino_id, cut_plane)
 
         if _rhino_id:
 
@@ -9103,7 +9126,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: DuplicateEdgeCurves
         """
 
-        _rhino_id = base._rsf.duplicate_edge_curves(surface._rhino_id, select)
+        _rhino_id = _base._rsf.duplicate_edge_curves(surface._rhino_id, select)
 
         if _rhino_id:
 
@@ -9133,7 +9156,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: DuplicateSurfaceBorder
         """
 
-        _rhino_id = base._rsf.duplicate_surface_border(surface._rhino_id)
+        _rhino_id = _base._rsf.duplicate_surface_border(surface._rhino_id)
 
         if _rhino_id:
 
@@ -9165,7 +9188,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: ExtractIsoCurve
         """
 
-        _rhino_id = base._rsf.extract_iso_curve(surface._rhino_id, parameter, dir)
+        _rhino_id = _base._rsf.extract_iso_curve(surface._rhino_id, parameter, dir)
 
         if _rhino_id:
 
@@ -9198,7 +9221,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: FitCurve
         """
 
-        _rhino_id = base._rsf.fit_curve(curve._rhino_id, degree, tolerance, angle_tolerance)
+        _rhino_id = _base._rsf.fit_curve(curve._rhino_id, degree, tolerance, angle_tolerance)
 
         if _rhino_id:
             return NurbsCurve(_rhino_id)
@@ -9232,7 +9255,7 @@ class NurbsCurve(_CurveRoot):
         if type(meshes) != list and type(meshes) != tuple:
             meshes = (meshes,)
 
-        _rhino_id = base._rsf.project_curve_to_mesh(map(lambda i: i._rhino_id, curves), map(lambda i: i._rhino_id, meshes), direction_vector)
+        _rhino_id = _base._rsf.project_curve_to_mesh(map(lambda i: i._rhino_id, curves), map(lambda i: i._rhino_id, meshes), direction_vector)
 
         if _rhino_id:
 
@@ -9266,7 +9289,7 @@ class NurbsCurve(_CurveRoot):
         if type(surfaces) != list and type(surfaces) != tuple:
             surfaces = (surfaces,)
 
-        _rhino_id = base._rsf.project_curve_to_surface(curve._rhino_id, map(lambda i: i._rhino_id, surfaces), direction_vector)
+        _rhino_id = _base._rsf.project_curve_to_surface(curve._rhino_id, map(lambda i: i._rhino_id, surfaces), direction_vector)
 
         if _rhino_id:
 
@@ -9298,7 +9321,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: PullCurve
         """
 
-        _rhino_id = base._rsf.pull_curve(surface._rhino_id, curve._rhino_id, delete)
+        _rhino_id = _base._rsf.pull_curve(surface._rhino_id, curve._rhino_id, delete)
 
         if _rhino_id:
 
@@ -9330,7 +9353,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: ShortPath
         """
 
-        _rhino_id = base._rsf.short_path(surface._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.short_path(surface._rhino_id, start_point, end_point)
 
         if _rhino_id:
             return NurbsCurve(_rhino_id)
@@ -9359,7 +9382,7 @@ class NurbsCurve(_CurveRoot):
         This function calls the Rhinoscript function: SurfacePrincipalCurvature
         """
 
-        _rhino_id = base._rsf.surface_principal_curvature(surface._rhino_id, point)
+        _rhino_id = _base._rsf.surface_principal_curvature(surface._rhino_id, point)
 
         if _rhino_id:
 
@@ -9367,7 +9390,9 @@ class NurbsCurve(_CurveRoot):
 
         else:
             return None
+class NurbsSurface(_SurfaceRoot):pass
 class NurbsSurface(_SurfaceRoot):
+    class wrap(_wrap.WrapBase, NurbsSurface):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -9466,7 +9491,7 @@ class NurbsSurface(_SurfaceRoot):
         if type(objects) != list and type(objects) != tuple:
             objects = (objects,)
 
-        _rhino_id = base._rsf.add_cut_plane(map(lambda i: i._rhino_id, objects), start_point, end_point, normal_vector)
+        _rhino_id = _base._rsf.add_cut_plane(map(lambda i: i._rhino_id, objects), start_point, end_point, normal_vector)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9496,7 +9521,7 @@ class NurbsSurface(_SurfaceRoot):
         if type(edge_curves) != list and type(edge_curves) != tuple:
             edge_curves = (edge_curves,)
 
-        _rhino_id = base._rsf.add_edge_srf(map(lambda i: i._rhino_id, edge_curves))
+        _rhino_id = _base._rsf.add_edge_srf(map(lambda i: i._rhino_id, edge_curves))
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9553,7 +9578,7 @@ class NurbsSurface(_SurfaceRoot):
         if type(section_curves) != list and type(section_curves) != tuple:
             section_curves = (section_curves,)
 
-        _rhino_id = base._rsf.add_loft_srf(map(lambda i: i._rhino_id, section_curves), start_point, end_point, srf_type, style, value, closed)
+        _rhino_id = _base._rsf.add_loft_srf(map(lambda i: i._rhino_id, section_curves), start_point, end_point, srf_type, style, value, closed)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id[0])
@@ -9586,7 +9611,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: AddNurbsSurface
         """
 
-        _rhino_id = base._rsf.add_nurbs_surface(point_count, points, knots_u, knots_v, degree, weights)
+        _rhino_id = _base._rsf.add_nurbs_surface(point_count, points, knots_u, knots_v, degree, weights)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9616,7 +9641,7 @@ class NurbsSurface(_SurfaceRoot):
         if type(planar_curves) != list and type(planar_curves) != tuple:
             planar_curves = (planar_curves,)
 
-        _rhino_id = base._rsf.add_planar_srf(map(lambda i: i._rhino_id, planar_curves))
+        _rhino_id = _base._rsf.add_planar_srf(map(lambda i: i._rhino_id, planar_curves))
 
         if _rhino_id:
             return NurbsSurface(_rhino_id[0])
@@ -9646,7 +9671,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: AddRailRevSrf
         """
 
-        _rhino_id = base._rsf.add_rail_rev_srf(profile._rhino_id, rail._rhino_id, axis)
+        _rhino_id = _base._rsf.add_rail_rev_srf(profile._rhino_id, rail._rhino_id, axis)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9677,7 +9702,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: AddRevSrf
         """
 
-        _rhino_id = base._rsf.add_rev_srf(profile._rhino_id, axis, start_angle, end_angle)
+        _rhino_id = _base._rsf.add_rev_srf(profile._rhino_id, axis, start_angle, end_angle)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9707,7 +9732,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: AddSrfControlPtGrid
         """
 
-        _rhino_id = base._rsf.add_srf_control_pt_grid(count, points, degree)
+        _rhino_id = _base._rsf.add_srf_control_pt_grid(count, points, degree)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9735,7 +9760,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: AddSrfPt
         """
 
-        _rhino_id = base._rsf.add_srf_pt(points)
+        _rhino_id = _base._rsf.add_srf_pt(points)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9766,7 +9791,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: AddSrfPtGrid
         """
 
-        _rhino_id = base._rsf.add_srf_pt_grid(count, points, degree, closed)
+        _rhino_id = _base._rsf.add_srf_pt_grid(count, points, degree, closed)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9809,7 +9834,7 @@ class NurbsSurface(_SurfaceRoot):
         if type(shapes) != list and type(shapes) != tuple:
             shapes = (shapes,)
 
-        _rhino_id = base._rsf.add_sweep_1(rail._rhino_id, map(lambda i: i._rhino_id, shapes), start_point, end_point, closed, style, style_arg, simplify, simplify_arg)
+        _rhino_id = _base._rsf.add_sweep_1(rail._rhino_id, map(lambda i: i._rhino_id, shapes), start_point, end_point, closed, style, style_arg, simplify, simplify_arg)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id[0])
@@ -9855,7 +9880,7 @@ class NurbsSurface(_SurfaceRoot):
         if type(shapes) != list and type(shapes) != tuple:
             shapes = (shapes,)
 
-        _rhino_id = base._rsf.add_sweep_2(map(lambda i: i._rhino_id, rails), map(lambda i: i._rhino_id, shapes), start_point, end_point, closed, simple_sweep, maintain_height, simplify, simplify_arg)
+        _rhino_id = _base._rsf.add_sweep_2(map(lambda i: i._rhino_id, rails), map(lambda i: i._rhino_id, shapes), start_point, end_point, closed, simple_sweep, maintain_height, simplify, simplify_arg)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id[0])
@@ -9884,7 +9909,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: ExtrudeCurve
         """
 
-        _rhino_id = base._rsf.extrude_curve(curve._rhino_id, path)
+        _rhino_id = _base._rsf.extrude_curve(curve._rhino_id, path)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9913,7 +9938,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: ExtrudeCurvePoint
         """
 
-        _rhino_id = base._rsf.extrude_curve_point(curve._rhino_id, point)
+        _rhino_id = _base._rsf.extrude_curve_point(curve._rhino_id, point)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9943,7 +9968,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: ExtrudeCurveStraight
         """
 
-        _rhino_id = base._rsf.extrude_curve_straight(curve._rhino_id, start_point, end_point)
+        _rhino_id = _base._rsf.extrude_curve_straight(curve._rhino_id, start_point, end_point)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
@@ -9987,7 +10012,7 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: ExtrudeCurveTapered
         """
 
-        _rhino_id = base._rsf.extrude_curve_tapered(curve._rhino_id, distance, direction, base_point, angle, corner_type)
+        _rhino_id = _base._rsf.extrude_curve_tapered(curve._rhino_id, distance, direction, base_point, angle, corner_type)
 
         if _rhino_id:
 
@@ -10019,13 +10044,15 @@ class NurbsSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: FitSurface
         """
 
-        _rhino_id = base._rsf.fit_surface(surface._rhino_id, degree, tolerance)
+        _rhino_id = _base._rsf.fit_surface(surface._rhino_id, degree, tolerance)
 
         if _rhino_id:
             return NurbsSurface(_rhino_id)
         else:
             return None
+class PlanarMesh(_MeshRoot):pass
 class PlanarMesh(_MeshRoot):
+    class wrap(_wrap.WrapBase, PlanarMesh):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -10115,13 +10142,15 @@ class PlanarMesh(_MeshRoot):
         This function calls the Rhinoscript function: AddPlanarMesh
         """
 
-        _rhino_id = base._rsf.add_planar_mesh(curve._rhino_id, delete)
+        _rhino_id = _base._rsf.add_planar_mesh(curve._rhino_id, delete)
 
         if _rhino_id:
             return PlanarMesh(_rhino_id)
         else:
             return None
+class PlaneSurface(_SurfaceRoot):pass
 class PlaneSurface(_SurfaceRoot):
+    class wrap(_wrap.WrapBase, PlaneSurface):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -10217,13 +10246,15 @@ class PlaneSurface(_SurfaceRoot):
         This function calls the Rhinoscript function: AddPlaneSurface
         """
 
-        _rhino_id = base._rsf.add_plane_surface(base_plane, d_u, d_v)
+        _rhino_id = _base._rsf.add_plane_surface(base_plane, d_u, d_v)
 
         if _rhino_id:
             return PlaneSurface(_rhino_id)
         else:
             return None
+class PolyCurve(_CurveRoot):pass
 class PolyCurve(_CurveRoot):
+    class wrap(_wrap.WrapBase, PolyCurve):pass
     class dupl(_PolyCurveDupl):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -10300,7 +10331,7 @@ class PolyCurve(_CurveRoot):
         if type(curves) != list and type(curves) != tuple:
             curves = (curves,)
 
-        _rhino_id = base._rsf.join_curves(map(lambda i: i._rhino_id, curves), delete)
+        _rhino_id = _base._rsf.join_curves(map(lambda i: i._rhino_id, curves), delete)
 
         if _rhino_id:
 
@@ -10308,7 +10339,9 @@ class PolyCurve(_CurveRoot):
 
         else:
             return None
+class PolySurface(_SurfaceRoot):pass
 class PolySurface(_SurfaceRoot):
+    class wrap(_wrap.WrapBase, PolySurface):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -10399,7 +10432,7 @@ class PolySurface(_SurfaceRoot):
         This function calls the Rhinoscript function: ExtrudeSurface
         """
 
-        _rhino_id = base._rsf.extrude_surface(surface._rhino_id, curve, cap)
+        _rhino_id = _base._rsf.extrude_surface(surface._rhino_id, curve, cap)
 
         if _rhino_id:
             return PolySurface(_rhino_id)
@@ -10430,13 +10463,15 @@ class PolySurface(_SurfaceRoot):
         if type(surfaces) != list and type(surfaces) != tuple:
             surfaces = (surfaces,)
 
-        _rhino_id = base._rsf.join_surfaces(map(lambda i: i._rhino_id, surfaces), delete)
+        _rhino_id = _base._rsf.join_surfaces(map(lambda i: i._rhino_id, surfaces), delete)
 
         if _rhino_id:
             return PolySurface(_rhino_id)
         else:
             return None
+class Polyline(_CurveRoot):pass
 class Polyline(_CurveRoot):
+    class wrap(_wrap.WrapBase, Polyline):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -10530,7 +10565,7 @@ class Polyline(_CurveRoot):
         This function calls the Rhinoscript function: AddPolyline
         """
 
-        _rhino_id = base._rsf.add_polyline(points)
+        _rhino_id = _base._rsf.add_polyline(points)
 
         if _rhino_id:
             return Polyline(_rhino_id)
@@ -10561,7 +10596,7 @@ class Polyline(_CurveRoot):
         This function calls the Rhinoscript function: ConvertCurveToPolyline
         """
 
-        _rhino_id = base._rsf.convert_curve_to_polyline(curve._rhino_id, angle_tolerance, tolerance, delete_input)
+        _rhino_id = _base._rsf.convert_curve_to_polyline(curve._rhino_id, angle_tolerance, tolerance, delete_input)
 
         if _rhino_id:
             return Polyline(_rhino_id)
@@ -10589,7 +10624,7 @@ class Polyline(_CurveRoot):
         This function calls the Rhinoscript function: DuplicateMeshBorder
         """
 
-        _rhino_id = base._rsf.duplicate_mesh_border(mesh._rhino_id)
+        _rhino_id = _base._rsf.duplicate_mesh_border(mesh._rhino_id)
 
         if _rhino_id:
             return Polyline(_rhino_id)
@@ -10618,13 +10653,15 @@ class Polyline(_CurveRoot):
         This function calls the Rhinoscript function: PullCurveToMesh
         """
 
-        _rhino_id = base._rsf.pull_curve_to_mesh(mesh._rhino_id, curve._rhino_id)
+        _rhino_id = _base._rsf.pull_curve_to_mesh(mesh._rhino_id, curve._rhino_id)
 
         if _rhino_id:
             return Polyline(_rhino_id)
         else:
             return None
+class Sphere(_SurfaceRoot):pass
 class Sphere(_SurfaceRoot):
+    class wrap(_wrap.WrapBase, Sphere):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -10719,7 +10756,7 @@ class Sphere(_SurfaceRoot):
         This function calls the Rhinoscript function: AddSphere
         """
 
-        _rhino_id = base._rsf.add_sphere(center, radius)
+        _rhino_id = _base._rsf.add_sphere(center, radius)
 
         if _rhino_id:
             return Sphere(_rhino_id)
@@ -10748,13 +10785,15 @@ class Sphere(_SurfaceRoot):
         This function calls the Rhinoscript function: AddSphere2
         """
 
-        _rhino_id = base._rsf.add_sphere_2(center, radius)
+        _rhino_id = _base._rsf.add_sphere_2(center, radius)
 
         if _rhino_id:
             return Sphere(_rhino_id)
         else:
             return None
+class Torus(_SurfaceRoot):pass
 class Torus(_SurfaceRoot):
+    class wrap(_wrap.WrapBase, Torus):pass
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
@@ -10851,7 +10890,7 @@ class Torus(_SurfaceRoot):
         This function calls the Rhinoscript function: AddTorus
         """
 
-        _rhino_id = base._rsf.add_torus(base_point, major_radius, minor_radius, direction)
+        _rhino_id = _base._rsf.add_torus(base_point, major_radius, minor_radius, direction)
 
         if _rhino_id:
             return Torus(_rhino_id)
@@ -10881,7 +10920,7 @@ class Torus(_SurfaceRoot):
         This function calls the Rhinoscript function: AddTorus2
         """
 
-        _rhino_id = base._rsf.add_torus_2(base_plane, major_radius, minor_radius)
+        _rhino_id = _base._rsf.add_torus_2(base_plane, major_radius, minor_radius)
 
         if _rhino_id:
             return Torus(_rhino_id)

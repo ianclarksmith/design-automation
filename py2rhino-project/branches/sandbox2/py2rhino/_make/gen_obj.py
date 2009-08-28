@@ -1,10 +1,10 @@
 import keyword
 from exceptions import Exception
 from util import *
-from py2rhino.make.data.gen_obj_in import descriptors as des_obj
-from py2rhino.make.data.gen_docs_out import docs_data 
+from py2rhino._make.data.gen_obj_in import descriptors as des_obj
+from py2rhino._make.data.gen_docs_out import docs_data 
 
-out_folder = "..\\wrappers\\obj\\"
+out_folder = "..\\obj\\"
 
 #===============================================================================
 # Run some checks
@@ -85,14 +85,14 @@ def write_rhinoscript_classes(data_dict):
     def write_class_header_and_init(class_name, parent_class_list, module_name, class_dict, f):
         if not class_name.startswith('_'):
             #create the dummy class for the wrap class
-            pass #w(f,('class ', class_name,'(', ','.join(parent_class_list),'):pass'))
+            w(f,('class ', class_name,'(', ','.join(parent_class_list),'):pass'))
         
         #write the class signature
         w(f,('class ', class_name,'(', ','.join(parent_class_list),'):'))
         
         if not class_name.startswith('_'):
             #create the inner class used for wrapping
-            #w(f,('class wrap(_util.WrapBase, ',class_name,'):pass'), tabs=1)
+            w(f,('class wrap(_wrap.WrapBase, ',class_name,'):pass'), tabs=1)
             
             #create an inner class for each hold
             for hold_name in sorted(class_dict['holds'].keys()):
@@ -241,7 +241,7 @@ def write_rhinoscript_classes(data_dict):
         
         #the function call for CONSTRUCTORS
         if method_type == 'CONSTRUCTOR':
-            w(f, ('_rhino_id = base._rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
+            w(f, ('_rhino_id = _base._rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
             if return_type == 'SELF':
                 assert not class_name.startswith('_')
                 w(f, ('if _rhino_id:'), tabs=2)
@@ -267,13 +267,13 @@ def write_rhinoscript_classes(data_dict):
         elif method_type == 'METHOD':
             assert class_name.startswith('_')
             if return_type == None:
-                w(f, ('return base._rsf.',function_name,'()'), tabs=2)
+                w(f, ('return _base._rsf.',function_name,'()'), tabs=2)
             elif return_type in simple_types or return_type == 'number':
-                w(f, ('return base._rsf.',function_name,'(', args, ')'), tabs=2)
+                w(f, ('return _base._rsf.',function_name,'(', args, ')'), tabs=2)
             elif return_type.startswith('array_of') and return_type[9:] in simple_types or return_type[9:] == 'number':
-                w(f, ('return base._rsf.',function_name,'(', args, ')'), tabs=2)
+                w(f, ('return _base._rsf.',function_name,'(', args, ')'), tabs=2)
             elif return_type.startswith('SELF'):
-                    w(f, ('_rhino_id = base._rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('_rhino_id = _base._rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_id:'), tabs=2)
                     w(f, ('return self._class(_rhino_id)'), tabs=3)
                     w(f, ('else:'), tabs=2)
@@ -281,19 +281,19 @@ def write_rhinoscript_classes(data_dict):
             elif return_type.startswith('_Object') or return_type.startswith('_Entity'):
                 return_class_name = return_type.split('.')[-1]
                 if return_class_name.startswith('_') and return_class_name.endswith('Root'):
-                    w(f, ('_rhino_id = base._rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('_rhino_id = _base._rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_id:'), tabs=2)
                     w(f, ('return self._class(_rhino_id)'), tabs=3)
                     w(f, ('else:'), tabs=2)
                     w(f, ('return None'), tabs=3) 
                 elif return_class_name.startswith('_'):
-                    w(f, ('_rhino_id = base._rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('_rhino_id = _base._rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_id:'), tabs=2)
                     w(f, ('return _util.cast(_rhino_id)'), tabs=3)
                     w(f, ('else:'), tabs=2)
                     w(f, ('return None'), tabs=3)
                 else:
-                    w(f, ('_rhino_id = base._rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('_rhino_id = _base._rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_id:'), tabs=2)
                     w(f, ('return p2r.obj.', return_class_name, '(_rhino_id)'), tabs=3)#TODO:this needs more work
                     w(f, ('else:'), tabs=2)
@@ -301,19 +301,19 @@ def write_rhinoscript_classes(data_dict):
             elif return_type.startswith('array_of _Object') or return_type.startswith('array_of _Entity'):
                 return_class_name = return_type[9:].split('.')[-1]
                 if return_class_name.startswith('_') and return_class_name.endswith('Root'):
-                    w(f, ('_rhino_ids = base._rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('_rhino_ids = _base._rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_ids:'), tabs=2)                    
                     w(f, ('return map(lambda i: self._class(i), _rhino_ids)'), tabs=3, nle=1)#TODO:this needs more work
                     w(f, ('else:'), tabs=2)
                     w(f, ('return None'), tabs=3)                     
                 elif return_class_name.startswith('_'):
-                    w(f, ('_rhino_ids = base._rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('_rhino_ids = _base._rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_ids:'), tabs=2)                    
                     w(f, ('return map(lambda i: _util.cast(i), _rhino_ids)'), tabs=3, nle=1)
                     w(f, ('else:'), tabs=2)
                     w(f, ('return None'), tabs=3)                     
                 else:
-                    w(f, ('_rhino_ids = base._rsf.',function_name,'(', args, ')'), tabs=2)
+                    w(f, ('_rhino_ids = _base._rsf.',function_name,'(', args, ')'), tabs=2)
                     w(f, ('if _rhino_ids:'), tabs=2)                    
                     w(f, ('return map(lambda i: p2r.obj.'+return_class_name+'(i), _rhino_ids)'), tabs=3, nle=1)#TODO:this needs more work
                     w(f, ('else:'), tabs=2)
@@ -324,7 +324,7 @@ def write_rhinoscript_classes(data_dict):
         #the function call for class methods
         elif method_type == 'CLASS_METHOD':
             pass #ignore these for the moment
-            #w(f, ('return base._rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
+            #w(f, ('return _base._rsf.',function_name,'(', args, ')'), tabs=2, nls=1, nle=2)
             
             
         #anything else
@@ -382,10 +382,12 @@ def write_rhinoscript_classes(data_dict):
     w(fb,'# Auto-generated wrapper for Rhino4 RhinoScript classes')
     w(fb,'import pythoncom')
     w(fb,'from exceptions import Exception')
-    w(fb,'import py2rhino.wrappers.obj._util as _util')        
-    w(fb,'import py2rhino as p2r')     
     
-    w(fb,'from py2rhino.wrappers import base') 
+    w(fb,'import _util')
+    w(fb,'import _wrap')  
+           
+    w(fb,'import py2rhino as p2r')     
+    w(fb,'from py2rhino import _base') 
     
     list_of_class_name = []
     for class_name in sorted(data_dict.keys()):

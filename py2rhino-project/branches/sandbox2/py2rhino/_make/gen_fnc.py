@@ -1,9 +1,9 @@
 import keyword
 from exceptions import Exception
 from util import *
-from py2rhino.make.data.gen_fnc_in import descriptors as des_fnc
+from py2rhino._make.data.gen_fnc_in import descriptors as des_fnc
 
-out_folder = "..\\wrappers\\"
+out_folder = "..\\"
 
 #===============================================================================
 # Get the data
@@ -186,7 +186,7 @@ def write_modules(data_dict):
             f = open(out_folder + module_name + '.py', mode='w')
         w(f,'# Auto-generated wrapper for Rhino4 RhinoScript functions', nle=2)
         w(f,'import pythoncom')
-        w(f,'from py2rhino.wrappers import base') 
+        w(f,'from py2rhino import _base') 
         
         write_module(module_dict, f)
         f.close()
