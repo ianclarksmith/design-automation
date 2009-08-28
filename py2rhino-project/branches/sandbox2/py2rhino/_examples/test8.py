@@ -6,4 +6,5 @@ crv = p2r.obj.NurbsCurve.create_by_pnts(points, 3)
 
 pl = p2r.obj.Polyline.create(points)
 
+
 print crv
