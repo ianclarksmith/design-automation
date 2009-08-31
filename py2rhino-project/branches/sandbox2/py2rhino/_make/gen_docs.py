@@ -1,9 +1,9 @@
 import keyword
 from exceptions import Exception
 from util import *
-from py2rhino.make.data.gen_obj_in import descriptors as des_obj
-from py2rhino.make.data.gen_wrp_in import descriptors as des_wrp
-from py2rhino.make.data import parser_out as p2r
+from py2rhino._make.data.gen_obj_in import descriptors as des_obj
+from py2rhino._make.data.gen_wrp_in import descriptors as des_wrp
+from py2rhino._make.data import parser_out as p2r
 out_folder = ".\\data\\gen_docs_out\\"
 #===============================================================================
 # Get the data from the parser

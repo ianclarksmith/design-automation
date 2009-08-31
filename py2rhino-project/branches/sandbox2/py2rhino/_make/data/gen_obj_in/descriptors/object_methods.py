@@ -31,17 +31,18 @@ class _ObjectRoot(object):
 class _ObjectRootMdfy(object):
     inherits = None
     
-#===============================================================================
-# ObjectFunc
-#===============================================================================
-class _ObjectRootFunc(object):    
-    inherits = None
     class Methods(object):
         delete_objects = {
             "method_name": "delete",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("number","null")        
-            }        
+            } 
+#===============================================================================
+# ObjectFunc
+#===============================================================================
+class _ObjectRootFunc(object):    
+    inherits = None
+       
 #===============================================================================
 # ObjectGroups
 #===============================================================================
