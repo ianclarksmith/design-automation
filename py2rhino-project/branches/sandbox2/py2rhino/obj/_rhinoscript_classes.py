@@ -1920,26 +1920,7 @@ class _ObjectRootDefm(object):
         else:
             return None
 class _ObjectRootFunc(object):
-
-    def delete(self):
-        """
-        
-        Deletes one or more objects from the document.
-
-        Parameters
-        ==========
-        No parameters
-
-        Returns
-        =======
-        number - The number of objects deleted if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: DeleteObjects
-        """
-        return _base._rsf.delete_objects(self._rhino_id)
+    pass
 class _ObjectRootGrps(object):
 
     def groups(self):
@@ -1982,7 +1963,26 @@ class _ObjectRootGrps(object):
         """
         return _base._rsf.object_top_group(self._rhino_id)
 class _ObjectRootMdfy(object):
-    pass
+
+    def delete(self):
+        """
+        
+        Deletes one or more objects from the document.
+
+        Parameters
+        ==========
+        No parameters
+
+        Returns
+        =======
+        number - The number of objects deleted if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: DeleteObjects
+        """
+        return _base._rsf.delete_objects(self._rhino_id)
 class _ObjectRootMtrl(object):
 
     def index(self):
@@ -4204,7 +4204,7 @@ class _CurveRootFunc(_ObjectRootFunc):
 
         Parameters
         ==========
-        curve  (string, Optional) - The identifier of the second curve object.  If omitted, the a self-intersection test will be performed on strObject1.
+        curve  (curve object, Optional) - The identifier of the second curve object.  If omitted, the a self-intersection test will be performed on strObject1.
         tolerance  (float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
 
         Returns
@@ -4230,7 +4230,7 @@ class _CurveRootFunc(_ObjectRootFunc):
 
         Parameters
         ==========
-        curve_a  (string, Required) - The identifier of the second curve object.
+        curve  (curve object, Required) - The identifier of the second curve object.
 
         Returns
         =======
@@ -4256,7 +4256,7 @@ class _CurveRootFunc(_ObjectRootFunc):
 
         Parameters
         ==========
-        curve_1  (string, Required) - The identifier of the second curve to compare.
+        curve  (curve object, Required) - The identifier of the second curve to compare.
 
         Returns
         =======
@@ -4296,7 +4296,7 @@ class _CurveRootFunc(_ObjectRootFunc):
 
         Parameters
         ==========
-        surface  (string, Required) - The identifier of a surface object.
+        surface  (surface object, Required) - The identifier of a surface object.
         tolerance  (float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
         angle_tolerance  (float, Optional) - The angle tolerance in degrees.  The angle tolerance is used to determine when the curve is tangent to the surface.  If omitted, the document's current angle tolerance is used.
 
@@ -4465,7 +4465,7 @@ class _CurveRootFunc(_ObjectRootFunc):
 
         Parameters
         ==========
-        curve  (string, Required) - The object identifier of the second planar curve.
+        curve  (curve object, Required) - The object identifier of the second planar curve.
         plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
 		Element
 		Type
@@ -4547,7 +4547,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
 
         Parameters
         ==========
-        curve  (string, Required) - The identifier of the second curve object.
+        curve  (curve object, Required) - The identifier of the second curve object.
 
         Returns
         =======
@@ -4571,7 +4571,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
 
         Parameters
         ==========
-        curve_a  (string, Required) - The identifier of the second curve object.
+        curve  (curve object, Required) - The identifier of the second curve object.
 
         Returns
         =======
@@ -4595,7 +4595,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
 
         Parameters
         ==========
-        curves  (list of array_of _ObjectRoot, Required) - The identifiers of two or more curve objects.
+        curves  (list of curve object, Required) - The identifiers of two or more curve objects.
 
         Returns
         =======
@@ -4621,7 +4621,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
 
         Parameters
         ==========
-        curve__1  (string, Required) - The object identifier of the second planar, closed curve.
+        curve  (curve object, Required) - The object identifier of the second planar, closed curve.
         plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
 		Element
 		Type
@@ -4698,7 +4698,7 @@ class _CurveRootFuncOpen(_CurveRootFunc):
 
         Returns
         =======
-        string - The closed curve object if successful.
+        object - The closed curve object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4736,7 +4736,7 @@ class _CurveRootFuncOpen(_CurveRootFunc):
 
         Returns
         =======
-        string - The extended object if successful.
+        object - The extended object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4778,7 +4778,7 @@ class _CurveRootFuncOpen(_CurveRootFunc):
 
         Returns
         =======
-        string - The extended object if successful.
+        object - The extended object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -4808,7 +4808,7 @@ class _CurveRootFuncOpen(_CurveRootFunc):
 
         Returns
         =======
-        string - The extended object if successful.
+        object - The extended object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -7558,7 +7558,6 @@ class _PolySurfaceFunc(_SurfaceRootFuncOorc):
             return map(lambda i: p2r.obj.NurbsSurface(i), _rhino_ids)
         else:
             return None
-
 class Arc(_CurveRoot):pass
 class Arc(_CurveRoot):
     class wrap(_wrap.WrapBase, Arc):pass
