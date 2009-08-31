@@ -154,11 +154,11 @@ def write_modules(data_dict):
             raise Exception('Method does not have the right number of returns')
         
         if return_type == None:
-            w(f, ('return base._rsf.',function_name,'()'), tabs=1)
+            w(f, ('return _base._rsf.',function_name,'()'), tabs=1)
         elif return_type in simple_types or return_type == 'number':
-            w(f, ('return base._rsf.',function_name,'(', args, ')'), tabs=1)
+            w(f, ('return _base._rsf.',function_name,'(', args, ')'), tabs=1)
         elif return_type.startswith('array_of') and (return_type[9:] in simple_types or return_type[9:] == 'number'):
-            w(f, ('return base._rsf.',function_name,'(', args, ')'), tabs=1)
+            w(f, ('return _base._rsf.',function_name,'(', args, ')'), tabs=1)
         else:
             print return_type
             raise Exception('The function returns something very strange')
