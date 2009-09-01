@@ -1,12 +1,8 @@
-# Auto-generated wrapper for Rhino4 RhinoScript functions
 
-import pythoncom
-from py2rhino import _base
 
-def container_count(block_name):
+class block():
 
-    """
-    
+        container_count = """
         Returns the number of block definitions that contain a specified block definition.
 
         Parameters
@@ -22,14 +18,8 @@ def container_count(block_name):
         ===========
         This function calls the Rhinoscript function: BlockContainerCount
 
-        
-    """
-    return _base._rsf.block_container_count(block_name)
-
-def containers(block_name):
-
-    """
-    
+        """
+        containers = """
         Returns the names of the block definitions that contain a specified block definition.
 
         Parameters
@@ -45,14 +35,8 @@ def containers(block_name):
         ===========
         This function calls the Rhinoscript function: BlockContainers
 
-        
-    """
-    return _base._rsf.block_containers(block_name)
-
-def count():
-
-    """
-    
+        """
+        count = """
         Returns the number of block definitions in the document.
 
         Parameters
@@ -68,14 +52,8 @@ def count():
         ===========
         This function calls the Rhinoscript function: BlockCount
 
-        
-    """
-    return _base._rsf.block_count()
-
-def description(block_name, text=pythoncom.Empty):
-
-    """
-    
+        """
+        description = """
         Returns or sets the description of a block definition.
 
         Parameters
@@ -93,14 +71,8 @@ def description(block_name, text=pythoncom.Empty):
         ===========
         This function calls the Rhinoscript function: BlockDescription
 
-        
-    """
-    return _base._rsf.block_description(block_name, text)
-
-def instance_count(block_name):
-
-    """
-    
+        """
+        instance_count = """
         Counts the number of instances of the block in the document.  Nested instances are not included in the count.
 
         Parameters
@@ -116,14 +88,8 @@ def instance_count(block_name):
         ===========
         This function calls the Rhinoscript function: BlockInstanceCount
 
-        
-    """
-    return _base._rsf.block_instance_count(block_name)
-
-def instance_insert_point(block_id):
-
-    """
-    
+        """
+        instance_insert_point = """
         Returns the insertion point of a block instance.
 
         Parameters
@@ -139,14 +105,8 @@ def instance_insert_point(block_id):
         ===========
         This function calls the Rhinoscript function: BlockInstanceInsertPoint
 
-        
-    """
-    return _base._rsf.block_instance_insert_point(block_id)
-
-def instance_name(block_id):
-
-    """
-    
+        """
+        instance_name = """
         Returns the block name of a block instance.
 
         Parameters
@@ -162,14 +122,8 @@ def instance_name(block_id):
         ===========
         This function calls the Rhinoscript function: BlockInstanceName
 
-        
-    """
-    return _base._rsf.block_instance_name(block_id)
-
-def instance_xform(block_id):
-
-    """
-    
+        """
+        instance_xform = """
         Returns the location of a block instance relative to the world coordinate system origin (0,0,0).  The position is returned as a 4x4 transformation matrix
 
         Parameters
@@ -185,14 +139,8 @@ def instance_xform(block_id):
         ===========
         This function calls the Rhinoscript function: BlockInstanceXform
 
-        
-    """
-    return _base._rsf.block_instance_xform(block_id)
-
-def instances(block_name):
-
-    """
-    
+        """
+        instances = """
         Returns the identifiers of the inserted instances of a block.
 
         Parameters
@@ -208,14 +156,8 @@ def instances(block_name):
         ===========
         This function calls the Rhinoscript function: BlockInstances
 
-        
-    """
-    return _base._rsf.block_instances(block_name)
-
-def names(sort=pythoncom.Empty):
-
-    """
-    
+        """
+        names = """
         Returns the names of all block definitions in the document.
 
         Parameters
@@ -231,14 +173,8 @@ def names(sort=pythoncom.Empty):
         ===========
         This function calls the Rhinoscript function: BlockNames
 
-        
-    """
-    return _base._rsf.block_names(sort)
-
-def object_count(block_name):
-
-    """
-    
+        """
+        object_count = """
         Returns the number of objects that make up a block definition.
 
         Parameters
@@ -254,14 +190,8 @@ def object_count(block_name):
         ===========
         This function calls the Rhinoscript function: BlockObjectCount
 
-        
-    """
-    return _base._rsf.block_object_count(block_name)
-
-def objects(block_name):
-
-    """
-    
+        """
+        objects = """
         Returns the identifiers of the objects that make up a block definition.
 
         Parameters
@@ -277,14 +207,8 @@ def objects(block_name):
         ===========
         This function calls the Rhinoscript function: BlockObjects
 
-        
-    """
-    return _base._rsf.block_objects(block_name)
-
-def path(block_name):
-
-    """
-    
+        """
+        path = """
         Returns the path to the source of a linked or embedded block definition.  A linked or embedded block definition is a block definition that was inserted from an external file.
 
         Parameters
@@ -300,14 +224,8 @@ def path(block_name):
         ===========
         This function calls the Rhinoscript function: BlockPath
 
-        
-    """
-    return _base._rsf.block_path(block_name)
-
-def url(block_name, url=pythoncom.Empty):
-
-    """
-    
+        """
+        url = """
         Returns or sets the URL of a block definition.
 
         Parameters
@@ -325,14 +243,8 @@ def url(block_name, url=pythoncom.Empty):
         ===========
         This function calls the Rhinoscript function: BlockURL
 
-        
-    """
-    return _base._rsf.block_u_r_l(block_name, url)
-
-def url_tag(block_name, url=pythoncom.Empty):
-
-    """
-    
+        """
+        url_tag = """
         Returns or sets the URL tag, or description, of a block definition.
 
         Parameters
@@ -350,14 +262,8 @@ def url_tag(block_name, url=pythoncom.Empty):
         ===========
         This function calls the Rhinoscript function: BlockURLTag
 
-        
-    """
-    return _base._rsf.block_u_r_l_tag(block_name, url)
-
-def delete(block_name):
-
-    """
-    
+        """
+        delete = """
         Deletes a block definition and all of it's inserted instances.
 
         Parameters
@@ -373,14 +279,8 @@ def delete(block_name):
         ===========
         This function calls the Rhinoscript function: DeleteBlock
 
-        
-    """
-    return _base._rsf.delete_block(block_name)
-
-def explode_instance(block_id):
-
-    """
-    
+        """
+        explode_instance = """
         Explodes a block instance into it's geometric components.  The exploded objects are added to the document.
 
         Parameters
@@ -396,14 +296,8 @@ def explode_instance(block_id):
         ===========
         This function calls the Rhinoscript function: ExplodeBlockInstance
 
-        
-    """
-    return _base._rsf.explode_block_instance(block_id)
-
-def insert(block_name, insertion_point, scale=pythoncom.Empty, angle=pythoncom.Empty, normal=pythoncom.Empty):
-
-    """
-    
+        """
+        insert = """
         Inserts a block whose definition already exists in the document.
 
         Parameters
@@ -423,14 +317,8 @@ def insert(block_name, insertion_point, scale=pythoncom.Empty, angle=pythoncom.E
         ===========
         This function calls the Rhinoscript function: InsertBlock
 
-        
-    """
-    return _base._rsf.insert_block(block_name, insertion_point, scale, angle, normal)
-
-def insert_by_xform(block_name, xform):
-
-    """
-    
+        """
+        insert_by_xform = """
         Inserts a block whose definition already exists in the document.
 
         Parameters
@@ -447,14 +335,8 @@ def insert_by_xform(block_name, xform):
         ===========
         This function calls the Rhinoscript function: InsertBlock
 
-        
-    """
-    return _base._rsf.insert_block_2(block_name, xform)
-
-def is_block(block_name):
-
-    """
-    
+        """
+        is_block = """
         Verifies the existence of a block definition in the document.
 
         Parameters
@@ -470,14 +352,8 @@ def is_block(block_name):
         ===========
         This function calls the Rhinoscript function: IsBlock
 
-        
-    """
-    return _base._rsf.is_block(block_name)
-
-def is_embedded(block_name):
-
-    """
-    
+        """
+        is_embedded = """
         Verifies that a block definition is embedded, or linked, from an external file.
 
         Parameters
@@ -493,14 +369,8 @@ def is_embedded(block_name):
         ===========
         This function calls the Rhinoscript function: IsBlockEmbedded
 
-        
-    """
-    return _base._rsf.is_block_embedded(block_name)
-
-def is_in_use(block_name, where=pythoncom.Empty):
-
-    """
-    
+        """
+        is_in_use = """
         Verifies that a block definition is being used by an inserted instance.
 
         Parameters
@@ -522,14 +392,8 @@ def is_in_use(block_name, where=pythoncom.Empty):
         ===========
         This function calls the Rhinoscript function: IsBlockInUse
 
-        
-    """
-    return _base._rsf.is_block_in_use(block_name, where)
-
-def is_instance(block_id):
-
-    """
-    
+        """
+        is_instance = """
         Verifies an object is a block instance.
 
         Parameters
@@ -545,14 +409,8 @@ def is_instance(block_id):
         ===========
         This function calls the Rhinoscript function: IsBlockInstance
 
-        
-    """
-    return _base._rsf.is_block_instance(block_id)
-
-def is_reference(block_name):
-
-    """
-    
+        """
+        is_reference = """
         Verifies that a block definition is from a reference file.
 
         Parameters
@@ -568,14 +426,8 @@ def is_reference(block_name):
         ===========
         This function calls the Rhinoscript function: IsBlockReference
 
-        
-    """
-    return _base._rsf.is_block_reference(block_name)
-
-def rename(old_block_name, new_block_name):
-
-    """
-    
+        """
+        rename = """
         Renames an existing block definition.
 
         Parameters
@@ -592,6 +444,4 @@ def rename(old_block_name, new_block_name):
         ===========
         This function calls the Rhinoscript function: RenameBlock
 
-        
-    """
-    return _base._rsf.rename_block(old_block_name, new_block_name)
+        """
