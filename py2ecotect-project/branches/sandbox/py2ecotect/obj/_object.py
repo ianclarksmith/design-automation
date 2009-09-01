@@ -2731,9 +2731,9 @@ class _Object(object):
 #==============================================================================
 # 
 #==============================================================================
-class Point(_Object):pass
+
 class Point(_Object):
-    class wrap(p2e._util.WrapBase, Point):pass
+
     
     @staticmethod
     def create(points):
@@ -2764,9 +2764,9 @@ class Point(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Line(_Object):pass
+
 class Line(_Object):
-    class wrap(p2e._util.WrapBase, Line):pass
+
     @staticmethod
     def create(points):
         """
@@ -2796,9 +2796,9 @@ class Line(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Roof(_Object):pass
+
 class Roof(_Object):
-    class wrap(p2e._util.WrapBase, Roof):pass
+
     @staticmethod
     def create(points):
         """
@@ -2828,9 +2828,9 @@ class Roof(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Floor(_Object):pass
+
 class Floor(_Object):
-    class wrap(p2e._util.WrapBase, Floor):pass
+
     @staticmethod
     def create(points):
         """
@@ -2860,9 +2860,9 @@ class Floor(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Ceiling(_Object):pass
+
 class Ceiling(_Object):
-    class wrap(p2e._util.WrapBase, Ceiling):pass
+
     @staticmethod
     def create(points):
         """
@@ -2892,9 +2892,9 @@ class Ceiling(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Wall(_Object):pass
+
 class Wall(_Object):
-    class wrap(p2e._util.WrapBase, Wall):pass
+
     @staticmethod
     def create(points):
         """
@@ -2924,9 +2924,9 @@ class Wall(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Partition(_Object):pass
+
 class Partition(_Object):
-    class wrap(p2e._util.WrapBase, Partition):pass
+
     @staticmethod
     def create(points):
         """
@@ -2956,9 +2956,9 @@ class Partition(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Void(_Object):pass
+
 class Void(_Object):
-    class wrap(p2e._util.WrapBase, Void):pass
+
     @staticmethod
     def create(points):
         """
@@ -2988,9 +2988,9 @@ class Void(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Window(_Object):pass
+
 class Window(_Object):
-    class wrap(p2e._util.WrapBase, Window):pass
+
     @staticmethod
     def create(points):
         """
@@ -3020,9 +3020,9 @@ class Window(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Panel(_Object):pass
+
 class Panel(_Object):
-    class wrap(p2e._util.WrapBase, Panel):pass
+
     @staticmethod
     def create(points):
         """
@@ -3052,9 +3052,9 @@ class Panel(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Door(_Object):pass
+
 class Door(_Object):
-    class wrap(p2e._util.WrapBase, Door):pass
+
     @staticmethod
     def create(points):
         """
@@ -3084,9 +3084,9 @@ class Door(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Speaker(_Object):pass
+
 class Speaker(_Object):
-    class wrap(p2e._util.WrapBase, Speaker):pass
+
     @staticmethod
     def create(points):
         """
@@ -3116,9 +3116,9 @@ class Speaker(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Light(_Object):pass
+
 class Light(_Object):
-    class wrap(p2e._util.WrapBase, Light):pass
+
     @staticmethod
     def create(points):
         """
@@ -3148,9 +3148,9 @@ class Light(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class Appliance(_Object):pass
+
 class Appliance(_Object):
-    class wrap(p2e._util.WrapBase, Appliance):pass
+
     @staticmethod
     def create(points):
         """
@@ -3180,9 +3180,9 @@ class Appliance(_Object):
 #==============================================================================
 # 
 #==============================================================================
-class SolarCollector(_Object):pass
+
 class SolarCollector(_Object):
-    class wrap(p2e._util.WrapBase, SolarCollector):pass
+
     @staticmethod
     def create(points):
         """
@@ -3212,9 +3212,9 @@ class SolarCollector(_Object):
 #==============================================================================
 # Camers
 #==============================================================================
-class Camera(_Object):pass
+
 class Camera(_Object):
-    class wrap(p2e._util.WrapBase, Camera):pass
+
     @staticmethod
     def create(points):
         """
