@@ -604,38 +604,6 @@ class _CurveRootEval(object):
         return _base._rsf.evaluate_curve(self._rhino_id, parameter, pythoncom.Empty)
 class _CurveRootProp(object):
 
-    def arrows(self, style=pythoncom.Empty):
-        """
-        
-        Enables or disabled a curve object's annotation arrows.
-
-        Parameters
-        ==========
-        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are as follows:
-		Value
-		Description
-		0
-		No annotation arrows
-		1
-		Display an annotation arrow at the starting point of the curve
-		2
-		Display an annotation arrow at the ending point of the curve
-		3
-
-        Returns
-        =======
-        number - If style is not specified, the current annotation arrow style if successful.
-        number - If style is specified, the previous annotation arrow style if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: CurveArrows
-
-        
-        """
-        return _base._rsf.curve_arrows(self._rhino_id, style)
-
     def degree(self):
         """
         
@@ -3904,7 +3872,7 @@ class _PolyCurveDupl(object):
             return None
 class _PolyCurveEval(object):
 
-    def tangent(self, parameter):
+    def tangent(self, parameter, index):
         """
         
         Returns a 3-D vector that is the tangent to a curve at a parameter.
@@ -3924,9 +3892,9 @@ class _PolyCurveEval(object):
 
         
         """
-        return _base._rsf.curve_tangent(self._rhino_id, parameter, pythoncom.Empty)
+        return _base._rsf.curve_tangent(self._rhino_id, parameter, index)
 
-    def evaluate(self, parameter):
+    def evaluate(self, parameter, index):
         """
         
         Evaluates a curve at a parameter.
@@ -3946,7 +3914,7 @@ class _PolyCurveEval(object):
 
         
         """
-        return _base._rsf.evaluate_curve(self._rhino_id, parameter, pythoncom.Empty)
+        return _base._rsf.evaluate_curve(self._rhino_id, parameter, index)
 class _PolyCurveProp(object):
 
     def degree(self, index):
@@ -4015,7 +3983,7 @@ class _PolyCurveProp(object):
         """
         return _base._rsf.curve_domain(self._rhino_id, index)
 
-    def edit_pnts(self, return_parameters=pythoncom.Empty, index):
+    def edit_pnts(self, return_parameters, index):
         """
         
         Returns the edit, or Greville, points of a curve object.  For each curve control point, there is a corresponding edit point.
@@ -5727,6 +5695,39 @@ class _CurveRootPropClsd(_CurveRootProp):
     pass
 class _CurveRootPropOpen(_CurveRootProp):
     pass
+class _CurveRootStat(_ObjectRootStat):
+
+    def arrows(self, style=pythoncom.Empty):
+        """
+        
+        Enables or disabled a curve object's annotation arrows.
+
+        Parameters
+        ==========
+        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are as follows:
+		Value
+		Description
+		0
+		No annotation arrows
+		1
+		Display an annotation arrow at the starting point of the curve
+		2
+		Display an annotation arrow at the ending point of the curve
+		3
+
+        Returns
+        =======
+        number - If style is not specified, the current annotation arrow style if successful.
+        number - If style is specified, the previous annotation arrow style if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveArrows
+
+        
+        """
+        return _base._rsf.curve_arrows(self._rhino_id, style)
 class _CurveRootTest(_ObjectRootTest):
 
     def is_closable(self, tolerance=pythoncom.Empty):
@@ -8568,7 +8569,7 @@ class Arc(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Arc
-    class stat(_ObjectRootStat):
+    class stat(_CurveRootStat):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Arc
@@ -8840,7 +8841,7 @@ class Circle(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Circle
-    class stat(_ObjectRootStat):
+    class stat(_CurveRootStat):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Circle
@@ -9257,7 +9258,7 @@ class Ellipse(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Ellipse
-    class stat(_ObjectRootStat):
+    class stat(_CurveRootStat):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Ellipse
@@ -9393,7 +9394,7 @@ class EllipticalArc(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = EllipticalArc
-    class stat(_ObjectRootStat):
+    class stat(_CurveRootStat):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = EllipticalArc
@@ -9522,7 +9523,7 @@ class Line(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Line
-    class stat(_ObjectRootStat):
+    class stat(_CurveRootStat):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Line
@@ -9756,7 +9757,7 @@ class NurbsCurve(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsCurve
-    class stat(_ObjectRootStat):
+    class stat(_CurveRootStat):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsCurve
@@ -11336,7 +11337,7 @@ class PolyCurve(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PolyCurve
-    class stat(_ObjectRootStat):
+    class stat(_CurveRootStat):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PolyCurve
@@ -11568,7 +11569,7 @@ class Polyline(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Polyline
-    class stat(_ObjectRootStat):
+    class stat(_CurveRootStat):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Polyline

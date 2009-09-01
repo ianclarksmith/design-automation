@@ -2732,33 +2732,6 @@ class _CurveRootMdfy():
 
 class _CurveRootProp():
 
-        arrows = """
-        Enables or disabled a curve object's annotation arrows.
-
-        Parameters
-        ==========
-        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are as follows:
-		Value
-		Description
-		0
-		No annotation arrows
-		1
-		Display an annotation arrow at the starting point of the curve
-		2
-		Display an annotation arrow at the ending point of the curve
-		3
-
-        Returns
-        =======
-        number - If style is not specified, the current annotation arrow style if successful.
-        number - If style is specified, the previous annotation arrow style if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: CurveArrows
-
-        """
         degree = """
         Returns the degree of a curve object.
 
@@ -3058,6 +3031,37 @@ class _CurveRootPropOorC():
 class _CurveRootPropOpen():
 
     pass
+
+
+class _CurveRootStat():
+
+        arrows = """
+        Enables or disabled a curve object's annotation arrows.
+
+        Parameters
+        ==========
+        style  (integer, Optional) - The style of annotation arrows to be displayed.  The styles are as follows:
+		Value
+		Description
+		0
+		No annotation arrows
+		1
+		Display an annotation arrow at the starting point of the curve
+		2
+		Display an annotation arrow at the ending point of the curve
+		3
+
+        Returns
+        =======
+        number - If style is not specified, the current annotation arrow style if successful.
+        number - If style is specified, the previous annotation arrow style if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveArrows
+
+        """
 
 
 class _CurveRootTest():
