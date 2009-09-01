@@ -31,7 +31,7 @@ class NurbsCurve(object):
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
+        "stat": "_CurveRootStat",
         "trfm": "_ObjectRootTrfm",
         "util": "_ObjectRootUtil",        
   
@@ -156,7 +156,7 @@ class Arc(object):
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
+        "stat": "_CurveRootStat",
         "trfm": "_ObjectRootTrfm",
         "util": "_ObjectRootUtil",        
   
@@ -267,7 +267,7 @@ class EllipticalArc(object):
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
+        "stat": "_CurveRootStat",
         "trfm": "_ObjectRootTrfm",
         "util": "_ObjectRootUtil",        
   
@@ -335,7 +335,7 @@ class Circle():
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
+        "stat": "_CurveRootStat",
         "trfm": "_ObjectRootTrfm",
         "util": "_ObjectRootUtil",        
   
@@ -435,7 +435,7 @@ class Ellipse(object):
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
+        "stat": "_CurveRootStat",
         "trfm": "_ObjectRootTrfm",
         "util": "_ObjectRootUtil",        
   
@@ -528,7 +528,7 @@ class Line(object):
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
+        "stat": "_CurveRootStat",
         "trfm": "_ObjectRootTrfm",
         "util": "_ObjectRootUtil",        
   
@@ -603,7 +603,7 @@ class Polyline(object):
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
+        "stat": "_CurveRootStat",
         "trfm": "_ObjectRootTrfm",
         "util": "_ObjectRootUtil",        
   
@@ -693,7 +693,7 @@ class PolyCurve(object):
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
-        "stat": "_ObjectRootStat",
+        "stat": "_CurveRootStat",
         "trfm": "_ObjectRootTrfm",
         "util": "_ObjectRootUtil",        
   
@@ -784,12 +784,12 @@ class _PolyCurveEval(object):
 
         evaluate_curve = {#ed
             "method_name": "evaluate",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","REQ"),),
             "method_returns": ("array_of dbl","null")
         }
         curve_tangent = {#ed
             "method_name": "tangent",
-            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","REQ"),),
             "method_returns": ("array_of dbl","null")
         }
 #===============================================================================
@@ -864,7 +864,7 @@ class _PolyCurveProp(object):
         #edit points
         curve_edit_points = {#ed
             "method_name": "edit_pnts",
-            "method_parameters": (("","SELF","REQ"),("return_parameters","bln","OPT"),("index","int","REQ"),),
+            "method_parameters": (("","SELF","REQ"),("return_parameters","bln","REQ"),("index","int","REQ"),),
             "method_returns": ("array_of dbl", "null")
         } 
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -1004,8 +1004,18 @@ class _CurveRootMdfy(object):
             "method_returns": ("bln","null")
         }
 
+#===============================================================================
+# _CurveRootStat
+#===============================================================================
+class _CurveRootStat(object):
+    inherits = ("_ObjectRootStat",)
     
-    
+    class Methods(object):
+        curve_arrows = {#ed
+            "method_name": "arrows",
+            "method_parameters": (("","SELF","REQ"),("style","int","OPT"),),
+            "method_returns": ("number","null")
+        }
 #===============================================================================
 # _CurveRootEval
 #===============================================================================
@@ -1058,11 +1068,6 @@ class _CurveRootProp(object):
             "method_name": "plane",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of dbl","null")
-        }
-        curve_arrows = {#ed
-            "method_name": "arrows",
-            "method_parameters": (("","SELF","REQ"),("style","int","OPT"),),
-            "method_returns": ("number","null")
         }
         curve_discontinuity = {#ed
             "method_name": "discontinuity",

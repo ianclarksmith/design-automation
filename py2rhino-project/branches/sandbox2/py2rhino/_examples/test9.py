@@ -5,4 +5,3 @@ import py2rhino as p2r
 
 p2r.obj.Cylinder.create_by_plane( ( (20,0,0),(2,0,0),(0,0,12) ), 18, 2, True )
 
-#p2r.obj.Torus.create_by_plane(( (0,0,0), (1,0,0), (0,0,1) , (0,1,0) ), 10, 2 )
