@@ -362,16 +362,26 @@ class Cylinder(object):
         "prop": "_CylinderProp",        
     }    
     class Constructors(object):
+        
         add_cylinder = {#ed
+            0: {
             "method_name": "create",
             "method_parameters": (("base_point","array_of dbl","REQ"),("height_point","array_of dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
-            "method_returns": ("SELF","null")
-            }
+            "method_returns": ("SELF","null"),
+            },
+            1: {
+            "method_name": "create_by_plane",
+            "method_parameters": (("base_plane","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
+            "method_returns": ("SELF","null")            
+            }}
+
+        '''
         add_cylinder_2 = {#ed
             "method_name": "create_by_plane",
             "method_parameters": (("base_plane","array_of dbl","REQ"),("height","dbl","REQ"),("radius","dbl","REQ"),("cap","bln","OPT")),
             "method_returns": ("SELF","null")
-            }        
+            }    '''  
+            
 #===============================================================================
 # _CylinderDupl
 #===============================================================================

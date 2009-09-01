@@ -177,7 +177,7 @@ class Arc(object):
             "method_returns": ("SELF","null")
         }
         add_arc_3_pt = {#ed
-            "method_name": "create_by_3pt",
+            "method_name": "create_by_3pt",#inconsistent naming
             "method_parameters": (("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("point","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
         }
@@ -356,7 +356,7 @@ class Circle():
             "method_returns": ("SELF","null")
         }
         add_circle_3_pt = {#ed
-            "method_name": "create_by_3pt",
+            "method_name": "create_by_3pt",#inconsistent naming
             "method_parameters": (("first_point","array_of dbl","REQ"),("second_point","array_of dbl","REQ"),("third_point","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
         }
@@ -456,7 +456,7 @@ class Ellipse(object):
             "method_returns": ("SELF","null")
         }
         add_ellipse_3_pt = {#ed
-            "method_name": "create_by_3pt",
+            "method_name": "create_by_3pt",#inconsistent naming
             "method_parameters": (("center","array_of dbl","REQ"),("second","array_of dbl","REQ"),("third","array_of dbl","REQ"),),
             "method_returns": ("SELF","null")
         }
@@ -689,7 +689,7 @@ class PolyCurve(object):
     holds = {
                    
         #general object holds
-        "prop": "_ObjectRootProp",        
+      
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -700,13 +700,12 @@ class PolyCurve(object):
         #general curve holds
         #"modf": "_CurveRootMdfy",
         #"test": "_CurveRootTest",#inherits from object tests        
-        #"eval": "_CurveRootEval",
 
-        
         #polcurve holds
         "func": "_PolyCurveFunc",
         "dupl": "_PolyCurveDupl",
-                
+        "prop": "_PolyCurveProp",
+        "eval": "_PolyCurveEval",
         
     }     
     class Constructors(object):
@@ -776,6 +775,98 @@ class _PolyCurveDupl(object):
             "method_parameters": (("","SELF","REQ"),("parameters","array_of dbl","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._CurveRoot.PolyCurve","null")#TODO: this could return something else
         }
+#===============================================================================
+# _PolyCurveEval
+#===============================================================================
+class _PolyCurveEval(object):
+    inherits = None
+    class Methods(object):
+
+        evaluate_curve = {#ed
+            "method_name": "evaluate",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        curve_tangent = {#ed
+            "method_name": "tangent",
+            "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
+            "method_returns": ("array_of dbl","null")
+        }
+#===============================================================================
+# _PolyCurveProp
+#===============================================================================
+class _PolyCurveProp(object):
+    inherits = None
+    class Methods(object):
+        curve_domain = {#ed
+            "method_name": "domain",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        curve_degree = {#ed
+            "method_name": "degree",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("number","null")
+        }
+        curve_dim = {#ed
+            "method_name": "dim",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("number","null")
+        }
+        curve_length = {#ed
+            "method_name": "length",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),("sub_domain","array_of int","OPT"),),
+            "method_returns": ("number","null")
+        }
+        curve_start_point = {#ed
+            "method_name": "start_pnt",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }        
+        curve_mid_point = {#TODO: test mid_point function
+            "method_name": "mid_pnt",
+            "method_parameters": (("","SELF","REQ"),),#no index - this looks inconsistent - may be an error?
+            "method_returns": ("array_of dbl","null")
+        }
+        curve_end_point = {#ed
+            "method_name": "end_pnt",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }        
+
+        curve_weights = {#ed
+            "method_name": "weights",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        #knots
+        curve_knot_count = {#ed
+            "method_name": "knot_count",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("number","null")
+        }
+        curve_knots = {#ed
+            "method_name": "knots",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        #control points     
+        curve_point_count = {#ed
+            "method_name": "control_pnt_count",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("number","null")
+        }
+        curve_points = {#ed
+            "method_name": "control_pnts",
+            "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),
+            "method_returns": ("array_of dbl","null")
+        }
+        #edit points
+        curve_edit_points = {#ed
+            "method_name": "edit_pnts",
+            "method_parameters": (("","SELF","REQ"),("return_parameters","bln","OPT"),("index","int","REQ"),),
+            "method_returns": ("array_of dbl", "null")
+        } 
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -922,7 +1013,7 @@ class _CurveRootEval(object):
     inherits = None
     class Methods(object):
         curve_evaluate = {#ed
-            "method_name": "evaluate_derivatives",
+            "method_name": "derivatives",
             "method_parameters": (("","SELF","REQ"),("parameter","dbl","REQ"),("derivative","int","REQ"),),
             "method_returns": ("array_of dbl","null")
         }
@@ -1132,16 +1223,6 @@ class _CurveRootFunc(object):
             "method_name": "radius",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("number","null")
-        }
-        curve_curve_intersection = {#TODO: figure this one out
-            "method_name": "crv_intersection",
-            "method_parameters": (("","SELF","REQ"),("curve","_ObjectRoot._CurveRoot","OPT"),("tolerance","dbl","OPT"),),
-            "method_returns": ("array_of number","null")#check return values...
-        }
-        curve_surface_intersection = {#TODO: figure this one out
-            "method_name": "srf_intersection",
-            "method_parameters": (("","SELF","REQ"),("surface","_ObjectRoot._SurfaceRoot","REQ"),("tolerance","dbl","OPT"),("angle_tolerance","dbl","OPT"),),
-            "method_returns": ("array_of number","null")#check return values...
         } 
         make_curve_non_periodic = {
             "method_name": "make_non_periodic",
@@ -1169,7 +1250,10 @@ class _CurveRootFunc(object):
             "method_parameters": (("","SELF","REQ"),("curve_0","str","REQ"),("radius","dbl","OPT"),("base_point_0","array_of dbl","OPT"),("base_point__1","array_of dbl","OPT"),),
             "method_returns": ("array_of (array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl, array_of dbl)","_ObjectRoot._CurveRoot","null")
         }
-        """        
+        """    
+        
+        
+        #intersections    
         #TODO: fix these mixed return values
         """
         curve_brep_intersect = {#TODO:can return either curve objects or point objects
@@ -1178,6 +1262,16 @@ class _CurveRootFunc(object):
             "method_returns": ("array_of _ObjectRoot._CurveRoot","null")
         }
         """
+        curve_curve_intersection = {#TODO: figure this one out
+            "method_name": "crv_intersection",
+            "method_parameters": (("","SELF","REQ"),("curve","_ObjectRoot._CurveRoot","OPT"),("tolerance","dbl","OPT"),),
+            "method_returns": ("array_of number","null")#check return values...
+        }
+        curve_surface_intersection = {#TODO: figure this one out
+            "method_name": "srf_intersection",
+            "method_parameters": (("","SELF","REQ"),("surface","_ObjectRoot._SurfaceRoot","REQ"),("tolerance","dbl","OPT"),("angle_tolerance","dbl","OPT"),),
+            "method_returns": ("array_of number","null")#check return values...
+        }
 #===============================================================================
 # _CurveRootClosedFuncOpen - exclude circles and ellipses
 #===============================================================================

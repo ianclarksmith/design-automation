@@ -1,7 +1,9 @@
 import keyword
 from exceptions import Exception
 from util import *
+
 from py2rhino._make.data.gen_fnc_in import descriptors as des_fnc
+from py2rhino._make.data.gen_fnc_in import docs as des_fnc_docs
 
 out_folder = "..\\"
 
@@ -43,14 +45,35 @@ def get_data_dictionary():
 
     return module_map
 
-
+def get_docs_dictionary():
+    docs_map = {}
+    for folder_name in des_fnc_docs.__dict__.keys():
+        if not folder_name.startswith('__'):
+            folder_dict = des_fnc_docs.__dict__[folder_name]
+            
+            if not folder_name in docs_map.keys():
+                docs_map[folder_name] = {}
+            
+            for module_name in folder_dict.__dict__.keys():
+                if not module_name.startswith('__'):
+                    module_dict = folder_dict.__dict__[module_name]
+                    
+                    if not module_name in docs_map[folder_name].keys():
+                        docs_map[folder_name][module_name] = {}                    
+                    
+                    for function_name in module_dict.__dict__.keys():
+                        if not function_name.startswith('__'):
+                            
+                            doc = module_dict.__dict__[function_name]
+                            docs_map[folder_name][module_name][function_name] = doc
+    return docs_map
 #===============================================================================
 # Write the module
 #===============================================================================
-def write_modules(data_dict):
+def write_modules(data_dict, docs_dict):
     
     #---------------------------------------------------------------------------
-    def write_function(function_name, method_dict, f):
+    def write_function(sub_folder_name, module_name, function_name, method_dict, f):
         
         #a list of simple types
         simple_types = ('bln', 'int', 'lng', 'dbl', 'str', 'n', 'va')
@@ -102,9 +125,10 @@ def write_modules(data_dict):
         else:
             w(f, '():', tabs=0, nle=1)
         
-        #TODO: write the documentation
+        #write the documentation
+        doc = docs_dict[sub_folder_name][module_name][method_name]
         w(f, '"""', nls=1, tabs=1)
-        w(f, ('For help, look up the Rhinoscript function: ', underscore_to_camel(function_name)), tabs=1)
+        w(f, doc, tabs=1)
         w(f, '"""', tabs=1)
 
         
@@ -164,16 +188,16 @@ def write_modules(data_dict):
             raise Exception('The function returns something very strange')
 
     #---------------------------------------------------------------------------
-    def write_module(module_dict, f):          
+    def write_module(sub_folder_name, module_name, module_dict, f):          
          
         #write each function to the  file
         for function_name in sorted(module_dict['functions'].keys()):
             method_dict = module_dict['functions'][function_name]
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
-                    write_function(function_name, method_dict[i], f)
+                    write_function(sub_folder_name, module_name, function_name, method_dict[i], f)
             else:
-                write_function(function_name, method_dict, f)
+                write_function(sub_folder_name, module_name, function_name, method_dict, f)
 
     #---------------------------------------------------------------------------
     for module_name in sorted(data_dict.keys()):
@@ -188,7 +212,7 @@ def write_modules(data_dict):
         w(f,'import pythoncom')
         w(f,'from py2rhino import _base') 
         
-        write_module(module_dict, f)
+        write_module(sub_folder_name, module_name, module_dict, f)
         f.close()
     #---------------------------------------------------------------------------
 
@@ -198,7 +222,17 @@ def write_modules(data_dict):
 #===============================================================================
 if __name__ == '__main__':
     data_dict = get_data_dictionary()
-    write_modules(data_dict)
+    docs_dict = get_docs_dictionary()
+    
+    for i in docs_dict:
+        print i
+        for j in docs_dict[i]:
+            print '\t', j
+            for k in docs_dict[i][j]:
+                print '\t\t', k
+    
+    write_modules(data_dict, docs_dict)
+
 
     print "done generating modules"
     

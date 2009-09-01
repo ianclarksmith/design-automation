@@ -2,7 +2,8 @@ import keyword
 from exceptions import Exception
 from util import *
 from py2rhino._make.data.gen_obj_in import descriptors as des_obj
-from py2rhino._make.data.gen_docs_out import docs_data 
+from py2rhino._make.data.gen_obj_in.docs import obj as docs_obj
+from py2rhino._make.data.gen_obj_in.custom import custom_methods 
 
 out_folder = "..\\obj\\"
 
@@ -83,17 +84,10 @@ def write_rhinoscript_classes(data_dict):
     
     #---------------------------------------------------------------------------
     def write_class_header_and_init(class_name, parent_class_list, module_name, class_dict, f):
-        if not class_name.startswith('_'):
-            #create the dummy class for the wrap class
-            w(f,('class ', class_name,'(', ','.join(parent_class_list),'):pass'))
-        
         #write the class signature
         w(f,('class ', class_name,'(', ','.join(parent_class_list),'):'))
         
         if not class_name.startswith('_'):
-            #create the inner class used for wrapping
-            w(f,('class wrap(_wrap.WrapBase, ',class_name,'):pass'), tabs=1)
-            
             #create an inner class for each hold
             for hold_name in sorted(class_dict['holds'].keys()):
                 hold_class_name = class_dict['holds'][hold_name]
@@ -184,13 +178,19 @@ def write_rhinoscript_classes(data_dict):
             else:
                 w(f, '():', tabs=0, nle=1)
         
-        #TODO: write the documentation
+        #Write the documentation
         w(f, '"""', tabs=2)
-        w(f,(docs_data.__dict__[class_name].__dict__[method_name]), tabs=2)
-        w(f, ('This function calls the Rhinoscript function: ', underscore_to_camel(function_name)), tabs=2)
+        w(f,(docs_obj.__dict__[class_name].__dict__[method_name]), tabs=2)
         w(f, '"""', tabs=2)
         
-        print class_name, method_name
+        
+        #Check if there is a custom impl for this method
+        if class_name in custom_methods.__dict__.keys():
+            if method_name in custom_methods.__dict__[class_name].__dict__.keys():
+                impl = custom_methods.__dict__[class_name].__dict__[method_name]
+                w(f, impl)
+                return
+                
         
         #create the arguments
         args = []        

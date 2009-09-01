@@ -1,2 +1,3 @@
 import block_methods
 import point_and_vector_methods
+import line_and_plane_methods

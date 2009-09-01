@@ -671,7 +671,7 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         magic = ((VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1))
         flattened = (flatten_params(plane), x_radius, y_radius)
-
+        print magic, flattened
         return self._ApplyTypes_(679, 1, (VT_VARIANT, 0), magic, u"AddEllipse", None, *flattened)
 
     def add_ellipse_3_pt(self, center, second, third):
@@ -4532,10 +4532,15 @@ class _RhinoscriptFunctions(IRhinoScript):
         return self._ApplyTypes_(73, 1, (VT_VARIANT, 0), magic, u"AddCylinder", None, *flattened)
 
     def add_cylinder_2(self, plane, height, radius, cap):
-
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
-        flattened = (flatten_params(plane), height, radius, cap)
-
+        
+        
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
+        flattened = (flatten_params(plane), (0,0,height), radius, cap)
+        
+        print  magic, flattened
+        
+        #dispid, wFlags, retType, argTypes, user, resultCLSID, *args
+        
         return self._ApplyTypes_(73, 1, (VT_VARIANT, 0), magic, u"AddCylinder", None, *flattened)
 
     def add_edge_srf(self, objects):

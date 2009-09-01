@@ -18,7 +18,10 @@ class Arc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddArc
+
+        """
         create_by_3pt = """
         Factory method:
         Adds a 3-point arc curve to the document.
@@ -35,7 +38,10 @@ class Arc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddArc3Pt
+
+        """
         create_by_fillet = """
         Factory method:
         Adds a fillet curve between two curve objects.
@@ -54,7 +60,10 @@ class Arc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddFilletCurve
+
+        """
 
 
 class Box():
@@ -73,7 +82,10 @@ class Box():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddBox
+
+        """
 
 
 class Circle():
@@ -93,7 +105,10 @@ class Circle():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddCircle
+
+        """
         create_by_3pt = """
         Factory method:
         Adds a 3-point circle curve to the document.
@@ -110,7 +125,10 @@ class Circle():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddCircle3Pt
+
+        """
 
 
 class Cone():
@@ -132,7 +150,10 @@ class Cone():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddCone
+
+        """
         create_by_plane = """
         Factory method:
         Adds a cone-shaped polysurface to the document.
@@ -150,7 +171,10 @@ class Cone():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddCone
+
+        """
 
 
 class Cylinder():
@@ -172,15 +196,18 @@ class Cylinder():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddCylinder
+
+        """
         create_by_plane = """
         Factory method:
         Adds a cylinder-shaped polysurface to the document.
 
         Parameters
         ==========
-        base_plane  (List of float, Required) - The base plane of the cylinder.
-        height  (float, Required) - The height of the cylinder.
+        base_plane  (List of float, Required) - The 3-D base point of the cylinder.
+        height  (float, Required) - The 3-D height point of the cylinder.  The height point defines the height and direction of the cylinder.
         radius  (float, Required) - The radius of the cylinder.
         cap  (boolean, Optional) - Cap the ends of the cylinder.  If omitted, the ends of the cylinder will be capped (True).
 
@@ -190,7 +217,10 @@ class Cylinder():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddCylinder
+
+        """
 
 
 class Ellipse():
@@ -211,7 +241,10 @@ class Ellipse():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddEllipse
+
+        """
         create_by_3pt = """
         Factory method:
         Adds a 3 point elliptical curve to the document.
@@ -228,7 +261,10 @@ class Ellipse():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddEllipse3Pt
+
+        """
 
 
 class EllipticalArc():
@@ -258,7 +294,10 @@ class Line():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddLine
+
+        """
 
 
 class Mesh():
@@ -281,7 +320,10 @@ class Mesh():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddMesh
+
+        """
         create_by_polyline = """
         Factory method:
         Creates a polygon mesh object based on a closed polyline curve object. The newly created polygon mesh object is added to the document.
@@ -296,7 +338,10 @@ class Mesh():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshPolyline
+
+        """
 
 
 class NurbsCurve():
@@ -316,7 +361,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddCurve
+
+        """
         create_interp_crv_on_srf = """
         Factory method:
         Adds an interpolated curve object that lies on a specified surface. Note, this function will not create periodic curves, but it will create closed curves.
@@ -332,7 +380,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddInterpCrvOnSrf
+
+        """
         create_interp_crv_on_srf_uv = """
         Factory method:
         Adds an interpolated curve object. based on surface parameters, that lies on a specified surface. Note, this function will not create periodic curves, but it will create closed curves.
@@ -348,7 +399,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddInterpCrvOnSrfUV
+
+        """
         create_interp_crv = """
         Factory method:
         Adds an interpolated curve object to  the document.  Options exist to make a periodic curve or to specify the tangent at the endpoints.  The resulting curve is a non-rational NURBS curve of the specified degree.
@@ -380,7 +434,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddInterpCurve
+
+        """
         create_interp_crv_ex = """
         Factory method:
         Adds an interpolated curve object to  the document similar to Rhino's InterpCrv command.
@@ -407,7 +464,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddInterpCurveEx
+
+        """
         create = """
         Factory method:
         Adds a NURBS curve object to the document.
@@ -425,7 +485,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddNurbsCurve
+
+        """
         create_by_srf_contour = """
         Factory method:
         Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.
@@ -443,7 +506,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSrfContourCrvs
+
+        """
         create_by_srf_contour_cut_plane = """
         Factory method:
         Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.
@@ -460,7 +526,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSrfContourCrvs
+
+        """
         create_by_srf_section = """
         Factory method:
         Adds planar curves resulting from the intersection of a defined cutting plane through a surface or a polysurface. For more information, see the Rhino help file for details on the Section command.
@@ -476,7 +545,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSrfSectionCrvs
+
+        """
         create_by_srf_edge = """
         Factory method:
         Duplicates the edge curves of a surface or polysurface. For more information, see the Rhino help file for information on the DupEdge command.
@@ -492,7 +564,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: DuplicateEdgeCurves
+
+        """
         create_by_srf_border = """
         Factory method:
         Creates a curve that duplicates a surface or polysurface border.
@@ -507,7 +582,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: DuplicateSurfaceBorder
+
+        """
         create_by_srf_iso_curve = """
         Factory method:
         Extracts isoparametric curves from a surface.
@@ -524,7 +602,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtractIsoCurve
+
+        """
         create_by_fit = """
         Factory method:
         Reduces the number of curve control points while maintaining the curve's same general shape.  Use this function for replacing curves with too many control points.  For more information, see the Rhino help file for the FitCrv command.
@@ -542,7 +623,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: FitCurve
+
+        """
         create_by_projection_to_mesh = """
         Factory method:
         Projects one or more points onto one or more meshes.
@@ -559,7 +643,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ProjectCurveToMesh
+
+        """
         create_by_projection_to_srf = """
         Factory method:
         Projects one or more points onto one or more surfaces or polysurfaces.
@@ -576,7 +663,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ProjectCurveToSurface
+
+        """
         create_by_srf_pull = """
         Factory method:
         Pulls a curve object to a surface object. For more information, see the Rhino help file for information on the Pull command.
@@ -593,7 +683,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: PullCurve
+
+        """
         create_by_srf_short_path = """
         Factory method:
         Creates the shortest possible curve (geodesic) between two points on a surface. For more details, see the ShortPath command in the Rhino help file.
@@ -610,7 +703,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ShortPath
+
+        """
         create_by_srf_principal_curvature = """
         Factory method:
         Adds curvature curves at the evaluated point on a surface. For more information, see the Rhino help file for the Curvature command.
@@ -626,7 +722,10 @@ class NurbsCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfacePrincipalCurvature
+
+        """
 
 
 class NurbsSurface():
@@ -648,7 +747,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddCutPlane
+
+        """
         create_by_edge = """
         Factory method:
         Creates a surface from 2, 3, or 4 edge curves.
@@ -663,7 +765,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddEdgeSrf
+
+        """
         create_by_loft = """
         Factory method:
         Adds a surface created by lofting curves to the document.
@@ -705,7 +810,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddLoftSrf
+
+        """
         create = """
         Factory method:
         Adds a NURBS surface object to the document.
@@ -725,7 +833,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddNurbsSurface
+
+        """
         create_by_planar_crv = """
         Factory method:
         Creates one or more surfaces from planar curves.
@@ -740,7 +851,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddPlanarSrf
+
+        """
         create_by_rail_rev = """
         Factory method:
         Create a surface by revolving a profile curve along a rail curve.
@@ -757,7 +871,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddRailRevSrf
+
+        """
         create_by_rev = """
         Factory method:
         Create a surface by revolving a curve around an axis.
@@ -775,7 +892,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddRevSrf
+
+        """
         create_by_control_pnt_grid = """
         Factory method:
         Creates a surface from a grid of control points.
@@ -792,7 +912,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSrfControlPtGrid
+
+        """
         create_by_corner_pnts = """
         Factory method:
         Creates a new surface from either 3 or 4 corner points.
@@ -807,7 +930,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSrfPt
+
+        """
         create_by_pnt_grid = """
         Factory method:
         Creates a surface from a grid of points.
@@ -825,7 +951,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSrfPtGrid
+
+        """
         create_by_sweep_1 = """
         Factory method:
         Adds a surface created through profile curves that define the surface shape and one curve that defines a surface edge. For more details on this method, see the Rhino help file for the Sweep1 command.
@@ -853,7 +982,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSweep1
+
+        """
         create_by_sweep_2 = """
         Factory method:
         Adds a surface created through profile curves that define the surface shape and two curves that define the surface edges. For more details on this method, see the Rhino help file for the Sweep2 command.
@@ -882,7 +1014,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSweep2
+
+        """
         create_by_extrude_crv = """
         Factory method:
         Creates a surface by extruding a curve along a path curve.
@@ -898,7 +1033,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtrudeCurve
+
+        """
         create_by_extrude_crv_pnt = """
         Factory method:
         Creates a surface by extruding a curve to a point.
@@ -914,7 +1052,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtrudeCurvePoint
+
+        """
         create_by_extrude_crv_straight = """
         Factory method:
         Creates a surface by extruding a curve straight along two points that define a line.
@@ -931,7 +1072,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtrudeCurveStraight
+
+        """
         create_by_extrude_crv_tapered = """
         Factory method:
         Creates a surface by extruding a curve to a taper. Unlike Lofts and Sweeps, the initial orientation of the profile curve is maintained through the extrusion.
@@ -962,7 +1106,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtrudeCurveTapered
+
+        """
         create_by_fit = """
         Factory method:
         Reduces the number of surface control points while maintaining the surfaces' same general shape.  Use this function for replacing surface with too many control points.  For more information, see the Rhino help file for the FitSrf command.
@@ -979,7 +1126,10 @@ class NurbsSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: FitSurface
+
+        """
 
 
 class PlanarMesh():
@@ -999,7 +1149,10 @@ class PlanarMesh():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddPlanarMesh
+
+        """
 
 
 class PlaneSurface():
@@ -1020,7 +1173,10 @@ class PlaneSurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddPlaneSurface
+
+        """
 
 
 class PolyCurve():
@@ -1040,7 +1196,10 @@ class PolyCurve():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: JoinCurves
+
+        """
 
 
 class PolySurface():
@@ -1061,7 +1220,10 @@ class PolySurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtrudeSurface
+
+        """
         create_by_srf_join = """
         Factory method:
         Joins two or more surface or polysurface object together to form one polysurface object.
@@ -1077,7 +1239,10 @@ class PolySurface():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: JoinSurfaces
+
+        """
 
 
 class Polyline():
@@ -1096,7 +1261,10 @@ class Polyline():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddPolyline
+
+        """
         create_by_crv = """
         Factory method:
         Converts a curve to a polyline curve.
@@ -1114,7 +1282,10 @@ class Polyline():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ConvertCurveToPolyline
+
+        """
         create_by_mesh_border = """
         Factory method:
         Creates a curve that duplicates a mesh border.
@@ -1129,7 +1300,10 @@ class Polyline():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: DuplicateMeshBorder
+
+        """
         create_by_mesh_pull = """
         Factory method:
         Pulls a curve object to a mesh object. The function makes a polyline approximation of the input curve and gets the closest point on the mesh for each point on the mesh.  Then it "connects the points" so  that you have a polyline on the mesh.
@@ -1145,7 +1319,10 @@ class Polyline():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: PullCurveToMesh
+
+        """
 
 
 class Sphere():
@@ -1165,7 +1342,10 @@ class Sphere():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSphere
+
+        """
         create_by_plane = """
         Factory method:
         Adds a spherical surface to the document.
@@ -1181,7 +1361,10 @@ class Sphere():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSphere
+
+        """
 
 
 class Torus():
@@ -1203,7 +1386,10 @@ class Torus():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddTorus
+
+        """
         create_by_plane = """
         Factory method:
         Adds a torus-shaped revolved surface to the document.
@@ -1220,7 +1406,10 @@ class Torus():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddTorus
+
+        """
 
 
 class _ArcDupl():
@@ -1239,7 +1428,10 @@ class _ArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSubCrv
+
+        """
         copy_move = """
         Copies a single object from one location to another, or in-place.
 
@@ -1254,7 +1446,10 @@ class _ArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -1268,7 +1463,10 @@ class _ArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -1296,7 +1494,10 @@ class _ArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurve
+
+        """
         copy_by_split = """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
 
@@ -1311,7 +1512,10 @@ class _ArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitCurve
+
+        """
         copy_by_trim = """
         Trims a curve by removing portions of the curve outside the specified interval.
 
@@ -1326,7 +1530,10 @@ class _ArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TrimCurve
+
+        """
 
 
 class _ArcProp():
@@ -1344,7 +1551,10 @@ class _ArcProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ArcAngle
+
+        """
         center_pnt = """
         Returns the center point of an arc curve object.
 
@@ -1357,7 +1567,10 @@ class _ArcProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ArcCenterPoint
+
+        """
         mid_pnt = """
         Returns the mid point of an arc curve object.
 
@@ -1370,7 +1583,10 @@ class _ArcProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ArcMidPoint
+
+        """
         radius = """
         Returns the radius of an arc curve object.
 
@@ -1384,7 +1600,10 @@ class _ArcProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ArcRadius
+
+        """
 
 
 class _BoxDupl():
@@ -1403,7 +1622,10 @@ class _BoxDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -1417,7 +1639,10 @@ class _BoxDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
 
 
 class _CircleDupl():
@@ -1436,7 +1661,10 @@ class _CircleDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSubCrv
+
+        """
         copy_move = """
         Copies a single object from one location to another, or in-place.
 
@@ -1451,7 +1679,10 @@ class _CircleDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -1465,7 +1696,10 @@ class _CircleDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -1493,7 +1727,10 @@ class _CircleDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurve
+
+        """
         copy_by_split = """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
 
@@ -1508,7 +1745,10 @@ class _CircleDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitCurve
+
+        """
         copy_by_trim = """
         Trims a curve by removing portions of the curve outside the specified interval.
 
@@ -1523,7 +1763,10 @@ class _CircleDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TrimCurve
+
+        """
 
 
 class _CircleProp():
@@ -1541,7 +1784,10 @@ class _CircleProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CircleCenterPoint
+
+        """
         circumference = """
         Returns the circumference of a circle curve object.
 
@@ -1555,7 +1801,10 @@ class _CircleProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CircleCircumference
+
+        """
         radius = """
         Returns the radius of a circle curve object.
 
@@ -1569,7 +1818,10 @@ class _CircleProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CircleRadius
+
+        """
 
 
 class _ConeDupl():
@@ -1588,7 +1840,10 @@ class _ConeDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -1602,7 +1857,10 @@ class _ConeDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
 
 
 class _ConeProp():
@@ -1623,7 +1881,10 @@ class _ConeProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceCone
+
+        """
 
 
 class _CurveRoot():
@@ -1647,8 +1908,11 @@ class _CurveRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
-        evaluate_derivatives = """
+        ===========
+        This function calls the Rhinoscript function: CurveCurvature
+
+        """
+        derivatives = """
         A general purpose curve evaluator.
 
         Parameters
@@ -1666,7 +1930,10 @@ class _CurveRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveEvaluate
+
+        """
         frame = """
         Returns the plane at a parameter of a curve. The plane is based on the tangent and curvature vectors at a parameter.
 
@@ -1680,7 +1947,10 @@ class _CurveRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveFrame
+
+        """
         perp_frame = """
         Returns the perpendicular plane at a parameter of a curve.  The result is relatively parallel (zero-twisting) plane.
 
@@ -1694,7 +1964,10 @@ class _CurveRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurvePerpFrame
+
+        """
         tangent = """
         Returns a 3-D vector that is the tangent to a curve at a parameter.
 
@@ -1708,7 +1981,10 @@ class _CurveRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveTangent
+
+        """
         evaluate = """
         Evaluates a curve at a parameter.
 
@@ -1722,7 +1998,10 @@ class _CurveRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: EvaluateCurve
+
+        """
 
 
 class _CurveRootFunc():
@@ -1741,7 +2020,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveArcLengthPoint
+
+        """
         closest_pnt = """
         Returns the parameter of the point on a curve that is closest to a test point.
 
@@ -1755,7 +2037,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveClosestPoint
+
+        """
         contour_pnts = """
         Returns the 3-D point locations calculated by contouring a curve object.
 
@@ -1771,7 +2056,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveContourPoints
+
+        """
         crv_intersection = """
         Calculates the intersection of two curve objects.
 
@@ -1791,7 +2079,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveCurveIntersection
+
+        """
         deviation = """
         Returns the minimum and maximum deviation between two curve objects. For more information on curve deviation, see the Rhino help file for the CrvDeviation command.
 
@@ -1811,7 +2102,10 @@ class _CurveRootFunc():
         None - On error or if no intervals of overlap were found.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveDeviation
+
+        """
         directions_match = """
         Tests if two curve objects are generally in the same direction or if they would be more in the same direction if one of them were flipped. When testing curve directions, both curves must be either open or closed - you cannot test one open curve and one closed curve.
 
@@ -1825,7 +2119,10 @@ class _CurveRootFunc():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveDirectionsMatch
+
+        """
         radius = """
         Returns the radius of curvature at a point on a curve.
 
@@ -1839,7 +2136,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveRadius
+
+        """
         srf_intersection = """
         Calculates the intersection of a curve object with a surface object. Note, this function works on the untrimmed portion of the surface.
 
@@ -1862,7 +2162,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveSurfaceIntersection
+
+        """
         divide_crv = """
         Divides a curve object into a specified number of segments.
 
@@ -1879,7 +2182,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: DivideCurve
+
+        """
         divide_crv_equidistant = """
         Divides a curve such that the linear distance between the points is equal.
 		Unlike the DivideCurve and DivideCurveLength, which divides a curve based on arc length, or the distance along the curve between two points, this function divides a curve based on the linear distance between points.
@@ -1897,7 +2203,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: DivideCurveEquidistant
+
+        """
         divide_crv_length = """
         Divides a curve object into segments of a specified length.
 
@@ -1914,7 +2223,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: DivideCurveLength
+
+        """
         line_fit_from_pnts = """
         Returns the starting and ending points of a line that was fit through an array of 3-D points.
 
@@ -1928,7 +2240,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: LineFitFromPoints
+
+        """
         make_non_periodic = """
         Makes a periodic curve non-periodic.  Non-periodic curves can develop kinks when deformed.
 
@@ -1943,7 +2258,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MakeCurveNonPeriodic
+
+        """
         make_periodic = """
         Makes an existing curve a periodic NURBS curve.  A periodic NURBS curve is a closed curve with a simple knot at the seam.  If a joined curve is made periodic, it becomes a single-span curve and can no longer be exploded.
 
@@ -1958,7 +2276,10 @@ class _CurveRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MakeCurvePeriodic
+
+        """
         planar_crv_collision = """
         Determines if two coplanar curves intersect.
 
@@ -1987,7 +2308,10 @@ class _CurveRootFunc():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: PlanarCurveCollision
+
+        """
 
 
 class _CurveRootFuncClsd():
@@ -2007,7 +2331,10 @@ class _CurveRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveArea
+
+        """
         area_centroid = """
         Returns that area centroid of closed, planar curves. The results are based on the current drawing units.
 
@@ -2021,7 +2348,10 @@ class _CurveRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveAreaCentroid
+
+        """
         boolean_difference = """
         Calculates the difference between two closed, planar curves and adds the results to the document. Note, curves must be coplanar.
 
@@ -2035,7 +2365,10 @@ class _CurveRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveBooleanDifference
+
+        """
         boolean_intersection = """
         Calculates the intersection of two closed, planar curves and adds the results to the document. Note, curves must be coplanar.
 
@@ -2049,7 +2382,10 @@ class _CurveRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveBooleanIntersection
+
+        """
         boolean_union = """
         Calculates the union of two or more closed, planar curves and adds the results to the document. Note, curves must be coplanar.
 
@@ -2063,7 +2399,10 @@ class _CurveRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveBooleanUnion
+
+        """
         containment = """
         Determines the relationship between the regions bounded by two coplanar simple closed curves.
 
@@ -2093,7 +2432,10 @@ class _CurveRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: PlanarClosedCurveContainment
+
+        """
         pnt_inside = """
         Determines if a point is inside of a closed curve, on  a closed curve, or outside of a closed curve.
 
@@ -2123,7 +2465,10 @@ class _CurveRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: PointInPlanarClosedCurve
+
+        """
 
 
 class _CurveRootFuncOorC():
@@ -2146,7 +2491,10 @@ class _CurveRootFuncOpen():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CloseCurve
+
+        """
         extend = """
         Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
 
@@ -2174,7 +2522,10 @@ class _CurveRootFuncOpen():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        """
         extend_length = """
         Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
 
@@ -2204,7 +2555,10 @@ class _CurveRootFuncOpen():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        """
         extend_pnt = """
         Extends a non-closed curve object by smooth extension to a point.
 
@@ -2224,7 +2578,10 @@ class _CurveRootFuncOpen():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        """
 
 
 class _CurveRootMdfy():
@@ -2242,7 +2599,10 @@ class _CurveRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveSeam
+
+        """
         fair = """
         Fairs a curve object. Fair works best on degree 3 (cubic) curves. Fair attempts to remove large curvature variations while limiting the geometry changes to be no more than the specified tolerance. Sometimes several applications of this method are necessary to remove nasty curvature problems.
 
@@ -2256,7 +2616,10 @@ class _CurveRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: FairCurve
+
+        """
         insert_knot = """
         Inserts a knot into a curve object.
 
@@ -2271,7 +2634,10 @@ class _CurveRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: InsertCurveKnot
+
+        """
         rebuild = """
         Rebuilds a curve to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.
 
@@ -2286,7 +2652,10 @@ class _CurveRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: RebuildCurve
+
+        """
         remove_knot = """
         Deletes a knot from a curve object.
 
@@ -2300,7 +2669,10 @@ class _CurveRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: RemoveCurveKnot
+
+        """
         reverse = """
         Reverses the direction of a curve object. This feature can also be found in Rhino's Dir command.
 
@@ -2314,7 +2686,10 @@ class _CurveRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ReverseCurve
+
+        """
         simplify = """
         Simplify curve replaces the curve with a geometrically equivalent polycurve. The polycurve will have the following properties:
 		1.  All the polycurve segments are lines, polylines, arcs, or NURBS curves.
@@ -2349,7 +2724,10 @@ class _CurveRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SimplifyCurve
+
+        """
 
 
 class _CurveRootProp():
@@ -2377,7 +2755,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveArrows
+
+        """
         degree = """
         Returns the degree of a curve object.
 
@@ -2391,7 +2772,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveDegree
+
+        """
         dim = """
         Returns the dimension of a curve object.
 
@@ -2405,7 +2789,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveDim
+
+        """
         discontinuity = """
         Search for a derivatitive, tangent, or curvature discontinuity in a curve object.
 
@@ -2430,7 +2817,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveDiscontinuity
+
+        """
         domain = """
         Returns the domain of a curve object.
 
@@ -2444,7 +2834,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveDomain
+
+        """
         edit_pnts = """
         Returns the edit, or Greville, points of a curve object.  For each curve control point, there is a corresponding edit point.
 
@@ -2459,7 +2852,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveEditPoints
+
+        """
         end_pnt = """
         Returns the end point of a curve object.
 
@@ -2473,7 +2869,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveEndPoint
+
+        """
         knot_count = """
         Returns the knot count of a curve object.
 
@@ -2487,7 +2886,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveKnotCount
+
+        """
         knots = """
         Returns the knots, or knot vector, of a curve object.
 
@@ -2501,7 +2903,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveKnots
+
+        """
         length = """
         Returns the length of a curve object.
 
@@ -2515,7 +2920,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveLength
+
+        """
         mid_pnt = """
         Returns the mid point of a curve object.
 
@@ -2529,7 +2937,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveMidPoint
+
+        """
         normal = """
         Returns the normal direction of the plane in which a planar curve object lies.
 
@@ -2543,7 +2954,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveNormal
+
+        """
         plane = """
         Returns the plane in which a planar curve lies. Note, this function works only on planar curves.
 
@@ -2557,7 +2971,10 @@ class _CurveRootProp():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurvePlane
+
+        """
         control_pnt_count = """
         Returns the control points count of a curve object.
 
@@ -2571,7 +2988,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurvePointCount
+
+        """
         control_pnts = """
         Returns the control points, or control vertices, of a curve object.  If the curve is a rational NURBS curve, the euclidean control vertices are returned.
 
@@ -2585,7 +3005,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurvePoints
+
+        """
         start_pnt = """
         Returns the start point of a curve object.
 
@@ -2599,7 +3022,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveStartPoint
+
+        """
         weights = """
         Returns an array of weight values that are assigned to the control points of a curve.
 
@@ -2613,7 +3039,10 @@ class _CurveRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveWeights
+
+        """
 
 
 class _CurveRootPropClsd():
@@ -2646,7 +3075,10 @@ class _CurveRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCurveClosable
+
+        """
         is_closed = """
         Verifies an object is a closed curve object.
 
@@ -2660,7 +3092,10 @@ class _CurveRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCurveClosed
+
+        """
         in_plane = """
         Test a curve to see if it lies in a specific plane.
 
@@ -2688,7 +3123,10 @@ class _CurveRootTest():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCurveInPlane
+
+        """
         is_linear = """
         Verifies an object is a linear curve object.
 
@@ -2702,7 +3140,10 @@ class _CurveRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCurveLinear
+
+        """
         is_periodic = """
         Verifies an object is a periodic curve object.
 
@@ -2716,7 +3157,10 @@ class _CurveRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCurvePeriodic
+
+        """
         is_planar = """
         Verifies an object is a planar curve object.
 
@@ -2730,7 +3174,10 @@ class _CurveRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCurvePlanar
+
+        """
         is_rational = """
         Verifies an object is a rational NURBS curve object.
 
@@ -2744,7 +3191,10 @@ class _CurveRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCurveRational
+
+        """
         is_pnt_on_crv = """
         Verifies that a point is on a curve.
 
@@ -2758,7 +3208,10 @@ class _CurveRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPointOnCurve
+
+        """
 
 
 class _CurveRootType():
@@ -2776,7 +3229,10 @@ class _CurveRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsArc
+
+        """
         is_circle = """
         Verifies an object is a circle curve object.
 
@@ -2790,7 +3246,10 @@ class _CurveRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCircle
+
+        """
         is_crv = """
         Verifies an object is a curve object.
 
@@ -2804,7 +3263,10 @@ class _CurveRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCurve
+
+        """
         is_ellipse = """
         Verifies an object is an elliptical-shaped curve object.
 
@@ -2818,7 +3280,10 @@ class _CurveRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsEllipse
+
+        """
         is_line = """
         Verifies an object is a line curve object.
 
@@ -2832,7 +3297,10 @@ class _CurveRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsLine
+
+        """
         is_poly_crv = """
         Verifies an object is a polycurve object.  A polycurve is a curve that is represented by a sequence of contiguous curve segments.
 
@@ -2846,7 +3314,10 @@ class _CurveRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPolyCurve
+
+        """
         is_polyline = """
         Verifies an object is a polyline curve object.
 
@@ -2860,7 +3331,10 @@ class _CurveRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPolyline
+
+        """
 
 
 class _CylinderDupl():
@@ -2879,7 +3353,10 @@ class _CylinderDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -2893,7 +3370,10 @@ class _CylinderDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
 
 
 class _CylinderProp():
@@ -2914,7 +3394,10 @@ class _CylinderProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceCylinder
+
+        """
 
 
 class _EllipseDupl():
@@ -2933,7 +3416,10 @@ class _EllipseDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSubCrv
+
+        """
         copy_move = """
         Copies a single object from one location to another, or in-place.
 
@@ -2948,7 +3434,10 @@ class _EllipseDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -2962,7 +3451,10 @@ class _EllipseDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -2990,7 +3482,10 @@ class _EllipseDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurve
+
+        """
         copy_by_split = """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
 
@@ -3005,7 +3500,10 @@ class _EllipseDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitCurve
+
+        """
         copy_by_trim = """
         Trims a curve by removing portions of the curve outside the specified interval.
 
@@ -3020,7 +3518,10 @@ class _EllipseDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TrimCurve
+
+        """
 
 
 class _EllipseProp():
@@ -3038,7 +3539,10 @@ class _EllipseProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: EllipseCenterPoint
+
+        """
         quad_pnts = """
         Returns the quadrant points of an elliptical-shaped curve object.
 
@@ -3052,7 +3556,10 @@ class _EllipseProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: EllipseQuadPoints
+
+        """
 
 
 class _EllipticalArcDupl():
@@ -3071,7 +3578,10 @@ class _EllipticalArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSubCrv
+
+        """
         copy_move = """
         Copies a single object from one location to another, or in-place.
 
@@ -3086,7 +3596,10 @@ class _EllipticalArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -3100,7 +3613,10 @@ class _EllipticalArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -3128,7 +3644,10 @@ class _EllipticalArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurve
+
+        """
         copy_by_split = """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
 
@@ -3143,7 +3662,10 @@ class _EllipticalArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitCurve
+
+        """
         copy_by_trim = """
         Trims a curve by removing portions of the curve outside the specified interval.
 
@@ -3158,7 +3680,10 @@ class _EllipticalArcDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TrimCurve
+
+        """
 
 
 class _LineDupl():
@@ -3177,7 +3702,10 @@ class _LineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSubCrv
+
+        """
         copy_move = """
         Copies a single object from one location to another, or in-place.
 
@@ -3192,7 +3720,10 @@ class _LineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -3206,7 +3737,10 @@ class _LineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -3234,7 +3768,10 @@ class _LineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurve
+
+        """
         copy_by_split = """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
 
@@ -3249,7 +3786,10 @@ class _LineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitCurve
+
+        """
         copy_by_trim = """
         Trims a curve by removing portions of the curve outside the specified interval.
 
@@ -3264,7 +3804,10 @@ class _LineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TrimCurve
+
+        """
 
 
 class _MeshDupl():
@@ -3283,7 +3826,10 @@ class _MeshDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -3297,7 +3843,10 @@ class _MeshDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
 
@@ -3312,7 +3861,10 @@ class _MeshDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshOffset
+
+        """
 
 
 class _MeshRoot():
@@ -3339,7 +3891,10 @@ class _MeshRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CurveMeshIntersection
+
+        """
         explode = """
         Explodes a mesh object, or mesh objects,  into submeshes.  A submesh is a collection of mesh faces that are contained within a closed loop of unwelded mesh edges.  Unwelded mesh edges are edges where the mesh faces that share the edge have unique mesh vertices (not mesh topology vertices) at both ends of the edge.
 
@@ -3353,7 +3908,10 @@ class _MeshRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExplodeMeshes
+
+        """
         closest_point = """
         Returns the point on a mesh that is closest to a test point.
 
@@ -3370,7 +3928,10 @@ class _MeshRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshClosestPoint
+
+        """
         contour_points = """
         Returns the vertices of the polyline curves generated by contouring a mesh object.
 
@@ -3387,7 +3948,10 @@ class _MeshRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshContourPoints
+
+        """
         mesh_intersection = """
         Calculates the intersection of a mesh object with another mesh object.
 
@@ -3402,7 +3966,10 @@ class _MeshRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshMeshIntersection
+
+        """
         naked_edge_points = """
         Identifies the naked edge points of a polygon mesh object. This function shows where polygon mesh vertices are not completely surrounded by faces. Joined meshes, such as are made by Mesh Box, have naked mesh edge points where the sub-meshes are joined.
 
@@ -3416,7 +3983,10 @@ class _MeshRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshNakedEdgePoints
+
+        """
         split_disjoint_mesh = """
         Splits up a mesh object into its unconnected pieces.
 
@@ -3430,7 +4000,10 @@ class _MeshRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitDisjointMesh
+
+        """
         unify_normals = """
         Fixes inconsistencies in the directions of faces of a mesh object.
 
@@ -3444,7 +4017,10 @@ class _MeshRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: UnifyMeshNormals
+
+        """
 
 
 class _MeshRootFuncClsd():
@@ -3463,7 +4039,10 @@ class _MeshRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshBooleanDifference
+
+        """
         boolean_intersection = """
         Performs a Boolean intersection operation on two sets of input meshes. For more details, see the MeshBooleanIntersection command in the Rhino help file.
 
@@ -3478,7 +4057,10 @@ class _MeshRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshBooleanIntersection
+
+        """
         boolean_split = """
         Performs a Boolean split operation on two sets of input meshes. For more details, see the MeshBooleanSplit command in the Rhino help file.
 
@@ -3493,7 +4075,10 @@ class _MeshRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshBooleanSplit
+
+        """
         boolean_union = """
         Performs a Boolean union operation on a set of input meshes. For more details, see the MeshBooleanUnion command in the Rhino help file.
 
@@ -3508,7 +4093,10 @@ class _MeshRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshBooleanUnion
+
+        """
 
 
 class _MeshRootFuncOorC():
@@ -3536,7 +4124,10 @@ class _MeshRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshQuadsToTriangles
+
+        """
 
 
 class _MeshRootProp():
@@ -3554,7 +4145,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: DisjointMeshCount
+
+        """
         area = """
         Returns the approximate area of one or more mesh objects.
 
@@ -3571,7 +4165,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshArea
+
+        """
         area_centroid = """
         Calculates the area centroid of a mesh object.
 
@@ -3585,7 +4182,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshAreaCentroid
+
+        """
         face_centers = """
         Returns the center point of each face of a mesh object.
 
@@ -3599,7 +4199,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshFaceCenters
+
+        """
         face_count = """
         Returns the total face count of a mesh object.
 
@@ -3613,7 +4216,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshFaceCount
+
+        """
         face_normals = """
         Returns the face unit normal for each face of a mesh object.
 
@@ -3627,7 +4233,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshFaceNormals
+
+        """
         face_vertices = """
         Returns the vertex indices of all faces of a mesh object.
 
@@ -3641,7 +4250,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshFaceVertices
+
+        """
         faces = """
         Returns the face vertices of a mesh object.
 
@@ -3660,7 +4272,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshFaces
+
+        """
         quad_count = """
         Returns the number of quad faces of a mesh object.
 
@@ -3674,7 +4289,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshQuadCount
+
+        """
         texture_coordinates = """
         Returns the normalized 2-D texture coordinates of a mesh object.
 
@@ -3688,7 +4306,10 @@ class _MeshRootProp():
         None - If the mesh does not contain texture coordinates, if not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshTextureCoordinates
+
+        """
         triangle_count = """
         Returns the number of triangular faces of a mesh object.
 
@@ -3702,7 +4323,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshTriangleCount
+
+        """
         vertex_colors = """
         Returns or modifies the  vertex colors of a mesh object
 
@@ -3717,7 +4341,10 @@ class _MeshRootProp():
         None - If object does not have vertex colors, if not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshVertexColors
+
+        """
         vertex_count = """
         Returns the vertex count of a mesh object.
 
@@ -3731,7 +4358,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshVertexCount
+
+        """
         vertex_normals = """
         Returns the vertex unit normal for each vertex of a mesh object.
 
@@ -3745,7 +4375,10 @@ class _MeshRootProp():
         None - If the mesh does not contain vertex normals, if not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshVertexNormals
+
+        """
         vertices = """
         Returns the vertices of a mesh object.
 
@@ -3759,7 +4392,10 @@ class _MeshRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshVertices
+
+        """
 
 
 class _MeshRootPropClsd():
@@ -3780,7 +4416,10 @@ class _MeshRootPropClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshVolume
+
+        """
         mesh_volume_centroid = """
         Calculates the volume centroid of a mesh object.
 
@@ -3794,7 +4433,10 @@ class _MeshRootPropClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshVolumeCentroid
+
+        """
 
 
 class _MeshRootPropOorc():
@@ -3822,7 +4464,10 @@ class _MeshRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsMeshClosed
+
+        """
         is_manifold = """
         Verifies a mesh object is manifold.  A mesh for which every edge is shared by at most two faces is called a manifold.  If a mesh has at least one edge that is shared by more than two faces, then that mesh is called non-manifold.
 
@@ -3836,7 +4481,10 @@ class _MeshRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsMeshManifold
+
+        """
         has_face_normals = """
         Verifies a mesh object has face normals.
 
@@ -3850,7 +4498,10 @@ class _MeshRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshHasFaceNormals
+
+        """
         has_texture_coordinates = """
         Verifies a mesh object has texture coordinates.
 
@@ -3864,7 +4515,10 @@ class _MeshRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshHasTextureCoordinates
+
+        """
         has_vertex_colors = """
         Verifies a mesh object has vertex colors.
 
@@ -3878,7 +4532,10 @@ class _MeshRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshHasVertexColors
+
+        """
         has_vertex_normals = """
         Verifies a mesh object has vertex normals.
 
@@ -3892,7 +4549,10 @@ class _MeshRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshHasVertexNormals
+
+        """
 
 
 class _MeshRootType():
@@ -3910,7 +4570,10 @@ class _MeshRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsMesh
+
+        """
 
 
 class _NurbsCurveDupl():
@@ -3929,7 +4592,10 @@ class _NurbsCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSubCrv
+
+        """
         copy_move = """
         Copies a single object from one location to another, or in-place.
 
@@ -3944,7 +4610,10 @@ class _NurbsCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -3958,7 +4627,10 @@ class _NurbsCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -3986,7 +4658,10 @@ class _NurbsCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurve
+
+        """
         copy_by_offset_on_srf = """
         Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
 
@@ -4001,7 +4676,10 @@ class _NurbsCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurveOnSurface
+
+        """
         copy_by_offset_on_srf_by_param = """
         Offset a curve on a surface.  The source curve must lie on the surface. The offset curve or curves will be added to Rhino.
 
@@ -4016,7 +4694,10 @@ class _NurbsCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurveOnSurface
+
+        """
         copy_by_split = """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
 
@@ -4031,7 +4712,10 @@ class _NurbsCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitCurve
+
+        """
         copy_by_trim = """
         Trims a curve by removing portions of the curve outside the specified interval.
 
@@ -4046,7 +4730,10 @@ class _NurbsCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TrimCurve
+
+        """
 
 
 class _NurbsSurfaceDupl():
@@ -4065,7 +4752,10 @@ class _NurbsSurfaceDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -4079,7 +4769,10 @@ class _NurbsSurfaceDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a surface by a distance. The offset surface will be added to Rhino.
 
@@ -4093,7 +4786,10 @@ class _NurbsSurfaceDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetSurface
+
+        """
 
 
 class _ObjectRoot():
@@ -4118,7 +4814,10 @@ class _ObjectRootDefm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: BoxMorphObject
+
+        """
         shear = """
         Performs a shear transformation on a single object. Transformation is based on the active construction plane.
 
@@ -4135,7 +4834,10 @@ class _ObjectRootDefm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ShearObject
+
+        """
         trfm = """
         Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
 		1
@@ -4166,7 +4868,10 @@ class _ObjectRootDefm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TransformObject
+
+        """
 
 
 class _ObjectRootFunc():
@@ -4189,7 +4894,10 @@ class _ObjectRootGrps():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectGroups
+
+        """
         top_group = """
         Returns the top most group name that an object is assigned.  This function primarily applies to objects that are members of nested groups.
 
@@ -4203,7 +4911,10 @@ class _ObjectRootGrps():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectTopGroup
+
+        """
 
 
 class _ObjectRootMdfy():
@@ -4221,7 +4932,10 @@ class _ObjectRootMdfy():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: DeleteObjects
+
+        """
 
 
 class _ObjectRootMtrl():
@@ -4241,7 +4955,10 @@ class _ObjectRootMtrl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMaterialIndex
+
+        """
         source = """
         Returns or modifies the rendering material source of an object.
 		Rendering materials are stored in Rhino's rendering material table.  This table is conceptually an array.  Render materials associated with objects and layers are specified by zero based indices into this array.
@@ -4272,7 +4989,10 @@ class _ObjectRootMtrl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMaterialSource
+
+        """
 
 
 class _ObjectRootProp():
@@ -4292,7 +5012,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectColor
+
+        """
         color_source = """
         Returns or modifies the color source of an object.   The color used to display objects is specified in one of four ways:
 		1. Color from layer.  The object's layer determines the object's color.
@@ -4321,7 +5044,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectColorSource
+
+        """
         layer = """
         Returns or modifies the layer of an object.
 
@@ -4337,7 +5063,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectLayer
+
+        """
         linetype = """
         Returns or modifies the linetype of an object.
 
@@ -4353,7 +5082,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectLinetype
+
+        """
         linetype_source = """
         Returns or modifies the linetype source of an object.   The linetype used to display objects is specified in one of three ways:
 		1. Linetype from layer.  The object's layer determines the object's linetype.
@@ -4381,7 +5113,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectLinetypeSource
+
+        """
         name = """
         Returns or modifies the user-definable name of one or more objects.
 
@@ -4396,7 +5131,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectNames
+
+        """
         print_color = """
         Returns or modifies the print color of an object.  Object print colors are represented as RGB colors.  An RGB color specifies the relative intensity of red, green, and blue to cause a specific color to be displayed.
 
@@ -4412,7 +5150,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectPrintColor
+
+        """
         print_color_source = """
         Returns or modifies the print color source of an object.  The color used to print objects is specified in one of four ways:
 		1. Print color from layer.  Use the print color assigned to the object's layer.
@@ -4441,7 +5182,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectPrintColorSource
+
+        """
         print_width = """
         Returns or modifies the print width of an object.  Object print widths are measured in millimeters (mm).
 
@@ -4457,7 +5201,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectPrintWidth
+
+        """
         print_width_source = """
         Returns or modifies the print width source of an object.  The width used to print objects is specified in one of three ways:
 		1. Print width from layer.  Use the print width assigned to the object's layer.
@@ -4485,7 +5232,10 @@ class _ObjectRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectPrintWidthSource
+
+        """
 
 
 class _ObjectRootRndr():
@@ -4513,7 +5263,10 @@ class _ObjectRootRndr():
         None - If the object does not have custom render mesh parameters, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddObjectMesh
+
+        """
         enable = """
         Enables or disables an object's custom render mesh parameters. If an object's custom render mesh parameters are enabled, then they will be used, instead of the document's render mesh parameters, when a render mesh is generated for the object.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -4529,7 +5282,10 @@ class _ObjectRootRndr():
         None - If the object does not have custom render mesh parameters, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: EnableObjectMesh
+
+        """
         has_mesh = """
         Verifies that an object has custom render mesh parameters.
 
@@ -4543,7 +5299,10 @@ class _ObjectRootRndr():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectHasMesh
+
+        """
         density = """
         Returns or modifies an object's custom render mesh parameter's mesh density property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -4559,7 +5318,10 @@ class _ObjectRootRndr():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshDensity
+
+        """
         max_angle = """
         Returns or modifies an object's custom render mesh parameter's maximum angle property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -4575,7 +5337,10 @@ class _ObjectRootRndr():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshMaxAngle
+
+        """
         max_aspect_ratio = """
         Returns or modifies an object's custom render mesh parameter's maximum aspect ratio property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -4591,7 +5356,10 @@ class _ObjectRootRndr():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshMaxAspectRatio
+
+        """
         max_dist_edge_to_srf = """
         Returns or modifies an object's custom render mesh parameter's maximum distance, edge to surface property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -4607,7 +5375,10 @@ class _ObjectRootRndr():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshMaxDistEdgeToSrf
+
+        """
         max_edge_length = """
         Returns or modifies an object's custom render mesh parameter's maximum edge length property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -4623,7 +5394,10 @@ class _ObjectRootRndr():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshMaxEdgeLength
+
+        """
         min_edge_length = """
         Returns or modifies an object's custom render mesh parameter's minimum edge length property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -4639,7 +5413,10 @@ class _ObjectRootRndr():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshMinEdgeLength
+
+        """
         min_initial_grid_quads = """
         Returns or modifies an object's custom render mesh parameter's minimum initial grid quads property.
 		For more information on render meshes, see the Document Properties: Mesh topic in the Rhino help file.
@@ -4655,7 +5432,10 @@ class _ObjectRootRndr():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshMinInitialGridQuads
+
+        """
         quality = """
         Returns or sets the render mesh quality of an object's custom render mesh parameters.
 
@@ -4677,7 +5457,10 @@ class _ObjectRootRndr():
         None - If the object does not have custom render mesh parameters, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshQuality
+
+        """
         settings = """
         Returns or sets the render mesh settings of an object's custom render mesh parameters.
 
@@ -4703,7 +5486,10 @@ class _ObjectRootRndr():
         None - If the object does not have custom render mesh parameters, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectMeshSettings
+
+        """
 
 
 class _ObjectRootStat():
@@ -4720,7 +5506,10 @@ class _ObjectRootStat():
         No returns
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: FlashObject
+
+        """
         hide = """
         Hides one or more objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
@@ -4734,7 +5523,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: HideObjects
+
+        """
         lock = """
         Locks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
@@ -4748,7 +5540,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: LockObjects
+
+        """
         match_object_attributes = """
         Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
 
@@ -4762,7 +5557,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MatchObjectAttributes
+
+        """
         reset_object_attributes = """
         Matches, or copies, the attributes of a source object to a target object or an array of target objects. If the source object is not specified, the attributes of the target object(s) will be reset to Rhino's default object attributes.
 
@@ -4776,7 +5574,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MatchObjectAttributes
+
+        """
         move_to_layout_space = """
         Returns or changes the layout or model space of an object.
 
@@ -4792,7 +5593,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectLayout
+
+        """
         select = """
         Selects one or more objects.
 
@@ -4806,7 +5610,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SelectObjects
+
+        """
         show = """
         Shows one or more hidden objects.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
@@ -4820,7 +5627,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ShowObjects
+
+        """
         unlock = """
         Unlocks one or more objects.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
@@ -4834,7 +5644,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: UnlockObjects
+
+        """
         unselect = """
         Unselects one or more selected objects.
 
@@ -4848,7 +5661,10 @@ class _ObjectRootStat():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: UnselectObjects
+
+        """
 
 
 class _ObjectRootTest():
@@ -4865,7 +5681,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsLayoutObject
+
+        """
         is_hidden = """
         Verifies that an object is hidden.  Hidden objects are not visible, cannot be snapped to, and cannot be selected.
 
@@ -4878,7 +5697,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectHidden
+
+        """
         is_in_box = """
         Verifies an object's bounding box is inside of another bounding box.
 
@@ -4897,7 +5719,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectInBox
+
+        """
         is_in_group = """
         Verifies that an object is a member of a specified group.
 
@@ -4910,7 +5735,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectInGroup
+
+        """
         is_locked = """
         Verifies that an object is locked.  Locked object are visible, and they can be snapped to.  But, they cannot be selected.
 
@@ -4923,7 +5751,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectLocked
+
+        """
         is_normal = """
         Verifies that an object is normal.  Normal objects are visible, can be snapped to, and can be selected.
 
@@ -4936,7 +5767,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectNormal
+
+        """
         is_reference = """
         Verifies that an object is a reference object.  Reference objects are object that are not part of the current document.
 
@@ -4949,7 +5783,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectReference
+
+        """
         is_selectable = """
         Verifies that an object is selectable.  Objects that are locked, hidden, or on locked or hidden layers cannot be selected.
 
@@ -4962,7 +5799,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectSelectable
+
+        """
         is_selected = """
         Verifies that an object is currently selected.
 
@@ -4975,7 +5815,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectSelected
+
+        """
         is_solid = """
         Verifies that an object is a closed, solid object.
 
@@ -4988,7 +5831,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectSolid
+
+        """
         is_valid = """
         Verifies that an object's geometry is valid and without error.
 
@@ -5001,7 +5847,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsObjectValid
+
+        """
         is_visible_in_view = """
         Verifies that an object is visible in a view.
 
@@ -5014,7 +5863,10 @@ class _ObjectRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsVisibleInView
+
+        """
 
 
 class _ObjectRootTrfm():
@@ -5034,7 +5886,10 @@ class _ObjectRootTrfm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MirrorObject
+
+        """
         move = """
         Moves a single object.
 
@@ -5049,7 +5904,10 @@ class _ObjectRootTrfm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MoveObject
+
+        """
         move_by_vec = """
         Moves a single object.
 
@@ -5063,7 +5921,10 @@ class _ObjectRootTrfm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MoveObject
+
+        """
         orient = """
         Orients a single object based on input points.
 
@@ -5084,7 +5945,10 @@ class _ObjectRootTrfm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OrientObject
+
+        """
         remap = """
         Remqps a single object from one plane, or coordinate system, to another.
 
@@ -5100,7 +5964,10 @@ class _ObjectRootTrfm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: RemapObject
+
+        """
         rotate = """
         Rotates a single object. Rotation is based on the active construction plane.
 
@@ -5117,7 +5984,10 @@ class _ObjectRootTrfm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: RotateObject
+
+        """
         scale = """
         Scales a single object. This function can be used to perform uniform or non-uniform scale transformations. Scaling is based on the active construction plane.
 
@@ -5133,7 +6003,10 @@ class _ObjectRootTrfm():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ScaleObject
+
+        """
 
 
 class _ObjectRootType():
@@ -5151,7 +6024,10 @@ class _ObjectRootType():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectType
+
+        """
 
 
 class _ObjectRootUtil():
@@ -5169,7 +6045,10 @@ class _ObjectRootUtil():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectDescription
+
+        """
         dump = """
         Returns a detailed description of an object.
 
@@ -5192,7 +6071,10 @@ class _ObjectRootUtil():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ObjectDump
+
+        """
 
 
 class _PlanarMeshDupl():
@@ -5211,7 +6093,10 @@ class _PlanarMeshDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -5225,7 +6110,10 @@ class _PlanarMeshDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
 
@@ -5240,7 +6128,10 @@ class _PlanarMeshDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MeshOffset
+
+        """
 
 
 class _PlaneSurfaceDupl():
@@ -5259,7 +6150,10 @@ class _PlaneSurfaceDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -5273,7 +6167,10 @@ class _PlaneSurfaceDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a surface by a distance. The offset surface will be added to Rhino.
 
@@ -5287,7 +6184,10 @@ class _PlaneSurfaceDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetSurface
+
+        """
 
 
 class _PolyCurveDupl():
@@ -5306,7 +6206,10 @@ class _PolyCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSubCrv
+
+        """
         copy_move = """
         Copies a single object from one location to another, or in-place.
 
@@ -5321,7 +6224,10 @@ class _PolyCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -5335,7 +6241,10 @@ class _PolyCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -5363,7 +6272,10 @@ class _PolyCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurve
+
+        """
         copy_by_split = """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
 
@@ -5378,7 +6290,10 @@ class _PolyCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitCurve
+
+        """
         copy_by_trim = """
         Trims a curve by removing portions of the curve outside the specified interval.
 
@@ -5393,7 +6308,48 @@ class _PolyCurveDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TrimCurve
+
+        """
+
+
+class _PolyCurveEval():
+
+        tangent = """
+        Returns a 3-D vector that is the tangent to a curve at a parameter.
+
+        Parameters
+        ==========
+        parameter  (float, Required) - The parameter to evaluate.
+
+        Returns
+        =======
+        list - A  3-D vector if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveTangent
+
+        """
+        evaluate = """
+        Evaluates a curve at a parameter.
+
+        Parameters
+        ==========
+        parameter  (float, Required) - The parameter to evaluate.
+
+        Returns
+        =======
+        list - A 3-D point if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: EvaluateCurve
+
+        """
 
 
 class _PolyCurveFunc():
@@ -5412,7 +6368,238 @@ class _PolyCurveFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExplodeCurves
+
+        """
+
+
+class _PolyCurveProp():
+
+        degree = """
+        Returns the degree of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        number - The degree of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveDegree
+
+        """
+        dim = """
+        Returns the dimension of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        number - The dimension of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveDim
+
+        """
+        domain = """
+        Returns the domain of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        list - The domain of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveDomain
+
+        """
+        edit_pnts = """
+        Returns the edit, or Greville, points of a curve object.  For each curve control point, there is a corresponding edit point.
+
+        Parameters
+        ==========
+        return_parameters  (boolean, Optional) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        list - If return_parameters is omitted or False, then a list of 3-D edit points if successful.
+        list - If return_parameters is True, then a list of parameter values if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveEditPoints
+
+        """
+        end_pnt = """
+        Returns the end point of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        list - The 3-D end point of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveEndPoint
+
+        """
+        knot_count = """
+        Returns the knot count of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        number - The number of knots if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveKnotCount
+
+        """
+        knots = """
+        Returns the knots, or knot vector, of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        list - The knot values of the curve  if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveKnots
+
+        """
+        length = """
+        Returns the length of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+        sub_domain  (List of integer, Optional) - An list of two numbers identifying the sub-domain of the curve on which the calculation will be performed.  The two parameters (sub-domain) must be non-decreasing.  If omitted, the length of the entire curve is returned.
+
+        Returns
+        =======
+        number - The length of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveLength
+
+        """
+        mid_pnt = """
+        Returns the mid point of a curve object.
+
+        Parameters
+        ==========
+        No parameters
+
+        Returns
+        =======
+        list - The 3-D mid point of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveMidPoint
+
+        """
+        control_pnt_count = """
+        Returns the control points count of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        number - The number of control points if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurvePointCount
+
+        """
+        control_pnts = """
+        Returns the control points, or control vertices, of a curve object.  If the curve is a rational NURBS curve, the euclidean control vertices are returned.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        list - The control points of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurvePoints
+
+        """
+        start_pnt = """
+        Returns the start point of a curve object.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        list - The 3-D starting point of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveStartPoint
+
+        """
+        weights = """
+        Returns an array of weight values that are assigned to the control points of a curve.
+
+        Parameters
+        ==========
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        list - The weight values of the curve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CurveWeights
+
+        """
 
 
 class _PolySurfaceDupl():
@@ -5431,7 +6618,10 @@ class _PolySurfaceDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -5445,7 +6635,10 @@ class _PolySurfaceDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
 
 
 class _PolySurfaceFunc():
@@ -5464,7 +6657,10 @@ class _PolySurfaceFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ExplodePolysurfaces
+
+        """
 
 
 class _PolylineDupl():
@@ -5483,7 +6679,10 @@ class _PolylineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: AddSubCrv
+
+        """
         copy_move = """
         Copies a single object from one location to another, or in-place.
 
@@ -5498,7 +6697,10 @@ class _PolylineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -5512,7 +6714,10 @@ class _PolylineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_by_offset = """
         Offsets a curve by a distance. The offset curve will be added to Rhino.
 
@@ -5540,7 +6745,10 @@ class _PolylineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: OffsetCurve
+
+        """
         copy_by_split = """
         Splits, or divides, a curve at a specified parameter. The parameter must be in the interior of the curve's domain.
 
@@ -5555,7 +6763,10 @@ class _PolylineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitCurve
+
+        """
         copy_by_trim = """
         Trims a curve by removing portions of the curve outside the specified interval.
 
@@ -5570,7 +6781,10 @@ class _PolylineDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: TrimCurve
+
+        """
 
 
 class _PolylineProp():
@@ -5588,7 +6802,10 @@ class _PolylineProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: PolylineVertices
+
+        """
 
 
 class _SphereDupl():
@@ -5607,7 +6824,10 @@ class _SphereDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -5621,7 +6841,10 @@ class _SphereDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
 
 
 class _SphereProp():
@@ -5641,7 +6864,10 @@ class _SphereProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceSphere
+
+        """
 
 
 class _SurfaceRoot():
@@ -5664,7 +6890,10 @@ class _SurfaceRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: EvaluateSurface
+
+        """
         evaluate_derivatives = """
         A general purpose surface evaluator.
 
@@ -5686,7 +6915,10 @@ class _SurfaceRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceEvaluate
+
+        """
         evaluate_frame = """
         Returns a plane based on the normal, u, and v directions at a given surface U,V parameter.
 
@@ -5700,7 +6932,10 @@ class _SurfaceRootEval():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceFrame
+
+        """
 
 
 class _SurfaceRootFunc():
@@ -5720,7 +6955,10 @@ class _SurfaceRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MakeSurfaceNonPeriodic
+
+        """
         make_periodic = """
         Makes an existing surface a periodic NURBS surface.
 
@@ -5736,7 +6974,10 @@ class _SurfaceRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: MakeSurfacePeriodic
+
+        """
         closest_pnt = """
         Returns the UV parameter of the point on a surface that is closest to a test point.
 
@@ -5750,7 +6991,10 @@ class _SurfaceRootFunc():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceClosestPoint
+
+        """
 
 
 class _SurfaceRootFuncClsd():
@@ -5769,7 +7013,10 @@ class _SurfaceRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: BooleanDifference
+
+        """
         boolean_intersection = """
         Performs a Boolean intersection operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanIntersection command in the Rhino help file.
 
@@ -5784,7 +7031,10 @@ class _SurfaceRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: BooleanIntersection
+
+        """
         boolean_union = """
         Performs a Boolean union operation on a set of input surfaces and polysurfaces. For more details, see the BooleanUnion command in the Rhino help file.
 
@@ -5799,7 +7049,10 @@ class _SurfaceRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: BooleanUnion
+
+        """
         brep_closest_pnt = """
         Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.
 
@@ -5813,7 +7066,10 @@ class _SurfaceRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: BrepClosestPoint
+
+        """
         intersect_breps = """
         Intersects a brep object with another  brep object. Note, unlike the SurfaceSurfaceIntersection function this function works on trimmed surfaces.
 
@@ -5828,7 +7084,10 @@ class _SurfaceRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IntersectBreps
+
+        """
         boolean_split = """
         Splits a brep.  A brep can be either a surface with a single face or a polysurface.
 
@@ -5843,7 +7102,10 @@ class _SurfaceRootFuncClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SplitBrep
+
+        """
 
 
 class _SurfaceRootFuncOorc():
@@ -5866,7 +7128,10 @@ class _SurfaceRootFuncOpen():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CapPlanarHoles
+
+        """
 
 
 class _SurfaceRootMdfy():
@@ -5885,7 +7150,10 @@ class _SurfaceRootMdfy():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: FlipSurface
+
+        """
         insert_knot = """
         Inserts a knot into a surface object.
 
@@ -5901,7 +7169,10 @@ class _SurfaceRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: InsertSurfaceKnot
+
+        """
         rebuild = """
         Rebuilds a surface to given degree and control point count.  For more information, see the Rhino help file for the Rebuild command.
 
@@ -5916,7 +7187,10 @@ class _SurfaceRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: RebuildSurface
+
+        """
         remove_knot = """
         Deletes a knot-line from a surface object.
 
@@ -5931,7 +7205,10 @@ class _SurfaceRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: RemoveSurfaceKnot
+
+        """
         reverse = """
         Reverses the U and V directions of a surface object. This feature can also be found in Rhino's Dir command.
 		To reverse the normal direction of a surface, use the FlipSurface method.
@@ -5953,7 +7230,10 @@ class _SurfaceRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ReverseSurface
+
+        """
         shrink_trimmed = """
         Shrinks the underlying untrimmed surfaces near to trimming boundaries. For more details, see the ShrinkTrimmedSrf command in the Rhino help file.
 
@@ -5967,7 +7247,10 @@ class _SurfaceRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: ShrinkTrimmedSurface
+
+        """
         seam = """
         Changes the seam of a closed surface. For more information, see the Rhino help file for the SrfSeam command.
 
@@ -5982,7 +7265,10 @@ class _SurfaceRootMdfy():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceSeam
+
+        """
 
 
 class _SurfaceRootProp():
@@ -6002,7 +7288,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceArea
+
+        """
         area_centroid = """
         Calculates the area centroid of a surface or polysurface object.
 
@@ -6016,7 +7305,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceAreaCentroid
+
+        """
         area_moments = """
         Calculates the area moments of inertia of a surface or polysurface object.  For more information, see the Rhino help file for "Mass Properties Calculation Details."
 
@@ -6030,7 +7322,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceAreaMoments
+
+        """
         contour_pnts = """
         Returns the vertices of the polyline curves generated by contouring a surface or polysurface object.
 
@@ -6047,7 +7342,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceContourPoints
+
+        """
         curvature = """
         Returns the curvature of a surface at a U,V parameter.  See the Rhino help file for details on surface curvature.
 
@@ -6065,7 +7363,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceCurvature
+
+        """
         curvature_analysis = """
         Returns the curvature of a surface.  See the Rhino help file for details on surface curvature analysis.
 
@@ -6083,7 +7384,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceCurvatureAnalysis
+
+        """
         degree = """
         Returns the degree of a  surface object in the specified direction.
 
@@ -6098,7 +7402,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceDegree
+
+        """
         domain = """
         Returns the domain of a  surface object in the specified direction.
 
@@ -6112,7 +7419,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceDomain
+
+        """
         edit_pnts = """
         Returns the edit, or Greville, points of a surface object.  For each surface control point, there is a corresponding edit point.
 
@@ -6128,7 +7438,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceEditPoints
+
+        """
         isocurve_density = """
         Returns or sets the isocurve density of a surface or polysurface object. An isoparametric curve is a curve of constant U or V value on a surface. Rhino uses isocurves and surface edge curves to visualize the shape of a NURBS surface.
 
@@ -6152,7 +7465,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceIsocurveDensity
+
+        """
         knot_count = """
         Returns the knot count of a surface object.
 
@@ -6166,7 +7482,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceKnotCount
+
+        """
         knots = """
         Returns the knots, or knot vector, of a surface object.
 
@@ -6180,7 +7499,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceKnots
+
+        """
         normal = """
         Returns a 3-D vector that is the normal to a surface at a parameter.
 
@@ -6194,7 +7516,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceNormal
+
+        """
         pnt_count = """
         Returns the control points count of a surface object.
 
@@ -6208,7 +7533,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfacePointCount
+
+        """
         pnts = """
         Returns the control points, or control vertices, of a surface object.
 
@@ -6222,7 +7550,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfacePoints
+
+        """
         weights = """
         Returns an array of weight values that are assigned to the control points of a surface.  The number of weights returned will be equal to the number of control points in the U and V directions.
 
@@ -6236,7 +7567,10 @@ class _SurfaceRootProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceWeights
+
+        """
 
 
 class _SurfaceRootPropClsd():
@@ -6256,7 +7590,10 @@ class _SurfaceRootPropClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceVolume
+
+        """
         volume_centroid = """
         Calculates the volume centroid of closed surface or polysurface objects.
 
@@ -6270,7 +7607,10 @@ class _SurfaceRootPropClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceVolumeCentroid
+
+        """
         volume_moments = """
         Calculates the volume moments of inertia of closed surface or polysurface objects.  For more information, see the Rhino help file for "Mass Properties Calculation Details."
 
@@ -6284,7 +7624,10 @@ class _SurfaceRootPropClsd():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceVolumeMoments
+
+        """
 
 
 class _SurfaceRootPropOorc():
@@ -6312,7 +7655,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsBrep
+
+        """
         is_brep_manifold = """
         Verifies a polysurface object is manifold.  A polysurface for which every edge is shared by at most two faces is called a manifold.  If a polysurface has at least one edge that is shared by more than two faces, then that polysurface is called non-manifold.
 
@@ -6326,7 +7672,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsBrepManifold
+
+        """
         is_parameter_on_srf = """
         Verifies that a parameter space point is on a trimmed surface, or not on the trimmed portion of a surface.
 
@@ -6340,7 +7689,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsParameterOnSurface
+
+        """
         is_plane_surface = """
         Verifies an object is a plane surface. Plane surfaces can be created by the Plane command. Note, a plane surface is not a planar NURBS surface.
 
@@ -6354,7 +7706,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPlaneSurface
+
+        """
         is_pnt_in_srf = """
         Verifies that a point is inside a closed surface or polysurface.
 
@@ -6368,7 +7723,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPointInSurface
+
+        """
         is_pnt_on_srf = """
         Verifies that a point lies on a surface.
 
@@ -6382,7 +7740,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPointOnSurface
+
+        """
         is_poly_srf = """
         Verifies an object is a polysurface.  Polysurfaces consists of two or more surfaces joined together. If the polysurface fully encloses a volume, it is considered a solid. In some other 3-D programs, this is called a "quilt."
 
@@ -6396,7 +7757,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPolySurface
+
+        """
         is_poly_surface_closed = """
         Verifies a polysurface object is closed.  If the polysurface fully encloses a volume, it is considered a solid.
 
@@ -6410,7 +7774,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPolySurfaceClosed
+
+        """
         is_poly_srf_planar = """
         Verifies a polysurface object is planar.
 
@@ -6424,7 +7791,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsPolySurfacePlanar
+
+        """
         is_srf_closed = """
         Verifies a surface object is closed in the specified direction.  If the surface fully encloses a volume, it is considered a solid.
 
@@ -6438,7 +7808,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsSurfaceClosed
+
+        """
         is_srf_periodic = """
         Verifies a surface object is periodic in the specified direction.
 
@@ -6452,7 +7825,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsSurfacePeriodic
+
+        """
         is_srf_planar = """
         Verifies a surface object is planar.
 
@@ -6466,7 +7842,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsSurfacePlanar
+
+        """
         is_srf_rational = """
         Verifies a surface object is rational.
 
@@ -6480,7 +7859,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsSurfaceRational
+
+        """
         is_srf_singular = """
         Verifies a surface object is singular in the specified direction.  Surfaces are considered singular if a side collapses to a point.
 
@@ -6494,7 +7876,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsSurfaceSingular
+
+        """
         is_srf_trimmed = """
         Verifies a surface object has been trimmed.
 
@@ -6508,7 +7893,10 @@ class _SurfaceRootTest():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsSurfaceTrimmed
+
+        """
 
 
 class _SurfaceRootType():
@@ -6526,7 +7914,10 @@ class _SurfaceRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCone
+
+        """
         is_cylinder = """
         Determines if a surface is a portion of a cylinder.
 
@@ -6540,7 +7931,10 @@ class _SurfaceRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsCylinder
+
+        """
         is_sphere = """
         Determines if a surface is a portion of a sphere.
 
@@ -6554,7 +7948,10 @@ class _SurfaceRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsSphere
+
+        """
         is_surface = """
         Verifies an object is surface.  Brep objects with only one face are also considered surfaces.
 
@@ -6568,7 +7965,10 @@ class _SurfaceRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsSurface
+
+        """
         is_torus = """
         Determines if a surface is a portion of a torus.
 
@@ -6582,7 +7982,10 @@ class _SurfaceRootType():
         None - On error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: IsTorus
+
+        """
 
 
 class _TorusDupl():
@@ -6601,7 +8004,10 @@ class _TorusDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
         copy_move_by_vec = """
         Copies a single object from one location to another, or in-place.
 
@@ -6615,7 +8021,10 @@ class _TorusDupl():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: CopyObject
+
+        """
 
 
 class _TorusProp():
@@ -6636,4 +8045,7 @@ class _TorusProp():
         None - If not successful, or on error.
 
         Rhinoscript
-        ==========="""
+        ===========
+        This function calls the Rhinoscript function: SurfaceTorus
+
+        """

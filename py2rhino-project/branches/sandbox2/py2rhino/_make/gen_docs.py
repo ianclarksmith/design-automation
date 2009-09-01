@@ -1,9 +1,14 @@
 import keyword
 from exceptions import Exception
 from util import *
+
 from py2rhino._make.data.gen_obj_in import descriptors as des_obj
+
 from py2rhino._make.data.gen_wrp_in import descriptors as des_wrp
-from py2rhino._make.data import parser_out as p2r
+
+from py2rhino._make.data.gen_fnc_in import descriptors as des_fnc
+
+from py2rhino._make.data import parser_out
 out_folder = ".\\data\\gen_docs_out\\"
 #===============================================================================
 # Get the data from the parser
@@ -22,45 +27,19 @@ def get_wrp_data_dictionary():
 
 def get_parser_data_dictionary():
     data = {}
-    for i in sorted(p2r.__dict__.keys()):
+    for i in sorted(parser_out.__dict__.keys()):
         if not i.startswith("__"):
-            if not isinstance(p2r.__dict__[i], dict):
+            if not isinstance(parser_out.__dict__[i], dict):
                 data[i] = {}
-                mod = p2r.__dict__[i]
+                mod = parser_out.__dict__[i]
                 for j in sorted(mod.__dict__.keys()):
                     if not j.startswith("__"):
                         #print i, j
                         data[j] = mod.__dict__[j]
 
     return data
-#===============================================================================
-# Generate the docs
-#===============================================================================
 
-
-type_map = {
-    "va":"list",
-    "n":"integer",
-    "int":"integer",
-    "lng":"integer",    
-    "dbl":"float",
-    "bln":"boolean",
-    "str":"string",
-    "number":"number",
-    "array_of dbl":"List of float",
-    "array_of int":"List of integer",    
-    "array_of bln":"List of boolean",
-    "array_of str":"List of string",
-    "_ObjectRoot":"object",
-    "_CurveRoot":"curve object",
-    "_SurfaceRoot":"surface object",
-    "_MeshRoot":"mesh object"
-            }
-opt_req_map = {
-    "REQ":"Required",
-    "OPT":"Optional",
-            }
-def get_descriptors_data_dictionary(debug=False):
+def get_des_obj_data_dictionary(debug=False):
     
     class_map = {}
     for function_list_name in des_obj.__dict__.keys():
@@ -127,176 +106,239 @@ def get_descriptors_data_dictionary(debug=False):
                     
     return class_map
 
+def get_des_fnc_data_dictionary():
+    
+    class_map = {}
+    for function_list_name in des_fnc.__dict__.keys():
+        if function_list_name.endswith('_methods'):
+            #print function_list_name
+            function_list = des_fnc.__dict__[function_list_name]
+            for module_name in function_list.__dict__.keys():
+                if not module_name.startswith('__'):
+                    mod_dict = function_list.__dict__[module_name]
+                    
+                    #folder
+                    folder = mod_dict.__dict__["folder"]
+                    
+                    #create an empty dict to store modules
+                    if not folder in class_map.keys():
+                        class_map[folder] = {}
+                    
+                    #create an empty dict to store functions
+                    if not module_name in class_map[folder].keys():
+                        class_map[folder][module_name] = {}
+                        
+                    #functions
+                    if "Functions" in mod_dict.__dict__.keys():
+                        for function_name in mod_dict.__dict__["Functions"].__dict__.keys():
+                            if not function_name.startswith("__"):
+                                function_dict = mod_dict.__dict__["Functions"].__dict__[function_name]
+                                class_map[folder][module_name][function_name] = function_dict
+
+    return class_map
+
+
 #===============================================================================
-# Write the classes
+# Generate the docs
 #===============================================================================
-def write_docs(data_dict, parser_dict):
+
+
+type_map = {
+    "va":"list",
+    "n":"integer",
+    "int":"integer",
+    "lng":"integer",    
+    "dbl":"float",
+    "bln":"boolean",
+    "str":"string",
+    "number":"number",
+    "array_of dbl":"List of float",
+    "array_of int":"List of integer",    
+    "array_of bln":"List of boolean",
+    "array_of str":"List of string",
+    "_ObjectRoot":"object",
+    "_CurveRoot":"curve object",
+    "_SurfaceRoot":"surface object",
+    "_MeshRoot":"mesh object"
+            }
+opt_req_map = {
+    "REQ":"Required",
+    "OPT":"Optional",
+            }
+
+
+
+
+#===============================================================================
+# Write a method doc - this is used for both functions in modules and for
+# class methods
+#===============================================================================
+def write_method(function_name, method_type, method_dict, parser_dict, f):
+    
+    #get the param data into a set of lists for easy access
+    params_name = []
+    params_opt_or_req = []
+    params_type = []
+    params_default = []
+    params_hidden = []                
+    
+    param_list = method_dict['method_parameters']
+    num_params = len(param_list)
+    
+    for param_num in range(num_params):
+        #extract the data
+        params_name.append(param_list[param_num][0])
+        params_type.append(param_list[param_num][1])            
+        params_opt_or_req.append(param_list[param_num][2])
+        if len(param_list[param_num]) > 3:
+            params_default.append(param_list[param_num][3])
+        else:
+            params_default.append(None)
+        if len(param_list[param_num]) > 4 and param_list[param_num][4] == "HIDE":
+            params_hidden.append(True)                   
+        else:
+            params_hidden.append(False)
+    
+    
+    
+    parser_data = {}
+    if function_name in parser_dict.keys():
+        parser_data = parser_dict[function_name]
+    elif function_name[-1].isdigit():
+        parser_data = parser_dict[function_name[:-2]]
+    else:
+        print "ERROR :", function_name, method_type
+        raise Exception
+    
+    doc = parser_data['doc_html']
+    vb_function_name = parser_data['input_file_name']
+    
+    method_name = method_dict['method_name']
+    
+    
+    w(f,(method_name, ' = """'), tabs=2)
+    if method_type == 'CONSTRUCTOR':
+        w(f,('Factory method:'), tabs=2)
+    w(f,(doc.strip()), tabs=2)
+    w(f,('Parameters'), tabs=2, nls=1)
+    w(f,('=========='), tabs=2)
+    param_counter = 0
+    if num_params >0:
+        for i in range(num_params):
+            if params_type[i] != 'SELF' and not params_hidden[i]:
+                param_counter += 1
+                
+                #get the type string
+                is_object = False
+                type_str = params_type[i]
+                if type_str.startswith('_'):
+                    is_object = True
+                    type_list = type_str.split('.')
+                    type_str = type_list[-1]
+                    if type_str.startswith('_'):
+                        type_str = type_map[type_str]
+                elif type_str.startswith('array_of _'):
+                    is_object = True
+                    type_list = type_str.split('.')
+                    type_str = type_list[-1]
+                    if type_str.startswith('_'):
+                        type_str = type_map[type_str]                        
+                    type_str = "list of " + type_str
+                else:
+                    type_str = type_map[params_type[i]]
+                    
+                #get the opt/req string
+                opt_req_str = opt_req_map[params_opt_or_req[i]]
+                
+                #get the doc string from the parser data
+                doc_str = None
+                #print parser_data['output_package_name'], function_name, i
+                original_param_name = wrp_dict[parser_data['output_package_name'] + '_functions'][function_name]['function_parameters'][i][0]
+                for parser_param_num in parser_data['params_html'].keys():
+                    if parser_data['params_html'][parser_param_num]['py_name'] == original_param_name:
+                        doc_str = parser_data['params_html'][parser_param_num]['doc'].strip()
+                if doc_str == None:
+                    print params_name[i], parser_data['params_html']
+                    print "ERROR: doc string not found for parameter"
+                
+                if is_object:
+                    doc_str = doc_str.replace("An array of strings identifying the ", "A list of ")
+                    doc_str = doc_str.replace("A string identifying the ", "The ")
+                    doc_str = doc_str.replace("An array of object identifier","A list of objects")
+                    doc_str = doc_str.replace("An array of object identifiers","A list of objects")
+                    
+                doc_str = doc_str.replace("array","list")
+                doc_str = doc_str.replace("null","None")                    
+                
+                w(f,(params_name[i], '  (', type_str,', ', opt_req_str, ') - ', doc_str), tabs = 2)
+                
+    if param_counter == 0:
+        w(f,'No parameters', tabs = 2)
+        
+        
+    parser_returns = parser_data['returns_html']
+    parser_params = parser_data['params_html']
+    param_map = {}
+    for i in parser_params.keys():
+        param_map[parser_params[i]['name']] = parser_params[i]['py_name']
+        
+    returns_list = method_dict['method_returns']
+                
+    w(f,('Returns'), tabs=2, nls=1)
+    w(f,('======='), tabs=2)
+    if method_type == 'CONSTRUCTOR':
+        if returns_list[0].startswith("array_of "):
+            w(f,"list of objects - The new objects if successful.", tabs=2)
+            w(f,"None - If not successful, or on error.", tabs=2)
+        else:
+            w(f,"object - The new object if successful.", tabs=2)
+            w(f,"None - If not successful, or on error.", tabs=2)
+    else:
+        if len(parser_returns) == 0:
+            w(f,'No returns', tabs=2)
+        else:
+            for i in parser_returns.keys():
+                
+                #get the return type
+                type_str = parser_returns[i]['type']
+                if type_str == 'string' and returns_list[0].startswith("_"):
+                    type_str = 'object'
+                elif type_str == 'array' and returns_list[0].startswith("array_of _"):
+                    type_str = 'list of objects'                        
+                elif type_str == 'array':
+                    type_str = 'list'
+                elif type_str == 'null':
+                    type_str = 'None'
+                          
+                #get the return doc string 
+                doc_str = doc_str = parser_returns[i]['doc']
+                doc_str = doc_str.replace("An array","A list")
+                doc_str = doc_str.replace("an array","a list")                    
+                doc_str = doc_str.replace("array","list")
+                doc_str = doc_str.replace("null","None")
+                doc_str = doc_str.replace(" the identifier of "," ")
+                doc_str = doc_str.replace("The identifier of the ","The ")
+                doc_str = doc_str.replace("An array of strings identifying the ", "A list of ")
+                doc_str = doc_str.replace("A string identifying the ", "The ")
+                for i in param_map.keys():
+                    doc_str = doc_str.replace(i, param_map[i])
+                
+                
+                
+                w(f,(type_str, ' - ', doc_str), tabs=2)
+            
+    w(f,('Rhinoscript'), tabs=2, nls=1)
+    w(f,('==========='), tabs=2)
+    w(f,('This function calls the Rhinoscript function: ', vb_function_name), tabs=2)
+    w(f,('"""'), nls=1, tabs=2)
+#===============================================================================
+# Write the docs for the classes
+#===============================================================================
+def write_obj_docs(des_obj_dict, parser_dict):
             
     #---------------------------------------------------------------------------
     def write_class_name(class_name, f):
         w(f,('class ', class_name,'():'), nls=2, nle=2)
-
-    #---------------------------------------------------------------------------
-    def write_method(function_name, class_name, method_type, method_dict, parser_dict, f):
-
-        #print function_name, class_name, method_type
-        
-        #get the param data into a set of lists for easy access
-        params_name = []
-        params_opt_or_req = []
-        params_type = []
-        params_default = []
-        params_hidden = []                
-        
-        param_list = method_dict['method_parameters']
-        num_params = len(param_list)
-        
-        for param_num in range(num_params):
-            #extract the data
-            params_name.append(param_list[param_num][0])
-            params_type.append(param_list[param_num][1])            
-            params_opt_or_req.append(param_list[param_num][2])
-            if len(param_list[param_num]) > 3:
-                params_default.append(param_list[param_num][3])
-            else:
-                params_default.append(None)
-            if len(param_list[param_num]) > 4 and param_list[param_num][4] == "HIDE":
-                params_hidden.append(True)                   
-            else:
-                params_hidden.append(False)
-        
-        
-        
-        parser_data = {}
-        if function_name in parser_dict.keys():
-            parser_data = parser_dict[function_name]
-        elif function_name[-1].isdigit():
-            parser_data = parser_dict[function_name[:-2]]
-        else:
-            print "ERROR :", function_name, class_name, method_type
-            raise Exception
-        
-        doc = parser_data['doc_html']
-
-        method_name = method_dict['method_name']
-        
-        
-        w(f,(method_name, ' = """'), tabs=2)
-        if method_type == 'CONSTRUCTOR':
-            w(f,('Factory method:'), tabs=2)
-        w(f,(doc.strip()), tabs=2)
-        w(f,('Parameters'), tabs=2, nls=1)
-        w(f,('=========='), tabs=2)
-        if num_params >0:
-            param_counter = 0
-            for i in range(num_params):
-                if params_type[i] != 'SELF' and not params_hidden[i]:
-                    param_counter += 1
-                    
-                    #get the type string
-                    is_object = False
-                    type_str = params_type[i]
-                    if type_str.startswith('_'):
-                        is_object = True
-                        type_list = type_str.split('.')
-                        type_str = type_list[-1]
-                        if type_str.startswith('_'):
-                            type_str = type_map[type_str]
-                    elif type_str.startswith('array_of _'):
-                        is_object = True
-                        type_list = type_str.split('.')
-                        type_str = type_list[-1]
-                        if type_str.startswith('_'):
-                            type_str = type_map[type_str]                        
-                        type_str = "list of " + type_str
-                    else:
-                        type_str = type_map[params_type[i]]
-                        
-                    #get the opt/req string
-                    opt_req_str = opt_req_map[params_opt_or_req[i]]
-                    
-                    #get the doc string from the parser data
-                    doc_str = None
-                    print parser_data['output_package_name'], function_name, i
-                    original_param_name = wrp_dict[parser_data['output_package_name'] + '_functions'][function_name]['function_parameters'][i][0]
-                    for parser_param_num in parser_data['params_html'].keys():
-                        if parser_data['params_html'][parser_param_num]['py_name'] == original_param_name:
-                            doc_str = parser_data['params_html'][parser_param_num]['doc'].strip()
-                    if doc_str == None:
-                        print params_name[i], parser_data['params_html']
-                        print "ERROR: doc string not found for parameter"
-                    
-                    if is_object:
-                        doc_str = doc_str.replace("An array of strings identifying the ", "A list of ")
-                        doc_str = doc_str.replace("A string identifying the ", "The ")
-                        doc_str = doc_str.replace("An array of object identifier","A list of objects")
-                        doc_str = doc_str.replace("An array of object identifiers","A list of objects")
-                        
-                    doc_str = doc_str.replace("array","list")
-                    doc_str = doc_str.replace("null","None")                    
-                    
-                    w(f,(params_name[i], '  (', type_str,', ', opt_req_str, ') - ', doc_str), tabs = 2)
-                    
-        if param_counter == 0:
-            w(f,'No parameters', tabs = 2)
-            
-            
-        parser_returns = parser_data['returns_html']
-        parser_params = parser_data['params_html']
-        param_map = {}
-        for i in parser_params.keys():
-            param_map[parser_params[i]['name']] = parser_params[i]['py_name']
-            
-        returns_list = method_dict['method_returns']
-                    
-        w(f,('Returns'), tabs=2, nls=1)
-        w(f,('======='), tabs=2)
-        if method_type == 'CONSTRUCTOR':
-            if returns_list[0].startswith("array_of "):
-                w(f,"list of objects - The new objects if successful.", tabs=2)
-                w(f,"None - If not successful, or on error.", tabs=2)
-            else:
-                w(f,"object - The new object if successful.", tabs=2)
-                w(f,"None - If not successful, or on error.", tabs=2)
-        else:
-            if len(parser_returns) == 0:
-                w(f,'No returns', tabs=2)
-            else:
-                for i in parser_returns.keys():
-                    
-                    #get the return type
-                    type_str = parser_returns[i]['type']
-                    if type_str == 'string' and returns_list[0].startswith("_"):
-                        type_str = 'object'
-                    elif type_str == 'array' and returns_list[0].startswith("array_of _"):
-                        type_str = 'list of objects'                        
-                    elif type_str == 'array':
-                        type_str = 'list'
-                    elif type_str == 'null':
-                        type_str = 'None'
-                              
-                    #get the return doc string 
-                    doc_str = doc_str = parser_returns[i]['doc']
-                    doc_str = doc_str.replace("An array","A list")
-                    doc_str = doc_str.replace("an array","a list")                    
-                    doc_str = doc_str.replace("array","list")
-                    doc_str = doc_str.replace("null","None")
-                    doc_str = doc_str.replace(" the identifier of "," ")
-                    doc_str = doc_str.replace("The identifier of the ","The ")
-                    doc_str = doc_str.replace("An array of strings identifying the ", "A list of ")
-                    doc_str = doc_str.replace("A string identifying the ", "The ")
-                    for i in param_map.keys():
-                        doc_str = doc_str.replace(i, param_map[i])
-                    
-                    
-                    
-                    w(f,(type_str, ' - ', doc_str), tabs=2)
-                
-        w(f,('Rhinoscript'), tabs=2, nls=1)
-        w(f,('==========="""'), tabs=2)
-        
-
-        
 
     #---------------------------------------------------------------------------
     def write_class(class_name, class_dict, parser_dict, f):
@@ -315,9 +357,9 @@ def write_docs(data_dict, parser_dict):
             count += 1
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
-                    write_method(function_name, class_name, 'CONSTRUCTOR', method_dict[i], parser_dict, f)
+                    write_method(function_name, 'CONSTRUCTOR', method_dict[i], parser_dict, f)
             else:
-                write_method(function_name, class_name, 'CONSTRUCTOR', method_dict, parser_dict, f)
+                write_method(function_name, 'CONSTRUCTOR', method_dict, parser_dict, f)
 
         #write each method to the class file
         for function_name in sorted(class_dict['methods'].keys()):
@@ -325,9 +367,9 @@ def write_docs(data_dict, parser_dict):
             count += 1
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
-                    write_method(function_name, class_name, 'METHOD', method_dict[i], parser_dict, f)
+                    write_method(function_name, 'METHOD', method_dict[i], parser_dict, f)
             else:
-                write_method(function_name, class_name, 'METHOD', method_dict, parser_dict, f)    
+                write_method(function_name, 'METHOD', method_dict, parser_dict, f)    
 
         #write each class method to the class file
         for function_name in sorted(class_dict['class_methods'].keys()):
@@ -335,34 +377,66 @@ def write_docs(data_dict, parser_dict):
             count += 1
             if 0 in method_dict.keys():
                 for i in method_dict.keys():
-                    write_method(function_name, class_name, 'CLASS_METHOD', method_dict[i], parser_dict, f)
+                    write_method(function_name, 'CLASS_METHOD', method_dict[i], parser_dict, f)
             else:
-                write_method(function_name, class_name, 'CLASS_METHOD', method_dict,  parser_dict,f)
+                write_method(function_name, 'CLASS_METHOD', method_dict,  parser_dict,f)
             
         if count == 0:
             w(f,('pass'), tabs=1)
     #---------------------------------------------------------------------------
     #open the base file
-    f = open(out_folder + 'docs_data.py', mode='w')
+    f = open(out_folder + 'obj.py', mode='w')
 
-    for class_name in sorted(data_dict.keys()):
-        class_dict = data_dict[class_name]
+    for class_name in sorted(des_obj_dict.keys()):
+        class_dict = des_obj_dict[class_name]
         write_class(class_name, class_dict,  parser_dict, f)
 
     f.close()
     #---------------------------------------------------------------------------
 
 #===============================================================================
+# Write the docs for the functions
+#===============================================================================
+def write_fnc_docs(des_fnc_dict, parser_dict):
+    #---------------------------------------------------------------------------
+    def write_module_name(module_name, f):
+        w(f,('class ', module_name,'():'), nls=2, nle=2)
+
+    #---------------------------------------------------------------------------
+    for folder_name in sorted(des_fnc_dict.keys()):
+        folder_dict = des_fnc_dict[folder_name]
+        
+        f = open(out_folder + folder_name + '.py', mode='w')
+        
+        for module_name in sorted(folder_dict.keys()):
+            module_dict = folder_dict[module_name]
+            
+            write_module_name(module_name, f)
+            
+            for function_name in sorted(module_dict.keys()):
+                function_dict = module_dict[function_name]
+                
+                if 0 in function_dict.keys():
+                    for i in function_dict.keys():
+                        write_method(function_name, 'FUNCTION', function_dict[i], parser_dict, f)
+                else:
+                    write_method(function_name, 'FUNCTION', function_dict, parser_dict, f)
+                
+        f.close()
+    
+    #---------------------------------------------------------------------------
+#===============================================================================
 # Run
 #===============================================================================
 if __name__ == '__main__':
     parser_dict = get_parser_data_dictionary()
     wrp_dict = get_wrp_data_dictionary()
-    print wrp_dict.keys()
-    descriptors_dict = get_descriptors_data_dictionary()
+    des_obj_dict = get_des_obj_data_dictionary()
+    des_fnc_dict = get_des_fnc_data_dictionary()
     
-    write_docs(descriptors_dict, parser_dict)
-
+    write_obj_docs(des_obj_dict, parser_dict)
+    write_fnc_docs(des_fnc_dict, parser_dict)
+    
     print "done generating docs"
     
     
