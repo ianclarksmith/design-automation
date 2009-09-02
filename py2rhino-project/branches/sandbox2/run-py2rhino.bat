@@ -1,0 +1,1 @@
+C:\python25\Scripts\epydoc.py -v --inheritance included --html D:\Temp\epydoc\in\py2rhino-project\py2rhino -o D:\Temp\epydoc\out\py2rhino --name py2rhino --debug --css black
