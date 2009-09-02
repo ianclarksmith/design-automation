@@ -188,8 +188,8 @@ class obj_test(unittest.TestCase):
         self.assertEqual(type(planesurface1),p2r.obj.PlaneSurface)
         
     def testCreatePolyCurve(self):
-        arc1 = p2r.obj.Arc.create((5,5,5), 5, 45)
-        arc2 = p2r.obj.Arc.create((0,0,0), 5, 45)
+        arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
+        arc2 = p2r.obj.Line.create((10,0,0), (20,20,0))
         polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
         self.assertEqual(type(polycurve1),p2r.obj.PolyCurve)
         
@@ -526,7 +526,9 @@ class obj_test(unittest.TestCase):
         
     def testArcOrient(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        arc2 = arc1.trfm.orient(pl1,pl2)
         self.assertEqual(type(arc2),p2r.obj.Arc)  
         
     def testArcRemap(self):
@@ -817,7 +819,9 @@ class obj_test(unittest.TestCase):
         
     def testBoxOrient(self):
         box1 = p2r.obj.Box.create(((0,0,0),(0,0,1),(5,0,0),(10,0,0),(20,0,0),(20,0,1),(8,0,0),(20,10,0)))
-        box2 = box1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        box2 = box1.trfm.orient(pl1, pl2)
         self.assertEqual(type(box2),p2r.obj.Box)  
         
     def testBoxRemap(self):
@@ -1141,7 +1145,9 @@ class obj_test(unittest.TestCase):
         
     def testCircleOrient(self):
         circle1 = p2r.obj.Circle.create((0,0,0), 45)
-        circle2 = circle1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        circle2 = circle1.trfm.orient(pl1,pl2)
         self.assertEqual(type(circle2),p2r.obj.Circle)  
         
     def testCircleRemap(self):
@@ -1407,7 +1413,9 @@ class obj_test(unittest.TestCase):
         
     def testConeOrient(self):
         cone1 = p2r.obj.Cone.create((0,0,0), (1,1,1), 5)
-        cone2 = cone1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        cone2 = cone1.trfm.orient(pl1,pl2)
         self.assertEqual(type(cone2),p2r.obj.Cone)  
         
     def testConeRemap(self):
@@ -1682,7 +1690,9 @@ class obj_test(unittest.TestCase):
         
     def testCylinderOrient(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
-        cylinder2 = cylinder1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        cylinder2 = cylinder1.trfm.orient(pl1,pl2)
         self.assertEqual(type(cylinder2),p2r.obj.Cylinder)  
         
     def testCylinderRemap(self):
@@ -2000,7 +2010,9 @@ class obj_test(unittest.TestCase):
         
     def testEllipseOrient(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
-        ellipse2 = ellipse1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        ellipse2 = ellipse1.trfm.orient(pl1,pl2)
         self.assertEqual(type(ellipse2),p2r.obj.Ellipse)  
         
     def testEllipseRemap(self):
@@ -2299,7 +2311,9 @@ class obj_test(unittest.TestCase):
         
     def testLineOrient(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        line2 = line1.trfm.orient(pl1,pl2)
         self.assertEqual(type(line2),p2r.obj.Line)  
         
     def testLineRemap(self):
@@ -2459,7 +2473,9 @@ class obj_test(unittest.TestCase):
         
     def testMeshOrient(self):
         mesh1 = p2r.obj.Mesh.create(((0,0,0),(5,0,0),(10,0,0),(0,5,0),(5,5,0),(10,5,0),(0,10,0),(5,10,0),(10,10,0)), ((0,1,4,4),(2,4,1,1),(0,4,3,3),(2,5,4,4),(3,4,6,6),(5,8,4,4),(6,4,7,7),(8,7,4,4)))
-        mesh2 = mesh1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        mesh2 = mesh1.trfm.orient(pl1,pl2)
         self.assertEqual(type(mesh2),p2r.obj.Mesh)  
         
     def testMeshRemap(self):
@@ -2768,7 +2784,9 @@ class obj_test(unittest.TestCase):
         
     def testNurbsCurveOrient(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
-        nurbscurve2 = nurbscurve1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        nurbscurve2 = nurbscurve1.trfm.orient(pl1,pl2)
         self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)  
         
     def testNurbsCurveRemap(self):
@@ -3019,7 +3037,9 @@ class obj_test(unittest.TestCase):
         
     def testNurbsSurfaceOrient(self):
         nurbssurface1= p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurbssurface2 = nurbssurface1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        nurbssurface2 = nurbssurface1.trfm.orient(pl1,pl2)
         self.assertEqual(type(nurbssurface2),p2r.obj.NurbsSurface)  
         
     def testNurbsSurfaceRemap(self):
@@ -3252,7 +3272,9 @@ class obj_test(unittest.TestCase):
     def testPlanarMeshOrient(self):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
-        planarmesh2 = planarmesh1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        planarmesh2 = planarmesh1.trfm.orient(pl1,pl2)
         self.assertEqual(type(planarmesh2),p2r.obj.PlanarMesh)  
         
     def testPlanarMeshRemap(self):
@@ -3485,7 +3507,9 @@ class obj_test(unittest.TestCase):
         
     def testPlaneSurfaceOrient(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
-        planesurface2 = planesurface1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        planesurface2 = planesurface1.trfm.orient(pl1,pl2)
         self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
         
     def testPlaneSurfaceRemap(self):
@@ -3570,7 +3594,7 @@ class obj_test(unittest.TestCase):
         
     def testSphereInsertKnot(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
-        sphere2 = sphere1.modf.insert_knot((0,1),0)
+        sphere2 = sphere1.modf.insert_knot(1)
         self.assertEqual(type(sphere2),bool)  
 
     def testSphereRebuild(self):
@@ -3725,7 +3749,9 @@ class obj_test(unittest.TestCase):
         
     def testSphereOrient(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
-        sphere2 = sphere1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        sphere2 = sphere1.trfm.orient(pl1,pl2)
         self.assertEqual(type(sphere2),p2r.obj.Sphere)  
         
     def testSphereRemap(self):
@@ -3878,10 +3904,10 @@ class obj_test(unittest.TestCase):
         polyline2 = polyline1.mtrl.source(0);              #TODO: if 0 is not provided, none is returned.
         self.assertEqual(type(polyline2),int)   
         
-    def testPolylineArrows(self):
+    def testPolylineVertices(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.prop.arrows()
-        self.assertEqual(type(polyline2),int)     
+        polyline2 = polyline1.prop.vertices()
+        self.assertEqual(type(polyline2)[0],int)     
         
     def testPolylineAddMesh(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
@@ -4001,7 +4027,9 @@ class obj_test(unittest.TestCase):
         
     def testPolylineOrient(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        polyline2 = polyline1.trfm.orient(pl1,pl2)
         self.assertEqual(type(polyline2),p2r.obj.Polyline)  
         
     def testPolylineRemap(self):
@@ -4282,12 +4310,16 @@ class obj_test(unittest.TestCase):
         
     def testTorusOrient(self):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
-        torus2 = torus1.trfm.orient((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        torus2 = torus1.trfm.orient(pl1,pl2)
         self.assertEqual(type(torus2),p2r.obj.Torus)  
         
     def testTorusRemap(self):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
-        torus2 = torus1.trfm.remap((0,0,0),(1,1,1))
+        pl1 = ((0,0,0),(1,0,0),(0,1,0))
+        pl2 = ((10,0,0),(1,0,0),(0,1,0))
+        torus2 = torus1.trfm.remap(pl1, pl2)
         self.assertEqual(type(torus2),p2r.obj.Torus)  
         
     def testTorusRotate(self):
@@ -4305,4 +4337,14 @@ class obj_test(unittest.TestCase):
         torus2 = torus1.util.description()
         self.assertEqual(type(torus2),unicode)    
 if __name__ == '__main__':
-        unittest.main()
+    import sys
+    f = open("temp.txt", "w")
+    sys.stdout = f
+    sys.stderr = f
+    
+    unittest.main()
+    
+    sys.stdout = sys.__stdout__
+    sys.stderr = sys.__stderr__
+    print "done"
+    f.close()
