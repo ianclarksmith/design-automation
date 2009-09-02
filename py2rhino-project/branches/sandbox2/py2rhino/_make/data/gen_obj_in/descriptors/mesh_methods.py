@@ -100,7 +100,7 @@ class _PlanarMeshDupl(object):
             }
         mesh_offset = {#ed
             "method_name": "copy_by_offset",
-            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),("distance","dbl","REQ"),),
+            "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._MeshRoot.PlanarMesh","null")
             } 
 #===============================================================================

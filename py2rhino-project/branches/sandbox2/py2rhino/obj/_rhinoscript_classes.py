@@ -3589,7 +3589,7 @@ class _PlanarMeshDupl(object):
         else:
             return None
 
-    def copy_by_offset(self, mesh, distance):
+    def copy_by_offset(self, distance):
         """
         
         Makes a new mesh with vertices offset at a distance in the opposite direction of the existing vertex normals.
@@ -3610,7 +3610,7 @@ class _PlanarMeshDupl(object):
 
         
         """
-        _rhino_id = _base._rsf.mesh_offset(mesh._rhino_id, distance)
+        _rhino_id = _base._rsf.mesh_offset(self._rhino_id, distance)
         if _rhino_id:
             return p2r.obj.PlanarMesh(_rhino_id)
         else:
@@ -9071,12 +9071,18 @@ class Cone(_SurfaceRoot):
         
         """
 
-        _rhino_id = _base._rsf.add_cone_2(base_plane, height, radius, cap)
+        base_point = base_plane[0]
+        z_axis = _base._rsf.vector_cross_product(base_plane[1], base_plane[2])
+        z_axis = _base._rsf.vector_unitize(z_axis)
+        z_axis = _base._rsf.vector_scale(z_axis, height)
+        height_point = _base._rsf.point_add( base_point, z_axis )
+        _rhino_id = _base._rsf.add_cone(base_point, height_point, radius, cap)
 
         if _rhino_id:
-            return Cone(_rhino_id)
+            return Cylinder(_rhino_id)
         else:
             return None
+
 class Cylinder(_SurfaceRoot):
     class defm(_ObjectRootDefm):
         def __init__(self, _rhino_id):

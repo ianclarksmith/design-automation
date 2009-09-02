@@ -6123,7 +6123,6 @@ class _PlanarMeshDupl():
 
         Parameters
         ==========
-        mesh  (mesh object, Required) - The identifier of a mesh object.
         distance  (float, Required) - The distance to offset.
 
         Returns
@@ -6326,6 +6325,7 @@ class _PolyCurveEval():
         Parameters
         ==========
         parameter  (float, Required) - The parameter to evaluate.
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns
         =======
@@ -6343,6 +6343,7 @@ class _PolyCurveEval():
         Parameters
         ==========
         parameter  (float, Required) - The parameter to evaluate.
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns
         =======
@@ -6436,7 +6437,7 @@ class _PolyCurveProp():
 
         Parameters
         ==========
-        return_parameters  (boolean, Optional) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
+        return_parameters  (boolean, Required) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
         index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns

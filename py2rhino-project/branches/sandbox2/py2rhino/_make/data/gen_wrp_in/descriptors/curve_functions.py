@@ -743,7 +743,7 @@ join_curves = {
     "function_com_id": 111,
     "function_vb_name": "JoinCurves",
     "function_name": "join_curves",
-    "function_parameters": (("object","str","REQ"),("delete","bln","OPT")),
+    "function_parameters": (("objects","array_of str","REQ"),("delete","bln","OPT")),
     "function_returns": ("array","null")
     }
 line_fit_from_points = {

@@ -1276,10 +1276,10 @@ class _RhinoscriptFunctions(IRhinoScript):
 
         return self._ApplyTypes_(110, 1, (VT_VARIANT, 0), magic, u"IsPolyline", None, *flattened)
 
-    def join_curves(self, object, delete):
+    def join_curves(self, objects, delete):
 
-        magic = ((VT_BSTR, 1), (VT_BOOL, 1))
-        flattened = (object, delete)
+        magic = ((VT_VARIANT, 1), (VT_BOOL, 1))
+        flattened = (flatten_params(objects), delete)
 
         return self._ApplyTypes_(111, 1, (VT_VARIANT, 0), magic, u"JoinCurves", None, *flattened)
 
@@ -4532,11 +4532,10 @@ class _RhinoscriptFunctions(IRhinoScript):
         return self._ApplyTypes_(73, 1, (VT_VARIANT, 0), magic, u"AddCylinder", None, *flattened)
 
     def add_cylinder_2(self, plane, height, radius, cap):
-        
-        
-        magic = ((VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
-        flattened = (flatten_params(plane), (0,0,height), radius, cap)
-        
+
+        magic = ((VT_ARRAY + VT_R8, 1), (VT_R8, 1), (VT_R8, 1), (VT_BOOL, 1))
+        flattened = (flatten_params(plane), height, radius, cap)
+
         return self._ApplyTypes_(73, 1, (VT_VARIANT, 0), magic, u"AddCylinder", None, *flattened)
 
     def add_edge_srf(self, objects):
@@ -4947,8 +4946,8 @@ class _RhinoscriptFunctions(IRhinoScript):
 
     def join_surfaces(self, object, delete):
 
-        magic = ((VT_BSTR, 1), (VT_BOOL, 1))
-        flattened = (object, delete)
+        magic = ((VT_VARIANT, 1), (VT_BOOL, 1))
+        flattened = (flatten_params(object), delete)
 
         return self._ApplyTypes_(487, 1, (VT_VARIANT, 0), magic, u"JoinSurfaces", None, *flattened)
 
