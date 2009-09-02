@@ -15,12 +15,12 @@ class obj_test(unittest.TestCase):
         
     def testArcTrfm(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        arc2 = arc1.defm.trfm(((0,0,0,0),(0,1,0,0),(0,2,0,0),(0,3,0,0)))
         self.assertEqual(type(arc2),p2r.obj.Arc)
         
     def testArcCopySub(self):
         arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-        arc2 = arc1.dupl.copy_by_sub((0,0,0),(10,0,0))
+        arc2 = arc1.dupl.copy_by_sub(0,1)
         self.assertEqual(type(arc2),p2r.obj.Arc)
         
     def testArcCopyMove(self):
@@ -55,7 +55,7 @@ class obj_test(unittest.TestCase):
     
     def testArcEvalDeriv(self):
         arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-        arc2 = arc1.eval.evaluate_derivatives(1,1)
+        arc2 = arc1.eval.derivatives(1,1)
         self.assertEqual(len(arc2),2)   
     
     def testArcFrame(self):
@@ -127,7 +127,7 @@ class obj_test(unittest.TestCase):
         
     def testArcInsertKnot(self):
         arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-        arc2 = arc1.modf.insert_knot((0,1),0)
+        arc2 = arc1.modf.insert_knot(0.2)
         self.assertEqual(type(arc2),bool)  
 
     def testArcRebuild(self):
@@ -137,12 +137,12 @@ class obj_test(unittest.TestCase):
         
     def testArcRemoveKnot(self):
         arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-        arc2 = arc1.modf.remove_knot((0,1),0)
+        arc2 = arc1.modf.remove_knot(0.8)
         self.assertEqual(type(arc2),bool)  
 
     def testArcReverse(self):
         arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-        arc2 = arc1.modf.reverse(1)
+        arc2 = arc1.modf.reverse()
         self.assertEqual(type(arc2),bool)  
 
     def testArcSimplify(self):
@@ -173,12 +173,7 @@ class obj_test(unittest.TestCase):
     def testArcAddMesh(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
         arc2 = arc1.rndr.add_mesh()
-        self.assertEqual(type(arc2),bool)   
-        
-    def testArcEnable(self):
-        arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.rndr.enable()
-        self.assertEqual(type(arc2),bool)   
+        self.assertEqual(type(arc2),bool)     
         
     def testArcHasMesh(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)

@@ -187,7 +187,11 @@ class obj_test(unittest.TestCase):
         circle1 = p2r.obj.Circle.create_by_3pt((0,0,0),(0,1,0),(1,0,0))
         planarmesh1 = p2r.obj.PlanarMesh.create_by_crv(circle1,False)
         planarmesh2 = planarmesh1.rndr.enable()
-        self.assertEqual(type(planarmesh2),bool)   
-
+        self.assertEqual(type(planarmesh2),bool) 
+          
+    def testArcEnable(self):
+        arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
+        arc2 = arc1.rndr.enable()
+        self.assertEqual(type(arc2),bool) 
 if __name__ == '__main__':
     unittest.main()

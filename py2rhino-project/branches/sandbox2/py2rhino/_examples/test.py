@@ -6,12 +6,10 @@ mesh1 = p2r.obj.Mesh.create(vertices, faces)
 print mesh1
 """
 
-mesh1 = p2r.obj.Mesh("3a54b419-d050-47bf-ab96-53491a14dc2e")
-nurbscurve1 = p2r.obj.NurbsCurve("ca535942-4860-4c57-bde9-41a42492f82f")
+arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
+arc2 = arc1.defm.trfm(((1,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)))
 
-nurbscurve2 = p2r.obj.Polyline.create_by_mesh_pull(nurbscurve1, mesh1)
+print arc2
 
-
-print nurbscurve2
 
 print "done"
