@@ -3596,7 +3596,6 @@ class _PlanarMeshDupl(object):
 
         Parameters
         ==========
-        mesh  (mesh object, Required) - The identifier of a mesh object.
         distance  (float, Required) - The distance to offset.
 
         Returns
@@ -3880,6 +3879,7 @@ class _PolyCurveEval(object):
         Parameters
         ==========
         parameter  (float, Required) - The parameter to evaluate.
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns
         =======
@@ -3902,6 +3902,7 @@ class _PolyCurveEval(object):
         Parameters
         ==========
         parameter  (float, Required) - The parameter to evaluate.
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns
         =======
@@ -3990,7 +3991,7 @@ class _PolyCurveProp(object):
 
         Parameters
         ==========
-        return_parameters  (boolean, Optional) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
+        return_parameters  (boolean, Required) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
         index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns
@@ -4205,6 +4206,28 @@ class _PolyCurveProp(object):
         
         """
         return _base._rsf.curve_weights(self._rhino_id, index)
+
+    def segment_count(self, index=pythoncom.Empty):
+        """
+        
+        Returns the number of curve segments that make up a polycurve.
+
+        Parameters
+        ==========
+        index  (integer, Optional) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        number - The number of curve segments in a polycurve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: PolyCurveCount
+
+        
+        """
+        return _base._rsf.poly_curve_count(self._rhino_id, index)
 class _PolySurfaceDupl(object):
 
     def copy_move(self, start_point=pythoncom.Empty, end_point=pythoncom.Empty):
@@ -9079,7 +9102,7 @@ class Cone(_SurfaceRoot):
         _rhino_id = _base._rsf.add_cone(base_point, height_point, radius, cap)
 
         if _rhino_id:
-            return Cylinder(_rhino_id)
+            return Cone(_rhino_id)
         else:
             return None
 
@@ -9664,7 +9687,7 @@ class Mesh(_MeshRoot):
         self.util = Mesh.util(_rhino_id)
 
     @staticmethod
-    def create(vertices, face_vertices, vertex_normals=pythoncom.Empty, texture_coordinates=pythoncom.Empty, vertex_colors=pythoncom.Empty):
+    def create(vertices, faces, vertex_normals=pythoncom.Empty, texture_coordinates=pythoncom.Empty, vertex_colors=pythoncom.Empty):
         """
         
         Factory method:
@@ -9673,7 +9696,7 @@ class Mesh(_MeshRoot):
         Parameters
         ==========
         vertices  (List of float, Required) - An list of 3-D points defining the vertices of the mesh.
-        face_vertices  (List of integer, Required) - An list containing lists of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
+        faces  (List of integer, Required) - An list containing lists of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
         vertex_normals  (List of float, Optional) - An list of 3-D vectors defining the vertex normals of the mesh. Note, for every vertex, the must be a corresponding vertex normal.
         texture_coordinates  (List of float, Optional) - An list of 2-D texture coordinates. Note, for every vertex, there must be a corresponding texture coordinate.
         vertex_colors  (List of integer, Optional) - An list of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
@@ -9690,7 +9713,7 @@ class Mesh(_MeshRoot):
         
         """
 
-        _rhino_id = _base._rsf.add_mesh(vertices, face_vertices, vertex_normals, texture_coordinates, vertex_colors)
+        _rhino_id = _base._rsf.add_mesh(vertices, faces, vertex_normals, texture_coordinates, vertex_colors)
 
         if _rhino_id:
             return Mesh(_rhino_id)
@@ -10041,40 +10064,6 @@ class NurbsCurve(_CurveRoot):
         """
 
         _rhino_id = _base._rsf.add_srf_contour_crvs(surface._rhino_id, start_point, end_point, interval)
-
-        if _rhino_id:
-
-            return map(lambda i: NurbsCurve(i), _rhino_id)
-
-        else:
-            return None
-
-    @staticmethod
-    def create_by_srf_contour_cut_plane(surface, cut_plane, interval=pythoncom.Empty):
-        """
-        
-        Factory method:
-        Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.
-
-        Parameters
-        ==========
-        surface  (surface object, Required) - The identifier of a surface or polysurface object.
-        cut_plane  (List of float, Required) - A plane that defines the cutting plane.
-        interval  (float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
-
-        Returns
-        =======
-        list of objects - The new objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: AddSrfContourCrvs
-
-        
-        """
-
-        _rhino_id = _base._rsf.add_srf_contour_crvs_2(surface._rhino_id, cut_plane, interval)
 
         if _rhino_id:
 
@@ -11386,7 +11375,7 @@ class PolyCurve(_CurveRoot):
 
         Returns
         =======
-        list of objects - The new objects if successful.
+        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -11401,9 +11390,7 @@ class PolyCurve(_CurveRoot):
         _rhino_id = _base._rsf.join_curves(map(lambda i: i._rhino_id, curves), delete)
 
         if _rhino_id:
-
-            return map(lambda i: PolyCurve(i), _rhino_id)
-
+            return PolyCurve(_rhino_id[0])
         else:
             return None
 class PolySurface(_SurfaceRoot):
@@ -11499,7 +11486,7 @@ class PolySurface(_SurfaceRoot):
         
         """
 
-        _rhino_id = _base._rsf.extrude_surface(surface._rhino_id, curve, cap)
+        _rhino_id = _base._rsf.extrude_surface(surface._rhino_id, curve._rhino_id, cap)
 
         if _rhino_id:
             return PolySurface(_rhino_id)

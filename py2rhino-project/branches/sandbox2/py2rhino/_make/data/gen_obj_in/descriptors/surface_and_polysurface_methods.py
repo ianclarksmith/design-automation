@@ -27,7 +27,7 @@ class PolySurface(object):
     class Constructors(object):
         extrude_surface = {#ed
             "method_name": "create_by_srf_extrude",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("curve","str","REQ"),("cap","bln","OPT"),),
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),("cap","bln","OPT"),),
             "method_returns": ("SELF","null")
             }   
         join_surfaces = {#ed
@@ -630,11 +630,7 @@ class NurbsCurve(object):
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("interval","dbl","OPT")),
             "method_returns": ("array_of SELF","null")#returns array
             }
-        add_srf_contour_crvs_2 = {#surface or polysurface
-            "method_name": "create_by_srf_contour_cut_plane",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),("interval","dbl","OPT")),
-            "method_returns": ("array_of SELF","null")#returns array
-            }        
+
         add_srf_section_crvs = {#surface or polysurface
             "method_name": "create_by_srf_section",
             "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),),
@@ -666,7 +662,12 @@ class NurbsCurve(object):
             "method_returns": ("array_of SELF","null") #returns array
             } 
         
-    
+        ''' This calls add_srf_contour_crvs_2 - does not work due to args confusion
+        add_srf_contour_crvs_2 = {#surface or polysurface
+            "method_name": "create_by_srf_contour_cut_plane",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),("interval","dbl","OPT")),
+            "method_returns": ("array_of SELF","null")#returns array
+            }        '''
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

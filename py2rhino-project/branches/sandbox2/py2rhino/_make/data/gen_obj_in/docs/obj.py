@@ -309,7 +309,7 @@ class Mesh():
         Parameters
         ==========
         vertices  (List of float, Required) - An list of 3-D points defining the vertices of the mesh.
-        face_vertices  (List of integer, Required) - An list containing lists of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
+        faces  (List of integer, Required) - An list containing lists of four numbers that define the vertex indices for each face of the mesh. If the third and forth vertex indices of a face are identical, a triangular face will be created. Otherwise a quad face will be created.
         vertex_normals  (List of float, Optional) - An list of 3-D vectors defining the vertex normals of the mesh. Note, for every vertex, the must be a corresponding vertex normal.
         texture_coordinates  (List of float, Optional) - An list of 2-D texture coordinates. Note, for every vertex, there must be a corresponding texture coordinate.
         vertex_colors  (List of integer, Optional) - An list of RGB color values. Note, for every vertex, there must be a corresponding vertex color.
@@ -498,26 +498,6 @@ class NurbsCurve():
         surface  (surface object, Required) - The identifier of a surface or polysurface object.
         start_point  (List of float, Required) - The 3-D starting point of a center line.
         end_point  (List of float, Required) - The 3-D ending point of a center line.
-        interval  (float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
-
-        Returns
-        =======
-        list of objects - The new objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: AddSrfContourCrvs
-
-        """
-        create_by_srf_contour_cut_plane = """
-        Factory method:
-        Adds a spaced series of planar curves resulting from the intersection of a defined cutting planes through a surface or a polysurface. For more information, see the Rhino help file for details on the Contour command.
-
-        Parameters
-        ==========
-        surface  (surface object, Required) - The identifier of a surface or polysurface object.
-        cut_plane  (List of float, Required) - A plane that defines the cutting plane.
         interval  (float, Optional) - The distance between contour curves.  If omitted, the interval will be equal to the diagonal distance of the object's bounding box divided by 50.
 
         Returns
@@ -1192,7 +1172,7 @@ class PolyCurve():
 
         Returns
         =======
-        list of objects - The new objects if successful.
+        object - The new object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
@@ -6123,7 +6103,6 @@ class _PlanarMeshDupl():
 
         Parameters
         ==========
-        mesh  (mesh object, Required) - The identifier of a mesh object.
         distance  (float, Required) - The distance to offset.
 
         Returns
@@ -6326,6 +6305,7 @@ class _PolyCurveEval():
         Parameters
         ==========
         parameter  (float, Required) - The parameter to evaluate.
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns
         =======
@@ -6343,6 +6323,7 @@ class _PolyCurveEval():
         Parameters
         ==========
         parameter  (float, Required) - The parameter to evaluate.
+        index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns
         =======
@@ -6436,7 +6417,7 @@ class _PolyCurveProp():
 
         Parameters
         ==========
-        return_parameters  (boolean, Optional) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
+        return_parameters  (boolean, Required) - Return the edit points as an list of parameter values.  If omitted, the edit points are returned as an list of 3-D points.
         index  (integer, Required) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
 
         Returns
@@ -6602,6 +6583,23 @@ class _PolyCurveProp():
         Rhinoscript
         ===========
         This function calls the Rhinoscript function: CurveWeights
+
+        """
+        segment_count = """
+        Returns the number of curve segments that make up a polycurve.
+
+        Parameters
+        ==========
+        index  (integer, Optional) - If strObject identifies a polycurve object, then intIndex identifies the curve segment of the polycurve to query.
+
+        Returns
+        =======
+        number - The number of curve segments in a polycurve if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: PolyCurveCount
 
         """
 

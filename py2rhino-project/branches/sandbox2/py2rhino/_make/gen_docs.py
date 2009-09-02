@@ -258,9 +258,9 @@ def write_method(function_name, method_type, method_dict, parser_dict, f):
                     if parser_data['params_html'][parser_param_num]['py_name'] == original_param_name:
                         doc_str = parser_data['params_html'][parser_param_num]['doc'].strip()
                 if doc_str == None:
-                    print params_name[i], parser_data['params_html']
                     print "ERROR: doc string not found for parameter"
-                
+                    print function_name, original_param_name
+                    print parser_data['params_html']
                 if is_object:
                     doc_str = doc_str.replace("An array of strings identifying the ", "A list of ")
                     doc_str = doc_str.replace("A string identifying the ", "The ")

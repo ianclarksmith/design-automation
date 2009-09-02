@@ -2,7 +2,22 @@ import unittest
 import py2rhino as p2r
 
 class obj_test(unittest.TestCase):
-    
+
+#------------------------------------------------------------------------------ 
+    def testCreatePolylineByMeshPull(self):
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
+        mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
+        nurbscurve1 = p2r.obj.NurbsCurve.create(((0,0,0),(5,0,0),(5,5,0)),(0,0,4,4),2)
+        nurbscurve2 = p2r.obj.Polyline.create_by_mesh_pull(nurbscurve1, mesh1)
+        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
+        
+    def testCreateMesh(self):
+        vertices = ((0,0,0),(10,0,0),(10,10,0),(0,10,0))
+        faces = ((0,1,2,2),(0,2,3,3))
+        mesh1 = p2r.obj.Mesh.create(vertices, faces)
+        self.assertEqual(type(mesh1),p2r.obj.Mesh)
+        
+#------------------------------------------------------------------------------ 
     def testCreateArc(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
         self.assertEqual(type(arc1), p2r.obj.Arc)
@@ -12,9 +27,9 @@ class obj_test(unittest.TestCase):
         self.assertEqual(type(arc1),p2r.obj.Arc)
         
     def testCreateArcByFillet(self):
-        arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-        arc2 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc3 = arc2.create_by_fillet(arc1,arc2)
+        ln1 = p2r.obj.Line.create((0,0,0), (20,0,0))
+        ln2 = p2r.obj.Line.create((0,0,0), (0,20,0))
+        arc3 = p2r.obj.Arc.create_by_fillet(ln1,ln2)
         self.assertEqual(type(arc3),p2r.obj.Arc)
     
     def testBox(self):
@@ -57,12 +72,8 @@ class obj_test(unittest.TestCase):
         line1 = p2r.obj.Line.create((0,0,0), (0,0,1))
         self.assertEqual(type(line1),p2r.obj.Line)
         
-    def testCreateMesh(self):
-        mesh1 = p2r.obj.Mesh.create(((0,0,0),(5,0,0),(10,0,0),(0,5,0),(5,5,0),(10,5,0),(0,10,0),(5,10,0),(10,10,0)), ((0,1,4,4),(2,4,1,1),(0,4,3,3),(2,5,4,4),(3,4,6,6),(5,8,4,4),(6,4,7,7),(8,7,4,4)))
-        self.assertEqual(type(mesh1),p2r.obj.Mesh)
-        
     def testCreateMeshByPolyline(self):
-        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0)))
+        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
         mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
         self.assertEqual(type(mesh1),p2r.obj.Mesh)
         
@@ -97,10 +108,11 @@ class obj_test(unittest.TestCase):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_contour(nurvesurface1, (0,0,0), (5,0,0))
         self.assertEqual(type(nurbscurve1[0]),p2r.obj.NurbsCurve)
         
+    '''
     def testCreateNurbsCurveBySurfaceContourCutPlane(self):
         nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_contour_cut_plane(nurvesurface1, ((0,0,0),(1,0,0),(5,0,0)))
-        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_contour_cut_plane(nurvesurface1, ((0,0,0),(1,1,0),(0,0,1)) )
+        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)'''
         
     def testCreateNurbsCurveBySurfaceSection(self):
         nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
@@ -119,13 +131,13 @@ class obj_test(unittest.TestCase):
         
     def testCreateNurbsCurveBySurfaceISOCurve(self):
         nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_iso_curve(nurvesurface1,2,0)
-        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        nurbscurve1 = p2r.obj.NurbsCurve.create_by_srf_iso_curve(nurvesurface1,(0.5,0.5), 2)
+        self.assertEqual(type(nurbscurve1[0]),p2r.obj.NurbsCurve)
         
     def testCreateNurbsCurveByFit(self):
-        nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_fit(nurvesurface1)
-        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
+        nurvecurve1  = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)), 3)
+        nurbscurve2 = p2r.obj.NurbsCurve.create_by_fit(nurvecurve1)
+        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
         
     def testCreateNurbsCurveProjectionToMesh(self):
         pl = p2r.obj.Polyline.create(((-20,-20,0),(20,-20,0),(20,20,0),(-20,20,0),(-20,-20,0)))
@@ -207,18 +219,11 @@ class obj_test(unittest.TestCase):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
         mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
         nurbscurve1 = p2r.obj.Polyline.create_by_mesh_border(mesh1)
-        self.assertEqual(type(nurbscurve1),p2r.obj.NurbsCurve)
-        
-    def testCreatePolylineByMeshPull(self):
-        polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,0)))
-        mesh1 = p2r.obj.Mesh.create_by_polyline(polyline1)
-        nurbscurve1 = p2r.obj.NurbsCurve.create(((0,0,0),(5,0,0),(5,5,0)),(0,0,4,4),2)
-        nurbscurve2 = p2r.obj.Polyline.create_by_mesh_pull(nurbscurve1, mesh1)
-        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
+        self.assertEqual(type(nurbscurve1),p2r.obj.Polyline)
         
     def testCreatePolySurfaceCreateBySrfExtrude(self):
         nurvesurface1  = p2r.obj.NurbsSurface.create_by_corner_pnts(((0,0,0),(5,0,0),(5,5,0),(0,5,0)))
-        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line1 = p2r.obj.Line.create((0,0,0), (0,0,10))
         polysurface1 = p2r.obj.PolySurface.create_by_srf_extrude(nurvesurface1, line1)        
         self.assertEqual(type(polysurface1),p2r.obj.PolySurface)
         

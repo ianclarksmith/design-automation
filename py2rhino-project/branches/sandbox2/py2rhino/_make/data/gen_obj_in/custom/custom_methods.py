@@ -27,7 +27,7 @@ class Cone(object):
         _rhino_id = _base._rsf.add_cone(base_point, height_point, radius, cap)
 
         if _rhino_id:
-            return Cylinder(_rhino_id)
+            return Cone(_rhino_id)
         else:
             return None
 """

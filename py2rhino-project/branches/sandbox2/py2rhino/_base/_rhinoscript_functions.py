@@ -4609,9 +4609,12 @@ class _RhinoscriptFunctions(IRhinoScript):
         return self._ApplyTypes_(747, 1, (VT_VARIANT, 0), magic, u"AddSrfContourCrvs", None, *flattened)
 
     def add_srf_contour_crvs_2(self, object, plane, interval):
-
+        """
         magic = ((VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1))
         flattened = (object, flatten_params(plane), interval)
+        """
+        magic = ((VT_BSTR, 1), (VT_ARRAY + VT_R8, 1), (VT_ARRAY + VT_R8, 1), (VT_R8, 1))
+        flattened = (object, pythoncom.Empty, flatten_params(plane), interval)        
 
         return self._ApplyTypes_(747, 1, (VT_VARIANT, 0), magic, u"AddSrfContourCrvs", None, *flattened)
 

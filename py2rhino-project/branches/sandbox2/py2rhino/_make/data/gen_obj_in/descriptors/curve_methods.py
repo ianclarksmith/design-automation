@@ -712,20 +712,10 @@ class PolyCurve(object):
         join_curves = {#ed
             "method_name": "create",
             "method_parameters": (("curves","array_of _ObjectRoot._CurveRoot","REQ"),("delete","bln","OPT"),),
-            "method_returns": ("array_of SELF","null")
+            "method_returns": ("first_in_array_of SELF","null")
         }
         
-"""
-    class Methods(object):
-        #TODO: move method and fix index        
-        poly_curve_count = {#ed
-            "method_name": "count",
-            "method_parameters": (("","SELF","REQ"),("index","int","OPT"),),
-            "method_returns": ("number","null")
-        }
-        
-      
-"""
+
 #===============================================================================
 # _PolyCurveFunc
 #===============================================================================
@@ -798,6 +788,14 @@ class _PolyCurveEval(object):
 class _PolyCurveProp(object):
     inherits = None
     class Methods(object):
+        
+        #TODO: move method and fix index 
+               
+        poly_curve_count = {#ed
+            "method_name": "segment_count",
+            "method_parameters": (("","SELF","REQ"),("index","int","OPT"),),
+            "method_returns": ("number","null")
+        }
         curve_domain = {#ed
             "method_name": "domain",
             "method_parameters": (("","SELF","REQ"),("index","int","REQ"),),

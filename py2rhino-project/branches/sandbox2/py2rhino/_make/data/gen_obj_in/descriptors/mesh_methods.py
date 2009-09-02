@@ -26,7 +26,7 @@ class Mesh(object):
     class Constructors(object):    
         add_mesh = {
             "method_name": "create",
-            "method_parameters": (("vertices","array_of dbl","REQ"),("face_vertices","array_of int","REQ"),("vertex_normals","array_of dbl","OPT"),("texture_coordinates","array_of dbl","OPT"),("vertex_colors","array_of int","OPT"),),
+            "method_parameters": (("vertices","array_of dbl","REQ"),("faces","array_of int","REQ"),("vertex_normals","array_of dbl","OPT"),("texture_coordinates","array_of dbl","OPT"),("vertex_colors","array_of int","OPT"),),
             "method_returns": ("SELF","null")
             }
        
