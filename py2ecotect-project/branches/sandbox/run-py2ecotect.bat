@@ -1,0 +1,1 @@
+C:\python25\Scripts\epydoc.py -v --inheritance included --html D:\Temp\epydoc\in\py2ecotect-project\py2ecotect -o D:\Temp\epydoc\out\py2ecotect --name py2ecotect --debug --css black
