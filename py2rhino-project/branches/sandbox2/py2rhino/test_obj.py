@@ -4095,7 +4095,7 @@ class obj_test(unittest.TestCase):
     def testTorusEvalFrame(self):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
         torus2 = torus1.eval.evaluate_frame((0,1))
-        self.assertEqual(type(torus2),list)   
+        self.assertEqual(type(torus2)[0],list)   
         
     def testTorusGroups(self):
         torus1 = p2r.obj.Torus.create((0,0,0), 5, 3)
