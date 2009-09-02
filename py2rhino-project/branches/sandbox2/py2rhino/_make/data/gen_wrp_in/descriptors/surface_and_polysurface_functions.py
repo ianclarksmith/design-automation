@@ -519,7 +519,7 @@ join_surfaces = {
     "function_com_id": 487,
     "function_vb_name": "JoinSurfaces",
     "function_name": "join_surfaces",
-    "function_parameters": (("object","str","REQ"),("delete","bln","OPT")),
+    "function_parameters": (("object","array_of str","REQ"),("delete","bln","OPT")),
     "function_returns": ("string","null")
     }
 make_surface_non_periodic = {

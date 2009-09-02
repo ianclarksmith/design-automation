@@ -372,9 +372,9 @@ def is_polyline(object, index=pythoncom.Empty):
 
     return _rsf.is_polyline(object, index)
 
-def join_curves(object, delete=pythoncom.Empty):
+def join_curves(objects, delete=pythoncom.Empty):
 
-    return _rsf.join_curves(object, delete)
+    return _rsf.join_curves(objects, delete)
 
 def line_fit_from_points(object):
 
