@@ -14,7 +14,7 @@ class obj_test(unittest.TestCase):
         
     def testPolylineTrfm(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        polyline2 = polyline1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
         self.assertEqual(type(polyline2),p2r.obj.Polyline) 
         
     def testPolylineCopySub(self):
@@ -54,7 +54,7 @@ class obj_test(unittest.TestCase):
     
     def testPolylineEvalDeriv(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
-        polyline2 = polyline1.eval.evaluate_derivatives(1,1)
+        polyline2 = polyline1.eval.derivatives(1,1)
         self.assertEqual(len(polyline2),2)   
     
     def testPolylineFrame(self):
@@ -135,7 +135,7 @@ class obj_test(unittest.TestCase):
     def testPolylineVertices(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
         polyline2 = polyline1.prop.vertices()
-        self.assertEqual(type(polyline2)[0],int)     
+        self.assertEqual(type(polyline2),tuple)     
         
     def testPolylineAddMesh(self):
         polyline1 = p2r.obj.Polyline.create(((0,0,0),(10,0,0)))
