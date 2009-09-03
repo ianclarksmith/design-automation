@@ -1191,7 +1191,7 @@ class PolySurface():
         Parameters
         ==========
         surface  (surface object, Required) - The identifier of the surface object to extrude.
-        curve  (string, Required) - The identifier of the path curve.
+        curve  (curve object, Required) - The identifier of the path curve.
         cap  (boolean, Optional) - Extrusion is capped at both ends to make a closed polysurface. The default value is True.
 
         Returns
@@ -4822,7 +4822,7 @@ class _ObjectRootDefm():
         This function calls the Rhinoscript function: ShearObject
 
         """
-        trfm = """
+        transform = """
         Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
 		1
 		0
