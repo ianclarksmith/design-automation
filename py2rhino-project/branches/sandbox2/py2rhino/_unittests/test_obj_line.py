@@ -14,7 +14,7 @@ class obj_test(unittest.TestCase):
         
     def testLineTrfm(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        line2 = line1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
         self.assertEqual(type(line2),p2r.obj.Line) 
     
     def testLineCopySub(self):
@@ -54,7 +54,7 @@ class obj_test(unittest.TestCase):
     
     def testLineEvalDeriv(self):
         line1 = p2r.obj.Line.create((0,0,0), (10,10,0))
-        line2 = line1.eval.evaluate_derivatives(1,1)
+        line2 = line1.eval.derivatives(1,1)
         self.assertEqual(len(line2),2)   
     
     def testLineFrame(self):
@@ -84,7 +84,7 @@ class obj_test(unittest.TestCase):
     
     def testLineExtend(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = p2r.obj.Line.create((0,0,0), 5, 45)
+        line2 = p2r.obj.Line.create((0,0,0), (10,0,10))
         line3 = line1.func.extend(1,1,line2)
         self.assertEqual(type(line3),p2r.obj.Line)
     
@@ -136,12 +136,12 @@ class obj_test(unittest.TestCase):
         
     def testLineRemoveKnot(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.modf.remove_knot((0,1),0)
+        line2 = line1.modf.remove_knot(0)
         self.assertEqual(type(line2),bool)  
 
     def testLineReverse(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.modf.reverse(1)
+        line2 = line1.modf.reverse()
         self.assertEqual(type(line2),bool)  
 
     def testLineSimplify(self):
@@ -149,11 +149,85 @@ class obj_test(unittest.TestCase):
         line2 = line1.modf.simplify()
         self.assertEqual(type(line2),bool)    
             
-    def testLineArrows(self):
+    def testLineDegree(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.prop.arrows()
+        line2 = line1.prop.degree()
+        self.assertEqual(type(line2),int)     
+            
+    def testLineDim(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.dim()
         self.assertEqual(type(line2),int) 
     
+    def testLineDomain(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.domain()
+        self.assertEqual(type(line2),int)       
+
+    def testLineDiscontinuity(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.discontinuity(1)
+        self.assertEqual(type(line2),int)   
+        
+    def testLineEditPnts(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.edit_pnts()
+        self.assertEqual(type(line2),int)  
+
+    def testLineEndPnts(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.end_pnt()
+        self.assertEqual(type(line2),int)       
+                       
+    def testLineKnotCount(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.knot_count()
+        self.assertEqual(type(line2),int) 
+                          
+    def testLineKnots(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.knots()
+        self.assertEqual(type(line2),list)  
+
+    def testLineLength(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.length()
+        self.assertEqual(type(line2),int) 
+         
+    def testLineMidPnts(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.mid_pnt()
+        self.assertEqual(type(line2),int)  
+               
+    def testLineNormal(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.normal()
+        self.assertEqual(type(line2),list)        
+        
+    def testLinePlane(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.plane()
+        self.assertEqual(type(line2),list)          
+        
+    def testLineControlPntCount(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.control_pnt_count()
+        self.assertEqual(type(line2),int) 
+        
+    def testLineControlPnts(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.control_pnts()
+        self.assertEqual(type(line2),list)  
+
+    def testLineStartPnt(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.start_pnt()
+        self.assertEqual(type(line2),list)  
+                          
+    def testLineWeight(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.prop.weights()
+        self.assertEqual(type(line2),list) 
         
     def testLineAddMesh(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
