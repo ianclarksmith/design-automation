@@ -14,7 +14,7 @@ class obj_test(unittest.TestCase):
         
     def testCylinderTrfm(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
-        cylinder2 = cylinder1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        cylinder2 = cylinder1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
         self.assertEqual(type(cylinder2),p2r.obj.Cylinder)    
         
     def testCylinderCopyMove(self):
@@ -54,12 +54,12 @@ class obj_test(unittest.TestCase):
 
     def testCylinderIndex(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
-        cylinder2 = cylinder1.modf.index()
+        cylinder2 = cylinder1.mtrl.index()
         self.assertEqual(type(cylinder2),p2r.obj.Cylinder)  
 
     def testCylinderSource(self):
         cylinder1 = p2r.obj.Cylinder.create((0,0,0),(1,1,1), 5)
-        cylinder2 = cylinder1.modf.source()
+        cylinder2 = cylinder1.mtrl.source()
         self.assertEqual(type(cylinder2),p2r.obj.Cylinder)  
 
     def testCylinderFlip(self):
