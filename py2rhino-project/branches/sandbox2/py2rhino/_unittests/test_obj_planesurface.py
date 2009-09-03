@@ -29,7 +29,7 @@ class obj_test(unittest.TestCase):
 
     def testPlaneSurfaceCopyByOffset(self):
         planesurface1 = p2r.obj.PlaneSurface.create(((0,0,0),(0,1,0),(1,0,0)),3,5)
-        planesurface2 = planesurface1.dupl.copy_by_offset((0,0,0),1)
+        planesurface2 = planesurface1.dupl.copy_by_offset(1)
         self.assertEqual(type(planesurface2),p2r.obj.PlaneSurface)  
         
     def testPlaneSurfaceEvaluate(self):
