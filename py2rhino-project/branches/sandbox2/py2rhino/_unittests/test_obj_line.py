@@ -162,7 +162,7 @@ class obj_test(unittest.TestCase):
     def testLineDomain(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.domain()
-        self.assertEqual(type(line2),int)       
+        self.assertEqual(type(line2),tuple)       
 
     def testLineDiscontinuity(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
@@ -172,12 +172,12 @@ class obj_test(unittest.TestCase):
     def testLineEditPnts(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.edit_pnts()
-        self.assertEqual(type(line2),int)  
+        self.assertEqual(type(line2),tuple)  
 
     def testLineEndPnts(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.end_pnt()
-        self.assertEqual(type(line2),int)       
+        self.assertEqual(type(line2),tuple)       
                        
     def testLineKnotCount(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
@@ -187,7 +187,7 @@ class obj_test(unittest.TestCase):
     def testLineKnots(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.knots()
-        self.assertEqual(type(line2),list)  
+        self.assertEqual(type(line2),tuple)  
 
     def testLineLength(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
@@ -217,7 +217,7 @@ class obj_test(unittest.TestCase):
     def testLineControlPnts(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.control_pnts()
-        self.assertEqual(type(line2),list)  
+        self.assertEqual(type(line2),tuple)  
 
     def testLineStartPnt(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
@@ -227,7 +227,7 @@ class obj_test(unittest.TestCase):
     def testLineWeight(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.weights()
-        self.assertEqual(type(line2),list) 
+        self.assertEqual(type(line2),tuple) 
         
     def testLineAddMesh(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
