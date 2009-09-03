@@ -14,7 +14,7 @@ class obj_test(unittest.TestCase):
         
     def testSphereTrfm(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
-        sphere2 = sphere1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        sphere2 = sphere1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
         self.assertEqual(type(sphere2),p2r.obj.Sphere) 
         
     def testSphereCopyMove(self):
@@ -40,7 +40,7 @@ class obj_test(unittest.TestCase):
     def testSphereEvalFrame(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
         sphere2 = sphere1.eval.evaluate_frame((0,1))
-        self.assertEqual(type(sphere2),list)   
+        self.assertEqual(type(sphere2),tuple)   
     
     def testSphereGroups(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
@@ -59,7 +59,7 @@ class obj_test(unittest.TestCase):
         
     def testSphereInsertKnot(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
-        sphere2 = sphere1.modf.insert_knot(1)
+        sphere2 = sphere1.modf.insert_knot(1,0)
         self.assertEqual(type(sphere2),bool)  
 
     def testSphereRebuild(self):
@@ -95,7 +95,7 @@ class obj_test(unittest.TestCase):
     def testSphereDefinition(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
         sphere2 = sphere1.prop.sphere_definition()
-        self.assertEqual(len(sphere2),3) 
+        self.assertEqual(len(sphere2),2) 
 
     def testSphereAddMesh(self):
         sphere1 = p2r.obj.Sphere.create((0,0,0), 3)
