@@ -228,6 +228,11 @@ class obj_test(unittest.TestCase):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.weights()
         self.assertEqual(type(line2),tuple) 
+
+    def testLineArrows(self):
+        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
+        line2 = line1.stat.arrows()
+        self.assertEqual(type(line2),int)  
         
     def testLineAddMesh(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
