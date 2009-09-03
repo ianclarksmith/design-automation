@@ -385,7 +385,7 @@ class _ObjectRootDefm(object):
             "method_returns": ("_ObjectRoot","null")#GenericObject
             }
         transform_object = {
-            "method_name": "trfm",
+            "method_name": "transform",
             "method_parameters": (("","SELF","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
             "method_returns": ("_ObjectRoot","null")#GenericObject
             }

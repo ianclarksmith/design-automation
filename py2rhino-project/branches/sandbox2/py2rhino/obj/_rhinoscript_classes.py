@@ -1997,7 +1997,7 @@ class _ObjectRootDefm(object):
         else:
             return None
 
-    def trfm(self, matrix, copy=pythoncom.Empty):
+    def transform(self, matrix, copy=pythoncom.Empty):
         """
         
         Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
@@ -11471,7 +11471,7 @@ class PolySurface(_SurfaceRoot):
         Parameters
         ==========
         surface  (surface object, Required) - The identifier of the surface object to extrude.
-        curve  (string, Required) - The identifier of the path curve.
+        curve  (curve object, Required) - The identifier of the path curve.
         cap  (boolean, Optional) - Extrusion is capped at both ends to make a closed polysurface. The default value is True.
 
         Returns
