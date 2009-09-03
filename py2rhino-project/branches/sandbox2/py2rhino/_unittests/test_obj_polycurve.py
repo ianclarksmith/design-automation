@@ -13,7 +13,7 @@ class obj_test(unittest.TestCase):
         arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
         arc2 = p2r.obj.Line.create((10,0,0), (20,20,0))
         polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
-        polyCurve2 = polycurve1.dupl.copy_by_sub((0,0,0),(10,0,0))
+        polyCurve2 = polycurve1.dupl.copy_by_sub(0,1)
         self.assertEqual(type(polyCurve2),p2r.obj.PolyCurve)
         
     def testPolyCurveCopyMove(self):
@@ -34,7 +34,7 @@ class obj_test(unittest.TestCase):
         arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
         arc2 = p2r.obj.Line.create((10,0,0), (20,20,0))
         polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
-        polyCurve2 = polycurve1.dupl.copy_by_offset(polycurve1,2)
+        polyCurve2 = polycurve1.dupl.copy_by_offset((0,0,0),2)
         self.assertEqual(type(polyCurve2),p2r.obj.PolyCurve)    
 
     def testPolyCurveCopyBySplit(self):
@@ -50,5 +50,19 @@ class obj_test(unittest.TestCase):
         polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
         polyCurve2 = polycurve1.dupl.copy_by_trim((0,1))
         self.assertEqual(type(polyCurve2),p2r.obj.PolyCurve)
+        
+    def testPolyCurveTangent(self):
+        arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
+        arc2 = p2r.obj.Line.create((10,0,0), (20,20,0))
+        polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
+        polycurve2 = polycurve1.eval.tangent(1,0)
+        self.assertEqual(len(polycurve2),3) 
+    
+    def testPolyCurveEvaluate(self):
+        arc1 = p2r.obj.Line.create((0,0,0), (10,0,0))
+        arc2 = p2r.obj.Line.create((10,0,0), (20,20,0))
+        polycurve1 = p2r.obj.PolyCurve.create((arc1,arc2))
+        polycurve2 = polycurve1.eval.evaluate(1,0)
+        self.assertEqual(len(polycurve2),3) 
 if __name__ == '__main__':
     unittest.main()
