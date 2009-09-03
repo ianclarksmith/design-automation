@@ -42,6 +42,13 @@ class obj_test(unittest.TestCase):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
         arc2 = arc1.rndr.quality()
         self.assertEqual(type(arc2),bool)  
+    
+    
+        
+    def testCircleEnable(self):
+        circle1 = p2r.obj.Circle.create((0,0,0), 45)
+        circle2 = circle1.rndr.enable()
+        self.assertEqual(type(circle2),bool)   
         
     def testArcSettings(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
