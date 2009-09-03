@@ -14,7 +14,7 @@ class obj_test(unittest.TestCase):
         
     def testEllipseTrfm(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
-        ellipse2 = ellipse1.defm.trfm(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
+        ellipse2 = ellipse1.defm.transform(((0,0,0),(0,1,0),(0,2,0),(0,3,0),(1,0,0),(1,1,1),(1,2,0),(1,3,0),(2,0,0),(2,1,0),(2,2,1),(2,3,0),(3,0,0),(3,1,0),(3,2,0),(3,3,1)))
         self.assertEqual(type(ellipse2),p2r.obj.Ellipse)   
         
     def testEllipseCopySub(self):
@@ -54,7 +54,7 @@ class obj_test(unittest.TestCase):
     
     def testEllipseEvalDeriv(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
-        ellipse2 = ellipse1.eval.evaluate_derivatives(1,1)
+        ellipse2 = ellipse1.eval.derivatives(1,1)
         self.assertEqual(len(ellipse2),2)   
     
     def testEllipseFrame(self):
@@ -141,17 +141,17 @@ class obj_test(unittest.TestCase):
         
     def testEllipseRemoveKnot(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
-        ellipse2 = ellipse1.modf.remove_knot((0,1),0)
+        ellipse2 = ellipse1.modf.remove_knot(0)
         self.assertEqual(type(ellipse2),bool)  
 
     def testEllipseReverse(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
-        ellipse2 = ellipse1.modf.reverse(1)
+        ellipse2 = ellipse1.modf.reverse()
         self.assertEqual(type(ellipse2),bool)  
 
     def testEllipseSeam(self):
         ellipse1 = p2r.obj.Ellipse.create(((0,0,0),(0,1,0),(1,0,0)), 5, 10)
-        ellipse2 = ellipse1.modf.seam(0,1)
+        ellipse2 = ellipse1.modf.seam(0)
         self.assertEqual(type(ellipse2),bool) 
 
     def testEllipseIndex(self):
