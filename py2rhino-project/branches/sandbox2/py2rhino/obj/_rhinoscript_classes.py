@@ -2,7 +2,6 @@
 import pythoncom
 from exceptions import Exception
 import _util
-import _wrap
 import py2rhino as p2r
 from py2rhino import _base
 class _ArcDupl(object):
@@ -461,6 +460,107 @@ class _ConeDupl(object):
         _rhino_id = _base._rsf.copy_object_2(self._rhino_id, translation_vector)
         if _rhino_id:
             return p2r.obj.Cone(_rhino_id)
+        else:
+            return None
+class _CurveRootDefm(object):
+
+    def box_morph(self, box_points, copy=pythoncom.Empty):
+        """
+        
+        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
+
+        Parameters
+        ==========
+        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The morphed object if successful.
+        list - A list of strings identifying the morphed objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BoxMorphObject
+
+        
+        """
+        _rhino_id = _base._rsf.box_morph_object(self._rhino_id, box_points, copy)
+        if _rhino_id:
+            return p2r.obj.NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    def shear(self, origin, ref_point, angle, copy=pythoncom.Empty):
+        """
+        
+        Performs a shear transformation on a single object. Transformation is based on the active construction plane.
+
+        Parameters
+        ==========
+        origin  (List of float, Required) - The origin of the shear transformation.
+        ref_point  (List of float, Required) - The reference point of the shear transformation.
+        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The sheared object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ShearObject
+
+        
+        """
+        _rhino_id = _base._rsf.shear_object(self._rhino_id, origin, ref_point, angle, copy)
+        if _rhino_id:
+            return p2r.obj.NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    def transform(self, matrix, copy=pythoncom.Empty):
+        """
+        
+        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+		1
+		0
+		0
+		dX
+		0
+		1
+		0
+		dY
+		0
+		0
+		1
+		dZ
+		0
+		0
+		0
+		1
+
+        Parameters
+        ==========
+        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        boolean - The transformed object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: TransformObject
+
+        
+        """
+        _rhino_id = _base._rsf.transform_object(self._rhino_id, matrix, copy)
+        if _rhino_id:
+            return p2r.obj.NurbsCurve(_rhino_id)
         else:
             return None
 class _CurveRootEval(object):
@@ -1627,6 +1727,107 @@ class _MeshDupl(object):
             return p2r.obj.Mesh(_rhino_id)
         else:
             return None
+class _MeshRootDefm(object):
+
+    def box_morph(self, box_points, copy=pythoncom.Empty):
+        """
+        
+        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
+
+        Parameters
+        ==========
+        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The morphed object if successful.
+        list - A list of strings identifying the morphed objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BoxMorphObject
+
+        
+        """
+        _rhino_id = _base._rsf.box_morph_object(self._rhino_id, box_points, copy)
+        if _rhino_id:
+            return p2r.obj.Mesh(_rhino_id)
+        else:
+            return None
+
+    def shear(self, origin, ref_point, angle, copy=pythoncom.Empty):
+        """
+        
+        Performs a shear transformation on a single object. Transformation is based on the active construction plane.
+
+        Parameters
+        ==========
+        origin  (List of float, Required) - The origin of the shear transformation.
+        ref_point  (List of float, Required) - The reference point of the shear transformation.
+        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The sheared object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ShearObject
+
+        
+        """
+        _rhino_id = _base._rsf.shear_object(self._rhino_id, origin, ref_point, angle, copy)
+        if _rhino_id:
+            return p2r.obj.Mesh(_rhino_id)
+        else:
+            return None
+
+    def transform(self, matrix, copy=pythoncom.Empty):
+        """
+        
+        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+		1
+		0
+		0
+		dX
+		0
+		1
+		0
+		dY
+		0
+		0
+		1
+		dZ
+		0
+		0
+		0
+		1
+
+        Parameters
+        ==========
+        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        boolean - The transformed object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: TransformObject
+
+        
+        """
+        _rhino_id = _base._rsf.transform_object(self._rhino_id, matrix, copy)
+        if _rhino_id:
+            return p2r.obj.Mesh(_rhino_id)
+        else:
+            return None
 class _NurbsCurveDupl(object):
 
     def copy_by_sub(self, param_0, param_1):
@@ -1938,107 +2139,6 @@ class _NurbsSurfaceDupl(object):
             return None
 class _ObjectRoot(object):
     pass
-class _ObjectRootDefm(object):
-
-    def box_morph(self, box_points, copy=pythoncom.Empty):
-        """
-        
-        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
-
-        Parameters
-        ==========
-        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
-        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
-
-        Returns
-        =======
-        object - The morphed object if successful.
-        list - A list of strings identifying the morphed objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BoxMorphObject
-
-        
-        """
-        _rhino_id = _base._rsf.box_morph_object(self._rhino_id, box_points, copy)
-        if _rhino_id:
-            return self._class(_rhino_id)
-        else:
-            return None
-
-    def shear(self, origin, ref_point, angle, copy=pythoncom.Empty):
-        """
-        
-        Performs a shear transformation on a single object. Transformation is based on the active construction plane.
-
-        Parameters
-        ==========
-        origin  (List of float, Required) - The origin of the shear transformation.
-        ref_point  (List of float, Required) - The reference point of the shear transformation.
-        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
-        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
-
-        Returns
-        =======
-        object - The sheared object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ShearObject
-
-        
-        """
-        _rhino_id = _base._rsf.shear_object(self._rhino_id, origin, ref_point, angle, copy)
-        if _rhino_id:
-            return self._class(_rhino_id)
-        else:
-            return None
-
-    def transform(self, matrix, copy=pythoncom.Empty):
-        """
-        
-        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
-		1
-		0
-		0
-		dX
-		0
-		1
-		0
-		dY
-		0
-		0
-		1
-		dZ
-		0
-		0
-		0
-		1
-
-        Parameters
-        ==========
-        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
-        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
-
-        Returns
-        =======
-        boolean - The transformed object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: TransformObject
-
-        
-        """
-        _rhino_id = _base._rsf.transform_object(self._rhino_id, matrix, copy)
-        if _rhino_id:
-            return self._class(_rhino_id)
-        else:
-            return None
 class _ObjectRootFunc(object):
     pass
 class _ObjectRootGrps(object):
@@ -2086,7 +2186,7 @@ class _ObjectRootGrps(object):
         
         """
         return _base._rsf.object_top_group(self._rhino_id)
-class _ObjectRootMdfy(object):
+class _ObjectRootModf(object):
 
     def delete(self):
         """
@@ -4511,6 +4611,107 @@ class _SphereDupl(object):
             return p2r.obj.Sphere(_rhino_id)
         else:
             return None
+class _SurfaceRootDefm(object):
+
+    def box_morph(self, box_points, copy=pythoncom.Empty):
+        """
+        
+        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
+
+        Parameters
+        ==========
+        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The morphed object if successful.
+        list - A list of strings identifying the morphed objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BoxMorphObject
+
+        
+        """
+        _rhino_id = _base._rsf.box_morph_object(self._rhino_id, box_points, copy)
+        if _rhino_id:
+            return p2r.obj.NurbsSurface(_rhino_id)
+        else:
+            return None
+
+    def shear(self, origin, ref_point, angle, copy=pythoncom.Empty):
+        """
+        
+        Performs a shear transformation on a single object. Transformation is based on the active construction plane.
+
+        Parameters
+        ==========
+        origin  (List of float, Required) - The origin of the shear transformation.
+        ref_point  (List of float, Required) - The reference point of the shear transformation.
+        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The sheared object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ShearObject
+
+        
+        """
+        _rhino_id = _base._rsf.shear_object(self._rhino_id, origin, ref_point, angle, copy)
+        if _rhino_id:
+            return p2r.obj.NurbsSurface(_rhino_id)
+        else:
+            return None
+
+    def transform(self, matrix, copy=pythoncom.Empty):
+        """
+        
+        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+		1
+		0
+		0
+		dX
+		0
+		1
+		0
+		dY
+		0
+		0
+		1
+		dZ
+		0
+		0
+		0
+		1
+
+        Parameters
+        ==========
+        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        boolean - The transformed object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: TransformObject
+
+        
+        """
+        _rhino_id = _base._rsf.transform_object(self._rhino_id, matrix, copy)
+        if _rhino_id:
+            return p2r.obj.NurbsSurface(_rhino_id)
+        else:
+            return None
 class _SurfaceRootEval(object):
 
     def evaluate(self, parameter):
@@ -4535,7 +4736,7 @@ class _SurfaceRootEval(object):
         """
         return _base._rsf.evaluate_surface(self._rhino_id, parameter)
 
-    def evaluate_derivatives(self, parameter, derivative):
+    def derivatives(self, parameter, derivative):
         """
         
         A general purpose surface evaluator.
@@ -5149,43 +5350,6 @@ class _CurveRootFunc(_ObjectRootFunc):
             return p2r.obj.NurbsCurve(_rhino_id)
         else:
             return None
-
-    def planar_crv_collision(self, curve, plane=pythoncom.Empty, tolerance=pythoncom.Empty):
-        """
-        
-        Determines if two coplanar curves intersect.
-
-        Parameters
-        ==========
-        curve  (curve object, Required) - The object identifier of the second planar curve.
-        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
-		Element
-		Type
-		Description
-		0
-		Array
-		Required.  The construction plane's origin (3-D point).
-		1
-		Array
-		Required.  The construction plane's X axis direction (3-D vector).
-		2
-		Array
-		Required.  The construction plane's Y axis direction (3-D vector).
-		3
-		Array
-        tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
-
-        Returns
-        =======
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: PlanarCurveCollision
-
-        
-        """
-        return _base._rsf.planar_curve_collision(self._rhino_id, curve._rhino_id, plane, tolerance)
 class _CurveRootFuncClsd(_CurveRootFunc):
 
     def area(self, objects):
@@ -5310,13 +5474,19 @@ class _CurveRootFuncClsd(_CurveRootFunc):
 
         
         """
+
         if type(curves) != list and type(curves) != tuple:
-            curves = (curves,)
+            curves = (self, curves)
+        else:
+            if type(curves) == tuple:
+                curves = list(curves)
+            curves.append(self)
         _rhino_ids = _base._rsf.curve_boolean_union(map(lambda i: i._rhino_id, curves))
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolyCurve(i), _rhino_ids)
         else:
             return None
+
 
     def containment(self, curve, plane=pythoncom.Empty, tolerance=pythoncom.Empty):
         """
@@ -5393,150 +5563,7 @@ class _CurveRootFuncClsd(_CurveRootFunc):
         
         """
         return _base._rsf.point_in_planar_closed_curve(point, self._rhino_id, plane, tolerance)
-class _CurveRootFuncOpen(_CurveRootFunc):
-
-    def close(self, tolerance=pythoncom.Empty):
-        """
-        
-        Closes an open curve object by making adjustments to the end points so that they meet at a point.
-
-        Parameters
-        ==========
-        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
-
-        Returns
-        =======
-        object - The closed curve object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: CloseCurve
-
-        
-        """
-        _rhino_id = _base._rsf.close_curve(self._rhino_id, tolerance)
-        if _rhino_id:
-            return p2r.obj.NurbsCurve(_rhino_id)
-        else:
-            return None
-
-    def extend(self, crv_type, side, objects):
-        """
-        
-        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
-
-        Parameters
-        ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
-
-        Returns
-        =======
-        object - The extended object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ExtendCurve
-
-        
-        """
-        if type(objects) != list and type(objects) != tuple:
-            objects = (objects,)
-        _rhino_id = _base._rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
-        if _rhino_id:
-            return p2r.obj.NurbsCurve(_rhino_id)
-        else:
-            return None
-
-    def extend_length(self, crv_type, side, length):
-        """
-        
-        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
-
-        Parameters
-        ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-		Extend from the end of the curve.
-		2
-        length  (float, Required) - The distance to extend the curve.
-
-        Returns
-        =======
-        object - The extended object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ExtendCurveLength
-
-        
-        """
-        _rhino_id = _base._rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
-        if _rhino_id:
-            return p2r.obj.NurbsCurve(_rhino_id)
-        else:
-            return None
-
-    def extend_pnt(self, side, point):
-        """
-        
-        Extends a non-closed curve object by smooth extension to a point.
-
-        Parameters
-        ==========
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-        point  (List of float, Required) - The 3-D point.
-
-        Returns
-        =======
-        object - The extended object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ExtendCurvePoint
-
-        
-        """
-        _rhino_id = _base._rsf.extend_curve_point(self._rhino_id, side, point)
-        if _rhino_id:
-            return p2r.obj.NurbsCurve(_rhino_id)
-        else:
-            return None
-class _CurveRootMdfy(_ObjectRootMdfy):
+class _CurveRootModf(_ObjectRootModf):
 
     def seam(self, parameter):
         """
@@ -5942,6 +5969,43 @@ class _CurveRootTest(_ObjectRootTest):
         
         """
         return _base._rsf.is_point_on_curve(self._rhino_id, point, pythoncom.Empty)
+
+    def planar_crv_collision(self, curve, plane=pythoncom.Empty, tolerance=pythoncom.Empty):
+        """
+        
+        Determines if two coplanar curves intersect.
+
+        Parameters
+        ==========
+        curve  (curve object, Required) - The object identifier of the second planar curve.
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
+		Element
+		Type
+		Description
+		0
+		Array
+		Required.  The construction plane's origin (3-D point).
+		1
+		Array
+		Required.  The construction plane's X axis direction (3-D vector).
+		2
+		Array
+		Required.  The construction plane's Y axis direction (3-D vector).
+		3
+		Array
+        tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+
+        Returns
+        =======
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: PlanarCurveCollision
+
+        
+        """
+        return _base._rsf.planar_curve_collision(self._rhino_id, curve._rhino_id, plane, tolerance)
 class _CurveRootType(_ObjectRootType):
 
     def is_arc(self):
@@ -6142,6 +6206,266 @@ class _EllipseProp(_CurveRootProp):
         
         """
         return _base._rsf.ellipse_quad_points(self._rhino_id)
+class _EllipticalArcModf(_CurveRootModf):
+
+    def close(self, tolerance=pythoncom.Empty):
+        """
+        
+        Closes an open curve object by making adjustments to the end points so that they meet at a point.
+
+        Parameters
+        ==========
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+
+        Returns
+        =======
+        object - The closed curve object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CloseCurve
+
+        
+        """
+        _rhino_id = _base._rsf.close_curve(self._rhino_id, tolerance)
+        if _rhino_id:
+            return p2r.obj.EllipticalArc(_rhino_id)
+        else:
+            return None
+
+    def extend(self, crv_type, side, objects):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        
+        """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
+        _rhino_id = _base._rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
+        if _rhino_id:
+            return p2r.obj.EllipticalArc(_rhino_id)
+        else:
+            return None
+
+    def extend_length(self, crv_type, side, length):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
+        if _rhino_id:
+            return p2r.obj.EllipticalArc(_rhino_id)
+        else:
+            return None
+
+    def extend_pnt(self, side, point):
+        """
+        
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_point(self._rhino_id, side, point)
+        if _rhino_id:
+            return p2r.obj.EllipticalArc(_rhino_id)
+        else:
+            return None
+class _LineModf(_CurveRootModf):
+
+    def extend(self, crv_type, side, objects):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        
+        """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
+        _rhino_id = _base._rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
+        if _rhino_id:
+            return p2r.obj.Line(_rhino_id)
+        else:
+            return None
+
+    def extend_length(self, crv_type, side, length):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
+        if _rhino_id:
+            return p2r.obj.Line(_rhino_id)
+        else:
+            return None
+
+    def extend_pnt(self, side, point):
+        """
+        
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_point(self._rhino_id, side, point)
+        if _rhino_id:
+            return p2r.obj.Line(_rhino_id)
+        else:
+            return None
 class _MeshRoot(_ObjectRoot):
     pass
 class _MeshRootFunc(_ObjectRootFunc):
@@ -6459,7 +6783,7 @@ class _MeshRootFuncClsd(_MeshRootFunc):
             return None
 class _MeshRootFuncOpen(_MeshRootFunc):
     pass
-class _MeshRootMdfy(_ObjectRootMdfy):
+class _MeshRootModf(_ObjectRootModf):
 
     def quads_to_triangles(self):
         """
@@ -7030,6 +7354,320 @@ class _MeshRootType(_ObjectRootTest):
         
         """
         return _base._rsf.is_mesh(self._rhino_id)
+class _NurbsCurveModf(_CurveRootModf):
+
+    def close(self, tolerance=pythoncom.Empty):
+        """
+        
+        Closes an open curve object by making adjustments to the end points so that they meet at a point.
+
+        Parameters
+        ==========
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+
+        Returns
+        =======
+        object - The closed curve object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CloseCurve
+
+        
+        """
+        _rhino_id = _base._rsf.close_curve(self._rhino_id, tolerance)
+        if _rhino_id:
+            return p2r.obj.NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    def extend(self, crv_type, side, objects):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        
+        """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
+        _rhino_id = _base._rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
+        if _rhino_id:
+            return p2r.obj.NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    def extend_length(self, crv_type, side, length):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
+        if _rhino_id:
+            return p2r.obj.NurbsCurve(_rhino_id)
+        else:
+            return None
+
+    def extend_pnt(self, side, point):
+        """
+        
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_point(self._rhino_id, side, point)
+        if _rhino_id:
+            return p2r.obj.NurbsCurve(_rhino_id)
+        else:
+            return None
+class _PolyCurveFunc(_CurveRootFuncClsd):
+
+    def explode(self, delete=pythoncom.Empty):
+        """
+        
+        Explodes, or un-joins,  one more curve objects.  Polycurves will be exploded into curve segments.  Polylines will be exploded into line segments.  ExplodeCurves will return the curves in
+		topological order.
+
+        Parameters
+        ==========
+        delete  (boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
+
+        Returns
+        =======
+        list of objects - A list of strings identifying the newly created curve objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExplodeCurves
+
+        
+        """
+        _rhino_ids = _base._rsf.explode_curves(self._rhino_id, delete)
+        if _rhino_ids:
+            return map(lambda i: p2r.obj.NurbsCurve(i), _rhino_ids)
+        else:
+            return None
+class _PolylineModf(_CurveRootModf):
+
+    def close(self, tolerance=pythoncom.Empty):
+        """
+        
+        Closes an open curve object by making adjustments to the end points so that they meet at a point.
+
+        Parameters
+        ==========
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+
+        Returns
+        =======
+        object - The closed curve object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CloseCurve
+
+        
+        """
+        _rhino_id = _base._rsf.close_curve(self._rhino_id, tolerance)
+        if _rhino_id:
+            return p2r.obj.Polyline(_rhino_id)
+        else:
+            return None
+
+    def extend(self, crv_type, side, objects):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        
+        """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
+        _rhino_id = _base._rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
+        if _rhino_id:
+            return p2r.obj.Polyline(_rhino_id)
+        else:
+            return None
+
+    def extend_length(self, crv_type, side, length):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
+        if _rhino_id:
+            return p2r.obj.Polyline(_rhino_id)
+        else:
+            return None
+
+    def extend_pnt(self, side, point):
+        """
+        
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_point(self._rhino_id, side, point)
+        if _rhino_id:
+            return p2r.obj.Polyline(_rhino_id)
+        else:
+            return None
 class _PolylineProp(_CurveRootProp):
 
     def vertices(self):
@@ -7056,6 +7694,56 @@ class _PolylineProp(_CurveRootProp):
 class _SurfaceRoot(_ObjectRoot):
     pass
 class _SurfaceRootFunc(_ObjectRootFunc):
+
+    def closest_pnt_brep(self, point):
+        """
+        
+        Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.
+
+        Parameters
+        ==========
+        point  (List of float, Required) - The test, or sampling, point.
+
+        Returns
+        =======
+        list - A list of closest point information if successful.  The list will contain the following information:
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BrepClosestPoint
+
+        
+        """
+        return _base._rsf.brep_closest_point(self._rhino_id, point)
+
+    def cap_planar_holes(self):
+        """
+        
+        Caps planar holes in a surface or polysurface. For more details, see the Cap command in the Rhino help file.
+
+        Parameters
+        ==========
+        No parameters
+
+        Returns
+        =======
+        boolean - True or False indicating success or failure.
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CapPlanarHoles
+
+        
+        """
+
+        result = _base._rsf.cap_planar_holes(self._rhino_id)
+        if result:
+            return p2r.obj.PolySurface(self._rhino_id)
+        else:
+            return None
+
 
     def make_non_periodic(self, direction, delete=pythoncom.Empty):
         """
@@ -7113,6 +7801,33 @@ class _SurfaceRootFunc(_ObjectRootFunc):
         else:
             return None
 
+    def split(self, cutter, delete=pythoncom.Empty):
+        """
+        
+        Splits a brep.  A brep can be either a surface with a single face or a polysurface.
+
+        Parameters
+        ==========
+        cutter  (surface object, Required) - The identifier of the brep object to split with.
+        delete  (boolean, Optional) - Delete input brep.  If omitted, the input brep will not be deleted (False).
+
+        Returns
+        =======
+        list of objects - The identifiers of the new brep objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SplitBrep
+
+        
+        """
+        _rhino_ids = _base._rsf.split_brep(self._rhino_id, cutter._rhino_id, delete)
+        if _rhino_ids:
+            return map(lambda i: self._class(i), _rhino_ids)
+        else:
+            return None
+
     def closest_pnt(self, point):
         """
         
@@ -7134,9 +7849,72 @@ class _SurfaceRootFunc(_ObjectRootFunc):
         
         """
         return _base._rsf.surface_closest_point(self._rhino_id, point)
+
+    def intersect_2_srfs(self, surface_a, tolerance=pythoncom.Empty):
+        """
+        
+        Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
+
+        Parameters
+        ==========
+        surface_a  (surface object, Required) - The identifier of the second surface object.
+        tolerance  (float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+        create  (boolean, Optional) - Create the intersection curves and points.  If omitted, intersection geometry will not be created.
+
+        Returns
+        =======
+        list - If create is not specified or is equal to False, a list numbers identifying the intersection event type if successful.  The list will contain one or more of the following intersection event types:
+        list - If create is specified and is equal to True, a two-dimensional list of intersection information if successful.  The list will contain one or more of the following elements:
+        number - The intersection event type.  See the above table for details.
+        string - The intersection curve or point object that was created.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SurfaceSurfaceIntersection
+
+        
+        """
+
+        result = _base._rsf.surface_surface_intersection(self._rhino_id, surface_a._rhino_id, tolerance, create)
+        if result:
+            curves = []
+            for i in result:
+                curves.append(p2r.obj.NurbsCurve(i[-1]))
+            return curves
+        else:
+            return None
+
+
+    def intersect_2_srfs_test(self, surface_a, tolerance=pythoncom.Empty, create=pythoncom.Empty):
+        """
+        
+        Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
+
+        Parameters
+        ==========
+        surface_a  (surface object, Required) - The identifier of the second surface object.
+        tolerance  (float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+        create  (boolean, Optional) - Create the intersection curves and points.  If omitted, intersection geometry will not be created.
+
+        Returns
+        =======
+        list - If create is not specified or is equal to False, a list numbers identifying the intersection event type if successful.  The list will contain one or more of the following intersection event types:
+        list - If create is specified and is equal to True, a two-dimensional list of intersection information if successful.  The list will contain one or more of the following elements:
+        number - The intersection event type.  See the above table for details.
+        string - The intersection curve or point object that was created.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SurfaceSurfaceIntersection
+
+        
+        """
+        return _base._rsf.surface_surface_intersection(self._rhino_id, surface_a._rhino_id, tolerance, create)
 class _SurfaceRootFuncClsd(_SurfaceRootFunc):
 
-    def boolean_difference(self, breps, delete=pythoncom.Empty):
+    def boolean_difference_1(self, breps, delete=pythoncom.Empty):
         """
         
         Performs a Boolean difference operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanDifference command in the Rhino help file.
@@ -7160,6 +7938,35 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
         if type(breps) != list and type(breps) != tuple:
             breps = (breps,)
         _rhino_ids = _base._rsf.boolean_difference(self._rhino_id, map(lambda i: i._rhino_id, breps), delete)
+        if _rhino_ids:
+            return map(lambda i: p2r.obj.PolySurface(i), _rhino_ids)
+        else:
+            return None
+
+    def boolean_difference_2(self, breps, delete=pythoncom.Empty):
+        """
+        
+        Performs a Boolean difference operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanDifference command in the Rhino help file.
+
+        Parameters
+        ==========
+        breps  (list of surface object, Required) - The identifiers of the surfaces or polysurfaces to subtract from.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+
+        Returns
+        =======
+        list of objects - A list containing the identifiers of the newly created objects, if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BooleanDifference
+
+        
+        """
+        if type(breps) != list and type(breps) != tuple:
+            breps = (breps,)
+        _rhino_ids = _base._rsf.boolean_difference(map(lambda i: i._rhino_id, breps), self._rhino_id, delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolySurface(i), _rhino_ids)
         else:
@@ -7215,113 +8022,20 @@ class _SurfaceRootFuncClsd(_SurfaceRootFunc):
 
         
         """
+
         if type(breps) != list and type(breps) != tuple:
-            breps = (breps,)
+            breps = (self, breps)
+        else:
+            if type(breps) == tuple:
+                breps = list(breps)
+            breps.append(self)            
         _rhino_ids = _base._rsf.boolean_union(map(lambda i: i._rhino_id, breps), delete)
         if _rhino_ids:
             return map(lambda i: p2r.obj.PolySurface(i), _rhino_ids)
         else:
             return None
 
-    def brep_closest_pnt(self, point):
-        """
-        
-        Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.
-
-        Parameters
-        ==========
-        point  (List of float, Required) - The test, or sampling, point.
-
-        Returns
-        =======
-        list - A list of closest point information if successful.  The list will contain the following information:
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BrepClosestPoint
-
-        
-        """
-        return _base._rsf.brep_closest_point(self._rhino_id, point)
-
-    def intersect_breps(self, brep_1, tolerance=pythoncom.Empty):
-        """
-        
-        Intersects a brep object with another  brep object. Note, unlike the SurfaceSurfaceIntersection function this function works on trimmed surfaces.
-
-        Parameters
-        ==========
-        brep_1  (string, Required) - The second  brep object's identifier.
-        tolerance  (float, Optional) - The distance tolerance at segment midpoints.  If omitted, the current absolute tolerance is used..
-
-        Returns
-        =======
-        list of objects - A list of strings identifying the newly created intersection curve and point objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IntersectBreps
-
-        
-        """
-        _rhino_ids = _base._rsf.intersect_breps(self._rhino_id, brep_1, tolerance)
-        if _rhino_ids:
-            return map(lambda i: self._class(i), _rhino_ids)
-        else:
-            return None
-
-    def boolean_split(self, cutter, delete=pythoncom.Empty):
-        """
-        
-        Splits a brep.  A brep can be either a surface with a single face or a polysurface.
-
-        Parameters
-        ==========
-        cutter  (string, Required) - The identifier of the brep object to split with.
-        delete  (boolean, Optional) - Delete input brep.  If omitted, the input brep will not be deleted (False).
-
-        Returns
-        =======
-        list of objects - The identifiers of the new brep objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: SplitBrep
-
-        
-        """
-        _rhino_ids = _base._rsf.split_brep(self._rhino_id, cutter, delete)
-        if _rhino_ids:
-            return map(lambda i: p2r.obj.PolySurface(i), _rhino_ids)
-        else:
-            return None
-class _SurfaceRootFuncOpen(_SurfaceRootFunc):
-
-    def cap_planar_holes(self):
-        """
-        
-        Caps planar holes in a surface or polysurface. For more details, see the Cap command in the Rhino help file.
-
-        Parameters
-        ==========
-        No parameters
-
-        Returns
-        =======
-        boolean - True or False indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: CapPlanarHoles
-
-        
-        """
-        return _base._rsf.cap_planar_holes(self._rhino_id)
-class _SurfaceRootMdfy(_ObjectRootMdfy):
+class _SurfaceRootModf(_ObjectRootModf):
 
     def flip(self, flip=pythoncom.Empty):
         """
@@ -7938,8 +8652,6 @@ class _SurfaceRootPropClsd(_SurfaceRootProp):
         
         """
         return _base._rsf.surface_volume_moments(self._rhino_id)
-class _SurfaceRootPropOpen(_SurfaceRootProp):
-    pass
 class _SurfaceRootTest(_ObjectRootTest):
 
     def is_brep(self):
@@ -8408,40 +9120,233 @@ class _TorusProp(_SurfaceRootPropClsd):
         
         """
         return _base._rsf.surface_torus(self._rhino_id)
-class _CurveRootFuncOorC(_CurveRootFuncOpen,_CurveRootFuncClsd):
-    pass
-class _CurveRootPropOorC(_CurveRootPropOpen,_CurveRootPropClsd):
-    pass
-class _MeshRootFuncOorC(_MeshRootFuncOpen,_MeshRootFuncClsd):
-    pass
-class _MeshRootPropOorc(_MeshRootPropClsd,_MeshRootPropOpen):
-    pass
-class _PolyCurveFunc(_CurveRootFuncOorC):
+class _ArcModf(_CurveRootModf):
 
-    def explode(self, delete=pythoncom.Empty):
+    def close(self, tolerance=pythoncom.Empty):
         """
         
-        Explodes, or un-joins,  one more curve objects.  Polycurves will be exploded into curve segments.  Polylines will be exploded into line segments.  ExplodeCurves will return the curves in
-		topological order.
+        Closes an open curve object by making adjustments to the end points so that they meet at a point.
 
         Parameters
         ==========
-        delete  (boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
 
         Returns
         =======
-        list of objects - A list of strings identifying the newly created curve objects if successful.
+        object - The closed curve object if successful.
         None - If not successful, or on error.
 
         Rhinoscript
         ===========
-        This function calls the Rhinoscript function: ExplodeCurves
+        This function calls the Rhinoscript function: CloseCurve
 
         
         """
-        _rhino_ids = _base._rsf.explode_curves(self._rhino_id, delete)
+        _rhino_id = _base._rsf.close_curve(self._rhino_id, tolerance)
+        if _rhino_id:
+            return p2r.obj.Arc(_rhino_id)
+        else:
+            return None
+
+    def extend(self, crv_type, side, objects):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        
+        """
+        if type(objects) != list and type(objects) != tuple:
+            objects = (objects,)
+        _rhino_id = _base._rsf.extend_curve(self._rhino_id, crv_type, side, map(lambda i: i._rhino_id, objects))
+        if _rhino_id:
+            return p2r.obj.Arc(_rhino_id)
+        else:
+            return None
+
+    def extend_length(self, crv_type, side, length):
+        """
+        
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_length(self._rhino_id, crv_type, side, length)
+        if _rhino_id:
+            return p2r.obj.Arc(_rhino_id)
+        else:
+            return None
+
+    def extend_pnt(self, side, point):
+        """
+        
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        
+        """
+        _rhino_id = _base._rsf.extend_curve_point(self._rhino_id, side, point)
+        if _rhino_id:
+            return p2r.obj.Arc(_rhino_id)
+        else:
+            return None
+class _ConeProp(_SurfaceRootPropClsd):
+
+    def cone_def(self):
+        """
+        
+        Returns the definition of a cone surface.
+
+        Parameters
+        ==========
+        No parameters
+
+        Returns
+        =======
+        list - A list containing the definition of the cone if successful.  The elements of the list are as follows:
+        list - The plane of the cone.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
+        number - The height of the cone.
+        number - The radius of the cone.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SurfaceCone
+
+        
+        """
+        return _base._rsf.surface_cone(self._rhino_id)
+class _CurveRootPropOorC(_CurveRootPropOpen,_CurveRootPropClsd):
+    pass
+class _CylinderProp(_SurfaceRootPropClsd):
+
+    def cylinder_def(self):
+        """
+        
+        Returns the definition of a cylinder surface.
+
+        Parameters
+        ==========
+        No parameters
+
+        Returns
+        =======
+        list - A list containing the definition of the cylinder if successful.  The elements of the list are as follows:
+        list - The base plane of the cylinder.
+        number - The height of the cylinder.
+        number - The radius of the cylinder.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SurfaceCylinder
+
+        
+        """
+        return _base._rsf.surface_cylinder(self._rhino_id)
+class _MeshRootFuncOorC(_MeshRootFuncOpen,_MeshRootFuncClsd):
+    pass
+class _MeshRootPropOorc(_MeshRootPropClsd,_MeshRootPropOpen):
+    pass
+class _PolySurfaceFunc(_SurfaceRootFuncClsd):
+
+    def explode(self, delete=pythoncom.Empty):
+        """
+        
+        Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.
+
+        Parameters
+        ==========
+        objects  (list of array_of _ObjectRoot, Required) - A list of polysurface objects to explode.
+        delete  (boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
+
+        Returns
+        =======
+        list of objects - A list of strings identifying the newly created surface objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExplodePolysurfaces
+
+        
+        """
+        _rhino_ids = _base._rsf.explode_polysurfaces(self._rhino_id, delete)
         if _rhino_ids:
-            return map(lambda i: p2r.obj.NurbsCurve(i), _rhino_ids)
+            return map(lambda i: p2r.obj.NurbsSurface(i), _rhino_ids)
         else:
             return None
 class _SphereProp(_SurfaceRootPropClsd):
@@ -8469,94 +9374,8 @@ class _SphereProp(_SurfaceRootPropClsd):
         
         """
         return _base._rsf.surface_sphere(self._rhino_id)
-class _SurfaceRootFuncOorc(_SurfaceRootFuncOpen,_SurfaceRootFuncClsd):
-    pass
-class _SurfaceRootPropOorc(_SurfaceRootPropOpen,_SurfaceRootPropClsd):
-    pass
-class _ConeProp(_SurfaceRootPropOorc):
-
-    def cone_def(self):
-        """
-        
-        Returns the definition of a cone surface.
-
-        Parameters
-        ==========
-        No parameters
-
-        Returns
-        =======
-        list - A list containing the definition of the cone if successful.  The elements of the list are as follows:
-        list - The plane of the cone.  The apex of cone is at plane's origin and  the axis of the cone is plane's z-axis.
-        number - The height of the cone.
-        number - The radius of the cone.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: SurfaceCone
-
-        
-        """
-        return _base._rsf.surface_cone(self._rhino_id)
-class _CylinderProp(_SurfaceRootPropOorc):
-
-    def cylinder_def(self):
-        """
-        
-        Returns the definition of a cylinder surface.
-
-        Parameters
-        ==========
-        No parameters
-
-        Returns
-        =======
-        list - A list containing the definition of the cylinder if successful.  The elements of the list are as follows:
-        list - The base plane of the cylinder.
-        number - The height of the cylinder.
-        number - The radius of the cylinder.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: SurfaceCylinder
-
-        
-        """
-        return _base._rsf.surface_cylinder(self._rhino_id)
-class _PolySurfaceFunc(_SurfaceRootFuncOorc):
-
-    def explode(self, objects, delete=pythoncom.Empty):
-        """
-        
-        Explodes, or un-joins,  one more polysurface objects.  Polysurfaces will be exploded into separate surfaces.
-
-        Parameters
-        ==========
-        objects  (list of array_of _ObjectRoot, Required) - A list of polysurface objects to explode.
-        delete  (boolean, Optional) - Delete input objects after exploding.  The default is not to delete objects (False).
-
-        Returns
-        =======
-        list of objects - A list of strings identifying the newly created surface objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ExplodePolysurfaces
-
-        
-        """
-        if type(objects) != list and type(objects) != tuple:
-            objects = (objects,)
-        _rhino_ids = _base._rsf.explode_polysurfaces(map(lambda i: i._rhino_id, objects), delete)
-        if _rhino_ids:
-            return map(lambda i: p2r.obj.NurbsSurface(i), _rhino_ids)
-        else:
-            return None
 class Arc(_CurveRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_CurveRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Arc
@@ -8568,7 +9387,7 @@ class Arc(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Arc
-    class func(_CurveRootFuncOpen):
+    class func(_CurveRootFunc):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Arc
@@ -8576,7 +9395,7 @@ class Arc(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Arc
-    class modf(_CurveRootMdfy):
+    class modf(_ArcModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Arc
@@ -8726,7 +9545,7 @@ class Arc(_CurveRoot):
         else:
             return None
 class Box(_SurfaceRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_SurfaceRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Box
@@ -8738,7 +9557,7 @@ class Box(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Box
-    class func(_SurfaceRootFuncOorc):
+    class func(_SurfaceRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Box
@@ -8746,7 +9565,7 @@ class Box(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Box
-    class modf(_SurfaceRootMdfy):
+    class modf(_SurfaceRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Box
@@ -8828,7 +9647,7 @@ class Box(_SurfaceRoot):
         else:
             return None
 class Circle(_CurveRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_CurveRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Circle
@@ -8848,7 +9667,7 @@ class Circle(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Circle
-    class modf(_CurveRootMdfy):
+    class modf(_CurveRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Circle
@@ -8963,7 +9782,7 @@ class Circle(_CurveRoot):
         else:
             return None
 class Cone(_SurfaceRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_SurfaceRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cone
@@ -8975,7 +9794,7 @@ class Cone(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cone
-    class func(_SurfaceRootFuncOorc):
+    class func(_SurfaceRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cone
@@ -8983,7 +9802,7 @@ class Cone(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cone
-    class modf(_SurfaceRootMdfy):
+    class modf(_SurfaceRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cone
@@ -9107,7 +9926,7 @@ class Cone(_SurfaceRoot):
             return None
 
 class Cylinder(_SurfaceRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_SurfaceRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cylinder
@@ -9119,7 +9938,7 @@ class Cylinder(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cylinder
-    class func(_SurfaceRootFuncOorc):
+    class func(_SurfaceRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cylinder
@@ -9127,7 +9946,7 @@ class Cylinder(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cylinder
-    class modf(_SurfaceRootMdfy):
+    class modf(_SurfaceRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Cylinder
@@ -9251,7 +10070,7 @@ class Cylinder(_SurfaceRoot):
             return None
 
 class Ellipse(_CurveRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_CurveRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Ellipse
@@ -9271,7 +10090,7 @@ class Ellipse(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Ellipse
-    class modf(_CurveRootMdfy):
+    class modf(_CurveRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Ellipse
@@ -9387,7 +10206,7 @@ class Ellipse(_CurveRoot):
         else:
             return None
 class EllipticalArc(_CurveRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_CurveRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = EllipticalArc
@@ -9399,7 +10218,7 @@ class EllipticalArc(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = EllipticalArc
-    class func(_CurveRootFuncOpen):
+    class func(_CurveRootFunc):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = EllipticalArc
@@ -9407,7 +10226,7 @@ class EllipticalArc(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = EllipticalArc
-    class modf(_CurveRootMdfy):
+    class modf(_EllipticalArcModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = EllipticalArc
@@ -9458,65 +10277,8 @@ class EllipticalArc(_CurveRoot):
         self.test = EllipticalArc.test(_rhino_id)
         self.trfm = EllipticalArc.trfm(_rhino_id)
         self.util = EllipticalArc.util(_rhino_id)
-class GenericObject(_ObjectRoot):
-    class defm(_ObjectRootDefm):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class grps(_ObjectRootGrps):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class mtrl(_ObjectRootMtrl):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class prop(_ObjectRootProp):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class rndr(_ObjectRootRndr):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class stat(_ObjectRootStat):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class test(_ObjectRootTest):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class trfm(_ObjectRootTrfm):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class type(_ObjectRootType):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    class util(_ObjectRootUtil):
-        def __init__(self, _rhino_id):
-            self._rhino_id = _rhino_id
-            self._class = GenericObject
-    # Class constructor
-    def __init__(self, _rhino_id):
-        if _rhino_id==None:
-            raise Exception("Use the create... methods to create instances of this class.")
-        self._rhino_id = _rhino_id
-
-        self.defm = GenericObject.defm(_rhino_id)
-        self.grps = GenericObject.grps(_rhino_id)
-        self.mtrl = GenericObject.mtrl(_rhino_id)
-        self.prop = GenericObject.prop(_rhino_id)
-        self.rndr = GenericObject.rndr(_rhino_id)
-        self.stat = GenericObject.stat(_rhino_id)
-        self.test = GenericObject.test(_rhino_id)
-        self.trfm = GenericObject.trfm(_rhino_id)
-        self.type = GenericObject.type(_rhino_id)
-        self.util = GenericObject.util(_rhino_id)
 class Line(_CurveRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_CurveRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Line
@@ -9528,7 +10290,7 @@ class Line(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Line
-    class func(_CurveRootFuncOpen):
+    class func(_CurveRootFunc):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Line
@@ -9536,7 +10298,7 @@ class Line(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Line
-    class modf(_CurveRootMdfy):
+    class modf(_LineModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Line
@@ -9619,7 +10381,7 @@ class Line(_CurveRoot):
         else:
             return None
 class Mesh(_MeshRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_MeshRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Mesh
@@ -9635,7 +10397,7 @@ class Mesh(_MeshRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Mesh
-    class modf(_MeshRootMdfy):
+    class modf(_MeshRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Mesh
@@ -9750,7 +10512,7 @@ class Mesh(_MeshRoot):
         else:
             return None
 class NurbsCurve(_CurveRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_CurveRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsCurve
@@ -9762,7 +10524,7 @@ class NurbsCurve(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsCurve
-    class func(_CurveRootFuncOorC):
+    class func(_CurveRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsCurve
@@ -9770,7 +10532,7 @@ class NurbsCurve(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsCurve
-    class modf(_CurveRootMdfy):
+    class modf(_NurbsCurveModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsCurve
@@ -10410,7 +11172,7 @@ class NurbsCurve(_CurveRoot):
         else:
             return None
 class NurbsSurface(_SurfaceRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_SurfaceRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsSurface
@@ -10422,7 +11184,7 @@ class NurbsSurface(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsSurface
-    class func(_SurfaceRootFuncOorc):
+    class func(_SurfaceRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsSurface
@@ -10430,7 +11192,7 @@ class NurbsSurface(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsSurface
-    class modf(_SurfaceRootMdfy):
+    class modf(_SurfaceRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsSurface
@@ -10438,7 +11200,7 @@ class NurbsSurface(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsSurface
-    class prop(_SurfaceRootPropOorc):
+    class prop(_SurfaceRootPropClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = NurbsSurface
@@ -11102,7 +11864,7 @@ class NurbsSurface(_SurfaceRoot):
         else:
             return None
 class PlanarMesh(_MeshRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_MeshRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlanarMesh
@@ -11118,7 +11880,7 @@ class PlanarMesh(_MeshRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlanarMesh
-    class modf(_MeshRootMdfy):
+    class modf(_MeshRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlanarMesh
@@ -11200,7 +11962,7 @@ class PlanarMesh(_MeshRoot):
         else:
             return None
 class PlaneSurface(_SurfaceRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_SurfaceRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlaneSurface
@@ -11212,7 +11974,7 @@ class PlaneSurface(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlaneSurface
-    class func(_SurfaceRootFuncOorc):
+    class func(_SurfaceRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlaneSurface
@@ -11220,7 +11982,7 @@ class PlaneSurface(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlaneSurface
-    class modf(_SurfaceRootMdfy):
+    class modf(_SurfaceRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlaneSurface
@@ -11228,7 +11990,7 @@ class PlaneSurface(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlaneSurface
-    class prop(_SurfaceRootPropOpen):
+    class prop(_SurfaceRootProp):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PlaneSurface
@@ -11394,7 +12156,7 @@ class PolyCurve(_CurveRoot):
         else:
             return None
 class PolySurface(_SurfaceRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_SurfaceRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PolySurface
@@ -11414,7 +12176,7 @@ class PolySurface(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PolySurface
-    class modf(_SurfaceRootMdfy):
+    class modf(_SurfaceRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = PolySurface
@@ -11526,7 +12288,7 @@ class PolySurface(_SurfaceRoot):
         else:
             return None
 class Polyline(_CurveRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_CurveRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Polyline
@@ -11538,7 +12300,7 @@ class Polyline(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Polyline
-    class func(_CurveRootFuncOorC):
+    class func(_CurveRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Polyline
@@ -11546,7 +12308,7 @@ class Polyline(_CurveRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Polyline
-    class modf(_CurveRootMdfy):
+    class modf(_PolylineModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Polyline
@@ -11722,7 +12484,7 @@ class Polyline(_CurveRoot):
         else:
             return None
 class Sphere(_SurfaceRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_SurfaceRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Sphere
@@ -11734,7 +12496,7 @@ class Sphere(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Sphere
-    class func(_SurfaceRootFuncOorc):
+    class func(_SurfaceRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Sphere
@@ -11742,7 +12504,7 @@ class Sphere(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Sphere
-    class modf(_SurfaceRootMdfy):
+    class modf(_SurfaceRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Sphere
@@ -11856,7 +12618,7 @@ class Sphere(_SurfaceRoot):
         else:
             return None
 class Torus(_SurfaceRoot):
-    class defm(_ObjectRootDefm):
+    class defm(_SurfaceRootDefm):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Torus
@@ -11868,7 +12630,7 @@ class Torus(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Torus
-    class func(_SurfaceRootFuncOorc):
+    class func(_SurfaceRootFuncClsd):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Torus
@@ -11876,7 +12638,7 @@ class Torus(_SurfaceRoot):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Torus
-    class modf(_SurfaceRootMdfy):
+    class modf(_SurfaceRootModf):
         def __init__(self, _rhino_id):
             self._rhino_id = _rhino_id
             self._class = Torus

@@ -4,19 +4,19 @@ import py2rhino as p2r
 class obj_test(unittest.TestCase):
     
     def testArcBoxMorph(self):
-        arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.defm.box_morph(((0,0,0),(0,1,0),(10,0,0),(0,10,0),(0,0,10),(1,0,0),(0,5,5),(5,0,0)))
-        self.assertEqual(type(arc2),p2r.obj.Arc)
+        sph1 = p2r.obj.Sphere.create((0,0,0), 5)
+        sph2 = sph1.defm.box_morph(((0,0,0),(10,0,0),(10,10,0),(0,10,0),(0,0,10),(10,0,10),(10,10,5),(0,10,5)))
+        self.assertEqual(type(sph2),p2r.obj.NurbsSurface)
         
     def testArcShear(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
         arc2 = arc1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(arc2),p2r.obj.Arc)
+        self.assertEqual(type(arc2),p2r.obj.NurbsCurve)
         
-    def testArcTrfm(self):
+    def testArcTansform(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
         arc2 = arc1.defm.transform(((0,0,0,0),(0,1,0,0),(0,2,0,0),(0,3,0,0)))
-        self.assertEqual(type(arc2),p2r.obj.Arc)
+        self.assertEqual(type(arc2),p2r.obj.NurbsSurface)
         
     def testArcCopySub(self):
         arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
@@ -79,15 +79,16 @@ class obj_test(unittest.TestCase):
         self.assertEqual(len(arc2),3) 
     
     def testArcClosed(self):
-        arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.func.close()
-        self.assertEqual(type(arc2),p2r.obj.Arc)
+        points = ( (0,0,0), (10,0,0,), (10,10,0),(0,0.5,0))
+        nc1 = p2r.obj.NurbsCurve.create_by_pnts(points, 3)
+        nc2 = nc1.func.close()
+        self.assertEqual(type(nc2),p2r.obj.bool)
     
     def testArcExtend(self):
-        arc1 = p2r.obj.Arc.create_by_3pt((0,0,0), (20,0,0), (10,10,0))
-        arc2 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc3 = arc1.func.extend(1,1,arc2)
-        self.assertEqual(type(arc3),p2r.obj.Arc)
+        ln1 = p2r.obj.Line.create((0,0,0), (10,0,0))
+        ln2 = p2r.obj.Line.create((20,-10,0), (20,20,0))
+        ln3 = ln1.func.extend(1,1,ln2)
+        self.assertEqual(type(ln3),p2r.obj.Line)
     
     def testArcExtendLength(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
@@ -152,8 +153,8 @@ class obj_test(unittest.TestCase):
             
     def testArcAngle(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)
-        arc2 = arc1.prop.angle()
-        self.assertEqual(type(arc2),float)   
+        ang = arc1.prop.angle()
+        self.assertEqual(type(ang),float)   
         
     def testArcCenterPnt(self):
         arc1 = p2r.obj.Arc.create((0,0,0), 5, 45)

@@ -7,7 +7,7 @@ class PolySurface(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",                
+        "defm": "_SurfaceRootDefm",                
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -16,7 +16,7 @@ class PolySurface(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_SurfaceRootMdfy",
+        "modf": "_SurfaceRootModf",
         "eval": "_SurfaceRootEval",
         "test": "_SurfaceRootTest",#inherits from object level
         "dupl": "_PolySurfaceDupl",#inherits from object level
@@ -61,11 +61,11 @@ class _PolySurfaceDupl(object):
 # _PolySurfaceProp
 #===============================================================================
 class _PolySurfaceFunc(object):
-    inherits = ("_SurfaceRootFuncOorc", )
+    inherits = ("_SurfaceRootFuncClsd", )
     class Methods(object):
         explode_polysurfaces = {
             "method_name": "explode",
-            "method_parameters": (("objects","array_of _ObjectRoot","REQ"),("delete","bln","OPT"),),#this was an array - hope it still works
+            "method_parameters": (("","SELF","REQ"),("delete","bln","OPT"),),#this was an array - hope it still works
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot.NurbsSurface","null")
             } 
 #===============================================================================
@@ -76,7 +76,7 @@ class Box(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",          
+        "defm": "_SurfaceRootDefm",          
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -86,8 +86,8 @@ class Box(object):
   
         #general curve holds
       
-        "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc", #TODO: closed?
+        "modf": "_SurfaceRootModf",
+        "func": "_SurfaceRootFuncClsd", #TODO: closed?
         "eval": "_SurfaceRootEval",
         "test": "_SurfaceRootTest",#inherits from object level
         "dupl": "_BoxDupl",#inherits from object level
@@ -131,7 +131,7 @@ class Cone(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",                 
+        "defm": "_SurfaceRootDefm",                 
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -140,8 +140,8 @@ class Cone(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc",#TODO: closed?
+        "modf": "_SurfaceRootModf",
+        "func": "_SurfaceRootFuncClsd",#TODO: closed?
         "eval": "_SurfaceRootEval",
         "test": "_SurfaceRootTest",#inherits from object level
         "dupl": "_ConeDupl",#inherits from object level
@@ -188,7 +188,7 @@ class _ConeDupl(object):
 # _ConeProp
 #===============================================================================
 class _ConeProp(object):
-    inherits = ("_SurfaceRootPropOorc", )         
+    inherits = ("_SurfaceRootPropClsd", )         
     class Methods(object):
         surface_cone = {#ed
             "method_name": "cone_def",
@@ -203,7 +203,7 @@ class NurbsSurface(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",                
+        "defm": "_SurfaceRootDefm",                
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -212,13 +212,13 @@ class NurbsSurface(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc",
+        "modf": "_SurfaceRootModf",
+        "func": "_SurfaceRootFuncClsd",
         "eval": "_SurfaceRootEval",
         "test": "_SurfaceRootTest",#inherits from object level
         "dupl": "_NurbsSurfaceDupl",#inherits from object level
         
-        "prop": "_SurfaceRootPropOorc",        
+        "prop": "_SurfaceRootPropClsd",        
     }    
     class Constructors(object):
         add_cut_plane = {#ed
@@ -343,7 +343,7 @@ class Cylinder(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",                
+        "defm": "_SurfaceRootDefm",                
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -352,8 +352,8 @@ class Cylinder(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc",
+        "modf": "_SurfaceRootModf",
+        "func": "_SurfaceRootFuncClsd",
         "eval": "_SurfaceRootEval",
         "test": "_SurfaceRootTest",#inherits from object level
         "dupl": "_CylinderDupl",#inherits from object level
@@ -408,7 +408,7 @@ class _CylinderDupl(object):
 # _CylinderProp
 #===============================================================================
 class _CylinderProp(object):
-    inherits = ("_SurfaceRootPropOorc", )         
+    inherits = ("_SurfaceRootPropClsd", )         
     class Methods(object):
         surface_cylinder = {#ed
             "method_name": "cylinder_def",
@@ -423,7 +423,7 @@ class PlaneSurface(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",               
+        "defm": "_SurfaceRootDefm",               
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -432,13 +432,13 @@ class PlaneSurface(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc",
+        "modf": "_SurfaceRootModf",
+        "func": "_SurfaceRootFuncClsd",
         "eval": "_SurfaceRootEval",
         "test": "_SurfaceRootTest",#inherits from object level
         "dupl": "_PlaneSurfaceDupl",#inherits from object level
 
-        "prop": "_SurfaceRootPropOpen",
+        "prop": "_SurfaceRootProp",
     }    
     class Constructors(object):
         add_plane_surface = {#ed
@@ -476,7 +476,7 @@ class Sphere(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",                 
+        "defm": "_SurfaceRootDefm",                 
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -485,8 +485,8 @@ class Sphere(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc",
+        "modf": "_SurfaceRootModf",
+        "func": "_SurfaceRootFuncClsd",
         "eval": "_SurfaceRootEval",
         "test": "_SurfaceRootTest",#inherits from object level
         "dupl": "_SphereDupl",#inherits from object level
@@ -546,7 +546,7 @@ class Torus(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",                
+        "defm": "_SurfaceRootDefm",                
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -555,8 +555,8 @@ class Torus(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_SurfaceRootMdfy",
-        "func": "_SurfaceRootFuncOorc",
+        "modf": "_SurfaceRootModf",
+        "func": "_SurfaceRootFuncClsd",
         "eval": "_SurfaceRootEval",
         "test": "_SurfaceRootTest",#inherits from object level
         "dupl": "_TorusDupl",#inherits from object level
@@ -608,73 +608,36 @@ class _TorusProp(object):
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of number","null")
             }
-#===============================================================================
-# NurbsCurve
-#===============================================================================
-class NurbsCurve(object):
-    inherits = ("_CurveRoot", )
-    
-    
-    class Constructors(object):
         
-        short_path = {#ed
-            "method_name": "create_by_srf_short_path",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),),
-            "method_returns": ("SELF","null")
-            }
-        
-        #arrays of curves
-                
-        add_srf_contour_crvs = {#surface or polysurface
-            "method_name": "create_by_srf_contour",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("interval","dbl","OPT")),
-            "method_returns": ("array_of SELF","null")#returns array
-            }
 
-        add_srf_section_crvs = {#surface or polysurface
-            "method_name": "create_by_srf_section",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),),
-            "method_returns": ("array_of SELF","null")#returns array
-            }
-        duplicate_edge_curves = {#surface or polysurface
-            "method_name": "create_by_srf_edge",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("select","bln","OPT"),),
-            "method_returns": ("array_of SELF","null")#returns array
-            }
-        duplicate_surface_border = {#surface or polysurface
-            "method_name": "create_by_srf_border",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),),
-            "method_returns": ("array_of SELF","null")#returns array
-            }
-        extract_iso_curve = {
-            "method_name": "create_by_srf_iso_curve",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("parameter","array_of dbl","REQ"),("dir","int","REQ"),),
-            "method_returns": ("array_of SELF","null")#returns array
-            }
-        surface_principal_curvature = {#ed
-            "method_name": "create_by_srf_principal_curvature",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("point","array_of dbl","REQ"),),
-            "method_returns": ("array_of SELF","null")#returns array
-            }
-        pull_curve = {#ed
-            "method_name": "create_by_srf_pull",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),("delete","bln","OPT"),),
-            "method_returns": ("array_of SELF","null") #returns array
-            } 
-        
-        ''' This calls add_srf_contour_crvs_2 - does not work due to args confusion
-        add_srf_contour_crvs_2 = {#surface or polysurface
-            "method_name": "create_by_srf_contour_cut_plane",
-            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),("interval","dbl","OPT")),
-            "method_returns": ("array_of SELF","null")#returns array
-            }        '''
+
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
         
-        
+#===============================================================================
+# _SurfaceRootDefm
+#===============================================================================
+class _SurfaceRootDefm(object):
+    inherits = None
+    class Methods(object):
+        box_morph_object = {#no plural version
+            "method_name": "box_morph",
+            "method_parameters": (("","SELF","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")# a slight simplification
+            }          
+        shear_object = {
+            "method_name": "shear",
+            "method_parameters": (("","SELF","REQ"),("origin","array_of dbl","REQ"),("ref_point","array_of dbl","REQ"),("angle","dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")# a slight simplification
+            }
+        transform_object = {
+            "method_name": "transform",
+            "method_parameters": (("","SELF","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
+            "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")# a slight simplification
+            }
 #===============================================================================
 # _SurfaceRootType
 #===============================================================================
@@ -791,8 +754,8 @@ class _SurfaceRootTest(object):
 #===============================================================================
 # _CurveRootModify
 #===============================================================================
-class _SurfaceRootMdfy(object):
-    inherits = ("_ObjectRootMdfy",)
+class _SurfaceRootModf(object):
+    inherits = ("_ObjectRootModf",)
     class Methods(object):
         rebuild_surface = {#ed
             "method_name": "rebuild",
@@ -836,7 +799,7 @@ class _SurfaceRootEval(object):
     inherits = None
     class Methods(object):
         surface_evaluate = {#ed
-            "method_name": "evaluate_derivatives",
+            "method_name": "derivatives",
             "method_parameters": (("","SELF","REQ"),("parameter","array_of dbl","REQ"),("derivative","int","REQ"),),
             "method_returns": ("array_of number","null")
             }        
@@ -960,63 +923,66 @@ class _SurfaceRootPropClsd(object):
             "method_returns": ("array_of number","null")
             }
 #===============================================================================
-# _SurfaceRootPropOpen
-#===============================================================================
-class _SurfaceRootPropOpen(object):
-    inherits = ('_SurfaceRootProp',)
-    
-#===============================================================================
-# _SurfaceRootPropOorc
-#===============================================================================
-class _SurfaceRootPropOorc(object):
-    inherits = ('_SurfaceRootPropOpen','_SurfaceRootPropClsd', )
-    
-    
-#===============================================================================
 # _SurfaceRootFunc
 #===============================================================================
 class _SurfaceRootFunc(object):
     inherits = ("_ObjectRootFunc",)
     class Methods(object):
-        make_surface_non_periodic = {#ed
+        make_surface_non_periodic = {
             "method_name": "make_non_periodic",
             "method_parameters": (("","SELF","REQ"),("direction","int","REQ"),("delete","bln","OPT"),),
             "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")
             }
-        make_surface_periodic = {#ed
+        make_surface_periodic = {
             "method_name": "make_periodic",
             "method_parameters": (("","SELF","REQ"),("direction","int","REQ"),("delete","bln","OPT"),),
             "method_returns": ("_ObjectRoot._SurfaceRoot.NurbsSurface","null")
             }            
-        surface_closest_point = {#ed
+        surface_closest_point = {
             "method_name": "closest_pnt",
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),),
             "method_returns": ("array_of number","null")
             }
         
         #TODO: fix these mixed return values
-        """        
-        surface_surface_intersection = {#ed
-            "method_name": "surface_surface_intersection",
-            "method_parameters": (("","SELF","REQ"),("surface_a","str","REQ"),("tolerance","dbl","OPT"),("create","bln","OPT"),),
-            "method_returns": ("array_of (array_of dbl,array_of dbl,array_of dbl,array_of dbl,array_of dbl)","array_of (int, array_of _ObjectRoot._SurfaceRoot)","null")
+        surface_surface_intersection = {
+            0:{#TODO: needs more work - points can also be returned
+            "method_name": "intersect_2_srfs",
+            "method_parameters": (("","SELF","REQ"),("surface_a","_ObjectRoot._SurfaceRoot","REQ"),("tolerance","dbl","OPT"),("create","bln","OPT", "TRUE", "HIDE"),),
+            "method_returns": ("array_of number","null")#returns curves
+            },
+            1:{
+            "method_name": "intersect_2_srfs_test",
+            "method_parameters": (("","SELF","REQ"),("surface_a","_ObjectRoot._SurfaceRoot","REQ"),("tolerance","dbl","OPT"),("create","bln","OPT"),),
+            "method_returns": ("array_of number","null")#returns lots of crazy stuff               
+            }}  
+        
+        """      
+        intersect_breps = {
+            "method_name": "intersect_2_breps",
+            "method_parameters": (("","SELF","REQ"),("brep","_ObjectRoot._SurfaceRoot","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("array_of _ObjectRoot","null")#returns curves and points
+            }"""
+            
+        brep_closest_point = {
+            "method_name": "closest_pnt_brep",
+            "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),),
+            "method_returns": ("array_of number","null")
             }
-        """
-
-    
-#===============================================================================
-# _SurfaceRootFuncOpen
-#===============================================================================
-class _SurfaceRootFuncOpen(object):
-    inherits = ('_SurfaceRootFunc',)
-    class Methods(object):    
-        cap_planar_holes = {#ed
+        
+        split_brep = {#ed
+            "method_name": "split",
+            "method_parameters": (("","SELF","REQ"),("cutter","_ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
+            "method_returns": ("array_of _ObjectRoot._SurfaceRoot","null")
+            }
+        
+        #TODO: needs custom imp
+        cap_planar_holes = {
             "method_name": "cap_planar_holes",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("bln","null")
             }
-
-   
+        
 #===============================================================================
 # _SurfaceRootFuncClsd
 #===============================================================================
@@ -1024,19 +990,20 @@ class _SurfaceRootFuncClsd(object):
     inherits = ('_SurfaceRootFunc',)
     
     class Methods(object):
-        brep_closest_point = {#ed
-            "method_name": "brep_closest_pnt",
-            "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),),
-            "method_returns": ("array_of number","null")
-            }        
-        
+
         #booleans return surfaces or polysurfaces
         
         boolean_difference = {
-            "method_name": "boolean_difference",
+            0:{
+            "method_name": "boolean_difference_1",
             "method_parameters": (("","SELF","REQ"),("breps","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot.PolySurface","null")
-            }
+            },
+            1:{
+            "method_name": "boolean_difference_2",
+            "method_parameters": (("breps","array_of _ObjectRoot._SurfaceRoot","REQ"),("","SELF","REQ"),("delete","bln","OPT"),),
+            "method_returns": ("array_of _ObjectRoot._SurfaceRoot.PolySurface","null")               
+            }}
         boolean_intersection = {
             "method_name": "boolean_intersection",
             "method_parameters": (("","SELF","REQ"),("breps","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
@@ -1044,29 +1011,9 @@ class _SurfaceRootFuncClsd(object):
             }
         boolean_union = {#TODO: this has no SELF
             "method_name": "boolean_union",
-            "method_parameters": (("breps","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),#TODO: for this method, there is no SELF parameter
+            "method_parameters": (("breps","array_of _ObjectRoot._SurfaceRoot","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._SurfaceRoot.PolySurface","null")
             }
-        split_brep = {#ed
-            "method_name": "boolean_split",
-            "method_parameters": (("","SELF","REQ"),("cutter","str","REQ"),("delete","bln","OPT"),),
-            "method_returns": ("array_of _ObjectRoot._SurfaceRoot.PolySurface","null")
-            }
-        
-        #returns points and curves
-        
-        intersect_breps = {#ed
-            "method_name": "intersect_breps",
-            "method_parameters": (("","SELF","REQ"),("brep_1","str","REQ"),("tolerance","dbl","OPT"),),
-            "method_returns": ("array_of _ObjectRoot","null")
-            }
-
-#===============================================================================
-# _SurfaceRootFuncOorc
-#===============================================================================
-class _SurfaceRootFuncOorc(object):
-    inherits = ('_SurfaceRootFuncOpen','_SurfaceRootFuncClsd',)
-    pass  
 
 
 #===============================================================================

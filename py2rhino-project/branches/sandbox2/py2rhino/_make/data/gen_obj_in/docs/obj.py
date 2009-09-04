@@ -272,11 +272,6 @@ class EllipticalArc():
     pass
 
 
-class GenericObject():
-
-    pass
-
-
 class Line():
 
         create = """
@@ -1516,6 +1511,114 @@ class _ArcDupl():
         """
 
 
+class _ArcModf():
+
+        close = """
+        Closes an open curve object by making adjustments to the end points so that they meet at a point.
+
+        Parameters
+        ==========
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+
+        Returns
+        =======
+        object - The closed curve object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CloseCurve
+
+        """
+        extend = """
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        """
+        extend_length = """
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        """
+        extend_pnt = """
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        """
+
+
 class _ArcProp():
 
         angle = """
@@ -1870,6 +1973,83 @@ class _ConeProp():
 class _CurveRoot():
 
     pass
+
+
+class _CurveRootDefm():
+
+        box_morph = """
+        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
+
+        Parameters
+        ==========
+        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The morphed object if successful.
+        list - A list of strings identifying the morphed objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BoxMorphObject
+
+        """
+        shear = """
+        Performs a shear transformation on a single object. Transformation is based on the active construction plane.
+
+        Parameters
+        ==========
+        origin  (List of float, Required) - The origin of the shear transformation.
+        ref_point  (List of float, Required) - The reference point of the shear transformation.
+        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The sheared object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ShearObject
+
+        """
+        transform = """
+        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+		1
+		0
+		0
+		dX
+		0
+		1
+		0
+		dY
+		0
+		0
+		1
+		dZ
+		0
+		0
+		0
+		1
+
+        Parameters
+        ==========
+        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        boolean - The transformed object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: TransformObject
+
+        """
 
 
 class _CurveRootEval():
@@ -2260,38 +2440,6 @@ class _CurveRootFunc():
         This function calls the Rhinoscript function: MakeCurvePeriodic
 
         """
-        planar_crv_collision = """
-        Determines if two coplanar curves intersect.
-
-        Parameters
-        ==========
-        curve  (curve object, Required) - The object identifier of the second planar curve.
-        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
-		Element
-		Type
-		Description
-		0
-		Array
-		Required.  The construction plane's origin (3-D point).
-		1
-		Array
-		Required.  The construction plane's X axis direction (3-D vector).
-		2
-		Array
-		Required.  The construction plane's Y axis direction (3-D vector).
-		3
-		Array
-        tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
-
-        Returns
-        =======
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: PlanarCurveCollision
-
-        """
 
 
 class _CurveRootFuncClsd():
@@ -2451,120 +2599,7 @@ class _CurveRootFuncClsd():
         """
 
 
-class _CurveRootFuncOorC():
-
-    pass
-
-
-class _CurveRootFuncOpen():
-
-        close = """
-        Closes an open curve object by making adjustments to the end points so that they meet at a point.
-
-        Parameters
-        ==========
-        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
-
-        Returns
-        =======
-        object - The closed curve object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: CloseCurve
-
-        """
-        extend = """
-        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
-
-        Parameters
-        ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
-
-        Returns
-        =======
-        object - The extended object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ExtendCurve
-
-        """
-        extend_length = """
-        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
-
-        Parameters
-        ==========
-        crv_type  (integer, Required) - Type of extension.
-		Value
-		Description
-		0
-		Line - Creates an line extension tangent to the original curve.
-		1
-		Arc - Creates an arc extension tangent to the original curve.
-		2
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-		Extend from the end of the curve.
-		2
-        length  (float, Required) - The distance to extend the curve.
-
-        Returns
-        =======
-        object - The extended object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ExtendCurveLength
-
-        """
-        extend_pnt = """
-        Extends a non-closed curve object by smooth extension to a point.
-
-        Parameters
-        ==========
-        side  (integer, Required) - The size to  extent.
-		Value
-		Description
-		0
-		Extend from the start of the curve.
-		1
-        point  (List of float, Required) - The 3-D point.
-
-        Returns
-        =======
-        object - The extended object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ExtendCurvePoint
-
-        """
-
-
-class _CurveRootMdfy():
+class _CurveRootModf():
 
         seam = """
         Adjusts the seam, or start/end, point of a closed curve.
@@ -3196,6 +3231,38 @@ class _CurveRootTest():
         This function calls the Rhinoscript function: IsPointOnCurve
 
         """
+        planar_crv_collision = """
+        Determines if two coplanar curves intersect.
+
+        Parameters
+        ==========
+        curve  (curve object, Required) - The object identifier of the second planar curve.
+        plane  (List of float, Optional) - The new construction plane.  If omitted, the currently active construction plane is used.  The elements of a construction plane list are as follows:
+		Element
+		Type
+		Description
+		0
+		Array
+		Required.  The construction plane's origin (3-D point).
+		1
+		Array
+		Required.  The construction plane's X axis direction (3-D vector).
+		2
+		Array
+		Required.  The construction plane's Y axis direction (3-D vector).
+		3
+		Array
+        tolerance  (float, Optional) - The tolerance.  If omitted, the current document absolute tolerance is used.
+
+        Returns
+        =======
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: PlanarCurveCollision
+
+        """
 
 
 class _CurveRootType():
@@ -3670,6 +3737,114 @@ class _EllipticalArcDupl():
         """
 
 
+class _EllipticalArcModf():
+
+        close = """
+        Closes an open curve object by making adjustments to the end points so that they meet at a point.
+
+        Parameters
+        ==========
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+
+        Returns
+        =======
+        object - The closed curve object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CloseCurve
+
+        """
+        extend = """
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        """
+        extend_length = """
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        """
+        extend_pnt = """
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        """
+
+
 class _LineDupl():
 
         copy_by_sub = """
@@ -3794,6 +3969,97 @@ class _LineDupl():
         """
 
 
+class _LineModf():
+
+        extend = """
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        """
+        extend_length = """
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        """
+        extend_pnt = """
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        """
+
+
 class _MeshDupl():
 
         copy_move = """
@@ -3854,6 +4120,83 @@ class _MeshDupl():
 class _MeshRoot():
 
     pass
+
+
+class _MeshRootDefm():
+
+        box_morph = """
+        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
+
+        Parameters
+        ==========
+        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The morphed object if successful.
+        list - A list of strings identifying the morphed objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BoxMorphObject
+
+        """
+        shear = """
+        Performs a shear transformation on a single object. Transformation is based on the active construction plane.
+
+        Parameters
+        ==========
+        origin  (List of float, Required) - The origin of the shear transformation.
+        ref_point  (List of float, Required) - The reference point of the shear transformation.
+        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The sheared object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ShearObject
+
+        """
+        transform = """
+        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+		1
+		0
+		0
+		dX
+		0
+		1
+		0
+		dY
+		0
+		0
+		1
+		dZ
+		0
+		0
+		0
+		1
+
+        Parameters
+        ==========
+        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        boolean - The transformed object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: TransformObject
+
+        """
 
 
 class _MeshRootFunc():
@@ -4093,7 +4436,7 @@ class _MeshRootFuncOpen():
     pass
 
 
-class _MeshRootMdfy():
+class _MeshRootModf():
 
         quads_to_triangles = """
         Converts a mesh object's quad faces to triangles.
@@ -4720,6 +5063,114 @@ class _NurbsCurveDupl():
         """
 
 
+class _NurbsCurveModf():
+
+        close = """
+        Closes an open curve object by making adjustments to the end points so that they meet at a point.
+
+        Parameters
+        ==========
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+
+        Returns
+        =======
+        object - The closed curve object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CloseCurve
+
+        """
+        extend = """
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        """
+        extend_length = """
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        """
+        extend_pnt = """
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        """
+
+
 class _NurbsSurfaceDupl():
 
         copy_move = """
@@ -4781,83 +5232,6 @@ class _ObjectRoot():
     pass
 
 
-class _ObjectRootDefm():
-
-        box_morph = """
-        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
-
-        Parameters
-        ==========
-        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
-        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
-
-        Returns
-        =======
-        object - The morphed object if successful.
-        list - A list of strings identifying the morphed objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BoxMorphObject
-
-        """
-        shear = """
-        Performs a shear transformation on a single object. Transformation is based on the active construction plane.
-
-        Parameters
-        ==========
-        origin  (List of float, Required) - The origin of the shear transformation.
-        ref_point  (List of float, Required) - The reference point of the shear transformation.
-        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
-        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
-
-        Returns
-        =======
-        object - The sheared object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: ShearObject
-
-        """
-        transform = """
-        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
-		1
-		0
-		0
-		dX
-		0
-		1
-		0
-		dY
-		0
-		0
-		1
-		dZ
-		0
-		0
-		0
-		1
-
-        Parameters
-        ==========
-        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
-        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
-
-        Returns
-        =======
-        boolean - The transformed object if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: TransformObject
-
-        """
-
-
 class _ObjectRootFunc():
 
     pass
@@ -4901,7 +5275,7 @@ class _ObjectRootGrps():
         """
 
 
-class _ObjectRootMdfy():
+class _ObjectRootModf():
 
         delete = """
         Deletes one or more objects from the document.
@@ -6789,6 +7163,114 @@ class _PolylineDupl():
         """
 
 
+class _PolylineModf():
+
+        close = """
+        Closes an open curve object by making adjustments to the end points so that they meet at a point.
+
+        Parameters
+        ==========
+        tolerance  (float, Optional) - The maximum allowable distance between start point and end point of the curve.  If omitted, the document's current absolute tolerance is used.
+
+        Returns
+        =======
+        object - The closed curve object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CloseCurve
+
+        """
+        extend = """
+        Extends a non-closed curve object by a line, arc, or smooth extension until it intersects a collection of objects.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        objects  (list of array_of _ObjectRoot, Required) - The identifiers of curve, surface, and polysurface objects that will be used as boundary objects.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurve
+
+        """
+        extend_length = """
+        Extends a non-closed curve object by a line, arc, or smooth extension for a specified distance.
+
+        Parameters
+        ==========
+        crv_type  (integer, Required) - Type of extension.
+		Value
+		Description
+		0
+		Line - Creates an line extension tangent to the original curve.
+		1
+		Arc - Creates an arc extension tangent to the original curve.
+		2
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+		Extend from the end of the curve.
+		2
+        length  (float, Required) - The distance to extend the curve.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurveLength
+
+        """
+        extend_pnt = """
+        Extends a non-closed curve object by smooth extension to a point.
+
+        Parameters
+        ==========
+        side  (integer, Required) - The size to  extent.
+		Value
+		Description
+		0
+		Extend from the start of the curve.
+		1
+        point  (List of float, Required) - The 3-D point.
+
+        Returns
+        =======
+        object - The extended object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ExtendCurvePoint
+
+        """
+
+
 class _PolylineProp():
 
         vertices = """
@@ -6877,6 +7359,83 @@ class _SurfaceRoot():
     pass
 
 
+class _SurfaceRootDefm():
+
+        box_morph = """
+        Morphs an object by mapping its eight bounding box points to eight new points. Note, this function only works on non-planar objects.
+
+        Parameters
+        ==========
+        box_points  (List of float, Required) - An list of eight 3-D points that contain the modified bounding box points.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The morphed object if successful.
+        list - A list of strings identifying the morphed objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BoxMorphObject
+
+        """
+        shear = """
+        Performs a shear transformation on a single object. Transformation is based on the active construction plane.
+
+        Parameters
+        ==========
+        origin  (List of float, Required) - The origin of the shear transformation.
+        ref_point  (List of float, Required) - The reference point of the shear transformation.
+        angle  (float, Required) - An angle in degrees of the shear transformation, where -90.0 <= angle <= 90.0.
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        object - The sheared object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: ShearObject
+
+        """
+        transform = """
+        Moves, scales, or rotates an object given a 4x4 transformation matrix. The matrix acts on the left. The following table demonstrates the transformation matrix configuration:
+		1
+		0
+		0
+		dX
+		0
+		1
+		0
+		dY
+		0
+		0
+		1
+		dZ
+		0
+		0
+		0
+		1
+
+        Parameters
+        ==========
+        matrix  (List of string, Required) - The transformation matrix (4x4 list of numbers).
+        copy  (boolean, Optional) - Copy the object. If omitted, the object will not be copied (False).
+
+        Returns
+        =======
+        boolean - The transformed object if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: TransformObject
+
+        """
+
+
 class _SurfaceRootEval():
 
         evaluate = """
@@ -6896,7 +7455,7 @@ class _SurfaceRootEval():
         This function calls the Rhinoscript function: EvaluateSurface
 
         """
-        evaluate_derivatives = """
+        derivatives = """
         A general purpose surface evaluator.
 
         Parameters
@@ -6942,6 +7501,58 @@ class _SurfaceRootEval():
 
 class _SurfaceRootFunc():
 
+        closest_pnt_brep = """
+        Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.
+
+        Parameters
+        ==========
+        point  (List of float, Required) - The test, or sampling, point.
+
+        Returns
+        =======
+        list - A list of closest point information if successful.  The list will contain the following information:
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BrepClosestPoint
+
+        """
+        cap_planar_holes = """
+        Caps planar holes in a surface or polysurface. For more details, see the Cap command in the Rhino help file.
+
+        Parameters
+        ==========
+        No parameters
+
+        Returns
+        =======
+        boolean - True or False indicating success or failure.
+        None - On error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: CapPlanarHoles
+
+        """
+        intersect_2_breps = """
+        Intersects a brep object with another  brep object. Note, unlike the SurfaceSurfaceIntersection function this function works on trimmed surfaces.
+
+        Parameters
+        ==========
+        surface  (surface object, Required) - The second  brep object's identifier.
+        tolerance  (float, Optional) - The distance tolerance at segment midpoints.  If omitted, the current absolute tolerance is used..
+
+        Returns
+        =======
+        list of objects - A list of strings identifying the newly created intersection curve and point objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: IntersectBreps
+
+        """
         make_non_periodic = """
         Makes a periodic surface non-periodic. Non-periodic surfaces can develop kinks when deformed.
 
@@ -6980,6 +7591,24 @@ class _SurfaceRootFunc():
         This function calls the Rhinoscript function: MakeSurfacePeriodic
 
         """
+        split = """
+        Splits a brep.  A brep can be either a surface with a single face or a polysurface.
+
+        Parameters
+        ==========
+        cutter  (surface object, Required) - The identifier of the brep object to split with.
+        delete  (boolean, Optional) - Delete input brep.  If omitted, the input brep will not be deleted (False).
+
+        Returns
+        =======
+        list of objects - The identifiers of the new brep objects if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SplitBrep
+
+        """
         closest_pnt = """
         Returns the UV parameter of the point on a surface that is closest to a test point.
 
@@ -6997,16 +7626,78 @@ class _SurfaceRootFunc():
         This function calls the Rhinoscript function: SurfaceClosestPoint
 
         """
+        intersect_2_srfs = """
+        Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
+
+        Parameters
+        ==========
+        surface_a  (surface object, Required) - The identifier of the second surface object.
+        tolerance  (float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+        create  (boolean, Optional) - Create the intersection curves and points.  If omitted, intersection geometry will not be created.
+
+        Returns
+        =======
+        list - If create is not specified or is equal to False, a list numbers identifying the intersection event type if successful.  The list will contain one or more of the following intersection event types:
+        list - If create is specified and is equal to True, a two-dimensional list of intersection information if successful.  The list will contain one or more of the following elements:
+        number - The intersection event type.  See the above table for details.
+        string - The intersection curve or point object that was created.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SurfaceSurfaceIntersection
+
+        """
+        intersect_2_srfs_test = """
+        Calculates the intersection of a surface object with another surface object. Note, this function works on untrimmed surfaces.
+
+        Parameters
+        ==========
+        surface_a  (surface object, Required) - The identifier of the second surface object.
+        tolerance  (float, Optional) - The absolute tolerance in drawing units.  If omitted, the document's current absolute tolerance is used.
+        create  (boolean, Optional) - Create the intersection curves and points.  If omitted, intersection geometry will not be created.
+
+        Returns
+        =======
+        list - If create is not specified or is equal to False, a list numbers identifying the intersection event type if successful.  The list will contain one or more of the following intersection event types:
+        list - If create is specified and is equal to True, a two-dimensional list of intersection information if successful.  The list will contain one or more of the following elements:
+        number - The intersection event type.  See the above table for details.
+        string - The intersection curve or point object that was created.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: SurfaceSurfaceIntersection
+
+        """
 
 
 class _SurfaceRootFuncClsd():
 
-        boolean_difference = """
+        boolean_difference_1 = """
         Performs a Boolean difference operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanDifference command in the Rhino help file.
 
         Parameters
         ==========
         breps  (list of surface object, Required) - The identifiers of the surfaces or polysurfaces to be subtracted.
+        delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
+
+        Returns
+        =======
+        list of objects - A list containing the identifiers of the newly created objects, if successful.
+        None - If not successful, or on error.
+
+        Rhinoscript
+        ===========
+        This function calls the Rhinoscript function: BooleanDifference
+
+        """
+        boolean_difference_2 = """
+        Performs a Boolean difference operation on two sets of input surfaces and polysurfaces. For more details, see the BooleanDifference command in the Rhino help file.
+
+        Parameters
+        ==========
+        breps  (list of surface object, Required) - The identifiers of the surfaces or polysurfaces to subtract from.
         delete  (boolean, Optional) - Delete all input objects. The default is to delete all input objects (True).
 
         Returns
@@ -7055,88 +7746,9 @@ class _SurfaceRootFuncClsd():
         This function calls the Rhinoscript function: BooleanUnion
 
         """
-        brep_closest_pnt = """
-        Returns the point on a surface or polysurface that is closest to a test point. This function works on both untrimmed and trimmed surfaces.
-
-        Parameters
-        ==========
-        point  (List of float, Required) - The test, or sampling, point.
-
-        Returns
-        =======
-        list - A list of closest point information if successful.  The list will contain the following information:
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: BrepClosestPoint
-
-        """
-        intersect_breps = """
-        Intersects a brep object with another  brep object. Note, unlike the SurfaceSurfaceIntersection function this function works on trimmed surfaces.
-
-        Parameters
-        ==========
-        brep_1  (string, Required) - The second  brep object's identifier.
-        tolerance  (float, Optional) - The distance tolerance at segment midpoints.  If omitted, the current absolute tolerance is used..
-
-        Returns
-        =======
-        list of objects - A list of strings identifying the newly created intersection curve and point objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: IntersectBreps
-
-        """
-        boolean_split = """
-        Splits a brep.  A brep can be either a surface with a single face or a polysurface.
-
-        Parameters
-        ==========
-        cutter  (string, Required) - The identifier of the brep object to split with.
-        delete  (boolean, Optional) - Delete input brep.  If omitted, the input brep will not be deleted (False).
-
-        Returns
-        =======
-        list of objects - The identifiers of the new brep objects if successful.
-        None - If not successful, or on error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: SplitBrep
-
-        """
 
 
-class _SurfaceRootFuncOorc():
-
-    pass
-
-
-class _SurfaceRootFuncOpen():
-
-        cap_planar_holes = """
-        Caps planar holes in a surface or polysurface. For more details, see the Cap command in the Rhino help file.
-
-        Parameters
-        ==========
-        No parameters
-
-        Returns
-        =======
-        boolean - True or False indicating success or failure.
-        None - On error.
-
-        Rhinoscript
-        ===========
-        This function calls the Rhinoscript function: CapPlanarHoles
-
-        """
-
-
-class _SurfaceRootMdfy():
+class _SurfaceRootModf():
 
         flip = """
         Returns or changes the normal direction of a surface. This feature can also be found in Rhino's Dir command.
@@ -7630,16 +8242,6 @@ class _SurfaceRootPropClsd():
         This function calls the Rhinoscript function: SurfaceVolumeMoments
 
         """
-
-
-class _SurfaceRootPropOorc():
-
-    pass
-
-
-class _SurfaceRootPropOpen():
-
-    pass
 
 
 class _SurfaceRootTest():

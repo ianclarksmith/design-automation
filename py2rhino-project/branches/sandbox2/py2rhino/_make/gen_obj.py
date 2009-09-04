@@ -384,7 +384,6 @@ def write_rhinoscript_classes(data_dict):
     w(fb,'from exceptions import Exception')
     
     w(fb,'import _util')
-    w(fb,'import _wrap')  
            
     w(fb,'import py2rhino as p2r')     
     w(fb,'from py2rhino import _base') 
@@ -404,8 +403,8 @@ def write_rhinoscript_classes(data_dict):
             inherits = class_dict['inherits']
             if inherits == None:
                 sorted_list.append(class_name)
-                
-    #add _classes that do inherit anything
+    
+    #add _classes that do inherit
     for i in range(3):
         for class_name_num in range(len(list_of_class_name)):
             class_name = list_of_class_name[class_name_num]
@@ -421,6 +420,7 @@ def write_rhinoscript_classes(data_dict):
                             sorted_list.append(class_name)
                     else:
                         raise Exception
+
     #add all other
     for class_name_num in range(len(list_of_class_name)):
         class_name = list_of_class_name[class_name_num]

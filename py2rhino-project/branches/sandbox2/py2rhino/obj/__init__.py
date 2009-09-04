@@ -5,7 +5,6 @@ from _rhinoscript_classes import Cone
 from _rhinoscript_classes import Cylinder
 from _rhinoscript_classes import Ellipse
 from _rhinoscript_classes import EllipticalArc
-from _rhinoscript_classes import GenericObject
 from _rhinoscript_classes import Line
 from _rhinoscript_classes import Mesh
 from _rhinoscript_classes import NurbsCurve
