@@ -7,7 +7,7 @@ class Mesh(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",                
+        "defm": "_MeshRootDefm",                
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -16,7 +16,7 @@ class Mesh(object):
         "util": "_ObjectRootUtil",        
   
         #mesh holds
-        "modf": "_MeshRootMdfy",
+        "modf": "_MeshRootModf",
         "func": "_MeshRootFuncOorC",
         "test": "_MeshRootTest",#inherits from object level
         "dupl": "_MeshDupl",
@@ -60,7 +60,7 @@ class PlanarMesh(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",                
+        "defm": "_MeshRootDefm",                
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
         "rndr": "_ObjectRootRndr",
@@ -69,7 +69,7 @@ class PlanarMesh(object):
         "util": "_ObjectRootUtil",        
   
         #mesh holds
-        "modf": "_MeshRootMdfy",
+        "modf": "_MeshRootModf",
         "func": "_MeshRootFuncOpen",
         "test": "_MeshRootTest",#inherits from object level
         "dupl": "_PlanarMeshDupl",#inherits from object level
@@ -103,30 +103,44 @@ class _PlanarMeshDupl(object):
             "method_parameters": (("","SELF","REQ"),("distance","dbl","REQ"),),
             "method_returns": ("_ObjectRoot._MeshRoot.PlanarMesh","null")
             } 
+        
+        
+"""
 #===============================================================================
 # Polyline
 #===============================================================================
 class Polyline(object):
     inherits = ("_CurveRoot", )
-    class Constructors(object):
-        duplicate_mesh_border = {#ed
-            "method_name": "create_by_mesh_border",
-            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),),
-            "method_returns": ("SELF","null")
-            }  
-        pull_curve_to_mesh = {#ed
-            "method_name": "create_by_mesh_pull",
-            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),),
-            "method_returns": ("SELF","null")
+    class Constructors(object):"""
+
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+#===============================================================================
+# _MeshRootDefm
+#===============================================================================
+class _MeshRootDefm(object):
+    inherits = None
+    class Methods(object):
+        box_morph_object = {#no plural version
+            "method_name": "box_morph",
+            "method_parameters": (("","SELF","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("_ObjectRoot._MeshRoot.Mesh","null")# a slight simplification
+            }          
+        shear_object = {
+            "method_name": "shear",
+            "method_parameters": (("","SELF","REQ"),("origin","array_of dbl","REQ"),("ref_point","array_of dbl","REQ"),("angle","dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("_ObjectRoot._MeshRoot.Mesh","null")# a slight simplification
             }
-#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
-        
+        transform_object = {
+            "method_name": "transform",
+            "method_parameters": (("","SELF","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
+            "method_returns": ("_ObjectRoot._MeshRoot.Mesh","null")# a slight simplification
+            }
 #===============================================================================
 # _MeshRootType
 #===============================================================================
@@ -175,10 +189,10 @@ class _MeshRootTest(object):
             "method_returns": ("bln","null")
             }
 #===============================================================================
-# _MeshRootMdfy
+# _MeshRootModf
 #===============================================================================
-class _MeshRootMdfy(object):
-    inherits = ("_ObjectRootMdfy",)
+class _MeshRootModf(object):
+    inherits = ("_ObjectRootModf",)
     class Methods(object):
         mesh_quads_to_triangles = {#ed
             "method_name": "quads_to_triangles",
@@ -306,7 +320,7 @@ class _MeshRootFunc(object):
             "method_parameters": (("","SELF","REQ"),("delete","bln","OPT"),),
             "method_returns": ("array_of _ObjectRoot._MeshRoot.Mesh","null")
             }
-        unify_mesh_normals = {#TODO: maybe move to mdfy
+        unify_mesh_normals = {#TODO: maybe move to Modf
             "method_name": "unify_normals",
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("number","null")

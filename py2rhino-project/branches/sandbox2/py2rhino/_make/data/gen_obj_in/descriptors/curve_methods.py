@@ -26,7 +26,7 @@ class NurbsCurve(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",          
+        "defm": "_CurveRootDefm",          
         "prop": "_ObjectRootProp",        
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
@@ -36,14 +36,14 @@ class NurbsCurve(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_CurveRootMdfy",
+        "modf": "_NurbsCurveModf",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object level
         "dupl": "_NurbsCurveDupl",#inherits from object level
         
         #properties
         "prop": "_CurveRootProp",
-        "func": "_CurveRootFuncOorC",
+        "func": "_CurveRootFuncClsd",
     }
     class Constructors(object):
         add_nurbs_curve = {#ed
@@ -92,6 +92,68 @@ class NurbsCurve(object):
             "method_parameters": (("curves","array_of _ObjectRoot","REQ"),("meshes","array_of _ObjectRoot._SurfaceRoot","REQ"),("direction_vector","array_of dbl","REQ"),),
             "method_returns": ("array_of SELF","null")#returns array
         }
+        
+        
+        #FROM SURFACE METHODS
+        
+        short_path = {#ed
+            "method_name": "create_by_srf_short_path",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),),
+            "method_returns": ("SELF","null")
+            }
+        
+        #arrays of curves
+                
+        add_srf_contour_crvs = {#surface or polysurface
+            "method_name": "create_by_srf_contour",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("start_point","array_of dbl","REQ"),("end_point","array_of dbl","REQ"),("interval","dbl","OPT")),
+            "method_returns": ("array_of SELF","null")#returns array
+            }
+
+        add_srf_section_crvs = {#surface or polysurface
+            "method_name": "create_by_srf_section",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),),
+            "method_returns": ("array_of SELF","null")#returns array
+            }
+        duplicate_edge_curves = {#surface or polysurface
+            "method_name": "create_by_srf_edge",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("select","bln","OPT"),),
+            "method_returns": ("array_of SELF","null")#returns array
+            }
+        duplicate_surface_border = {#surface or polysurface
+            "method_name": "create_by_srf_border",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),),
+            "method_returns": ("array_of SELF","null")#returns array
+            }
+        extract_iso_curve = {
+            "method_name": "create_by_srf_iso_curve",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("parameter","array_of dbl","REQ"),("dir","int","REQ"),),
+            "method_returns": ("array_of SELF","null")#returns array
+            }
+        surface_principal_curvature = {#ed
+            "method_name": "create_by_srf_principal_curvature",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("point","array_of dbl","REQ"),),
+            "method_returns": ("array_of SELF","null")#returns array
+            }
+        
+        
+        pull_curve = {#ed
+            "method_name": "create_by_srf_pull",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),("delete","bln","OPT"),),
+            "method_returns": ("array_of SELF","null") #returns array
+            } 
+        
+        ''' This calls add_srf_contour_crvs_2 - does not work due to args confusion
+        add_srf_contour_crvs_2 = {#surface or polysurface
+            "method_name": "create_by_srf_contour_cut_plane",
+            "method_parameters": (("surface","_ObjectRoot._SurfaceRoot","REQ"),("cut_plane","array_of dbl","REQ"),("interval","dbl","OPT")),
+            "method_returns": ("array_of SELF","null")#returns array
+            }        '''
+        
+        
+        
+        
+        
 #===============================================================================
 # _NurbsCurveDupl
 #===============================================================================
@@ -142,6 +204,32 @@ class _NurbsCurveDupl(object):
             "method_name": "copy_by_offset_on_srf_by_param",
             "method_parameters": (("","SELF","REQ"),("surface","_ObjectRoot._SurfaceRoot","REQ"),("parameter","array_of dbl","REQ"),),
             "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
+        }
+#===============================================================================
+# _NurbsCurveModf
+#===============================================================================
+class _NurbsCurveModf(object):
+    inherits = ('_CurveRootModf',)
+    class Methods(object):
+        close_curve = {
+            "method_name": "close",
+            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
+        }        
+        extend_curve = {
+            "method_name": "extend",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
+        }
+        extend_curve_length = {
+            "method_name": "extend_length",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("length","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
+        }
+        extend_curve_point = {
+            "method_name": "extend_pnt",
+            "method_parameters": (("","SELF","REQ"),("side","int","REQ"),("point","array_of dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")
         }        
 #===============================================================================
 # Arc
@@ -151,7 +239,7 @@ class Arc(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",          
+        "defm": "_CurveRootDefm",          
         "prop": "_ObjectRootProp",        
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
@@ -161,14 +249,14 @@ class Arc(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_CurveRootMdfy",
+        "modf": "_ArcModf",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object level
         "dupl": "_ArcDupl",#inherits from object level
         
         #arc holds
         "prop": "_ArcProp",
-        "func": "_CurveRootFuncOpen",        
+        "func": "_CurveRootFunc",        
     }    
     class Constructors(object):
         add_arc = {#ed
@@ -255,6 +343,32 @@ class _ArcProp(object):
             "method_returns": ("number","null")
         }
 #===============================================================================
+# ArcModf
+#===============================================================================
+class _ArcModf(object):
+    inherits = ('_CurveRootModf',)
+    class Methods(object):
+        close_curve = {
+            "method_name": "close",
+            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Arc","null")
+        }        
+        extend_curve = {
+            "method_name": "extend",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Arc","null")
+        }
+        extend_curve_length = {
+            "method_name": "extend_length",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("length","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Arc","null")
+        }
+        extend_curve_point = {
+            "method_name": "extend_pnt",
+            "method_parameters": (("","SELF","REQ"),("side","int","REQ"),("point","array_of dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Arc","null")
+        }
+#===============================================================================
 # EllipticalArc
 #===============================================================================
 class EllipticalArc(object):
@@ -262,7 +376,7 @@ class EllipticalArc(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",          
+        "defm": "_CurveRootDefm",          
         "prop": "_ObjectRootProp",        
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
@@ -272,14 +386,14 @@ class EllipticalArc(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_CurveRootMdfy",
+        "modf": "_EllipticalArcModf",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object level
         "dupl": "_EllipticalArcDupl",#inherits from object level
         
         #ell arc holds
         "prop": "_CurveRootProp",
-        "func": "_CurveRootFuncOpen",        
+        "func": "_CurveRootFunc",        
     }    
 
         
@@ -321,7 +435,32 @@ class _EllipticalArcDupl(object):
             "method_returns": ("_ObjectRoot._CurveRoot.EllipticalArc","null")
         }   
         
-        
+#===============================================================================
+# _EllipticalArcModf
+#===============================================================================
+class _EllipticalArcModf(object):
+    inherits = ('_CurveRootModf',)
+    class Methods(object):
+        close_curve = {
+            "method_name": "close",
+            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.EllipticalArc","null")
+        }        
+        extend_curve = {
+            "method_name": "extend",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.EllipticalArc","null")
+        }
+        extend_curve_length = {
+            "method_name": "extend_length",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("length","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.EllipticalArc","null")
+        }
+        extend_curve_point = {
+            "method_name": "extend_pnt",
+            "method_parameters": (("","SELF","REQ"),("side","int","REQ"),("point","array_of dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.EllipticalArc","null")
+        }
 #===============================================================================
 # Circle
 #===============================================================================
@@ -330,7 +469,7 @@ class Circle():
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",          
+        "defm": "_CurveRootDefm",          
         "prop": "_ObjectRootProp",        
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
@@ -340,7 +479,7 @@ class Circle():
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_CurveRootMdfy",
+        "modf": "_CurveRootModf",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object level
         "dupl": "_CircleDupl",#inherits from object level
@@ -421,7 +560,6 @@ class _CircleProp():
             "method_returns": ("number","null")
         }
         
-       
 #===============================================================================
 # Ellipse
 #===============================================================================
@@ -430,7 +568,7 @@ class Ellipse(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",          
+        "defm": "_CurveRootDefm",          
         "prop": "_ObjectRootProp",        
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
@@ -440,7 +578,7 @@ class Ellipse(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_CurveRootMdfy",
+        "modf": "_CurveRootModf",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object level
         "dupl": "_EllipseDupl",#inherits from object level
@@ -515,6 +653,7 @@ class _EllipseProp(object):
             "method_parameters": (("","SELF","REQ"),),
             "method_returns": ("array_of dbl","null")
         } 
+        
 #===============================================================================
 # Line
 #===============================================================================
@@ -523,7 +662,7 @@ class Line(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",          
+        "defm": "_CurveRootDefm",          
         "prop": "_ObjectRootProp",        
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
@@ -533,14 +672,14 @@ class Line(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_CurveRootMdfy",
+        "modf": "_LineModf",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object level
         "dupl": "_LineDupl",#inherits from object level
         
         #properties
         "prop": "_CurveRootProp",
-        "func": "_CurveRootFuncOpen",        
+        "func": "_CurveRootFunc",        
     }     
     class Constructors(object):
         add_line = {#ed
@@ -591,6 +730,27 @@ class _LineDupl(object):
             "method_returns": ("array_of _ObjectRoot._CurveRoot.Line","null")
         }
 #===============================================================================
+# _LineModf
+#===============================================================================
+class _LineModf(object):
+    inherits = ('_CurveRootModf',)
+    class Methods(object):       
+        extend_curve = {
+            "method_name": "extend",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Line","null")
+        }
+        extend_curve_length = {
+            "method_name": "extend_length",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("length","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Line","null")
+        }
+        extend_curve_point = {
+            "method_name": "extend_pnt",
+            "method_parameters": (("","SELF","REQ"),("side","int","REQ"),("point","array_of dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Line","null")
+        }        
+#===============================================================================
 # Polyline
 #===============================================================================
 class Polyline(object):
@@ -598,7 +758,7 @@ class Polyline(object):
     holds = {
                    
         #general object holds
-        "defm": "_ObjectRootDefm",          
+        "defm": "_CurveRootDefm",          
         "prop": "_ObjectRootProp",        
         "grps": "_ObjectRootGrps",
         "mtrl": "_ObjectRootMtrl",
@@ -608,14 +768,14 @@ class Polyline(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        "modf": "_CurveRootMdfy",
+        "modf": "_PolylineModf",
         "eval": "_CurveRootEval",
         "test": "_CurveRootTest",#inherits from object level
         "dupl": "_PolylineDupl",#inherits from object level
         
         #polyline holds
         "prop": "_PolylineProp",
-        "func": "_CurveRootFuncOorC",
+        "func": "_CurveRootFuncClsd",
     }     
     class Constructors(object):
         add_polyline = {
@@ -629,6 +789,17 @@ class Polyline(object):
             "method_returns": ("SELF","null")
         } 
         
+        #FROM MESH METHODS
+        duplicate_mesh_border = {#ed
+            "method_name": "create_by_mesh_border",
+            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),),
+            "method_returns": ("SELF","null")
+            }  
+        pull_curve_to_mesh = {#ed
+            "method_name": "create_by_mesh_pull",
+            "method_parameters": (("mesh","_ObjectRoot._MeshRoot","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),),
+            "method_returns": ("SELF","null")
+            }
           
 #===============================================================================
 # _PolylineDupl
@@ -679,7 +850,32 @@ class _PolylineProp(object):
             "method_parameters": (("","SELF","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("array_of dbl","null")
         }
-        
+#===============================================================================
+# _PolylineModf
+#===============================================================================
+class _PolylineModf(object):
+    inherits = ('_CurveRootModf',)
+    class Methods(object):
+        close_curve = {
+            "method_name": "close",
+            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Polyline","null")
+        }        
+        extend_curve = {
+            "method_name": "extend",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("objects","array_of _ObjectRoot","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Polyline","null")
+        }
+        extend_curve_length = {
+            "method_name": "extend_length",
+            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("length","dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Polyline","null")
+        }
+        extend_curve_point = {
+            "method_name": "extend_pnt",
+            "method_parameters": (("","SELF","REQ"),("side","int","REQ"),("point","array_of dbl","REQ"),),
+            "method_returns": ("_ObjectRoot._CurveRoot.Polyline","null")
+        }
 #===============================================================================
 # PolyCurve - for the moment we will hide this class, since there are many complications
 #===============================================================================
@@ -698,7 +894,7 @@ class PolyCurve(object):
         "util": "_ObjectRootUtil",        
   
         #general curve holds
-        #"modf": "_CurveRootMdfy",
+        #"modf": "_CurveRootModf",
         #"test": "_CurveRootTest",#inherits from object tests        
 
         #polcurve holds
@@ -720,7 +916,7 @@ class PolyCurve(object):
 # _PolyCurveFunc
 #===============================================================================
 class _PolyCurveFunc(object):
-    inherits = ("_CurveRootFuncOorC",)
+    inherits = ("_CurveRootFuncClsd",)
     class Methods(object):  
         explode_curves = {#this has the delete parameter - polys only
             "method_name": "explode",
@@ -871,7 +1067,27 @@ class _PolyCurveProp(object):
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-
+#===============================================================================
+# _CurveRootDefm
+#===============================================================================
+class _CurveRootDefm(object):
+    inherits = None
+    class Methods(object):
+        box_morph_object = {#no plural version
+            "method_name": "box_morph",
+            "method_parameters": (("","SELF","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")# a slight simplification
+            }          
+        shear_object = {
+            "method_name": "shear",
+            "method_parameters": (("","SELF","REQ"),("origin","array_of dbl","REQ"),("ref_point","array_of dbl","REQ"),("angle","dbl","REQ"),("copy","bln","OPT")),
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")# a slight simplification
+            }
+        transform_object = {
+            "method_name": "transform",
+            "method_parameters": (("","SELF","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
+            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")# a slight simplification
+            }
 #===============================================================================
 # _CurveRootType
 #===============================================================================
@@ -959,12 +1175,16 @@ class _CurveRootTest(object):
             "method_parameters": (("","SELF","REQ"),("point","array_of int","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("bln","null")
         }
-
+        planar_curve_collision = {
+            "method_name": "planar_crv_collision",
+            "method_parameters": (("","SELF","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT"),),
+            "method_returns": ("bln","null")
+        } 
 #===============================================================================
-# _CurveRootMdfy
+# _CurveRootModf
 #===============================================================================
-class _CurveRootMdfy(object):
-    inherits = ('_ObjectRootMdfy', )
+class _CurveRootModf(object):
+    inherits = ('_ObjectRootModf', )
     class Methods(object):
         curve_seam = {#ed
             "method_name": "seam",
@@ -1172,11 +1392,6 @@ class _CurveRootFunc(object):
     inherits = ("_ObjectRootFunc",)
     class Methods(object):
         
-        planar_curve_collision = {
-            "method_name": "planar_crv_collision",
-            "method_parameters": (("","SELF","REQ"),("curve","_ObjectRoot._CurveRoot","REQ"),("plane","array_of dbl","OPT"),("tolerance","dbl","OPT"),),
-            "method_returns": ("bln","null")
-        } 
         divide_curve = {#ed
             "method_name": "divide_crv",
             "method_parameters": (("","SELF","REQ"),("segments","lng","REQ"),("create","bln","OPT"),("points","bln","OPT"),),
@@ -1227,6 +1442,9 @@ class _CurveRootFunc(object):
             "method_parameters": (("","SELF","REQ"),("point","array_of dbl","REQ"),("index","int","OPT","EMPTY","HIDE"),),
             "method_returns": ("number","null")
         } 
+        
+        
+        
         make_curve_non_periodic = {
             "method_name": "make_non_periodic",
             "method_parameters": (("","SELF","REQ"),("delete","bln","OPT","FALSE","HIDE"),),
@@ -1274,33 +1492,6 @@ class _CurveRootFunc(object):
             "method_name": "srf_intersection",
             "method_parameters": (("","SELF","REQ"),("surface","_ObjectRoot._SurfaceRoot","REQ"),("tolerance","dbl","OPT"),("angle_tolerance","dbl","OPT"),),
             "method_returns": ("array_of number","null")#check return values...
-        }
-#===============================================================================
-# _CurveRootClosedFuncOpen - exclude circles and ellipses
-#===============================================================================
-class _CurveRootFuncOpen(object):
-    inherits = ('_CurveRootFunc',)
-    class Methods(object):
-        
-        close_curve = {# open curves only - this returns the same curve id, if successful - only works on some curves
-            "method_name": "close",
-            "method_parameters": (("","SELF","REQ"),("tolerance","dbl","OPT"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")#TODO: only NurbsCurve returned!!!
-        }
-        extend_curve = {# open curves only
-            "method_name": "extend",
-            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("objects","array_of _ObjectRoot","REQ"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")#TODO: only NurbsCurve returned!!!
-        }
-        extend_curve_length = {
-            "method_name": "extend_length",
-            "method_parameters": (("","SELF","REQ"),("crv_type","int","REQ"),("side","int","REQ"),("length","dbl","REQ"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")#TODO: only NurbsCurve returned!!!
-        }
-        extend_curve_point = {
-            "method_name": "extend_pnt",
-            "method_parameters": (("","SELF","REQ"),("side","int","REQ"),("point","array_of dbl","REQ"),),
-            "method_returns": ("_ObjectRoot._CurveRoot.NurbsCurve","null")#TODO: only NurbsCurve returned!!!
         } 
 #===============================================================================
 # _CurveRootClosedFuncClsd - exclude arcs and lines
@@ -1347,14 +1538,7 @@ class _CurveRootFuncClsd(object):
             "method_parameters": (("curves","array_of _ObjectRoot._CurveRoot","REQ"),),#TODO: for this method, there is no SELF parameter
             "method_returns": ("array_of _ObjectRoot._CurveRoot.PolyCurve","null")
         }
-        
-#===============================================================================
-# _CurveRootClosedFuncOorc - polylines, nurbscurves, polycurves
-#===============================================================================
-class _CurveRootFuncOorC(object):
-    inherits = ('_CurveRootFuncOpen','_CurveRootFuncClsd')
-    
- 
+
 #===============================================================================
 # _CurveRoot
 #===============================================================================

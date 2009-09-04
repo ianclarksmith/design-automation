@@ -3,6 +3,7 @@
 #===============================================================================
 # Object
 #===============================================================================
+"""
 class GenericObject(object):
     inherits = ("_ObjectRoot",)
     holds = {
@@ -18,7 +19,7 @@ class GenericObject(object):
         
         "test": "_ObjectRootTest",#will be inherited 
         "type": "_ObjectRootType",#exposed only here        
-    }
+    }"""
 #===============================================================================
 # ObjectRoot
 #===============================================================================
@@ -28,7 +29,7 @@ class _ObjectRoot(object):
 #===============================================================================
 # ObjectGroups
 #===============================================================================
-class _ObjectRootMdfy(object):
+class _ObjectRootModf(object):
     inherits = None
     
     class Methods(object):
@@ -367,27 +368,6 @@ class _ObjectRootTrfm(object):
             "method_name": "remap",
             "method_parameters": (("","SELF","REQ"),("src_plane","array_of dbl","REQ"),("dst_plane","array_of dbl","REQ"),("copy","bln","OPT")),
             "method_returns": ("SELF","null")#GenericObject
-            }
-#===============================================================================
-# ObjectTransform
-#===============================================================================
-class _ObjectRootDefm(object):
-    inherits = None
-    class Methods(object):
-        box_morph_object = {#no plural version
-            "method_name": "box_morph",
-            "method_parameters": (("","SELF","REQ"),("box_points","array_of dbl","REQ"),("copy","bln","OPT")),
-            "method_returns": ("_ObjectRoot","null")#GenericObject
-            }          
-        shear_object = {
-            "method_name": "shear",
-            "method_parameters": (("","SELF","REQ"),("origin","array_of dbl","REQ"),("ref_point","array_of dbl","REQ"),("angle","dbl","REQ"),("copy","bln","OPT")),
-            "method_returns": ("_ObjectRoot","null")#GenericObject
-            }
-        transform_object = {
-            "method_name": "transform",
-            "method_parameters": (("","SELF","REQ"),("matrix","array_of str","REQ"),("copy","bln","OPT")),#what is this matrix
-            "method_returns": ("_ObjectRoot","null")#GenericObject
             }
 #===============================================================================
 # _ObjectRootType
