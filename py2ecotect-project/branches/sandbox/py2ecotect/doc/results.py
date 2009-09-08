@@ -3,7 +3,7 @@ import py2ecotect as p2e
 #===========================================================================
 # Getters and Setters
 #===========================================================================
-def get_array(i, j):
+def array(i, j):
     """
     
     The various solar and thermal analysis calculations store their results 
@@ -95,11 +95,11 @@ def get_array(i, j):
     for the resource used or 1 for the resource collected.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.array", i, j)
+    arg_str = p2e._base._util._convert_args_to_string("get.results.array", i, j)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_conduction(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_conduction(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -123,12 +123,12 @@ def get_gains_conduction(zone, hour):
     A decimal value containing the specified gains value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.conduction", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.conduction", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_daily(zone):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_daily(zone):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -149,12 +149,12 @@ def get_gains_daily(zone):
     A decimal value containing the specified gains value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.daily", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.daily", 
                                                   zone.eco_id)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_fabric(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_fabric(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -178,12 +178,12 @@ def get_gains_fabric(zone, hour):
     A decimal value containing the specified gains value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.fabric", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.fabric", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_glazing_fabric(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_glazing_fabric(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -206,12 +206,12 @@ def get_gains_glazing_fabric(zone, hour):
     A decimal value containing the specified gains value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.glazingfabric", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.glazingfabric", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_indirect(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_indirect(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -235,12 +235,12 @@ def get_gains_indirect(zone, hour):
     A decimal value containing the specified gains value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.indirect", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.indirect", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_internal(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_internal(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -264,12 +264,12 @@ def get_gains_internal(zone, hour):
     A decimal value containing the specified gains value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.internal", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.internal", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_opaque_fabric(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_opaque_fabric(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -293,12 +293,12 @@ def get_gains_opaque_fabric(zone, hour):
     A decimal value containing the specified gains value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.opaquefabric", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.opaquefabric", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_solar(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_solar(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -322,12 +322,12 @@ def get_gains_solar(zone, hour):
     A decimal value containing the specified gains value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.solar", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.solar", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_gains_total(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def gains_total(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -351,12 +351,12 @@ def get_gains_total(zone, hour):
     A decimal value containing the specified gains value.
     
     """ 
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.total", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.total", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)   
-#------------------------------------------------------------------------------ 
-def get_gains_ventilation(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)   
+ 
+def gains_ventilation(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -380,12 +380,12 @@ def get_gains_ventilation(zone, hour):
     A decimal value containing the specified gains value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.ventilation", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.ventilation", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)   
-#------------------------------------------------------------------------------ 
-def get_gains_zonal(zone, hour):
+    return p2e._base._util._convert_str_to_type(val, float)   
+
+def gains_zonal(zone, hour):
     """
     
     Once an hourly thermal analysis has been performed for a single day 
@@ -409,14 +409,12 @@ def get_gains_zonal(zone, hour):
     A decimal value containing the specified gains value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.gains.zonal", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.gains.zonal", 
                                                   zone.eco_id, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)   
+    return p2e._base._util._convert_str_to_type(val, float)   
 #------------------------------------------------------------------------------ 
-#------------------------------------------------------------------------------ 
-#------------------------------------------------------------------------------ 
-def get_solar_absorbed(hour):
+def solar_absorbed(hour):
     """
     
     Returns the radiation value after a calc.solar.day calculation for the 
@@ -435,12 +433,12 @@ def get_solar_absorbed(hour):
     A decimal value containing the specified solar value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.absorbed", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.absorbed", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)   
-#------------------------------------------------------------------------------ 
-def get_solar_angle(hour):
+    return p2e._base._util._convert_str_to_type(val, float)   
+
+def solar_angle(hour):
     """
     
     Returns the radiation value after a calc.solar.day calculation for the 
@@ -459,12 +457,12 @@ def get_solar_angle(hour):
     A decimal value containing the specified solar value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.angle", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.angle", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)   
-#------------------------------------------------------------------------------ 
-def get_solar_area(hour):
+    return p2e._base._util._convert_str_to_type(val, float)   
+
+def solar_area(hour):
     """
     
     Returns the radiation value after a calc.solar.day calculation for the 
@@ -483,12 +481,12 @@ def get_solar_area(hour):
     A decimal value containing the specified solar value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.area", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.area", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)   
-#------------------------------------------------------------------------------ 
-def get_solar_available(hour):
+    return p2e._base._util._convert_str_to_type(val, float)   
+
+def solar_available(hour):
     """
     
     Returns the available radiation value after a calc.solar.day calculation 
@@ -508,12 +506,11 @@ def get_solar_available(hour):
     A decimal value containing the specified solar value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.available", 
-                                                  hour)
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.available", hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)   
-#------------------------------------------------------------------------------ 
-def get_solar_diffuse(hour):
+    return p2e._base._util._convert_str_to_type(val, float)   
+
+def solar_diffuse(hour):
     """
     
     Returns solar radiation value after a calc.solar.day calculation for 
@@ -532,12 +529,11 @@ def get_solar_diffuse(hour):
     A decimal value containing the specified solar value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.diffuse", 
-                                                  hour)
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.diffuse", hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_solar_direct(hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+ 
+def solar_direct(hour):
     """
     
     Returns solar radiation value after a calc.solar.day calculation for 
@@ -556,12 +552,12 @@ def get_solar_direct(hour):
     A decimal value containing the specified solar value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.direct", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.direct", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_solar_global(hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def solar_global(hour):
     """
     
     Returns the radiation value after a calc.solar.day calculation for the 
@@ -580,12 +576,12 @@ def get_solar_global(hour):
     A decimal value containing the specified solar value. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.global", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.global", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_solar_incident(hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def solar_incident(hour):
     """
     
     Returns the radiation value after a calc.solar.day calculation for the 
@@ -604,12 +600,12 @@ def get_solar_incident(hour):
     A decimal value containing the specified solar value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.incident", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.incident", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_solar_reflected(hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def solar_reflected(hour):
     """
     
     Returns the radiation value after a calc.solar.day calculation for the 
@@ -628,12 +624,12 @@ def get_solar_reflected(hour):
     A decimal value containing the specified solar value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.reflected", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.reflected", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_solar_shading(hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def solar_shading(hour):
     """
     
     Returns the radiation value after a calc.solar.day calculation for the 
@@ -652,12 +648,12 @@ def get_solar_shading(hour):
     A decimal value containing the specified solar value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.shading", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.shading", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_solar_transmitted(hour):
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def solar_transmitted(hour):
     """
     
     Returns the radiation value after a calc.solar.day calculation for the 
@@ -676,8 +672,271 @@ def get_solar_transmitted(hour):
     A decimal value containing the specified solar value.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.results.solar.transmitted", 
+    arg_str = p2e._base._util._convert_args_to_string("get.results.solar.transmitted", 
                                                   hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 #------------------------------------------------------------------------------ 
+#------------------------------------------------------------------------------ 
+def sky_component():
+    """
+    
+    Returns the percentage of CIE Overcast Sky illumination visible from 
+    the selected surface. This is time-independent and only valid after a 
+    shading calculation has been performed (see the calc.shading.percentage 
+    method). 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    SC 
+    A decimal value containing the sky component.
+    
+    """
+    val = p2e._app.Request("get.shading.skycomponent")
+    return p2e._base._util._convert_str_to_type(val, float)    
+def sky_components():
+    """
+    
+    Returns the three sky components calculated from the current shading 
+    mask. The first two values are the fraction of the sky 
+    illuminance/radiation visible to the selected object for which the mask 
+    was calculated, under CIE overcast and uniform sky conditions. The 
+    third result is only valid for vertical surfaces and is the Vertical 
+    Sky Component as defined by the Building Research Establishment. These 
+    are the values displayed within the bottom right corner of the SunPath 
+    diagram when the shading mask is displayed.
+
+    If the shading calculation has not yet been performed (see the 
+    calc.shading.percentage method), this method will carry one out for the 
+    current object. 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    overcast 
+    A decimal value containing the overcast sky component. 
+    
+    uniform 
+    A decimal value containing the uniform sky component. 
+    
+    vertical 
+    A decimal value containing the vertical sky component.
+    
+    """
+    val = p2e._app.Request("get.shading.components")
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
+#------------------------------------------------------------------------------ 
+def insolation_diffuse():
+    """
+    
+    Returns the diffuse solar radiation component as a single decimal value 
+    in Watts per square metre. This is only valid after a shading 
+    calculation has been performed (see the calc.shading.percentage method 
+    and set.model.time properties for more information). 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the current diffuse solar component.
+    
+    """
+    val = p2e._app.Request("get.shading.diffuse")
+    return p2e._base._util._convert_str_to_type(val, float)
+ 
+def insolation_direct():
+    """
+    
+    Returns the current direct solar radiation component as a single 
+    decimal value in Watts per square metre. This is only valid after a 
+    shading calculation has been performed (see the calc.shading.percentage 
+    method and set.model.time properties for more information). 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the current direct solar component.
+    
+    """
+    val = p2e._app.Request("get.shading.direct")
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def insolation(from_day, to_day):
+    """
+    
+    Returns the total direct and diffuse incident solar radiation on the 
+    object for which the current shading mask has been calculated. Both are 
+    returned as single decimal values in Watts per square metre. A third 
+    value is also returned, being a count of the number of hours over which 
+    the direct and diffuse values were generated. 
+
+    Parameter(s)
+    This property takes the following parameters.
+    
+    from_day 
+    A value representing the Julian date when the calculation will begin, 
+    given as an integer from 1 to 365. 
+    
+    to_day 
+    A value representing the Julian date when the calculation will end, 
+    given as an integer from 1 to 365. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    totalDirect 
+    A decimal value containing the totel direct solar component. 
+    
+    totalDiffuse 
+    A decimal value containing the total diffuse solar component. 
+    
+    totalHours 
+    A decimal value containing the total sunlight hours. 
+
+    """
+    arg_str = p2e._base._util._convert_args_to_string("get.shading.range", from_day, to_day)
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
+#------------------------------------------------------------------------------ 
+def shading_percentange():
+    """
+    
+    Returns the percentage-in-shade of the selected object as a single 
+    decimal percentage value, using the current model date and time 
+    settings.
+
+    This is only valid after a shading calculation has been performed (see 
+    the calc.shading.percentage method and set.model.time properties for 
+    more information). If a negative value is returned, then the 
+    set.shading.bothsides option has been used and the point is behind the 
+    surface. 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the shading value. 
+    
+    """
+    val = p2e._app.Request("get.shading.percentage")
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def shading_percentange_at_angle(azi, alt):
+    """
+    
+    Returns the percentage-in-shade of the selected object as a single 
+    decimal percentage value. Note that this is only valid after a shading 
+    calculation has been performed (see the calc.shading.percentage method 
+    and set.model.time properties for more information).
+
+    If a negative value is returned, then the set.shading.bothsides option 
+    has been used and the point is behind the surface. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    azi 
+    The azimuth (-180 deg to 180 deg) angle representing, together with the 
+    altitude angle, a point in the sky from which to retrieve the value.
+    
+    To retrieve the sun position at any time, use the get.model.sunangles 
+    command. 
+    
+    alt 
+    The altitude (0 deg to 90 deg) angle representing, together with the azimuth 
+    angle, a point in the sky from which to retrieve the value.
+    
+    To retrieve the sun position at any time, use the get.model.sunangles 
+    command. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the shading value. 
+    
+    """
+    arg_str = p2e._base._util._convert_args_to_string("get.shading.percentage.angle", azi, alt)
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_type(val, float)
+ 
+def shading_percentange_at_date_time(day, time):
+    """
+    
+    Returns the percentage-in-shade of the selected object as a single 
+    decimal percentage value. This is only valid after a shading calculation 
+    has been performed (see the calc.shading.percentage method and 
+    set.model.time properties for more information).
+
+    If a negative value is returned, then the set.shading.bothsides option 
+    has been used and the point is behind the surface. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    day 
+    The day of the year from which to return the percentage (1 to 365). 
+    
+    time 
+    The time of the day from which to return the percentage (0 to 23). 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the shading value
+    
+    """
+    arg_str = p2e._base._util._convert_args_to_string("get.shading.percentage.datetime", day, time)
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_list(val, float, float, float, float)
+ 
+def shading_percentange_at_index(x, y):
+    """
+    
+    Returns the percentage-in-shade of the selected object as a single 
+    decimal value. Note that this is only valid after a shading calculation 
+    has been performed (see the calc.shading.percentage method and 
+    set.model.time properties for more information).
+
+    If a negative value is returned, then the set.shading.bothsides option 
+    has been used and the point is behind the surface. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    x 
+    The X index of the shading table, where X is the azimuth angle 
+    increment set in the set.shading.angles property. 
+    
+    y 
+    The Y index of the shading table, where Y is the altitude angle 
+    increment set in the set.shading.angles property. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    value 
+    A decimal value containing the shading value.
+    
+    """
+    arg_str = p2e._base._util._convert_args_to_string("get.shading.percentage.index", x, y)
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_type(val, float)

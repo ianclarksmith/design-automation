@@ -18,7 +18,7 @@ def load(filename = ""):
     be loaded. If not given, then the last loaded weather file will be used. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("weather.load", filename)
+    arg_str = p2e._base._util._convert_args_to_string("weather.load", filename)
     p2e._app.Exec(arg_str)
     
 def load_all(filename = ""):
@@ -36,12 +36,12 @@ def load_all(filename = ""):
     be loaded. If not given, then the last loaded weather file will be used. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("weather.load.all", filename)
+    arg_str = p2e._base._util._convert_args_to_string("weather.load.all", filename)
     p2e._app.Exec(arg_str)   
 #------------------------------------------------------------------------------ 
 # Properties
 #------------------------------------------------------------------------------ 
-def get_beam_solar(day, hour):
+def beam_solar(day, hour):
     """
     
     Retrieves the beam solar radiation (W) for the specified day and hour in 
@@ -63,9 +63,9 @@ def get_beam_solar(day, hour):
     A value in Watts representing the beam solar radiation.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.weather.beamsolar", day, hour)
+    arg_str = p2e._base._util._convert_args_to_string("get.weather.beamsolar", day, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
  
 def set_beam_solar(day, hour, value):
     """
@@ -87,10 +87,10 @@ def set_beam_solar(day, hour, value):
 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.beamsolar", day, hour, value)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.beamsolar", day, hour, value)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_cloudiness(day, hour):
+def cloudiness(day, hour):
     """
     
     Retrieves the cloudiness (%) for the specified day and hour in the 
@@ -112,9 +112,9 @@ def get_cloudiness(day, hour):
     A percentage value representing the cloudiness.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.weather.cloudiness", day, hour)
+    arg_str = p2e._base._util._convert_args_to_string("get.weather.cloudiness", day, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
 def set_cloudiness(day, hour, value):
     """
@@ -135,11 +135,11 @@ def set_cloudiness(day, hour, value):
     A percentage value representing the cloudiness.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.cloudiness", day, hour, value)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.cloudiness", day, hour, value)
     p2e._app.Exec(arg_str)
 
 #------------------------------------------------------------------------------ 
-def get_country():
+def country():
     """
     
     Retrieves the name of the state/country in the currently loaded weather 
@@ -157,7 +157,7 @@ def get_country():
     
     """
     val = p2e._app.Request("get.weather.country")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
         
 def set_country(name):
     """
@@ -173,10 +173,10 @@ def set_country(name):
     weather data set.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.country", name)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.country", name)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_diffuse_solar(day, hour):
+def diffuse_solar(day, hour):
     """
     
     Retrieves the diffuse solar radiation (W) for the specified day and 
@@ -198,9 +198,9 @@ def get_diffuse_solar(day, hour):
     A value in Watts representing the diffuse solar radiation. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.weather.diffusesolar", day, hour)
+    arg_str = p2e._base._util._convert_args_to_string("get.weather.diffusesolar", day, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
 def set_diffuse_solar(day, hour, value):
     """
@@ -221,10 +221,10 @@ def set_diffuse_solar(day, hour, value):
     A value in Watts representing the diffuse solar radiation.
    
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.diffusesolar", day, hour, value)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.diffusesolar", day, hour, value)
     p2e._app.Exec(arg_str)    
 #------------------------------------------------------------------------------ 
-def get_direction(day, hour):
+def wind_direction(day, hour):
     """
     
     Retrieves the wind direction (0-16) for the specified day and hour in 
@@ -247,11 +247,11 @@ def get_direction(day, hour):
     represents North.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.weather.direction", day, hour)
+    arg_str = p2e._base._util._convert_args_to_string("get.weather.direction", day, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
-def set_direction(day, hour, value):
+def set_wind_direction(day, hour, value):
     """
     
     Sets the wind direction (0-16) for the specified day and hour in the 
@@ -271,10 +271,10 @@ def set_direction(day, hour, value):
     represents North.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.direction", day, hour, value)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.direction", day, hour, value)
     p2e._app.Exec(arg_str)     
 #------------------------------------------------------------------------------ 
-def get_file():
+def weather_file_path():
     """
     
     Retrieves the the full pathname of the currently loaded weather data file. 
@@ -290,9 +290,9 @@ def get_file():
     
     """
     val = p2e._app.Request("get.weather.file")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
-def get_name():
+def location_name():
     """
     
     Retrieves the name of the location in the currently loaded weather data 
@@ -309,9 +309,9 @@ def get_name():
     
     """
     val = p2e._app.Request("get.weather.name")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
         
-def set_name(name):
+def set_location_name(name):
     """
     
     Sets the name of the location in the currently loaded weather data set. 
@@ -323,10 +323,10 @@ def set_name(name):
     A string representing the location given to the current weather data set.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.name", name)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.name", name)
     p2e._app.Exec(arg_str)    
 #------------------------------------------------------------------------------ 
-def get_rainfall(day, hour):
+def rainfall(day, hour):
     """
     
     Retrieves the rainfall (mm) for the specified day and hour in the 
@@ -342,10 +342,10 @@ def get_rainfall(day, hour):
     An integer value between 0 and 23 representing the hour of the day.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.weather.rainfall", 
+    arg_str = p2e._base._util._convert_args_to_string("get.weather.rainfall", 
                                                  day, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
 def set_rainfall(day, hour, value):
     """
@@ -366,10 +366,10 @@ def set_rainfall(day, hour, value):
     A value specifying the amount of rainfall in millimeters.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.rainfall", day, hour, value)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.rainfall", day, hour, value)
     p2e._app.Exec(arg_str)     
 #------------------------------------------------------------------------------ 
-def get_rel_humidity(day, hour):
+def rel_humidity(day, hour):
     """
     
     Retrieves the relative humidity (%) for the specified day and hour in 
@@ -391,10 +391,10 @@ def get_rel_humidity(day, hour):
     A value specifying the relative humidity as a percentage.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.weather.relhumidity", 
+    arg_str = p2e._base._util._convert_args_to_string("get.weather.relhumidity", 
                                                  day, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
  
 def set_rel_humidity(day, hour, value):
     """
@@ -415,10 +415,10 @@ def set_rel_humidity(day, hour, value):
     A value specifying the relative humidity as a percentage.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.relhumidity", day, hour, value)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.relhumidity", day, hour, value)
     p2e._app.Exec(arg_str)     
 #------------------------------------------------------------------------------ 
-def get_speed(day, hour):
+def wind_speed(day, hour):
     """
     
     Retrieves the wind speed (km/hr) for the specified day and hour in the 
@@ -440,11 +440,11 @@ def get_speed(day, hour):
     A value specifying the wind speed speed in kilometers per hour 
 
     """
-    arg_str = p2e._util._convert_args_to_string("get.weather.speed", day, hour)
+    arg_str = p2e._base._util._convert_args_to_string("get.weather.speed", day, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
-def set_speed(day, hour, value):
+def set_wind_speed(day, hour, value):
     """
     
     Sets the wind speed (k,/hr) for the specified day and hour in the 
@@ -463,10 +463,10 @@ def set_speed(day, hour, value):
     A value specifying the wind speed speed in kilometers per hour.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.speed", day, hour, value)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.speed", day, hour, value)
     p2e._app.Exec(arg_str)     
 #------------------------------------------------------------------------------ 
-def get_temperature(day, hour):
+def temperature(day, hour):
     """
     
     Retrieves the temperature (Dry Bulb, deg celsius) for the specified day 
@@ -488,9 +488,9 @@ def get_temperature(day, hour):
     A value specifying the temperature to set in degrees celsius.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.weather.temperature", day, hour)
+    arg_str = p2e._base._util._convert_args_to_string("get.weather.temperature", day, hour)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
 def set_temperature(day, hour, value):
     """
@@ -511,7 +511,7 @@ def set_temperature(day, hour, value):
     A value specifying the temperature to set in degrees celsius.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.weather.temperature", day, hour, value)
+    arg_str = p2e._base._util._convert_args_to_string("set.weather.temperature", day, hour, value)
     p2e._app.Exec(arg_str)     
 #------------------------------------------------------------------------------ 
 
