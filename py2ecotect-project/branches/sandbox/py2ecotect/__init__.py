@@ -39,7 +39,7 @@ print "Connection with Ecotect successful..."
 #===============================================================================
 # Import modules
 #===============================================================================
-import _util
+import _base
 
 import app
 import doc
