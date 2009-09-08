@@ -62,7 +62,7 @@ class _ObjectRootDupl(object):
         p2e._app.Exec(arg_str)
         
         #get the id of the new object
-        eco_id = p2e.doc.model.get_num_objects() - 1
+        eco_id = p2e.doc.model.number_of_objects() - 1
         
         #create the object
         return _ObjectRoot(eco_id, None)
@@ -317,18 +317,20 @@ class _ObjectRootModf(object):
         There are no parameters for this command.
         
         """
-        nodes = self.node.nodes
+        
+        #get all the nodes in this object
+        nodes = self._object.nodes.nodes()
         
         #execute ecotect instruction
         arg_str = p2e._base._util._convert_args_to_string("object.delete", self._eco_id)
         p2e._app.Exec(arg_str)
         
-        #Delete nodes of this object
+        #update the nodes list
         for i in nodes:
             p2e.doc._nodes.remove(i)
         
-        #Update model lists
-        p2e.doc._objects.remove(self)    
+        #update model list
+        p2e.doc._objects.remove(self._object)    
     #-------------------------------------------------------------------------
     def orient_normal(self, azi, alt):
         """
@@ -945,20 +947,6 @@ class _ObjectRootEval(object):
 # _ObjectRootProp
 #==============================================================================
 class _ObjectRootProp(object):
-    #-------------------------------------------------------------------------
-    def done(self):
-        """
-        
-        Call this method to complete a new object after you have used the add.
-        object and add.node commands to generate it. This command tells ECOTECT 
-        to check the object's validity, calculate its plane equation and surface 
-        area (if required) and exit the interactive add node mode. 
-
-        Parameter(s)
-        There are no parameters for this command.
-  
-        """
-        p2e._app.Exec("object.done")
     #-------------------------------------------------------------------------
     def get_activation(self, day, hour):
         """
@@ -2031,15 +2019,21 @@ class _ObjectRootFunc(object):
 #==============================================================================
 # 
 #==============================================================================
-class _ObjectRootNode(object):
-    #-------------------------------------------------------------------------    
-    def eco_id(self):
+class _ObjectRootNodes(object):
+    #-------------------------------------------------------------------------
+    def done(self):
         """
         
-        Id of the object
-    
+        Call this method to complete a new object after you have used the add.
+        object and add.node commands to generate it. This command tells ECOTECT 
+        to check the object's validity, calculate its plane equation and surface 
+        area (if required) and exit the interactive add node mode. 
+
+        Parameter(s)
+        There are no parameters for this command.
+  
         """
-        return self._eco_id
+        p2e._app.Exec("object.done")    
     #-------------------------------------------------------------------------
     def add_node(self, point):
         #execute ecotect instruction
@@ -2129,7 +2123,7 @@ class _ObjectRootNode(object):
         
         """
         nodes = []
-        for node_num in range(self.first_node, self.last_node):
+        for node_num in range(self.first_node(), self.last_node()):
             nodes.append(p2e.doc._nodes[node_num])
         return nodes
         
@@ -2227,7 +2221,7 @@ class _ObjectRootChild(object):
         """
         arg_str = p2e._base._util._convert_args_to_string("object.link", 
                                                           self._eco_id, 
-                                                          child.eco_id)
+                                                          child._eco_id)
         p2e._app.Exec(arg_str)    
     #-------------------------------------------------------------------------
     def link(self):
@@ -2344,23 +2338,45 @@ class _ObjectRoot(object):
     #--------------------------------------------------------------------------
     # nested classes to hold methods
     class child(_ObjectRootChild):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
     class func(_ObjectRootFunc):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
     class modf(_ObjectRootModf):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
     class mtrl(_ObjectRootMtrl):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
-    class node(_ObjectRootNode):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
+    class nodes(_ObjectRootNodes):
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
+    class eval(_ObjectRootEval):
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id     
     class prop(_ObjectRootProp):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
     class state(_ObjectRootState):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
     class trfm(_ObjectRootTrfm):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
     class dupl(_ObjectRootDupl):
-        def __init__(self, _eco_id):self._eco_id = _eco_id
+        def __init__(self, _object):
+            self._object = _object
+            self._eco_id = _object._eco_id
     #--------------------------------------------------------------------------
     #constructor
     def __init__(self, object_eco_id, points):
@@ -2372,20 +2388,21 @@ class _ObjectRoot(object):
         p2e.doc._objects.append(self)  
         
         #create instances of the nested classes
-        self.child = _ObjectRoot.child(object_eco_id)
-        self.func = _ObjectRoot.func(object_eco_id)
-        self.modf = _ObjectRoot.modf(object_eco_id)
-        self.mtrl = _ObjectRoot.mtrl(object_eco_id)
-        self.node = _ObjectRoot.node(object_eco_id)
-        self.prop = _ObjectRoot.prop(object_eco_id)
-        self.state = _ObjectRoot.state(object_eco_id)
-        self.trfm = _ObjectRoot.trfm(object_eco_id)
-        self.dupl = _ObjectRoot.dupl(object_eco_id)        
+        self.child = _ObjectRoot.child(self)
+        self.func = _ObjectRoot.func(self)
+        self.modf = _ObjectRoot.modf(self)
+        self.mtrl = _ObjectRoot.mtrl(self)
+        self.nodes = _ObjectRoot.nodes(self)
+        self.eval = _ObjectRoot.eval(self)        
+        self.prop = _ObjectRoot.prop(self)
+        self.state = _ObjectRoot.state(self)
+        self.trfm = _ObjectRoot.trfm(self)
+        self.dupl = _ObjectRoot.dupl(self)        
         
         if points == None:
             #add exisiting nodes
-            for node_num in range(self.node.first_node(), self.node.last_node()):
-                p2e.obj.Node(self, node_num)
+            for node_num in range(self.nodes.first_node(), self.nodes.last_node()):
+                p2e.obj.Node(self, node_num) 
                 
         else:
             #add new nodes
@@ -2397,7 +2414,7 @@ class _ObjectRoot(object):
                 else:
                     pass
                     #raise Exception
-            self.done() 
+            self.nodes.done() 
 
     #--------------------------------------------------------------------------
     #factory method   
@@ -3209,7 +3226,7 @@ class _NodeRootProp(object):
     def set_link(self, link):
         """
         
-        Sets individual flags that control the display of attribute values. 
+        Sets the node or object this node is linked to.
 
         Parameter(s)
         This property takes the following parameters.
@@ -3218,8 +3235,7 @@ class _NodeRootProp(object):
         The object or node to which the specified node is to be linked.
         
         """
-        arg_str = p2e._base._util._convert_args_to_string("set.node.link", self._eco_id, 
-                                                      link.eco_id)
+        arg_str = p2e._base._util._convert_args_to_string("set.node.link", self._eco_id, link._eco_id)
         p2e._app.Exec(arg_str)
         
 
@@ -3535,7 +3551,7 @@ class _NodeRootModf(object):
         """
         #execute ecotect instruction
         arg_str = p2e._base._util._convert_args_to_string("object.delnode", 
-                                            self._object.eco_id, node_index)
+                                            self._object._eco_id, node_index)
         p2e._app.Exec(arg_str)
         
         #Update node lists
@@ -3565,10 +3581,10 @@ class Node(object):
     def __init__(self, obj, node_eco_id):
         
         #create instances of the nested classes
-        self.trfm = _ObjectRoot.trfm(node_eco_id)
-        self.prop = _ObjectRoot.prop(node_eco_id)
-        self.state = _ObjectRoot.state(node_eco_id)        
-        self.modf = _ObjectRoot.modf(node_eco_id)        
+        self.trfm = Node.trfm(node_eco_id)
+        self.prop = Node.prop(node_eco_id)
+        self.state = Node.state(node_eco_id)        
+        self.modf = Node.modf(node_eco_id)        
         
         #create the node
         self._object = obj
@@ -3626,7 +3642,7 @@ class Node(object):
         """
 
         #execute ecotect instruction
-        arg_str = p2e._base._util._convert_args_to_string("add.node", object.eco_id, index, 
+        arg_str = p2e._base._util._convert_args_to_string("add.node", object._eco_id, index, 
                                                      point[0], 
                                                      point[1], 
                                                      point[2], 

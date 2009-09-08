@@ -12,7 +12,7 @@ from py2ecotect.doc import model
 from py2ecotect.doc import attribute
 from py2ecotect.doc import grid
 from py2ecotect.doc import project
-from py2ecotect.doc import shading
+
 
 #from py2ecotect.doc.ray import Ray
 #from py2ecotect.doc.grid3d import Grid3D

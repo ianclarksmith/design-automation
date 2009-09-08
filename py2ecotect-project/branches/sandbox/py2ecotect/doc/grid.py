@@ -19,9 +19,9 @@ def export_data(filename):
     backslashes in filename parameters described here.
     
     """
-    arg_str = p2e._util._convert_args_to_string("grid.export", filename)
+    arg_str = p2e._base._util._convert_args_to_string("grid.export", filename)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def import_data(filename, import_op = ""):
     """
     
@@ -54,11 +54,11 @@ def import_data(filename, import_op = ""):
     percentage Show existing data as a percentage of imported data. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("grid.import." + import_op, 
+    arg_str = p2e._base._util._convert_args_to_string("grid.import." + import_op, 
                                                  filename)
     p2e._app.Exec(arg_str)    
 #------------------------------------------------------------------------------ 
-def fit_selection(fit_form = True):
+def fit_gird_to_selection(fit_form = True):
     """
     
     Fits the analysis grid to the extents of currently selected objects. 
@@ -75,11 +75,11 @@ def fit_selection(fit_form = True):
     where 1 or true represents the affirmative and 0 or false the negative. 
   
     """
-    arg_str = p2e._util._convert_args_to_string("grid.fit.selection", 
+    arg_str = p2e._base._util._convert_args_to_string("grid.fit.selection", 
                                                   fit_form)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
-def fit_values():
+
+def fit_scale_to_values():
     """
     
     Calculates the optimum scale required to fit the full range of currently 
@@ -91,7 +91,7 @@ def fit_values():
     """
     p2e._app.Exec("grid.fit.values")
 #------------------------------------------------------------------------------ 
-def load(filename):
+def open(filename):
     """
     
     This command loads any analysis grid stored as a (*.GRD) binary data 
@@ -107,13 +107,13 @@ def load(filename):
     backslashes in filename parameters described here.
     
     """
-    arg_str = p2e._util._convert_args_to_string("grid.import", filename)
+    arg_str = p2e._base._util._convert_args_to_string("grid.import", filename)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def reset():
+def reset_cell_values():
     """
     
-    Use this command to reset all grid values back to zero. 
+    Use this command to reset all grid cell values back to zero. 
 
     Parameter(s)
     There are no parameters for this command.
@@ -137,10 +137,10 @@ def save(filename):
     backslashes in filename parameters described here. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("grid.save", filename)
+    arg_str = p2e._base._util._convert_args_to_string("grid.save", filename)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def show(show = True):
+def show_grid(show = True):
     """
     
     Displays the current analysis grid in the model. 
@@ -155,12 +155,12 @@ def show(show = True):
     specified, this defaults to true. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("grid.show", show)
+    arg_str = p2e._base._util._convert_args_to_string("grid.show", show)
     p2e._app.Exec(arg_str)
 #===========================================================================
 # Properties
 #===========================================================================
-def get_average():
+def cell_value_average():
     """
     
     Getting this property returns three values - the average value of all 
@@ -196,9 +196,9 @@ def get_average():
     
     """
     val = p2e._app.Request("get.grid.average")
-    return p2e._util._convert_str_to_list(val, float, int, float)
+    return p2e._base._util._convert_str_to_list(val, float, int, float)
 #------------------------------------------------------------------------------ 
-def get_axis():
+def grid_slice_axis():
     """
     
     Retrieves the grid axis, being the axis within which the 2D slice has 
@@ -224,9 +224,9 @@ def get_axis():
 
     """
     val = p2e._app.Request("get.grid.axis")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
-def set_axis(axis):
+def get_grid_slice_axis(axis):
     """
     
     Sets the grid axis, being the axis within which the 2D slice has been 
@@ -246,10 +246,10 @@ def set_axis(axis):
     2 XZ Axis 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.axis", axis)
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.axis", axis)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_cell(position, index = 0):
+def cell_value(position, index = 0):
     """
     
     Retrieves the value stored in the specified grid cell. Two values are 
@@ -278,13 +278,13 @@ def get_cell(position, index = 0):
     The current data value at the specified grid cell.
 
     """
-    arg_str = p2e._util._convert_args_to_string("get.grid.cell", 
+    arg_str = p2e._base._util._convert_args_to_string("get.grid.cell", 
                                                   position[0], position[1], 
                                                   index)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_list(val, float, int)
+    return p2e._base._util._convert_str_to_list(val, float, int)
 
-def set_cell(position, value, index = 0):
+def set_cell_value(position, value, index = 0):
     """
     
     Sets the value to be stored in the specified grid cell. 
@@ -308,12 +308,12 @@ def set_cell(position, value, index = 0):
     not specified, the currently displayed index is used by default.
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.cell", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.cell", 
                                                   position[0], position[1], 
                                                  value, index)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_data():
+def cell_data_displayed():
     """
     
     Each grid cell of the analysis grid can store up to 5 different values, 
@@ -333,9 +333,9 @@ def get_data():
 
     """
     val = p2e._app.Request("get.grid.data")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
-def set_data(index):
+def set_cell_data_displayed(index):
     """
     
     Each grid cell of the analysis grid can store up to 5 different values. 
@@ -349,10 +349,10 @@ def set_data(index):
     value in the range 0 to 4.
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.data", index)
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.data", index)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_description(index):
+def cell_description(index):
     """
     
     Each cell of the analysis grid can store up to 5 different values, each 
@@ -374,12 +374,12 @@ def get_description(index):
     A text string containing the description of the nominated slot.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.grid.description", 
+    arg_str = p2e._base._util._convert_args_to_string("get.grid.description", 
                                                  index)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
-def set_description(index, description):
+def set_cell_description(index, description):
     """
     
     Each cell of the analysis grid can store up to 5 different values, each 
@@ -398,11 +398,11 @@ def set_description(index, description):
     The description to be used for the nominated slot.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.description", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.description", 
                                                  index, description)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_flag(flag):
+def display_flag(flag):
     """
     
     The analysis grid uses a series of boolean flags to control how it is 
@@ -451,12 +451,12 @@ def get_flag(flag):
     results. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("get.grid.flag", 
+    arg_str = p2e._base._util._convert_args_to_string("get.grid.flag", 
                                                  flag)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, bool)
+    return p2e._base._util._convert_str_to_type(val, bool)
 
-def set_flag(flag, state = True):
+def set_display_flag(flag, state = True):
     """
     
     The analysis grid uses a series of boolean flags to control how it is 
@@ -503,11 +503,11 @@ def set_flag(flag, state = True):
     results. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.flag", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.flag", 
                                                  flag, state)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def set_fraction(fraction):
+def set_grid_offest_fraction(fraction):
     """
     
     This property is a shortcut for setting the grid base offset when 
@@ -525,13 +525,13 @@ def set_fraction(fraction):
     command. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.fraction", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.fraction", 
                                                  fraction)
     p2e._app.Exec(arg_str)
 
 
 #------------------------------------------------------------------------------ 
-def get_max_extent():
+def grid_max_extent():
     """
     
     Retreives the values for the maximum extent of the grid for the x y and 
@@ -549,9 +549,9 @@ def get_max_extent():
 
     """
     val = p2e._app.Request("get.grid.max")
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 
-def set_max_extent(absolute_position):
+def set_grid_max_extent(absolute_position):
     """
     
     Sets the maximum values of the grid extents for the x, y and z axes. The 
@@ -566,13 +566,13 @@ def set_max_extent(absolute_position):
     dimensional model space. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.max", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.max", 
                                                   absolute_position[0],
                                                   absolute_position[1],
                                                   absolute_position[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_min_extent():
+def grid_min_extent():
     """
     
     Retreives the values for the minimum extent of the grid for the x y and 
@@ -590,9 +590,9 @@ def get_min_extent():
     
     """
     val = p2e._app.Request("get.grid.min")
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 
-def set_min_extent(absolute_position):
+def set_grid_min_extent(absolute_position):
     """
     
     Sets the minimum values of the grid extents in theX, Y and Z axes. 
@@ -606,14 +606,14 @@ def set_min_extent(absolute_position):
     dimensional model space.
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.min", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.min", 
                                                   absolute_position[0],
                                                   absolute_position[1],
                                                   absolute_position[2])
     p2e._app.Exec(arg_str)
 
 #------------------------------------------------------------------------------ 
-def get_offset():
+def grid_offset():
     """
     
     Retrieves the grid base value, the offset distance of the 2D grid 
@@ -632,9 +632,9 @@ def get_offset():
     
     """
     val = p2e._app.Request("get.grid.offset")
-    return p2e._util._convert_str_to_type(val, float)
+    return p2e._base._util._convert_str_to_type(val, float)
 
-def set_offset(offset):
+def set_grid_offset(offset):
     """
     
     Sets the grid base value. If full 3D grid values have been calculated, 
@@ -649,11 +649,11 @@ def set_offset(offset):
     for the currently selected axis. See the grid.axis 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.offset", offset)
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.offset", offset)
     p2e._app.Exec(arg_str)
 
 #------------------------------------------------------------------------------ 
-def get_position(position):
+def grid_point_position(position):
     """
     
     Retrieves the position of a grid point. Three values are returned, being 
@@ -676,13 +676,13 @@ def get_position(position):
     node in 3 dimensional model space.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.grid.position", 
+    arg_str = p2e._base._util._convert_args_to_string("get.grid.position", 
                                                   position[0],
                                                   position[1])
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 
-def set_position(position, pos):
+def set_grid_point_position(position, pos):
     """
     
     Sets the position of a grid point. Note that setting this value is only 
@@ -705,14 +705,14 @@ def set_position(position, pos):
     value of 1500 would equate to a height of 1.5m in the z axis. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.position", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.position", 
                                                   position[0],
                                                   position[1],
                                                   pos)
     p2e._app.Exec(arg_str)
 
 #------------------------------------------------------------------------------ 
-def get_range():
+def grid_range():
     """
     
     Getting this property returns the minimum and maximum base offsets in 
@@ -735,9 +735,9 @@ def get_range():
             
     """
     val = p2e._app.Request("get.grid.range")
-    return p2e._util._convert_str_to_list(val, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float)
 #------------------------------------------------------------------------------ 
-def get_scale():
+def grid_scale():
     """
     
     Returns the scale values used to colour the grid and define the number 
@@ -761,9 +761,9 @@ def get_scale():
     
     """
     val = p2e._app.Request("get.grid.scale")
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 
-def set_scale(min, max, inc):
+def set_grid_scale(min, max, inc):
     """
     
     Sets the scale range values used to colour the grid and define the 
@@ -782,12 +782,12 @@ def set_scale(min, max, inc):
     The increment size used to draw contours.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.scale", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.scale", 
                                                   min, max, inc)
     p2e._app.Exec(arg_str)
 
 #------------------------------------------------------------------------------ 
-def get_size():
+def grid_size():
     """
     
     Retrieves the number of cells within the current analysis grid, for each 
@@ -806,9 +806,9 @@ def get_size():
 
     """
     val = p2e._app.Request("get.grid.size")
-    return p2e._util._convert_str_to_list(val, int, int, int)
+    return p2e._base._util._convert_str_to_list(val, int, int, int)
 
-def get_size(grid_cells):
+def set_grid_size(grid_cells):
     """
     
     Sets the number of cells to use with the current analysis grid, for each 
@@ -824,13 +824,13 @@ def get_size(grid_cells):
     2D analysis grid.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.size", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.size", 
                                                   grid_cells[0],
                                                   grid_cells[1],
                                                   grid_cells[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_state(position):
+def cell_state(position):
     """
     
     Retrieves the state of the specified grid cell. The possible values 
@@ -862,13 +862,13 @@ def get_state(position):
     -100 Hidden and selected. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("get.grid.state", 
+    arg_str = p2e._base._util._convert_args_to_string("get.grid.state", 
                                                   position[0],
                                                   position[1])
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
-def set_state(position, state):
+def set_cell_state(position, state):
     """
     
     Sets the state of the specified grid cell. The possible values returned 
@@ -898,13 +898,13 @@ def set_state(position, state):
     -100 Hidden and selected. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.state", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.state", 
                                                   position[0],
                                                   position[1], 
                                                   state)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_title():
+def grid_title():
     """
     
     Retrieves the title of the current analysis grid. 
@@ -920,9 +920,9 @@ def get_title():
     
     """
     val = p2e._app.Request("get.grid.title")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
-def set_title(title):
+def set_grid_title(title):
     """
     
     Sets the title of the current analysis grid. 
@@ -934,12 +934,12 @@ def set_title(title):
     A text string up to 64 characters in length containing the new title.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.title", title)
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.title", title)
     p2e._app.Exec(arg_str)
         
     return property(**locals())
 #------------------------------------------------------------------------------ 
-def get_units(index = 0):
+def grid_units(index = 0):
     """
     
     Retrieves the units of measurement used for the values stored in the 
@@ -961,11 +961,11 @@ def get_units(index = 0):
     A text string containing the units name of the nominated slot.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.grid.units", index)
+    arg_str = p2e._base._util._convert_args_to_string("get.grid.units", index)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
-def set_units(units, index = 0):
+def set_grid_units(units, index = 0):
     """
     
     Sets the units of measurement used for the values stored in the analysis 
@@ -986,11 +986,11 @@ def set_units(units, index = 0):
     such as Lux or W/m^2. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.units", index, 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.units", index, 
                                                  units)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_vector(position):
+def cell_vector(position):
     """
     
     Retrieves the vector value stored in the specified grid cell. Three 
@@ -1013,12 +1013,12 @@ def get_vector(position):
     Z axis, given in model coordinates. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.grid.vector", 
+    arg_str = p2e._base._util._convert_args_to_string("get.grid.vector", 
                                                   position[0], position[1])
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_list(val, float, float, float)
+    return p2e._base._util._convert_str_to_list(val, float, float, float)
 
-def set_vector(position, offset_distance):
+def set_cell_vector(position, offset_distance):
     """
     
     Sets the vector value stored in the specified grid cell. 
@@ -1038,14 +1038,14 @@ def set_vector(position, offset_distance):
     coordinates.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.grid.vector", 
+    arg_str = p2e._base._util._convert_args_to_string("set.grid.vector", 
                                                   position[0], position[1], 
                                                  offset_distance[0],
                                                  offset_distance[1],
                                                  offset_distance[2])
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_zone(position, axis = 0, draw = False):
+def find_zone(position, axis = 0, draw = False):
     """
     
     Attempts to determine the zone within which the grid cell resides. This 
@@ -1091,9 +1091,9 @@ def get_zone(position, axis = 0, draw = False):
     2 XZ Axis 
 
     """
-    arg_str = p2e._util._convert_args_to_string("get.grid.zone", 
+    arg_str = p2e._base._util._convert_args_to_string("get.grid.zone", 
                                                   position[0], position[1], 
                                                   axis, draw)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 #------------------------------------------------------------------------------ 

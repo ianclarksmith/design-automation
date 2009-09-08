@@ -4,7 +4,7 @@ import py2ecotect as p2e
 #===========================================================================
 # Getters and Setters
 #===========================================================================
-def get_flag(flag):
+def display_flag(flag):
     """
     
     Gets the state of individual flags that control the display of attribute 
@@ -33,11 +33,11 @@ def get_flag(flag):
     colours 4 Display object attribute as a fill colous. 
 
     """
-    arg_str = p2e._util._convert_args_to_string("get.attribute.flag", flag)
+    arg_str = p2e._base._util._convert_args_to_string("get.attribute.flag", flag)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 
-def set_flag(flag, state = True):
+def set_display_flag(flag, state = True):
     """
     
     Sets individual flags that control the display of attribute values. 
@@ -66,11 +66,11 @@ def set_flag(flag, state = True):
     >>> set_flag("text", False)
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.attribute.flag", 
+    arg_str = p2e._base._util._convert_args_to_string("set.attribute.flag", 
                                                   flag, state)
     p2e._app.Exec(arg_str)
  
-def get_flags():
+def display_flags():
     """
     
     Retrieves a value representing the total of all the attribute flags that 
@@ -96,9 +96,9 @@ def get_flags():
 
     """
     val = p2e._app.Request("get.attribute.flags")
-    return p2e._util._convert_str_to_type(val, int)
+    return p2e._base._util._convert_str_to_type(val, int)
 #------------------------------------------------------------------------------ 
-def get_name(index):
+def name(index):
     """
     
     Gets the name of the specified object attribute as a string value. 
@@ -117,10 +117,10 @@ def get_name(index):
     A text string containing the name name of the attribute.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.attribute.name", 
+    arg_str = p2e._base._util._convert_args_to_string("get.attribute.name", 
                                                   index)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
  
 def set_name(index, name):
     """
@@ -137,11 +137,11 @@ def set_name(index, name):
     attributes.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.attribute.name", 
+    arg_str = p2e._base._util._convert_args_to_string("set.attribute.name", 
                                                   index, name)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_scale(self):
+def colour_scale(self):
     """
     
     Gets the minimum and maximum extents of the colour scale used to display 
@@ -161,9 +161,9 @@ def get_scale(self):
     
     """
     val = p2e._app.Request("get.attribute.scale")
-    return p2e._util._convert_str_to_list(val, float)
+    return p2e._base._util._convert_str_to_list(val, float)
  
-def set_scale(min, max):
+def set_colour_scale(min, max):
     """
     
     Sets the minimum and maximum extents of the colour scale used to display 
@@ -179,11 +179,11 @@ def set_scale(min, max):
     Sets the maximum scale value to be used.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.attribute.scale", 
+    arg_str = p2e._base._util._convert_args_to_string("set.attribute.scale", 
                                                   min, max)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def set_type(index, type):
+def type(index, type):
     """
     
     Sets the type of the specified object attribute. The index parameter is 
@@ -220,11 +220,11 @@ def set_type(index, type):
     42 Flow Rate 
 
     """
-    arg_str = p2e._util._convert_args_to_string("set.attribute.type", 
+    arg_str = p2e._base._util._convert_args_to_string("set.attribute.type", 
                                                   index, type)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_units(type):
+def units(type):
     """
     
     Gets the name of the specified object attribute as a string value. The 
@@ -244,10 +244,10 @@ def get_units(type):
     The units of measurement used, for example Lux.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.attribute.units", 
+    arg_str = p2e._base._util._convert_args_to_string("get.attribute.units", 
                                                   type)
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 
 def set_units(type, units):
     """
@@ -267,7 +267,7 @@ def set_units(type, units):
     Specifies the units of measurement to be used. For example Lux.
     
     """
-    arg_str = p2e._util._convert_args_to_string("set.attribute.units", 
+    arg_str = p2e._base._util._convert_args_to_string("set.attribute.units", 
                                                   type, units)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 

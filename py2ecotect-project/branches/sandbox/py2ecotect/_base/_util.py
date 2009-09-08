@@ -39,7 +39,8 @@ def _convert_str_to_type(string, typeFunc):
         else:
             return None
     except:
-        print "Error in type conversion: __toType()"            
+        print "Error in type conversion: __toType()"  
+        print string, typeFunc
         return None
 
 def scale_1000(input):

@@ -27,7 +27,7 @@ def dump(filename):
     >>> dump("C:\\Test\\mytest.eco")
     
     """
-    arg_str = p2e._util._convert_args_to_string("model.dump", filename)
+    arg_str = p2e._base._util._convert_args_to_string("model.dump", filename)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def export_file(filename, fileformat):
@@ -87,9 +87,9 @@ def export_file(filename, fileformat):
     
     """
 
-    arg_str = p2e._util._convert_args_to_string("model.export" + fileformat, filename)
+    arg_str = p2e._base._util._convert_args_to_string("model.export" + fileformat, filename)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
+
 def import_file(filename):
     """
     
@@ -138,10 +138,10 @@ def import_file(filename):
     txt yes yes ASCII Text File 
     
     """
-    arg_str = p2e._util._convert_args_to_string("model.import", filename)
+    arg_str = p2e._base._util._convert_args_to_string("model.import", filename)
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def load(filename):
+def open(filename):
     """
     
     Loads the specified file as the current model. 
@@ -157,7 +157,7 @@ def load(filename):
     filename =  C:\Temp\Test.eco
     
     """
-    arg_str = p2e._util._convert_args_to_string("model.load", filename)
+    arg_str = p2e._base._util._convert_args_to_string("model.load", filename)
     p2e._app.Exec(arg_str)
     
     #Clear model lists
@@ -167,8 +167,8 @@ def load(filename):
     
     #Update the lists
     p2e.doc._populate()     
-#------------------------------------------------------------------------------ 
-def load_new():
+
+def new():
     """   
     
     Clears the current model from memory and resets the material library. 
@@ -189,7 +189,7 @@ def load_new():
     p2e.doc._zones = []
     p2e.doc._objects = []
     p2e.doc._nodes = []
-#------------------------------------------------------------------------------ 
+
 def revert():
     """
     
@@ -204,7 +204,7 @@ def revert():
     
     """
     p2e._app.Exec("model.revert")
-#------------------------------------------------------------------------------ 
+ 
 def save():
     """
     
@@ -216,7 +216,7 @@ def save():
     
     """
     p2e._app.Exec("model.save")
-#------------------------------------------------------------------------------ 
+
 def save_as(filename):
     """
     
@@ -231,7 +231,7 @@ def save_as(filename):
     This command takes the following parameters.
     
     """
-    arg_str = p2e._util._convert_args_to_string("model.saveas", filename)        
+    arg_str = p2e._base._util._convert_args_to_string("model.saveas", filename)        
     p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
 def update():
@@ -248,11 +248,12 @@ def update():
     
     """
     p2e._app.Exec("model.update")
+#------------------------------------------------------------------------------ 
 #===========================================================================
 # Properties
 #===========================================================================
 
-def get_altitude(absolute_position_start, absolute_position_end):
+def altitude(absolute_position_start, absolute_position_end):
     """
     
     Retrieves geometric information from the current ECOTECT model, 
@@ -278,7 +279,7 @@ def get_altitude(absolute_position_start, absolute_position_end):
     The altitude angle in degrees. 
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.model.altitude", 
+    arg_str = p2e._base._util._convert_args_to_string("get.model.altitude", 
                                                       absolute_position_start[0],
                                                       absolute_position_start[1], 
                                                       absolute_position_start[2],
@@ -286,9 +287,9 @@ def get_altitude(absolute_position_start, absolute_position_end):
                                                       absolute_position_end[1],
                                                       absolute_position_end[2])
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)        
+    return p2e._base._util._convert_str_to_type(val, float)        
     
-def get_azimuth(absolute_position_start, absolute_position_end):
+def azimuth(absolute_position_start, absolute_position_end):
     """
     
     Retrieves geometric information from the current ECOTECT model, 
@@ -314,7 +315,7 @@ def get_azimuth(absolute_position_start, absolute_position_end):
     The azimuth angle in degrees.
     
     """
-    arg_str = p2e._util._convert_args_to_string("get.model.azimuth",
+    arg_str = p2e._base._util._convert_args_to_string("get.model.azimuth",
                                                       absolute_position_start[0],
                                                       absolute_position_start[1], 
                                                       absolute_position_start[2],
@@ -322,9 +323,88 @@ def get_azimuth(absolute_position_start, absolute_position_end):
                                                       absolute_position_end[1],
                                                       absolute_position_end[2])
     val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_type(val, float)           
+    return p2e._base._util._convert_str_to_type(val, float)    
 #------------------------------------------------------------------------------ 
-def get_current_node():
+def number_of_nodes():
+    """
+    
+    Returns the number of individual object nodes within the currently 
+    loaded ECOTECT model. 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    count 
+    The total number of nodes within the current model. 
+    
+    """
+    val = p2e._app.Request("get.model.nodes")
+    return p2e._base._util._convert_str_to_type(val, int)
+
+def number_of_objects():
+    """
+    
+    Returns the number of objects in the currently loaded ECOTECT model. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    count 
+    The total number of objects in the current model. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    count 
+    The total number of objects in the current model.
+     
+    """
+    val = p2e._app.Request("get.model.objects")
+    return p2e._base._util._convert_str_to_type(val, int)
+
+def number_of_zones():
+    """
+    
+    Returns the number of zones in the currently loaded ECOTECT model as a 
+    single integer. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    count 
+    The total number of zones in the current model.
+    
+    """
+    val = p2e._app.Request("get.model.zones")
+    return p2e._base._util._convert_str_to_type(val, int)     
+
+def number_of_materials():
+    """
+    
+    Returns the number of materials stored in the currently loaded 
+    ECOTECT model. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    count 
+    The total number of materials defined within the current model's 
+    element library. 
+    
+    """
+    val = p2e._app.Request("get.model.materials")
+    return p2e._base._util._convert_str_to_type(val, int)  
+#------------------------------------------------------------------------------ 
+def current_node():
     """
     
     Returns the zero-based index of the last selected node within the 
@@ -341,12 +421,12 @@ def get_current_node():
     
     """
     val = p2e._app.Request("get.model.currentnode")
-    return p2e._util._convert_str_to_type(val, int)
-#------------------------------------------------------------------------------ 
-def set_current_object():
+    return p2e._base._util._convert_str_to_type(val, int)
+
+def current_object():
     """
     
-    Returns the Szero-based index of the last selected object within the 
+    Returns the zero-based index of the last selected object within the 
     currently loaded ECOTECT model. 
     
     Parameter(s)
@@ -360,9 +440,9 @@ def set_current_object():
      
     """
     val = p2e._app.Request("get.model.currentobject")
-    return p2e._util._convert_str_to_type(val, int)   
+    return p2e._base._util._convert_str_to_type(val, int)   
 
-def get_current_zone():
+def current_zone():
     """
     
     Returns the zero-based index of the current zone in the currently 
@@ -379,9 +459,61 @@ def get_current_zone():
     
     """
     val = p2e._app.Request("get.model.currentzone")
-    return p2e._util._convert_str_to_type(val, int)   
+    return p2e._base._util._convert_str_to_type(val, int)  
 #------------------------------------------------------------------------------ 
-def get_date():
+def time():
+    """
+    
+    Retrieves the current time of day. The time value returned is a decimal 
+    value between 0.0 and 23.99. 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    time 
+    A decimal value between 0.0 and 23.99. 
+    
+    """
+    val = p2e._app.Request("get.model.time")
+    return p2e._base._util._convert_str_to_type(val, float)          
+
+def set_time(time):
+    """
+    
+    Sets the current time of day. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    time 
+    The time given in decimal hours, between 0.0 and 23.99. 
+    
+    """
+    args = p2e._base._util._convert_args_to_string("set.model.time", time)
+    p2e._app.Exec(args)
+
+def time_string():
+    """
+    
+    Retrieves a formated string containing the current model time. 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    timeStr 
+    A formated time string. 
+    
+    """
+    val = p2e._app.Request("get.model.timestring")
+    return p2e._base._util._convert_str_to_type(val, str)
+#------------------------------------------------------------------------------ 
+def date():
     """
     
     Retrieves the current date as a formatted string ready for printing 
@@ -401,7 +533,7 @@ def get_date():
     
     """
     val = p2e._app.Request("get.model.date")
-    return p2e._util._convert_str_to_list(val, int)  
+    return p2e._base._util._convert_str_to_list(val, int)  
 
 def set_date(day, month, time = None):
     """
@@ -422,12 +554,12 @@ def set_date(day, month, time = None):
     
     """
     if time:
-        arg_str = p2e._util._convert_args_to_string("set.model.date", day, month, time)
+        arg_str = p2e._base._util._convert_args_to_string("set.model.date", day, month, time)
     else:
-        arg_str = p2e._util._convert_args_to_string("set.model.date", day, month)
+        arg_str = p2e._base._util._convert_args_to_string("set.model.date", day, month)
     p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
-def get_date_string():    
+ 
+def date_string():    
     """
     
     Retrieves a formated string containing the current model date. 
@@ -443,9 +575,27 @@ def get_date_string():
     
     """
     val = p2e._app.Request("get.model.datestring")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
 #------------------------------------------------------------------------------ 
-def get_daylight_savings():            
+def month():
+    """
+    
+    Returns the current month. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    month 
+    The current model month given as an integer index between 0 and 11.
+     
+    """
+    val = p2e._app.Request("get.model.month")
+    return p2e._base._util._convert_str_to_type(val, int)
+#------------------------------------------------------------------------------ 
+def daylight_savings_flag():            
     """
     
     Retrieves the status of the daylight savings flag. 
@@ -463,9 +613,9 @@ def get_daylight_savings():
     
     """
     val = p2e._app.Request("get.model.daylightsavings")
-    return p2e._util._convert_str_to_type(val, bool)          
+    return p2e._base._util._convert_str_to_type(val, bool)          
     
-def set_daylight_savings(state):
+def set_daylight_savings_flag(state):
     """
     
     Sets the status of the daylight savings flag. 
@@ -479,10 +629,10 @@ def set_daylight_savings(state):
     true, the current time is offset by one hour.
     
     """
-    args = p2e._util._convert_args_to_string("set.model.daylightsavings", state)
+    args = p2e._base._util._convert_args_to_string("set.model.daylightsavings", state)
     p2e._app.Exec(args)
 #------------------------------------------------------------------------------ 
-def get_day_of_the_year():
+def day_of_the_year():
     """
     
     Retrieves the current date and displays it in the julian date 
@@ -501,7 +651,7 @@ def get_day_of_the_year():
     
     """
     val = p2e._app.Request("get.model.dayoftheyear")
-    return p2e._util._convert_str_to_type(val, int)  
+    return p2e._base._util._convert_str_to_type(val, int)  
 
 def set_day_of_the_year(day, time = None):
     """
@@ -519,54 +669,15 @@ def set_day_of_the_year(day, time = None):
      
     """
     if time:
-        arg_str = p2e._util._convert_args_to_string("set.model.dayoftheyear", 
+        arg_str = p2e._base._util._convert_args_to_string("set.model.dayoftheyear", 
                                                       day, time)
     else:
-        arg_str = p2e._util._convert_args_to_string("set.model.dayoftheyear", 
+        arg_str = p2e._base._util._convert_args_to_string("set.model.dayoftheyear", 
                                                       day)
     p2e._app.Exec(arg_str)
+
 #------------------------------------------------------------------------------ 
-def get_directory():
-    """
-    
-    Returns the drive and directory in which the currently loaded 
-    ECOTECT model is located. This is essentially the full pathname, but 
-    without the filename component. 
-
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    path 
-    A text string containing the current directory path. 
-
-    """
-    val = p2e._app.Request("get.model.directory")
-    return p2e._util._convert_str_to_type(val, str)
-
-def set_directory( path):
-    """
-    
-    Sets the drive and directory to use with the currently loaded 
-    ECOTECT model. 
-
-    Parameter(s)
-    This property takes the following parameters.
-    
-    path 
-    A string value that defines the directory to use. Include both the 
-    drive letter and full directory path. However, be aware of the 
-    issues with backslashes in filename parameters as described in the 
-    ECOTECT help file.
-    
-    """
-    args = p2e._util._convert_args_to_string("set.model.directory", path)
-    arg_str = p2e._util._convert_args_to_string(args)
-    p2e._app.Exec(arg_str)
-#------------------------------------------------------------------------------ 
-def get_display():
+def display():
     """
     
     Retrieves the current information display. When retrieving this 
@@ -596,7 +707,7 @@ def get_display():
     
     """
     val = p2e._app.Request("get.model.display")
-    return p2e._util._convert_str_to_type(val, int)        
+    return p2e._base._util._convert_str_to_type(val, int)        
 
 def set_display(display):
     """
@@ -623,46 +734,11 @@ def set_display(display):
     rays 10 Acoustic rays and particles. 
     
     """
-    args = p2e._util._convert_args_to_string("set.model.display", display)
+    args = p2e._base._util._convert_args_to_string("set.model.display", display)
     p2e._app.Exec(args)
+         
 #------------------------------------------------------------------------------ 
-def get_distance(absolute_position_start, absolute_position_end):
-    """
-    
-    Retrieves geometric information from the current ECOTECT model, 
-    specifically the distance between two points, starting at 
-    (x1, y1, z1) and ending at (x2, y2, z2). The value returned is given 
-    in the current units. 
-    
-    Parameter(s)
-    This property takes the following parameters.
-    
-    absolute_position_start 
-    A list of three values that represent the absolute position in the 
-    X, Y and Z axis of a starting point in 3 dimensional model space.
-     
-    absolute_position_end 
-    A list of three values that represent the absolute position in the 
-    X, Y and Z axis of an end point in 3 dimensional model space. 
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    dist 
-    The distance value in the current model units.    
-    
-    """
-    args = p2e._util._convert_args_to_string("get.model.distance", 
-                                                   absolute_position_start[0],
-                                                   absolute_position_start[1], 
-                                                   absolute_position_start[2],
-                                                   absolute_position_end[0],
-                                                   absolute_position_end[1],
-                                                   absolute_position_end[2])
-    val = p2e._app.Request(args)
-    return p2e._util._convert_str_to_type(val, float)          
-#------------------------------------------------------------------------------ 
-def get_filename():
+def file_name():
     """
     
     Returns the filename of the currently loaded ECOTECT model. This is 
@@ -679,9 +755,67 @@ def get_filename():
     
     """
     val = p2e._app.Request("get.model.filename")
-    return p2e._util._convert_str_to_type(val, str)
+    return p2e._base._util._convert_str_to_type(val, str)
+
+def file_path():
+    """
+    
+    Returns the full pathname of the currently loaded ECOTECT model. This 
+    includes the full drive, directory and filename specification. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    pathname 
+    A text string containing the full pathname.
+    
+    """
+    return p2e._app.Request("get.model.pathname")
+
+def file_directory():
+    """
+    
+    Returns the drive and directory in which the currently loaded 
+    ECOTECT model is located. This is essentially the full pathname, but 
+    without the filename component. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    path 
+    A text string containing the current directory path. 
+
+    """
+    val = p2e._app.Request("get.model.directory")
+    return p2e._base._util._convert_str_to_type(val, str)
+
+def set_file_directory(path):
+    """
+    
+    Sets the drive and directory to use with the currently loaded 
+    ECOTECT model. 
+
+    Parameter(s)
+    This property takes the following parameters.
+    
+    path 
+    A string value that defines the directory to use. Include both the 
+    drive letter and full directory path. However, be aware of the 
+    issues with backslashes in filename parameters as described in the 
+    ECOTECT help file.
+    
+    """
+    args = p2e._base._util._convert_args_to_string("set.model.directory", path)
+    arg_str = p2e._base._util._convert_args_to_string(args)
+    p2e._app.Exec(arg_str)
 #------------------------------------------------------------------------------ 
-def get_last_node_index():
+def last_node_index():
     """
     
     Returns the zero-based index of the last added/inserted node within 
@@ -699,270 +833,10 @@ def get_last_node_index():
     
     """
     val = p2e._app.Request("get.model.lastnode")
-    return p2e._util._convert_str_to_type(val, int)
-#------------------------------------------------------------------------------ 
-def num_materials():
-    """
-    
-    Returns the number of materials stored in the currently loaded 
-    ECOTECT model. 
-
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    count 
-    The total number of materials defined within the current model's 
-    element library. 
-    
-    """
-    val = p2e._app.Request("get.model.materials")
-    return p2e._util._convert_str_to_type(val, int)
-#------------------------------------------------------------------------------ 
-def get_month():
-    """
-    
-    Returns the current month. 
-
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    month 
-    The current model month given as an integer index between 0 and 11.
-     
-    """
-    val = p2e._app.Request("get.model.month")
-    return p2e._util._convert_str_to_type(val, int)
-#------------------------------------------------------------------------------ 
-def get_next_node(object, node):
-    """
-    
-    Returns the zero-based absolute index of the next node in the specified 
-    object, in relation to the current node. 
-    
-    Parameter(s)
-    This property takes the following parameters.
-    
-    object 
-    The object to use. 
-    
-    index 
-    The node within the current object to use. 
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    node 
-    The zero-based index of the next node. If no matching node is found, a 
-    value of -1 is returned. 
-    
-    """
-    args = p2e._util._convert_args_to_string("get.model.nextnode", 
-                                             object.eco_id, node.eco_id)
-    val = p2e._app.Request(args)
-    return p2e._util._convert_str_to_type(val, int)       
-#------------------------------------------------------------------------------ 
-def get_next_object(startat, type, flag, tag, zone):
-    """
-    
-    Use this property to obtain the zero-based index of the next object 
-    matching the type, flag and tag values specified. 
-    
-    Parameter(s)
-    This property takes the following parameters.
-    
-    startat 
-    The index value to start searching from. To search from the start, use a 
-    value of -1. 
-    
-    type 
-    The element type, as outlined in the Element Types table below. To 
-    ignore this parameter, enter it as a negative value, such as -1. 
-    
-    flag 
-    The integer flags from the Object Flags table. To combine multiple flag 
-    values, add their numeric values together. To ignore this parameter, 
-    enter it as a negative value, such as -1. 
-    
-    tag 
-    The integer tag parameter from the Object Tags table. To combine 
-    multiple tag values, add their numeric values together. To ignore this 
-    parameter, enter it as a negative value, such as -1. 
-    
-    zone 
-    The zone to which the object must belong. To ignore this parameter, 
-    enter it as a negative value, such as -1. 
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    object 
-    The zero-based index of the next object found. If no matching object is 
-    found, a value of -1 is returned. 
-    
-    Element Types 
-    Token Value 
-    void 0 
-    roof 1 
-    floor 2 
-    ceiling 3 
-    wall 4 
-    partition 5 
-    window 6 
-    panel 7 
-    door 8 
-    point 9 
-    speaker 10 
-    light 11 
-    appliance 12 
-    line 13 
-    solarcollector 14 
-    camera 15 
-    
-    Object Flag Codes 
-    Value Description 
-    1 Object is a single-node point. 
-    2 Object is a direction vector. 
-    4 Object is a flat surface with an equation. 
-    8 Objects is a closed loop. 
-    16 Object defines a virtual polyline. 
-    32 Object is formed from the extrusion of its parent. 
-    64 Object has been extruded. 
-    128 Object is linked to another as coplanar. 
-    256 Object is linked to another as inside its extents. 
-    512 Object is a complex/concave polygon. 
-    1024 Object is the parent of another. 
-    2048 Object is the child of another. 
-    4096 Object defines a model zone. 
-    8192 *User has specified particular nodes to generate equation. 
-    16384 Object's surface normal is reversed. 
-    32768 Object is partially transparent. 
-    
-    Object Tag Codes 
-    Value Description 
-    1 *User clicked near one of its lines. 
-    2 *Part of the previous selection set. 
-    16 Object has valid assigned attribute data. 
-    32 Shadows are cast onto this object. 
-    256 Object produces solar reflections. 
-    512 Object is tagged as an acoustic reflector. 
-    4096 Not used. 
-    32768 *Generic calculation marker. 
-
-    """
-    #When -1 is entered for the zone parameter
-    if zone < 0:
-        args = p2e._util._convert_args_to_string("get.model.nextobject", 
-                                                 startat, type, flag, tag, 
-                                                 zone)
-    else:
-        args = p2e._util._convert_args_to_string("get.model.nextobject", 
-                                                 startat, type, flag, tag, 
-                                                 zone.eco_id)
-    val = p2e._app.Request(args)
-    return p2e._util._convert_str_to_type(val, int)          
+    return p2e._base._util._convert_str_to_type(val, int)
 
 #------------------------------------------------------------------------------ 
-def get_orientation(absolute_position_start, absolute_position_end):
-    """
-    
-    Retrieves geometric information from the current ECOTECT model, 
-    specifically the relative horizontal angle from North of a line starting 
-    at (x1, y1, z1) and travelling towards var>(x2, y2, z2). The value 
-    returned is given in a positive clockwise direction. 
-    
-    Parameter(s)
-    This property takes the following parameters.
-    
-    absolute_position_start 
-    A list of three values that represent the absolute position in the 
-    X, Y and Z axis of a starting point in 3 dimensional model space.
-     
-    absolute_position_end 
-    A list of three values that represent the absolute position in the 
-    X, Y and Z axis of an end point in 3 dimensional model space. 
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    ori 
-    The orinetation angle in degrees. 
-    
-    """
-    args = p2e._util._convert_args_to_string("get.model.orientation",
-                                                       absolute_position_start[0],
-                                                       absolute_position_start[1], 
-                                                       absolute_position_start[2],
-                                                       absolute_position_end[0],
-                                                       absolute_position_end[1],
-                                                       absolute_position_end[2])
-    val = p2e._app.Request(args)
-    return p2e._util._convert_str_to_type(val, float)        
-#------------------------------------------------------------------------------ 
-def get_origin():
-    """
-    
-    Retrieves the location of the Transformation Origin. This is a dynamic 
-    point about which objects are rotated, scaled or mirrored. 
-    
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    x, y, z 
-    Represents the absolute position in the X, Y and Z axis of a point in 3 
-    dimensional model space.
-     
-    """
-    val = p2e._app.Request("get.model.origin")
-    return p2e._util._convert_str_to_list(val, float)
-
-def set_origin(absolute_position):
-    """
-    
-    Sets the location of the Transformation Origin. This is a dynamic point 
-    about which objects are rotated, scaled or mirrored. 
-    
-    Parameter(s)
-    This property takes the following parameters.
-    
-    absolute_position 
-    A list of three values that represent the absolute position in the 
-    X, Y and Z axis of a point in 3 dimensional model space. 
-
-    """
-    args = p2e._util._convert_args_to_string("set.model.origin", 
-                                                       absolute_position[0],
-                                                       absolute_position[1],
-                                                       absolute_position[2])
-    p2e._app.Exec(args)
-#------------------------------------------------------------------------------ 
-def get_path_name():
-    """
-    
-    Returns the full pathname of the currently loaded ECOTECT model. This 
-    includes the full drive, directory and filename specification. 
-
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    pathname 
-    A text string containing the full pathname.
-    
-    """
-    return p2e._app.Request("get.model.pathname")
-#------------------------------------------------------------------------------ 
-def get_prev_node(object, node):
+def prev_node(object, node):
     """
     
     Returns the zero-based absolute index of the previous node in the 
@@ -985,12 +859,12 @@ def get_prev_node(object, node):
     a value of -1 is returned. 
     
     """
-    args = p2e._util._convert_args_to_string("get.model.prevnode", 
+    args = p2e._base._util._convert_args_to_string("get.model.prevnode", 
                                              object.eco_id, node.eco_id)
     val = p2e._app.Request(args)
-    return p2e._util._convert_str_to_type(val, int)        
-#------------------------------------------------------------------------------ 
-def get_prev_object(startat, type, flag, tag, zone):
+    return p2e._base._util._convert_str_to_type(val, int)        
+
+def prev_object(startat, type, flag, tag, zone):
     """
     
     Use this property to obtain the zero-based index of the preceding object 
@@ -1080,17 +954,282 @@ def get_prev_object(startat, type, flag, tag, zone):
     """
     #When -1 is entered for the zone parameter
     if zone < 0:
-        args = p2e._util._convert_args_to_string("get.model.prevobject", 
+        args = p2e._base._util._convert_args_to_string("get.model.prevobject", 
                                                  startat, type, flag, tag, 
                                                  zone)
     else:
-        args = p2e._util._convert_args_to_string("get.model.prevobject", 
+        args = p2e._base._util._convert_args_to_string("get.model.prevobject", 
                                                  startat, type, flag, tag, 
                                                  zone.eco_id)
     val = p2e._app.Request(args)
-    return p2e._util._convert_str_to_type(val, int)         
+    return p2e._base._util._convert_str_to_type(val, int)       
 #------------------------------------------------------------------------------ 
-def get_snap():
+def next_node(object, node):
+    """
+    
+    Returns the zero-based absolute index of the next node in the specified 
+    object, in relation to the current node. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    object 
+    The object to use. 
+    
+    index 
+    The node within the current object to use. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    node 
+    The zero-based index of the next node. If no matching node is found, a 
+    value of -1 is returned. 
+    
+    """
+    args = p2e._base._util._convert_args_to_string("get.model.nextnode", 
+                                             object.eco_id, node.eco_id)
+    val = p2e._app.Request(args)
+    return p2e._base._util._convert_str_to_type(val, int)       
+
+def next_object(startat, type, flag, tag, zone):
+    """
+    
+    Use this property to obtain the zero-based index of the next object 
+    matching the type, flag and tag values specified. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    startat 
+    The index value to start searching from. To search from the start, use a 
+    value of -1. 
+    
+    type 
+    The element type, as outlined in the Element Types table below. To 
+    ignore this parameter, enter it as a negative value, such as -1. 
+    
+    flag 
+    The integer flags from the Object Flags table. To combine multiple flag 
+    values, add their numeric values together. To ignore this parameter, 
+    enter it as a negative value, such as -1. 
+    
+    tag 
+    The integer tag parameter from the Object Tags table. To combine 
+    multiple tag values, add their numeric values together. To ignore this 
+    parameter, enter it as a negative value, such as -1. 
+    
+    zone 
+    The zone to which the object must belong. To ignore this parameter, 
+    enter it as a negative value, such as -1. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    object 
+    The zero-based index of the next object found. If no matching object is 
+    found, a value of -1 is returned. 
+    
+    Element Types 
+    Token Value 
+    void 0 
+    roof 1 
+    floor 2 
+    ceiling 3 
+    wall 4 
+    partition 5 
+    window 6 
+    panel 7 
+    door 8 
+    point 9 
+    speaker 10 
+    light 11 
+    appliance 12 
+    line 13 
+    solarcollector 14 
+    camera 15 
+    
+    Object Flag Codes 
+    Value Description 
+    1 Object is a single-node point. 
+    2 Object is a direction vector. 
+    4 Object is a flat surface with an equation. 
+    8 Objects is a closed loop. 
+    16 Object defines a virtual polyline. 
+    32 Object is formed from the extrusion of its parent. 
+    64 Object has been extruded. 
+    128 Object is linked to another as coplanar. 
+    256 Object is linked to another as inside its extents. 
+    512 Object is a complex/concave polygon. 
+    1024 Object is the parent of another. 
+    2048 Object is the child of another. 
+    4096 Object defines a model zone. 
+    8192 *User has specified particular nodes to generate equation. 
+    16384 Object's surface normal is reversed. 
+    32768 Object is partially transparent. 
+    
+    Object Tag Codes 
+    Value Description 
+    1 *User clicked near one of its lines. 
+    2 *Part of the previous selection set. 
+    16 Object has valid assigned attribute data. 
+    32 Shadows are cast onto this object. 
+    256 Object produces solar reflections. 
+    512 Object is tagged as an acoustic reflector. 
+    4096 Not used. 
+    32768 *Generic calculation marker. 
+
+    """
+    #When -1 is entered for the zone parameter
+    if zone < 0:
+        args = p2e._base._util._convert_args_to_string("get.model.nextobject", 
+                                                 startat, type, flag, tag, 
+                                                 zone)
+    else:
+        args = p2e._base._util._convert_args_to_string("get.model.nextobject", 
+                                                 startat, type, flag, tag, 
+                                                 zone.eco_id)
+    val = p2e._app.Request(args)
+    return p2e._base._util._convert_str_to_type(val, int)          
+
+      
+#------------------------------------------------------------------------------ 
+def transformation_origin():
+    """
+    
+    Retrieves the location of the Transformation Origin. This is a dynamic 
+    point about which objects are rotated, scaled or mirrored. 
+    
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    x, y, z 
+    Represents the absolute position in the X, Y and Z axis of a point in 3 
+    dimensional model space.
+     
+    """
+    val = p2e._app.Request("get.model.origin")
+    return p2e._base._util._convert_str_to_list(val, float)
+
+def set_transformation_origin(absolute_position):
+    """
+    
+    Sets the location of the Transformation Origin. This is a dynamic point 
+    about which objects are rotated, scaled or mirrored. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    absolute_position 
+    A list of three values that represent the absolute position in the 
+    X, Y and Z axis of a point in 3 dimensional model space. 
+
+    """
+    args = p2e._base._util._convert_args_to_string("set.model.origin", 
+                                                       absolute_position[0],
+                                                       absolute_position[1],
+                                                       absolute_position[2])
+    p2e._app.Exec(args)
+
+#------------------------------------------------------------------------------ 
+def sun_angles():    
+    """
+    
+    Returns two values, being the azimuth and altitude of the Sun for the 
+    current date and time, given in decimal degrees. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    azi 
+    The current solar azimuth given in degrees. 
+    
+    alt 
+    The current solar altitude given in degrees. 
+    
+    """
+    val = p2e._app.Request("get.model.sunangles")
+    return p2e._base._util._convert_str_to_list(val, float)
+
+def sun_position(dist = 0, xyz = (0,0,0)):
+    """
+    
+    Returns a position value that can be used to represent the Sun location 
+    relative to the model. This is useful is you wish to locate a Sun 
+    position relative to the centre of a WINDOW in order to spray a ray or 
+    do a visibility test, for example. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    [dist] 
+    The optional distance the Sun will be placed from the centre of the 
+    model. 
+    
+    [x, y, z] 
+    A list of three values. If these optional parameters are given, the Sun 
+    position will be generated at a location dist away from this position, 
+    using the current Sun angles in the model. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    x, y, z 
+    Represents the absolute position in the X, Y and Z axis of the Sun in 3 
+    dimensional model space. 
+    
+    """
+    arg_str = p2e._base._util._convert_args_to_string("get.model.sunposition", 
+                                                          dist, xyz[0], 
+                                                          xyz[1], xyz[2])
+    val = p2e._app.Request(arg_str)
+    return p2e._base._util._convert_str_to_list(val, float) 
+#------------------------------------------------------------------------------ 
+def sunrise():
+    """
+    
+    Returns the sunrise time as a 24 hour decimal value. Thus, 6:30am would 
+    be returned as 6.5. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    sunrise 
+    The time of sunrise given as a decimal hour. 
+    
+    """
+    val = p2e._app.Request("get.model.sunrise")
+    return p2e._base._util._convert_str_to_type(val, float)
+
+def sunset():
+    """
+    
+    Returns the sunset time as a 24 hour decimal value. Thus, 6:30pm would 
+    be returned as 18.5. 
+
+    Parameter(s)
+    There are no parameters for this property.
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    sunset 
+    The time of sunset given as a decimal hour. 
+    
+    """
+    val = p2e._app.Request("get.model.sunset")
+    return p2e._base._util._convert_str_to_type(val, float)
+#------------------------------------------------------------------------------ 
+def snap():
     """
     
     Retrieves the current information display
@@ -1120,9 +1259,9 @@ def get_snap():
     rays 10 Acoustic rays and particles 
 
     """
-    #TODO: check docs - sounds all worng
+    #TODO: check docs - sounds all wrong
     val = p2e._app.Request("get.model.snap")
-    return p2e._util._convert_str_to_type(val, bool)         
+    return p2e._base._util._convert_str_to_type(val, bool)         
 
 def set_snap(snap):
     """
@@ -1152,156 +1291,10 @@ def set_snap(snap):
     rays 10 Acoustic rays and particles. 
 
     """
-    args = p2e._util._convert_args_to_string("set.model.snap", snap)
+    args = p2e._base._util._convert_args_to_string("set.model.snap", snap)
     p2e._app.Exec(args)
 #------------------------------------------------------------------------------ 
-def get_sun_angles():    
-    """
-    
-    Returns two values, being the azimuth and altitude of the Sun for the 
-    current date and time, given in decimal degrees. 
-
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    azi 
-    The current solar azimuth given in degrees. 
-    
-    alt 
-    The current solar altitude given in degrees. 
-    
-    """
-    val = p2e._app.Request("get.model.sunangles")
-    return p2e._util._convert_str_to_list(val, float)
-#------------------------------------------------------------------------------ 
-def get_sun_position(dist = 0, xyz = (0,0,0)):
-    """
-    
-    Returns a position value that can be used to represent the Sun location 
-    relative to the model. This is useful is you wish to locate a Sun 
-    position relative to the centre of a WINDOW in order to spray a ray or 
-    do a visibility test, for example. 
-    
-    Parameter(s)
-    This property takes the following parameters.
-    
-    [dist] 
-    The optional distance the Sun will be placed from the centre of the 
-    model. 
-    
-    [x, y, z] 
-    A list of three values. If these optional parameters are given, the Sun 
-    position will be generated at a location dist away from this position, 
-    using the current Sun angles in the model. 
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    x, y, z 
-    Represents the absolute position in the X, Y and Z axis of the Sun in 3 
-    dimensional model space. 
-    
-    """
-    arg_str = p2e._util._convert_args_to_string("get.model.sunposition", 
-                                                          dist, xyz[0], 
-                                                          xyz[1], xyz[2])
-    val = p2e._app.Request(arg_str)
-    return p2e._util._convert_str_to_list(val, float) 
-#------------------------------------------------------------------------------ 
-def get_sunrise():
-    """
-    
-    Returns the sunrise time as a 24 hour decimal value. Thus, 6:30am would 
-    be returned as 6.5. 
-
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    sunrise 
-    The time of sunrise given as a decimal hour. 
-    
-    """
-    val = p2e._app.Request("get.model.sunrise")
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_sun_set():
-    """
-    
-    Returns the sunset time as a 24 hour decimal value. Thus, 6:30pm would 
-    be returned as 18.5. 
-
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    sunset 
-    The time of sunset given as a decimal hour. 
-    
-    """
-    val = p2e._app.Request("get.model.sunset")
-    return p2e._util._convert_str_to_type(val, float)
-#------------------------------------------------------------------------------ 
-def get_time():
-    """
-    
-    Retrieves the current time of day. The time value returned is a decimal 
-    value between 0.0 and 23.99. 
-    
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    time 
-    A decimal value between 0.0 and 23.99. 
-    
-    """
-    val = p2e._app.Request("get.model.time")
-    return p2e._util._convert_str_to_type(val, float)          
-
-def set_time(time):
-    """
-    
-    Sets the current time of day. 
-    
-    Parameter(s)
-    This property takes the following parameters.
-    
-    time 
-    The time given in decimal hours, between 0.0 and 23.99. 
-    
-    """
-    args = p2e._util._convert_args_to_string("set.model.time", time)
-    p2e._app.Exec(args)
-#------------------------------------------------------------------------------ 
-def get_time_string():
-    """
-    
-    Retrieves a formated string containing the current model time. 
-    
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    timeStr 
-    A formated time string. 
-    
-    """
-    val = p2e._app.Request("get.model.timestring")
-    return p2e._util._convert_str_to_type(val, str)
-#------------------------------------------------------------------------------ 
-def get_flag_cap_extrusions():
+def flag_cap_extrusions():
     """
     
     Retrieves the capextrusions flag. When capextrusions is set to true or 
@@ -1319,7 +1312,7 @@ def get_flag_cap_extrusions():
      
     """
     val = p2e._app.Request("get.model.xform.capextrusions")
-    return p2e._util._convert_str_to_type(val, bool)          
+    return p2e._base._util._convert_str_to_type(val, bool)          
 
 def set_flag_cap_extrusions(state = True):
     """
@@ -1334,10 +1327,10 @@ def set_flag_cap_extrusions(state = True):
     'lid' to cap off the volume. When set to false, no lid is generated. 
     
     """
-    args = p2e._util._convert_args_to_string("set.model.xform.capextrusions", state)
+    args = p2e._base._util._convert_args_to_string("set.model.xform.capextrusions", state)
     p2e._app.Exec(args)
 #------------------------------------------------------------------------------ 
-def get_flag_vectors():
+def flag_vectors():
     """
     
     Retrieves the xform.vectors flag. With transform vectors set to true or 
@@ -1356,7 +1349,7 @@ def get_flag_vectors():
      
     """
     val = p2e._app.Request("get.model.xform.vectors")
-    return p2e._util._convert_str_to_type(val, bool)
+    return p2e._base._util._convert_str_to_type(val, bool)
 
 def set_flag_vectors(state = True):
     """
@@ -1374,69 +1367,84 @@ def set_flag_vectors(state = True):
     The total number of zones in the current model. 
     
     """
-    args = p2e._util._convert_args_to_string("set.model.xform.vectors", state)
+    args = p2e._base._util._convert_args_to_string("set.model.xform.vectors", state)
     p2e._app.Exec(args)
+
 #------------------------------------------------------------------------------ 
-def get_num_nodes():
+#===============================================================================
+# Main function used for testing
+#===============================================================================
+def distance(absolute_position_start, absolute_position_end):
     """
     
-    Returns the number of individual object nodes within the currently 
-    loaded ECOTECT model. 
-    
-    Parameter(s)
-    There are no parameters for this property.
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    count 
-    The total number of nodes within the current model. 
-    
-    """
-    val = p2e._app.Request("get.model.nodes")
-    return p2e._util._convert_str_to_type(val, int)
-#------------------------------------------------------------------------------ 
-def get_num_objects():
-    """
-    
-    Returns the number of objects in the currently loaded ECOTECT model. 
+    Retrieves geometric information from the current ECOTECT model, 
+    specifically the distance between two points, starting at 
+    (x1, y1, z1) and ending at (x2, y2, z2). The value returned is given 
+    in the current units. 
     
     Parameter(s)
     This property takes the following parameters.
     
-    count 
-    The total number of objects in the current model. 
-    
-    Return Value(s)
-    Getting this property returns the following value(s).
-    
-    count 
-    The total number of objects in the current model.
+    absolute_position_start 
+    A list of three values that represent the absolute position in the 
+    X, Y and Z axis of a starting point in 3 dimensional model space.
      
-    """
-    val = p2e._app.Request("get.model.objects")
-    return p2e._util._convert_str_to_type(val, int)
-#------------------------------------------------------------------------------ 
-def get_zones():
-    """
-    
-    Returns the number of zones in the currently loaded ECOTECT model as a 
-    single integer. 
-
-    Parameter(s)
-    There are no parameters for this property.
+    absolute_position_end 
+    A list of three values that represent the absolute position in the 
+    X, Y and Z axis of an end point in 3 dimensional model space. 
     
     Return Value(s)
     Getting this property returns the following value(s).
     
-    count 
-    The total number of zones in the current model.
+    dist 
+    The distance value in the current model units.    
     
     """
-    val = p2e._app.Request("get.model.zones")
-    return p2e._util._convert_str_to_type(val, int)
-#------------------------------------------------------------------------------ 
+    args = p2e._base._util._convert_args_to_string("get.model.distance", 
+                                                   absolute_position_start[0],
+                                                   absolute_position_start[1], 
+                                                   absolute_position_start[2],
+                                                   absolute_position_end[0],
+                                                   absolute_position_end[1],
+                                                   absolute_position_end[2])
+    val = p2e._app.Request(args)
+    return p2e._base._util._convert_str_to_type(val, float) 
 
+def orientation(absolute_position_start, absolute_position_end):
+    """
+    
+    Retrieves geometric information from the current ECOTECT model, 
+    specifically the relative horizontal angle from North of a line starting 
+    at (x1, y1, z1) and travelling towards var>(x2, y2, z2). The value 
+    returned is given in a positive clockwise direction. 
+    
+    Parameter(s)
+    This property takes the following parameters.
+    
+    absolute_position_start 
+    A list of three values that represent the absolute position in the 
+    X, Y and Z axis of a starting point in 3 dimensional model space.
+     
+    absolute_position_end 
+    A list of three values that represent the absolute position in the 
+    X, Y and Z axis of an end point in 3 dimensional model space. 
+    
+    Return Value(s)
+    Getting this property returns the following value(s).
+    
+    ori 
+    The orinetation angle in degrees. 
+    
+    """
+    args = p2e._base._util._convert_args_to_string("get.model.orientation",
+                                                       absolute_position_start[0],
+                                                       absolute_position_start[1], 
+                                                       absolute_position_start[2],
+                                                       absolute_position_end[0],
+                                                       absolute_position_end[1],
+                                                       absolute_position_end[2])
+    val = p2e._app.Request(args)
+    return p2e._base._util._convert_str_to_type(val, float)  
 #===============================================================================
 # Main function used for testing
 #===============================================================================
