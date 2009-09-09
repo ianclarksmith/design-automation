@@ -88,29 +88,7 @@ class obj_test(unittest.TestCase):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.eval.evaluate(1)
         self.assertEqual(len(nurbscurve2),3) 
-        
-    def testNurbsCurveClosed(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
-        nurbscurve2 = nurbscurve1.func.close()
-        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve)
     
-    def testNurbsCurveExtend(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
-        nurbscurve2 = p2r.obj.NurbsCurve.create((0,0,0), 5, 45)
-        nurbscurve3 = nurbscurve1.func.extend(1,1,nurbscurve2)
-        self.assertEqual(type(nurbscurve3),p2r.obj.NurbsCurve)
-    
-    def testNurbsCurveExtendLength(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
-        nurbscurve2 = nurbscurve1.func.extend_length(2,2,3)
-        #print nurbscurve2
-        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve) #TODO: to check if it is suppose to return as a nurbscurve
-        
-    def testNurbsCurveExtendPnt(self):
-        nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
-        nurbscurve2 = nurbscurve1.func.extend_pnt(1,(1,1,1))
-        self.assertEqual(type(nurbscurve2),p2r.obj.NurbsCurve) #TODO: to check if it is suppose to return as a nurbscurve
-        
     def testNurbsCurveGroups(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.grps.groups()
@@ -173,7 +151,7 @@ class obj_test(unittest.TestCase):
     def testNurbsCurveDomain(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.domain()
-        self.assertEqual(type(nurbscurve2),int)       
+        self.assertEqual(type(nurbscurve2[0]),float)       
 
     def testNurbsCurveDiscontinuity(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
@@ -183,12 +161,12 @@ class obj_test(unittest.TestCase):
     def testNurbsCurveEditPnts(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.edit_pnts()
-        self.assertEqual(type(nurbscurve2),int)  
+        self.assertEqual(type(nurbscurve2[0][0]),float)  
 
     def testNurbsCurveEndPnts(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.end_pnt()
-        self.assertEqual(type(nurbscurve2),int)       
+        self.assertEqual(type(nurbscurve2[0]),float)       
                        
     def testNurbsCurveKnotCount(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
@@ -198,27 +176,27 @@ class obj_test(unittest.TestCase):
     def testNurbsCurveKnots(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.knots()
-        self.assertEqual(type(nurbscurve2),list)  
+        self.assertEqual(type(nurbscurve2[0]),float)  
 
     def testNurbsCurveLength(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.length()
-        self.assertEqual(type(nurbscurve2),int) 
+        self.assertEqual(type(nurbscurve2),float) 
          
     def testNurbsCurveMidPnts(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.mid_pnt()
-        self.assertEqual(type(nurbscurve2),int)  
+        self.assertEqual(type(nurbscurve2[0]),float)  
                
     def testNurbsCurveNormal(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.normal()
-        self.assertEqual(type(nurbscurve2),list)        
+        self.assertEqual(type(nurbscurve2[0]),float)        
         
     def testNurbsCurvePlane(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.plane()
-        self.assertEqual(type(nurbscurve2),list)          
+        self.assertEqual(type(nurbscurve2[0][0]),float)          
         
     def testNurbsCurveControlPntCount(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
@@ -228,17 +206,17 @@ class obj_test(unittest.TestCase):
     def testNurbsCurveControlPnts(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.control_pnts()
-        self.assertEqual(type(nurbscurve2),list)  
+        self.assertEqual(type(nurbscurve2[0][0]),float)  
 
     def testNurbsCurveStartPnt(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.start_pnt()
-        self.assertEqual(type(nurbscurve2),list)  
+        self.assertEqual(type(nurbscurve2[0]),float)  
                           
     def testNurbsCurveWeights(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
         nurbscurve2 = nurbscurve1.prop.weights()
-        self.assertEqual(type(nurbscurve2),list)  
+        self.assertEqual(type(nurbscurve2[0]),float)  
         
     def testNurbscurveAddMesh(self):
         nurbscurve1 = p2r.obj.NurbsCurve.create_by_pnts(((0,0,0),(1,0,0),(5,0,0)))
