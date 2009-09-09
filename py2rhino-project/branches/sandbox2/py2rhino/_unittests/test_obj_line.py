@@ -10,7 +10,7 @@ class obj_test(unittest.TestCase):
     def testLineShear(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.defm.shear((0,0,0),(10,10,10),45)
-        self.assertEqual(type(line2),p2r.obj.Line)
+        self.assertEqual(type(line2),p2r.obj.NurbsCurve)#TODO: Check if it is suppose to return a NurbsCurve
         
     def testLineTrfm(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
@@ -76,29 +76,7 @@ class obj_test(unittest.TestCase):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.eval.evaluate(1)
         self.assertEqual(len(line2),3) 
-    
-    def testLineClosed(self):
-        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.func.close()
-        self.assertEqual(type(line2),p2r.obj.Line)
-    
-    def testLineExtend(self):
-        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = p2r.obj.Line.create((0,0,0), (10,0,10))
-        line3 = line1.func.extend(1,1,line2)
-        self.assertEqual(type(line3),p2r.obj.Line)
-    
-    def testLineExtendLength(self):
-        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.func.extend_length(2,2,3)
-        #print line2
-        self.assertEqual(type(line2),p2r.obj.NurbsCurve) #TODO: to check if it is suppose to return as a nurbscurve
-        
-    def testLineExtendPnt(self):
-        line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
-        line2 = line1.func.extend_pnt(1,(1,1,1))
-        self.assertEqual(type(line2),p2r.obj.NurbsCurve) #TODO: to check if it is suppose to return as a nurbscurve
-        
+              
     def testLineGroups(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.grps.groups()
@@ -192,22 +170,22 @@ class obj_test(unittest.TestCase):
     def testLineLength(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.length()
-        self.assertEqual(type(line2),int) 
+        self.assertEqual(type(line2),float) 
          
     def testLineMidPnts(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.mid_pnt()
-        self.assertEqual(type(line2),int)  
+        self.assertEqual(type(line2[0]),float)  
                
     def testLineNormal(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.normal()
-        self.assertEqual(type(line2),list)        
+        self.assertEqual(type(line2[0]),float)        
         
     def testLinePlane(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.plane()
-        self.assertEqual(type(line2),list)          
+        self.assertEqual(type(line2[0][0]),float)          
         
     def testLineControlPntCount(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
@@ -217,12 +195,12 @@ class obj_test(unittest.TestCase):
     def testLineControlPnts(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.control_pnts()
-        self.assertEqual(type(line2),tuple)  
+        self.assertEqual(type(line2[0][0]),float)  
 
     def testLineStartPnt(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
         line2 = line1.prop.start_pnt()
-        self.assertEqual(type(line2),list)  
+        self.assertEqual(type(line2[0]),float)  
                           
     def testLineWeight(self):
         line1 = p2r.obj.Line.create((5,0,0), (10,0,10))
